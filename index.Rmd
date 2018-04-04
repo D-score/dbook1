@@ -9,7 +9,7 @@ bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "First of three introductory booklets on the D-score."
+description: "D-score booklet I"
 ---
 
 # Preface {-}
