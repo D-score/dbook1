@@ -5,5 +5,5 @@ of the following titles:
 2. D-score for international comparisons
 3. D-score for creating better instruments
 
-The development of this series was kindly supported by the 
+The development of this series is kindly supported by the 
 Bill & Melinda Gates Foundation.
