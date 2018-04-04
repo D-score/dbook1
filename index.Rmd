@@ -1,5 +1,5 @@
 --- 
-title: "D-score for measuring neurocognitive development 0-4 years"
+title: "D-score for measuring development of children 0-4 years"
 author: "Stef van Buuren"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
