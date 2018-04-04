@@ -1,5 +1,5 @@
 book_filename: "dbook1"
-delete_merged_file: true
 language:
   ui:
     chapter_name: "Chapter "
+delete_merged_file: true

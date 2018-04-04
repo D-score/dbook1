@@ -1,0 +1,11 @@
+# Persons {#persons}
+
+## Empirical and fitted person response curves
+
+## Person fit
+
+## Ability estimation
+
+## Measurement precision
+
+## Distribution of ability against age

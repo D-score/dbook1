@@ -1,0 +1,13 @@
+# Comparisons {#comparisons}
+
+## Types of comparisons needed
+
+## Problems of age-based measurement
+
+## What is a latent variable
+
+## Item response functions
+
+## Person response functions
+
+## Family of IRT models

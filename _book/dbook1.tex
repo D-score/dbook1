@@ -1,0 +1,283 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={D-score for measuring neurocognitive development 0-4 years},
+            pdfauthor={Stef van Buuren},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{D-score for measuring neurocognitive development 0-4 years}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Stef van Buuren}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2018-04-04}
+
+\usepackage{booktabs}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{Preface}\label{preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+This is an introductory booklet on the measurement of child development
+by means of the D-score. The D-score is a one-number summary that
+quantifies generic neurocognitive development for children with ages 0-4
+years.
+
+This is the first in a series of three booklets. The series consists of
+the following titles:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  D-score for measuring neurocognitive development 0-4 years (this
+  booklet)
+\item
+  D-score for international comparisons
+\item
+  D-score for creating better instruments
+\end{enumerate}
+
+The development of this series was kindly supported by the Bill \&
+Melinda Gates Foundation.
+
+\chapter{Introduction}\label{intro}
+
+\section{First 1000 days}\label{first-1000-days}
+
+\section{Relevance of child
+development}\label{relevance-of-child-development}
+
+\section{Limitations of stunting}\label{limitations-of-stunting}
+
+\section{Measuring neurocognitive
+development}\label{measuring-neurocognitive-development}
+
+\chapter{Short history}\label{short-history}
+
+\section{Growth and development}\label{growth-and-development}
+
+\section{Gesell maturation theory, Piaget stages, Kohlberg
+stages}\label{gesell-maturation-theory-piaget-stages-kohlberg-stages}
+
+\section{One number for development}\label{one-number-for-development}
+
+\section{Current situation: Bayley, Griffiths, IQ,
+domains}\label{current-situation-bayley-griffiths-iq-domains}
+
+\chapter{Comparisons}\label{comparisons}
+
+\section{Types of comparisons needed}\label{types-of-comparisons-needed}
+
+\section{Problems of age-based
+measurement}\label{problems-of-age-based-measurement}
+
+\section{What is a latent variable}\label{what-is-a-latent-variable}
+
+\section{Item response functions}\label{item-response-functions}
+
+\section{Person response functions}\label{person-response-functions}
+
+\section{Family of IRT models}\label{family-of-irt-models}
+
+\chapter{Methods}\label{methods}
+
+We describe our methods in this chapter.
+
+\chapter{Rasch model}\label{rasch}
+
+\section{Rasch model}\label{rasch-model}
+
+\section{Perfect symmetry}\label{perfect-symmetry}
+
+\section{Parameter separation}\label{parameter-separation}
+
+\section{The model as ideal}\label{the-model-as-ideal}
+
+\chapter{Items}\label{items}
+
+\section{SMOCC data: design}\label{smocc-data-design}
+
+\section{Empirical and fitted item response
+curves}\label{empirical-and-fitted-item-response-curves}
+
+\section{Item fit}\label{item-fit}
+
+\section{Item information at a given
+ability}\label{item-information-at-a-given-ability}
+
+\section{Item information at a given
+age}\label{item-information-at-a-given-age}
+
+\chapter{Persons}\label{persons}
+
+\section{Empirical and fitted person response
+curves}\label{empirical-and-fitted-person-response-curves}
+
+\section{Person fit}\label{person-fit}
+
+\section{Ability estimation}\label{ability-estimation}
+
+\section{Measurement precision}\label{measurement-precision}
+
+\section{Distribution of ability against
+age}\label{distribution-of-ability-against-age}
+
+\chapter{Validity}\label{validity}
+
+\section{Role of validity}\label{role-of-validity}
+
+\section{Discriminatory validity}\label{discriminatory-validity}
+
+\section{Concurrent validity}\label{concurrent-validity}
+
+\section{Predictive validity}\label{predictive-validity}
+
+\chapter{Outcome}\label{outcome}
+
+\section{Application I: D-score as neurocognitive outcome at 1000
+days}\label{application-i-d-score-as-neurocognitive-outcome-at-1000-days}
+
+\section{D-score of reference children at 2
+years}\label{d-score-of-reference-children-at-2-years}
+
+\section{D-score of pre-terms at 2
+years}\label{d-score-of-pre-terms-at-2-years}
+
+\section{D-score of children in LMIC at 2
+years}\label{d-score-of-children-in-lmic-at-2-years}
+
+\section{Comparison}\label{comparison}
+
+\chapter{Delay}\label{delay}
+
+\section{Application II: D-score to identify delayed
+development}\label{application-ii-d-score-to-identify-delayed-development}
+
+\section{Longitudinal D-score patterns in different
+populations}\label{longitudinal-d-score-patterns-in-different-populations}
+
+\section{Issues in defining developmental
+delay}\label{issues-in-defining-developmental-delay}
+
+\section{Specificity in reference, pre-term and LMIC
+populations}\label{specificity-in-reference-pre-term-and-lmic-populations}
+
+\section{Practical implications}\label{practical-implications}
+
+\chapter{Consequences}\label{consequences}
+
+\section{Application III: Long-term health consequences of delay in
+pre-terms}\label{application-iii-long-term-health-consequences-of-delay-in-pre-terms}
+
+\section{Relevance of long-term health
+outcomes}\label{relevance-of-long-term-health-outcomes}
+
+\section{Predictive power of D-score}\label{predictive-power-of-d-score}
+
+\section{Practical implications}\label{practical-implications-1}
+
+\section{Opportunities and impact of early
+intervention}\label{opportunities-and-impact-of-early-intervention}
+
+\chapter{Discussion}\label{discussion}
+
+\section{Usefulness of D-score for monitoring child
+health}\label{usefulness-of-d-score-for-monitoring-child-health}
+
+\section{Opportunities for early
+intervention}\label{opportunities-for-early-intervention}
+
+\section{D-score for international
+settings}\label{d-score-for-international-settings}
+
+\section{D-score from existing
+instruments}\label{d-score-from-existing-instruments}
+
+\section{Creating new instruments for
+D-score}\label{creating-new-instruments-for-d-score}
+
+\bibliography{book.bib}
+
+
+\end{document}

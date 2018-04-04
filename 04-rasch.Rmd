@@ -1,0 +1,9 @@
+# Rasch model {#rasch}
+
+## Rasch model
+
+## Perfect symmetry
+
+## Parameter separation
+
+## The model as ideal
