@@ -1,0 +1,17 @@
+# Measurement model {#measurement} (SB)
+
+## Guttman model 
+
+## Rasch model
+
+## Perfect symmetry
+
+## Parameter separation
+
+## The model as ideal
+
+## Why the Rasch model?
+
+### Specific objectivity (example)
+
+### Simplicity

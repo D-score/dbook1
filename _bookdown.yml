@@ -1,6 +1,23 @@
-book_filename: "dbook1"
+book_filename: "dbook1.Rmd"
+delete_merged_file: true
 output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
-delete_merged_file: true
+rmd_files: ["index.Rmd",
+            "Rmd/01-intro.Rmd",
+            "Rmd/02-history.Rmd",
+            "Rmd/03-comparisons.Rmd",
+            "Rmd/04-rasch.Rmd",
+            "Rmd/05-items.Rmd",
+            "Rmd/06-persons.Rmd",
+            "Rmd/07-validity.Rmd",
+            "Rmd/08-outcome.Rmd",
+            "Rmd/09-delay.Rmd",
+            "Rmd/10-consequences.Rmd",
+            "Rmd/11-discussion.Rmd",
+            "Rmd/12-references.Rmd"]
+before_chapter_script: "R/before_chapter_script.R"
+url: https://stefvanbuuren.github.io/dbook1/
+github-repo: "stefvanbuuren/dbook1"
+

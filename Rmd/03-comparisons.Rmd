@@ -1,0 +1,79 @@
+# Comparisons {#comparisons}
+
+## How to compare child development?
+
+## A new model for development
+
+### What is a latent variable
+
+### Item response functions
+
+### Person response functions
+
+### Family of item response theory models
+
+## Comparison to classic age-based approach
+
+EXAMPLES OF AGE-BASED MEASUREMENT
+
+Let the $Y_j$ contain the scores on the $j$-th developmental item, where $j = 1, \dots, p$. 
+For the moment, let us assume that all items are binary, so that 
+$Y_j = 0$ indicates a fail, and $Y_j = 1$ indicates a pass. 
+Suppose we are interested in studing the relationship between age, denoted by 
+variable $X$, and development as measured through items $Y_1, \dots, Y_p$.
+
+The joint distribution $P(Y_1, \dots, Y_p, X)$ contains all relevant 
+information for this problem. Age-based measurement is an attempt to model 
+this joint distribution by breaking it down into $p$ conditional distributions:
+$$
+P(Y_1 | X)\\
+\vdots\\
+P(Y_p | X)\\
+$$
+
+each of which describes how the probability of passing changes with age. 
+For example, @DRACHLER2007 formulated the model as a logistic regression 
+model on the logarithm of age:
+
+$$ 
+\ln \frac{P(Y_j=1)}{P(Y_j=0)} = \alpha_j + \beta_j\ln X
+$$
+
+For this model, the age at which 50\% of the children pass item $j$ 
+can be calculated as to $\exp(-\alpha_j/\beta_j)$. Since older children are 
+expected to be more mature, this parameter is typically 
+interpreted as the difficulty of the item. The slope parameter 
+$\beta_j$ indicates how rapidly the probability of passing 
+rises with age. Items with high $\beta_j$ have a great power to discriminate 
+developmental status well within a small age range. It is straightforward
+to calculate any other age-percentiles, for example, the ages 
+at which probabilities 10\% or 90\% of the sample pass the item.
+Table~2 in @DRACHLER2007 reports these statistics for the Denver 
+developmental test.
+
+While the idea of breaking up the test into separate items
+is productive, age-based measurement has severe weaknesses. 
+
+1. The concepts of age and development are not separated, so we 
+cannot interpret the difficulty of an item without age. 
+It would be more convenient, and conceptually clearer, if 
+item difficulty could be a free-standing concept.
+
+2. The models are fitted separately for each $Y_j$. Nothing 
+is specified how the items relate to each other, so in principle, 
+any variable that changes with age (e.g. child had first birthday) could 
+qualify as a developmental item. It would be better of the 
+procedure would start from a model about how the items should 
+relate to each other. 
+
+3. The intercept and slope estimates are dependent on 
+the sample. A sample consisting of children of low ability
+would give different estimates than a sample of children with
+high ability. Calibration of test items is not person-invariant. 
+It would be preferable if the difficulty estimates
+were independent of the sample used to estimate them. 
+
+4. Because of the introduction of slopes in the logistic model
+a more able person may have a lower success probability for some
+items than a less able person. It would be preferable if 
+more able persons have a better succes rate on all items.
