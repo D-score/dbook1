@@ -203,8 +203,8 @@ data <- data.frame(country = "NL",
 
 
 # save
-NL <- data
-save("NL", file = file.path("data/smocc.rda"), compress = "xz")
+smocc <- data
+save(smocc, file = file.path("data/smocc.rda"), compress = "xz")
 
 # unload packages
 Vectorize(detach)(name = paste0("package:", pkgs), unload = TRUE,
