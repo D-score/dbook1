@@ -1,6 +1,69 @@
-# Interpretation of item fit {#items} (IE)
+# Interpretation of item fit {#items}
 
-## SMOCC data: design
+## SMOCC data 
+
+### Design
+
+The Social Medical Social Medical Survey of Children attending Child
+Health Clinics (SMOCC) was initiated to obtain reference data on
+morbidity in Dutch children in their first two years of life. During
+1988 and 1989, the staff of 21 Child Health Clinics (CHC) (in Dutch:
+Consultatieburo) recorded data on the pre-and perinatal period and on
+the first two years of life of infants born in the geographically
+defined catchment areas of these clinics. The CHC is a free service
+run by the government that is attended by over 95% of all children
+born in The Netherlands. The CHC vaccinates the infants, tracks their
+growth and development, signals health problems, provide advice and,
+where needed, refers infants to specialist care. The SMOCC cohort is
+representative for the newborn population of the Netherlands with
+respect to mother's age at delivery, parity and, to a somewhat lesser
+extent to the level of maternal education and degree of urbanization
+of residential area.
+
+The CHC records retrospective data on pregnancy and delivery during a
+home visit by district nurses of the CHC about 2-3 weeks after
+delivery. The CHC offers 9 follow-up visits during the first two years
+scheduled at months 1, 2, 3, 6, 8, 12, 15, 18 and 24.
+
+The number of children admitted in the study was $n$ = 2151 children.
+The design of the study is documented by @HERNGREEN1992. The original
+data forms can be found in @HERNGREEN1993. @HERGREEN1994 studied
+patterns in longitudinal growth for children aged 0-2 years.
+
+### Developmental data
+
+```{r ddi, echo = FALSE, fig.cap = '(ref:ddi)'}
+knitr::include_graphics("fig/wiechen-dutch.png")
+```
+
+(ref:ddi) The Dutch Development Instrument for infants aged 0-15 
+months. The gray staircase pattern indicates items that are too 
+difficult for the age. Scores are made in the white cells with
+a plus (+) and minus (-) indicating pass and fail, respectively. 
+The difficulty of the items is chosen such that 90% of the children 
+can perform the task at the age indicated. Source: @LAURENT2008.
+
+The Dutch Development Instrument (DDI) (Dutch: Van Wiechenschema) 
+consist of a set of developmental items on fine motor, gross motor,
+language development and social behavior domain. Figure 
+\@ref(fig:ddi) displays the form used in the regular CHC to track 
+child's development. @LAURENT2008 provides extensive background
+on how to administer, score and interpret the results (in Dutch). 
+Only a handful of items is examined in each visit.
+
+### Example
+
+```{r smocc-load, echo = FALSE}
+load("data/smocc.rda")
+```
+
+The `smocc` dataset contains the responses on each items and for each
+child. The dataset has `r nrow(smocc)` rows and `r ncol(smocc)`
+columns. The first six records are:
+
+```{r smocc-dim}
+head(smocc)
+```
 
 ## Empirical and fitted item response curves
 
