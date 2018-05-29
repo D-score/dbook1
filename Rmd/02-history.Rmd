@@ -9,15 +9,16 @@ in the field [@SHIRLEY1931] was executed under the explicit aim
 > ... that the many aspects of development, anatomical, physical, 
 > motor, intellectual, and emotional, be studied simultaneously.
 
-Shirley then gave empirical operationalizations of each of these
+Shirley gave empirical operationalizations of each of these
 domains of development. 
 
 ```{r shirley-motor, echo = FALSE, fig.cap = '(ref:shirley-motor)'}
 knitr::include_graphics("fig/shirley-motor.png")
 ```
 
-(ref:shirley-motor) Staircase plot indicating the age at which each baby 
-achieve a new milestone of gross-motor functioning.
+(ref:shirley-motor) Staircase plot indicating the age at which each
+baby achieve a new milestone of gross-motor functioning. Source:
+@SHIRLEY1933.
 
 Certain domains advance through a fixed sequence. Figure
 \@ref(fig:shirley-motor) illustrates the various stages needed for
@@ -25,7 +26,7 @@ going from a *fetal posture* to *walking alone*. The ages are
 indicative when these events happen, but there is a large variation in
 timing between infants.
 
-[@GESELL1943, p. 88] formulated the following definition of development:
+@GESELL1943 (p. 88) formulated the following definition of development:
 
 > Development is a continuous process that proceeds stage by stage in
 > an orderly sequence. Each stage represents a degree or level of
@@ -73,8 +74,8 @@ themselves by browsing through an introductory academic title (e.g.
 in an encyclopedia (e.g. @SALKIND2002).
 
 The introductions by @SANTROCK2010 and @BERK2013 are surprisingly
-consistent when they classify the major theories in child development
-according to each position in three questions:
+consistent in distinguishing major theories in child development
+according to their answer to three questions:
 
 * *Continuous or discontinuous?*
 
@@ -136,6 +137,10 @@ other hand, if you believe that development is plastic, then
 intervening by high-quality programmes may have a substantial pay-off
 in terms of improved development.
 
+The position of each theory with respect to these three questions
+are rooted in different views of human
+
+fundamental three questions are related.
 
 ## Numerical example
 
