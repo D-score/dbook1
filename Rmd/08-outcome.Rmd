@@ -1,14 +1,21 @@
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
 # Outcome {#outcome}
 
 ## Application I: D-score as neurocognitive outcome at 1000 days
 
-!!!Volgende stukken tekst moeten nog even **goed herschreven** worden!!!
+!!!Volgende stukken tekst moeten nog even **goed herschreven** worden!!! 
+
 Goal of this chapter: show how to calculate the dscore for a child and demonstrate the dscore package. After this, the dscores will be calculated for three different populations: the reference population, population of preterm children, and population of children in LMIC. 
 
 Demonstration of the dscore package will be done by using two examples: one of a child that is able to do all items of his/her age, and one example of a child that is not able to do all items of his/her age. (Laat de prior --> posterior --> posterior etc. zien hoe dat verandert)
 
 *Calculation of the dscore:*
+
 *- hoe start je? (iterative algorithm)*
+
 Uitleg over het van Wiechenschema (zie aanvraag BvLF voor stuk in het Engels).
 So for example, for a child of the age of 15 months the van Wiechenschema consists of six items. For each of these six items it is noted whether the child was able to perform this item. An example can be found in the table below, in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
 ```{r, echo=FALSE}
@@ -21,7 +28,7 @@ rownames(tableWS) <- c("child 1", "child 2" )
 #item6 : loopt langs
 ```
 
-```{r}
+```{r, echo=FALSE}
 library(knitr)
 kable(tableWS, caption = "Example of Van Wiechenschema at the age of 15 months")
 ```
@@ -29,24 +36,27 @@ kable(tableWS, caption = "Example of Van Wiechenschema at the age of 15 months")
 Calculation of the dscore is an iterative procedure, in which in each step information of one item is added. The iterative procedure uses Bayes rule to update prior knowledge with data to calculate a posterior. In the next step, this posterior is used as the prior and information from a new item is added, leading to a new posterior. When all items have been added, the dscore is equal to the mean of the final posterior distribution. 
 
 *- start verdeling (prior): ability persoon (vrij brede prior verdeling, veel onzekerheid, maar goed gecentreerd)*
+
 In the first step, the score of the first item is combined with the prior. However, at this point we do not have prior knowledge about the child. Hence, we need a distribution to start with as prior. As start distribution it was decided to choose a quite broad distribution which was centred quite well. 
 *uitleg over de keuze van de prior nog stuk uitbreiden!!! --> plafond prior (kunnen alle items), 2x de spreidng vd dscore*
 
 The start distributions (priors) at the ages of 1, 15 and 24 months is given in the figure below. This figure shows that the priors assume that ability of a child of the age of 1 month is lower than the ability of a child of the age of 15 months, which in turn is lower than the ability of a child of the age of 24 months. 
 
-```{r}
+```{r, echo = FALSE}
+library(dscore)
 #example from the adp function:
 qp <- -10:80
 plot(x = qp, y= adp(1/12, qp), type = "l", 
   main = "Priors at ages of 1, 15 and 24 months", 
   ylab = "Density", xlab = "D-score")
-lines(x = qp, adp(1+1/4, qp), lty = 2)
+lines(x = qp, adp(1.25, qp), lty = 2)
 lines(x = qp, adp(2, qp), lty = 3)
 ```
 
 *- 1e item, gebruik je Bayes rule om de posterior te berekenen*
+
 First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example we will use the lexicon gcdg. Moreover, the data should be in long format with the following columnnames: items, scores and ages. This leads to the following table:
-```{r}
+```{r, echo=FALSE}
 WS1_1 <- c("n32", 1, 15/12)
 WS1_2 <- c("n33", 1, 15/12)
 WS1_3 <- c("v38", 1, 15/12)
@@ -56,13 +66,14 @@ WS1_6 <- c("n35", 1, 15/12)
 tableWS1 <- as.data.frame(rbind(WS1_1, WS1_2, WS1_3, WS1_4, WS1_5, WS1_6), row.names = NULL)
 colnames(tableWS1) <- c("items", "scores", "ages")
                         
-kable(tableWS1, caption = "Example of Van Wiechenschema at the age of 15 months")
+kable(tableWS1, caption = "Example of Van Wiechenschema at the age of 15 months for 1 child", row.names = NA)
 ```
 
 In the first step of the iterative procedure, the age-dependent prior is combined with the score of the first item *n34* to define the posterior. In the figure below, you can see that the posterior is smaller than the prior indicating more precision.
 
 *- Laat met een plaatje zien hoe de prior en de posterior zich van elkaar verhouden.*
-```{r}
+
+```{r, echo=FALSE}
 scores1 <- tableWS1
 items <- c("n34")
 age <- 1.25
@@ -77,8 +88,9 @@ lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
 ```
 
 *- 2e item, gebruik de posterior vd vorige stap als prior en de gegevens van de 2e item om opnieuw de posterior uit te rekenen.*
+
 Now, we can use this posterior distribution as prior when we add another item, e.g. *n35*. If the child, like *child 1*, has a pass on this item the new posterior distribution will look as follows:
-```{r}
+```{r, echo=FALSE}
 items <- c("n34", "n35")
 age <- rep(1.25, length(items))
   
@@ -94,7 +106,8 @@ lines(fp[[1]]$qp, fp[[1]]$posterior, lty = 2)
 This plot shows that getting a pass on this item, *n35*, does not give more information (and precision) on the dscore. However, if a child, like *child 2*, had a fail on this item it has a great impact on the posterior. As you can see in the figure below, the posterior is on the left of the prior and has an high precision in comparison to the prior. 
 
 *- laat ook weer zien hoe deze zich van elkaar verhouden.*
-```{r}
+
+```{r, echo=FALSE}
 items <- c("n34", "n35")
 age <- rep(1.25, length(items))
   
@@ -109,9 +122,10 @@ lines(fp[[1]]$qp, fp[[1]]$posterior, lty = 2)
 Hence, a fail on item *n35* is more indicative than a pass on item *n35* and this is reflected in the posterior distribution of the dscore. 
 
 *- etc. voor alle items.*
+
 In the next four in the iterative procedure, information from the other four items (*n32*, *n33*, *v38* and *n37*) can be added in a similar fashion. The dscore for *child 1* and *child 2* are equal to 55.75 and 47.76, respectively.
 
-```{r}
+```{r, echo=FALSE}
 items <- c("n32", "n33", "v38", "n37","n34", "n35")
 age <- rep(1.25, length(items))
   
@@ -124,12 +138,15 @@ main = "Age 15 months: D-scores for child 1 and child 2", col="blue")
 lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
 lines(fp[[1]]$qp, fp6_1[[1]]$posterior, col = "red")
 
+```
+
+```{r}
 #Dscore child1
 dscore(c(1,1,1,1,1,1), items, age, full = FALSE, lexicon = "gcdg") #55.75
 #Dscore child2
 dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
-
 ```
+
 
 *Note: met deze methode is het mogelijk om scores voor extremen te berekenen, andere methodes (zoals de worms estimator) kunnen dit niet altijd.*
 
@@ -140,8 +157,9 @@ dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
 
 ## D-score of reference children at 2 years (MG)
 
-Script van Stef:
-```{r}
+
+```{r, echo=FALSE}
+#Script van Stef:
 library("ddata")
 library("dscore")
 library("dmetric")
