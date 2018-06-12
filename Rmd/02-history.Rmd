@@ -1,4 +1,4 @@
-# Short history (SB)
+# Short history
 
 ## What is child development?
 
@@ -60,9 +60,8 @@ child development as follows:
 > each representing a different skill area that may undergo both
 > continuous and stagewise transformation.
 
-There are many more definition of child development, but the ones
-given here illustrate the wide variety of perspectives on child
-development.
+There are many more definition of child development. The ones given
+here just illustrate the main points of view on child development.
 
 ## Theories of child development
 
@@ -118,9 +117,9 @@ using different paths. Source: @BERK2013.
 * *Nature or nurture?*
 
 Are genetic or environmental factor more important for influencing
-development? Theories generally acknowledge the role of both, but tend
-to differ in their emphasis. In practice, the debate centers on the
-question how to explain individual differences.
+development? Theories generally acknowledge the role of both, but
+differ in emphasis. In practice, the debate centers on the question
+how to explain individual differences.
 
 Maturation is the genetically determined, naturally unfolding course
 of growth, much like a flower. Some theorists emphasize that
@@ -129,20 +128,16 @@ argue that such differences are primarily driven by environmental
 factors, and changing these factors could very well impact child
 development.
 
-The answer --- if there is one --- in the stability-versus-plasticity
-discussion is very important. If you believe that differences are
-natural and stable, then it does not make sense trying to change the
-conditions, as the impact on development will be negligible. On the
-other hand, if you believe that development is plastic, then
-intervening by high-quality programmes may have a substantial pay-off
-in terms of improved development.
+The answer --- if there is one --- in this stability-versus-plasticity
+discussion has important practical consequences. If we believe that
+differences are natural and stable, then it does not make sense trying
+to change the conditions, as the impact on development will be
+negligible. On the other hand, if we believe that development is
+plastic, then intervening by high-quality programmes may have a
+substantial pay-off in terms of improved development.
 
-The position of each theory with respect to these three questions
-are rooted in different views of human
 
-fundamental three questions are related.
-
-## Numerical example
+## Example of motor development
 
 ```{r echo = FALSE, warning = FALSE}
 pkg <- c("knitr", "tidyr", "dplyr", "ggplot2")
@@ -158,9 +153,9 @@ the baby's walking was obtained as follows. The investigator lays out
 a white paper of twelve inches wide on the floor of the living room,
 and lightly greases the soles of the baby's feet with olive oil. The
 baby was invited to "walk" on the sheet. Of course, very young infants
-need substantial assistence, and the footprints left were later
-colored by graphite and measured. Measurements during the first year
-were repeated every week or bi-weekly.
+need substantial assistence. Footprints left were later colored by
+graphite and measured. Measurements during the first year were
+repeated every week or bi-weekly.
 
 ```{r shirley, echo = FALSE}
 shirley <- data.frame(
@@ -223,72 +218,108 @@ first occurence of the next stage. Before that age, the baby is
 supposed to be in the previous stage, so once the next stage occurs,
 there is a jump to the next level.
 
-The figure makes it easy to spot the quick (Martin, Carol) and slow
-(Patricia, Torey, Larry) walkers. Furthermore, it is easy to find
+The figure makes it easy to spot the quick walkers (Martin, Carol) and
+slow walkers (Patricia, Torey, Larry). Furthermore, we may also spot 
 children who remain a long time in a particular stage (Torey, Larry)
-and who jump over stages (Martin, Max).
+or who jump over stages (Martin, Max).
 
-The height of the jump has no interpretation. For ease of plotting,
-the categories on the vertical axis are equally spaced, so the height
-of the jump does not relate to the difficulty of the next stage.
-Instead, the length of the line in the horizontal direction
-corresponds to the the difficulty of going from one stage to the next.
-For example, on average the line for `stepping` is relatively short in
-all plots, so going from `stepping` to `standing` is easy.
+For ease of plotting, the categories on the vertical axis are equally
+spaced. The height of the jump from one stage to the next has no
+interpretation. In particular, the vertical distance does not tell us
+how difficult it is to achieve the next stage. Instead, difficulty
+corresponds to the length of the line in the horizontal direction
+between stages. For example, on average the line for `stepping` is
+rather short in all plots, so going from `stepping` to `standing` is
+relatively easy.
 
 The figure presents information from only those visits where a jump
 occurred. The number of house visits made during ages 0-2 years was
 far higher. @SHIRLEY1931 actually collected data from 1370 visits,
 whereas Figure \@ref(fig:stepplot) plot just the 76 visits with jumps.
-Thus, the data collection effort has to surprisingly intense in order
-to obtain these individual curves.
-
-With current access to quick computation, it is possible (and better
-use of the data) to utilize the information from all visits.
-
-
-## One number for development
+Thus, to obtain these individual curves the design has to be intense 
+and costly.
 
 ## Age-based measurement of development
 
-GESELL1943. p 89: *Stages and ages*
+The motivation for measuring child development is to be able to
+describe the behavior expected at a selected age. @GESELL1943 (p. 89)
+formulates this goal as follows:
 
 > We think of behavior in terms of age, and we think of age in terms
 > of behavior. For any selected age it is possible to sketch a portrait
 > which delineates the behavior characteristics typical of the age.
 
-Stott, 1967, p. 22:
+@STOTT1967 (p. 22) observed that it is impossible to define a scale
+for measuring child development:
 
 > When development appears as a change in kind, that is, when the 
 > change consists of a series of qualitatively different events,
 > or features, or "stages", it is not amemable to measurement
 > by use of any standard scale of units.
 
-As a solution @STOTT1967 suggests using the "invariable sequence" of 
-successive stages as the basis for the assessment of the individual's 
-status. 
-Stott argues that such sequences are fairly well established for 
-physical activity, but less so for the acquisition of speech and 
-other social skills, which makes their measurement harder.
+As a solution Stott suggested using the "invariable sequence" of
+successive stages as the basis for the assessment of the individual's
+status. Stott argues that such sequences are fairly well established
+for physical activity, but probably less so for the acquisition of
+speech and other social skills.
 
-Stott, 1967, p. 25:
+Since age and development are so intimately related, the difficulty of
+developmental a given milestone is traditionally expressed in terms of
+the age at which children achieve the milestone. For example,
+@STOTT1967 (p. 25) defines the *age equivalent* and its use for
+measurement, as follows:
 
 > The age equivalent of a particular stage is simply the average age 
 > at which children reach that particular stage. A set of age 
-> equivalents corresponding to a series of stages can be made 
-> to function as a scale for individual assessment.
+> equivalents corresponding to a series of stages can be made to 
+> function as a scale for individual assessment.
 
-Liebert, 1974, p. 8
+Alternatives to the age equivalents include the ages at which 10, 50
+or 90 percent of the children achieve the milestone. This line of
+reasoning has led to the widely used concept of `developmental age` as
+a measure of a child's development (in body size or motor skill or
+psychological function) expressed in terms of age norms.
 
-> We must not forget that developmental changes occur *over* time,
-> but non occur merely *because* of time.
+Age-based measurement was once the dominant paradigm for measuring child
+development. However, it comes with some major problems and limitations.
 
-Since the age of two 
-Cameron:
+1. Age-based measurement does not tell us what is normal for a child
+at a given age. We can properly infer whether a child is early or late
+for a given milestone. However, this does not mean that we may reverse
+the direction of the inference, or conclude which behaviors are
+characteristic for a given age without making further assumptions.
 
-> The appearance and *relative* size of structures, 
-> rather than their *absolute* size, are used to reflect maturity.
+2. Age-based measurement cannot exists without an age norm. When there
+is no norms, we cannot calculate development. Age-based measurement
+intertwines the actual PASS/FAIL score with age norms.
 
+3. Age-based measurement only works at the item level, and is 
+cumbersome to apply with multiple items,
 
+## Score-based measurement of development
 
-## Current situation: Bayley, Griffiths, IQ, domains
+As an alternative we may administer multiple items to the child, and
+and compute the total number of PASS responses as a measure of child's
+development. Items are generally ordered in increasing difficulty.
+Items that are too easy are skipped, and very difficult items are not
+administered, so in practice the interpretation of the sum score is
+slightly more complicated. Most instruments describe corrections that
+should be applied, and present the scores relative to a norm group.
+Instruments usually contain different sets of items, each of which
+measures a specific domains of development, and the administration is
+repeated for each domain of interest.
+
+Score-based measurement is the currently dominant approach, but has 
+both conceptual and logistical issues.
+
+1. The total scores calculated by different instruments are based on
+different sets of items, and hence cannot be compared. In addition,
+instruments use their own age norms, which also affects comparability.
+
+2. Domains are hard to separate. For example, some cognitive items tap
+into fine motor capabilities, and vice versa. There are different ways
+to define domains, so domain interpretation varies by instrument.
+
+3. Administration of a full test may take substantial time. The
+materials are proprietary, and may be costly in research settings.
+
