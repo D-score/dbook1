@@ -6,6 +6,8 @@ knitr::opts_chunk$set(echo = TRUE)
 # Appendix - notation
 !!Eventueel notaties die wij niet gebruikt hebben nog verwijderen uit onderstaande tabel!!
 
+The notation in this Booklet is based on the notation used in the book of [@wright1982rating].
+
 ```{r, echo=FALSE}
 
 tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", "item step", "", "", "item", "", "", "threshold", "", "",
