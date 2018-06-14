@@ -6,18 +6,13 @@ knitr::opts_chunk$set(error = TRUE)
 
 This chapter focusses on the first application of the D-score: the D-score as neurocognitive outcome at 1000 days. In this chapter, we show how the D-score is calculated, demonstrate how to work with the D-score package, and how the D-score can be used as neurocognitive outcome in three different populations. First, the calculations behind the D-score are explained step-by-step and how to do this with the D-score package by means of two example children. Thereafter, the D-scores will be calculated for three different populations at the age of two years: the reference population, population of preterm children, and population of children in LMIC. 
 
+
 ## Application I: D-score as neurocognitive outcome at 1000 days
 
+In the Netherlands, development of children is monitored by using the Dutch Developmental Instrument (DDI; in Dutch: Van Wiechenschema). The DDI consists of 76 items and a subset of these items are assessed at different ages, ranging from 1 month to 4.5 years old. To explain how the D-score is calculated and demonstrate the use of the D-score package two example children, both of the age of 15 months, are used. One of the example children is able to do all items of his/her age, and the other example child is not able to do all items of his/her age. In this way, we can show how different scores on a item affect the D-score.
 
+So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of six items. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
 
-One of the example children is able to do all items of his/her age, and the other example child is not able to do all items of his/her age. 
-
-*Calculation of the dscore:*
-
-*- hoe start je? (iterative algorithm)*
-
-Uitleg over het van Wiechenschema (zie aanvraag BvLF voor stuk in het Engels).
-So for example, for a child of the age of 15 months the van Wiechenschema consists of six items. For each of these six items it is noted whether the child was able to perform this item. An example can be found in the table below, in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
 ```{r, echo=FALSE}
 child1 <- c(15/12, 1, 1, 1, 1, 1, 1)
 child2 <- c(15/12, 1, 0, 1, 1, 1, 0)
@@ -28,21 +23,21 @@ rownames(tableWS) <- c("child 1", "child 2" )
 #item6 : loopt langs
 ```
 
-```{r, echo=FALSE}
+```{r, tableWS, echo=FALSE}
 library(knitr)
-kable(tableWS, caption = "Example of Van Wiechenschema at the age of 15 months")
+kable(tableWS, caption = "Example of scores on the items of the DDI at the age of 15 months", booktabs = TRUE)
 ```
 
-Calculation of the dscore is an iterative procedure, in which in each step information of one item is added. The iterative procedure uses Bayes rule to update prior knowledge with data to calculate a posterior. In the next step, this posterior is used as the prior and information from a new item is added, leading to a new posterior. When all items have been added, the dscore is equal to the mean of the final posterior distribution. 
+Calculation of the D-score is an iterative procedure, in which in each step information of one item is added. The iterative procedure uses Bayes rule to update the prior (knowledge) with data to calculate a posterior. In the next step, this posterior is used as the prior and information, the score, from a new item is added. This results in a new posterior distribution. When the information of all items have been added to the procedure, the D-score is equal to the mean of the final posterior distribution. 
 
-*- start verdeling (prior): ability persoon (vrij brede prior verdeling, veel onzekerheid, maar goed gecentreerd)*
+In the first step, the score of the first item is combined with the prior. However, at the first step we cannot use the previous posterior as our prior. Hence, we need a starting distribution to use as the prior in the first step. 
 
-In the first step, the score of the first item is combined with the prior. However, at this point we do not have prior knowledge about the child. Hence, we need a distribution to start with as prior. As start distribution it was decided to choose a quite broad distribution which was centred quite well. 
+As start distribution it was decided to choose a quite broad distribution which was centred quite well. 
 *uitleg over de keuze van de prior nog stuk uitbreiden!!! --> plafond prior (kunnen alle items), 2x de spreidng vd dscore*
 
 The start distributions (priors) at the ages of 1, 15 and 24 months is given in the figure below. This figure shows that the priors assume that ability of a child of the age of 1 month is lower than the ability of a child of the age of 15 months, which in turn is lower than the ability of a child of the age of 24 months. 
 
-```{r, echo = FALSE}
+```{r, priors D-score, echo = FALSE}
 library(dscore)
 #example from the adp function:
 qp <- -10:80
@@ -73,7 +68,7 @@ In the first step of the iterative procedure, the age-dependent prior is combine
 
 *- Laat met een plaatje zien hoe de prior en de posterior zich van elkaar verhouden.*
 
-```{r, echo=FALSE}
+```{r, posterior 1e item, echo=FALSE}
 scores1 <- tableWS1
 items <- c("n34")
 age <- 1.25
@@ -90,7 +85,7 @@ lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
 *- 2e item, gebruik de posterior vd vorige stap als prior en de gegevens van de 2e item om opnieuw de posterior uit te rekenen.*
 
 Now, we can use this posterior distribution as prior when we add another item, e.g. *n35*. If the child, like *child 1*, has a pass on this item the new posterior distribution will look as follows:
-```{r, echo=FALSE}
+```{r, posterior 2e item PP, echo=FALSE}
 items <- c("n34", "n35")
 age <- rep(1.25, length(items))
   
@@ -107,7 +102,7 @@ This plot shows that getting a pass on this item, *n35*, does not give more info
 
 *- laat ook weer zien hoe deze zich van elkaar verhouden.*
 
-```{r, echo=FALSE}
+```{r, posterior 2e item PF, echo=FALSE}
 items <- c("n34", "n35")
 age <- rep(1.25, length(items))
   
@@ -125,7 +120,7 @@ Hence, a fail on item *n35* is more indicative than a pass on item *n35* and thi
 
 In the next four in the iterative procedure, information from the other four items (*n32*, *n33*, *v38* and *n37*) can be added in a similar fashion. The dscore for *child 1* and *child 2* are equal to 55.75 and 47.76, respectively.
 
-```{r, echo=FALSE}
+```{r, posterior both children and prior, echo=FALSE}
 items <- c("n32", "n33", "v38", "n37","n34", "n35")
 age <- rep(1.25, length(items))
   
@@ -180,6 +175,8 @@ write.table(x = d_dutch, file = "notes/dutch_native.txt",
             sep = "\t", na = "", row.names = FALSE, quote = FALSE)
 
 ```
+
+
 
 
 ## D-score of pre-terms at 2 years (PD)

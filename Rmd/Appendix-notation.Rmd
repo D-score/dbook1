@@ -1,0 +1,12 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Appendix - notation
+
+```{r}
+d <- data.frame(a = 1:3, b = pi, c = c("ab", "cd", "efg"))
+
+knitr::kable(d, caption = "Write your descriptive caption between the quotes 2", booktabs = TRUE, digits = 4, col.names = c("$\\alpha$", "$\\beta$", "$\\delta$"))
+```
