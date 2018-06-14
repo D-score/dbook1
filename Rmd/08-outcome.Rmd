@@ -6,11 +6,9 @@ knitr::opts_chunk$set(error = TRUE)
 
 ## Application I: D-score as neurocognitive outcome at 1000 days
 
-!!!Volgende stukken tekst moeten nog even **goed herschreven** worden!!! 
+This chapter focusses on the first application of the D-score: the D-score as neurocognitive outcome at 1000 days. In this chapter, we show how the D-score is calculated, demonstrate how to work with the D-score package, and how the D-score can be used as neurocognitive outcome in three different populations. First, the calculations behind the D-score are explained step-by-step and how to do this with the D-score package by means of two example children. Thereafter, the D-scores will be calculated for three different populations at the age of two years: the reference population, population of preterm children, and population of children in LMIC. 
 
-Goal of this chapter: show how to calculate the dscore for a child and demonstrate the dscore package. After this, the dscores will be calculated for three different populations: the reference population, population of preterm children, and population of children in LMIC. 
-
-Demonstration of the dscore package will be done by using two examples: one of a child that is able to do all items of his/her age, and one example of a child that is not able to do all items of his/her age. (Laat de prior --> posterior --> posterior etc. zien hoe dat verandert)
+One of the example children is able to do all items of his/her age, and the other example child is not able to do all items of his/her age. 
 
 *Calculation of the dscore:*
 
