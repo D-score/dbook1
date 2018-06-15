@@ -2,7 +2,7 @@
 title: "D-score for measuring development of children 0-4 years"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: [book.bib]
+bibliography: [book.bib, book_MG.bib]
 biblio-style: apalike
 link-citations: yes
 description: "D-score I: Measurement"
