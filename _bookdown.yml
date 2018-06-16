@@ -16,6 +16,7 @@ rmd_files: ["index.Rmd",
             "Rmd/09-delay.Rmd",
             "Rmd/10-consequences.Rmd",
             "Rmd/11-discussion.Rmd",
+            "Rmd/Appendix-notation.Rmd",
             "Rmd/12-references.Rmd"]
 before_chapter_script: "R/before_chapter_script.R"
 url: https://stefvanbuuren.github.io/dbook1/
