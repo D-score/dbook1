@@ -2,9 +2,9 @@
 .Rhistory
 .RData
 .Ruserdata
+.gitignore
 _publish.R
 _book
 _bookdown_files
 rsconnect
 data-raw/data/
-docs/
