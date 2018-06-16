@@ -1,6 +1,67 @@
 # Comparisons {#comparisons}
 
-## How to compare child development?
+## Need for a unit of child development
+
+Many disciplines study child development in order to answer clinical,
+policy and public health questions. Typical questions at level of the
+individual child include:
+
+- What is the gain in development since the last measurement? 
+
+- What is the difference in development between two children of the
+same age?
+
+- How does the child's development compare to a norm group?
+
+- How will this child's develop further?
+
+Studies aiming to identify determinant or establish effects typically
+formulate questions at the group level. Examples are:
+
+- What is the effect of an intervention on child development?
+
+- What is the difference in child development between specific groups?
+
+Monitoring population health is typically executed done at the
+municipal, regional or country level. Relevant questions at these
+levels include:
+
+- What is the change in average child development since the last
+measurement?
+
+- What is the effect of different policies on child development?
+
+- How does the population compare relative to a global standard for
+child development?
+
+Note that all questions compare the level of child development in some
+way. A few questions compare development for the same
+child/group/population at different ages. Some others compare
+development within the same age across different children, group 
+or populations.
+
+In the ideal situation, we would have one unit for child development.
+Let us name this unit *D*, for development. Unit *D* should have the
+following desirable properties:
+
+- Difference between two *D*-scores measured on the same child at
+different ages quantifies the amount of development during the
+interval
+
+- Difference between the *D*-score measured on two different children
+of the same age quantifies the difference in development between them
+
+- Comparing the *D*-score to an age-dependent reference identifies
+abnormal development
+
+These properties will be satisfied if we measure development on an
+interval scale, i.e., a scale with a constant unit. The interpretation
+of the difference between two *D*-score is the same across the entire
+scale, just like differences in height or weight. 
+
+If we succeed in creating an interval scale for development, then an
+enormous arsenal of technique developed for qauntitative variables
+opens up to measure, track and analyze child development.
 
 ## A new model for development
 
