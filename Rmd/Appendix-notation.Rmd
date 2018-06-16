@@ -1,0 +1,25 @@
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Appendix - notation
+**!!Eventueel notaties die wij niet gebruikt hebben nog verwijderen uit onderstaande tabel!!**
+
+The notation in this Booklet is based on the notation used in the book of [@wright1982rating].
+
+```{r, echo=FALSE}
+
+tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", "item step", "", "", "item", "", "", "threshold", "", "",
+                          "DATA", "", "", "", "", "", "", "", "", "", "", "", "",
+                          "FIT", "", "", "","", "","", "","", "","", "","", "","", "","", "","", ""), 
+                b = c("" ,"$\\pi_{nik}$", "$P_{nik}$" , "$P_{rik}$", "$\\beta_n$", "$b_n$", "$b_r$", "$s_n$", "$\\delta_{ij}$", "$d_{ij}$", "$s_{ij}$", "$\\delta_i$", "$d_i$", "$s_i$", "$\\tau_j$", "$h_j$", "$s_j$",
+                      "", "$x_{ni}$", "$m_i$", "$m$", "$r_n$", "$T_{ij}$", "$S_{ij}$", "$S_{i+}$", "$S_{+j}$", "$L$", "$M$", "$N$", "$N_r$",
+                      "", "$E_{ni}$", "$W_{ni}$", "$C_{ni}$","$y_{ni}$", "$z_{ni}$","$u_i$", "$v_i$","$q_i^2$", "$t_i$","$u_n$", "$v_n$","$q_n^2$", "$t_n$","$G_I$", "$H_I$","$R_I$", "$G_P$","$H_P$", "$R_P$"), 
+                c = c("" ,"Model probability of Person $n$ responding in category $k$ to Item $i$", "Estimated probability of Person $n$ responding in category $k$ to Item $i$" , "Estimated probability of a person with test score $r$ responding in categor $k$ to Item $i$", "Ability/attitude of Person $n$", "Estimated ability/attitude of Person $n$", "Estimated ability/attitude of a person with score $r$", "Measurement error", "Difficulty of $j$th step in Item $i$", "Calibration error", "Scale value of item $i$", "Scale value of Item $i$", "Estimated scale value of Item $i$", "Calibration error", "Response threshold $j$", "Estimated response threshold $j$", "Calibration error",
+                      "", "Response of Person $n$ to Item $i$", "Number of steps in Item $i$", "Number of thresholds in response format", "Test score of Person $n$", "Number of persons responding in category $j$ of Item $i$", "Number of persons responding in or above category $j$ of Item $i$", "Sample score of Item $i$", "Sample score of catefory $j$", "Number of items", "Number of points on test", "Number of persons", "Number of persons with score $r$",
+                      "","Expected value of $x_{ni}$", "Variance of $x_{ni}$", "Kurtosis of $x_{ni}$","Score residual", "Standardized residual","Unweighted mean square for Item $i$", "Weighted mean square for Item $i$","Variance of weighted mean square for Item $i$", "Standardized weighted mean square for Item $i$","Unweighted mean square for Person $n$", "Weighted mean square for Person $n$","Variance of weighted mean square for Person $n$", "Standardized weighted mean square for Person $n$","Item seperation index", "Number of item strata","Sample reliability of item separation", "Person separation index","Number of person strata", "Test reliability of person separation"))
+
+
+knitr::kable(tcomb, caption = "Notation", booktabs = TRUE, digits = 4, col.names = NULL)
+```
