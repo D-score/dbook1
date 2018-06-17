@@ -107,7 +107,7 @@ of scores for a particular child and given a particular model, the aim
 is to deduce the value on the latent variable which is most likely to
 have given rise to the observed data.
 
-## Criteria for invariant measurement
+### Criteria for invariant measurement
 
 Measurement is the process of assigning numbers by rules to a set of
 persons or objects. This definition is a little liberal. In order to
@@ -135,13 +135,46 @@ item.
 5. *Unidimensionality*: Items and persons must be simultaneously
 located on a single underlying latent variable.
 
-These five requirements are only met by a very restrictive class of
-*ideal-type models*. We will come back to these model in section x.x.
+A statistical model that conforms to these five requirements is said
+to be an *ideal-type model*. There are only very few ideal-type
+models. An ideal-type model isn't changed to fit the data, but the
+data (items and persons) are selected to fit the ideal-type model.
 
+The need for the five requirements for invariance is not universally
+shared. In particular, a substantial group of statisticians questions
+the need for requirements 2 and 4, especially the words "always" and
+"any", and may opt for more flexible models that do not strictly
+adhere to the invariance conditions 2 and 4. There are also more
+flexible models that assume a multi-dimensional instead of a
+unidimensional latent variable. Some investigators question all
+requirements, and would rather not be restricted and place a high
+value to a good fit to all data.
 
 ### Item response functions
 
+The item response function describes the probability of passing the 
+an item as a function of the ability of the child. In general, 
+we expect and desire that this probability increases with ability 
+(requirement 2).
+
+Let $\beta_n$ be the ability of a child at the time of measurement. 
+Suppose we have three abilities $\beta_1$, $\beta_2$ and $\beta_3$,
+corresponding to $N = 3$ measurements. These could be 
+
+1. abilities from the same child at three ages, 
+2. abilities of three different children, or
+3. two abilities of the same child at two age, and one ability from another child, and so on.
+
+<!-- include here graph with beta1-beta3 with four item response curves:
+guttman, rasch, 3PL and flat. Show table with probability for correct
+response 3 x 4 --> 
+
+<!-- Guttman scalogram: high-jumping tournament. The athletic who jump highest wins, and the 
+assumption is that this is the athlete with the highest ability. -->
+
 ### Person response functions
+
+
 
 ### Family of item response theory models
 
