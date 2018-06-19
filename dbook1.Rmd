@@ -1,0 +1,931 @@
+--- 
+title: "D-score for measuring development of children 0-4 years"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, book_MG.bib]
+biblio-style: apalike
+link-citations: yes
+description: "D-score I: Measurement"
+---
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+
+# Preface {-}
+
+This is an introductory booklet on the measurement of child
+development by means of the D-score. The D-score is a one-number
+summary that quantifies generic neurocognitive development for
+children with ages 0-4 years.
+
+This is the *first* in a series of three booklets. The series consists
+of the following titles:
+
+1. [D-score for measuring development of children 0-4 years](https://stefvanbuuren.github.io/dbook1/)
+2. [D-score for international comparisons](https://stefvanbuuren.github.io/dbook2/)
+3. D-score for creating better instruments
+
+
+<!--chapter:end:index.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Introduction {#intro}
+
+## First 1000 days
+
+## Relevance of child development
+
+## Advantages and limitations of stunting
+
+## Measuring neurocognitive development
+
+
+<!--chapter:end:Rmd/01-intro.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Short history (SB)
+
+## What is child development?
+
+In contrast to concepts like height or temperature, it is unclear what
+exactly constites child development. One of the first rigorous studies
+in the field [@SHIRLEY1931] was executed under the explicit aim 
+
+> ... that the many aspects of development, anatomical, physical, 
+> motor, intellectual, and emotional, be studied simultaneously.
+
+Shirley gave empirical operationalizations of each of these
+domains of development. 
+
+```{r shirley-motor, echo = FALSE, fig.cap = '(ref:shirley-motor)'}
+knitr::include_graphics("fig/shirley-motor.png")
+```
+
+(ref:shirley-motor) Staircase plot indicating the age at which each
+baby achieve a new milestone of gross-motor functioning. Source:
+@SHIRLEY1933.
+
+Certain domains advance through a fixed sequence. Figure
+\@ref(fig:shirley-motor) illustrates the various stages needed for
+going from a *fetal posture* to *walking alone*. The ages are
+indicative when these events happen, but there is a large variation in
+timing between infants.
+
+@GESELL1943 (p. 88) formulated the following definition of development:
+
+> Development is a continuous process that proceeds stage by stage in
+> an orderly sequence. Each stage represents a degree or level of
+> maturity in the cycle of development. A stage is simply a passing
+> moment, while development, like time, keeps marching on.
+
+Gesell's definition emphasizes that development is a continuous
+process. The stages are useful as indicators to infer the level of
+maturity, but are of limited interest by themselves.
+
+@LIEBERT1974 (p. 5) emphasized that development is not a phenomenon
+that unfolds in isolation.
+
+> Development refers to a process in growth and capability over 
+> time, as a function of both maturation and interaction with 
+> the environment.
+
+@CAMERON2012 (p. 11) defined an end-point of development, as follows:
+
+> "Growth" is defined as an increase in size, while "maturity" or 
+> "development" is an increase in functional ability...The endpoint
+> of maturity is when a human is functionally able to procreate 
+> successfully ... not just biological maturity but also behavioral
+> and perhaps social maturity.
+
+@BERK2013 (p. 30) presented the emerging dynamic systems perspective on
+child development as follows:
+
+> Development cannot be characterized as a single line of change, 
+> and is more like a web of fibers branching out in many directions,
+> each representing a different skill area that may undergo both
+> continuous and stagewise transformation.
+
+There are many more definition of child development, but the ones
+given here illustrate the wide variety of perspectives on child
+development.
+
+## Theories of child development
+
+The field of child development is huge and spans multiple academic
+disciplines. This very short overview therefore cannot do justice to
+the enormous richness. Readers new to the field might orient
+themselves by browsing through an introductory academic title (e.g.
+@SANTROCK2010, @BERK2013), or by searching for the topic of interest
+in an encyclopedia (e.g. @SALKIND2002).
+
+The introductions by @SANTROCK2010 and @BERK2013 are surprisingly
+consistent in distinguishing major theories in child development
+according to their answer to three questions:
+
+* *Continuous or discontinuous?*
+
+Does development evolve gradually as a continuous process (Gesell) 
+or are there qualitatively distinct stages, with jump occurring 
+from one stage to next other?
+
+Several influential stage-based theories of human development have
+been proposed over the years: social and emotional development by
+psychosexual stages of development proposed by Freud and furthered by
+Erikson [@ERIKSON1963], Kohlberg's six stages of moral development
+[@KOHLBERG1984] and Piaget's cognitive development theory
+[@PIAGET1969]. Piaget distinguishes four main periods throughout
+childhood. The first period, the *sensimotor period* (approximately
+0-2 years), is subdivided into six stages. When taken together these
+six stages describe the road to conceptual thought. Piaget's stages
+are qualitatively differentiated, and aim to unravel the mechanism in
+intellectual development.
+
+* *One course or many?*
+
+Stage theorists assume that children progress sequentially through 
+the same set of stages. This assumption is explicit in the 
+work of Gesell, who sees development as a more continuous process.
+
+More recent ecological and dynamic systems theories posit that there
+may be multiple ways to reach the same point. The path taken by a
+given child will depend on the child's unique combination of personal
+and environmental circumstances, including cultural diversity in
+development.
+
+```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)'}
+knitr::include_graphics("fig/dynamic.png")
+```
+
+(ref:dynamic) A representation of the dynamic systems viewpoint on 
+how different combinations of skills may lead to the same end point 
+using different paths. Source: @BERK2013.
+
+* *Nature or nurture?*
+
+Are genetic or environmental factor more important for influencing
+development? Theories generally acknowledge the role of both, but tend
+to differ in their emphasis. In practice, the debate centers on the
+question how to explain individual differences.
+
+Maturation is the genetically determined, naturally unfolding course
+of growth, much like a flower. Some theorists emphasize that
+differences in development are innate and stable over time. Others
+argue that such differences are primarily driven by environmental 
+factors, and changing these factors could very well impact child
+development.
+
+The answer --- if there is one --- in the stability-versus-plasticity
+discussion is very important. If you believe that differences are
+natural and stable, then it does not make sense trying to change the
+conditions, as the impact on development will be negligible. On the
+other hand, if you believe that development is plastic, then
+intervening by high-quality programmes may have a substantial pay-off
+in terms of improved development.
+
+The position of each theory with respect to these three questions
+are rooted in different views of human
+
+fundamental three questions are related.
+
+## Numerical example
+
+```{r echo = FALSE, warning = FALSE}
+pkg <- c("knitr", "tidyr", "dplyr", "ggplot2")
+loaded <- sapply(pkg, require, character.only = TRUE, 
+                 warn.conflicts = FALSE, quietly = TRUE)
+options(knitr.kable.NA = "?")
+```
+
+For illustration, we use data on locomotor development collected in
+the classic study on child development among 25 babies by
+@SHIRLEY1931. Starting at ages around 13 weeks, a graphic record of
+the baby's walking was obtained as follows. The investigator lays out
+a white paper of twelve inches wide on the floor of the living room,
+and lightly greases the soles of the baby's feet with olive oil. The
+baby was invited to "walk" on the sheet. Of course, very young infants
+need substantial assistence, and the footprints left were later
+colored by graphite and measured. Measurements during the first year
+were repeated every week or bi-weekly.
+
+```{r shirley, echo = FALSE}
+shirley <- data.frame(
+  name = c("Martin", "Carol", "Max", "Virginia Ruth", "Sibyl",
+  "David", "James D.", "Harvey", "Winnifred", "Quentin", 
+  "Maurice", "Judy", "Irene May", "Peter", "Walley", "Fred",
+  "Donovan", "Patricia", "Torey", "Larry", "Doris"), 
+  sex = c("boy", "girl", "boy", "girl", "girl",
+          "boy", "boy", "boy", "girl", "boy",
+          "boy", "girl", "girl", "boy", "boy", "boy",
+          "boy", "girl", "boy", "boy", "girl"),
+  stepping = c(15, 15, 14, NA, NA, 19, 19, 14, 15, 15,
+  18, 18, 19, 15, 18, 15, NA, 15, NA, 13, NA),
+  standing = c(NA, 19, NA, 21, 22, 27, 30, 27, 30, 23,
+  23, 29, 34, 29, 33, 32, 23, 30, 21, 41, 23),
+  walk_help = c(21, 37, 25, 41, 37, 34, 45, 42, 41, 38,
+  45, 45, 45, 49, 54, 46, 50, 45, 72, 54, 44),
+  walk_alone = c(50, 50, 54, 54, 58, 60, 60, 62, 62, 64,
+  66, 66, 66, 66, 68, 70, 70, 70, 74, 76, NA))
+kable(shirley, 
+      col.names = c("Name", "Sex", "Stepping", "Standing", 
+                    "Walking with help", "Walking alone"))
+```
+
+: (\#tab:shirley) Age at beginning stages of walking (in weeks) 
+for 21 babies [@SHIRLEY1931, Appendix 8].
+
+Table \@tab:shirley lists the age (in weeks) of the 21 babies when
+they started, respectively, stepping, standing, walking with help, and
+walking alone. Question marks indicate missing data. A question mark
+in the first column the babies were already stepping when the
+observation started (Virginia Ruth, Sibyl, Donovan and Doris). Max and
+Martin, who have a question mark in the second column, skipped
+standing and went directly from stepping to walking with help. Doris
+has a question mark in the last column, because she died before she
+could walk alone.
+
+```{r stepplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:stepplot)'}
+d <- shirley %>%
+  mutate(name = factor(name, as.character(name))) %>%
+  gather(key = "stage", value = "age", -name, -sex) %>%
+  mutate(
+    stage = factor(stage, unique(stage)),
+    score = rep(1:4, each = 21))
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_step() + 
+  geom_point() + 
+  theme_light() + 
+  facet_wrap(~ name, nrow = 3) +
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Stage")
+```
+
+(ref:stepplot) Staircase plot indicating the age at which each baby 
+achieve a new milestone of gross-motor functioning.
+
+Figure \@ref(fig:stepplot) is a visual representation of the
+information in Table \@ref(tab:shirley). Each data point is the age of
+first occurence of the next stage. Before that age, the baby is
+supposed to be in the previous stage, so once the next stage occurs,
+there is a jump to the next level.
+
+The figure makes it easy to spot the quick (Martin, Carol) and slow
+(Patricia, Torey, Larry) walkers. Furthermore, it is easy to find
+children who remain a long time in a particular stage (Torey, Larry)
+and who jump over stages (Martin, Max).
+
+The height of the jump has no interpretation. For ease of plotting,
+the categories on the vertical axis are equally spaced, so the height
+of the jump does not relate to the difficulty of the next stage.
+Instead, the length of the line in the horizontal direction
+corresponds to the the difficulty of going from one stage to the next.
+For example, on average the line for `stepping` is relatively short in
+all plots, so going from `stepping` to `standing` is easy.
+
+The figure presents information from only those visits where a jump
+occurred. The number of house visits made during ages 0-2 years was
+far higher. @SHIRLEY1931 actually collected data from 1370 visits,
+whereas Figure \@ref(fig:stepplot) plot just the 76 visits with jumps.
+Thus, the data collection effort has to surprisingly intense in order
+to obtain these individual curves.
+
+With current access to quick computation, it is possible (and better
+use of the data) to utilize the information from all visits.
+
+
+## One number for development
+
+## Age-based measurement of development
+
+GESELL1943. p 89: *Stages and ages*
+
+> We think of behavior in terms of age, and we think of age in terms
+> of behavior. For any selected age it is possible to sketch a portrait
+> which delineates the behavior characteristics typical of the age.
+
+Stott, 1967, p. 22:
+
+> When development appears as a change in kind, that is, when the 
+> change consists of a series of qualitatively different events,
+> or features, or "stages", it is not amemable to measurement
+> by use of any standard scale of units.
+
+As a solution @STOTT1967 suggests using the "invariable sequence" of 
+successive stages as the basis for the assessment of the individual's 
+status. 
+Stott argues that such sequences are fairly well established for 
+physical activity, but less so for the acquisition of speech and 
+other social skills, which makes their measurement harder.
+
+Stott, 1967, p. 25:
+
+> The age equivalent of a particular stage is simply the average age 
+> at which children reach that particular stage. A set of age 
+> equivalents corresponding to a series of stages can be made 
+> to function as a scale for individual assessment.
+
+Liebert, 1974, p. 8
+
+> We must not forget that developmental changes occur *over* time,
+> but non occur merely *because* of time.
+
+Since the age of two 
+Cameron:
+
+> The appearance and *relative* size of structures, 
+> rather than their *absolute* size, are used to reflect maturity.
+
+
+
+## Current situation: Bayley, Griffiths, IQ, domains
+
+<!--chapter:end:Rmd/02-history.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Comparisons {#comparisons}
+
+## How to compare child development?
+
+## A new model for development
+
+### What is a latent variable
+
+### Item response functions
+
+### Person response functions
+
+### Family of item response theory models
+
+## Comparison to classic age-based approach
+
+EXAMPLES OF AGE-BASED MEASUREMENT
+
+Let the $Y_j$ contain the scores on the $j$-th developmental item, where $j = 1, \dots, p$. 
+For the moment, let us assume that all items are binary, so that 
+$Y_j = 0$ indicates a fail, and $Y_j = 1$ indicates a pass. 
+Suppose we are interested in studing the relationship between age, denoted by 
+variable $X$, and development as measured through items $Y_1, \dots, Y_p$.
+
+The joint distribution $P(Y_1, \dots, Y_p, X)$ contains all relevant 
+information for this problem. Age-based measurement is an attempt to model 
+this joint distribution by breaking it down into $p$ conditional distributions:
+$$
+P(Y_1 | X)\\
+\vdots\\
+P(Y_p | X)\\
+$$
+
+each of which describes how the probability of passing changes with age. 
+For example, @DRACHLER2007 formulated the model as a logistic regression 
+model on the logarithm of age:
+
+$$ 
+\ln \frac{P(Y_j=1)}{P(Y_j=0)} = \alpha_j + \beta_j\ln X
+$$
+
+For this model, the age at which 50\% of the children pass item $j$ 
+can be calculated as to $\exp(-\alpha_j/\beta_j)$. Since older children are 
+expected to be more mature, this parameter is typically 
+interpreted as the difficulty of the item. The slope parameter 
+$\beta_j$ indicates how rapidly the probability of passing 
+rises with age. Items with high $\beta_j$ have a great power to discriminate 
+developmental status well within a small age range. It is straightforward
+to calculate any other age-percentiles, for example, the ages 
+at which probabilities 10\% or 90\% of the sample pass the item.
+Table~2 in @DRACHLER2007 reports these statistics for the Denver 
+developmental test.
+
+While the idea of breaking up the test into separate items
+is productive, age-based measurement has severe weaknesses. 
+
+1. The concepts of age and development are not separated, so we 
+cannot interpret the difficulty of an item without age. 
+It would be more convenient, and conceptually clearer, if 
+item difficulty could be a free-standing concept.
+
+2. The models are fitted separately for each $Y_j$. Nothing 
+is specified how the items relate to each other, so in principle, 
+any variable that changes with age (e.g. child had first birthday) could 
+qualify as a developmental item. It would be better of the 
+procedure would start from a model about how the items should 
+relate to each other. 
+
+3. The intercept and slope estimates are dependent on 
+the sample. A sample consisting of children of low ability
+would give different estimates than a sample of children with
+high ability. Calibration of test items is not person-invariant. 
+It would be preferable if the difficulty estimates
+were independent of the sample used to estimate them. 
+
+4. Because of the introduction of slopes in the logistic model
+a more able person may have a lower success probability for some
+items than a less able person. It would be preferable if 
+more able persons have a better succes rate on all items.
+
+<!--chapter:end:Rmd/03-comparisons.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Measurement model {#measurement} (SB)
+
+## Guttman model 
+
+## Rasch model
+
+## Perfect symmetry
+
+## Parameter separation
+
+## The model as ideal
+
+## Why the Rasch model?
+
+### Specific objectivity (example)
+
+### Simplicity
+
+<!--chapter:end:Rmd/04-rasch.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Interpretation of item fit {#items} (IE)
+
+## SMOCC data: design
+
+To illustrate the interpretation of fit measures for the D-score we use the SMOCC study (Herngreen et al, 1993), which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
+
+```{r smocc data}
+smocc <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE)
+
+```
+
+
+## Empirical and fitted item response curves
+
+The fit of a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$, where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for an example item "n5" and item "n38". It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+
+
+```{r icc}
+smocc <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE)
+varlist <- dmetric::prepare_items(study = "Netherlands 1")
+#equatelist <- dmetric::prepare_equates(varlist)
+#model_name<- "smocc1"
+#model <- dmetric::fit_dmodel(varlist=varlist,eqate=equatelist, name = model_name)
+#plots_d <- dmetric::plot_p_d_item(data=smocc, model = fit)
+#plots_d[["n40"]]
+#delta <- dmetric::rasch(smocc[,varlist$items])$b
+#itembank <- dmetric::calculate_itembank(tau=delta)
+#theta <- dmetric::calculate_dscore(data=smocc, items=varlist$items, itembank=itembank)
+
+ ltmrm <- ltm::rasch(smocc[,varlist$items])
+ plotltm <- ltm::plot.rasch(ltmrm,type="ICC")
+
+ library(ggplot2)
+ggplot(as.data.frame(plotltm), aes(x=z, y=n5)) + geom_line()+ xlab("Ability (theta)")+ ylab("Probability to pass")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n5")[1,c("item", "label")], collapse = ": "))
+ggplot(as.data.frame(plotltm), aes(x=z, y=n38)) + geom_line()+ xlab("Ability (theta)")+ ylab("Probability to pass")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n38")[1,c("item", "label")], collapse = ": "))
+
+```
+
+## Item fit
+
+The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. Fit analysis evaluates the extend to which this is true for each item. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words wheter items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavity infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+
+To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $E_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}$$
+   $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$. 
+
+## Item information at a given ability
+
+The item information can be calculated as the amount of psychometric information an item contains for a given ability. The formula for the item information can be written as follows: $$I(\theta)=P_i(\theta)(1-P_i(\theta))$$, where $P_i(\theta)$ is the conditional probability of endorsing an item. 
+The implications of the item information are first that the amount of infformation an item provides is maximized around the item-difficulty parameter. 
+
+```{r}
+ ltmrm <- ltm::rasch(smocc[,varlist$items])
+ plotltm2 <- ltm::plot.rasch(ltmrm,type="IIC")
+
+ library(ggplot2)
+ggplot(as.data.frame(plotltm2), aes(x=z, y=n5)) + geom_line()+ xlab("Ability (theta)")+ ylab("Item information")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n5")[1,c("item", "label")], collapse = ": "))
+ggplot(as.data.frame(plotltm2), aes(x=z, y=n38)) + geom_line()+ xlab("Ability (theta)")+ ylab("Item information")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n38")[1,c("item", "label")], collapse = ": "))
+
+```
+
+
+
+## Item information at a given age
+
+```{r}
+
+```
+
+
+<!--chapter:end:Rmd/05-items.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Interpretation of person fit {#persons} (IE)
+
+## Empirical and fitted person response curves
+
+## Person fit
+
+The fit of the persons evaluates the extent to which the responses of any person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass any item than a less able person. Fit analysis evaluates the extend to which this is true for any person. Two types of person fit are distinguished: the person outfit and the person infit. The outfit evaluates the extent to which the responses to of the persons are consistent with the model. In other words wheter persons with a lower ability also have a lower probability to pass items. The outfit statistic is heavity infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+
+To determine the fit of persons to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $E_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The person infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors accumulated over the items $L$ to evaluate the plausability of any person response. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^L (x_{ni}-E_{ni})^2}{\sum_n^L W_{ni}}$$
+   $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. 
+
+
+## Ability estimation
+
+## Measurement precision
+
+## Distribution of ability against age
+
+<!--chapter:end:Rmd/06-persons.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Validity {#validity}
+
+## Role of validity
+
+## Discriminatory validity
+
+## Concurrent validity
+
+## Predictive validity
+
+
+<!--chapter:end:Rmd/07-validity.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+# Outcome {#outcome}
+
+This chapter focusses on the first application of the D-score: the D-score as neurocognitive outcome at 1000 days. In this chapter, we show how the D-score is calculated, demonstrate how to work with the D-score package, and how the D-score can be used as neurocognitive outcome in three different populations. First, the calculations behind the D-score are explained step-by-step and how to do this with the D-score package by means of two example children. Thereafter, the D-scores will be calculated for three different populations at the age of two years: the reference population, population of preterm children, and population of children in LMIC. 
+
+
+## Application I: D-score as neurocognitive outcome at 1000 days
+
+In the Netherlands, development of children is monitored by using the Dutch Developmental Instrument (DDI; in Dutch: Van Wiechenschema). The DDI consists of 76 items and a subset of these items are assessed at different ages, ranging from 1 month to 4.5 years old. To explain how the D-score is calculated and demonstrate the use of the D-score package two example children, both of the age of 15 months, are used. One of the example children is able to do all items of his/her age, and the other example child is not able to do all items of his/her age. In this way, we can show how different scores on a item affect the D-score.
+
+So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of six items. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
+
+```{r, echo=FALSE}
+child1 <- c(15/12, 1, 1, 1, 1, 1, 1)
+child2 <- c(15/12, 1, 0, 1, 1, 1, 0)
+tableWS <- rbind(child1, child2)
+colnames(tableWS) <- c("age in years", "item 1", "item 2", "item 3", "item 4", "item 5", "item 6")
+rownames(tableWS) <- c("child 1", "child 2" )
+#item2 : speelt geven/nemen
+#item6 : loopt langs
+```
+
+```{r, tableWS, echo=FALSE}
+library(knitr)
+kable(tableWS, caption = "Example of scores on the items of the DDI at the age of 15 months", booktabs = TRUE)
+```
+
+Calculation of the D-score is an iterative procedure, in which in each step information of one item is added. The iterative procedure uses Bayes rule to update the prior (knowledge) with data to calculate a posterior. In the next step, this posterior is used as the prior and information, the score, from a new item is added. This results in a new posterior distribution. When the information of all items have been added to the procedure, the D-score is equal to the mean of the final posterior distribution. 
+
+*!!plafond prior nog uitleggen!!*
+
+In the first step, the score of the first item is combined with the prior. However, at the first step we cannot use the previous posterior as our prior. Hence, we need a starting distribution to use as the prior in the first step. It is important that this starting distribution is a bit informative but not too much, so it was decided to choose a quite broad distribution which was centred quite well. The prior was chosen in such a way that the mean value of the prior distribution was equal to the median D-score at that age. The dispersion of the prior was set equal to twice the size of difference between the 90th percentile and 10th percentile of the D-score at that age.
+
+The starting distributions (priors) for the ages of 1, 15 and 24 months are given in figure \@ref(fig:figpriors). This figure shows that the priors assume that ability of a child of the age of 1 month is lower than the ability of a child of the age of 15 months, which in turn is lower than the ability of a child of the age of 24 months. 
+
+```{r, figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Priors at ages of 1, 15 and 24 months"}
+library(dscore)
+#example from the adp function:
+qp <- -10:80
+plot(x = qp, y= adp(1/12, qp), type = "l", 
+  main = "Priors at ages of 1, 15 and 24 months", 
+  ylab = "Density", xlab = "D-score")
+lines(x = qp, adp(1.25, qp), lty = 2)
+lines(x = qp, adp(2, qp), lty = 3)
+```
+
+First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example the lexicon *gcdg* is used. Moreover, the data should be in long format with the following columnnames: *items*, *scores* and *ages*. This leads to table \@ref(tab:tablenewWS1).
+
+```{r, tablenewWS1, echo=FALSE}
+WS1 <- data.frame(child = c("child 1", "child 1", "child 1", "child 1", "child 1", "child 1", "child 2", "child 2", "child 2", "child 2", "child 2", "child 2"),items = c("n32", "n33", "v38", "n37", "n34", "n35", "n32", "n33", "v38", "n37", "n34", "n35"), scores = c(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0), ages = c(15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12))
+
+kable(WS1, caption = "Long format of the example of scores on the items of the DDI at the age of 15 months", row.names = NA)
+```
+
+Now that the data is in long format and the item names are changed to the lexicon *gcdg*, we can calculate the D-score for both children. In the first step of the iterative procedure, we combine the age-dependent prior of 15 months with the score of the first item *n34* to define the posterior. Item *n34* is a gross motor item: 'crawls, abdomen off the floor'. In table \@ref(tab:tablenewWS1), we can see that both example children were able to crawl with their abdomen off the floor. Note, that we could have chosen any of the items as the first item, since the D-score is independent of the order of items in the calculation. 
+
+The age dependent prior of 15 months and the posterior distribution after adding information from item *n34* are given in figure \@ref(fig:fig1item). In this figure, we can see that the posterior distribution doesnot differ that much from the prior distribution. Both distributions are centred at the same point, while the posterior distribution is smaller than the prior distribution indicating more precision. Since both example children were able to crawl with their abdomen off the floor, the posterior distribution after the first step of the procedure is equal. 
+
+```{r, fig1item, echo=FALSE, fig.cap="\\label{fig:fig1item} Age-dependent priors of 15 months and posterior after 1st item n34"}
+items <- c("n34")
+age <- 1.25
+  
+#full posterior 1e item
+fp <- dscore(1, items, age, full = TRUE, lexicon = "gcdg")
+plot(fp[[1]]$qp, fp[[1]]$posterior, type = "l", lty = 1,
+xlab = "D-score", ylab = "Density", 
+main = "Age 15 months: 1 PASS at n34")
+lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
+legend(0.04, 0.08, c("posterior", "prior"), lty = c(1, 2), 
+       merge = TRUE)
+```
+
+Now, let's add an item on which the scores for the two example children differ, e.g. item *n35*. Item *n35* is also a gross motor item, namely 'walks along'. So both children are able to crawl (with their abdomen of the floor), but only *child 1* is able to walk along. We can use the previously calculated posterior distribution as prior when we add item *n35*. 
+
+Let's start with *child 1*, who is able to walk along. Using Bayes rule, the new posterior distribution can be calculated. In figure \@ref(fig:fig2itemC1) the prior, in this case the posterior after adding item *n34* to the age-dependent prior, and the newly calculated posterior distribution are visualized. Again, the posterior and prior are centred around the same point, while the posterior has a bit more precision.
+
+```{r, fig2itemC1, echo=FALSE, fig.cap="\\label{fig:fig2itemC1} Prior and posterior in the 2nd step of the iterative process for child 1"}
+items <- c("n34", "n35")
+age <- rep(1.25, length(items))
+  
+#full posterior 2e item
+fp2 <- dscore(c(1,1), items, age, full = TRUE, lexicon = "gcdg")
+plot(fp[[1]]$qp, fp2[[1]]$posterior, type = "l",
+xlab = "D-score", ylab = "Density", 
+main = "Age 15 months: PASS at n34 and n35 (child 1)", col = "red")
+lines(fp[[1]]$qp, fp[[1]]$posterior, lty = 2)
+legend(0.04, 0.08, c("posterior child 1", "prior"), lty = c(1, 2), 
+       col = c("red","black"),merge = TRUE)
+
+```
+
+Now we can do the same thing for *child 2*, who is able to crawl with his/her abdomen off the floor (*n34*) but not to walk along (*n35*). Again, we can use the posterior after adding information from *n34* as the prior and use the information from *n35* to calculate the posterior. In figure \@ref(fig:fig2itemC2) the prior and posterior are given. Now the prior and posterior are different, the posterior is on the left of the prior and has an high precision in comparison to the prior. Hence, being unable to walk along at the age of 15 months, like *child 2*, is more indicative for the development of a child of 15 months than being able to walk along like *child 1*. 
+
+```{r, fig2itemC2, echo=FALSE, fig.cap="\\label{fig:fig2itemC2} Prior and posterior in the 2nd step of the iterative process for child 2"}
+items <- c("n34", "n35")
+age <- rep(1.25, length(items))
+  
+#full posterior 2e item FAIL
+fp2 <- dscore(c(1,0), items, age, full = TRUE, lexicon = "gcdg")
+plot(fp[[1]]$qp, fp2[[1]]$posterior, type = "l",
+xlab = "D-score", ylab = "Density", 
+main = "Age 15 months: PASS at n34 and FAIL at n35 (child 2)", col = "blue")
+lines(fp[[1]]$qp, fp[[1]]$posterior, lty = 2)
+legend(0.15, 0.23, c("posterior child 2", "prior"), lty = c(1, 2), 
+       col = c("blue","black"),merge = TRUE)
+
+```
+
+
+The next four steps in the iterative procedure, information from the other four items (*n32*, *n33*, *v38* and *n37*) can be added in a similar fashion. Figure \@ref(fig:fig6itemC1C2) shows the final posterior distributions for *child 1* and *child 2* and the prior distribution for the age of 15 months. The D-score can now be determined by looking at the mean of the posterior distributions. Hence, the D-score for *child 1* and *child 2* are equal to 55.75 and 47.76, respectively.
+
+```{r, fig6itemC1C2, echo=FALSE, fig.cap="\\label{fig:fig6itemC1C2} Prior and final posterior for child 1 and 2"}
+items <- c("n32", "n33", "v38", "n37","n34", "n35")
+age <- rep(1.25, length(items))
+  
+#full posterior for both children and prior
+fp6_1 <- dscore(c(1,1,1,1,1,1), items, age, full = TRUE, lexicon = "gcdg")
+fp6_2 <- dscore(c(1,0,1,1,1,0), items, age, full = TRUE, lexicon = "gcdg")
+plot(fp[[1]]$qp, fp6_2[[1]]$posterior, type = "l",
+xlab = "D-score", ylab = "Density", 
+main = "Age 15 months: D-scores for child 1 and child 2", col="blue")
+lines(fp[[1]]$qp, fp6_1[[1]]$posterior, col = "red")
+lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
+legend(0.15, 0.3, c("posterior child 2", "posterior child 1","prior 15 months"), lty = c(1, 1, 2), 
+       col = c("blue", "red","black"),merge = TRUE)
+
+```
+
+```{r}
+#Dscore child1
+dscore(c(1,1,1,1,1,1), items, age, full = FALSE, lexicon = "gcdg") #55.75
+#Dscore child2
+dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
+```
+
+*nog toe te voegen in de tekst*
+
+*quadratic points*
+
+*Note: met deze methode is het mogelijk om scores voor extremen te berekenen, andere methodes (zoals de worms estimator) kunnen dit niet altijd.*
+
+*Prior die gekozen was: plafond prior (wanneer je alle items kan)*
+
+
+
+
+## D-score of reference children at 2 years (MG)
+
+
+```{r, echo=FALSE}
+#Script van Stef:
+library("ddata")
+library("dscore")
+library("dmetric")
+studies <- c("Netherlands 1", "Netherlands 2")
+data <- get_gcdg(study = studies, min_cat = 10, adm = TRUE, cov = TRUE)
+items <- intersect(item_names(study = studies), names(data))
+nlbank <- dscore::itembank
+d_dutch <- calculate_dscore(data = data, items = items, 
+                            itembank = nlbank, lexicon = "gcdg")
+ref <- dscore::gcdg_reference
+d_dutch$daz <- with(d_dutch, dscore::daz(d = d, x = age / 12, ref = ref))
+n_items <- data.frame(id = data$id, age = data$age,
+                      n = rowSums(!is.na(data[, items])))
+d_dutch <- dplyr::left_join(d_dutch, n_items, by = c("id", "age"))
+with(d_dutch, (plot(age, d, cex = 0.6)))
+with(d_dutch, (plot(age, daz, cex = 0.6)))
+write.table(x = d_dutch, file = "notes/dutch_native.txt",
+            sep = "\t", na = "", row.names = FALSE, quote = FALSE)
+
+```
+
+
+
+
+## D-score of pre-terms at 2 years (PD)
+
+## D-score of children in LMIC at 2 years (RO)
+
+## Comparison
+
+<!--chapter:end:Rmd/08-outcome.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Delay {#delay}
+
+## Application II: D-score to identify delayed development (PD)
+
+## Longitudinal D-score patterns in different populations
+
+## Issues in defining developmental delay
+
+## Specificity in reference, pre-term and LMIC populations
+
+## Practical implications
+
+<!--chapter:end:Rmd/09-delay.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Consequences {#consequences}
+
+## Application III: Long-term health consequences of delay in pre-terms
+
+## Relevance of long-term health outcomes
+
+## Predictive power of D-score
+
+## Practical implications
+
+## Opportunities and impact of early intervention
+
+<!--chapter:end:Rmd/10-consequences.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Discussion {#discussion}
+
+## Usefulness of D-score for monitoring child health
+
+## Opportunities for early intervention
+
+## D-score for international settings
+
+## D-score from existing instruments
+
+## Creating new instruments for D-score
+
+<!--chapter:end:Rmd/11-discussion.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Appendix - notation
+**!!Eventueel notaties die wij niet gebruikt hebben nog verwijderen uit onderstaande tabel!!**
+
+The notation in this Booklet is based on the notation used in the book of [@wright1982rating].
+
+```{r, echo=FALSE}
+
+tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", "item step", "", "", "item", "", "", "threshold", "", "",
+                          "DATA", "", "", "", "", "", "", "", "", "", "", "", "",
+                          "FIT", "", "", "","", "","", "","", "","", "","", "","", "","", "","", ""), 
+                b = c("" ,"$\\pi_{nik}$", "$P_{nik}$" , "$P_{rik}$", "$\\beta_n$", "$b_n$", "$b_r$", "$s_n$", "$\\delta_{ij}$", "$d_{ij}$", "$s_{ij}$", "$\\delta_i$", "$d_i$", "$s_i$", "$\\tau_j$", "$h_j$", "$s_j$",
+                      "", "$x_{ni}$", "$m_i$", "$m$", "$r_n$", "$T_{ij}$", "$S_{ij}$", "$S_{i+}$", "$S_{+j}$", "$L$", "$M$", "$N$", "$N_r$",
+                      "", "$E_{ni}$", "$W_{ni}$", "$C_{ni}$","$y_{ni}$", "$z_{ni}$","$u_i$", "$v_i$","$q_i^2$", "$t_i$","$u_n$", "$v_n$","$q_n^2$", "$t_n$","$G_I$", "$H_I$","$R_I$", "$G_P$","$H_P$", "$R_P$"), 
+                c = c("" ,"Model probability of Person $n$ responding in category $k$ to Item $i$", "Estimated probability of Person $n$ responding in category $k$ to Item $i$" , "Estimated probability of a person with test score $r$ responding in categor $k$ to Item $i$", "Ability/attitude of Person $n$", "Estimated ability/attitude of Person $n$", "Estimated ability/attitude of a person with score $r$", "Measurement error", "Difficulty of $j$th step in Item $i$", "Calibration error", "Scale value of item $i$", "Scale value of Item $i$", "Estimated scale value of Item $i$", "Calibration error", "Response threshold $j$", "Estimated response threshold $j$", "Calibration error",
+                      "", "Response of Person $n$ to Item $i$", "Number of steps in Item $i$", "Number of thresholds in response format", "Test score of Person $n$", "Number of persons responding in category $j$ of Item $i$", "Number of persons responding in or above category $j$ of Item $i$", "Sample score of Item $i$", "Sample score of catefory $j$", "Number of items", "Number of points on test", "Number of persons", "Number of persons with score $r$",
+                      "","Expected value of $x_{ni}$", "Variance of $x_{ni}$", "Kurtosis of $x_{ni}$","Score residual", "Standardized residual","Unweighted mean square for Item $i$", "Weighted mean square for Item $i$","Variance of weighted mean square for Item $i$", "Standardized weighted mean square for Item $i$","Unweighted mean square for Person $n$", "Weighted mean square for Person $n$","Variance of weighted mean square for Person $n$", "Standardized weighted mean square for Person $n$","Item seperation index", "Number of item strata","Sample reliability of item separation", "Person separation index","Number of person strata", "Test reliability of person separation"))
+
+
+knitr::kable(tcomb, caption = "Notation", booktabs = TRUE, digits = 4, col.names = NULL)
+```
+
+<!--chapter:end:Rmd/Appendix-notation.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:Rmd/12-references.Rmd-->
+
