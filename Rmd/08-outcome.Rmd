@@ -224,6 +224,42 @@ write.table(x = d_dutch, file = "notes/dutch_native.txt",
 
 ## D-score of pre-terms at 2 years (PD)
 
+Developmental milestones can be assessed at several chronological ages (defined as age since birth, or postnatal age) to identify very preterm children who have developmental delay and who would benefit from stimulation programs. However, assessment of very preterm children at the same chronological age as term children may cause overdiagnosis of developmental delay in very preterm children and excessive referral for stimulation programs. Very preterm children may require additional time, determined by a factor that considers the difference between gestational age at birth ($GA_{birth}$) vs 40 wk ($GA_{birth}$ for normal term birth), to enable development equivalent to that of normal term birth children. Several authors have proposed full or half correction of chronological age of very preterm birth children to provide a realistic evaluation of age-appropriate milestones; e.g. compare milestones for a child born at $GA_{birth}$ 30 wk vs a normal term child when the chronological age is 10 (full correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40 minus 35 wk) lower for the term than very preterm child. The Dutch Development Instrument (DDI) – a modification of the Gesell test – is used in preventive child health care to assess development from birth to chronological age 4 y.
+
+
+**Purpose**
+
+To investigate the effect of correcting chronological age for $GA_{birth}$ on DDI scores in very preterm infants with no handicaps.
+
+
+**Methods**
+
+In 1983, data were collected for 1338 infants in the Netherlands who had very preterm birth ($GA_{birth} \geq$ 25 and < 32 wk) or very low birth weight (birth weight < 1500 g) (Project On Preterm and Small for Gestational Age Infants [POPS]). The $GA_{birth}$ was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings. We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurologic disorder, visual or hearing defects, or psychosocial problems. From birth to chronological age 2.5 y, the DDI included 57 developmental milestones covering 3 domains of child development: fine motor activity, adaptive, and personal/social behavior; communication; and gross motor activity. The DDI was administered by a trained health care professional, and 5 to 9 milestones were evaluated at each health care visit. The child was scored as having passed/reached (was able to perform the milestone at the visit) or failed the milestone (unable to perform). Development score (D-score) was determined from an algorithm that summarized these developmental milestones into a single aggregate score measuring global development. The LMS method was used to transform the D-score to a z-score (DAZ) according to references for development in the Dutch population. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$). 
+Development was considered equal to the general Dutch population when mean DAZ = 0. Multilevel logistic regression analyses were performed to test the association between $GA_{birth}$ and milestones that were assessed at 2 consecutive visits. 
+
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0, 0.5, 0.75$, and $1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $-2 \pm 2, -0.7 \pm 1, 0 \pm 1$, and $+0.7 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-2 \pm 1, -1 \pm 1, -0.5 \pm 1$, and $0 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1 \pm 1, -0.6 \pm 1, -0.3 \pm 1$, and $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.4 \pm 1, -0.1 \pm 1, 0 \pm 1$, and $0.1 \pm 1$.
+
+In 12 of 18 milestones from all 3 domains, there was a significant positive association between $GA_{birth}$ (25-31 wk) and the proportion of children reaching the milestone after adjustment for uncorrected chronological age. No significant association was observed after adjustment for full correction of chronological age.
+
+
+**Conclusions**
+
+Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.  
+
+
+
 ## D-score of children in LMIC at 2 years (RO)
 
 ## Comparison
