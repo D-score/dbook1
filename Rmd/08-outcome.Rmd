@@ -40,11 +40,20 @@ The starting distributions (priors) for the ages of 1, 15 and 24 months are give
 library(dscore)
 #example from the adp function:
 qp <- -10:80
-plot(x = qp, y= adp(1/12, qp), type = "l", 
-  main = "Priors at ages of 1, 15 and 24 months", 
-  ylab = "Density", xlab = "D-score")
-lines(x = qp, adp(1.25, qp), lty = 2)
-lines(x = qp, adp(2, qp), lty = 3)
+
+p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = adp(1/12, qp))
+p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = adp(15/12, qp))
+p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = adp(24/12, qp))
+
+dataprior <- rbind(p1m, p15m, p24m)
+dataprior$month <- as.factor(dataprior$month)
+
+p <- ggplot(dataprior, aes(qp, p, group = month)) +
+      geom_path(aes(col = month)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p
 ```
 
 First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example the lexicon *gcdg* is used. Moreover, the data should be in long format with the following columnnames: *items*, *scores* and *ages*. This leads to table \@ref(tab:tablenewWS1).
