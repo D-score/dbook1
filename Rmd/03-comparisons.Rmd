@@ -152,27 +152,156 @@ value to a good fit to all data.
 
 ### Item response functions
 
-The item response function describes the probability of passing the 
-an item as a function of the ability of the child. In general, 
-we expect and desire that this probability increases with ability 
-(requirement 2).
+Let $\beta_n$ be the true (but unknown) developmental score of a child
+at the time of measurement. The more generic term is the child's
+*ability*. The *item response function* describes the probability of
+passing an item as a function of ability. In general, we expect
+that this probability increases with ability (requirement 2). Note
+that this formulation differs from that given in Section
+\@ref(agebased), where the probability was said to increase in age,
+not ability. We will address this crucial difference in more detail in
+Section \@ref(comparisonagebased).
 
-Let $\beta_n$ be the ability of a child at the time of measurement. 
-Suppose we have three abilities $\beta_1$, $\beta_2$ and $\beta_3$,
-corresponding to $N = 3$ measurements. These could be 
+```{r irfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:irfplot)'}
+pkg <- c("ggplot2", "RColorBrewer")
+loaded <- sapply(pkg, require, character.only = TRUE, 
+                 warn.conflicts = FALSE, quietly = TRUE)
+options(knitr.kable.NA = "?")
 
-1. abilities from the same child at three ages, 
-2. abilities of three different children, or
-3. two abilities of the same child at two age, and one ability from another child, and so on.
+x <- seq(-5, 5, 0.25)
+items <- data.frame(
+  Items = c(rep(LETTERS[1:5], times = c(4, 2, length(x), length(x), length(x)))),
+  beta = c(-5, 1, 1, +5,  -5,  +5, x, x, x),
+  pass = c( 0, 0, 1,  1, 0.3, 0.3,
+           plogis(x),
+           plogis(0.6 * (x + 1)),
+           smooth.spline(x = x, y = plogis(c(x[1:15], rep(x[16], 10), x[26:41])), df = 8)$y))
+ggplot(items, aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
+  geom_line(lwd = 0.75) + 
+  scale_x_continuous("Child's ability (logits)", breaks = -5:5) + 
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
+  scale_colour_brewer(palette = "Set1", labels = c("A: Step", "B: Constant", "C: Logistic", "D: 2PL", "E: Monotone")) + 
+  theme_light() + 
+  theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
+```
 
-<!-- include here graph with beta1-beta3 with four item response curves:
-guttman, rasch, 3PL and flat. Show table with probability for correct
-response 3 x 4 --> 
+(ref:irfplot) Item response functions for five hypothetical items,
+each demonstrating a positive relation between ability and probability
+to pass.
 
-<!-- Guttman scalogram: high-jumping tournament. The athletic who jump highest wins, and the 
-assumption is that this is the athlete with the highest ability. -->
+Ability and passing probability can be related in many ways. Figure
+\@ref(fig:irfplot) illustrates the item response function of five
+hypothetical test items A-E. Let us consider each of these function.
+
+- A: Item A has step function, so all children with an ability < 1
+logit fail, and all children with ability > 1 pass. This is the ideal
+item for discriminating children that with abilities below and above 1
+logit. The step function is widely used in sports. In a high-jumping
+tournament, the bar is set very high in order to be able to
+discriminate the best athletes. Note that the step function can test a
+highly specific part of the ability range, but is uninformative at
+other ranges.
+
+- B: For item B, the probability of passing is constant at 30 percent.
+This 30 percent is not related to ability. This item does not measure
+ability, and only adds to the noise.
+
+- C: Item C has a smoothly increasing logistic function. If we know
+ability $\beta$, the probability of passing can be calculate by the
+standard logistic function $f(\beta) = e^\beta/(1+e^\beta)$.
+
+- D: Item D is also a smoothly increasing logistic function, but it
+has an extra parameter that allows it to vary its slope (or
+discrimination). The extra parameter can be the item steeper (more
+discriminatory) than the green curve, in the limit approaching a step
+curve. It can also become shallower (less discriminatory) than the
+green curve (as plotted here), in the limit approaching a constant
+curve.
+
+- E: Item E is a non-parametric monotonically increasing function. As
+plotted, the item is insensitive to abilities between -1 and 0 logits,
+and more sensitive to abilities of 0 to 2 logits.
+
+These are just some examples of how the relation between the child's
+ability and passing probability could look. In practice, the curves
+need not start at 0 percent or end at 100 percent. They could also be
+U-shaped, of have other non-monotonic forms. See @COOMBS1964 for a
+thorough overview of such models. Here we restrict to increasing
+function so as to conform to invariance requirement 2.
+
+Note that if item A-E were our test, this test would violate
+requirement 4. The difficulty of item A is equal to +1 logits, and the
+difficulty of item C is 0 logits, so item C is easier than item A.
+Requirement 4 says that persons should have a higher chance of passing
+C. This is true indeed for persons having an ability lower than +1
+logits. However, for a person with ability +2 logits, the probability
+of passing A is higher than passing C, hence requirement 4 does not
+hold if A and C would be in the same test.
 
 ### Person response functions
+
+Let $\delta_i$ be the true (but unknown) *difficulty* of an item. The
+*person response function* is the probability that a single person passes 
+each of a set items of varying difficulties. 
+
+Let us continue with items A and C from Figure \@ref(fig:irfplot), and 
+calculate the response function for two persons. Person 1 has ability
+$\beta_1 = 0$ and person 2 has ability $\beta_2 = 2$.
+
+```{r prfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:prfplot)'}
+x <- c(seq(-5.00, -2.25, 0.25), -2.001, -2, -1.999, 
+       seq(-1.75, -0.25, 0.25), -0.001,  0,  0.001,
+       seq( 0.25,  1.75, 0.25),  1.999,  2,  2.001,
+       seq( 2.25,  5.00, 0.25))
+A1 <- c(rep(1, 23), 0.5, rep(0, 23))
+C1 <- 1 - plogis(x)
+D1 <- 1 - plogis(0.6 * (x + 1))
+ACD1 <- (A1 + C1 + D1) / 3
+
+A2 <- c(rep(1, 33), 0.5, rep(0, 13))
+C2 <- 1 - plogis(x - 2)
+D2 <- 1 - plogis(0.6 * (x - 1))
+ACD2 <- (A2 + C2 + D2) / 3
+
+A3 <- c(rep(1, 13), 0.5, rep(0, 33))
+C3 <- 1 - plogis(x + 3)
+D3 <- 1 - plogis(0.6 * (x + 4))
+ACD3 <- (A3 + C3 + D3) / 3
+
+data <- data.frame(delta = x,
+                   person = rep(c("-2", "0", "+2"), each = 47),
+                   pass = c(ACD3, ACD1, ACD2))
+ggplot(data, aes(x = delta, y = 100 * pass, group = person, colour = person)) +
+  geom_line(lwd = 0.75) + 
+  scale_x_continuous("Item difficulty (logits)", breaks = -5:5) + 
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
+  scale_colour_brewer(name = "Person ability", palette = "Set1", limits = c("-2", "0", "+2")) + 
+  theme_light() + 
+  theme(legend.position = c(0.8, 0.6), legend.justification = c(0, 0)) +
+  annotate("text", x = -4.5, y = 15, label = "Easy items", fontface = "bold") + 
+  annotate("text", x =  4.5, y = 15, label = "Hard items", fontface = "bold")
+```
+
+(ref:prfplot) Person response functions for three persons with abilities 
+-2, 0 and +2, using a small test of items A, C and D.
+
+Figure \@ref{fig:prfplot} presents the person response functions from
+three persons with abilities of -2, 0 and +2 logits. The functions are
+calculated as the average of response probabilities on items A, C and
+D. The substantial drop in the middle of the curve is caused by the
+step function of item A. In general, we would want that the success
+probability to be higher for persons with a higher ability level
+(requirement 2). This requirement holds here for the person level
+aggregate.
+
+### Interval scale
+
+The important property is that $\beta_1$, $\beta_2$ and $\beta_3$ are
+all on the same scale, and hence can be compared in a sensible way. In
+particular, suppose that $\beta_2 - \beta_1 = \beta_3 - \beta_2$, we
+might say that the difference between ability $\beta_1$ and $\beta_2$
+is the same the difference between abilities $\beta_2 - \beta_3$. This 
+is the essential property of an interval scale.
 
 
 
@@ -190,7 +319,7 @@ The Guttman and Mokken model yield an ordinal latent scale, while the
 Rasch model yields an interval scale (with a constant unit).
 
 
-## Comparison to classic age-based approach
+## Comparison to classic age-based approach {#comparisonagebased}
 
 EXAMPLES OF AGE-BASED MEASUREMENT
 
