@@ -198,17 +198,21 @@ logit fail, and all children with ability > 1 pass. This is the ideal
 item for discriminating children that with abilities below and above 1
 logit. The step function is widely used in sports. In a high-jumping
 tournament, the bar is set very high in order to be able to
-discriminate the best athletes. Note that the step function can test a
-highly specific part of the ability range, but is uninformative at
-other ranges.
+discriminate the best athletes. Note that the step function can only
+test whether ability is below or above a specific level. It does
+discriminate abilities at other levels.
 
 - B: For item B, the probability of passing is constant at 30 percent.
 This 30 percent is not related to ability. This item does not measure
-ability, and only adds to the noise.
+ability, and only adds to the noise. It is a bad item for measurement.
 
 - C: Item C has a smoothly increasing logistic function. If we know
 ability $\beta$, the probability of passing can be calculate by the
-standard logistic function $f(\beta) = e^\beta/(1+e^\beta)$.
+standard logistic function $f(\beta) = e^\beta/(1+e^\beta)$. This
+item can discriminate best around the point at which the probability
+of passing is 0.5. The level is called the difficulty. Unlike the 
+step function, this item can also discriminate abilities in the
+neighborhood of the difficulty. 
 
 - D: Item D is also a smoothly increasing logistic function, but it
 has an extra parameter that allows it to vary its slope (or
@@ -216,9 +220,10 @@ discrimination). The extra parameter can be the item steeper (more
 discriminatory) than the green curve, in the limit approaching a step
 curve. It can also become shallower (less discriminatory) than the
 green curve (as plotted here), in the limit approaching a constant
-curve.
+curve. Thus, item D is more general that items A, B or C.
 
-- E: Item E is a non-parametric monotonically increasing function. As
+- E: Item E is even more general in the sense that it need not be
+logistic, but can be any monotonically increasing function. As
 plotted, the item is insensitive to abilities between -1 and 0 logits,
 and more sensitive to abilities of 0 to 2 logits.
 
@@ -227,26 +232,21 @@ ability and passing probability could look. In practice, the curves
 need not start at 0 percent or end at 100 percent. They could also be
 U-shaped, of have other non-monotonic forms. See @COOMBS1964 for a
 thorough overview of such models. Here we restrict to increasing
-function so as to conform to invariance requirement 2.
-
-Note that if item A-E were our test, this test would violate
-requirement 4. The difficulty of item A is equal to +1 logits, and the
-difficulty of item C is 0 logits, so item C is easier than item A.
-Requirement 4 says that persons should have a higher chance of passing
-C. This is true indeed for persons having an ability lower than +1
-logits. However, for a person with ability +2 logits, the probability
-of passing A is higher than passing C, hence requirement 4 does not
-hold if A and C would be in the same test.
+functions so as to conform to invariance requirement 2.
 
 ### Person response functions
 
-Let $\delta_i$ be the true (but unknown) *difficulty* of an item. The
-*person response function* is the probability that a single person passes 
-each of a set items of varying difficulties. 
+We now switch the roles of persons and items, and construct a function
+that tells us how likely it is that a single person can pass an item, 
+or more commonly, a set of items. 
 
-Let us continue with items A and C from Figure \@ref(fig:irfplot), and 
-calculate the response function for two persons. Person 1 has ability
-$\beta_1 = 0$ and person 2 has ability $\beta_2 = 2$.
+<!-- Let $\delta_i$ be the true (but unknown) *difficulty* of an item. The -->
+<!-- *person response function* is the probability that a single person passes  -->
+<!-- each of a set items of varying difficulties.  -->
+
+Let us continue with items A, C and D from Figure \@ref(fig:irfplot), and 
+calculate the response function for three children, respectively with 
+abilities $\beta_1 = -2$, $\beta_2 = 0$ and $\beta_3 = 2$.
 
 ```{r prfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:prfplot)'}
 x <- c(seq(-5.00, -2.25, 0.25), -2.001, -2, -1.999, 
@@ -282,17 +282,44 @@ ggplot(data, aes(x = delta, y = 100 * pass, group = person, colour = person)) +
   annotate("text", x =  4.5, y = 15, label = "Hard items", fontface = "bold")
 ```
 
-(ref:prfplot) Person response functions for three persons with abilities 
+(ref:prfplot) Person response functions for three children with abilities 
 -2, 0 and +2, using a small test of items A, C and D.
 
 Figure \@ref{fig:prfplot} presents the person response functions from
 three persons with abilities of -2, 0 and +2 logits. The functions are
 calculated as the average of response probabilities on items A, C and
-D. The substantial drop in the middle of the curve is caused by the
-step function of item A. In general, we would want that the success
-probability to be higher for persons with a higher ability level
-(requirement 2). This requirement holds here for the person level
-aggregate.
+D. Thus, on average, we expect that child 1 will pass an easy item of
+difficulty -3 in about 60 percent of the time, whereas for an
+intermediate item of difficulty of -1 the passing probility would be
+10 percent. For child 3, with a higher ability, these probabilities
+are quite different: 97% and 90%. The substantial drop in the middle
+of the curve is caused by the step function of item A. 
+
+Requirement 2 states that the success probability should be higher for
+persons with a higher ability level. This is indeed the case here, but
+there are also item response functions for which requirement 2 does
+not hold.
+
+### What is a test?
+
+A set of items forms a test. The primary reason for administering a
+test rather than a separate item is to improve the precision of the
+measurement. The scores on the set of items (rather than the score on
+a single item) can be combined into an overall score. Of course,
+combining scores can only make sense if these items measure the same
+underlying construct.
+
+In principle, the five items A-E in Figure \@ref(fig:irfplot) could
+form a test. This would not be an ideal test though, since this test
+would violate requirement 4. We know that the difficulty of item A is
+equal to +1 logits, and the difficulty of item C is 0 logits, so item
+C is easier than item A. Requirement 4 says that persons should have a
+higher chance of passing C. This is true indeed for persons having an
+ability lower than +1 logits. However, for a person with ability +2
+logits, the probability of passing A is higher than passing C, hence
+requirement 4 does not hold for any test that holds both items A and 
+C.
+
 
 ### Interval scale
 
