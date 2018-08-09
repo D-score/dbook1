@@ -234,7 +234,7 @@ knitr::kable(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 
 ```
 
 
-```{r, echo=FALSE}
+```{r, eval=FALSE, echo=FALSE}
 #Script van Stef:
 library("ddata")
 library("dscore")
