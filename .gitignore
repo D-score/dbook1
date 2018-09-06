@@ -2,10 +2,10 @@
 .Rhistory
 .RData
 .Ruserdata
+.gitignore
 _publish.R
 _book
 _bookdown_files
 rsconnect
-docs/
-.gitignore
 data-raw/data/
+docs/
