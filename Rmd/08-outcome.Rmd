@@ -38,13 +38,22 @@ The starting distributions (priors) for the ages of 1, 15 and 24 months are give
 
 ```{r, figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Priors at ages of 1, 15 and 24 months"}
 library(dscore)
-#example from the adp function:
+#example from the adp function in ggplot:
 qp <- -10:80
-plot(x = qp, y= adp(1/12, qp), type = "l", 
-  main = "Priors at ages of 1, 15 and 24 months", 
-  ylab = "Density", xlab = "D-score")
-lines(x = qp, adp(1.25, qp), lty = 2)
-lines(x = qp, adp(2, qp), lty = 3)
+
+p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = adp(1/12, qp))
+p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = adp(15/12, qp))
+p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = adp(24/12, qp))
+
+dataprior <- rbind(p1m, p15m, p24m)
+dataprior$month <- as.factor(dataprior$month)
+
+p <- ggplot(dataprior, aes(qp, p, group = month)) +
+      geom_path(aes(col = month)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p
 ```
 
 First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example the lexicon *gcdg* is used. Moreover, the data should be in long format with the following columnnames: *items*, *scores* and *ages*. This leads to table \@ref(tab:tablenewWS1).
@@ -64,13 +73,20 @@ items <- c("n34")
 age <- 1.25
   
 #full posterior 1e item
-fp <- dscore(1, items, age, full = TRUE, lexicon = "gcdg")
-plot(fp[[1]]$qp, fp[[1]]$posterior, type = "l", lty = 1,
-xlab = "D-score", ylab = "Density", 
-main = "Age 15 months: 1 PASS at n34")
-lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
-legend(0.04, 0.08, c("posterior", "prior"), lty = c(1, 2), 
-       merge = TRUE)
+qp <- -10:80
+fp <- dscore(1, items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("posterior", length(qp)))
+prior <- data.frame(qp = qp, fp = fp[[1]]$start, distribution = rep("prior", length(qp)))
+
+dataprior <- rbind(fp1, prior)
+dataprior$distribution <- as.factor(dataprior$distribution)
+
+p1 <- ggplot(dataprior, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p1
 ```
 
 Now, let's add an item on which the scores for the two example children differ, e.g. item *n35*. Item *n35* is also a gross motor item, namely 'walks along'. So both children are able to crawl (with their abdomen of the floor), but only *child 1* is able to walk along. We can use the previously calculated posterior distribution as prior when we add item *n35*. 
@@ -82,13 +98,21 @@ items <- c("n34", "n35")
 age <- rep(1.25, length(items))
   
 #full posterior 2e item
-fp2 <- dscore(c(1,1), items, age, full = TRUE, lexicon = "gcdg")
-plot(fp[[1]]$qp, fp2[[1]]$posterior, type = "l",
-xlab = "D-score", ylab = "Density", 
-main = "Age 15 months: PASS at n34 and n35 (child 1)", col = "red")
-lines(fp[[1]]$qp, fp[[1]]$posterior, lty = 2)
-legend(0.04, 0.08, c("posterior child 1", "prior"), lty = c(1, 2), 
-       col = c("red","black"),merge = TRUE)
+qp <- -10:80
+fp2 <- dscore(c(1,1), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("1st posterior", length(qp)))
+fp2 <- data.frame(qp = qp, fp = fp2[[1]]$posterior, distribution = rep("2nd posterior", length(qp)))
+
+datafp <- rbind(fp1, fp2)
+datafp$distribution <- as.factor(datafp$distribution)
+
+p2 <- ggplot(datafp, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p2
+
 
 ```
 
@@ -99,13 +123,20 @@ items <- c("n34", "n35")
 age <- rep(1.25, length(items))
   
 #full posterior 2e item FAIL
-fp2 <- dscore(c(1,0), items, age, full = TRUE, lexicon = "gcdg")
-plot(fp[[1]]$qp, fp2[[1]]$posterior, type = "l",
-xlab = "D-score", ylab = "Density", 
-main = "Age 15 months: PASS at n34 and FAIL at n35 (child 2)", col = "blue")
-lines(fp[[1]]$qp, fp[[1]]$posterior, lty = 2)
-legend(0.15, 0.23, c("posterior child 2", "prior"), lty = c(1, 2), 
-       col = c("blue","black"),merge = TRUE)
+qp <- -10:80
+fp2 <- dscore(c(1,0), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("1st posterior", length(qp)))
+fp2 <- data.frame(qp = qp, fp = fp2[[1]]$posterior, distribution = rep("2nd posterior", length(qp)))
+
+datafp2 <- rbind(fp1, fp2)
+datafp2$distribution <- as.factor(datafp2$distribution)
+
+p3 <- ggplot(datafp2, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p3
 
 ```
 
@@ -117,15 +148,22 @@ items <- c("n32", "n33", "v38", "n37","n34", "n35")
 age <- rep(1.25, length(items))
   
 #full posterior for both children and prior
-fp6_1 <- dscore(c(1,1,1,1,1,1), items, age, full = TRUE, lexicon = "gcdg")
-fp6_2 <- dscore(c(1,0,1,1,1,0), items, age, full = TRUE, lexicon = "gcdg")
-plot(fp[[1]]$qp, fp6_2[[1]]$posterior, type = "l",
-xlab = "D-score", ylab = "Density", 
-main = "Age 15 months: D-scores for child 1 and child 2", col="blue")
-lines(fp[[1]]$qp, fp6_1[[1]]$posterior, col = "red")
-lines(fp[[1]]$qp, fp[[1]]$start, lty = 2)
-legend(0.15, 0.3, c("posterior child 2", "posterior child 1","prior 15 months"), lty = c(1, 1, 2), 
-       col = c("blue", "red","black"),merge = TRUE)
+qp <- -10:80
+fp6_1 <- dscore(c(1,1,1,1,1,1), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp6_2 <- dscore(c(1,0,1,1,1,0), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+prior <- data.frame(qp = qp, fp = fp[[1]]$start, distribution = rep("prior", length(qp)))
+fp6_1 <- data.frame(qp = qp, fp = fp6_1[[1]]$posterior, distribution = rep("final posterior child 1", length(qp)))
+fp6_2 <- data.frame(qp = qp, fp = fp6_2[[1]]$posterior, distribution = rep("final posterior child 2", length(qp)))
+
+datafp6 <- rbind(prior, fp6_1, fp6_2)
+datafp6$distribution <- as.factor(datafp6$distribution)
+
+p6 <- ggplot(datafp6, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p6
 
 ```
 
