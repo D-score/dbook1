@@ -239,7 +239,7 @@ whereas Figure \@ref(fig:stepplot) plot just the 76 visits with jumps.
 Thus, to obtain these individual curves the design has to be intense 
 and costly.
 
-## Age-based measurement of development
+## Age-based measurement of development {#agebased}
 
 The motivation for measuring child development is to be able to
 describe the behavior expected at a selected age. @GESELL1943 (p. 89)

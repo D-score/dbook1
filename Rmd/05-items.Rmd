@@ -1,74 +1,73 @@
-# Interpretation of item fit {#items}
+# Interpretation of item fit {#items} (IE)
 
-## SMOCC data 
+## SMOCC data: design
 
-### Design
+To illustrate the interpretation of fit measures for the D-score we use the SMOCC study (Herngreen et al, 1993), which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
 
-The Social Medical Social Medical Survey of Children attending Child
-Health Clinics (SMOCC) was initiated to obtain reference data on
-morbidity in Dutch children in their first two years of life. During
-1988 and 1989, the staff of 21 Child Health Clinics (CHC) (in Dutch:
-Consultatieburo) recorded data on the pre-and perinatal period and on
-the first two years of life of infants born in the geographically
-defined catchment areas of these clinics. The CHC is a free service
-run by the government that is attended by over 95% of all children
-born in The Netherlands. The CHC vaccinates the infants, tracks their
-growth and development, signals health problems, provide advice and,
-where needed, refers infants to specialist care. The SMOCC cohort is
-representative for the newborn population of the Netherlands with
-respect to mother's age at delivery, parity and, to a somewhat lesser
-extent to the level of maternal education and degree of urbanization
-of residential area.
+```{r smocc data, include=FALSE}
+smocc <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE)
 
-The CHC records retrospective data on pregnancy and delivery during a
-home visit by district nurses of the CHC about 2-3 weeks after
-delivery. The CHC offers 9 follow-up visits during the first two years
-scheduled at months 1, 2, 3, 6, 8, 12, 15, 18 and 24.
-
-The number of children admitted in the study was $n$ = 2151 children.
-The design of the study is documented by @HERNGREEN1992. The original
-data forms can be found in @HERNGREEN1993. @HERGREEN1994 studied
-patterns in longitudinal growth for children aged 0-2 years.
-
-### Developmental data
-
-```{r ddi, echo = FALSE, fig.cap = '(ref:ddi)'}
-knitr::include_graphics("fig/wiechen-dutch.png")
 ```
 
-(ref:ddi) The Dutch Development Instrument for infants aged 0-15 
-months. The gray staircase pattern indicates items that are too 
-difficult for the age. Scores are made in the white cells with
-a plus (+) and minus (-) indicating pass and fail, respectively. 
-The difficulty of the items is chosen such that 90% of the children 
-can perform the task at the age indicated. Source: @LAURENT2008.
-
-The Dutch Development Instrument (DDI) (Dutch: Van Wiechenschema) 
-consist of a set of developmental items on fine motor, gross motor,
-language development and social behavior domain. Figure 
-\@ref(fig:ddi) displays the form used in the regular CHC to track 
-child's development. @LAURENT2008 provides extensive background
-on how to administer, score and interpret the results (in Dutch). 
-Only a handful of items is examined in each visit.
-
-### Example
-
-```{r smocc-load, echo = FALSE}
-load("data/smocc.rda")
-```
-
-The `smocc` dataset contains the responses on each items and for each
-child. The dataset has `r nrow(smocc)` rows and `r ncol(smocc)`
-columns. The first six records are:
-
-```{r smocc-dim}
-head(smocc)
-```
 
 ## Empirical and fitted item response curves
 
+The fit of a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$, where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for an example item "n5" and item "n38". It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+
+
+```{r icc, include=FALSE}
+smocc <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE)
+varlist <- dmetric::prepare_items(study = "Netherlands 1")
+#equatelist <- dmetric::prepare_equates(varlist)
+#model_name<- "smocc1"
+#model <- dmetric::fit_dmodel(varlist=varlist,eqate=equatelist, name = model_name)
+#plots_d <- dmetric::plot_p_d_item(data=smocc, model = fit)
+#plots_d[["n40"]]
+#delta <- dmetric::rasch(smocc[,varlist$items])$b
+#itembank <- dmetric::calculate_itembank(tau=delta)
+#theta <- dmetric::calculate_dscore(data=smocc, items=varlist$items, itembank=itembank)
+library(ltm)
+ ltmrm <- ltm::rasch(smocc[,varlist$items])
+ plotltm <- ltm::plot.rasch(ltmrm,type="ICC")
+```
+
+```{r echo=FALSE}
+ 
+ library(ggplot2)
+ggplot(as.data.frame(plotltm), aes(x=z, y=n5)) + geom_line()+ xlab("Ability (theta)")+ ylab("Probability to pass")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n5")[1,c("item", "label")], collapse = ": "))
+ggplot(as.data.frame(plotltm), aes(x=z, y=n38)) + geom_line()+ xlab("Ability (theta)")+ ylab("Probability to pass")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n38")[1,c("item", "label")], collapse = ": "))
+
+```
+
 ## Item fit
+
+The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. Fit analysis evaluates the extend to which this is true for each item. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words wheter items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavity infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+
+To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $E_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}$$
+   $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$. 
 
 ## Item information at a given ability
 
+The item information can be calculated as the amount of psychometric information an item contains for a given ability. The formula for the item information can be written as follows: $$I(\theta)=P_i(\theta)(1-P_i(\theta))$$, where $P_i(\theta)$ is the conditional probability of endorsing an item. 
+The implications of the item information are first that the amount of infformation an item provides is maximized around the item-difficulty parameter. 
+
+```{r, include=FALSE}
+ ltmrm <- ltm::rasch(smocc[,varlist$items])
+ plotltm2 <- ltm::plot.rasch(ltmrm,type="IIC")
+```
+
+```{r, echo=FALSE}
+ library(ggplot2)
+ggplot(as.data.frame(plotltm2), aes(x=z, y=n5)) + geom_line()+ xlab("Ability (theta)")+ ylab("Item information")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n5")[1,c("item", "label")], collapse = ": "))
+ggplot(as.data.frame(plotltm2), aes(x=z, y=n38)) + geom_line()+ xlab("Ability (theta)")+ ylab("Item information")+ggtitle("Item Characteristic Curve", subtitle=paste(ddata::get_itemtable(items="n38")[1,c("item", "label")], collapse = ": "))
+
+```
+
+
+
 ## Item information at a given age
+
+```{r, include=FALSE}
+
+```
+
