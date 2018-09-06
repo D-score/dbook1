@@ -1,5 +1,3 @@
-# Consequences {#consequences}
-
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(ddata)
 library(dscore)
@@ -13,9 +11,17 @@ library(gridExtra)
 library(ggpubr)
 ```
 
+# Consequences {#consequences}
+
+This chapter focusses on the third application of the D-score: the long-term health consequences of delay in development in pre-terms. In this chapter, we explain the relevance of long-term health outcomes and show how the D-score can be used to predict these long-term health outcomes. In addition, we present the practical implications and how this leads to new opportunities and show the impact of early intervention.
+
+
+
 ## Application III: Long-term health consequences of delay in pre-terms
 
+
 ## Relevance of long-term health outcomes
+
 
 ## Predictive power of D-score
 
@@ -151,7 +157,7 @@ In addition, it is important to note that the number of milestones per wave diff
 Furthermore, we can see that there is a gap between the cloud of blue dots and the cloud of green dots in all nine plots. Or in other words, there is a substantial difference in D-score between children without negative scores and childeren with (at least) one negative score on the milestone(s) of the DDI. The rational behind this, was explained in Chapter 8. 
 For most of the waves there is no clear relation between the D-score and IQ at 5 years visible in the plots. However, for wave 7 and 9, we can see that the cloud of blue dots (with higher D-scores) lies a bit higher than the cloud consisting of the other dots. This could indicate that children with an higher D-score at the age of 15 months and 24 months also have an higher IQ at the age of 5 years on average.
 
-Besides the graphical exploration of the relation between the D-score and IQ at 5 years old, we can also use models to determine this relationship. For example, we can model IQ at 5 years old for each wave separately, which allows us to compare the effect of the D-score at each wave on the variation in IQ at 5 years. First, we can estimate models in which the D-score is the only explanatory variable for the variation in IQ at 5 years. The results of these nine models can be found in table \@ref(tab:tableIQonlyD).
+Besides the graphical exploration of the relation between the D-score and IQ at 5 years old, we can also use models to determine this relationship. For example, we can model IQ at 5 years old for each wave separately, which allows us to compare the effect of the D-score at each wave on the variation in IQ at 5 years. First, we can estimate models in which the D-score is the only explanatory variable for the variation in IQ at 5 years. The estimate for the D-score and the $R^2$ of these nine models are visualized in figure \@ref(fig:graphestR2).
 
 ```{r, echo=FALSE}
 # REGRESSION MODELS (per wave)
@@ -222,11 +228,37 @@ tableIQonlyD <- results.d
 ```
 
 ```{r, tableIQonlyD, echo=FALSE}
-library(knitr)
-kable(tableIQonlyD, caption = "Estimates of the D-score and the $R^2$ for the regression models where only D-score is used as explanatory variable", booktabs = TRUE, digits = 4)
+#library(knitr)
+#kable(tableIQonlyD, caption = "Estimates of the D-score and the $R^2$ for the regression models where only D-score is used as explanatory variable", booktabs = TRUE, digits = 4)
 ```
 
-In table \@ref(tab:tableIQonlyD), we can see that the estimates for the D-score and the $R^2$ are the highest for wave 7 and wave 9. Indicating that the D-score at wave 7 and wave 9 has the largest effect on IQ at 5 years and explain the most variation in IQ at 5 years. In other words, the D-score for older children is better at explaining the variation in IQ at 5 years. 
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+results.d1 <- as.data.frame(results.d)
+names(results.d1) <- c("estimate", "R2")
+results.d1$wave <- c(1,2,3,4,5,6,7,8,9)
+
+pest <- ggplot(results.d1, aes(wave, estimate)) +
+      geom_point( )+
+      scale_y_continuous(breaks = seq(0, 1, 0.2),
+                         name = "estimate D-score") +
+      scale_x_continuous(breaks = seq(1, 10, 2), name = "Wave") 
+
+pR2 <- ggplot(results.d1, aes(wave, R2)) +
+      geom_point( )+
+      scale_y_continuous(breaks = seq(0, 0.04, 0.01), 
+                         name = "R-squared") +
+      scale_x_continuous(breaks = seq(1, 10, 2), name = "Wave") 
+```
+
+```{r, graphestR2, echo = FALSE,  fig.cap="\\label{fig:graphestR2} The estimate for the D-score and $R^2$ plotted for each wave", message=FALSE, warning=FALSE}
+
+#arrange
+ggarrange(pest, pR2, ncol=2, nrow=1)
+
+```
+
+In figure \@ref(fig:graphestR2), we can see that the estimates for the D-score and the $R^2$ are the highest for wave 7 and wave 9. Indicating that the D-score at wave 7 and wave 9 has the largest effect on IQ at 5 years and explain the most variation in IQ at 5 years. In addition, figure \@ref(fig:graphestR2) shows that the D-score of the first four waves barely explains any variation in IQ at 5 years. Thus, the D-scores of the first six months is not capable of explaining the variation in IQ at 5 years. Hence, the D-score when the children are older is better in explaining the variation in IQ at 5 years. 
 
 Secondly, we can add explanatory variables to the regression model to control for confounding effects. For example, the education level of the mother can also partly explain the variation in IQ at 5 years, so it is important to add these to your prediction model. To predict IQ at 5 years, the following explanatory variables are added to the regression model:
 
