@@ -183,6 +183,8 @@ dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
 *Prior die gekozen was: plafond prior (wanneer je alle items kan)*
 
 
+*06/09: toevoegen plots zoals in 10.3 (wolken in de D-score uitleggen), plafond en bodem in de D-score schaal (deel van de D-scores zullen nooit voorkomen).*
+*Verschil laten zien met 5 goed gecalibreerde (1 wolk) en 5 niet-goed gecalibreerde items (geen wolk) laten zien*
 
 
 ## D-score of reference children at 2 years (MG)
