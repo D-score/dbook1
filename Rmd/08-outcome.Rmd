@@ -167,7 +167,7 @@ p6
 
 ```
 
-```{r}
+```{r, echo=FALSE, message=FALSE}
 #Dscore child1
 dscore(c(1,1,1,1,1,1), items, age, full = FALSE, lexicon = "gcdg") #55.75
 #Dscore child2
@@ -186,11 +186,92 @@ dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
 *06/09: toevoegen plots zoals in 10.3 (wolken in de D-score uitleggen), plafond en bodem in de D-score schaal (deel van de D-scores zullen nooit voorkomen).*
 *Verschil laten zien met 5 goed gecalibreerde (1 wolk) en 5 niet-goed gecalibreerde items (geen wolk) laten zien*
 
+We already explained how the D-score suffers from a ceiling and a bottom at the start and end of the scale. However, this can also happen within the D-score scale: some values of the D-score will never occur no matter the combination of scores on the milestones. This will mainly occur when calibrated milestones are used to calculate the D-score. For example, the Dutch Developmental Instrument (DDI) is calibrated: at each wave 90\% of the children should be able to get a positive score on the milestones. This allows for detection of children with a developmental delay, since the DDI is used as a screening instrument.
+In the SMOCC study they assessed not only the milestones of the current wave, but also the milestones of the next wave [@herngreen1994growth]. This allows us to compare the D-scores calculated by making use of calibrated milestones (the current wave milestones) with the D-scores calculated by making use of non-calibrated milestones (the next wave milestones). These D-scores for children of the age of 2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in figure \@ref(fig:dscores_nw). The continous variable IQ at 5 years allows for nice visualization of the variation in D-scores. The colours of the dots indicate the number of negative scores on the milestones: note that the number of milestones can differ per wave.
+
+```{r, echo=FALSE, message=FALSE, warning = FALSE}
+library(gridExtra)
+library(dplyr)
+data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long3.sav")
+data.long$scores_false <- data.long$scores_false - 1
+data.long$scores_false_nw <- data.long$scores_false_nw - 1
+data.long <- as_tibble(data.long)
+
+data.long$wave <- factor(data.long$wave)
+data.long1 <- data.long[!is.na(data.long$IQ), ]
+data.long1 <- data.long1[!is.na(data.long1$dscore), ]
+data.long1$scores_false <- as.factor(data.long1$scores_false) 
+data.long1$scores_false_nw <- as.factor(data.long1$scores_false_nw) 
+```
+
+```{r, echo=FALSE, message=FALSE, warning = FALSE}
+p2 <- ggplot(subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave)) +
+  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_y_continuous(name = "IQ at 5 years") +
+  scale_x_continuous(name = "D-score (2 month milestones)") +
+  facet_grid(. ~ wave) 
+
+p3 <- ggplot(subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave)) +
+  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_y_continuous(name = "IQ at 5 years") +
+  scale_x_continuous(name = "D-score (3 month milestones)") +
+  facet_grid(. ~ wave) 
+
+#D-score next wave
+p2.nw <- ggplot(subset(data.long1, wave == c(2)), aes(dscore.nw, IQ,  group = wave)) +
+  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_y_continuous(name = "IQ at 5 years") +
+  scale_x_continuous(name = "D-score (3 month milestones)") +
+  facet_grid(. ~ wave) 
+  
+p3.nw <- ggplot(subset(data.long1, wave == c(3)), aes(dscore.nw, IQ, group = wave)) +
+  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_y_continuous(name = "IQ at 5 years") +
+  scale_x_continuous(name = "D-score (6 month milestones)") +
+  facet_grid(. ~ wave) 
+```
+
+```{r, echo = FALSE, fig.cap="\\label{fig:dscores_nw} Comparison of the D-scores calculated by calibrated and non-calibrated milestones", message=FALSE, warning=FALSE}
+library(ggpubr)
+ggarrange(p2, p2.nw, p3, p3.nw, ncol=2, nrow=2, common.legend = TRUE, legend="right")
+```
+
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
+  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore
+
+p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
+  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore.nw
+```
+
+In figure \@ref(fig:dscores_nw), the plots on the left show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. Thus, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find the children that are behind in their development in comparison to their peers.
+
+In addition, the plots on the right in figure \@ref(fig:dscores_nw), show the D-scores when non-calibrated milestones (the milestones of the next wave) are used. For the DDI, on average, around 50\% of the children should be able to get a positive score in this situation. So, for example, 50\% of the children of the age of 2 months should be able to get a positive score on the 3 month milestones. Since these milestones are considered to be more difficult, a negative score on one of the milestones will have a smaller effect on the D-score. Hence, the gap we saw before between the green and yellow dots disappears.
+
+
 ## D-score of reference children at 2 years (PD)
 
 **Data**
 
-A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994growth] . Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children.
+A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994growth]. Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children.
 
 **Methods**
 
