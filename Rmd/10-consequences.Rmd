@@ -50,7 +50,7 @@ kable(tableSMOCC, caption = "Overview of the nine waves of the SMOCC data", book
 ```
 
 
-First, we will plot the D-scores against IQ at 5 years for each of the waves (see figure \@ref(fig:dscoresIQ5yrs)). In this way, we can see the variation in D-scores for the different waves and how this relates to IQ at the age of 5 years. The colours indicate the number of milestones that got a negative score. Thus, for example, green indicates that one of the milestones got a negative score, however this does not mean that all green dots in the same plot represent the same number of positive scores. It could be that for some children not all scores of the milestones were available. The same holds, ofcourse, for the other colours as well.
+First, we will plot the D-scores against IQ at 5 years for each of the waves (see figure \@ref(fig:dscoresIQ5yrs)). In this way, we can see the variation in D-scores for the different waves and how this relates to IQ at the age of 5 years. The colours indicate the number of milestones that got a negative score. Thus, for example, yellow indicates that one of the milestones got a negative score, however this does not mean that all yellow dots in the same plot represent the same number of positive scores. It could be that for some children not all scores of the milestones were available. The same holds, ofcourse, for the other colours as well.
 
 ```{r, echo = FALSE}
 #Subset van de data zonder de losse scores op de items:
@@ -76,7 +76,7 @@ data.long1$scores_false <- as.factor(data.long1$scores_false)
 ```{r, dscoresIQ5yrs, echo = FALSE,  fig.cap="\\label{fig:dscoresIQ5yrs} The D-scores plotted against IQ at 5 years for each wave", message=FALSE, warning=FALSE}
 p1 <- ggplot(subset(data.long1, wave == c(1)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3"))+
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -84,7 +84,7 @@ p1 <- ggplot(subset(data.long1, wave == c(1)), aes(dscore, IQ, group = wave)) +
 
 p2 <- ggplot(subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3"))+
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -92,7 +92,7 @@ p2 <- ggplot(subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave)) +
 
 p3 <- ggplot(subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -100,7 +100,7 @@ p3 <- ggplot(subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave)) +
 
 p4 <- ggplot(subset(data.long1, wave == c(4)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -108,7 +108,7 @@ p4 <- ggplot(subset(data.long1, wave == c(4)), aes(dscore, IQ, group = wave)) +
 
 p5 <- ggplot(subset(data.long1, wave == c(5)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -116,7 +116,7 @@ p5 <- ggplot(subset(data.long1, wave == c(5)), aes(dscore, IQ, group = wave)) +
 
 p6 <- ggplot(subset(data.long1, wave == c(6)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -124,7 +124,7 @@ p6 <- ggplot(subset(data.long1, wave == c(6)), aes(dscore, IQ, group = wave)) +
 
 p7 <- ggplot(subset(data.long1, wave == c(7)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -132,7 +132,7 @@ p7 <- ggplot(subset(data.long1, wave == c(7)), aes(dscore, IQ, group = wave)) +
 
 p8 <- ggplot(subset(data.long1, wave == c(8)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=T, size = 1 )+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -140,7 +140,7 @@ p8 <- ggplot(subset(data.long1, wave == c(8)), aes(dscore, IQ, group = wave)) +
 
 p9 <- ggplot(subset(data.long1, wave == c(9)), aes(dscore, IQ, group = wave)) +
       geom_point(aes(col=scores_false), show.legend=F, size = 1)+ 
-      scale_colour_manual(values = c("0" = "steelblue4", "1" = "springgreen3", "2" = "gold2", "3" = "darkorange2", "4" = "red3", "5" = "deeppink3", "6" = "purple3")) +
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
       coord_cartesian(xlim=c(0, 75)) +
       scale_y_continuous(name = "IQ at 5 years") +
       scale_x_continuous(name = "D-score") +
@@ -152,9 +152,9 @@ ggarrange(p1, p2, p3, p4, p5, p6, p7, p8, p9, ncol=3, nrow=3,
           common.legend = TRUE, legend="bottom")
 
 ```
-In addition, it is important to note that the number of milestones per wave differ. For example, when we compare the plots for wave 8 and wave 9, it seems that at wave 8 the milestones are more difficult, since there are children who got a negative score on more than one milestone. While at wave 9, the maximum number of milestones with a negative score is one (green dots). However, wave 8 contains six milestones of the DDI, while wave 9 only contains one milestone of the DDI. Hence, the difference between the number of milestones at each wave causes the variation in the number of colours used between the nine plots. 
+In addition, it is important to note that the number of milestones per wave differ. For example, when we compare the plots for wave 8 and wave 9, it seems that at wave 8 the milestones are more difficult, since there are children who got a negative score on more than one milestone. While at wave 9, the maximum number of milestones with a negative score is one (yellow dots). However, wave 8 contains six milestones of the DDI, while wave 9 only contains one milestone of the DDI. Hence, the difference between the number of milestones at each wave causes the variation in the number of colours used between the nine plots. 
 
-Furthermore, we can see that there is a gap between the cloud of blue dots and the cloud of green dots in all nine plots. Or in other words, there is a substantial difference in D-score between children without negative scores and childeren with (at least) one negative score on the milestone(s) of the DDI. The rational behind this, was explained in Chapter 8. 
+Furthermore, we can see that there is a gap between the cloud of blue dots and the cloud of yellow dots in all nine plots. Or in other words, there is a substantial difference in D-score between children without negative scores and childeren with (at least) one negative score on the milestone(s) of the DDI. The rational behind this, was explained in Chapter 8. 
 For most of the waves there is no clear relation between the D-score and IQ at 5 years visible in the plots. However, for wave 7 and 9, we can see that the cloud of blue dots (with higher D-scores) lies a bit higher than the cloud consisting of the other dots. This could indicate that children with an higher D-score at the age of 15 months and 24 months also have an higher IQ at the age of 5 years on average.
 
 Besides the graphical exploration of the relation between the D-score and IQ at 5 years old, we can also use models to determine this relationship. For example, we can model IQ at 5 years old for each wave separately, which allows us to compare the effect of the D-score at each wave on the variation in IQ at 5 years. First, we can estimate models in which the D-score is the only explanatory variable for the variation in IQ at 5 years. The estimate for the D-score and the $R^2$ of these nine models are visualized in figure \@ref(fig:graphestR2).
