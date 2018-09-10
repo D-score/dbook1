@@ -5,7 +5,7 @@
 
 In contrast to concepts like height or temperature, it is unclear what
 exactly constites child development. One of the first rigorous studies
-in the field [@SHIRLEY1931] was executed under the explicit aim 
+in the field [@shirley1931] was executed under the explicit aim 
 
 > ... that the many aspects of development, anatomical, physical, 
 > motor, intellectual, and emotional, be studied simultaneously.
@@ -17,7 +17,7 @@ domains of development.
 ```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)', out.width='80%', fig.align='center'}
 knitr::include_graphics("fig/shirley-motor.png")
 ```
-(ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @SHIRLEY1933.
+(ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
 
 Certain domains advance through a fixed sequence. Figure
 \@ref(fig:shirleyplot) illustrates the various stages needed for
@@ -25,7 +25,7 @@ going from a *fetal posture* to *walking alone*. The ages are
 indicative when these events happen, but there is a large variation in
 timing between infants.
 
-@GESELL1943 (p. 88) formulated the following definition of development:
+@gesell1943 (p. 88) formulated the following definition of development:
 
 > Development is a continuous process that proceeds stage by stage in
 > an orderly sequence. 
@@ -34,14 +34,14 @@ Gesell's definition emphasizes that development is a continuous
 process. The stages are useful as indicators to infer the level of
 maturity, but are of limited interest by themselves.
 
-@LIEBERT1974 (p. 5) emphasized that development is not a phenomenon
+@liebert1974 (p. 5) emphasized that development is not a phenomenon
 that unfolds in isolation.
 
 > Development refers to a process in growth and capability over 
 > time, as a function of both maturation and interaction with 
 > the environment.
 
-@CAMERON2012 (p. 11) defined an end-point of development, as follows:
+@cameron2012 (p. 11) defined an end-point of development, as follows:
 
 > "Growth" is defined as an increase in size, while "maturity" or 
 > "development" is an increase in functional ability...The endpoint
@@ -49,7 +49,7 @@ that unfolds in isolation.
 > successfully ... not just biological maturity but also behavioral
 > and perhaps social maturity.
 
-@BERK2013 (p. 30) presented a dynamic systems perspective on
+@berk2013 (p. 30) presented a dynamic systems perspective on
 child development as follows:
 
 > Development cannot be characterized as a single line of change, 
@@ -66,10 +66,10 @@ The field of child development is huge and spans multiple academic
 disciplines. This short overview therefore cannot do justice to
 the enormous richness. Readers new to the field might orient
 themselves by browsing through an introductory academic title (e.g.
-@SANTROCK2010, @BERK2013), or by searching for the topic of interest
-in an encyclopedia (e.g. @SALKIND2002).
+@santrock2010, @berk2013), or by searching for the topic of interest
+in an encyclopedia (e.g. @salkind2002).
 
-The introductions by @SANTROCK2010 and @BERK2013 both distinguish
+The introductions by @santrock2010 and @berk2013 both distinguish
 major theories in child development according to how each answers
 to following three questions:
 
@@ -82,9 +82,9 @@ from one stage to another?
 Many stage-based theories of human development have
 been proposed over the years: social and emotional development by
 psychosexual stages of development proposed by Freud and furthered by
-Erikson [@ERIKSON1963], Kohlberg's six stages of moral development
-[@KOHLBERG1984] and Piaget's cognitive development theory
-[@PIAGET1969]. Piaget distinguishes four main periods throughout
+Erikson [@erikson1963], Kohlberg's six stages of moral development
+[@kohlberg1984] and Piaget's cognitive development theory
+[@piaget1969]. Piaget distinguishes four main periods throughout
 childhood. The first period, the *sensimotor period* (approximately
 0-2 years), is subdivided into six stages. When taken together these
 six stages describe "the road to conceptual thought". Piaget's stages
@@ -92,7 +92,7 @@ are qualitatively different, and aim to unravel the mechanism in
 intellectual development.
 
 On the other hand, Gesell and others emphasize development as a 
-continuous process. @GESELL1943 (p. 88) says:
+continuous process. @gesell1943 (p. 88) says:
 
 > A stage represents a degree or level of maturity in the cycle 
 > of development. A stage is simply a passing moment, while 
@@ -117,7 +117,7 @@ development.
 knitr::include_graphics("fig/dynamic.png")
 ```
 
-(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @BERK2013.
+(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
 
 * *Nature or nurture?*
 
@@ -152,7 +152,7 @@ options(knitr.kable.NA = "?")
 
 For illustration, we use data on locomotor development collected in
 the classic study on child development among 25 babies by
-@SHIRLEY1931. Starting at ages around 13 weeks, a graphic record of
+@shirley1931. Starting at ages around 13 weeks, a graphic record of
 the baby's walking was obtained as follows. The investigator lays out
 a white paper of twelve inches wide on the floor of the living room,
 and lightly greases the soles of the baby's feet with olive oil. The
@@ -185,7 +185,7 @@ kable(shirley,
 ```
 
 : (\#tab:shirley) Age at beginning stages of walking (in weeks) 
-for 21 babies [@SHIRLEY1931, Appendix 8].
+for 21 babies [@shirley1931, Appendix 8].
 
 Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies when
 they started, respectively, stepping, standing, walking with help, and
@@ -238,7 +238,7 @@ relatively easy.
 
 The figure presents data from only those visits where a jump occurred.
 The number of house visits made during ages 0-2 years was far higher.
-@SHIRLEY1931 actually collected data from 1370 visits, whereas Figure
+@shirley1931 actually collected data from 1370 visits, whereas Figure
 \@ref(fig:stepplot) plot just the 76 visits with jumps. Thus, to
 obtain these individual curves like these data collection needs to be
 intense and costly.
@@ -286,14 +286,14 @@ development: age-based, score-based and unit-based measurement.
 ### Age-based measurement of development {#sec:agebased}
 
 The motivation for measuring child development is to be able to
-describe the behavior expected at a selected age. @GESELL1943 (p. 89)
+describe the behavior expected at a selected age. @gesell1943 (p. 89)
 formulates this goal as follows:
 
 > We think of behavior in terms of age, and we think of age in terms
 > of behavior. For any selected age it is possible to sketch a portrait
 > which delineates the behavior characteristics typical of the age.
 
-@STOTT1967 (p. 22) observed that it is impossible to define a scale
+@stott1967 (p. 22) observed that it is impossible to define a scale
 for measuring child development:
 
 > When development appears as a change in kind, that is, when the 
@@ -310,7 +310,7 @@ clear for the acquisition of speech and other social skills.
 Since age and development are so intimately related, the *difficulty*
 of developmental a given milestone is traditionally expressed in terms
 of the age at which children achieve the milestone. For example,
-@STOTT1967 (p. 25) defines the *age equivalent* and its use for
+@stott1967 (p. 25) defines the *age equivalent* and its use for
 measurement, as follows:
 
 > The age equivalent of a particular stage is simply the average age 
