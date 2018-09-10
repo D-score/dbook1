@@ -68,7 +68,7 @@ express the probability of passing an item as a function of the
 person with low ability will almost surely fail a difficult item,
 whereas a highly able person will almost surely pass an easy item. One may also use the model to compare persons or items.
 
-## Logit scale {#sec:logitscale}
+## Logit scale {#sec:logit}
 
 Let us now introduce a few symbols. We adopt the notation used in
 @WRIGHT1982. See Chapter \@ref(ch:notation) for a complete list.
@@ -422,4 +422,4 @@ general, we expect that this probability increases with ability
 (requirement 2). Note that this formulation differs from that given in
 Section \@ref(sec:agebased), where the probability was said to
 increase in age, not ability. We will address this crucial difference
-in more detail in Section \@ref(sec:comparisonagebased).
+in more detail in Section xx.
