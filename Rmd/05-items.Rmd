@@ -1,4 +1,4 @@
-# Interpretation of item fit {#items} (IE)
+# Interpretation of item fit {#ch:itemfit}
 
 ## SMOCC data: design
 
