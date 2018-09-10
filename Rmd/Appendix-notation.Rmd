@@ -23,3 +23,8 @@ tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", 
 
 knitr::kable(tcomb, caption = "Notation", booktabs = TRUE, digits = 4, col.names = NULL)
 ```
+
+```{warnings r}
+warnings()
+```
+
