@@ -228,7 +228,7 @@ resultsSMOCC <- data.frame(a = c("Area of Residence","rural", "semi-urban" , "ur
 knitr::kable(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
 #Script van Stef:
 library("ddata")
 library("dscore")

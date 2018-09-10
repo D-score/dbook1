@@ -1,111 +1,48 @@
-# Comparisons {#comparisons}
+# New model to quantify child development {#ch2:newmodel}
 
-## Need for a unit of child development
+Chapter \@ref(ch:history) introduces the age-based, score-based and
+unit-based approaches to measurement of child development. This
+chapter introduce the basic concepts for the new unit-based approach.
 
-Many disciplines study child development in order to answer clinical,
-policy and public health questions. Typical questions at level of the
-individual child include:
+## The latent variable, and its role in measurement
 
-- What is the gain in development since the last measurement? 
+In this booklet we define measurement as 
+*the process of locating children and items on a line.* The line can
+represents a latent variable, a continuous construct that defines the
+different poles of the concept that we want to measure. In our case,
+the concept is *child development*. Other constructs, like *height*,
+*temperature* or *happiness* would be equally valid constructs. In
+practice, the position of the items on the line will be fixed when the
+measurement instrument is created. Application of the instrument
+involves placing children onto the line given their scores on one or
+more of the items, which is the more usual activity that we describe
+as "measurement". Realize however that both steps are needed.
 
-- What is the difference in development between two children of the
-same age?
+A latent variable ranges from low to high, and has a constant unit.
+Thus, interpretation of the same difference is identical across the
+entire scale. A latent variable cannot be measured directly. It is a
+theoretical construct. However, we may be able to actually measure
+variables (test items) that are in some way related to the latent
+variable. For example, we may have the child's scores on a set of
+tasks, such as "stacking two blocks". The way in which the measured
+variables are related to the latent variables is called the
+*measurement model*.
 
-- How does the child's development compare to a norm group?
+Some measurement models attempt to explain systematic patterns in the
+observed data through their relation to a single underlying variable.
+For example, we may find that the observed data are highly correlated,
+but that this correlation disappears within groups of children that have
+the same value on the latent variable. In that case, we have absorbed
+the common information in the variables into a single score that
+captures the relevant information.
 
-- How will this child's develop further?
-
-Studies aiming to identify determinant or establish effects typically
-formulate questions at the group level. Examples are:
-
-- What is the effect of an intervention on child development?
-
-- What is the difference in child development between specific groups?
-
-Monitoring population health is typically executed done at the
-municipal, regional or country level. Relevant questions at these
-levels include:
-
-- What is the change in average child development since the last
-measurement?
-
-- What is the effect of different policies on child development?
-
-- How does the population compare relative to a global standard for
-child development?
-
-Note that all questions compare the level of child development in some
-way. A few questions compare development for the same
-child/group/population at different ages. Some others compare
-development within the same age across different children, group 
-or populations.
-
-In the ideal situation, we would have one unit for child development.
-Let us name this unit *D*, for development. Unit *D* should have the
-following desirable properties:
-
-- Difference between two *D*-scores measured on the same child at
-different ages quantifies the amount of development during the
-interval
-
-- Difference between the *D*-score measured on two different children
-of the same age quantifies the difference in development between them
-
-- Comparing the *D*-score to an age-dependent reference identifies
-abnormal development
-
-These properties will be satisfied if we measure development on an
-interval scale, i.e., a scale with a constant unit. The interpretation
-of the difference between two *D*-score is the same across the entire
-scale, just like differences in height or weight. 
-
-If we succeed in creating an interval scale for development, then an
-enormous arsenal of technique developed for quantitative variables
-opens up to measure, track and analyze child development.
-
-## A new model for development
-
-Chapter 2 reviewed the age-based and score-based approaches to the
-measurement of child development. Neither approach provides a unit for
-child development. Age-based measurement expresses development in
-age-equivalents, whose precise definition depends on the reference
-population. Score-based measurement measure by summing the number of
-passes, but different instruments make different selections of items,
-so the measurements are unique to the instruments, and cannot be
-compared across instruments. Both approaches only provide arbitrary
-measures.
-
-In order to make progress, what we need is the definition of a unit of
-child developent, and an operationalization how each measurement item
-related to the unit. If we success in this, we are able to construct
-different instruments that yields measurement in a common unit. The
-next section introduce the basic concepts for this new approach.
-
-### The latent variable, and its role in measurement
-
-In this booklet we define measurement as the process of locating both
-persons and items on a line that represents a *latent variable*. The
-latent variable reflects the construct that the scale is designed to
-measure. In our case, the concept is *child development*, but other
-constructs, like *height*, *temperature* or *happiness* are equally
-valid constructs.
-
-A latent variable ranges from low to high, and preferably having a
-constant unit so that the interpretation of a difference between two
-scores is identical across the entire scale. A latent variable cannot
-be measured directly. It is a theoretical construct. However, observed
-(or manifest) variables can be measured. e.g., the child's scores on a
-set of developmental items in a test.
-
-The observed data may show typical patterns, like correlations, and
-the idea is that these patterns can be explained by a single
-underlying variable, the latent variable. The models that relate the
-manifest variables to the latent variable express the probability of
-passing a test item as a function of the difference between the
-person's ability and the item's difficulty. Given the values on a set
-of scores for a particular child and given a particular model, the aim
-is to deduce the value on the latent variable which is most likely to
-have given rise to the observed data.
+Probabilistic measurement models express the probability of passing an
+item as a function of the difference between the person's ability and
+the item's difficulty. A person with low ability will almost surely
+fail a difficult item, whereas a highly able person will almost surely
+pass an easy item. If we know the score on one or more items, and the
+difficulties of these items, we may calculate the position of the
+person on the latent variable.
 
 ### Criteria for invariant measurement
 
