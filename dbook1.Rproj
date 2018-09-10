@@ -17,3 +17,4 @@ StripTrailingWhitespace: Yes
 LineEndingConversion: Windows
 
 BuildType: Website
+WebsitePath: ~/Websites/dbook/dbook1
