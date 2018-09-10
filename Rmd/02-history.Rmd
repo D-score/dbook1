@@ -1,3 +1,4 @@
+
 # Short history {#ch:history}
 
 ## What is child development?
@@ -323,6 +324,8 @@ reasoning has led to the widely used concept of `developmental age` as
 a measure of a child's development (in body size or motor skill or
 psychological function) expressed in terms of age norms.
 
+<!--Include numerical example here from Shirley data -->
+
 Age-based measurement was once the dominant paradigm for measuring
 child development. It is easy to understand, but is not without 
 some problems and limitations.
@@ -353,6 +356,8 @@ typically under the assumption that the child would have passed all
 "too easy" items and failed on all "too difficult" items. This
 procedure is typically repeated for different domains, e.g. motor,
 cognitive, and so on.
+
+<!--Include numerical example here from Shirley data -->
 
 Score-based measurement is the dominant approach, but is not without
 conceptual and logistical issues.
