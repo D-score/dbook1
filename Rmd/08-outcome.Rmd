@@ -206,12 +206,25 @@ data.long1$scores_false_nw <- as.factor(data.long1$scores_false_nw)
 
 ```{r, echo=FALSE, message=FALSE, warning = FALSE}
 p2 <- ggplot(subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave)) +
-  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  geom_point(aes(col=scores_false), show.legend=F, size = 1)+ 
   scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
   coord_cartesian(xlim=c(0, 75)) +
   scale_y_continuous(name = "IQ at 5 years") +
   scale_x_continuous(name = "D-score (2 month milestones)") +
   facet_grid(. ~ wave) 
+
+box.p2 <- ggplot(subset(data.long1, wave == c(2)), aes(x = " ", y = dscore)) +
+  geom_boxplot( ) + 
+  scale_y_continuous(limits=c(-2, 75)) +
+  scale_x_discrete(name = " ") +
+  coord_flip() #+
+  #facet_grid(. ~ wave)
+box.p2
+
+library('gridExtra')
+lay <- rbind(1,1,1,2)
+grid.arrange(p2, box.p2, ncol=1, layout_matrix = lay)
+
 
 p3 <- ggplot(subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave)) +
   geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
