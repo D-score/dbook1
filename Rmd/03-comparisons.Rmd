@@ -60,7 +60,7 @@ issue. We may extend the measurement model so that it will be able to extract
 additional features from the data. Alternatively, we may search for a
 subset of the data (usually the items) that does fit the model. These
 are very different strategies that have led to heated debates among
-psychometricians. See @ENGELHARD2013 for an overview.
+psychometricians. See @engelhard2013 for an overview.
 
 Most measurement models used today are probabilistic. These models
 express the probability of passing an item as a function of the
@@ -71,7 +71,7 @@ whereas a highly able person will almost surely pass an easy item. One may also 
 ## Logit scale {#sec:logit}
 
 Let us now introduce a few symbols. We adopt the notation used in
-@WRIGHT1982. See Chapter \@ref(ch:notation) for a complete list.
+@wright1982. See Chapter \@ref(ch:notation) for a complete list.
 
 Let $\beta_n$ be the true (but unknown) developmental score of a child
 at the time of measurement. The more generic term for $\beta_n$ is the
@@ -80,7 +80,7 @@ child's *ability*. Let $\delta_i$ be the true (but unknown)
 $\beta_n$'s and four $\delta_i$'s.
 
 Differences on the latent scale are commonly expressed as "logistic
-units", or  *logits* [@BERKSON1944]. If the person ability $\beta_n$
+units", or  *logits* [@berkson1944]. If the person ability $\beta_n$
 and the item difficulty $\delta_i$ coincide, then the
 *ability-difficulty gap* $\beta_n - \delta_i = 0$, and the person
 has an probability of 0.5 of passing the item. In `R` we can calculate
@@ -179,7 +179,7 @@ sensitive to abilities between 0 to 2 logits.
 These are just some examples of how the relation between the child's
 ability and passing probability could look. In practice, the curves
 need not start at 0 percent or end at 100 percent. They could also be
-U-shaped, of have other non-monotonic forms. See @COOMBS1964 for a
+U-shaped, of have other non-monotonic forms. See @coombs1964 for a
 thorough overview of such models. However, most models are restricted to shapes A-D.
 
 
@@ -205,7 +205,7 @@ persons or objects. This definition is a little liberal. In order to
 be useful the process of assigning numbers must be bound by some
 imperatives. In this booklet, we strive to achieve *invariant
 measurement*, a very strict form of measurements that is subject to
-the following requirements (@ENGELHARD2013, p. 14):
+the following requirements (@engelhard2013, p. 14):
 
 1. *Item-invariant measurement of persons*: The measurement of persons
 must be independent of the particular items that happen to be used for
@@ -340,11 +340,11 @@ is the essential property of an interval scale.
 
 *Ideal-type models*:
 
-1. Guttman scalogram model (@GUTTMAN1950)
+1. Guttman scalogram model (@guttman1950)
 
-2. Rasch model (@RASCH1960) and extensions (@WRIGHT1982, @ANDRICH1988)
+2. Rasch model (@rasch1960) and extensions (@wright1982, @andrich1988)
 
-3. Mokken scaling model (@MOKKEN1971).
+3. Mokken scaling model (@mokken1971).
 
 The Guttman and Mokken model yield an ordinal latent scale, while the 
 Rasch model yields an interval scale (with a constant unit).
@@ -370,7 +370,7 @@ P(Y_p | X)\\
 $$
 
 each of which describes how the probability of passing changes with age. 
-For example, @DRACHLER2007 formulated the model as a logistic regression 
+For example, @drachler2007 formulated the model as a logistic regression 
 model on the logarithm of age:
 
 $$ 
@@ -386,7 +386,7 @@ rises with age. Items with high $\beta_j$ have a great power to discriminate
 developmental status well within a small age range. It is straightforward
 to calculate any other age-percentiles, for example, the ages 
 at which probabilities 10\% or 90\% of the sample pass the item.
-Table~2 in @DRACHLER2007 reports these statistics for the Denver 
+Table~2 in @drachler2007 reports these statistics for the Denver 
 developmental test.
 
 While the idea of breaking up the test into separate items

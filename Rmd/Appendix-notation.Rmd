@@ -4,7 +4,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Appendix - notation {#ch:notation}
 
-The notation in this booklet is based on the notation used in the book of @WRIGHT1982.
+The notation in this booklet is based on the notation used in the book of @wright1982.
 
 ```{r, echo=FALSE}
 
