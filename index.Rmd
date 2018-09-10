@@ -8,6 +8,10 @@ link-citations: yes
 description: "D-score I: Measurement"
 ---
 
+```{r include=FALSE}
+knitr::opts_chunk$set(cache = TRUE) 
+```
+
 # Preface {-}
 
 This is an introductory booklet on the measurement of child
