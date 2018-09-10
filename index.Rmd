@@ -9,7 +9,9 @@ description: "D-score I: Measurement"
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(cache = TRUE) 
+library(ggplot2)
+knitr::opts_chunk$set(cache = TRUE)
+ggplot2::theme_set(theme_light())
 ```
 
 # Preface {-}
