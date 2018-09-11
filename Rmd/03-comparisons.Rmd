@@ -416,9 +416,7 @@ a more able person may have a lower success probability for some
 items than a less able person. It would be preferable if 
 more able persons have a better succes rate on all items.
 
--- 
-In
-general, we expect that this probability increases with ability
+In general, we expect that this probability increases with ability
 (requirement 2). Note that this formulation differs from that given in
 Section \@ref(sec:agebased), where the probability was said to
 increase in age, not ability. We will address this crucial difference
