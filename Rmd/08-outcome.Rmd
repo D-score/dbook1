@@ -1,3 +1,8 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 ```{r, echo=FALSE}
 knitr::opts_chunk$set(error = TRUE)
 ```
@@ -185,11 +190,11 @@ dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
 
 
 
-## D-score of reference children at 2 years
+## D-score of reference children at 2 years (PD)
 
 **Data**
 
-A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994growth] . Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children. 
+A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994growth] . Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,578 children. 
 
 
 **Statistical analyses**
@@ -239,31 +244,9 @@ knitr::kable(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 
 
 Maternal and paternal education, gestational age, gender and birthweight were significantly associated with DAZ at 2 years of age.  
 
-```{r, echo=FALSE}
-#Script van Stef:
-library("ddata")
-library("dscore")
-library("dmetric")
-studies <- c("Netherlands 1", "Netherlands 2")
-data <- get_gcdg(study = studies, min_cat = 10, adm = TRUE, cov = TRUE)
-items <- intersect(item_names(study = studies), names(data))
-nlbank <- dscore::itembank
-d_dutch <- calculate_dscore(data = data, items = items, 
-                            itembank = nlbank, lexicon = "gcdg")
-ref <- dscore::gcdg_reference
-d_dutch$daz <- with(d_dutch, dscore::daz(d = d, x = age / 12, ref = ref))
-n_items <- data.frame(id = data$id, age = data$age,
-                      n = rowSums(!is.na(data[, items])))
-d_dutch <- dplyr::left_join(d_dutch, n_items, by = c("id", "age"))
-with(d_dutch, (plot(age, d, cex = 0.6)))
-with(d_dutch, (plot(age, daz, cex = 0.6)))
-write.table(x = d_dutch, file = "notes/dutch_native.txt",
-            sep = "\t", na = "", row.names = FALSE, quote = FALSE)
-
-```
 
 
-## D-score of preterms at 2 years 
+## D-score of preterms at 2 years (PD)
 
 **How to adjust development for age of gestation?**
 
