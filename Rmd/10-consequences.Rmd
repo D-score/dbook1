@@ -54,10 +54,13 @@ First, we will plot the D-scores against IQ at 5 years for each of the waves (se
 
 ```{r, echo = FALSE}
 #Subset van de data zonder de losse scores op de items:
-data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long2.sav")
+# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long2.sav")
+data.long <- haven::read_sav("data-raw/data/smocc/smocc_long2.sav")
 data.long$scores_false <- data.long$scores_false - 1
 data.long <- as_tibble(data.long)
-data.wide <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_wide.sav")
+# data.wide <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_wide.sav")
+data.wide <- haven::read_sav("data-raw/data/smocc/smocc_wide.sav")
+
 data.wide <- as_tibble(data.wide)
 
 
