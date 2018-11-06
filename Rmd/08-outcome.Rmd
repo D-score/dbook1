@@ -269,6 +269,7 @@ ggarrange(p2, p2.nw, p3, p3.nw, ncol=2, nrow=2, common.legend = TRUE, legend="bo
 ```
 
 The colours of the dots in figure \@ref(fig:dscoresnw) indicate the number of negative scores on the milestones: note that the number of milestones can differ per wave. Wave 2 has two milestones, Wave 3 has five milestones and Wave 4 has six milestones of the DDI. The variation in the D-score of the children with the same number of negative scores (the same colour of dots) is caused by variation in age. Since the D-score is calculated by using an age-dependent prior, younger children in the same wave with the same scores will have a lower D-score.
+<<<<<<< Updated upstream
 
 Moreover, the plots on the left in figure \@ref(fig:dscoresnw) show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. For example, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find children that have a delay in their development in comparison to their peers.
 
@@ -303,6 +304,42 @@ p.dscore.nw
 
 A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994growth]. Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children.
 
+=======
+
+Moreover, the plots on the left in figure \@ref(fig:dscoresnw) show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. For example, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find children that have a delay in their development in comparison to their peers.
+
+In addition, the plots on the right in figure \@ref(fig:dscoresnw), show the D-scores when non-calibrated milestones (the milestones of the next wave) are used. For the DDI, on average, around 50\% of the children should be able to get a positive score in this situation. For example, 50\% of the children of the age of 2 months should be able to get a positive score on the 3 month milestones. Since these milestones are considered to be more difficult, a negative score on one of the milestones will have a smaller effect on the D-score. Hence, the gap we saw before between the green and yellow dots disappears. Furthermore, there is more variation in the D-scores and the ceiling/bottom within the D-score scale disappears.
+
+Previously described phenomena are also visible in the densities of the D-scores. When the D-scores are calculated with the calibrated milestones, the left plots in figure \@ref(fig:dscoresnw), the density consists (at least) of two (small) peaks. While the D-scores calculated with non-calibrated milestones, the plots on the right, show a broader variation in the values of the D-score. Note, that the density of the D-score in the plot on the bottom right also shows the bottom effect of the D-score: the D-score is at least equal to 20. A lower D-score is not possible with this set of milestones at the age of 3 months. 
+
+
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+#D-scores plot
+p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
+  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore
+
+p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
+  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore.nw
+```
+
+
+## D-score of reference children at 2 years (PD)
+
+**Data**
+
+A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994growth]. Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children.
+
+>>>>>>> Stashed changes
 **Methods**
 
 Several characteristics were selected from the SMOCC cohort.  The following indicators are in agreement with the Global Indicators Project:
@@ -380,6 +417,7 @@ In 1983, data were collected for 1338 infants in the Netherlands who had very pr
 
 The $GA_{birth}$ was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings.
 We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth (<32 wk) and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurologic disorder, visual or hearing defects, or psychosocial problems. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:
+<<<<<<< Updated upstream
 
 Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
 
@@ -435,6 +473,63 @@ Several characteristics were selected from the POPS cohort.  The following indic
 
 We also added the following indicators from the POPS study:
 
+=======
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$).
+Development was considered equal to the general Dutch population when mean DAZ = 0.
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $0.67 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0.75$ was:
+
+-	Uncorrected chronological age 19-26 wk: $-0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
+
+-	Uncorrected chronological age 19-26 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-1.9 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.4 \pm 1$.
+
+**Conclusions**
+
+Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.
+
+**Impact of characteristics on the DAZ in preterm children**
+
+**Data**
+
+When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.
+
+**Methods**
+
+Several characteristics were selected from the POPS cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birthweight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the POPS study:
+
+>>>>>>> Stashed changes
 -	Paternal education (in years)
 -	Maternal age (in years)
 -	Apgar score after 1 min < 5 (yes vs no)
@@ -491,6 +586,219 @@ Compared with the general population, more very preterm children reached develop
 
 
 
-## D-score of children in LMIC at 2 years (RO)
+<!-- ## D-score of children in LMIC at 2 years (RO) -->
+## Usability and validity of the D-score in a low income country: The example of Togo
+
+The D-score is intended as a universal measure of children’s development. There is ample research indicating that the D-score actually is a valid indicator of development in western European countries like the Netherlands. If the D-score is a universal measure it should be informative in low and middle income countries as well. However, little is known about the usability and validity of the D-score in such countries. The aim of the present study is to examine the usability and validity of the D-score in the western African country of Togo. Togo definitely qualifies as a low income country with a 2017 GNI per capita of $610 versus $46,180 in the Netherlands, and $744 for low income countries in general (data.worldbank.org).   
+	To address this issue, we used data that were gathered by a French physician in Kpalimé, Togo. She set up a child health care system that was modeled after the Dutch preventive health care system. The system included the use of the so called Van Wiechen system to assess whether children’s developmental progress is in the normal range. The Van Wiechen data were used to calculate the D-scores as well as the age-corrected z-score of the D-score relative to a Dutch sample (DAZ). These two indices are the dependent variables in the present study. Data were gathered from about 9747 individuals in the 0-18 age range, but for the present study we focus on data from children in the 0-4 age range because the Van Wiechen assessment system is meant for this age range.  
+	Other available measures include father’s level of schooling, father’s number of children at the child’s first visit to the medical center, the APGAR score as a newborn, children’s weight, and the results of a physician’s neurological examination during visits to the health center. These variables are used to predict children’s D-scores and thereby to examine the D-score’s usability and validity in Togo.  
+
+**Methods**  
+
+Participants
+	Participants potentially included 1859 children in the 0-4 age range who paid at least one visit to the Kpalimé health center. Kpalimé is the fourth biggest town in Togo, but the health center also attracted parents and children from a wide surrounding rural area. Parents visited the health center for several reasons, including as a preventive health check or because of their child’s apparent health problems. The possibility of visiting the health center was made known to parents by information sessions for parents at primary schools. Parents paid a small amount of money per visiting child (€4 per for children of 4 years or older; €0,80 for children younger than 4 years).  
+	Because of limitations that are inherent to working in a low income country (limited access to the internet, computer failure) data of newly digitalized paper dossiers were sent to the Netherlands on a regular basis, but this practice unavoidably caused some unclarities and inconsistencies in the resulting dataset. Many of these could be solved, but time constraints prevented us from solving them all. Consequently, the data of .. potential participants (..%) were not yet included in the present study which leaves a dataset of 1659 (of 1644 NOG UITZOEKEN). Moreover d-scores could not be calculated when either age or Van Wiechen data were missing, which leaves a dataset of 2342 visits from 1522 children. The number of visits that parents of these children in the 0-4 age range paid to the health center varied from 1 – 9, but the majority of children were seen only once (n = 1146; 75.3%).  
+
+Measures  
+D-score  
+D-scores were calculated based on a French-language version of the Van Wiechen assessment. As in the Dutch preventive health care system, the goal of administering the Van Wiechen assessment was to  distinguish children with developmental problems from normal children. This means that items were chosen such that 90% of the children is expected to pass on age-equivalent items. Generally, for children that did not pass items age-equivalent items, extra items meant for a lower age were assessed, except that items meant for children younger than 15 months were never administered to children of age 15 months or older. Scores were strictly based on observations rather than on parent report. For the exact procedure to calculate d-scores based on Van Wiechen-scores, see chapter ..  
+
+Medical assessment  
+At each visit a physician notated his or her impression on several health aspects of the child including nutrition state, pecularities of the head, and, as part of a global neurological assessment whether there were problems with reflexes or tonus. For each of these aspects the physician could indicate whether something was wrong or not, and in the first case the physician added text about the observed problem. For the present study we only use the dichotomous information (whether a problem was observed or not) about nutrition state, reflex problems and tonus problems. A variable 'probable neurological disorder' was constructed based on specific texts that physicians notated after observing a peculiarity of the head. Texts that lead to a qualification of 'probable neurological disorder' included at least one of the words 'micro-encephaly', 'hydro-encephaly' or 'macro-encephaly'. Furthermore, weight was measured at each visit.
+
+Background characteristics  
+At the first visit of each child, the accompanying adult (mostly the mother) was asked to report on general background characteristics, including profession of the parents and the number of children each of the parents has (due to polygamy this number may differ between parents). As a measure of socio-economic status (SES) we constructed a dichotomous variable 'schooling of father' based on the reported profession of the father. As she was familiar with the local culture and schooling system, the founder of the medical center indicated which of the thirteen most common professions were likely to be schooled professions (i.e. more than primary education was needed). Fathers with one of these professions were classified as 'schooled'. When 'another profession' was marked, the father was categorized as unschooled, as the most common schooled professions were among the thirteen professions.  
+	Other background characteristics included gender of the child, number of children of the father at the moment of the first visit, and birth date. Age of the child at the moment of visiting was calculated based on the date of visit and the birth date. In Togo, medical information about a newborn is notated on a special card which parents receive. Parents were asked to take this card with them to the medical center; in this way information about the birth situation of part of the children was obtained, including birth weight, gestational age (<37 weeks versus 37 weeks or more) and APGAR scores at 1, 5 and 10 minutes after birth.  
+
+Procedure  
+Measures used in this study were assessed at the medical center in Kpalimé which parents visited with their children, and were part of a general preventive health assessment (including physical measurements of weight, height, and head size, a medical examination, a few blood tests, and a hearing test). Also, parents were asked to report on characteristics of the birth situation, previous health issues, nutrition situation, and background characteristics of the family.   
+During the visits, medical assessment took place before assessment of the Van Wiechen assessment, and was conducted by the same physician. All assessments, including the Van Wiechen assessment, were either performed by the initiating physician and founder of the medical center, or by one of three local physicians trained to assess the Van Wiechen procedure. Resulting data of the assessment (including advice given and/or references to another professional) were documented in paper dossiers and in 2017 digitalized by four local assistants with the use of software program EpiData. 
+ 
+Analyses  
+To assess the validity of the d-score in this population, we inspect scatterplots in which d-scores are plotted against age for all available visits, and in which children with neurological problems as observed by a physician are highlighted. It is expected that a curve is seen, with higher d-scores for older children, moreover children with very low d-scores for their age are expected to be assessed by the physician as having a neurological problem.
+	Validity and usability of the d-score in this population would also be supported when known risk factors of developmental problems would be found to be predictors of a lower d-score in this population as well. Risk factors of interest are health problems of a newborn (as indicated by a less than optimal APGAR score at 10 minutes), underweight, and gestational age less than 37 weeks. Furthermore, if a relation between underweight and a lower d-score is observed, it would also be interesting to see whether there is a relation between family size and d-score, as many children per family could be a cause of malnutrition. For this purpose children were classified as being part of a large family when the number of children of their father was 5 or more (at the moment of their first visit) versus 4 or less.  
+	To assess which risk factors predict a lower than normal d-score, several regression analyses were conducted. Outcome variable is the Development - Age adjusted Z-score (DAZ) which tells how many standard deviations the d-score of the child deviates from his/her age-mates. To calculate these z-scores data of Dutch children are used as reference data. On some of these risk factor variables data is only available for part of the children. In order to prevent a loss of power, for each risk factor separate regression analyses were conducted. In each regression sex and education level of father (schooled versus unschooled) are added as covariates (except for the regression where the relation between large families and the DAZ is analyzed, as family size and schooling may be confounded). To prevent distortions from dependent data, regressions are performed on data with one visit per child only. Analyses will be conducted twice: once with the data from the first visit of each child, and once with the last visit of each child.
+
+**Results**  
+Descriptives
+
+<!-- nog invoegen: table met percentages per categorie voor elk van de predictoren, en info over verdeling age, no of children father etc ## -->
+
+The relation between D-score and age can be found in figure .. As expected, a curve is seen, with higher ages related to higher d-scores. Also, it can be seen that there are quite some D-scores below the curve. In figure .. it can be seen that many of these lower than normal D-scores are not artefacts of the data, but belong to children that were observed to have reflex and/or tonus problems.  
+
+```{r, echo=FALSE}
+
+# data laden, incl d-scores (voorlopige versie, voorlopig opgeslagen in booklets-sharepoint)
+dbookdatapath <- "\\\\365tno.sharepoint.com@SSL\\teams\\P060.33452\\TeamDocuments\\Team\\Work\\Booklets\\Data\\togo_g1g2"
+Togodat <- load(paste(dbookdatapath, "Togodat_g1g2_allevisits_voor_gebruik_dbook001.Rda", sep="\\"))
+
+Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores <- Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore$d)==FALSE,]
+
+# Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores
+
+library(ggplot2)
+
+# kale plot hele groep; alle visits
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores,
+             aes(x=age*12, 
+                 y=d #, colour=no_of_items_completed<4
+                 )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+                     ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+                     ) +
+  xlab("age (months)")+ylab("d-score") #+
+  # geom_line(data=ref_NL, aes(x=month, y=SDP2), colour="blue") +
+  # geom_line(data=ref_NL, aes(x=month, y=SD0), colour="red") +
+  # geom_line(data=ref_NL, aes(x=month, y=SDM2), colour="blue")
+
+nvisits_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores)
+# van .. unieke kinderen:
+n_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[,"kindnr"]))  
+
+```
+
+*`r nvisits_d` visits from `r n_d` children*  
+
+
+```{r, echo=FALSE}
+# als validatie: 
+# tonus en/of reflex-probleem uitlichten
+# klaar; deze naar dbook
+ggplot(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE),], 
+       aes(x=age*12, y=d)) +
+  geom_point() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE),],
+             aes(x=age*12, y=d, colour=(neuro.reflex==1|neuro.tonus==1) )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)")+ylab("d-score") +
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("no reflex or tonus problems", "reflex and/or tonus problems"),
+                     name="as observed by physician:") 
+# n: 2331 visits van 1380 unieke kinderen (gaat om visits waarbij zowel tonus als reflex-data aanwezig is )
+# table(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex, Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus, useNA="ifany")
+# sum(table(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex, Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus))
+# dim(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE),])
+# length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE),"kindnr"]))
+
+# aantal bezoeken in deze plot:
+nvisits_tonus_reflex_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),])
+# van .. unieke kinderen:
+n_tonus_reflex_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"]))  
+```
+
+*`r nvisits_tonus_reflex_d` visits from `r n_tonus_reflex_d` children*
+
+
+In figure .. underweighted children are highlighted, and visually there seems to be a relation between underweight and a lower than normal D-score. A regression based on data of children's last visit  showed that indeed the age-corrected weight z-score, after correction for fathers' schooling and sex of the child, did predict the DAZ: a decrease of 1 SD in age-corrected weight is related to a decrease of .6 SD in age-corrected D-score (p<.001), which is a reasonable effect. The overall model explained 18% of the DAZ variance (adjusted R2). As in the other regression analyses sex and fathers' schooling did not contribute significantly to the model.  
+	Because there clearly seems to be a relation between underweight and a lower than normal D-score, it was also tested whether family size (which might be a cause of malnutrition) did predict the DAZ. No such relation was found: children from large families (5 or more children of the father at the moment of the first visit versus 4 or less children) did not have different DAZ-scores at their last visit than children of smaller families (after correction for sex: B=.06, p=.76, adjusted R2=-.002).  
+<!-- NOG CHECKEN: is het inderdaad 2zijdig getoetst? -->
+
+```{r, echo=FALSE}
+# uitlichten: weight_z_no_outliers < (-3) (eigenlijk waz, want age-corrected z-score) 
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_z_no_outliers)==FALSE,],
+             aes(x=age*12, 
+                 y=d, 
+                 colour=weight_z_no_outliers<(-3)
+             )
+  ) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)") + ylab("d-score") +
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("not extreme underweighted (age-corrected zscore > -3)", 
+                              "extreme underweighted (age-corrected zscore < -3)"),
+                     name="based on Dutch reference data:")
+
+# aantal bezoeken in deze plot:
+nvisits_weight_z_no_outliers_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_z_no_outliers)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),])
+# van .. unieke kinderen:
+n_weight_z_no_outliers_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_z_no_outliers)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"])) 
+```
+
+*`r nvisits_weight_z_no_outliers_d` visits from `r n_weight_z_no_outliers_d` children*
+
+
+In figure .. 1070 D-scores of 534 children for who a 10-minute APGAR score was available are shown. A less than optimal 10-minute APGAR score (i.e. less than 10 points) did predict a lower DAZ at their last visit after correction for sex and father's schooling (B=0.91, p=.0007, adjusted R2= .028). So, children with a less than optimal APGAR score at ten minutes after birth, had somewhat lower D-scores  
+<!-- NOG CHECKEN: waarom is df zoveel kleiner dan 534? Komt dat door 'laatste visit'-selectie?   -->
+<!-- en bij deze nog prematuriteit en evt. geb.gew toevoegen als covariaat? Kan dat dit vooral gaat over prematuur vs niet-prematuur # -->
+
+For all regression analyses mentioned, results were similar when based on children's first visit.
+
+
+```{r, echo=FALSE}
+# uitlichten: apgar score lager dan 10 bij 10min
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE,],
+             aes(x=age*12, 
+                 y=d, 
+                 colour=apgar.10min<10
+             )
+  ) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)") + ylab("d-score")+
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("10 points at apgar 10 min",
+                              "less than 10 points at apgar 10 min"),
+                     name="")
+
+# aantal bezoeken in deze plot:
+nvisits_apgar10_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),])
+# van .. unieke kinderen:
+n_apgar10_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"]))  
+
+
+```  
+*`r nvisits_apgar10_d` visits from `r n_apgar10_d` children* 
+
+
+**Conclusions**  
+
+NOG UITSCHRIJVEN; inhoud:  
+-	Lijkt erop dat D-score ook in Togo informatief is:  
+o	voor de grote groep: mooie curve tov leeftijd  
+o	lage DAZ-scores hangen sterk samen met door arts geobserveerde neurologische problemen; dus dit lijken geen artefacten van de data maar echt zwakke kinderen   
+o	DAZ-scores worden geprediceerd door logische predictoren: APGAR en ondergewicht  
+
+Discussiepuntjes:  
+-	Scholing als covariaat: verwachting was dat dit iets zou doen; blijkt niet het geval. Kan komen door grove indeling in geschoold/ongeschoold op basis van beroep. Grote groep had beroep='anders', allemaal indelen bij ongeschoold was misschien te kort door de bocht?  
+-	Aantal kinderen in gezin als predictor voor daz doet niks; kan dat het verband (via ondervoeding) er echt niet is; kan ook dat variabele te onnauwkeurig is: gebaseerd op 1e visit van kind, dus als kind met 3,5 jaar terugkomt en er inmiddels wel veel kinderen zijn dan wordt dat niet meegenomen  
+-	Zeer de vraag of dit een representatieve Togo-sample is; veel zieke kinderen (omdat ouders toch vooral komen als er wat mis is), maar alsnog voor de grote groep een prachtige curve, dus d-score is wel informatief  
+
+
+Evt nog doen:  
+-	Na overleg met Cécile Schat: zij zagen heel weinig echte ondervoeding; wel is lichaamsbouw daar zeer tenger; wat gebeurt er als je ipv ondergewicht 'voedingstoestand geobserveerd door arts' neemt als predictor? En als je ondergewicht bepaalt adhv -2 SD WHO-referentiegroep ipv -3 SD NL-referentiegroep? Betere indicator van ondervoeding is bovendien: specifieke vorm van bloedarmoede; die variabele zit er ook in; zegt ook iets over eenzijdig eten in plaats van simpelweg te weinig (volgens Cécile Schat komt eenzijdig wel veel voor; te weinig niet)  
+-	Gestational age en gebgewicht variabelen naar juiste dataset overhevelen zodat die ook gebruikt kunnen worden
+
+
 
 ## Comparison
