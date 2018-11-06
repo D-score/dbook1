@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="relevance-of-long-term-health-outcomes.html">
-<link rel="next" href="practical-implications-1.html">
+<link rel="prev" href="d-score-of-reference-children-at-2-years-pd.html">
+<link rel="next" href="d-score-of-children-in-lmic-at-2-years-ro.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -216,212 +216,332 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="predictive-power-of-d-score" class="section level2">
-<h2><span class="header-section-number">10.3</span> Predictive power of D-score</h2>
-<p>To demonstrate the predictive power of the D-score, we will predict IQ at the age of 5 years for children in the SMOCC dataset. We have data for nine different waves, which includes different numbers of milestones of the Dutch Developmental Instrument (DDI). See table <a href="predictive-power-of-d-score.html#tab:tableSMOCC">10.1</a> for an overview.</p>
-<table>
-<caption><span id="tab:tableSMOCC">Table 10.1: </span>Overview of the nine waves of the SMOCC data</caption>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">Age in months</th>
-<th align="right">Number of milestones of the DDI</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>wave 1</td>
-<td align="right">1</td>
-<td align="right">5</td>
-</tr>
-<tr class="even">
-<td>wave 2</td>
-<td align="right">2</td>
-<td align="right">2</td>
-</tr>
-<tr class="odd">
-<td>wave 3</td>
-<td align="right">3</td>
-<td align="right">5</td>
-</tr>
-<tr class="even">
-<td>wave 4</td>
-<td align="right">6</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td>wave 5</td>
-<td align="right">9</td>
-<td align="right">7</td>
-</tr>
-<tr class="even">
-<td>wave 6</td>
-<td align="right">12</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td>wave 7</td>
-<td align="right">15</td>
-<td align="right">6</td>
-</tr>
-<tr class="even">
-<td>wave 8</td>
-<td align="right">18</td>
-<td align="right">6</td>
-</tr>
-<tr class="odd">
-<td>wave 9</td>
-<td align="right">24</td>
-<td align="right">6</td>
-</tr>
-</tbody>
-</table>
-<p>First, we will plot the D-scores against IQ at 5 years for each of the waves (see figure <a href="predictive-power-of-d-score.html#fig:dscoresIQ5yrs">10.1</a>). In this way, we can see the variation in D-scores for the different waves and how this relates to IQ at the age of 5 years. The colours indicate the number of milestones that got a negative score. Thus, for example, yellow indicates that one of the milestones got a negative score, however this does not mean that all yellow dots in the same plot represent the same number of positive scores. It could be that for some children not all scores of the milestones were available. The same holds, ofcourse, for the other colours as well.</p>
-<div class="figure"><span id="fig:dscoresIQ5yrs"></span>
-<img src="dbook1_files/figure-html/dscoresIQ5yrs-1.png" alt="\label{fig:dscoresIQ5yrs} The D-scores plotted against IQ at 5 years for each wave" width="672" />
-<p class="caption">
-Figure 10.1:  The D-scores plotted against IQ at 5 years for each wave
-</p>
-</div>
-<p>In addition, it is important to note that the number of milestones per wave differ. For example, when we compare the plots for wave 8 and wave 9, it seems that at wave 8 the milestones are more difficult, since there are children who got a negative score on more than one milestone. While at wave 9, the maximum number of milestones with a negative score is one (yellow dots). However, wave 8 contains six milestones of the DDI, while wave 9 only contains one milestone of the DDI. Hence, the difference between the number of milestones at each wave causes the variation in the number of colours used between the nine plots.</p>
-<p>Furthermore, we can see that there is a gap between the cloud of blue dots and the cloud of yellow dots in all nine plots. Or in other words, there is a substantial difference in D-score between children without negative scores and childeren with (at least) one negative score on the milestone(s) of the DDI. The rational behind this, was explained in Chapter 8. For most of the waves there is no clear relation between the D-score and IQ at 5 years visible in the plots. However, for wave 7 and 9, we can see that the cloud of blue dots (with higher D-scores) lies a bit higher than the cloud consisting of the other dots. This could indicate that children with an higher D-score at the age of 15 months and 24 months also have an higher IQ at the age of 5 years on average.</p>
-<p>Besides the graphical exploration of the relation between the D-score and IQ at 5 years old, we can also use models to determine this relationship. For example, we can model IQ at 5 years old for each wave separately, which allows us to compare the effect of the D-score at each wave on the variation in IQ at 5 years. First, we can estimate models in which the D-score is the only explanatory variable for the variation in IQ at 5 years. The estimate for the D-score and the <span class="math inline">\(R^2\)</span> of these nine models are visualized in figure <a href="predictive-power-of-d-score.html#fig:graphestR2">10.2</a>.</p>
-<div class="figure"><span id="fig:graphestR2"></span>
-<img src="dbook1_files/figure-html/graphestR2-1.png" alt="\label{fig:graphestR2} The estimate for the D-score and $R^2$ plotted for each wave" width="672" />
-<p class="caption">
-Figure 10.2:  The estimate for the D-score and <span class="math inline">\(R^2\)</span> plotted for each wave
-</p>
-</div>
-<p>In figure <a href="predictive-power-of-d-score.html#fig:graphestR2">10.2</a>, we can see that the estimates for the D-score and the <span class="math inline">\(R^2\)</span> are the highest for wave 7 and wave 9. Indicating that the D-score at wave 7 and wave 9 has the largest effect on IQ at 5 years and explain the most variation in IQ at 5 years. In addition, figure <a href="predictive-power-of-d-score.html#fig:graphestR2">10.2</a> shows that the D-score of the first four waves barely explains any variation in IQ at 5 years. Thus, the D-scores of the first six months is not capable of explaining the variation in IQ at 5 years. Hence, the D-score when the children are older is better in explaining the variation in IQ at 5 years.</p>
-<p>Secondly, we can add explanatory variables to the regression model to control for confounding effects. For example, the education level of the mother can also partly explain the variation in IQ at 5 years, so it is important to add these to your prediction model. To predict IQ at 5 years, the following explanatory variables are added to the regression model:</p>
+<div id="d-score-of-preterms-at-2-years-pd" class="section level2">
+<h2><span class="header-section-number">8.3</span> D-score of preterms at 2 years (PD)</h2>
+<p><strong>How to adjust development for age of gestation?</strong></p>
+<p>Developmental milestones can be assessed at several chronological ages (defined as age since birth, or postnatal age) to identify very preterm children who have developmental delay and who would benefit from stimulation programs. However, assessment of very preterm children at the same chronological age as term children may cause overdiagnosis of developmental delay in very preterm children and excessive referral for stimulation programs. Very preterm children may require additional time, determined by a factor that considers the difference between gestational age at birth (<span class="math inline">\(GA_{birth}\)</span>) vs 40 wk (<span class="math inline">\(GA_{birth}\)</span> for normal term birth), to enable development equivalent to that of normal term birth children. Several authors have proposed full or half correction of chronological age of very preterm birth children to provide a realistic evaluation of age-appropriate milestones; e.g. compare milestones for a child born at <span class="math inline">\(GA_{birth}\)</span> 30 wk vs a normal term child when the chronological age is 10 (full correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40 minus 35 wk) lower for the term than very preterm child. The Dutch Development Instrument (DDI) – a modification of the Gesell test – is used in preventive child health care to assess development from birth to chronological age 4 y.</p>
+<p><strong>Data</strong></p>
+<p>In 1983, data were collected for 1338 infants in the Netherlands who had very preterm birth (<span class="math inline">\(GA_{birth} \geq\)</span> 25 and &lt; 32 wk) or very low birth weight (birth weight &lt; 1500 g) (Project On Preterm and Small for Gestational Age Infants [POPS]).</p>
+<p><strong>Methods</strong></p>
+<p>The <span class="math inline">\(GA_{birth}\)</span> was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings. We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth (&lt;32 wk) and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurologic disorder, visual or hearing defects, or psychosocial problems. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:</p>
+<p>Corrected chronological age (<span class="math inline">\(d\)</span>) = uncorrected chronological age (<span class="math inline">\(d\)</span>) - (<span class="math inline">\(X_i × 7 × [40 - GA_{birth}(wk)]\)</span>)</p>
+<p>where the correction factor <span class="math inline">\(X_i\)</span> ranged from full (<span class="math inline">\(X_i = 1\)</span>) through half (<span class="math inline">\(X_i = 0.5\)</span>) and no correction (<span class="math inline">\(X_i = 0\)</span>). Development was considered equal to the general Dutch population when mean DAZ = 0.</p>
+<p><strong>Results</strong></p>
+<p>Mean DAZ <span class="math inline">\(\pm\)</span> SD for chronological age with correction by <span class="math inline">\(X_i = 1.0\)</span> were:</p>
 <ul>
-<li>gender</li>
-<li>birthweight</li>
-<li>birthsize</li>
-<li>agemom: age mother</li>
-<li>edumocat: low, middle or high education level of the mother</li>
-<li>age</li>
-<li>D-score</li>
+<li>Uncorrected chronological age 19-26 wk: <span class="math inline">\(0.67 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 32-40 wk: <span class="math inline">\(-0.1 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 59-66 wk: <span class="math inline">\(-0.1 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 111-119 wk: <span class="math inline">\(0.1 \pm 1\)</span>.</li>
 </ul>
-<p>The first five variables are constant over the waves, while the other two variables vary over time.</p>
-<p>For each wave we have estimated two models, <em>model 1</em> including all variables as listed above, and <em>model 2</em> including all variables except for the D-score. Then, we can compare the explained variation of IQ at 5 years old of both models by comparing the adjusted <span class="math inline">\(R^2\)</span>. We have chosen for the adjusted <span class="math inline">\(R^2\)</span> since it corrects for the number of variables added to the model: the <span class="math inline">\(R^2\)</span> will always get higher when a new variable is added to the model. In this way, we can see how much of the variation in IQ is explained by adding the D-score to the regression model for each wave.</p>
-<p>The estimates for the predictor D-score, and it’s 95% confidence interval are given in table <a href="predictive-power-of-d-score.html#tab:tableIQ">10.2</a>. Moreover, it contains the p-values for the predictor D-score in <em>model 1</em> and the adjusted <span class="math inline">\(R^2\)</span>’s for <em>model 1</em> and <em>model 2</em>. The adjusted <span class="math inline">\(R^2\)</span> determines the explained variation in the outcome measure, in this case IQ at 5 years, while penalizing for the number of predictors in the model. Comparison of the <span class="math inline">\(R^2\)</span> is not feasible, since it will always increase when another predictor is added to the model.</p>
+<p>Mean DAZ <span class="math inline">\(\pm\)</span> SD for chronological age with correction by <span class="math inline">\(X_i = 0.75\)</span> was:</p>
+<ul>
+<li>Uncorrected chronological age 19-26 wk: <span class="math inline">\(-0.1 \pm 1\)</span>.</li>
+</ul>
+<p>Mean DAZ <span class="math inline">\(\pm\)</span> SD for chronological age with no correction (<span class="math inline">\(X_i = 0\)</span>) were:</p>
+<ul>
+<li>Uncorrected chronological age 19-26 wk: <span class="math inline">\(-1.8 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 32-40 wk: <span class="math inline">\(-1.9 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 59-66 wk: <span class="math inline">\(-1.1 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 111-119 wk: <span class="math inline">\(-0.4 \pm 1\)</span>.</li>
+</ul>
+<p><strong>Conclusions</strong></p>
+<p>Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for <span class="math inline">\(GA_{birth}\)</span> was used, and similar proportions were observed when 0.75 correction for <span class="math inline">\(GA_{birth}\)</span> was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for <span class="math inline">\(GA_{birth}\)</span>. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.</p>
+<p><strong>Impact of characteristics on the DAZ in preterm children</strong></p>
+<p><strong>Data</strong></p>
+<p>When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.</p>
+<p><strong>Methods</strong></p>
+<p>Several characteristics were selected from the POPS cohort. The following indicators are in agreement with the Global Indicators Project:</p>
+<ul>
+<li>Area of residence:
+<ul>
+<li>rural: &lt;2,000 inhabitants</li>
+<li>semi-urban: [2000, 50,000] inhabitants</li>
+<li>urban: 50,000 – 1 million inhabitants</li>
+<li>metropolitan: &gt;1 million</li>
+</ul></li>
+<li>Number of years of education by the mother (in years)</li>
+<li>Child related factors:
+<ul>
+<li>Gestational age (In weeks and in categories of very preterm (&lt;32 weeks), preterm (&lt;37 weeks) and term birth (≥37 weeks))</li>
+<li>Gender (boys vs girls)</li>
+<li>Birthweight (in grams)</li>
+<li>Birth size (in cm)</li>
+</ul></li>
+</ul>
+<p>We also added the following indicators from the POPS study:</p>
+<ul>
+<li>Paternal education (in years)</li>
+<li>Maternal age (in years)</li>
+<li>Apgar score after 1 min &lt; 5 (yes vs no)</li>
+<li>Apgar score after 5 min &lt; 7 (yes vs no)</li>
+</ul>
+<p><strong>Results</strong></p>
 <table>
-<caption><span id="tab:tableIQ">Table 10.2: </span>Comparison of the models per wave to explain IQ at 5 years by D-score</caption>
+<caption><span id="tab:unnamed-chunk-25">Table 8.4: </span>Results POPS</caption>
 <thead>
 <tr class="header">
-<th></th>
-<th align="right">Esimate D-score</th>
-<th align="right">95% CI LL</th>
-<th align="right">95% CI UL</th>
-<th align="right">p-value</th>
-<th align="right">model 1 adj. <span class="math inline">\(R^2\)</span></th>
-<th align="right">model 2 adj. <span class="math inline">\(R^2\)</span></th>
-<th align="right">diff. adj. <span class="math inline">\(R^2\)</span></th>
+<th align="left">Indicators</th>
+<th align="left">n</th>
+<th align="left"><span class="math inline">\(%\)</span> or mean(SD)</th>
+<th align="left">Model DAZ Coefficient (SE)</th>
+<th align="left">Model DAZ t-statistics</th>
+<th align="left">Model DAZ p-value</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>wave 1</td>
-<td align="right">0.1146</td>
-<td align="right">-0.1880</td>
-<td align="right">0.821</td>
-<td align="right">0.2183</td>
-<td align="right">0.0708</td>
-<td align="right">0.0697</td>
-<td align="right">0.0011</td>
+<td align="left">Area of Residence</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td>wave 2</td>
-<td align="right">0.1384</td>
-<td align="right">-0.3584</td>
-<td align="right">0.740</td>
-<td align="right">0.4952</td>
-<td align="right">0.0598</td>
-<td align="right">0.0610</td>
-<td align="right">-0.0012</td>
+<td align="left">rural</td>
+<td align="left"><span class="math inline">\(1\)</span></td>
+<td align="left"><span class="math inline">\(0.5%\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
-<td>wave 3</td>
-<td align="right">-0.1363</td>
-<td align="right">-0.4333</td>
-<td align="right">0.537</td>
-<td align="right">0.8339</td>
-<td align="right">0.0650</td>
-<td align="right">0.0669</td>
-<td align="right">-0.0020</td>
+<td align="left">semi-urban</td>
+<td align="left"><span class="math inline">\(120\)</span></td>
+<td align="left"><span class="math inline">\(62.5%\)</span></td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td>wave 4</td>
-<td align="right">0.1201</td>
-<td align="right">-0.3865</td>
-<td align="right">0.582</td>
-<td align="right">0.6914</td>
-<td align="right">0.0652</td>
-<td align="right">0.0670</td>
-<td align="right">-0.0018</td>
+<td align="left">urban</td>
+<td align="left"><span class="math inline">\(71\)</span></td>
+<td align="left"><span class="math inline">\(37.0%\)</span></td>
+<td align="left"><span class="math inline">\(-0.1561 (0.1661)\)</span></td>
+<td align="left"><span class="math inline">\(-0.939\)</span></td>
+<td align="left"><span class="math inline">\(0.349\)</span></td>
 </tr>
 <tr class="odd">
-<td>wave 5</td>
-<td align="right">-0.0806</td>
-<td align="right">-0.0926</td>
-<td align="right">0.849</td>
-<td align="right">0.1151</td>
-<td align="right">0.0733</td>
-<td align="right">0.0702</td>
-<td align="right">0.0031</td>
+<td align="left">metropolitan</td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"><span class="math inline">\(0%\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
-<td>wave 6</td>
-<td align="right">-0.0112</td>
-<td align="right">-0.2652</td>
-<td align="right">0.695</td>
-<td align="right">0.3796</td>
-<td align="right">0.0644</td>
-<td align="right">0.0649</td>
-<td align="right">-0.0005</td>
+<td align="left">Maternal education (in years)</td>
+<td align="left"><span class="math inline">\(152\)</span></td>
+<td align="left"><span class="math inline">\(13.4 (2.2)\)</span></td>
+<td align="left"><span class="math inline">\(0.07417 (0.03897)\)</span></td>
+<td align="left"><span class="math inline">\(1.903\)</span></td>
+<td align="left">0.0589</td>
 </tr>
 <tr class="odd">
-<td>wave 7</td>
-<td align="right">0.2170</td>
-<td align="right">0.0088</td>
-<td align="right">7.539</td>
-<td align="right">0.0495</td>
-<td align="right">0.1030</td>
-<td align="right">0.0756</td>
-<td align="right">0.0274</td>
+<td align="left">Paternal education (in years)</td>
+<td align="left"><span class="math inline">\(156\)</span></td>
+<td align="left"><span class="math inline">\(14.1 (2.4)\)</span></td>
+<td align="left"><span class="math inline">\(0.08542 (0.03458)\)</span></td>
+<td align="left"><span class="math inline">\(2.470\)</span></td>
+<td align="left"><span class="math inline">\(0.0146\)</span></td>
 </tr>
 <tr class="even">
-<td>wave 8</td>
-<td align="right">0.1891</td>
-<td align="right">-0.0446</td>
-<td align="right">0.882</td>
-<td align="right">0.0763</td>
-<td align="right">0.0880</td>
-<td align="right">0.0831</td>
-<td align="right">0.0049</td>
+<td align="left">Maternal age (in years)</td>
+<td align="left"><span class="math inline">\(193\)</span></td>
+<td align="left"><span class="math inline">\(27.5 (4.4)\)</span></td>
+<td align="left"><span class="math inline">\(0.01462 (0.01810)\)</span></td>
+<td align="left"><span class="math inline">\(0.808\)</span></td>
+<td align="left"><span class="math inline">\(0.420\)</span></td>
 </tr>
 <tr class="odd">
-<td>wave 9</td>
-<td align="right">0.0816</td>
-<td align="right">-0.0477</td>
-<td align="right">1.130</td>
-<td align="right">0.0716</td>
-<td align="right">0.0692</td>
-<td align="right">0.0622</td>
-<td align="right">0.0070</td>
+<td align="left">Gestational age (in weeks)</td>
+<td align="left"><span class="math inline">\(199\)</span></td>
+<td align="left"><span class="math inline">\(30.1 (1.4)\)</span></td>
+<td align="left"><span class="math inline">\(0.02039 (0.05784)\)</span></td>
+<td align="left"><span class="math inline">\(0.352\)</span></td>
+<td align="left"><span class="math inline">\(0.725\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Gestational age (in categories)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\geq 37\)</span> weeks</td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"><span class="math inline">\(0%\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\geq 32 - 37\)</span> weeks</td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"><span class="math inline">\(0%\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(&lt;32\)</span> weeks*</td>
+<td align="left"><span class="math inline">\(199\)</span></td>
+<td align="left"><span class="math inline">\(100%\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Gender</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">boys</td>
+<td align="left"><span class="math inline">\(88\)</span></td>
+<td align="left"><span class="math inline">\(44.2%\)</span></td>
+<td align="left"><span class="math inline">\(-0.09883 (0.15862)\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">girls</td>
+<td align="left"><span class="math inline">\(111\)</span></td>
+<td align="left"><span class="math inline">\(55.8%\)</span></td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"><span class="math inline">\(0.623\)</span></td>
+<td align="left"><span class="math inline">\(0.534\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Birthweight (in kg)</td>
+<td align="left"><span class="math inline">\(199\)</span></td>
+<td align="left"><span class="math inline">\(1.371 (0.341)\)</span></td>
+<td align="left"><span class="math inline">\(0.4280 (0.2299)\)</span></td>
+<td align="left"><span class="math inline">\(1.862\)</span></td>
+<td align="left"><span class="math inline">\(0.0641\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Birthweight (in categories)</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\geq 2500\)</span> grams</td>
+<td align="left"><span class="math inline">\(1\)</span></td>
+<td align="left"><span class="math inline">\(0.5%\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\geq 1500 - &lt;2500\)</span> grams</td>
+<td align="left"><span class="math inline">\(65\)</span></td>
+<td align="left"><span class="math inline">\(32.7%\)</span></td>
+<td align="left"><span class="math inline">\(0.14866 (0.16782)\)</span></td>
+<td align="left"><span class="math inline">\(0.886\)</span></td>
+<td align="left"><span class="math inline">\(0.377\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(&lt;1500\)</span> grams</td>
+<td align="left"><span class="math inline">\(133\)</span></td>
+<td align="left"><span class="math inline">\(66.8%\)</span></td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Birth size (in cm)</td>
+<td align="left"><span class="math inline">\(165\)</span></td>
+<td align="left"><span class="math inline">\(39.6 (3.2)\)</span></td>
+<td align="left"><span class="math inline">\(0.01707 (0.02706)\)</span></td>
+<td align="left"><span class="math inline">\(0.631\)</span></td>
+<td align="left"><span class="math inline">\(0.529\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Apgar score after 1 min</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(&lt;5\)</span></td>
+<td align="left"><span class="math inline">\(44\)</span></td>
+<td align="left"><span class="math inline">\(77.0%\)</span></td>
+<td align="left"><span class="math inline">\(-0.13315 (0.19208)\)</span></td>
+<td align="left"><span class="math inline">\(-0.693\)</span></td>
+<td align="left"><span class="math inline">\(0.4890\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(\geq 5\)</span></td>
+<td align="left"><span class="math inline">\(147\)</span></td>
+<td align="left"><span class="math inline">\(23.0%\)</span></td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left">Apgar score after 5 min</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left"><span class="math inline">\(&lt;7\)</span></td>
+<td align="left"><span class="math inline">\(16\)</span></td>
+<td align="left"><span class="math inline">\(9.1%\)</span></td>
+<td align="left"><span class="math inline">\(0.56013 (0.28326)\)</span></td>
+<td align="left"><span class="math inline">\(1.977\)</span></td>
+<td align="left"><span class="math inline">\(0.0496\)</span></td>
+</tr>
+<tr class="even">
+<td align="left"><span class="math inline">\(\geq 7\)</span></td>
+<td align="left"><span class="math inline">\(160\)</span></td>
+<td align="left"><span class="math inline">\(90.9%\)</span></td>
+<td align="left"><span class="math inline">\(0\)</span></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 </tbody>
 </table>
-<p>From table <a href="predictive-power-of-d-score.html#tab:tableIQ">10.2</a> we can see that the D-score does not explain variation in IQ at 5 years for the first 6 waves. In other words, the D-scores until the age of 1 year will not explain the variation in IQ at the age of 5 years. However, for wave 7, at the age of 15 months, the estimate for the D-score is just significant and explains almost 3% of the variation in IQ at the age of 5 years. There is also an almost significant effect of the D-score on IQ at waves 8 and 9, however this only explains around 0.5% of the variation in IQ at 5 years.</p>
+<p>Developmental milestones can be assessed at several chronological ages (defined as age since birth, or postnatal age) to identify very preterm children who have developmental delay and who would benefit from stimulation programs. However, assessment of very preterm children at the same chronological age as term children may cause overdiagnosis of developmental delay in very preterm children and excessive referral for stimulation programs. Very preterm children may require additional time, determined by a factor that considers the difference between gestational age at birth (<span class="math inline">\(GA_{birth}\)</span>) vs 40 wk (<span class="math inline">\(GA_{birth}\)</span> for normal term birth), to enable development equivalent to that of normal term birth children. Several authors have proposed full or half correction of chronological age of very preterm birth children to provide a realistic evaluation of age-appropriate milestones; e.g. compare milestones for a child born at <span class="math inline">\(GA_{birth}\)</span> 30 wk vs a normal term child when the chronological age is 10 (full correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40 minus 35 wk) lower for the term than very preterm child. The Dutch Development Instrument (DDI) – a modification of the Gesell test – is used in preventive child health care to assess development from birth to chronological age 4 y.</p>
+<p><strong>Purpose</strong></p>
+<p>To investigate the effect of correcting chronological age for <span class="math inline">\(GA_{birth}\)</span> on DDI scores in very preterm infants with no handicaps.</p>
+<p><strong>Methods</strong></p>
+<p>In 1983, data were collected for 1338 infants in the Netherlands who had very preterm birth (<span class="math inline">\(GA_{birth} \geq\)</span> 25 and &lt; 32 wk) or very low birth weight (birth weight &lt; 1500 g) (Project On Preterm and Small for Gestational Age Infants [POPS]). The <span class="math inline">\(GA_{birth}\)</span> was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings. We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurologic disorder, visual or hearing defects, or psychosocial problems. From birth to chronological age 2.5 y, the DDI included 57 developmental milestones covering 3 domains of child development: fine motor activity, adaptive, and personal/social behavior; communication; and gross motor activity. The DDI was administered by a trained health care professional, and 5 to 9 milestones were evaluated at each health care visit. The child was scored as having passed/reached (was able to perform the milestone at the visit) or failed the milestone (unable to perform). Development score (D-score) was determined from an algorithm that summarized these developmental milestones into a single aggregate score measuring global development. The LMS method was used to transform the D-score to a z-score (DAZ) according to references for development in the Dutch population. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:</p>
+<p>Corrected chronological age (<span class="math inline">\(d\)</span>) = uncorrected chronological age (<span class="math inline">\(d\)</span>) - (<span class="math inline">\(X_i × 7 × [40 - GA_{birth}(wk)]\)</span>)</p>
+<p>where the correction factor <span class="math inline">\(X_i\)</span> ranged from full (<span class="math inline">\(X_i = 1\)</span>) through half (<span class="math inline">\(X_i = 0.5\)</span>) and no correction (<span class="math inline">\(X_i = 0\)</span>). Development was considered equal to the general Dutch population when mean DAZ = 0. Multilevel logistic regression analyses were performed to test the association between <span class="math inline">\(GA_{birth}\)</span> and milestones that were assessed at 2 consecutive visits.</p>
+<p><strong>Results</strong></p>
+<p>Mean DAZ <span class="math inline">\(\pm\)</span> SD for chronological age with correction by <span class="math inline">\(X_i = 0, 0.5, 0.75\)</span>, and <span class="math inline">\(1.0\)</span> were:</p>
+<ul>
+<li>Uncorrected chronological age 19-26 wk: <span class="math inline">\(-2 \pm 2, -0.7 \pm 1, 0 \pm 1\)</span>, and <span class="math inline">\(+0.7 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 32-40 wk: <span class="math inline">\(-2 \pm 1, -1 \pm 1, -0.5 \pm 1\)</span>, and <span class="math inline">\(0 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 59-66 wk: <span class="math inline">\(-1 \pm 1, -0.6 \pm 1, -0.3 \pm 1\)</span>, and <span class="math inline">\(-0.1 \pm 1\)</span>;</li>
+<li>Uncorrected chronological age 111-119 wk: <span class="math inline">\(-0.4 \pm 1, -0.1 \pm 1, 0 \pm 1\)</span>, and <span class="math inline">\(0.1 \pm 1\)</span>.</li>
+</ul>
+<p>In 12 of 18 milestones from all 3 domains, there was a significant positive association between <span class="math inline">\(GA_{birth}\)</span> (25-31 wk) and the proportion of children reaching the milestone after adjustment for uncorrected chronological age. No significant association was observed after adjustment for full correction of chronological age.</p>
+<p><strong>Conclusions</strong></p>
+<p>Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for <span class="math inline">\(GA_{birth}\)</span> was used, and similar proportions were observed when 0.75 correction for <span class="math inline">\(GA_{birth}\)</span> was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for <span class="math inline">\(GA_{birth}\)</span>. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="relevance-of-long-term-health-outcomes.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-implications-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="d-score-of-reference-children-at-2-years-pd.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="d-score-of-children-in-lmic-at-2-years-ro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

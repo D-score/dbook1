@@ -1,4 +1,4 @@
-# Measurement model {#measurement} (SB)
+# Measurement model {#ch:measurement}
 
 ## Guttman model 
 
