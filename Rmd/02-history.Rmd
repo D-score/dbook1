@@ -1,10 +1,10 @@
-# Short history
+# Short history of child development {#ch:history}
 
 ## What is child development?
 
 In contrast to concepts like height or temperature, it is unclear what
 exactly constites child development. One of the first rigorous studies
-in the field [@SHIRLEY1931] was executed under the explicit aim 
+in the field [@shirley1931] was executed under the explicit aim 
 
 > ... that the many aspects of development, anatomical, physical, 
 > motor, intellectual, and emotional, be studied simultaneously.
@@ -12,39 +12,35 @@ in the field [@SHIRLEY1931] was executed under the explicit aim
 Shirley gave empirical operationalizations of each of these
 domains of development. 
 
-```{r shirley-motor, echo = FALSE, fig.cap = '(ref:shirley-motor)'}
+
+```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)', out.width='80%', fig.align='center'}
 knitr::include_graphics("fig/shirley-motor.png")
 ```
-
-(ref:shirley-motor) Staircase plot indicating the age at which each
-baby achieve a new milestone of gross-motor functioning. Source:
-@SHIRLEY1933.
+(ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
 
 Certain domains advance through a fixed sequence. Figure
-\@ref(fig:shirley-motor) illustrates the various stages needed for
+\@ref(fig:shirleyplot) illustrates the various stages needed for
 going from a *fetal posture* to *walking alone*. The ages are
 indicative when these events happen, but there is a large variation in
 timing between infants.
 
-@GESELL1943 (p. 88) formulated the following definition of development:
+@gesell1943 (p. 88) formulated the following definition of development:
 
 > Development is a continuous process that proceeds stage by stage in
-> an orderly sequence. Each stage represents a degree or level of
-> maturity in the cycle of development. A stage is simply a passing
-> moment, while development, like time, keeps marching on.
+> an orderly sequence. 
 
 Gesell's definition emphasizes that development is a continuous
 process. The stages are useful as indicators to infer the level of
 maturity, but are of limited interest by themselves.
 
-@LIEBERT1974 (p. 5) emphasized that development is not a phenomenon
+@liebert1974 (p. 5) emphasized that development is not a phenomenon
 that unfolds in isolation.
 
 > Development refers to a process in growth and capability over 
 > time, as a function of both maturation and interaction with 
 > the environment.
 
-@CAMERON2012 (p. 11) defined an end-point of development, as follows:
+@cameron2012 (p. 11) defined an end-point of development, as follows:
 
 > "Growth" is defined as an increase in size, while "maturity" or 
 > "development" is an increase in functional ability...The endpoint
@@ -52,7 +48,7 @@ that unfolds in isolation.
 > successfully ... not just biological maturity but also behavioral
 > and perhaps social maturity.
 
-@BERK2013 (p. 30) presented the emerging dynamic systems perspective on
+@berk2013 (p. 30) presented a dynamic systems perspective on
 child development as follows:
 
 > Development cannot be characterized as a single line of change, 
@@ -60,82 +56,88 @@ child development as follows:
 > each representing a different skill area that may undergo both
 > continuous and stagewise transformation.
 
-There are many more definition of child development. The ones given
-here just illustrate the main points of view on child development.
+There are many more definitions of child development. The ones given
+here just illustrate the main points of view in the field.
 
 ## Theories of child development
 
 The field of child development is huge and spans multiple academic
-disciplines. This very short overview therefore cannot do justice to
+disciplines. This short overview therefore cannot do justice to
 the enormous richness. Readers new to the field might orient
 themselves by browsing through an introductory academic title (e.g.
-@SANTROCK2010, @BERK2013), or by searching for the topic of interest
-in an encyclopedia (e.g. @SALKIND2002).
+@santrock2010, @berk2013), or by searching for the topic of interest
+in an encyclopedia (e.g. @salkind2002).
 
-The introductions by @SANTROCK2010 and @BERK2013 are surprisingly
-consistent in distinguishing major theories in child development
-according to their answer to three questions:
+The introductions by @santrock2010 and @berk2013 both distinguish
+major theories in child development according to how each answers
+to following three questions:
 
 * *Continuous or discontinuous?*
 
-Does development evolve gradually as a continuous process (Gesell) 
-or are there qualitatively distinct stages, with jump occurring 
-from one stage to next other?
+Does development evolve gradually as a continuous process 
+or are there qualitatively distinct stages, with jumps occurring 
+from one stage to another?
 
-Several influential stage-based theories of human development have
+Many stage-based theories of human development have
 been proposed over the years: social and emotional development by
 psychosexual stages of development proposed by Freud and furthered by
-Erikson [@ERIKSON1963], Kohlberg's six stages of moral development
-[@KOHLBERG1984] and Piaget's cognitive development theory
-[@PIAGET1969]. Piaget distinguishes four main periods throughout
+Erikson [@erikson1963], Kohlberg's six stages of moral development
+[@kohlberg1984] and Piaget's cognitive development theory
+[@piaget1969]. Piaget distinguishes four main periods throughout
 childhood. The first period, the *sensimotor period* (approximately
 0-2 years), is subdivided into six stages. When taken together these
-six stages describe the road to conceptual thought. Piaget's stages
-are qualitatively differentiated, and aim to unravel the mechanism in
+six stages describe "the road to conceptual thought". Piaget's stages
+are qualitatively different, and aim to unravel the mechanism in
 intellectual development.
+
+On the other hand, Gesell and others emphasize development as a 
+continuous process. @gesell1943 (p. 88) says:
+
+> A stage represents a degree or level of maturity in the cycle 
+> of development. A stage is simply a passing moment, while 
+> development, like time, keeps marching on.
 
 * *One course or many?*
 
 Stage theorists assume that children progress sequentially through 
-the same set of stages. This assumption is explicit in the 
-work of Gesell, who sees development as a more continuous process.
+the same set of stages. This assumption is also explicit in the 
+work of Gesell.
 
-More recent ecological and dynamic systems theories posit that there
-may be multiple ways to reach the same point. The path taken by a
-given child will depend on the child's unique combination of personal
-and environmental circumstances, including cultural diversity in
+The ecological and dynamic systems theories view development as
+continuous, though not necessarily progressing in an orderly fashion,
+so there may be multiple ways to reach the same point. Figure
+\@ref(fig:dynamic) illustrates that the path taken by a given child
+will depend on the child's unique combination of personal and
+environmental circumstances, including cultural diversity in
 development.
 
-```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)'}
+```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)', out.width='80%', fig.align='center'}
 knitr::include_graphics("fig/dynamic.png")
 ```
 
-(ref:dynamic) A representation of the dynamic systems viewpoint on 
-how different combinations of skills may lead to the same end point 
-using different paths. Source: @BERK2013.
+(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
 
 * *Nature or nurture?*
 
 Are genetic or environmental factor more important for influencing
-development? Theories generally acknowledge the role of both, but
+development? Most theories generally acknowledge the role of both, but
 differ in emphasis. In practice, the debate centers on the question
 how to explain individual differences.
 
-Maturation is the genetically determined, naturally unfolding course
-of growth, much like a flower. Some theorists emphasize that
-differences in development are innate and stable over time. Others
-argue that such differences are primarily driven by environmental 
-factors, and changing these factors could very well impact child
-development.
+Maturation usually defined as the genetically determined, naturally
+unfolding course of growth, much like a flower. Some theorists
+emphasize that differences in development are innate and stable over
+time, but that there may be differences in speed. Others argue that
+individual differences are primarily driven by environmental factors,
+and changing these factors could very well impact child development.
 
 The answer --- if there is one --- in this stability-versus-plasticity
-discussion has important practical consequences. If we believe that
-differences are natural and stable, then it does not make sense trying
-to change the conditions, as the impact on development will be
-negligible. On the other hand, if we believe that development is
-plastic, then intervening by high-quality programmes may have a
-substantial pay-off in terms of improved development.
-
+debate has important practical consequences. If we believe that
+differences are natural and stable, then it may not make sense trying
+to change the environment, as the impact on development is likely to
+be small. On the other hand, if we view development as plastic, then
+improving the environment may have substantial pay-offs in terms of
+improved development.
 
 ## Example of motor development
 
@@ -148,7 +150,7 @@ options(knitr.kable.NA = "?")
 
 For illustration, we use data on locomotor development collected in
 the classic study on child development among 25 babies by
-@SHIRLEY1931. Starting at ages around 13 weeks, a graphic record of
+@shirley1931. Starting at ages around 13 weeks, a graphic record of
 the baby's walking was obtained as follows. The investigator lays out
 a white paper of twelve inches wide on the floor of the living room,
 and lightly greases the soles of the baby's feet with olive oil. The
@@ -180,10 +182,9 @@ kable(shirley,
                     "Walking with help", "Walking alone"))
 ```
 
-: (\#tab:shirley) Age at beginning stages of walking (in weeks) 
-for 21 babies [@SHIRLEY1931, Appendix 8].
+  : (\#tab:shirley) Age at beginning stages of walking (in weeks) for 21 babies [@shirley1931, Appendix 8].
 
-Table \@tab:shirley lists the age (in weeks) of the 21 babies when
+Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies when
 they started, respectively, stepping, standing, walking with help, and
 walking alone. Question marks indicate missing data. A question mark
 in the first column the babies were already stepping when the
@@ -232,94 +233,45 @@ between stages. For example, on average the line for `stepping` is
 rather short in all plots, so going from `stepping` to `standing` is
 relatively easy.
 
-The figure presents information from only those visits where a jump
-occurred. The number of house visits made during ages 0-2 years was
-far higher. @SHIRLEY1931 actually collected data from 1370 visits,
-whereas Figure \@ref(fig:stepplot) plot just the 76 visits with jumps.
-Thus, to obtain these individual curves the design has to be intense 
-and costly.
+The figure presents data from only those visits where a jump occurred.
+The number of house visits made during ages 0-2 years was far higher.
+@shirley1931 actually collected data from 1370 visits, whereas Figure
+\@ref(fig:stepplot) plot just the 76 visits with jumps. Thus, to
+obtain these individual curves like these data collection needs to be
+intense and costly.
 
-## Age-based measurement of development {#agebased}
+## Typical questions asked in child development {#sec:questions}
 
-The motivation for measuring child development is to be able to
-describe the behavior expected at a selected age. @GESELL1943 (p. 89)
-formulates this goal as follows:
+Child development is very relevant for answering clinical, policy and
+public health questions. On the level of the individual child, we pose questions like:
 
-> We think of behavior in terms of age, and we think of age in terms
-> of behavior. For any selected age it is possible to sketch a portrait
-> which delineates the behavior characteristics typical of the age.
+- What is your gain in development since your last visit? 
 
-@STOTT1967 (p. 22) observed that it is impossible to define a scale
-for measuring child development:
+- What is the difference in development between you and your friend 
+of the same age?
 
-> When development appears as a change in kind, that is, when the 
-> change consists of a series of qualitatively different events,
-> or features, or "stages", it is not amemable to measurement
-> by use of any standard scale of units.
+- How does your development compare to a norm?
 
-As a solution Stott suggested using the "invariable sequence" of
-successive stages as the basis for the assessment of the individual's
-status. Stott argues that such sequences are fairly well established
-for physical activity, but probably less so for the acquisition of
-speech and other social skills.
+The identification of determinants or effects of interventions typically
+formulate questions at the group level. Some examples are:
 
-Since age and development are so intimately related, the difficulty of
-developmental a given milestone is traditionally expressed in terms of
-the age at which children achieve the milestone. For example,
-@STOTT1967 (p. 25) defines the *age equivalent* and its use for
-measurement, as follows:
+- What is the effect of this intervention on child development?
 
-> The age equivalent of a particular stage is simply the average age 
-> at which children reach that particular stage. A set of age 
-> equivalents corresponding to a series of stages can be made to 
-> function as a scale for individual assessment.
+- What is the difference in child development between these two groups?
 
-Alternatives to the age equivalents include the ages at which 10, 50
-or 90 percent of the children achieve the milestone. This line of
-reasoning has led to the widely used concept of `developmental age` as
-a measure of a child's development (in body size or motor skill or
-psychological function) expressed in terms of age norms.
+Questions on the level of the population health levels include:
 
-Age-based measurement was once the dominant paradigm for measuring child
-development. However, it comes with some major problems and limitations.
+- What is the change in average child development since the last
+measurement?
 
-1. Age-based measurement does not tell us what is normal for a child
-at a given age. We can properly infer whether a child is early or late
-for a given milestone. However, this does not mean that we may reverse
-the direction of the inference, or conclude which behaviors are
-characteristic for a given age without making further assumptions.
+- What was the effect of implementing this policy on child development?
 
-2. Age-based measurement cannot exists without an age norm. When there
-is no norms, we cannot calculate development. Age-based measurement
-intertwines the actual PASS/FAIL score with age norms.
+- How does this country compare to other countries in terms of child development?
 
-3. Age-based measurement only works at the item level, and is 
-cumbersome to apply with multiple items,
+Note that all questions compare the amount of child development between 
+groups and/or time points. A few questions compare development for the same
+child/group/population at different ages. Some others compare
+development within the same age across different children, group 
+or populations.
 
-## Score-based measurement of development
-
-As an alternative we may administer multiple items to the child, and
-and compute the total number of PASS responses as a measure of child's
-development. Items are generally ordered in increasing difficulty.
-Items that are too easy are skipped, and very difficult items are not
-administered, so in practice the interpretation of the sum score is
-slightly more complicated. Most instruments describe corrections that
-should be applied, and present the scores relative to a norm group.
-Instruments usually contain different sets of items, each of which
-measures a specific domains of development, and the administration is
-repeated for each domain of interest.
-
-Score-based measurement is the currently dominant approach, but has 
-both conceptual and logistical issues.
-
-1. The total scores calculated by different instruments are based on
-different sets of items, and hence cannot be compared. In addition,
-instruments use their own age norms, which also affects comparability.
-
-2. Domains are hard to separate. For example, some cognitive items tap
-into fine motor capabilities, and vice versa. There are different ways
-to define domains, so domain interpretation varies by instrument.
-
-3. Administration of a full test may take substantial time. The
-materials are proprietary, and may be costly in research settings.
 

@@ -1,10 +1,429 @@
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ddata)
+library(dscore)
+library(haven)
+library(dplyr)
+library(tibble)
+library(lme4)
+library(MASS)
+library(ggplot2)
+library(gridExtra)
+library(ggpubr)
+```
+
 # Consequences {#consequences}
+
+This chapter focusses on the third application of the D-score: the long-term health consequences of delay in development in pre-terms. In this chapter, we explain the relevance of long-term health outcomes and show how the D-score can be used to predict these long-term health outcomes. In addition, we present the practical implications and how this leads to new opportunities and show the impact of early intervention.
+
+
 
 ## Application III: Long-term health consequences of delay in pre-terms
 
+
 ## Relevance of long-term health outcomes
 
+
 ## Predictive power of D-score
+
+To demonstrate the predictive power of the D-score, we will predict IQ at the age of 5 years for children in the SMOCC dataset. We have data for nine different waves, which includes different numbers of milestones of the Dutch Developmental Instrument (DDI). See table \@ref(tab:tableSMOCC) for an overview.
+
+```{r, echo=FALSE}
+w1 <- c(1, 5)
+w2 <- c(2, 2)
+w3 <- c(3, 5)
+w4 <- c(6, 6)
+w5 <- c(9, 7)
+w6 <- c(12, 6)
+w7 <- c(15, 6)
+w8 <- c(18, 6)
+w9 <- c(24, 6)
+tableSMOCC <- rbind(w1, w2, w3, w4, w5, w6, w7, w8, w9)
+colnames(tableSMOCC) <- c("Age in months", "Number of milestones of the DDI")
+rownames(tableSMOCC) <- c("wave 1", "wave 2", "wave 3", "wave 4",
+                          "wave 5", "wave 6", "wave 7", "wave 8",
+                          "wave 9")
+```
+
+```{r, tableSMOCC, echo=FALSE}
+library(knitr)
+kable(tableSMOCC, caption = "Overview of the nine waves of the SMOCC data", booktabs = TRUE)
+```
+
+
+First, we will plot the D-scores against IQ at 5 years for each of the waves (see figure \@ref(fig:dscoresIQ5yrs)). In this way, we can see the variation in D-scores for the different waves and how this relates to IQ at the age of 5 years. The colours indicate the number of milestones that got a negative score. Thus, for example, yellow indicates that one of the milestones got a negative score, however this does not mean that all yellow dots in the same plot represent the same number of positive scores. It could be that for some children not all scores of the milestones were available. The same holds, ofcourse, for the other colours as well.
+
+```{r, echo = FALSE}
+#Subset van de data zonder de losse scores op de items:
+# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long2.sav")
+data.long <- haven::read_sav("data-raw/data/smocc/smocc_long2.sav")
+data.long$scores_false <- data.long$scores_false - 1
+data.long <- as_tibble(data.long)
+# data.wide <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_wide.sav")
+data.wide <- haven::read_sav("data-raw/data/smocc/smocc_wide.sav")
+
+data.wide <- as_tibble(data.wide)
+
+
+library(gridExtra)
+data.long$wave <- factor(data.long$wave)
+data.long1 <- data.long[!is.na(data.long$IQ), ]
+data.long1 <- data.long1[!is.na(data.long1$dscore), ]
+data.long1$scores_false <- as.factor(data.long1$scores_false) 
+
+
+```
+
+
+
+
+```{r, dscoresIQ5yrs, echo = FALSE,  fig.cap="\\label{fig:dscoresIQ5yrs} The D-scores plotted against IQ at 5 years for each wave", message=FALSE, warning=FALSE}
+p1 <- ggplot(subset(data.long1, wave == c(1)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p2 <- ggplot(subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p3 <- ggplot(subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p4 <- ggplot(subset(data.long1, wave == c(4)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p5 <- ggplot(subset(data.long1, wave == c(5)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p6 <- ggplot(subset(data.long1, wave == c(6)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p7 <- ggplot(subset(data.long1, wave == c(7)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p8 <- ggplot(subset(data.long1, wave == c(8)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=T, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p9 <- ggplot(subset(data.long1, wave == c(9)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1)+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+#grid.arrange(p1, p2, p3, p4, p5, p6, p7, p8, p9, nrow=3)
+library(ggpubr)
+ggarrange(p1, p2, p3, p4, p5, p6, p7, p8, p9, ncol=3, nrow=3,
+          common.legend = TRUE, legend="bottom")
+
+```
+In addition, it is important to note that the number of milestones per wave differ. For example, when we compare the plots for wave 8 and wave 9, it seems that at wave 8 the milestones are more difficult, since there are children who got a negative score on more than one milestone. While at wave 9, the maximum number of milestones with a negative score is one (yellow dots). However, wave 8 contains six milestones of the DDI, while wave 9 only contains one milestone of the DDI. Hence, the difference between the number of milestones at each wave causes the variation in the number of colours used between the nine plots. 
+
+Furthermore, we can see that there is a gap between the cloud of blue dots and the cloud of yellow dots in all nine plots. Or in other words, there is a substantial difference in D-score between children without negative scores and childeren with (at least) one negative score on the milestone(s) of the DDI. The rational behind this, was explained in Chapter 8. 
+For most of the waves there is no clear relation between the D-score and IQ at 5 years visible in the plots. However, for wave 7 and 9, we can see that the cloud of blue dots (with higher D-scores) lies a bit higher than the cloud consisting of the other dots. This could indicate that children with an higher D-score at the age of 15 months and 24 months also have an higher IQ at the age of 5 years on average.
+
+Besides the graphical exploration of the relation between the D-score and IQ at 5 years old, we can also use models to determine this relationship. For example, we can model IQ at 5 years old for each wave separately, which allows us to compare the effect of the D-score at each wave on the variation in IQ at 5 years. First, we can estimate models in which the D-score is the only explanatory variable for the variation in IQ at 5 years. The estimate for the D-score and the $R^2$ of these nine models are visualized in figure \@ref(fig:graphestR2).
+
+```{r, echo=FALSE}
+# REGRESSION MODELS (per wave)
+smocc.wave1 <- subset(data.long, data.long$wave == 1)
+smocc.wave2 <- subset(data.long, data.long$wave == 2)
+smocc.wave3 <- subset(data.long, data.long$wave == 3)
+smocc.wave4 <- subset(data.long, data.long$wave == 4)
+smocc.wave5 <- subset(data.long, data.long$wave == 5)
+smocc.wave6 <- subset(data.long, data.long$wave == 6)
+smocc.wave7 <- subset(data.long, data.long$wave == 7)
+smocc.wave8 <- subset(data.long, data.long$wave == 8)
+smocc.wave9 <- subset(data.long, data.long$wave == 9)
+
+# Object to save results
+results.d <- matrix(c(NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA), 
+                    nrow = 9, ncol = 2)
+colnames(results.d) <- c("Esimate D-score", "$R^2$")
+rownames(results.d) <- c("wave 1", "wave 2", "wave 3", "wave 4", "wave 5", "wave 6", "wave 7", "wave 8", "wave 9")
+
+# WAVE 1
+mod.wave1 <- lm(IQ ~ dscore, data = smocc.wave1)
+results.d[1,1] <- coefficients(mod.wave1)[2]
+results.d[1,2] <- summary(mod.wave1)$r.squared 
+
+# WAVE 2
+mod.wave2 <- lm(IQ ~ dscore, data = smocc.wave2)
+results.d[2,1] <- coefficients(mod.wave2)[2]
+results.d[2,2] <- summary(mod.wave2)$r.squared 
+
+# WAVE 3
+mod.wave3 <- lm(IQ ~ dscore, data = smocc.wave3)
+results.d[3,1] <- coefficients(mod.wave3)[2]
+results.d[3,2] <- summary(mod.wave3)$r.squared 
+
+# WAVE 4
+mod.wave4 <- lm(IQ ~ dscore, data = smocc.wave4)
+results.d[4,1] <- coefficients(mod.wave4)[2]
+results.d[4,2] <- summary(mod.wave4)$r.squared 
+
+# WAVE 5
+mod.wave5 <- lm(IQ ~ dscore, data = smocc.wave5)
+results.d[5,1] <- coefficients(mod.wave5)[2]
+results.d[5,2] <- summary(mod.wave5)$r.squared 
+
+# WAVE 6
+mod.wave6 <- lm(IQ ~ dscore, data = smocc.wave6)
+results.d[6,1] <- coefficients(mod.wave6)[2]
+results.d[6,2] <- summary(mod.wave6)$r.squared 
+
+# WAVE 7
+mod.wave7 <- lm(IQ ~ dscore, data = smocc.wave7)
+results.d[7,1] <- coefficients(mod.wave7)[2]
+results.d[7,2] <- summary(mod.wave7)$r.squared 
+
+# WAVE 8
+mod.wave8 <- lm(IQ ~ dscore, data = smocc.wave8)
+results.d[8,1] <- coefficients(mod.wave8)[2]
+results.d[8,2] <- summary(mod.wave8)$r.squared 
+
+# WAVE 9
+mod.wave9 <- lm(IQ ~ dscore, data = smocc.wave9)
+results.d[9,1] <- coefficients(mod.wave9)[2]
+results.d[9,2] <- summary(mod.wave9)$r.squared 
+
+
+tableIQonlyD <- results.d
+```
+
+```{r, tableIQonlyD, echo=FALSE}
+#library(knitr)
+#kable(tableIQonlyD, caption = "Estimates of the D-score and the $R^2$ for the regression models where only D-score is used as explanatory variable", booktabs = TRUE, digits = 4)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+results.d1 <- as.data.frame(results.d)
+names(results.d1) <- c("estimate", "R2")
+results.d1$wave <- c(1,2,3,4,5,6,7,8,9)
+
+pest <- ggplot(results.d1, aes(wave, estimate)) +
+      geom_point( )+
+      scale_y_continuous(breaks = seq(0, 1, 0.2),
+                         name = "estimate D-score") +
+      scale_x_continuous(breaks = seq(1, 10, 2), name = "Wave") 
+
+pR2 <- ggplot(results.d1, aes(wave, R2)) +
+      geom_point( )+
+      scale_y_continuous(breaks = seq(0, 0.04, 0.01), 
+                         name = "R-squared") +
+      scale_x_continuous(breaks = seq(1, 10, 2), name = "Wave") 
+```
+
+```{r, graphestR2, echo = FALSE,  fig.cap="\\label{fig:graphestR2} The estimate for the D-score and $R^2$ plotted for each wave", message=FALSE, warning=FALSE}
+
+#arrange
+ggarrange(pest, pR2, ncol=2, nrow=1)
+
+```
+
+In figure \@ref(fig:graphestR2), we can see that the estimates for the D-score and the $R^2$ are the highest for wave 7 and wave 9. Indicating that the D-score at wave 7 and wave 9 has the largest effect on IQ at 5 years and explain the most variation in IQ at 5 years. In addition, figure \@ref(fig:graphestR2) shows that the D-score of the first four waves barely explains any variation in IQ at 5 years. Thus, the D-scores of the first six months is not capable of explaining the variation in IQ at 5 years. Hence, the D-score when the children are older is better in explaining the variation in IQ at 5 years. 
+
+Secondly, we can add explanatory variables to the regression model to control for confounding effects. For example, the education level of the mother can also partly explain the variation in IQ at 5 years, so it is important to add these to your prediction model. To predict IQ at 5 years, the following explanatory variables are added to the regression model:
+
+- gender
+- birthweight
+- birthsize
+- agemom: age mother
+- edumocat: low, middle or high education level of the mother
+- age
+- D-score
+
+The first five variables are constant over the waves, while the other two variables vary over time.
+
+For each wave we have estimated two models, *model 1* including all variables as listed above, and *model 2* including all variables except for the D-score. Then, we can compare the explained variation of IQ at 5 years old of both models by comparing the adjusted $R^2$. We have chosen for the adjusted $R^2$ since it corrects for the number of variables added to the model: the $R^2$ will always get higher when a new variable is added to the model. In this way, we can see how much of the variation in IQ is explained by adding the D-score to the regression model for each wave.
+
+```{r, echo=FALSE}
+
+# Object to save results
+results <- matrix(c(NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA), nrow = 9, ncol = 7)
+colnames(results) <- c("Esimate D-score", "95% CI LL", "95% CI UL", "p-value", 
+                       "model 1 adj. $R^2$", "model 2 adj. $R^2$", "diff. adj. $R^2$")
+rownames(results) <- c("wave 1", "wave 2", "wave 3", "wave 4", "wave 5", "wave 6", 
+                       "wave 7", "wave 8", "wave 9")
+
+
+#In veel waves zijn de haz en waz voor veel kinderen NA.
+#Deze wel toevoegen aan het grote model???
+
+# WAVE 1
+model.wave1 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave1)
+results[1,1] <- coefficients(model.wave1)[5]
+results[1,2] <- confint(model.wave1, level = 0.95)[8, 1]
+results[1,3] <- confint(model.wave1, level = 0.95)[8, 2]
+results[1,4] <- summary(model.wave1)$coefficients[8,4]  
+results[1,5] <- summary(model.wave1)$adj.r.squared 
+model.wave1.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize + factor(edumocat) + agemom, data = smocc.wave1)
+results[1,6] <- summary(model.wave1.wd)$adj.r.squared 
+results[1,7] <- results[1,5] - results[1,6]
+
+# WAVE 2
+model.wave2 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave2)
+results[2,1] <- coefficients(model.wave2)[5]
+results[2,2] <- confint(model.wave2, level = 0.95)[8, 1]
+results[2,3] <- confint(model.wave2, level = 0.95)[8, 2]
+results[2,4] <- summary(model.wave2)$coefficients[8,4]  
+results[2,5] <- summary(model.wave2)$adj.r.squared
+model.wave2.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave2)
+results[2,6] <- summary(model.wave2.wd)$adj.r.squared 
+results[2,7] <- results[2,5] - results[2,6]
+
+# WAVE 3
+model.wave3 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave3)
+results[3,1] <- coefficients(model.wave3)[5]
+results[3,2] <- confint(model.wave3, level = 0.95)[8, 1]
+results[3,3] <- confint(model.wave3, level = 0.95)[8, 2]
+results[3,4] <- summary(model.wave3)$coefficients[8,4]  
+results[3,5] <- summary(model.wave3)$adj.r.squared
+model.wave3.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave3)
+results[3,6] <- summary(model.wave3.wd)$adj.r.squared 
+results[3,7] <- results[3,5] - results[3,6]
+
+# WAVE 4
+model.wave4 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave4)
+results[4,1] <- coefficients(model.wave4)[5]
+results[4,2] <- confint(model.wave4, level = 0.95)[8, 1]
+results[4,3] <- confint(model.wave4, level = 0.95)[8, 2]
+results[4,4] <- summary(model.wave4)$coefficients[8,4]  
+results[4,5] <- summary(model.wave4)$adj.r.squared
+model.wave4.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave4)
+results[4,6] <- summary(model.wave4.wd)$adj.r.squared 
+results[4,7] <- results[4,5] - results[4,6]
+
+# WAVE 5
+model.wave5 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave5)
+results[5,1] <- coefficients(model.wave5)[5]
+results[5,2] <- confint(model.wave5, level = 0.95)[8, 1]
+results[5,3] <- confint(model.wave5, level = 0.95)[8, 2]
+results[5,4] <- summary(model.wave5)$coefficients[8,4]  
+results[5,5] <- summary(model.wave5)$adj.r.squared
+model.wave5.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave5)
+results[5,6] <- summary(model.wave5.wd)$adj.r.squared 
+results[5,7] <- results[5,5] - results[5,6]
+
+# WAVE 6
+model.wave6 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave6)
+results[6,1] <- coefficients(model.wave6)[5]
+results[6,2] <- confint(model.wave6, level = 0.95)[8, 1]
+results[6,3] <- confint(model.wave6, level = 0.95)[8, 2]
+results[6,4] <- summary(model.wave6)$coefficients[8,4]  
+results[6,5] <- summary(model.wave6)$adj.r.squared 
+model.wave6.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave6)
+results[6,6] <- summary(model.wave6.wd)$adj.r.squared 
+results[6,7] <- results[6,5] - results[6,6]
+
+# WAVE 7
+model.wave7 <- lm(IQ ~ factor(male) + age + birthweight + birthsize + haz + waz
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave7)
+results[7,1] <- coefficients(model.wave7)[5]
+results[7,2] <- confint(model.wave7, level = 0.95)[8, 1]
+results[7,3] <- confint(model.wave7, level = 0.95)[8, 2]
+results[7,4] <- summary(model.wave7)$coefficients[8,4]  
+results[7,5] <- summary(model.wave7)$adj.r.squared
+model.wave7.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave7)
+results[7,6] <- summary(model.wave7.wd)$adj.r.squared 
+results[7,7] <- results[7,5] - results[7,6]
+
+# WAVE 8
+model.wave8 <- lm(IQ ~ factor(male) + age+ birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave8)
+results[8,1] <- coefficients(model.wave8)[5]
+results[8,2] <- confint(model.wave8, level = 0.95)[8, 1]
+results[8,3] <- confint(model.wave8, level = 0.95)[8, 2]
+results[8,4] <- summary(model.wave8)$coefficients[8,4]  
+results[8,5] <- summary(model.wave8)$adj.r.squared
+model.wave8.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave8)
+results[8,6] <- summary(model.wave8.wd)$adj.r.squared 
+results[8,7] <- results[8,5] - results[8,6]
+
+# WAVE 9
+model.wave9 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave9)
+results[9,1] <- coefficients(model.wave9)[5]
+results[9,2] <- confint(model.wave9, level = 0.95)[8, 1]
+results[9,3] <- confint(model.wave9, level = 0.95)[8, 2]
+results[9,4] <- summary(model.wave9)$coefficients[8,4]  
+results[9,5] <- summary(model.wave9)$adj.r.squared
+model.wave9.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave9)
+results[9,6] <- summary(model.wave9.wd)$adj.r.squared 
+results[9,7] <- results[9,5] - results[9,6]
+
+#Misschien beter om de DAZ er in te doen?!
+
+```
+
+The estimates for the predictor D-score, and it's 95\% confidence interval are given in table \@ref(tab:tableIQ). Moreover, it contains the p-values for the predictor D-score in *model 1* and the adjusted $R^2$'s for *model 1* and *model 2*. The adjusted $R^2$ determines the explained variation in the outcome measure, in this case IQ at 5 years, while penalizing for the number of predictors in the model. Comparison of the $R^2$ is not feasible, since it will always increase when another predictor is added to the model.
+
+```{r, tableIQ, echo=FALSE}
+library(knitr)
+kable(results, caption = "Comparison of the models per wave to explain IQ at 5 years by D-score", booktabs = TRUE, digits = 4)
+```
+
+From table \@ref(tab:tableIQ) we can see that the D-score does not explain variation in IQ at 5 years for the first 6 waves. In other words, the D-scores until the age of 1 year will not explain the variation in IQ at the age of 5 years. However, for wave 7, at the age of 15 months, the estimate for the D-score is just significant and explains almost 3\% of the variation in IQ at the age of 5 years. There is also an almost significant effect of the D-score on IQ at waves 8 and 9, however this only explains around 0.5\% of the variation in IQ at 5 years.
 
 ## Practical implications
 
