@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="creating-new-instruments-for-d-score.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="sec-scorebased.html">
+<link rel="next" href="sec-whyunit.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -211,280 +211,25 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:notation" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> Appendix - notation</h1>
-<p>The notation in this booklet is based on the notation used in the book of <span class="citation">Wright and Masters (<a href="#ref-wright1982">1982</a>)</span>.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-36">Table 12.1: </span>Notation</caption>
-<tbody>
-<tr class="odd">
-<td align="left">MODEL</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td align="left">probability</td>
-<td><span class="math inline">\(\pi_{nik}\)</span></td>
-<td>Model probability of Person <span class="math inline">\(n\)</span> responding in category <span class="math inline">\(k\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(P_{nik}\)</span></td>
-<td>Estimated probability of Person <span class="math inline">\(n\)</span> responding in category <span class="math inline">\(k\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(P_{rik}\)</span></td>
-<td>Estimated probability of a person with test score <span class="math inline">\(r\)</span> responding in categor <span class="math inline">\(k\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">person</td>
-<td><span class="math inline">\(\beta_n\)</span></td>
-<td>Ability/attitude of Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(b_n\)</span></td>
-<td>Estimated ability/attitude of Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(b_r\)</span></td>
-<td>Estimated ability/attitude of a person with score <span class="math inline">\(r\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(s_n\)</span></td>
-<td>Measurement error</td>
-</tr>
-<tr class="odd">
-<td align="left">item step</td>
-<td><span class="math inline">\(\delta_{ij}\)</span></td>
-<td>Difficulty of <span class="math inline">\(j\)</span>th step in Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(d_{ij}\)</span></td>
-<td>Calibration error</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(s_{ij}\)</span></td>
-<td>Scale value of item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">item</td>
-<td><span class="math inline">\(\delta_i\)</span></td>
-<td>Scale value of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(d_i\)</span></td>
-<td>Estimated scale value of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(s_i\)</span></td>
-<td>Calibration error</td>
-</tr>
-<tr class="odd">
-<td align="left">threshold</td>
-<td><span class="math inline">\(\tau_j\)</span></td>
-<td>Response threshold <span class="math inline">\(j\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(h_j\)</span></td>
-<td>Estimated response threshold <span class="math inline">\(j\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(s_j\)</span></td>
-<td>Calibration error</td>
-</tr>
-<tr class="even">
-<td align="left">DATA</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(x_{ni}\)</span></td>
-<td>Response of Person <span class="math inline">\(n\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(m_i\)</span></td>
-<td>Number of steps in Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(m\)</span></td>
-<td>Number of thresholds in response format</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(r_n\)</span></td>
-<td>Test score of Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(T_{ij}\)</span></td>
-<td>Number of persons responding in category <span class="math inline">\(j\)</span> of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(S_{ij}\)</span></td>
-<td>Number of persons responding in or above category <span class="math inline">\(j\)</span> of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(S_{i+}\)</span></td>
-<td>Sample score of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(S_{+j}\)</span></td>
-<td>Sample score of catefory <span class="math inline">\(j\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(L\)</span></td>
-<td>Number of items</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(M\)</span></td>
-<td>Number of points on test</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(N\)</span></td>
-<td>Number of persons</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(N_r\)</span></td>
-<td>Number of persons with score <span class="math inline">\(r\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">FIT</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(E_{ni}\)</span></td>
-<td>Expected value of <span class="math inline">\(x_{ni}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(W_{ni}\)</span></td>
-<td>Variance of <span class="math inline">\(x_{ni}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(C_{ni}\)</span></td>
-<td>Kurtosis of <span class="math inline">\(x_{ni}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(y_{ni}\)</span></td>
-<td>Score residual</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(z_{ni}\)</span></td>
-<td>Standardized residual</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(u_i\)</span></td>
-<td>Unweighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(v_i\)</span></td>
-<td>Weighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(q_i^2\)</span></td>
-<td>Variance of weighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(t_i\)</span></td>
-<td>Standardized weighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(u_n\)</span></td>
-<td>Unweighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(v_n\)</span></td>
-<td>Weighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(q_n^2\)</span></td>
-<td>Variance of weighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(t_n\)</span></td>
-<td>Standardized weighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(G_I\)</span></td>
-<td>Item seperation index</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(H_I\)</span></td>
-<td>Number of item strata</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(R_I\)</span></td>
-<td>Sample reliability of item separation</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(G_P\)</span></td>
-<td>Person separation index</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(H_P\)</span></td>
-<td>Number of person strata</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(R_P\)</span></td>
-<td>Test reliability of person separation</td>
-</tr>
-</tbody>
-</table>
-<pre class="warnings"><code>warnings()</code></pre>
-
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-wright1982">
-<p>Wright, B. D., and G. N. Masters. 1982. <em>Rating Scale Analysis: Rasch Measurement</em>. Chicago: MESA Press.</p>
-</div>
+<div id="sec:unitbased" class="section level2">
+<h2><span class="header-section-number">3.3</span> Unit-based measurement of development</h2>
+<p>Unit-based measurement starts from the premise that the measurement scale must have a constant unit. If that holds, then the same difference between two values has the same interpretation anywhere on the scale. Familiar examples of such scales includes temperature and dates. For example, the difference between two dates corresponds to the same amount of time, irrespective of whether this is now, in the past or in the future. The interval scale has a fixed unit and an arbitrary zero.</p>
+<p>In the ideal situation, we would have a unit for child development. Let us name this unit <em>D</em>, for development. Unit <em>D</em> should have the following desirable properties:</p>
+<ul>
+<li><p>Difference between two <em>D</em>-scores measured on the same child at different ages quantifies the amount of development during the interval</p></li>
+<li><p>Difference between the <em>D</em>-score measured on two different children of the same age quantifies the difference in development between them</p></li>
+<li><p>Comparing the <em>D</em>-score to an age-dependent reference identifies abnormal development</p></li>
+</ul>
+<p>The interpretation of the difference between two <em>D</em>-score is the same across the entire scale, just like differences in height or weight. Note that the unit would allow us to answer all questions raised in section @(sec:questions).</p>
+<p>The development of a unit for development is still in its infancy. However, if we succeed in creating an interval scale for development, then an enormous arsenal of technique developed for quantitative variables opens up to measure, track and analyze child development.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="creating-new-instruments-for-d-score.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-scorebased.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-whyunit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
