@@ -393,7 +393,6 @@ knitr::kable(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 
 
 
 ```{r, echo=FALSE, eval = FALSE}
-
 #Script van Stef:
 library("ddata")
 library("dscore")
@@ -409,13 +408,7 @@ d_dutch$daz <- with(d_dutch, dscore::daz(d = d, x = age / 12, ref = ref))
 n_items <- data.frame(id = data$id, age = data$age,
                       n = rowSums(!is.na(data[, items])))
 d_dutch <- dplyr::left_join(d_dutch, n_items, by = c("id", "age"))
-with(d_dutch, (plot(age, d, cex = 0.6)))
-with(d_dutch, (plot(age, daz, cex = 0.6)))
-write.table(x = d_dutch, file = "notes/dutch_native.txt",
-            sep = "\t", na = "", row.names = FALSE, quote = FALSE)
-
-
-## D-score of preterms at 2 years (PD)
+```
 
 **How to adjust development for age of gestation?**
 
