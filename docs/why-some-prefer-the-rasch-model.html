@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="creating-new-instruments-for-d-score.html">
-<link rel="next" href="references.html">
+<link rel="prev" href="comparisonagebased.html">
+<link rel="next" href="ch-itemfit.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -211,280 +211,30 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="ch:notation" class="section level1">
-<h1><span class="header-section-number">Chapter 12</span> Appendix - notation</h1>
-<p>The notation in this booklet is based on the notation used in the book of <span class="citation">Wright and Masters (<a href="#ref-wright1982">1982</a>)</span>.</p>
-<table>
-<caption><span id="tab:unnamed-chunk-36">Table 12.1: </span>Notation</caption>
-<tbody>
-<tr class="odd">
-<td align="left">MODEL</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td align="left">probability</td>
-<td><span class="math inline">\(\pi_{nik}\)</span></td>
-<td>Model probability of Person <span class="math inline">\(n\)</span> responding in category <span class="math inline">\(k\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(P_{nik}\)</span></td>
-<td>Estimated probability of Person <span class="math inline">\(n\)</span> responding in category <span class="math inline">\(k\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(P_{rik}\)</span></td>
-<td>Estimated probability of a person with test score <span class="math inline">\(r\)</span> responding in categor <span class="math inline">\(k\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">person</td>
-<td><span class="math inline">\(\beta_n\)</span></td>
-<td>Ability/attitude of Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(b_n\)</span></td>
-<td>Estimated ability/attitude of Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(b_r\)</span></td>
-<td>Estimated ability/attitude of a person with score <span class="math inline">\(r\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(s_n\)</span></td>
-<td>Measurement error</td>
-</tr>
-<tr class="odd">
-<td align="left">item step</td>
-<td><span class="math inline">\(\delta_{ij}\)</span></td>
-<td>Difficulty of <span class="math inline">\(j\)</span>th step in Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(d_{ij}\)</span></td>
-<td>Calibration error</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(s_{ij}\)</span></td>
-<td>Scale value of item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left">item</td>
-<td><span class="math inline">\(\delta_i\)</span></td>
-<td>Scale value of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(d_i\)</span></td>
-<td>Estimated scale value of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(s_i\)</span></td>
-<td>Calibration error</td>
-</tr>
-<tr class="odd">
-<td align="left">threshold</td>
-<td><span class="math inline">\(\tau_j\)</span></td>
-<td>Response threshold <span class="math inline">\(j\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(h_j\)</span></td>
-<td>Estimated response threshold <span class="math inline">\(j\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(s_j\)</span></td>
-<td>Calibration error</td>
-</tr>
-<tr class="even">
-<td align="left">DATA</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(x_{ni}\)</span></td>
-<td>Response of Person <span class="math inline">\(n\)</span> to Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(m_i\)</span></td>
-<td>Number of steps in Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(m\)</span></td>
-<td>Number of thresholds in response format</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(r_n\)</span></td>
-<td>Test score of Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(T_{ij}\)</span></td>
-<td>Number of persons responding in category <span class="math inline">\(j\)</span> of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(S_{ij}\)</span></td>
-<td>Number of persons responding in or above category <span class="math inline">\(j\)</span> of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(S_{i+}\)</span></td>
-<td>Sample score of Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(S_{+j}\)</span></td>
-<td>Sample score of catefory <span class="math inline">\(j\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(L\)</span></td>
-<td>Number of items</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(M\)</span></td>
-<td>Number of points on test</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(N\)</span></td>
-<td>Number of persons</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(N_r\)</span></td>
-<td>Number of persons with score <span class="math inline">\(r\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left">FIT</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(E_{ni}\)</span></td>
-<td>Expected value of <span class="math inline">\(x_{ni}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(W_{ni}\)</span></td>
-<td>Variance of <span class="math inline">\(x_{ni}\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(C_{ni}\)</span></td>
-<td>Kurtosis of <span class="math inline">\(x_{ni}\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(y_{ni}\)</span></td>
-<td>Score residual</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(z_{ni}\)</span></td>
-<td>Standardized residual</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(u_i\)</span></td>
-<td>Unweighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(v_i\)</span></td>
-<td>Weighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(q_i^2\)</span></td>
-<td>Variance of weighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(t_i\)</span></td>
-<td>Standardized weighted mean square for Item <span class="math inline">\(i\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(u_n\)</span></td>
-<td>Unweighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(v_n\)</span></td>
-<td>Weighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(q_n^2\)</span></td>
-<td>Variance of weighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(t_n\)</span></td>
-<td>Standardized weighted mean square for Person <span class="math inline">\(n\)</span></td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(G_I\)</span></td>
-<td>Item seperation index</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(H_I\)</span></td>
-<td>Number of item strata</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(R_I\)</span></td>
-<td>Sample reliability of item separation</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(G_P\)</span></td>
-<td>Person separation index</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td><span class="math inline">\(H_P\)</span></td>
-<td>Number of person strata</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td><span class="math inline">\(R_P\)</span></td>
-<td>Test reliability of person separation</td>
-</tr>
-</tbody>
-</table>
-<pre class="warnings"><code>warnings()</code></pre>
+<div id="why-some-prefer-the-rasch-model" class="section level2">
+<h2><span class="header-section-number">4.5</span> Why some prefer the Rasch model</h2>
+<div id="the-model-as-ideal" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> The model as ideal</h3>
+</div>
+<div id="perfect-symmetry" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Perfect symmetry</h3>
+</div>
+<div id="specific-objectivity-example" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Specific objectivity (example)</h3>
+</div>
+<div id="simplicity" class="section level3">
+<h3><span class="header-section-number">4.5.4</span> Simplicity</h3>
 
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-wright1982">
-<p>Wright, B. D., and G. N. Masters. 1982. <em>Rating Scale Analysis: Rasch Measurement</em>. Chicago: MESA Press.</p>
 </div>
-</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="creating-new-instruments-for-d-score.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="comparisonagebased.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-itemfit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

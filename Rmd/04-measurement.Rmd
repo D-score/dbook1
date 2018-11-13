@@ -421,3 +421,14 @@ In general, we expect that this probability increases with ability
 Section \@ref(sec:agebased), where the probability was said to
 increase in age, not ability. We will address this crucial difference
 in more detail in Section xx.
+
+
+## Why some prefer the Rasch model
+
+### The model as ideal
+
+### Perfect symmetry
+
+### Specific objectivity (example)
+
+### Simplicity
