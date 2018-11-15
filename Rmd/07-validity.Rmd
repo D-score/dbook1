@@ -2,9 +2,18 @@
 
 ## Role of validity
 
-## Discriminatory validity
+## Internal validity
+domain representation
+how calculated
+interpretation
 
-## Concurrent validity
+## External validity
 
-## Predictive validity
+### Discriminatory validity
 
+### Concurrent validity
+at least cor = >.6
+
+### Predictive validity
+
+For examples see CH 8

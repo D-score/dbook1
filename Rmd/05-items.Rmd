@@ -1,8 +1,32 @@
 # Interpretation of item fit {#items} (IE)
 
+<!--5.2
+formules eerder achterin, of uitleggen
+terugverwijzen
+zeggen dat je zowel visueel als met fitmaat kunt werken
+item namen = gsed
+
+bespreken van verschillende voorbeelden, plat, te steil
+n26 is steiler, hoe erg is dat?
+is er ook een vlakker item
+figuur aspect ratio, compacter maken, nu te hoog, combineren mogelijk?
+kunnen we ook de observaties tonen, rugplot?
+#voorbeelden gedragstoestand tijdens van wiechenschema als items nemen en laten zien als illustratie van slechte items. Of niet geselecteerde items.
+
+5.3 
+Interpretation van infit en outfit komt te vroeg
+laat eerst zien wat beide zijn
+E_ni -> P_ni
+Plaatje van de (gestandardiseerde) residuen?
+
+5.4 
+psychometric information?
+-->
+
+Richtlijnen interpretatie Person fit > 3? item fit >1 /1.2
 ## SMOCC data: design
 
-To illustrate the interpretation of fit measures for the D-score we use the SMOCC study (Herngreen et al, 1993), which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
+To illustrate the interpretation of fit measures for the D-score we use the SMOCC study [@HERGREEN1994], which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
 
 ```{r, include=FALSE}
 library(ddata)
@@ -14,7 +38,7 @@ library(sirt)
 
 ## Empirical and fitted item response curves
 
-An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$, where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for an example item "n26" and item "n40". It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for an example item "n26" and item "n40". It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
 
 
 ```{r icc, include=FALSE, message=FALSE, warning=FALSE}
@@ -73,7 +97,7 @@ $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
 
 In the figure below an item with a large outfit is presented as well as an item with a large infit. 
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r include=FALSE, message=FALSE, warning=FALSE}
 N <- 500    # number of persons
 I <- 5      # number of items
 b <- seq( -2, 2, length=I)
@@ -91,10 +115,30 @@ model1 <- fit_raschmodel(data=dat,ability_items = items, itemtable = itemtable,e
 #model1$beta_l
 #outfit impute 1s for person with lower ability than item ability
 plots3 <- plot_p_ability_item(data=dat,model=model1, metric = "logit")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
 plots3[[3]]
 
 ```
 
+##HIER EVENTUEEL PERSON FIT FORMULAS INVOEGEN
+
+
+## Different item functioning (DIF)
+
+An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@ZUMBO1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. 
+
+
+```{r dif}
+head(sm1$beta_l)
+
+#make dataframe with covariates, b, and pass
+
+
+
+```
 
 ## Item information at a given ability
 
@@ -128,8 +172,41 @@ In the Figure below, the item information curves for item n26 and n40 are displa
 
 ## Item information at a given age
 
-```{r echo=FALSE}
-#calculate_age_equivalents(model=sm1, p=50, reference=dscore::gcdg_reference)
+The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
+
+
+```{r}
+calculate_age_equivalents <- function(model,
+                                      p = c(10, 50, 90),
+                                      reference = dscore::gcdg_reference) {
+  if (!inherits(model, "dmodel"))
+    stop ("Argument `model` not of class `dmodel`")
+
+  ib <- model$itembank
+  scalefactor <- model$transform[2]
+  pd <- matrix(ib$tau, nrow = nrow(ib), ncol = length(p)) +
+    matrix(scalefactor * qlogis(p / 100),
+           nrow = nrow(ib), ncol = length(p), byrow = TRUE)
+  pa <- approx(x = reference$mu, y = reference$month, xout = as.vector(pd))$y
+  pa <- matrix(pa, ncol = 3)
+  pda <- data.frame(ib$lex_gcdg, round(pd, 2), round(pa, 2))
+  names(pda) <- c("item", paste0("D", p), paste0("A", p))
+  pda
+}
 
 ```
 
+```{r echo=FALSE, message=FALSE}
+colnames(sm1$dscore)[7] <-"b"
+#model in logit
+refs<- calculate_references(model = sm1, metric="logit")
+refs$month <- refs$age
+model$transform
+
+calculate_age_equivalents(model=sm1, p=50, reference=refs)
+
+```
+
+
+
+The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item. 
