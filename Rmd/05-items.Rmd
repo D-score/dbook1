@@ -1,4 +1,4 @@
-# Interpretation of item fit {#items} (IE)
+# Interpretation of item fit {#ch:itemfit}
 
 <!--5.2
 formules eerder achterin, of uitleggen
@@ -48,7 +48,7 @@ smocc$age <- smocc$age/12
 varlist <- prepare_items(study = "Netherlands 1")
 equatelist <- prepare_equates(varlist)
 model_name<- "smocc"
-sm1 <- fit_dmodel(varlist=varlist,eqate=equatelist, name = model_name)
+sm1 <- fit_dmodel(varlist=varlist,equate=equatelist, name = model_name)
 plots <- plot_p_ability_item(data=smocc, model = sm1, metric="logit")
 #plots <- plot_p_ability_item(data=smocc, model = sm1, metric="dscore")
 
@@ -108,9 +108,9 @@ colnames(dat) <- paste0( "I", 1:I )
 items <- colnames(dat)
 dat$age <- rnorm(N, 1, 1)
 dat$id <- 1:N
-itemtable <- data.frame(item=items)
+itemtable <- data.frame(item = items)
 #2PL functie data maken (platte bijv sociall emo en hele stijlen)
-model1 <- fit_raschmodel(data=dat,ability_items = items, itemtable = itemtable,equate = NULL, age_unit = "years")
+model1 <- fit_raschmodel(data = dat, items = items, itemtable = itemtable,equate = NULL, age_unit = "years")
 #model1$item_fit
 #model1$beta_l
 #outfit impute 1s for person with lower ability than item ability
