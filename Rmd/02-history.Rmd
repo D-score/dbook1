@@ -1,3 +1,7 @@
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
 # Short history {#ch:history}
 
 ## What is child development?

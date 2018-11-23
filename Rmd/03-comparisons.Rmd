@@ -1,3 +1,7 @@
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
 # New model to quantify child development {#ch2:newmodel}
 
 Chapter \@ref(ch:history) introduces the age-based, score-based and
