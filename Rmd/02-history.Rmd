@@ -1,6 +1,15 @@
+
 # Short history of child development {#ch:history}
 
-## What is child development?
+The measurement of child development has quite an extensive history. 
+This chapter 
+
+* reviews definitions of child development (\@ref(sec:definitions))
+* discusses concepts in the nature of child development (\@ref(sec:theories))
+* shows an classic example of motor measurements (\@ref(sec:motorexample))
+* summarizes typical questions whose answers need proper measurements (\@ref(sec:questions))
+
+## What is child development? {#sec:definitions}
 
 In contrast to concepts like height or temperature, it is unclear what
 exactly constites child development. One of the first rigorous studies
@@ -59,7 +68,7 @@ child development as follows:
 There are many more definitions of child development. The ones given
 here just illustrate the main points of view in the field.
 
-## Theories of child development
+## Theories of child development {#sec:theories}
 
 The field of child development is huge and spans multiple academic
 disciplines. This short overview therefore cannot do justice to
@@ -72,7 +81,7 @@ The introductions by @santrock2010 and @berk2013 both distinguish
 major theories in child development according to how each answers
 to following three questions:
 
-* *Continuous or discontinuous?*
+### Continuous or discontinuous?
 
 Does development evolve gradually as a continuous process 
 or are there qualitatively distinct stages, with jumps occurring 
@@ -97,7 +106,7 @@ continuous process. @gesell1943 (p. 88) says:
 > of development. A stage is simply a passing moment, while 
 > development, like time, keeps marching on.
 
-* *One course or many?*
+### One course or many?
 
 Stage theorists assume that children progress sequentially through 
 the same set of stages. This assumption is also explicit in the 
@@ -117,7 +126,7 @@ knitr::include_graphics("fig/dynamic.png")
 
 (ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
 
-* *Nature or nurture?*
+### Nature or nurture?
 
 Are genetic or environmental factor more important for influencing
 development? Most theories generally acknowledge the role of both, but
@@ -139,14 +148,15 @@ be small. On the other hand, if we view development as plastic, then
 improving the environment may have substantial pay-offs in terms of
 improved development.
 
-## Example of motor development
+## Example of motor development {#sec:motorexample}
 
 ```{r echo = FALSE, warning = FALSE}
 pkg <- c("knitr", "tidyr", "dplyr", "ggplot2")
 loaded <- sapply(pkg, require, character.only = TRUE, 
                  warn.conflicts = FALSE, quietly = TRUE)
-options(knitr.kable.NA = "?")
 ```
+
+### Shirley's motor data
 
 For illustration, we use data on locomotor development collected in
 the classic study on child development among 25 babies by
@@ -162,27 +172,28 @@ repeated every week or bi-weekly.
 ```{r shirley, echo = FALSE}
 shirley <- data.frame(
   name = c("Martin", "Carol", "Max", "Virginia Ruth", "Sibyl",
-  "David", "James D.", "Harvey", "Winnifred", "Quentin", 
-  "Maurice", "Judy", "Irene May", "Peter", "Walley", "Fred",
-  "Donovan", "Patricia", "Torey", "Larry", "Doris"), 
+           "David", "James D.", "Harvey", "Winnifred", "Quentin", 
+           "Maurice", "Judy", "Irene May", "Peter", "Walley", "Fred",
+           "Donovan", "Patricia", "Torey", "Larry", "Doris"), 
   sex = c("boy", "girl", "boy", "girl", "girl",
           "boy", "boy", "boy", "girl", "boy",
           "boy", "girl", "girl", "boy", "boy", "boy",
           "boy", "girl", "boy", "boy", "girl"),
   stepping = c(15, 15, 14, NA, NA, 19, 19, 14, 15, 15,
-  18, 18, 19, 15, 18, 15, NA, 15, NA, 13, NA),
+               18, 18, 19, 15, 18, 15, NA, 15, NA, 13, NA),
   standing = c(NA, 19, NA, 21, 22, 27, 30, 27, 30, 23,
-  23, 29, 34, 29, 33, 32, 23, 30, 21, 41, 23),
+               23, 29, 34, 29, 33, 32, 23, 30, 21, 41, 23),
   walk_help = c(21, 37, 25, 41, 37, 34, 45, 42, 41, 38,
-  45, 45, 45, 49, 54, 46, 50, 45, 72, 54, 44),
+                45, 45, 45, 49, 54, 46, 50, 45, 72, 54, 44),
   walk_alone = c(50, 50, 54, 54, 58, 60, 60, 62, 62, 64,
-  66, 66, 66, 66, 68, 70, 70, 70, 74, 76, NA))
+                 66, 66, 66, 66, 68, 70, 70, 70, 74, 76, NA))
+options(knitr.kable.NA = '?')
 kable(shirley, 
       col.names = c("Name", "Sex", "Stepping", "Standing", 
                     "Walking with help", "Walking alone"))
 ```
 
-  : (\#tab:shirley) Age at beginning stages of walking (in weeks) for 21 babies [@shirley1931, Appendix 8].
+: (\#tab:shirley) Age at beginning stages of walking (in weeks) for 21 babies [@shirley1931, Appendix 8].
 
 Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies when
 they started, respectively, stepping, standing, walking with help, and
@@ -194,7 +205,9 @@ standing and went directly from stepping to walking with help. Doris
 has a question mark in the last column, because she died before she
 could walk alone.
 
-```{r stepplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:stepplot)'}
+### Individual trajectories of motor development
+
+```{r stepplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:stepplot)', warning = FALSE}
 d <- shirley %>%
   mutate(name = factor(name, as.character(name))) %>%
   gather(key = "stage", value = "age", -name, -sex) %>%
@@ -226,52 +239,49 @@ or who jump over stages (Martin, Max).
 
 For ease of plotting, the categories on the vertical axis are equally
 spaced. The height of the jump from one stage to the next has no
-interpretation. In particular, the vertical distance does not tell us
-how difficult it is to achieve the next stage. Instead, difficulty
-corresponds to the length of the line in the horizontal direction
-between stages. For example, on average the line for `stepping` is
-rather short in all plots, so going from `stepping` to `standing` is
-relatively easy.
+sensible interpretation. We might be inclined to think that the
+vertical distance portrays to how difficult it is to achieve the
+next stage, but this is inaccurate. Instead, difficulty of passing from
+one stage to the next corresponds to the *length of the line in the
+horizontal direction* between stages. For example, on average the line
+for `stepping` is rather short in all plots, so going from `stepping`
+to `standing` is relatively easy.
 
 The figure presents data from only those visits where a jump occurred.
 The number of house visits made during ages 0-2 years was far higher.
 @shirley1931 actually collected data from 1370 visits, whereas Figure
-\@ref(fig:stepplot) plot just the 76 visits with jumps. Thus, to
-obtain these individual curves like these data collection needs to be
-intense and costly.
+\@ref(fig:stepplot) plot only the 76 visits that showed a jump.
+In order to obtain individual curves like these, the data collection 
+needs to be intense and costly. Fortunately, there are alternatives that
+are much more efficient.
 
 ## Typical questions asked in child development {#sec:questions}
 
 Child development is very relevant for answering clinical, policy and
-public health questions. On the level of the individual child, we pose questions like:
+public health questions.
 
-- What is your gain in development since your last visit? 
+Table: (\#tab:question) Questions whose answers require quantitative measurements of child development.
 
-- What is the difference in development between you and your friend 
-of the same age?
+```{r echo = FALSE}
+questions <- data.frame(
+  Level = c(rep("Individual", 3), rep("Group", 2), rep("Population", 3)),
+  Question = c(
+    "What is your gain in development since your last visit?",
+    "What is the difference in development between you and your friend of the same age?",
+    "How does your development compare to a norm?",
+    "What is the effect of this intervention on child development?",
+    "What is the difference in child development between these two groups?",
+    "What is the change in average child development since the last measurement?",
+    "What was the effect of implementing this policy on child development?",
+    "How does this country compare to other countries in terms of child development?"
+  ))
 
-- How does your development compare to a norm?
+knitr::kable(questions)
+```
 
-The identification of determinants or effects of interventions typically
-formulate questions at the group level. Some examples are:
-
-- What is the effect of this intervention on child development?
-
-- What is the difference in child development between these two groups?
-
-Questions on the level of the population health levels include:
-
-- What is the change in average child development since the last
-measurement?
-
-- What was the effect of implementing this policy on child development?
-
-- How does this country compare to other countries in terms of child development?
-
-Note that all questions compare the amount of child development between 
-groups and/or time points. A few questions compare development for the same
-child/group/population at different ages. Some others compare
-development within the same age across different children, group 
-or populations.
-
-
+Table \@ref(tab:question) lists typical questions whose answers
+require measuring child development. Note that all questions compare
+the amount of child development between groups and/or time points. A
+few questions compare development for the same child, group or
+population at different ages. Some others compare development within
+the same age across different children, group or populations.
