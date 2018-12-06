@@ -1,9 +1,15 @@
 # Three ways to quantify child development {#sec:threeways}
 
-This section distinguished three different methods to quantify child
-development: age-based, score-based and unit-based measurement.
+This section distinguishes three different principles that are being
+used to quantify child development: 
+
+* Age-based measurement (\@ref(sec:agebased))
+* Score-based measurement (\@ref(sec:scorebased))
+* Unit-based measurement (\@ref(sec:unitbased))
 
 ## Age-based measurement of development {#sec:agebased}
+
+### Motivation for age-based measurement
 
 The motivation for measuring child development is to be able to
 describe the behavior expected at a selected age. @gesell1943 (p. 89)
@@ -13,51 +19,82 @@ formulates this goal as follows:
 > of behavior. For any selected age it is possible to sketch a portrait
 > which delineates the behavior characteristics typical of the age.
 
-@stott1967 (p. 22) observed that it is impossible to define a scale
-for measuring child development:
+There is a large literature that quantifies development in terms of
+ages at which the child is expected to show a specific behavior. For
+example, in Shirley's motor data in Table \@ref(tab:shirley), we may
+summarize the ages at which each of the 21 children enters a given
+stage.
 
-> When development appears as a change in kind, that is, when the 
-> change consists of a series of qualitatively different events,
-> or features, or "stages", it is not amemable to measurement
-> by use of any standard scale of units.
+```{r agebased, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebased)', warning = FALSE}
+load(file = file.path("data/shirley.rda"))
 
-As a solution Stott suggested using the "invariable sequence" of
-successive stages as the basis for the assessment of the individual's
-status. Stott argues that such sequences are fairly well established
-for physical activity. He admits though that such stages are less
-clear for the acquisition of speech and other social skills.
+d <- shirley %>%
+  mutate(name = factor(name, as.character(name))) %>%
+  gather(key = "stage", value = "age", -name, -sex) %>%
+  mutate(
+    stage = factor(stage, unique(stage)),
+    score = rep(1:4, each = 21))
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_point(cex = 3, pch = 1) + 
+  geom_point() + 
+  theme_light() + 
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Stage")
+```
+
+(ref:agebased) Ages at which 21 children achieve four motor development milestones. 
+
+### Age equivalent as difficulty
 
 Since age and development are so intimately related, the *difficulty*
-of developmental a given milestone is traditionally expressed in terms
-of the age at which children achieve the milestone. For example,
+of a given developmental milestone is traditionally expressed in terms
+of the age at which children achieve it. For example,
 @stott1967 (p. 25) defines the *age equivalent* and its use for
 measurement, as follows:
 
 > The age equivalent of a particular stage is simply the average age 
-> at which children reach that particular stage. A set of age 
-> equivalents corresponding to a series of stages can be made to 
-> function as a scale for individual assessment.
+> at which children reach that particular stage. 
 
-Alternatives to the age equivalents include the ages at which 10, 50
-or 90 percent of the children achieve the milestone. This line of
-reasoning has led to the widely used concept of `developmental age` as
+```{r agebox, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebox)', warning = FALSE}
+means <- aggregate(age ~  stage, d, mean)
+ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
+  geom_boxplot(col = "skyblue", fill = "transparent", width = 0.3) +
+  geom_point(cex = 3, pch = 1) + 
+  geom_point() + 
+  stat_summary(fun.y = mean, colour = "black", geom = "point", 
+               shape = 4, size = 3, show_legend = FALSE) +
+  theme_light() + 
+  guides(colour = FALSE) + 
+  labs(y = "Age (weeks)", x = "Stage") +
+  coord_flip()
+```
+
+(ref:agebox) Boxplot and mean (symbol `x`) of the ages at which 21 children achieve four motor development milestones.
+
+Figure \@ref(fig:agebox) adds boxplot and the mean age at which the
+children enter the four stages. The difficulty of the stages can thus
+be expressed as age equivalents: 16.1 weeks for stepping, 27.2 weeks
+for standing, 43.3 weeks for walking with help and 63.3 weeks for
+walking alone. 
+
+Alternatives to the mean age equivalent include the ages at which 10,
+50 or 90 percent of the children achieve the milestone. This line of
+reasoning has led to the widely used concept of *developmental age* as
 a measure of a child's development (in body size or motor skill or
 psychological function) expressed in terms of age norms.
 
-<!--Include numerical example here from Shirley data -->
+### Limitations of age-based measurement 
 
-Age-based measurement was once the dominant paradigm for measuring
-child development. It is easy to understand, but is not without 
-some problems and limitations.
+Age-based measurement is easy to understand, but is not without 
+pitfalls:
 
-1. Age-based measurement does not tell us what is normal for a child
-at a given age. We can properly infer whether a child is early or late
-for a given milestone. However, this does not give us insight which
-behaviors are characteristic at the child's age.
+1. Age-based measurement can inform us whether a child is earlier or
+later for a given milestone. However, it does not tell us what
+behaviors are characteristic for a child of a given age.
 
 2. Age-based measurement cannot exists without an age norm. When there
 is no norms, we cannot quantify development. Age-based measurement
-does not separate quantification of development from evaluation of 
+intertwines quantification of development with evaluation of
 development.
 
 3. Age-based measurement only works at the item level, and is 
