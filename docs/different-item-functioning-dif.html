@@ -220,7 +220,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="different-item-functioning-dif" class="section level2">
 <h2><span class="header-section-number">5.4</span> Different item functioning (DIF)</h2>
-<p>An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: “DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.” <span class="citation">(<span class="citeproc-not-found" data-reference-id="ZUMBO1999"><strong>???</strong></span>)</span> The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group.</p>
+<p>An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: “DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.” <span class="citation">(Zumbo <a href="#ref-zumbo1999">1999</a>)</span> The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(sm1<span class="op">$</span>beta_l)</code></pre></div>
 <pre><code>##   country         study    id wave    age  n      b
 ## 1      NL Netherlands 1 10001    1 0.0833  5 -17.07
@@ -230,6 +230,12 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 ## 5      NL Netherlands 1 10001    5 0.7500  8  -1.99
 ## 6      NL Netherlands 1 10001    6 1.0000  8   1.86</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#make dataframe with covariates, b, and pass</span></code></pre></div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-zumbo1999">
+<p>Zumbo, B.D. 1999. “A Handbook on the Theory and Methods of Differential Item Functioning (Dif).” <em>Ottawa: National Defense Headquarters</em>.</p>
+</div>
 </div>
             </section>
 
