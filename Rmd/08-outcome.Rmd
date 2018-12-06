@@ -607,43 +607,46 @@ To assess the validity of the D-score in this population, we inspected scatterpl
 <!-- nog ergens invoegen (in tekst?): n-en van de regressies ## -->
 
 ```{r, echo=FALSE}
-# data laden, incl d-scores (voorlopige versie, voorlopig opgeslagen in booklets-sharepoint; waardoor laden alleen werkt als je toegang hebt tot sharepoint, i.e. internet explorer met intranet open hebt staan)
-dbookdatapath <- "\\\\365tno.sharepoint.com@SSL\\teams\\P060.33452\\TeamDocuments\\Team\\Work\\Booklets\\Data\\togo_g1g2"
-# 
-Togodat <- load(paste(dbookdatapath, "Togodat_g1g2_allevisits_voor_gebruik_dbook002.Rda", sep="\\"))
+library(ddata)
+library(dscore)
 
-# alvast laden voor regressies verderop:
-# data als hierboven, maar dan 1 visit per kind:
-# eerste visit per kind geselecteerd (i.e. van elk kind regel met laagste age)
-Togodat_1stvisit <- load(paste(dbookdatapath, "Togodat_g1g2_1evisit_per_kind_voor_gebruik_dbook002.Rda", sep="\\"))
-# eerste visit per kind geselecteerd (i.e. van elk kind regel met laagste age)
-Togodat_laatstevisit <- load(paste(dbookdatapath, "Togodat_g1g2_laatstevisit_per_kind_voor_gebruik_dbook002.Rda", sep="\\"))
+# remove rows without valid agedays
+togo <- TGO %>%
+  filter(!is.na(agedays)) %>%
+  arrange(id, agedays)
 
+# calculate d and daz
+togo$d <- NA
+togo$daz <- NA
 
-# om warnings bij plots te voorkomen: maak subset waarin geen missings d-scores voorkomen
-Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores <- Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore$d)==FALSE,]
+# select subset with first child measurement
+togo_first <- togo %>% 
+  group_by(id) %>%
+  mutate(first = min(agedays)) %>%
+  filter(agedays == first)
 
-# Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores
+# select subset with last child measurement
+togo_last <- togo %>% 
+  group_by(id) %>%
+  mutate(last = max(agedays)) %>%
+  filter(agedays == last)
 ```
 
 
 ```{r, echo=FALSE}
-
-
 # the continuous variables:
-contvars <- c("age", "d", "togodaz", "weight", "weight_WHOz_no_outliers")
+contvars <- c("agedays", "d", "daz", "weight", "waz")
 # the categorical variables:
 catvars <- c("sex.01", "prof_father_dich", "tonus.and.or.reflex.problems", # deze var nog construeren hieronder
              "apgar.10min.dich.less.than.10") # deze var nog construeren (omscoren van 'apgar.10min.dich10')
 
-# rapporteer descriptives op kindniveau, dus gebruik data met 1 regel per kind: laatste visit van elk kind (deze data wordt ook in regressies gebruikt; behalve dat dan alleen gerekend wordt met groep die een DAZ heeft, i.e. leeftijd ten tijde van laatste visit onder de 2.78)
-curdat <- Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind
+# for descriptives, use child level data, last visit
+curdat <- togo_last
 
 # variabele aanmaken: tonus.and.or.reflex.problems (met beide apart is het lastig de descriptives uit te rekenen)
 curdat$tonus.and.or.reflex.problems <- NA
 curdat$tonus.and.or.reflex.problems[
-  is.na(curdat$neuro.reflex)==FALSE & 
-    is.na(curdat$neuro.tonus)==FALSE] <- 0
+  is.na(curdat$neuro.reflex) == FALSE & is.na(curdat$neuro.tonus) == FALSE] <- 0
 curdat$tonus.and.or.reflex.problems[
   is.na(curdat$neuro.reflex)==FALSE & 
     is.na(curdat$neuro.tonus)==FALSE & 
@@ -663,8 +666,8 @@ curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==0] <- 1
 no.digits <- 2
 
 # voor de continuous vars:
-v_n <- lapply(curdat[contvars], function(x) sum(is.na(x)==FALSE))
-v_mean <- lapply(curdat[contvars], mean, na.rm=TRUE)
+v_n <- lapply(curdat[contvars], function(x) sum(is.na(x) == FALSE))
+v_mean <- lapply(curdat[contvars], mean, na.rm = TRUE)
 # v_mean <- lapply(lapply(lapply(curdat[contvars], mean, na.rm=TRUE), round, no.digits), format, nsmall=2)
 v_sd <- lapply(curdat[contvars], sd, na.rm=TRUE)
 v_median <- lapply(curdat[contvars], median, na.rm=TRUE)
@@ -678,8 +681,9 @@ row.names(descr) <- c("age", "D-score","DAZ","weight (kg)", "weight z-score (age
 knitr::kable(descr, 
              caption="Descriptives (last visit per child)",
              col.names=c("N", "mean", "SD", "median"))
+```
 
-
+```{r eval = FALSE}
 # voor de categorical vars:
 v2_n <- lapply(curdat[catvars], function(x) sum(is.na(x)==FALSE))
 v2_perc <- lapply(curdat[catvars], function(x) prop.table(table(x))["1"] * 100) # 
@@ -687,7 +691,6 @@ v2_perc <- lapply(curdat[catvars], function(x) prop.table(table(x))["1"] * 100) 
 descr2 <- as.data.frame(cbind(v2_n, v2_perc))
 descr2 <- format(descr2, digits=1, nsmall=1)
 row.names(descr2) <- c("gender (% girls)", "fathers' schooling (% schooled)","tonus and/or reflex problems (% with problems, as observed by physician)","APGAR 10 min. (% with score <10)")
-
 
 knitr::kable(descr2, 
              # caption="Descriptives", 
@@ -699,7 +702,7 @@ knitr::kable(descr2,
 
 The relation between D-score and age can be found in figure .. As expected, a curve is seen, with higher ages related to higher D-scores. Also, it can be seen that several D-scores are below the curve, i.e. these children had lower D-scores than their age mates. In figure .. it can be seen that many of these lower than normal D-scores are not artefacts of the data, but belong to children that were observed to have reflex and/or tonus problems.  
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 
 
 library(ggplot2)
@@ -731,7 +734,7 @@ n_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_n
 
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # als validatie: 
 # tonus en/of reflex-probleem uitlichten
 # klaar; deze naar dbook
@@ -761,7 +764,7 @@ n_tonus_reflex_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDs
 ```
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # regressie-analyses ondergewicht als predictor van dscore (i.e waz -> daz)
 # figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
 
@@ -778,7 +781,7 @@ regr10.3.weight_WHOz.coeff <- summary(regr10.3)$coefficients["weight_WHOz_no_out
 
 ```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 
 # vervolganalyse relatie weight dscore: 
 # relatie aantal kinderen in gezin -> dscore
@@ -793,12 +796,13 @@ regr6.2.no_of_children_father_dich5.coeff <- summary(regr6.2)$coefficients["no.o
 
 ```
 
-
-In figure .. underweighted children are highlighted. Visually there seems to be a relation between being underweighted and having a lower than normal D-score. A regression based on data of children's last visit showed that indeed the age-corrected weight z-score, after correction for fathers' schooling and sex of the child, did predict the DAZ: a decrease of 1 SD in age-corrected weight was related to a decrease of `r round(regr10.3.weight_WHOz.coeff["Estimate"],1) ` SD in age-corrected D-score (p `r format.pval(regr10.3.weight_WHOz.coeff["Pr(>|t|)"], eps = .001) `), which is a reasonable effect. The overall model explained `r round(regr10.3.summary$adj.r.squared * 100,0)`% of the DAZ variance (adjusted R^2^). As in the other regression analyses sex and fathers' schooling did not contribute significantly to the model.  
+```{r eval = FALSE}
+In figure .. underweighted children are highlighted. Visually there seems to be a relation between being underweighted and having a lower than normal D-score. A regression based on data of children's last visit showed that indeed the age-corrected weight z-score, after correction for fathers' schooling and sex of the child, did predict the DAZ: a decrease of 1 SD in age-corrected weight was related to a decrease of `r round(regr10.3.weight_WHOz.coeff["Estimate"],1) ` SD in age-corrected D-score (p `r format.pval(regr10.3.weight_WHOz.coeff["Pr(>|t|)"], eps = .001) `), which is a reasonable effect. The overall model explained `r round(regr10.3.summary$adj.r.squared * 100,0)`% of the DAZ variance (adjusted R^2^). As in the other regression analyses sex and fathers' schooling did not contribute significantly to the model.
 	Because there clearly seems to be a relation between underweight and a lower than normal D-score, it was also tested whether family size (which might be a cause of malnutrition) did predict the DAZ. No such relation was found: children from large families (5 or more children of the father at the moment of the first visit versus 4 or less children) did not have different DAZ-scores at their last visit than children from smaller families (after correction for sex: B = `r round(regr6.2.no_of_children_father_dich5.coeff["Estimate"],2)`, p = `r format.pval(regr6.2.no_of_children_father_dich5.coeff["Pr(>|t|)"], eps = .001, digits=2)`, adjusted R^2^ = `r round(regr6.2.summary$adj.r.squared,3)`).  
 <!-- NOG CHECKEN: is het inderdaad 2zijdig getoetst? -->
+```
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval = FALSE}
 # uitlichten: weight_WHOz_no_outliers < (-2) (eigenlijk waz, want age-corrected z-score) 
 ggplot() +
   geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_WHOz_no_outliers)==FALSE,],
@@ -828,12 +832,13 @@ nvisits_weight_WHOz_no_outliers_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevul
 n_weight_WHOz_no_outliers_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_WHOz_no_outliers)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"])) 
 
 #cor(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind$weight_WHOz, Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind$togodaz, use = "complete.obs")
-```
-
 *`r nvisits_weight_WHOz_no_outliers_d` visits from `r n_weight_WHOz_no_outliers_d` children*
 
+```
 
-```{r, echo=FALSE}
+
+
+```{r, echo=FALSE, eval=FALSE}
 # regressie-analyses APGAR als predictor van dscore 
 # figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
 
@@ -850,14 +855,15 @@ regr2.3.APGAR10min_dich10.coeff <- summary(regr2.3)$coefficients["apgar.10min.di
 
 ```
 
+```{r eval=FALSE}
 In figure .. 1070 D-scores of 534 children for who a 10-minute APGAR score was available are shown. A less than optimal 10-minute APGAR score (i.e. less than 10 points) did predict a lower DAZ at their last visit after correction for sex and father's schooling (B = `r format(round(regr2.3.APGAR10min_dich10.coeff["Estimate"],2), nsmall=2)`, p `r format.pval(regr2.3.APGAR10min_dich10.coeff["Pr(>|t|)"], eps = .001, digits=2)`, adjusted R^2^ = `r round(regr2.3.summary$adj.r.squared,3)`). So, children with a less than optimal APGAR score at ten minutes after birth, had somewhat lower D-scores.  
 <!-- NOG CHECKEN: waarom is df zoveel kleiner dan 534? Komt dat door 'laatste visit'-selectie?   -->
 <!-- en bij deze nog prematuriteit en evt. geb.gew toevoegen als covariaat? Kan dat dit vooral gaat over prematuur vs niet-prematuur # -->
 
 For all regression analyses mentioned, results were similar when based on children's first visit.
+```
 
-
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 # uitlichten: apgar score lager dan 10 bij 10min
 ggplot() +
   geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE,],
@@ -886,10 +892,10 @@ nvisits_apgar10_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_sub
 # van .. unieke kinderen:
 n_apgar10_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"]))    
 
+ *`r nvisits_apgar10_d` visits from `r n_apgar10_d` children* 
 
 ```  
-  *`r nvisits_apgar10_d` visits from `r n_apgar10_d` children* 
-
+ 
 
 **Discussion and conclusions**  
 
@@ -910,7 +916,7 @@ Evt nog doen:
 ## Comparison
 
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
 
 # voor plotten referentie-lijnen:
 ref_NL <- dscore::Dreference # dutch reference group (also used to calculate DAZ (variable 'togodaz'))

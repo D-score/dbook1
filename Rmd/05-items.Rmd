@@ -110,16 +110,16 @@ dat$age <- rnorm(N, 1, 1)
 dat$id <- 1:N
 itemtable <- data.frame(item = items)
 #2PL functie data maken (platte bijv sociall emo en hele stijlen)
-model1 <- fit_raschmodel(data = dat, items = items, itemtable = itemtable,equate = NULL, age_unit = "years")
+# model1 <- fit_raschmodel(data = dat, items = items, itemtable = itemtable,equate = NULL, age_unit = "years")
 #model1$item_fit
 #model1$beta_l
 #outfit impute 1s for person with lower ability than item ability
-plots3 <- plot_p_ability_item(data=dat,model=model1, metric = "logit")
+# plots3 <- plot_p_ability_item(data=dat,model=model1, metric = "logit")
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 
-plots3[[3]]
+# plots3[[3]]
 
 ```
 
@@ -196,7 +196,7 @@ calculate_age_equivalents <- function(model,
 
 ```
 
-```{r echo=FALSE, message=FALSE}
+```{r echo=FALSE, message=FALSE, eval=FALSE}
 colnames(sm1$dscore)[7] <-"b"
 #model in logit
 refs<- calculate_references(model = sm1, metric="logit")
