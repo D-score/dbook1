@@ -28,10 +28,10 @@ include_graphics("fig/shirley-motor.png")
 (ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
 
 Certain domains advance through a fixed sequence. Figure
-\@ref(fig:shirleyplot) illustrates the various stages needed for
-going from a *fetal posture* to *walking alone*. The ages are
-indicative when these events happen, but there is a large variation in
-timing between infants.
+\@ref(fig:shirleyplot) illustrates the various stages needed for going
+from a *fetal posture* to *walking alone*. The ages are indicative
+when these events happen, but there is a large variation in timing
+between infants.
 
 @gesell1943 (p. 88) formulated the following definition of development:
 
@@ -173,15 +173,15 @@ kable(shirley,
 
 : (\#tab:shirley) Age at beginning stages of walking (in weeks) for 21 babies [@shirley1931, Appendix 8].
 
-Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies when
-they started, respectively, stepping, standing, walking with help, and
-walking alone. Question marks indicate missing data. A question mark
-in the first column the babies were already stepping when the
-observation started (Virginia Ruth, Sibyl, Donovan and Doris). Max and
-Martin, who have a question mark in the second column, skipped
-standing and went directly from stepping to walking with help. Doris
-has a question mark in the last column, because she died before she
-could walk alone.
+Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies
+when they started, respectively, stepping, standing, walking with
+help, and walking alone, as taken from @vanbuuren1992. Question marks
+indicate missing data. A question mark in the first column the babies
+were already stepping when the observation started (Virginia Ruth,
+Sibyl, Donovan and Doris). Max and Martin, who have a question mark in
+the second column, skipped standing and went directly from stepping to
+walking with help. Doris has a question mark in the last column,
+because she died before she could walk alone.
 
 ### Individual trajectories of motor development
 
