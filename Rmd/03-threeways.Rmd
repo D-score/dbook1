@@ -44,7 +44,7 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 
 (ref:agebased) Ages at which 21 children achieve four motor development milestones. 
 
-### Age equivalent as difficulty
+### Age equivalent as difficulty {#sec:ageequivalent}
 
 Since age and development are so intimately related, the *difficulty*
 of a given developmental milestone is traditionally expressed in terms
@@ -102,33 +102,72 @@ cumbersome to apply with multiple items.
 
 ## Score-based measurement of development {#sec:scorebased}
 
-A second approach to measurement is to administer multiple items to
-the child, and and compute the total number of PASS responses as a
-measure of child's development. Items can be ordered in difficulty, so
-one may skip items that are too easy, and stop when items become too
-difficult. Since different children get different sets of items, one
-cannot simply interpret the sum score of a measure of development.
-Most instruments describe corrections that should be applied,
-typically under the assumption that the child would have passed all
-"too easy" items and failed on all "too difficult" items. This
-procedure is typically repeated for different domains, e.g. motor,
-cognitive, and so on.
+### Motivation for score-based measurement
 
-<!--Include numerical example here from Shirley data -->
+Score-based measurement takes the responses on multiple items and
+counts the total number of passed items as a measure of child's
+development. This approach takes multiple measurement into account,
+hence leading to a more stable measurement. 
 
-Score-based measurement is the dominant approach, but is not without
-conceptual and logistical issues.
+If items are ordered in difficulty, so one may skip items that are too
+easy, and stop when items become too difficult for the child, for
+example as age-forms. In such cases, we cannot simply interpret the
+sum score of a measure of development, and need to correct for the
+subset of items that was actually administered. The usual working
+assumption is that the child would have passed all easier items and
+failed on all more difficult items. This procedure is typically
+repeated for different domains, e.g. motor, cognitive, and so on.
 
-1. The total scores calculated by different instruments are based on
-different sets of items, and hence cannot be compared. In addition,
-instruments use their own age norms, but these do extend to norms for
-measurements made by other instruments.
+### Example of score-based measurement
 
-2. Domains are hard to separate. For example, some cognitive items tap
+```{r scoreplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:scoreplot)', warning = FALSE}
+levels(d$stage) <- as.character(0:3)
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_step() + 
+  geom_point() + 
+  theme_light() + 
+  facet_wrap(~ name, nrow = 3) +
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Gross-motor score")
+```
+
+(ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with 
+the vertical axis representing gross-motor score.
+
+Figure \@ref(fig:scoreplot) is a gross-motor score calculated as the
+number of items passed. It varies from 0 to 3. 
+
+The plot suggests that the difference in development between scores 0
+and 1 is the same as the difference in development between, say,
+scores 2 and 3. *This is not true*. For example, suppose that we
+express difficulty of the item as an age-equivalent. From section
+\@ref(sec:ageequivalent) we see that the difference in difficulty
+between stepping and standing is 27.2 - 16.1 = 11.1 weeks, whereas the
+difference between walking alone and walking with help is 63.3 - 43.3
+= 20 weeks. Thus, according to age equivalents scores 0 and 1 should be 
+closer to each other, and scores 2 and 3 should be drawn wider apart.
+
+### Limitations of score-based measurement
+
+Score-based measurement is today's dominant approach, but is not
+without conceptual and logistical issues.
+
+1. The total score depends not only on the (true) developmental status
+of the child, but also on the set of items actually administered. If
+an item is skipped or added, the sum score cannot be interpreted
+anymore as a measure of the child's developmental status.
+
+2. It is not possible to compare scores made by different instruments.
+Some instruments allows conversion to age-conditional scores. However,
+the sample used to derive such conversions are typically restricted to
+one instrument, and does not extend to measurements made by other
+instruments.
+
+3. Domains are hard to separate. For example, some cognitive items tap
 into fine motor capabilities, and vice versa. There are different ways
 to define domains, so domain interpretation varies by instrument.
 
-3. Administration of a full test may take substantial time. The
+4. Administration of a full test may take substantial time. The
 materials are often proprietary and sometimes costly.
 
 ## Unit-based measurement of development {#sec:unitbased}
