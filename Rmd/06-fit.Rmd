@@ -33,97 +33,116 @@ library(ddata)
 library(dmetric)
 library(dscore)
 library(sirt)
+library(dplyr)
+library(gseddata)
 ```
 
 
 ## Empirical and fitted item response curves
 
-An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for an example item "n26" and item "n40". It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
 
 
 ```{r icc, include=FALSE, message=FALSE, warning=FALSE}
 
-smocc <- get_gcdg(study="Netherlands 1", adm = TRUE)
-smocc$age <- smocc$age/12
-varlist <- prepare_items(study = "Netherlands 1")
-equatelist <- prepare_equates(varlist)
-model_name<- "smocc"
-sm1 <- fit_dmodel(varlist=varlist,equate=equatelist, name = model_name)
-plots <- plot_p_ability_item(data=smocc, model = sm1, metric="logit")
-#plots <- plot_p_ability_item(data=smocc, model = sm1, metric="dscore")
+ data0 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
+ data0$agedays <- as.integer(data0$age /12 *365.25)
+ data0$subjid <- data0$id
+ varlist <- prepare_items(study = "Netherlands 1")
+ varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
+ equatelist <- prepare_equates(varlist)
+ model_name<- "smocc"
+ model0 <- fit_dmodel(varlist=varlist, data = data0, equate=equatelist, name = model_name, data_package = "ddata")
 
-
-## hier gaat het nog steeds verkeerd met het plotten van de pass voor ability (observed) abilities lijkt overschat in data in vergelijking tot difficulty in model.. 
-# data <- smocc
-# model <- sm1
-#   data <- left_join(data, model$beta_l)
-#     delta <- model$fit$item[,"b"]
-#     names(delta) <- rownames(model$fit$item)
-#     delta <- delta[items]
-#     beta_breaks <- seq(-15,25,1)
-#     xlim <-c(-15,25)
-#     scale <- 1
-#   items <- model$items
-# 
-# pass <- data %>%
-#     gather(key = item, value = value, items) %>%
-#     drop_na(item, value, b) %>%
-#     mutate(bgp = cut(b, breaks = beta_breaks)) %>%
-#     group_by(item, study, bgp) %>%
-#     summarise(p = round(100 * mean(value, na.rm = TRUE)),
-#               a = mean(age, na.rm = TRUE),
-#               b = mean(b, na.rm = TRUE),
-#               n = n()) %>%
-#     ungroup %>%
-#     mutate(rug = FALSE) %>%
-#     left_join(ddata::get_itemtable(items), by = "item")
-
+ #translate to gsed names
+ data <- data0
+ colnames(data)[colnames(data) %in% model0$items] <- gseddata::rename_gcdg_gsed(colnames(data)[colnames(data) %in% model0$items])
+ source('R/translate_gcdg_gsed.R')
+ model <- translate_gcdg_gsed(input = model0)
 ```
 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-plots[["n26"]]
-plots[["n40"]]
+print(plot_p_d_item(data = data, model = model, items = "ddifmd005", show_fit = FALSE, metric = "logit") )
+print(plot_p_d_item(data = data, model = model, items = "ddigmm060", show_fit = FALSE, metric = "logit") )
+print(plot_p_d_item(data = data, model = model, items = "ddicmm036", show_fit = FALSE, metric = "logit") )
+print(plot_p_d_item(data = data, model = model, items = "item_rand", show_fit = FALSE, metric = "logit") )
 ```
 
 
 ## Item fit
 
-The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. Fit analysis evaluates the extend to which this is true for each item. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words wheter items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavity infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. Fit analysis evaluates the extend to which this is true for each item. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
 
-To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$ 
-Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}$$
-$$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
+```{r, include=FALSE, message=FALSE, warning=FALSE}
+#add random variable to first model to show misfit
+ data02 <- data0
+ data02$a3com1 <- as.integer(runif(n = nrow(data02), 0,2)) #flat
+ data02$a4com1 <- ifelse(data02$age > 2, 0, 1) #gutmanage
+ rand <- runif(nrow(data02), 0 , 1)
+ data02$a4f2 <- ifelse(data02$age > 2 & rand > 0.2 , 1 , 0) #flat2
+ data02$a4f2 <- ifelse(data02$age <= 2 & rand < 0.2 , 1 , data02$a4f2) #flat2
+ dsc <- model0$dscore
+ dsc$a13f1 <- ifelse(dsc$b < 50 , 0 ,1) #gutmand
+ dsc$a13f2 <- ifelse(dsc$b > 50  & rand > 0.3 , 1 ,0) #gutmand_error
+ dsc <- dsc[,c("subjid", "agedays", "a13f1", "a13f2")]
+ data02 <- left_join(data02, dsc)
+ 
+ varlist <- prepare_items(study = "Netherlands 1")
+ varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
+ varlist$items <- union(varlist$items, c("a3com1", "a4com1", "a4f2", "a13f1", "a13f2"))
+                        
+ model02 <- fit_dmodel(varlist=varlist, data = data02, equate=equatelist, name = model_name, data_package = "ddata", b_fixed = model0$fit$b)
+ 
 
-In the figure below an item with a large outfit is presented as well as an item with a large infit. 
-
-```{r include=FALSE, message=FALSE, warning=FALSE}
-N <- 500    # number of persons
-I <- 5      # number of items
-b <- seq( -2, 2, length=I)
-th <- rnorm(n=N)
-set.seed(121212)
-dat <- sirt::sim.raschtype(th, b ,fixed.a=c(0,0,5,0,0)) #add a large positive slope for item 3
-colnames(dat) <- paste0( "I", 1:I )
-items <- colnames(dat)
-dat$age <- rnorm(N, 1, 1)
-dat$id <- 1:N
-itemtable <- data.frame(item = items)
-#2PL functie data maken (platte bijv sociall emo en hele stijlen)
-# model1 <- fit_raschmodel(data = dat, items = items, itemtable = itemtable,equate = NULL, age_unit = "years")
-#model1$item_fit
-#model1$beta_l
-#outfit impute 1s for person with lower ability than item ability
-# plots3 <- plot_p_ability_item(data=dat,model=model1, metric = "logit")
+ #translate to gsed names
+ data2 <- data02
+ colnames(data2)[colnames(data2) %in% model0$items] <- gseddata::rename_gcdg_gsed(colnames(data2)[colnames(data2) %in% model0$items])
+ source('R/translate_gcdg_gsed.R')
+ model2 <- translate_gcdg_gsed(input = model02)
 ```
+
+The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as resented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. As described previously, the outfit of an item refers to the extend to which the item follows the expected pattern of the model, which is an increasing probability to pass the item when the aiblity incraese. When the probaility to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. An example of such an item is presented below:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
+print(plot_p_d_item(data = data2, model = model2, items = "a3com1", show_fit = TRUE, metric = "logit") )
+```
 
-# plots3[[3]]
+Another example of a bad outfit is when the probability for passing increases by the ability, but not as steap that it would fit the model, such as this example:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+print(plot_p_d_item(data = data2, model = model2, items = "a4f2", show_fit = TRUE, metric = "logit") )
+```
+
+When the item apears to become more difficult when the ability increases, the outfit is also too large. In this example, the probability for passing decreases when the ability increases:
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+print(plot_p_d_item(data = data2, model = model2, items = "a4com1", show_fit = TRUE, metric = "logit") )
+```
+
+A pattern that can also be observed is when the observed data points actually have a steaper curve, compared to the model. This pattern, with a very steap curve, is called the Gutman pattern and actually fits the model very well and would even discriminate better.  
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+print(plot_p_d_item(data = data2, model = model2, items = "a13f1", show_fit = TRUE, metric = "logit") )
+```
+
+The infit presents the extend to which the observed data follow the moden and that the responses are as explected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response paterns. An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way:
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+print(plot_p_d_item(data = data2, model = model2, items = "a13f2", show_fit = TRUE, metric = "logit") )
 
 ```
 
-##HIER EVENTUEEL PERSON FIT FORMULAS INVOEGEN
+
+The item fit can also be inspected by using fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$ 
+Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}$$
+$$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
+As a guideline for interpreting the item fit-measures a threshold of fit < 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit < 1.3 can be considered. 
+
+
+## Person fit
+
+The fit of the persons evaluates the extent to which the responses of any person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass any item than a less able person. Fit analysis evaluates the extend to which this is true for any person. Two types of person fit are distinguished: the person outfit and the person infit. The outfit evaluates the extent to which the responses to of the persons are consistent with the model. In other words wheter persons with a lower ability also have a lower probability to pass items. The outfit statistic is heavily infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+
+To determine the fit of persons to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $E_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The person infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors accumulated over the items $L$ to evaluate the plausability of any person response. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^L (x_{ni}-E_{ni})^2}{\sum_n^L W_{ni}}$$
+   $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. As a threshold for person fit < 3 can be used to clean out persons with inplausible response patterns. 
 
 
 ## Different item functioning (DIF)
