@@ -172,51 +172,61 @@ materials are often proprietary and sometimes costly.
 
 ## Unit-based measurement of development {#sec:unitbased}
 
-Unit-based measurement starts from the premise that the measurement
-scale must have a constant unit. If that holds, then the same
-difference between two values has the same interpretation anywhere on
-the scale. Familiar examples of such scales includes temperature and
-dates. For example, the difference between two dates corresponds to
-the same amount of time, irrespective of whether this is now, in the
-past or in the future. The interval scale has a fixed unit and an
-arbitrary zero.
+### Motivation for unit-based measurement
 
-In the ideal situation, we would have a unit for child development.
-Let us name this unit *D*, for development. Unit *D* should have the
-following desirable properties:
+Unit-based measurement starts by defining the ideal properties of the
+measurement, and derives a procedure to aggregate the responses on
+items into an overall score that will meet the ideal.
 
-- Difference between two *D*-scores measured on the same child at
-different ages quantifies the amount of development during the
-interval
+Section \@ref(sec:questions) highlighted questions for individuals,
+groups and populations. There are basically three questions:
 
-- Difference between the *D*-score measured on two different children
-of the same age quantifies the difference in development between them
+* What is the difference in development over time for the same child,
+group or population?
 
-- Comparing the *D*-score to an age-dependent reference identifies
-abnormal development
+* What is the difference in development between different children,
+groups or populations of the same age?
 
-The interpretation of the difference between two *D*-score is the same
-across the entire scale, just like differences in height or weight.
-Note that the unit would allow us to answer all questions raised in section @\ref(sec:questions).
+* How does child development compare to a norm?
 
-The development of a unit for development is still in its infancy.
-However, if we succeed in creating an interval scale for development,
-then an enormous arsenal of technique developed for quantitative
-variables opens up to measure, track and analyze child development.
+In the ideal situation, we would like to have a continuous (latent)
+variable $D$ (for development) that measures child development. The
+scale should allow us to quantify *ability* of persons, groups or
+populations from low to high. The scale should have a *constant unit*,
+so that a given difference in ability quantifies means the same across
+the entire scale, just like that a difference of 10 cm means the same
+irrespective of whether we compare the heights of books or houses.
+When are these conditions are met, we say that we measure on an
+*interval scale*.
 
-## Role of unit-based measurement {#sec:whyunit}
+If we succeed in creating an interval scale for child development, an
+enormous arsenal of technique developed for quantitative variables
+opens up to measure, track and analyze child development. We may then
+evaluate the development of a child in terms of $D$ points gained,
+create age-dependent charts for development (just like growth charts
+for height and weight), devise age-conditional measures for child
+development, and intelligent adaptive testing schemes. Promising
+studies on Dutch data (@jacobusse2006, @jacobusse2007, @vanbuuren2014)
+suggest that such benefits are well within reach.
 
-This section reviewed age-based, score-based and unit-based approaches
-to the measurement of child development. Age-based measurement
-expresses development in age-equivalents, whose precise definition
-depends on the reference population. Score-based measurement
-quantifies development by summing the number of passes, but different
-instruments make different selections of items, so the measurements
-are unique to the instruments, and cannot be compared across
-instruments. Neither approach provides a unit for child development.
+### Example of unit-based measurement
 
-In order to make progress, what we need is the definition of a unit for
-child developent, and an operationalization how each measurement item
-related to the unit. If we success in this, we are able to construct
-different instruments that yields measurement in a common metric. The
-next chapter will introduce the basic concepts for this new approach.
+### Limitations of unit-based measurement
+
+## Why unit-based measuremeny {#sec:whyunit}
+
+This chapter reviewed *age-based*, *score-based* and *unit-based*
+approaches to the measurement of child development.
+
+Age-based measurement expresses development in age equivalents, whose
+precise definition depends on the reference population.
+
+Score-based measurement quantifies development by summing the number
+of passes, but different instruments make different selections of
+items, so the measurements are unique to the instruments, and cannot
+be compared across instruments.
+
+What we need is the definition of a unit for child development. If we
+success in this, we are able to construct different instruments that
+yields measurement in a common metric. The next chapter introduces
+the basic concepts for the unit-based approach.
