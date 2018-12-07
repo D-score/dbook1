@@ -23,7 +23,6 @@ Plaatje van de (gestandardiseerde) residuen?
 psychometric information?
 -->
 
-Richtlijnen interpretatie Person fit > 3? item fit >1 /1.2
 ## SMOCC data: design
 
 To illustrate the interpretation of fit measures for the D-score we use the SMOCC study [@herngreen1994], which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
@@ -72,7 +71,7 @@ print(plot_p_d_item(data = data, model = model, items = "item_rand", show_fit = 
 
 ## Item fit
 
-The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. Fit analysis evaluates the extend to which this is true for each item. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. . 
 
 ```{r, include=FALSE, message=FALSE, warning=FALSE}
 #add random variable to first model to show misfit
@@ -102,7 +101,7 @@ The fit of the items evaluate the extent to which data performs with the constru
  model2 <- translate_gcdg_gsed(input = model02)
 ```
 
-The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as resented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. As described previously, the outfit of an item refers to the extend to which the item follows the expected pattern of the model, which is an increasing probability to pass the item when the aiblity incraese. When the probaility to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. An example of such an item is presented below:
+The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as presented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. An example of such an item is presented below:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 print(plot_p_d_item(data = data2, model = model2, items = "a3com1", show_fit = TRUE, metric = "logit") )
@@ -124,14 +123,15 @@ A pattern that can also be observed is when the observed data points actually ha
 print(plot_p_d_item(data = data2, model = model2, items = "a13f1", show_fit = TRUE, metric = "logit") )
 ```
 
-The infit presents the extend to which the observed data follow the moden and that the responses are as explected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response paterns. An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way:
+The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. So, the infit measures the extend to which the observed data follow the model and that the responses are as expected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response patterns. An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way:
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 print(plot_p_d_item(data = data2, model = model2, items = "a13f2", show_fit = TRUE, metric = "logit") )
 
 ```
 
 
-The item fit can also be inspected by using fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$ 
+The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$ 
 Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}$$
 $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
 As a guideline for interpreting the item fit-measures a threshold of fit < 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit < 1.3 can be considered. 
@@ -147,17 +147,22 @@ To determine the fit of persons to the model we compare the observed responses a
 
 ## Different item functioning (DIF)
 
-An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. 
-
+An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two items do not shown DIF:
 
 ```{r dif}
-head(sm1$beta_l)
-
-#make dataframe with covariates, b, and pass
-
-
+print(plot_dif(data = data, model = model, dif = "male", metric = "logit", item = "ddigmd063"))
+print(plot_dif(data = data, model = model, dif = "male", metric = "logit", item = "ddifmd011"))
 
 ```
+
+However, these two items do show a small amount of DIF. Which means that the difficulty for the items for male respondent is different than for female respondents. The item "Says three 'words'" is less difficult for female respondents, whereas the item "Walks while holding onto play-pen or furniture" is less difficult for the male respondents.
+
+```{r dif}
+print(plot_dif(data = data, model = model, dif = "male", metric = "logit", item = "ddicmm039"))
+print(plot_dif(data = data, model = model, dif = "male", metric = "logit", item = "ddigmm067"))
+
+```
+
 
 ## Item information at a given ability
 
@@ -226,16 +231,4 @@ calculate_age_equivalents(model=sm1, p=50, reference=refs)
 
 ```
 
-
-
 The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item. 
-
-
-## Person fit
-
-The fit of the persons evaluates the extent to which the responses of any person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass any item than a less able person. Fit analysis evaluates the extend to which this is true for any person. Two types of person fit are distinguished: the person outfit and the person infit. The outfit evaluates the extent to which the responses to of the persons are consistent with the model. In other words wheter persons with a lower ability also have a lower probability to pass items. The outfit statistic is heavily infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
-
-To determine the fit of persons to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $E_{ni}$ is modelled as $$E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The person infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $E_{ni}(1-E_{ni})$. The outfit is calculated as the sum of the squared standardizes errors accumulated over the items $L$ to evaluate the plausability of any person response. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^L (x_{ni}-E_{ni})^2}{\sum_n^L W_{ni}}$$
-   $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. 
-
-## hele inconsistente kinderen toevoegen als voorbeeld. eerst lopen en dan staan. 
