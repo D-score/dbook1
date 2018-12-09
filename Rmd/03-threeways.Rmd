@@ -211,6 +211,216 @@ suggest that such benefits are well within reach.
 
 ### Example of unit-based measurement
 
+```{r weekly, echo = FALSE}
+load(file = file.path("data/shirley.rda"))
+data <- expand.grid(age = c(12:52, seq(54, 76, 2)), 
+                    name = shirley$name) %>%
+  left_join(shirley, by = c("name")) %>%
+  mutate(stepping   = ifelse(age <   stepping, 0, 1),
+         stepping   = ifelse(is.na(stepping), 1, stepping),
+         standing   = ifelse(age <   standing, 0, 1),
+         walk_help  = ifelse(age <  walk_help, 0, 1),
+         walk_alone = ifelse(age < walk_alone, 0, 1)) %>%
+  dplyr::select(name, age, everything())
+# introduce some deviations from perfect Guttmann in order to 
+# prevent orphaned "stepping" item
+data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <- 
+  c(0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 1, 
+    0 ,1, 1, 1, 0)
+
+options(knitr.table.format = "html") 
+kable(data, 
+      caption = "Hypothetical (bi-)weekly measurements as reconstructed from Table 2.1.") %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+
+Table \@ref(tab:weekly) reconstructs the weekly motor measurements
+made by Shirley from Table \@ref(tab:shirley). Each of the
+measurements is coded as a PASS (1) or a FAIL (0).
+
+It is now straighforward to calculate the probability of passing each item at different ages. 
+
+```{r echo = FALSE}
+data2 <- data %>%
+  mutate(country = "USA",
+         study = "Shirley",
+         subjid = name,
+         agedays = round(age * 7),
+         wave = 1L)
+
+varlist <- list(adm = c("country", "study", "subjid", "wave", "agedays"), 
+                items = c("stepping", "standing", "walk_help", "walk_alone"),
+                cov = NULL)
+anchors <- c(40, 60)
+names(anchors) <- c("standing", "walk_alone")
+model <- fit_dmodel(varlist, data2, data_package = "", 
+                    anchors = anchors, model_name = "Motor")
+```
+
+
+```{r shirleypa, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypa)'}
+# create long matrix
+itm <- data2 %>%
+  dplyr::select(subjid, agedays, stepping, standing, walk_help, walk_alone) %>%
+  reshape2::melt(id.vars = c("subjid", "agedays"),
+                 value.name = "value", variable.name = "item",
+                 measure.vars = varlist$items, 
+                 na.rm = TRUE) %>%
+  mutate(value = as.integer(.data$value),
+         item = as.character(.data$item))
+
+# define data for rug plot
+data_rug <- itm %>%
+  mutate(study = "Shirley",
+         ageweeks = agedays / 7) %>%
+  dplyr::select(item, value, ageweeks, study)
+
+# calculate summary statistics
+pass <- data_rug %>%
+  mutate(agegp = cut(ageweeks, breaks = seq(0, 76, 2))) %>%
+  group_by(item, study, agegp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(ageweeks, na.rm = TRUE),
+            n = n()) %>%
+  ungroup %>%
+  left_join(get_itemtable(items = varlist$items, package = ""), by = "item")
+
+plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
+  scale_x_continuous("Age (in weeks)", limits = c(0, 76),
+                     breaks = seq(0, 76, 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
+        legend.key.size = unit(3.0, "mm"),
+        legend.spacing.y = unit(0.5, "mm"),
+        legend.background = element_rect(fill = "transparent", colour = "transparent")) +
+  scale_colour_discrete(limits = c("stepping", "standing", "walk_help", "walk_alone")) +
+  labs(colour = "Item") +
+  guides(fill = guide_legend(title = NULL)) +
+  guides(col = guide_legend(ncol = 1))
+plot
+```
+
+(ref:shirleypa) Probability of achieving four motor items against age. Data from Table \@ref(tab:weekly).
+
+Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor item. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
+
+```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE}
+items <- varlist$items
+modelb <- model$dscore
+colnames(modelb)[colnames(modelb) == "d"] <- "b"
+delta <- dscore::gettau(items, model$itembank, lexicon = model$lexicon)
+beta_breaks <- seq(20, 70, 1)
+xlim <- c(20, 70)
+scale <- model$transform[2]
+
+# create long matrix
+data3 <- left_join(data2, modelb)
+data3 <- data3 %>%
+      gather(key = "item", value = "value", items) %>%
+      drop_na("value")
+
+# proportion pass per dscore group
+# observations per months (n) by study and item
+pass <- data3 %>%
+  drop_na("item", "value", "b") %>%
+  mutate(
+    bgp = cut(b, breaks = beta_breaks),
+    age = agedays / 365.25) %>%
+  group_by(item, study, bgp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(age, na.rm = TRUE),
+            b = mean(b, na.rm = TRUE),
+            n = n()) %>%
+  ungroup() %>%
+  left_join(get_itemtable(items = items, package = ""), by = "item") %>%
+  mutate(seq = 0,
+         seq = ifelse(item == "stepping", 1, seq),
+         seq = ifelse(item == "standing", 2, seq),
+         seq = ifelse(item == "walk_help", 3, seq), 
+         seq = ifelse(item == "walk_alone", 4, seq)) %>%
+  arrange(seq) %>%
+  filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
+
+# define data for rug plot
+data_rug <- data3 %>%
+  mutate(age = agedays / 365.25) %>%
+  dplyr::select(item, study, subjid, age, b, value) %>%
+  group_by(item, study, subjid, age, value) %>%
+  summarise(b = mean(b, na.rm = TRUE)) %>%
+  ungroup() %>%
+  drop_na(b) %>%
+  mutate(seq = 0,
+         seq = ifelse(item == "stepping", 1, seq),
+         seq = ifelse(item == "standing", 2, seq),
+         seq = ifelse(item == "walk_help", 3, seq), 
+         seq = ifelse(item == "walk_alone", 4, seq)) %>%
+  arrange(seq) %>%
+  filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
+
+plot <- ggplot(pass, aes(x = b, y = p, group = item, colour = item)) +
+  scale_x_continuous("Ability (D-score)", limits = xlim,
+                     breaks = seq(xlim[1], xlim[2], 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_point(aes(x = delta, y = y), 
+             data = data.frame(delta = delta, y = 50, item = names(delta)),
+             pch = 4, cex = 2) +
+  # geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
+        legend.key.size = unit(3.0, "mm"),
+        legend.spacing.y = unit(0.5, "mm"),
+        legend.background = element_rect(fill = "transparent", colour = "transparent")) +
+  scale_colour_discrete(limits = c("stepping", "standing", "walk_help", "walk_alone")) +
+  labs(colour = "Item", shape = 19) +
+  guides(fill = guide_legend(title = NULL)) +
+  guides(col = guide_legend(ncol = 1))
+
+plot <- plot +
+  geom_rug(aes_string(x = "b", y = "value", group = "item", colour = "item"),
+           data = filter(data_rug, value == 0),
+           position = "jitter", sides = "b", size = 0.2) +
+  geom_rug(aes_string(x = "b", y = "value", group = "item", colour = "item"),
+           data = filter(data_rug, value == 1),
+           position = "jitter", sides = "t", size = 0.2)
+
+plot <- dmetric:::draw_logistic(plot, location = delta[1], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[2], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[3], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[4], size = 0.5, linetype = "dashed", scale = scale)
+plot
+```
+
+(ref:shirleypd) Modeled probability of achieving four motor items against the $D$-score. Data from Table \@ref(tab:weekly).
+
+Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
+but with `Age` is replaced by `Ability`.
+
+The ability values can be interpreted as the amount of development
+corresponding to each child-age combination, and are estimated from
+the data. Likewise, the logistic curves are estimated from the data,
+and reflect the modelled probability of passing each item. 
+
+The figure shows that the probability of passing an item increases
+with ability. Items are ordered in difficulty from left to right. The
+point at which a logistic curve crosses the 50 percent line is called
+the *difficulty of the item*, and is marked by a cross.
+
+The increase in ability that is needed to go from 10 to 90 percent is
+here *five D-score points*. Since all curves are parallel, it is the
+same number of units for all four items. This property of the solution
+results in an interval where differences in ability mean the same
+thing irrespective of where on the scale they are located. Thus, 
+the approach defines a *unit* to measure child development.
+
 ### Limitations of unit-based measurement
 
 ## Why unit-based measuremeny {#sec:whyunit}

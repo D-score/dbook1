@@ -1,5 +1,5 @@
 # packages loaded for all chapters
-pkg <- c("knitr", "ggplot2", "tidyr", "dplyr")
+pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr")
 loaded <- sapply(pkg, require, character.only = TRUE,
                  warn.conflicts = FALSE, quietly = TRUE)
 
