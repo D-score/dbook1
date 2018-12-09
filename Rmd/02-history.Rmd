@@ -175,13 +175,13 @@ kable(shirley,
 
 Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies
 when they started, respectively, stepping, standing, walking with
-help, and walking alone, as taken from @vanbuuren1992. Question marks
-indicate missing data. A question mark in the first column the babies
-were already stepping when the observation started (Virginia Ruth,
-Sibyl, Donovan and Doris). Max and Martin, who have a question mark in
-the second column, skipped standing and went directly from stepping to
-walking with help. Doris has a question mark in the last column,
-because she died before she could walk alone.
+help, and walking alone, as taken from Table 3 in @vanbuuren1992.
+Question marks indicate missing data. A question mark in the first
+column the babies were already stepping when the observation started
+(Virginia Ruth, Sibyl, Donovan and Doris). Max and Martin, who have a
+question mark in the second column, skipped standing and went directly
+from stepping to walking with help. Doris has a question mark in the
+last column, because she died before she could walk alone.
 
 ### Individual trajectories of motor development
 
