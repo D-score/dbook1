@@ -62,7 +62,7 @@ ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
   geom_point(cex = 3, pch = 1) + 
   geom_point() + 
   stat_summary(fun.y = mean, colour = "black", geom = "point", 
-               shape = 4, size = 3, show_legend = FALSE) +
+               shape = 4, size = 3, show.legend = FALSE) +
   theme_light() + 
   guides(colour = FALSE) + 
   labs(y = "Age (weeks)", x = "Stage") +
@@ -172,7 +172,7 @@ materials are often proprietary and sometimes costly.
 
 ## Unit-based measurement of development {#sec:unitbased}
 
-### Motivation for unit-based measurement
+### Motivation for unit-based measurement {#sec:motivationunit}
 
 Unit-based measurement starts by defining the ideal properties of the
 measurement, and derives a procedure to aggregate the responses on
@@ -261,7 +261,7 @@ model <- fit_dmodel(varlist, data2, data_package = "",
 ```
 
 
-```{r shirleypa, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypa)'}
+```{r shirleypa, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE}
 # create long matrix
 itm <- data2 %>%
   dplyr::select(subjid, agedays, stepping, standing, walk_help, walk_alone) %>%
@@ -311,7 +311,7 @@ plot
 
 Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor item. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
 
-```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE}
+```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
 items <- varlist$items
 modelb <- model$dscore
 colnames(modelb)[colnames(modelb) == "d"] <- "b"
@@ -402,41 +402,79 @@ plot
 (ref:shirleypd) Modeled probability of achieving four motor items against the $D$-score. Data from Table \@ref(tab:weekly).
 
 Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
-but with `Age` is replaced by `Ability`.
+but with `Age` is replaced by `Ability`, and with the empirical curves
+replaced by modelled curves.
 
-The ability values can be interpreted as the amount of development
-corresponding to each child-age combination, and are estimated from
-the data. Likewise, the logistic curves are estimated from the data,
-and reflect the modelled probability of passing each item. 
+The ability values on the horizontal axis are estimated from the data
+and correspond to the amount of development of each measurement.
+Also, the logistic curves are estimated from the data, and reflect
+the probability of passing each item at a given level of ability.
 
 The figure shows that the probability of passing an item increases
-with ability. Items are ordered in difficulty from left to right. The
-point at which a logistic curve crosses the 50 percent line is called
-the *difficulty of the item*, and is marked by a cross.
+with ability. Items are ordered in difficulty from left to right. Item
+`stepping` is the easiest and `walk_alone` is most difficult. The
+right. The point at which a logistic curve crosses the 50 percent line
+(marked by a cross) is customarily taken as the *difficulty of the item*.
 
 The increase in ability that is needed to go from 10 to 90 percent is
-here *five D-score points*. Since all curves are parallel, it is the
-same number of units for all four items. This property of the solution
-results in an interval where differences in ability mean the same
-thing irrespective of where on the scale they are located. Thus, 
-the approach defines a *unit* to measure child development.
+about five units here. Since all curves are parallel, the interval is
+constant for all scale locations. Thus, the scale is an *interval scale*
+with a *constant unit of measurement*. This is the type of measurement
+scale needed for answering the basic questions identified in Section
+\@ref(sec:motivationunit).
 
 ### Limitations of unit-based measurement
 
-## Why unit-based measuremeny {#sec:whyunit}
+While unit-based measurement has many advantages, it cannot perform
+miracles.
 
-This chapter reviewed *age-based*, *score-based* and *unit-based*
-approaches to the measurement of child development.
+1. An important assumption is that the items "measure the same thing",
+or put differently, are manifestations of an underlying continuous
+latent variable. Unit-based measurement won't work if there is no
+sensible latent scale.
 
-Age-based measurement expresses development in age equivalents, whose
-precise definition depends on the reference population.
+2. The portrayed advantages hold only if the discrepancies between the
+data and the model are relatively small. Since the simplest and most
+powerful measurement models are very strict, it is important to assess
+and increase the fit between data and model.
 
-Score-based measurement quantifies development by summing the number
-of passes, but different instruments make different selections of
-items, so the measurements are unique to the instruments, and cannot
-be compared across instruments.
+3. The construction of unit-based measurement requires psychometric
+expertise, specialized computer software and considerable sample
+sizes.
 
-What we need is the definition of a unit for child development. If we
-success in this, we are able to construct different instruments that
-yields measurement in a common metric. The next chapter introduces
-the basic concepts for the unit-based approach.
+## Why unit-based measurement {#sec:whyunit}
+
+Criterion                 | Age-based | Score-based | Unit-based
+------------------------- | --------- | ----------- | ----------
+Behavior as outcome       |   NO      | YES         | YES
+Independent of age norm   |   NO      | YES         | YES
+Supports multiple items   |   NO      | YES         | YES
+Latent variable           |   NO      | YES         | YES
+Robust to item skipping   |  YES      | NO          | YES
+Comparable scores         |  YES      | NO          | YES
+Independent of instrument |  YES      | NO          | YES
+Probability model         |   NO      | NO          | YES
+Defines measurement unit  |   NO      | NO          | YES
+
+: (\#tab:measurement) Evaluation of three measurement approaches on nine criteria.
+
+This chapter distinguished three approaches to measure child
+development: *age-based*, *score-based* and *unit-based* measurement.
+Table \@ref(tab:measurement) summarizes how the approaches evaluate on
+nine criteria.
+
+*Age-based measurement* expresses development in age equivalents,
+whose precise definition depends on the reference population.
+Age-based measurement does not support multiple items, and does not
+used the concept of a latent variable.
+
+*Score-based measurement* quantifies development by summing the number
+of passes. Different instruments make different selections of items,
+so the measurements taken are unique to the instruments, so comparing
+the measurement obtained by different instruments is difficult.
+Corrections are needed if items are skipped or added.
+
+*Unit-based measurement* defines a unit of measurement by a
+theoretical model. When the data fit the model, we are able to
+construct instruments that produce measurement in a common metric.
+
