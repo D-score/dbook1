@@ -1,4 +1,4 @@
-# Three ways to quantify child development {#sec:threeways}
+# Three ways to quantify child development {#ch:threeways}
 
 This section distinguishes three different principles that are being
 used to quantify child development: 
