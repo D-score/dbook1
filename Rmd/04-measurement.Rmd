@@ -1,8 +1,50 @@
-# New model to quantify child development {#ch:newmodel}
+# $D$-score: A unit to quantify general child development {#ch:newmodel}
 
-Chapter \@ref(ch:history) distinguished the age-based, score-based and
-unit-based approaches to measurement of child development. This
-chapter introduces the basic concepts for the unit-based approach.
+Chapter \@ref(ch:history) provided historic background on the nature
+of child development. Chapter \@ref(ch:threeways) discussed three
+general quantification approaches. This chapter explains the concepts
+for the unit-based approach, and arrives at a $D$-score scale.
+
+## The Dutch Development Instrument (DDI) {#sec:ddi}
+
+The Dutch Youth Health Care (YHC) routinely monitors development of
+almost all children living in The Netherlands. During the first four
+years, there are 13 scheduled visits. During these visits, the YHC
+professionals evaluate - amongst others - growth and development of the child.
+
+The *Dutch Development Instrument* (DDI; in Dutch: *Van
+Wiechenschema*) is the standard instrument used to measure development
+during the ages 0-4 years. The DDI consists of [75 developmental
+items](https://www.ncj.nl/van-wiechen/kenmerken/). The instrument
+assesses three developmental domains:
+
+1. Fine motor, adaptation, personality and social behavior;
+2. Communication
+3. Gross motor
+
+The items are organized on two
+[forms](https://www.ggdghorkennisnet.nl/?file=656&m=1310474916&action=file.download),
+one for children aged 0-15 months, and another for children ages 15-54
+months. The YHC professionals administer an age-appropriate subset at
+each of the scheduled visits, thus building a 
+*longitudinal developmental profile* for each child.
+
+## SMOCC study {#sec:smocc}
+
+
+
+## Estimation of the $D$-score
+
+To explain how
+the D-score is calculated and demonstrate the use of the D-score
+package two example children, both of the age of 15 months, are used.
+One of the example children is able to do all items of his/her age,
+and the other example child is not able to do all items of his/her
+age. In this way, we can show how different scores on a item affect
+the D-score.
+
+So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays 'give and take', crawls (abdomen off the floor), walks along, understands a few words, and says 2 'sound-words' with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
+
 
 ## Measurement through latent variables
 
