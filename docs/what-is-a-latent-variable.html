@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="different-item-functioning-dif.html">
-<link rel="next" href="item-information-at-a-given-age.html">
+<link rel="prev" href="sec-unitbased.html">
+<link rel="next" href="sec-whyunit.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -146,7 +146,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.3.2" data-path="sec-unitbased.html"><a href="sec-unitbased.html#example-of-unit-based-measurement"><i class="fa fa-check"></i><b>3.3.2</b> Example of unit-based measurement</a></li>
 <li class="chapter" data-level="3.3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html#limitations-of-unit-based-measurement"><i class="fa fa-check"></i><b>3.3.3</b> Limitations of unit-based measurement</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="what-is-measurement.html"><a href="what-is-measurement.html"><i class="fa fa-check"></i><b>3.4</b> What is measurement?</a></li>
+<li class="chapter" data-level="3.4" data-path="what-is-a-latent-variable.html"><a href="what-is-a-latent-variable.html"><i class="fa fa-check"></i><b>3.4</b> What is a latent variable?</a></li>
 <li class="chapter" data-level="3.5" data-path="sec-whyunit.html"><a href="sec-whyunit.html"><i class="fa fa-check"></i><b>3.5</b> Why unit-based measurement</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(D\)</span>-score: A unit to quantify general child development</a><ul>
@@ -249,18 +249,26 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="item-information-at-a-given-ability" class="section level2">
-<h2><span class="header-section-number">6.5</span> Item information at a given ability</h2>
-<p>The item information can be calculated as the amount of psychometric information an item contains for a given ability. The formula for the item information is the first derivative of the item response curve and can be written as follows: <span class="math display">\[I(\delta)=P_i(\delta)(1-P_i(\delta))\]</span> where <span class="math inline">\(P_i(\delta)\)</span> is the conditional probability of endorsing an item. For example for item n40 “Says three words” the <span class="math inline">\(\delta_i\)</span> equals <span class="math inline">\(3.47\)</span>. The probability of endorsing this item for a person with an ability level of <span class="math inline">\(2\)</span> standard deviation above the mean is <span class="math display">\[P_{ni}= \frac{exp(2 -  3.47)}{1+exp(2-3.47)}\]</span> <span class="math display">\[P_{ni}= 0.19\]</span> So for an ability level of <span class="math inline">\(2\)</span> standard deviations above the mean <span class="math inline">\(\beta_n=2\)</span>, item n40 has an information value of <span class="math display">\[I(\delta)=0.19(1-0.19)\]</span> <span class="math display">\[I(\delta)=0.15\]</span> In the Figure below, the item information curves for item n26 and n40 are displayed. The implications of the item information is that the amount of information an item provides is maximized around the item-difficulty parameter.</p>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<div id="what-is-a-latent-variable" class="section level2">
+<h2><span class="header-section-number">3.4</span> What is a latent variable?</h2>
+<p>We define measurement as <em>the process of locating milestones and children on a line.</em> This line represents a latent variable, a continuous construct that defines the different poles of the concept that we want to measure. In our case, the concept is <em>child development</em>. Other constructs, like <em>height</em>, <em>temperature</em> or <em>happiness</em> would be equally valid constructs. A latent variable ranges from low to high. A latent variable cannot be measured directly. It is a theoretical construct.</p>
+<div class="figure" style="text-align: center"><span id="fig:lineplot"></span>
+<img src="fig/lineplot.png" alt="Placing milestones and children onto the same line reveals their positions." width="80%" />
+<p class="caption">
+Figure 3.6: Placing milestones and children onto the same line reveals their positions.
+</p>
+</div>
+
+<p>Figure <a href="what-is-a-latent-variable.html#fig:lineplot">3.6</a> shows the imaginary positions on a gross-motor continuum of three babies from Figure <a href="sec-definitions.html#fig:shirleyplot">2.1</a> at the age of 30 weeks. Both milestones and children are ordered along the continuum. Thus, standing is more difficult than stepping, and at week 30, Doris is ahead of Walley in terms of motor development.</p>
+<p>Latent variable cannot be measured directly. However, we may be able to actually measure variables (milestones) that are related to the latent variable. For example, we may have the child’s scores on tasks like <em>standing</em> or <em>walking with help</em>. The <em>measurement model</em> specifies the relations between the data and the latent variable. Under a given measurement model, we may estimate the location of milestones and children on the line. Section <a href="sec-measurementmodel.html#sec:measurementmodel">4.6</a> discusses measurement models in more detail.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="different-item-functioning-dif.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="item-information-at-a-given-age.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-unitbased.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-whyunit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
