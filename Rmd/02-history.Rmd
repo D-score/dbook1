@@ -12,7 +12,7 @@ This chapter
 ## What is child development? {#sec:definitions}
 
 In contrast to concepts like height or temperature, it is unclear what
-exactly constites child development. One of the first rigorous studies
+exactly constitutes child development. One of the first rigorous studies
 in the field [@shirley1931] was executed under the explicit aim 
 
 > ... that the many aspects of development, anatomical, physical, 

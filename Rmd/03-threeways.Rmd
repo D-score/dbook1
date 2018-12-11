@@ -97,25 +97,25 @@ is no norms, we cannot quantify development. Age-based measurement
 intertwines quantification of development with evaluation of
 development.
 
-3. Age-based measurement only works at the item level, and is 
-cumbersome to apply with multiple items.
+3. Age-based measurement only works at the milestone level, and is 
+cumbersome to apply with multiple milestones.
 
 ## Score-based measurement of development {#sec:scorebased}
 
 ### Motivation for score-based measurement
 
-Score-based measurement takes the responses on multiple items and
-counts the total number of passed items as a measure of child's
+Score-based measurement takes the responses on multiple milestones and
+counts the total number of passed milestones as a measure of child's
 development. This approach takes multiple measurement into account,
 hence leading to a more stable measurement. 
 
-If items are ordered in difficulty, so one may skip items that are too
-easy, and stop when items become too difficult for the child, for
+If milestones are ordered in difficulty, so one may skip milestones that are too
+easy, and stop when milestones become too difficult for the child, for
 example as age-forms. In such cases, we cannot simply interpret the
 sum score of a measure of development, and need to correct for the
-subset of items that was actually administered. The usual working
-assumption is that the child would have passed all easier items and
-failed on all more difficult items. This procedure is typically
+subset of milestones that was actually administered. The usual working
+assumption is that the child would have passed all easier milestones and
+failed on all more difficult milestones. This procedure is typically
 repeated for different domains, e.g. motor, cognitive, and so on.
 
 ### Example of score-based measurement
@@ -135,12 +135,12 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 the vertical axis representing gross-motor score.
 
 Figure \@ref(fig:scoreplot) is a gross-motor score calculated as the
-number of items passed. It varies from 0 to 3. 
+number of milestones passed. It varies from 0 to 3. 
 
 The plot suggests that the difference in development between scores 0
 and 1 is the same as the difference in development between, say,
 scores 2 and 3. *This is not true*. For example, suppose that we
-express difficulty of the item as an age-equivalent. From section
+express difficulty of the milestone as an age-equivalent. From section
 \@ref(sec:ageequivalent) we see that the difference in difficulty
 between stepping and standing is 27.2 - 16.1 = 11.1 weeks, whereas the
 difference between walking alone and walking with help is 63.3 - 43.3
@@ -153,8 +153,8 @@ Score-based measurement is today's dominant approach, but is not
 without conceptual and logistical issues.
 
 1. The total score depends not only on the (true) developmental status
-of the child, but also on the set of items actually administered. If
-an item is skipped or added, the sum score cannot be interpreted
+of the child, but also on the set of milestones actually administered. If
+a milestone is skipped or added, the sum score cannot be interpreted
 anymore as a measure of the child's developmental status.
 
 2. It is not possible to compare scores made by different instruments.
@@ -163,7 +163,7 @@ the sample used to derive such conversions are typically restricted to
 one instrument, and does not extend to measurements made by other
 instruments.
 
-3. Domains are hard to separate. For example, some cognitive items tap
+3. Domains are hard to separate. For example, some cognitive milestones tap
 into fine motor capabilities, and vice versa. There are different ways
 to define domains, so domain interpretation varies by instrument.
 
@@ -176,7 +176,7 @@ materials are often proprietary and sometimes costly.
 
 Unit-based measurement starts by defining the ideal properties of the
 measurement, and derives a procedure to aggregate the responses on
-items into an overall score that will meet the ideal.
+milestones into an overall score that will meet the ideal.
 
 Section \@ref(sec:questions) highlighted questions for individuals,
 groups and populations. There are basically three questions:
@@ -223,7 +223,7 @@ data <- expand.grid(age = c(12:52, seq(54, 76, 2)),
          walk_alone = ifelse(age < walk_alone, 0, 1)) %>%
   dplyr::select(name, age, everything())
 # introduce some deviations from perfect Guttmann in order to 
-# prevent orphaned "stepping" item
+# prevent orphaned "stepping" milestone
 data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <- 
   c(0, 0, 0, 0, 0, 
     0, 0, 0, 0, 1, 
@@ -241,7 +241,7 @@ Table \@ref(tab:weekly) reconstructs the weekly motor measurements
 made by Shirley from Table \@ref(tab:shirley). Each of the
 measurements is coded as a PASS (1) or a FAIL (0).
 
-It is now straighforward to calculate the probability of passing each item at different ages. 
+It is now straighforward to calculate the probability of passing each milestone at different ages. 
 
 ```{r echo = FALSE}
 data2 <- data %>%
@@ -307,9 +307,9 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
 plot
 ```
 
-(ref:shirleypa) Probability of achieving four motor items against age. Data from Table \@ref(tab:weekly).
+(ref:shirleypa) Probability of achieving four motor milestones against age. Data from Table \@ref(tab:weekly).
 
-Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor item. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
+Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
 
 ```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
 items <- varlist$items
@@ -399,7 +399,7 @@ plot <- dmetric:::draw_logistic(plot, location = delta[4], size = 0.5, linetype 
 plot
 ```
 
-(ref:shirleypd) Modeled probability of achieving four motor items against the $D$-score. Data from Table \@ref(tab:weekly).
+(ref:shirleypd) Modeled probability of achieving four motor milestones against the $D$-score. Data from Table \@ref(tab:weekly).
 
 Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
 but with `Age` is replaced by `Ability`, and with the empirical curves
@@ -408,13 +408,12 @@ replaced by modelled curves.
 The ability values on the horizontal axis are estimated from the data
 and correspond to the amount of development of each measurement.
 Also, the logistic curves are estimated from the data, and reflect
-the probability of passing each item at a given level of ability.
+the probability of passing each milestone at a given level of ability.
 
-The figure shows that the probability of passing an item increases
-with ability. Items are ordered in difficulty from left to right. Item
-`stepping` is the easiest and `walk_alone` is most difficult. The
+The figure shows that the probability of passing an milestone increases
+with ability. Milestones are ordered in difficulty from left to right. Milestone `stepping` is the easiest and `walk_alone` is most difficult. The
 right. The point at which a logistic curve crosses the 50 percent line
-(marked by a cross) is customarily taken as the *difficulty of the item*.
+(marked by a cross) is customarily taken as the *difficulty of the milestone*.
 
 The increase in ability that is needed to go from 10 to 90 percent is
 about five units here. Since all curves are parallel, the interval is
@@ -428,9 +427,10 @@ scale needed for answering the basic questions identified in Section
 While unit-based measurement has many advantages, it cannot perform
 miracles.
 
-1. An important assumption is that the items "measure the same thing",
-or put differently, are manifestations of an underlying continuous
-latent variable. Unit-based measurement won't work if there is no
+1. An important assumption is that the milestones "measure the same
+thing", or put differently, are manifestations of an underlying
+continuous latent variable that can be measured by empirical
+observations. Unit-based measurement won't work if there is no
 sensible latent scale.
 
 2. The portrayed advantages hold only if the discrepancies between the
@@ -446,13 +446,11 @@ sizes.
 
 Criterion                 | Age-based | Score-based | Unit-based
 ------------------------- | --------- | ----------- | ----------
-Behavior as outcome       |   NO      | YES         | YES
 Independent of age norm   |   NO      | YES         | YES
-Supports multiple items   |   NO      | YES         | YES
+Supports multiple milestones   |   NO      | YES         | YES
 Latent variable           |   NO      | YES         | YES
-Robust to item skipping   |  YES      | NO          | YES
+Robust to milestone skipping   |  YES      | NO          | YES
 Comparable scores         |  YES      | NO          | YES
-Independent of instrument |  YES      | NO          | YES
 Probability model         |   NO      | NO          | YES
 Defines measurement unit  |   NO      | NO          | YES
 
@@ -465,14 +463,14 @@ nine criteria.
 
 *Age-based measurement* expresses development in age equivalents,
 whose precise definition depends on the reference population.
-Age-based measurement does not support multiple items, and does not
+Age-based measurement does not support multiple milestones, and does not
 used the concept of a latent variable.
 
 *Score-based measurement* quantifies development by summing the number
-of passes. Different instruments make different selections of items,
+of passes. Different instruments make different selections of milestones,
 so the measurements taken are unique to the instruments, so comparing
 the measurement obtained by different instruments is difficult.
-Corrections are needed if items are skipped or added.
+Corrections are needed if milestones are skipped or added.
 
 *Unit-based measurement* defines a unit of measurement by a
 theoretical model. When the data fit the model, we are able to
