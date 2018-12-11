@@ -442,6 +442,39 @@ and increase the fit between data and model.
 expertise, specialized computer software and considerable sample
 sizes.
 
+## What is measurement?
+
+Measurement is the process of locating milestones and children on a
+line. This line represents a latent variable, a continuous construct
+that defines the different poles of the concept that we want to
+measure. In our case, the concept is *child development*. Other
+constructs, like *height*, *temperature* or *happiness* would be
+equally valid constructs. A latent variable ranges from low to high. A
+latent variable cannot be measured directly. It is a theoretical
+construct.
+
+```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)', out.width='80%', fig.align='center'}
+knitr::include_graphics("fig/lineplot.png")
+```
+(ref:lineplot) Placing milestones and children onto the same line reveals their positions.
+
+Figure \@ref(fig:lineplot) shows the imaginary positions on a
+gross-motor continuum of three babies from Figure
+\@ref(fig:shirleyplot) at the age of 30 weeks. Both milestones and
+children are ordered along the continuum. Thus, standing is more
+difficult than stepping, and at week 30, Doris is ahead of Walley in
+terms of motor development.
+
+Latent variable cannot be measured directly. However, we may be able
+to actually measure variables (milestones) that are related to the
+latent variable. For example, we may have the child's scores on tasks
+like *standing* or *walking with help*. The *measurement model*
+specifies the relations between the data and the latent variable.
+Under a given measurement model, we may estimate the locations of
+milestones and children on the line. Section
+\@ref(sec:measurementmodel) discusses measurement models in more
+detail.
+
 ## Why unit-based measurement {#sec:whyunit}
 
 Criterion                 | Age-based | Score-based | Unit-based
