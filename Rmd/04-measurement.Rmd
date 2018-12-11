@@ -3,26 +3,30 @@
 Chapter \@ref(ch:history) provided historic background on the nature
 of child development. Chapter \@ref(ch:threeways) discussed three
 general quantification approaches. This chapter explains the concepts
-for the unit-based approach, and arrives at a $D$-score scale.
+for the unit-based approach, and how to arrive at the $D$-score scale.
+The text uses Dutch data to illustration the process.
 
 ## The Dutch Development Instrument (DDI) {#sec:ddi}
+
+### Setting
 
 The Dutch Youth Health Care (YHC) routinely monitors development of
 almost all children living in The Netherlands. During the first four
 years, there are 13 scheduled visits. During these visits, the YHC
-professionals evaluate - amongst others - growth and development of the child.
+professionals evaluate - amongst others - growth and development of
+the child.
 
-The *Dutch Development Instrument* (DDI; in Dutch: *Van
-Wiechenschema*) is the standard instrument used to measure development
-during the ages 0-4 years. The DDI consists of [75 developmental
-items](https://www.ncj.nl/van-wiechen/kenmerken/). The instrument
-assesses three developmental domains:
+The *Dutch Development Instrument* (DDI; in Dutch: *Van Wiechenschema*) 
+is the standard instrument used to measure development
+during the ages 0-4 years. The DDI consists of 
+[75 milestones](https://www.ncj.nl/van-wiechen/kenmerken/). 
+The instrument assesses three developmental domains:
 
 1. Fine motor, adaptation, personality and social behavior;
 2. Communication
 3. Gross motor
 
-The items are organized on two
+The milestones are organized on two
 [forms](https://www.ggdghorkennisnet.nl/?file=656&m=1310474916&action=file.download),
 one for children aged 0-15 months, and another for children ages 15-54
 months. The YHC professionals administer an age-appropriate subset at
@@ -31,6 +35,87 @@ each of the scheduled visits, thus building a
 
 ## SMOCC study {#sec:smocc}
 
+### Description of study
+
+The Social Medical Survey of Children Attending Child Health Clinics
+(SMOCC) study is a a nationally representative cohort of 2,151
+children born in The Netherlands during the years 1988–1989
+[@herngreen1994]. The study monitored child development using
+observations made on the DDI during 10 visits in the first two years of
+life.
+
+One special feature of the SMOCC study was the inclusion of additional
+(more difficult) milestones beyond the standard set. The additional
+milestones are taken from the set allocated to the next time point.
+The standard set in the DDI consists of relatively easy milestones
+that 90 percent of the children can pass at the scheduled age. This
+set of designed to have maximal sensitivity for picking up delays in
+development. The success percentage on additional milestones is about
+50 percent.
+
+### Codebook of Dutch Development Instrument 0-15 months
+
+```{r smoccitems, echo = FALSE}
+library(gseddata)
+meta <- get_itemtable(get_itemnames(instrument = "ddi")) %>%
+  dplyr::select(item, domain, label)
+options(knitr.table.format = "html") 
+kable(meta, 
+      caption = "Codebook of DDI, 0-15 months") %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+
+### Probability of passing DDI milestones given age
+
+```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)'}
+smocc <- get_data(cohorts = 53)
+items <- get_itemnames(smocc)
+
+# define data for rug plot
+data_rug <- smocc$itm %>%
+  mutate(agemos = round(12 * agedays / 365.25), 3) %>%
+  dplyr::select(item, value, agemos)
+
+# calculate summary statistics
+pass <- data_rug %>%
+  mutate(agegp = cut(.data$agemos, breaks = seq(0, 60, 1))) %>%
+  group_by(item, agegp) %>%
+  summarise(p = round(100 * mean(.data$value, na.rm = TRUE)),
+            a = mean(.data$agemos, na.rm = TRUE),
+            n = n()) %>%
+  ungroup() %>%
+  left_join(dmetric::get_itemtable(items = items, package = "gseddata"), by = "item") %>% 
+  filter(n >= 5) %>%
+  arrange(.data$item, a) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+
+plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
+                         label = label)) +
+  scale_x_continuous("Age (in months)", limits = c(0, 30),
+                     breaks = seq(0, 28, 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = "none")
+py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
+py
+```
+
+(ref:smoccpa) Probability of passing 57 milestones in the DDI against age.
+
+Figure 
+
+## Rasch model
+
+## Estimation of $D$-score
+
+With the SMOCC dataset we can compare the D-scores calculated by making use of calibrated milestones (the current wave milestones) with the D-scores calculated by making use of non-calibrated milestones (the next wave milestones). These D-scores for children of the age of 2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in figure \@ref(fig:dscoresnw). The continuous variable IQ at 5 years allows for nice visualization of the variation in D-scores. Moreover, the densities of the D-score are given at the bottom of the plots showing the distribution of the values of the D-score.
 
 
 ## Estimation of the $D$-score
