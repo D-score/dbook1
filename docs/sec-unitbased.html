@@ -46,6 +46,13 @@
 
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -123,7 +130,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="sec-questions.html"><a href="sec-questions.html"><i class="fa fa-check"></i><b>2.4</b> Typical questions asked in child development</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="sec-threeways.html"><a href="sec-threeways.html"><i class="fa fa-check"></i><b>3</b> Three ways to quantify child development</a><ul>
+<li class="chapter" data-level="3" data-path="ch-threeways.html"><a href="ch-threeways.html"><i class="fa fa-check"></i><b>3</b> Three ways to quantify child development</a><ul>
 <li class="chapter" data-level="3.1" data-path="sec-agebased.html"><a href="sec-agebased.html"><i class="fa fa-check"></i><b>3.1</b> Age-based measurement of development</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="sec-agebased.html"><a href="sec-agebased.html#motivation-for-age-based-measurement"><i class="fa fa-check"></i><b>3.1.1</b> Motivation for age-based measurement</a></li>
 <li class="chapter" data-level="3.1.2" data-path="sec-agebased.html"><a href="sec-agebased.html#sec:ageequivalent"><i class="fa fa-check"></i><b>3.1.2</b> Age equivalent as difficulty</a></li>
@@ -141,24 +148,35 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="3.4" data-path="sec-whyunit.html"><a href="sec-whyunit.html"><i class="fa fa-check"></i><b>3.4</b> Why unit-based measurement</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> New model to quantify child development</a><ul>
-<li class="chapter" data-level="4.1" data-path="measurement-through-latent-variables.html"><a href="measurement-through-latent-variables.html"><i class="fa fa-check"></i><b>4.1</b> Measurement through latent variables</a></li>
-<li class="chapter" data-level="4.2" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html"><i class="fa fa-check"></i><b>4.2</b> Measurement model</a></li>
-<li class="chapter" data-level="4.3" data-path="sec-logit.html"><a href="sec-logit.html"><i class="fa fa-check"></i><b>4.3</b> Logit scale</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="sec-logit.html"><a href="sec-logit.html#item-response-functions"><i class="fa fa-check"></i><b>4.3.1</b> Item response functions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="sec-logit.html"><a href="sec-logit.html#section"><i class="fa fa-check"></i><b>4.3.2</b> </a></li>
-<li class="chapter" data-level="4.3.3" data-path="sec-logit.html"><a href="sec-logit.html#criteria-for-invariant-measurement"><i class="fa fa-check"></i><b>4.3.3</b> Criteria for invariant measurement</a></li>
-<li class="chapter" data-level="4.3.4" data-path="sec-logit.html"><a href="sec-logit.html#person-response-functions"><i class="fa fa-check"></i><b>4.3.4</b> Person response functions</a></li>
-<li class="chapter" data-level="4.3.5" data-path="sec-logit.html"><a href="sec-logit.html#what-is-a-test"><i class="fa fa-check"></i><b>4.3.5</b> What is a test?</a></li>
-<li class="chapter" data-level="4.3.6" data-path="sec-logit.html"><a href="sec-logit.html#interval-scale"><i class="fa fa-check"></i><b>4.3.6</b> Interval scale</a></li>
-<li class="chapter" data-level="4.3.7" data-path="sec-logit.html"><a href="sec-logit.html#family-of-item-response-theory-models"><i class="fa fa-check"></i><b>4.3.7</b> Family of item response theory models</a></li>
+<li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(D\)</span>-score: A unit to quantify general child development</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-ddi.html"><a href="sec-ddi.html"><i class="fa fa-check"></i><b>4.1</b> The Dutch Development Instrument (DDI)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-ddi.html"><a href="sec-ddi.html#setting"><i class="fa fa-check"></i><b>4.1.1</b> Setting</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="comparisonagebased.html"><a href="comparisonagebased.html"><i class="fa fa-check"></i><b>4.4</b> Comparison to classic age-based approach</a></li>
-<li class="chapter" data-level="4.5" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html"><i class="fa fa-check"></i><b>4.5</b> Why some prefer the Rasch model</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#the-model-as-ideal"><i class="fa fa-check"></i><b>4.5.1</b> The model as ideal</a></li>
-<li class="chapter" data-level="4.5.2" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#perfect-symmetry"><i class="fa fa-check"></i><b>4.5.2</b> Perfect symmetry</a></li>
-<li class="chapter" data-level="4.5.3" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#specific-objectivity-example"><i class="fa fa-check"></i><b>4.5.3</b> Specific objectivity (example)</a></li>
-<li class="chapter" data-level="4.5.4" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#simplicity"><i class="fa fa-check"></i><b>4.5.4</b> Simplicity</a></li>
+<li class="chapter" data-level="4.2" data-path="sec-smocc.html"><a href="sec-smocc.html"><i class="fa fa-check"></i><b>4.2</b> SMOCC study</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="sec-smocc.html"><a href="sec-smocc.html#description-of-study"><i class="fa fa-check"></i><b>4.2.1</b> Description of study</a></li>
+<li class="chapter" data-level="4.2.2" data-path="sec-smocc.html"><a href="sec-smocc.html#codebook-of-dutch-development-instrument-0-15-months"><i class="fa fa-check"></i><b>4.2.2</b> Codebook of Dutch Development Instrument 0-15 months</a></li>
+<li class="chapter" data-level="4.2.3" data-path="sec-smocc.html"><a href="sec-smocc.html#probability-of-passing-ddi-milestones-given-age"><i class="fa fa-check"></i><b>4.2.3</b> Probability of passing DDI milestones given age</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="rasch-model.html"><a href="rasch-model.html"><i class="fa fa-check"></i><b>4.3</b> Rasch model</a></li>
+<li class="chapter" data-level="4.4" data-path="estimation-of-d-score.html"><a href="estimation-of-d-score.html"><i class="fa fa-check"></i><b>4.4</b> Estimation of <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.5" data-path="estimation-of-the-d-score.html"><a href="estimation-of-the-d-score.html"><i class="fa fa-check"></i><b>4.5</b> Estimation of the <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.6" data-path="measurement-through-latent-variables.html"><a href="measurement-through-latent-variables.html"><i class="fa fa-check"></i><b>4.6</b> Measurement through latent variables</a></li>
+<li class="chapter" data-level="4.7" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html"><i class="fa fa-check"></i><b>4.7</b> Measurement model</a></li>
+<li class="chapter" data-level="4.8" data-path="sec-logit.html"><a href="sec-logit.html"><i class="fa fa-check"></i><b>4.8</b> Logit scale</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="sec-logit.html"><a href="sec-logit.html#item-response-functions"><i class="fa fa-check"></i><b>4.8.1</b> Item response functions</a></li>
+<li class="chapter" data-level="4.8.2" data-path="sec-logit.html"><a href="sec-logit.html#section"><i class="fa fa-check"></i><b>4.8.2</b> </a></li>
+<li class="chapter" data-level="4.8.3" data-path="sec-logit.html"><a href="sec-logit.html#criteria-for-invariant-measurement"><i class="fa fa-check"></i><b>4.8.3</b> Criteria for invariant measurement</a></li>
+<li class="chapter" data-level="4.8.4" data-path="sec-logit.html"><a href="sec-logit.html#person-response-functions"><i class="fa fa-check"></i><b>4.8.4</b> Person response functions</a></li>
+<li class="chapter" data-level="4.8.5" data-path="sec-logit.html"><a href="sec-logit.html#what-is-a-test"><i class="fa fa-check"></i><b>4.8.5</b> What is a test?</a></li>
+<li class="chapter" data-level="4.8.6" data-path="sec-logit.html"><a href="sec-logit.html#interval-scale"><i class="fa fa-check"></i><b>4.8.6</b> Interval scale</a></li>
+<li class="chapter" data-level="4.8.7" data-path="sec-logit.html"><a href="sec-logit.html#family-of-item-response-theory-models"><i class="fa fa-check"></i><b>4.8.7</b> Family of item response theory models</a></li>
+</ul></li>
+<li class="chapter" data-level="4.9" data-path="comparisonagebased.html"><a href="comparisonagebased.html"><i class="fa fa-check"></i><b>4.9</b> Comparison to classic age-based approach</a></li>
+<li class="chapter" data-level="4.10" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html"><i class="fa fa-check"></i><b>4.10</b> Why some prefer the Rasch model</a><ul>
+<li class="chapter" data-level="4.10.1" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#the-model-as-ideal"><i class="fa fa-check"></i><b>4.10.1</b> The model as ideal</a></li>
+<li class="chapter" data-level="4.10.2" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#perfect-symmetry"><i class="fa fa-check"></i><b>4.10.2</b> Perfect symmetry</a></li>
+<li class="chapter" data-level="4.10.3" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#specific-objectivity-example"><i class="fa fa-check"></i><b>4.10.3</b> Specific objectivity (example)</a></li>
+<li class="chapter" data-level="4.10.4" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#simplicity"><i class="fa fa-check"></i><b>4.10.4</b> Simplicity</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-D-score.html"><a href="ch-D-score.html"><i class="fa fa-check"></i><b>5</b> What is a D-score?</a><ul>
@@ -237,7 +255,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.3</span> Unit-based measurement of development</h2>
 <div id="sec:motivationunit" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Motivation for unit-based measurement</h3>
-<p>Unit-based measurement starts by defining the ideal properties of the measurement, and derives a procedure to aggregate the responses on items into an overall score that will meet the ideal.</p>
+<p>Unit-based measurement starts by defining the ideal properties of the measurement, and derives a procedure to aggregate the responses on milestones into an overall score that will meet the ideal.</p>
 <p>Section <a href="sec-questions.html#sec:questions">2.4</a> highlighted questions for individuals, groups and populations. There are basically three questions:</p>
 <ul>
 <li><p>What is the difference in development over time for the same child, group or population?</p></li>
@@ -25883,32 +25901,32 @@ NA
 </table>
 </div>
 <p>Table <a href="sec-unitbased.html#tab:weekly">3.1</a> reconstructs the weekly motor measurements made by Shirley from Table <a href="sec-motorexample.html#tab:shirley">2.1</a>. Each of the measurements is coded as a PASS (1) or a FAIL (0).</p>
-<p>It is now straighforward to calculate the probability of passing each item at different ages.</p>
+<p>It is now straighforward to calculate the probability of passing each milestone at different ages.</p>
 <div class="figure"><span id="fig:shirleypa"></span>
-<img src="dbook1_files/figure-html/shirleypa-1.png" alt="Probability of achieving four motor items against age. Data from Table 3.1." width="672" />
+<img src="dbook1_files/figure-html/shirleypa-1.png" alt="Probability of achieving four motor milestones against age. Data from Table 3.1." width="672" />
 <p class="caption">
-Figure 3.4: Probability of achieving four motor items against age. Data from Table <a href="sec-unitbased.html#tab:weekly">3.1</a>.
+Figure 3.4: Probability of achieving four motor milestones against age. Data from Table <a href="sec-unitbased.html#tab:weekly">3.1</a>.
 </p>
 </div>
 
-<p>Figure <a href="sec-unitbased.html#fig:shirleypa">3.4</a> plots the empirical probablity curves of passing each motor item. Observe there if a gradual decline in the steepness as we move from <code>stepping</code> to <code>walk_alone</code>. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in <code>stepping</code> than it takes for <code>walk_alone</code>.</p>
+<p>Figure <a href="sec-unitbased.html#fig:shirleypa">3.4</a> plots the empirical probablity curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from <code>stepping</code> to <code>walk_alone</code>. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in <code>stepping</code> than it takes for <code>walk_alone</code>.</p>
 <div class="figure"><span id="fig:shirleypd"></span>
-<img src="dbook1_files/figure-html/shirleypd-1.png" alt="Modeled probability of achieving four motor items against the \(D\)-score. Data from Table 3.1." width="672" />
+<img src="dbook1_files/figure-html/shirleypd-1.png" alt="Modeled probability of achieving four motor milestones against the \(D\)-score. Data from Table 3.1." width="672" />
 <p class="caption">
-Figure 3.5: Modeled probability of achieving four motor items against the <span class="math inline">\(D\)</span>-score. Data from Table <a href="sec-unitbased.html#tab:weekly">3.1</a>.
+Figure 3.5: Modeled probability of achieving four motor milestones against the <span class="math inline">\(D\)</span>-score. Data from Table <a href="sec-unitbased.html#tab:weekly">3.1</a>.
 </p>
 </div>
 
 <p>Figure <a href="sec-unitbased.html#fig:shirleypd">3.5</a> is similar to Figure <a href="sec-unitbased.html#fig:shirleypa">3.4</a>, but with <code>Age</code> is replaced by <code>Ability</code>, and with the empirical curves replaced by modelled curves.</p>
-<p>The ability values on the horizontal axis are estimated from the data and correspond to the amount of development of each measurement. Also, the logistic curves are estimated from the data, and reflect the probability of passing each item at a given level of ability.</p>
-<p>The figure shows that the probability of passing an item increases with ability. Items are ordered in difficulty from left to right. Item <code>stepping</code> is the easiest and <code>walk_alone</code> is most difficult. The right. The point at which a logistic curve crosses the 50 percent line (marked by a cross) is customarily taken as the <em>difficulty of the item</em>.</p>
+<p>The ability values on the horizontal axis are estimated from the data and correspond to the amount of development of each measurement. Also, the logistic curves are estimated from the data, and reflect the probability of passing each milestone at a given level of ability.</p>
+<p>The figure shows that the probability of passing an milestone increases with ability. Milestones are ordered in difficulty from left to right. Milestone <code>stepping</code> is the easiest and <code>walk_alone</code> is most difficult. The right. The point at which a logistic curve crosses the 50 percent line (marked by a cross) is customarily taken as the <em>difficulty of the milestone</em>.</p>
 <p>The increase in ability that is needed to go from 10 to 90 percent is about five units here. Since all curves are parallel, the interval is constant for all scale locations. Thus, the scale is an <em>interval scale</em> with a <em>constant unit of measurement</em>. This is the type of measurement scale needed for answering the basic questions identified in Section <a href="sec-unitbased.html#sec:motivationunit">3.3.1</a>.</p>
 </div>
 <div id="limitations-of-unit-based-measurement" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Limitations of unit-based measurement</h3>
 <p>While unit-based measurement has many advantages, it cannot perform miracles.</p>
 <ol style="list-style-type: decimal">
-<li><p>An important assumption is that the items “measure the same thing”, or put differently, are manifestations of an underlying continuous latent variable. Unit-based measurement won’t work if there is no sensible latent scale.</p></li>
+<li><p>An important assumption is that the milestones “measure the same thing”, or put differently, are manifestations of an underlying continuous latent variable that can be measured by empirical observations. Unit-based measurement won’t work if there is no sensible latent scale.</p></li>
 <li><p>The portrayed advantages hold only if the discrepancies between the data and the model are relatively small. Since the simplest and most powerful measurement models are very strict, it is important to assess and increase the fit between data and model.</p></li>
 <li><p>The construction of unit-based measurement requires psychometric expertise, specialized computer software and considerable sample sizes.</p></li>
 </ol>
