@@ -33,43 +33,49 @@ months. The YHC professionals administer an age-appropriate subset at
 each of the scheduled visits, thus building a 
 *longitudinal developmental profile* for each child.
 
-## SMOCC study {#sec:smocc}
-
-### Description of study
+### Description of SMOCC study
 
 The Social Medical Survey of Children Attending Child Health Clinics
 (SMOCC) study is a a nationally representative cohort of 2,151
 children born in The Netherlands during the years 1988–1989
 [@herngreen1994]. The study monitored child development using
-observations made on the DDI during 10 visits in the first two years of
-life.
+observations made on the DDI during 10 visits in the first 30 months 
+of life.
 
-One special feature of the SMOCC study was the inclusion of additional
-(more difficult) milestones beyond the standard set. The additional
-milestones are taken from the set allocated to the next time point.
 The standard set in the DDI consists of relatively easy milestones
 that 90 percent of the children can pass at the scheduled age. This
 set of designed to have maximal sensitivity for picking up delays in
-development. The success percentage on additional milestones is about
-50 percent.
+development. A special feature of the SMOCC study was the inclusion of
+additional, and more difficult, milestones beyond the standard set.
+The additional milestones are taken as the set for the next time
+point. The success percentage on additional milestones is about 50
+percent.
 
 ### Codebook of Dutch Development Instrument 0-15 months
 
 ```{r smoccitems, echo = FALSE}
 library(gseddata)
 meta <- get_itemtable(get_itemnames(instrument = "ddi")) %>%
-  dplyr::select(item, domain, label)
+  dplyr::select(item, domain, label) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
 options(knitr.table.format = "html") 
 kable(meta, 
-      caption = "Codebook of DDI, 0-15 months") %>%
+      caption = "Codebook of DDI, 0-15 months",
+      row.names = FALSE, 
+      col.names = c("Item", "Domain", "Label")) %>%
   kableExtra::kable_styling() %>%
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
+Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for
+ages 0 - 30 months. The response to each milestones is either a 
+PASS (1) or a FAIL (0). Missing values are allowed.
 
-### Probability of passing DDI milestones given age
+## Probability of passing DDI milestones given age
 
-```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)'}
+```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)', fig.height = 4}
 smocc <- get_data(cohorts = 53)
 items <- get_itemnames(smocc)
 
@@ -99,19 +105,30 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
                      breaks = seq(0, 28, 4)) +
   scale_y_continuous("% pass", breaks = seq(0, 100, 20),
                      limits = c(0, 100)) + 
-  geom_line() + 
-  geom_point() +
   theme_light() +
+  geom_line(size = 0.3) + 
+  geom_point(size = 1.0) +
   theme(legend.position = "none")
 py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
 py
 ```
 
-(ref:smoccpa) Probability of passing 57 milestones in the DDI against age.
+(ref:smoccpa) Empirical percentage of passing each milestone in the
+DDI against age (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
-Figure 
+Figure \@ref(fig:smoccpa) summarizes the response obtained on each
+milestone as a curve against age. The percentage of pass scores
+increases with age for all milestones. Note that curves on the left
+have steeper slopes than those on the right, thus indicating that
+development is faster for younger children.
+
+The item are colored by domain. In general, domains are well mixed
+across age, though around some ages, e.g., at 4 months, multiple
+milestones from the same domain appear.
 
 ## Rasch model
+
+
 
 ## Estimation of $D$-score
 
@@ -131,45 +148,6 @@ the D-score.
 So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays 'give and take', crawls (abdomen off the floor), walks along, understands a few words, and says 2 'sound-words' with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
 
 
-## Measurement through latent variables
-
-In this booklet we define measurement as 
-*the process of locating children and items on a line.* This line can
-represents a latent variable, a continuous construct that defines the
-different poles of the concept that we want to measure. In our case,
-the concept is *child development*. Other constructs, like *height*,
-*temperature* or *happiness* would be equally valid constructs. A
-latent variable ranges from low to high. A latent variable
-cannot be measured directly. It is a theoretical construct.
-
-```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)', out.width='80%', fig.align='center'}
-knitr::include_graphics("fig/lineplot.png")
-```
-(ref:lineplot) Placing items and children onto the same line reveals their positions.
-
-Figure \@ref(fig:lineplot) shows the imaginary positions on a
-gross-motor continuum of three babies from Figure
-\@ref(fig:shirleyplot) at the age of 30 weeks. Note that both items
-and children are ordered along the continuum. Thus, standing is more
-difficult than stepping, and at week 30, Doris was more developed than
-Walley.
-
-Although the latent variable cannot be measured directlty, we may be
-able to actually measure variables (i.e., score test items) that are
-in some way related to the latent variable. For example, we may have
-the child's scores on a set of tasks, such as "stacking two blocks" or
-"standing". The measured data are related to the latent variables by
-means of the  *measurement model*. See \@ref(sec:measurementmodel) for 
-more detail on such models.
-
-In practice, the position of the items on the line will be fixed at
-the time that the measurement instrument is created. Application of
-the instrument involves placing children onto the line given their
-scores on one or more of the items. This activity is the 
-*act of measuring*, which is probably the more common interpretation of the
-word *measurement*. Realize however that measurement always requires
-positioning both the items and the persons, though not necessarily at 
-the same.
 
 ## Measurement model {#sec:measurementmodel}
 
