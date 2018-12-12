@@ -209,7 +209,7 @@ development, and intelligent adaptive testing schemes. Promising
 studies on Dutch data (@jacobusse2006, @jacobusse2007, @vanbuuren2014)
 suggest that such benefits are well within reach.
 
-### Example of unit-based measurement
+### Example of unit-based measurement {#sec:unitbasedexample}
 
 ```{r weekly, echo = FALSE}
 load(file = file.path("data/shirley.rda"))
@@ -286,7 +286,7 @@ pass <- data_rug %>%
             a = mean(ageweeks, na.rm = TRUE),
             n = n()) %>%
   ungroup %>%
-  left_join(get_itemtable(items = varlist$items, package = ""), by = "item")
+  left_join(dmetric::get_itemtable(items = varlist$items, package = ""), by = "item")
 
 plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
   scale_x_continuous("Age (in weeks)", limits = c(0, 76),
@@ -339,7 +339,7 @@ pass <- data3 %>%
             b = mean(b, na.rm = TRUE),
             n = n()) %>%
   ungroup() %>%
-  left_join(get_itemtable(items = items, package = ""), by = "item") %>%
+  left_join(dmetric::get_itemtable(items = items, package = ""), by = "item") %>%
   mutate(seq = 0,
          seq = ifelse(item == "stepping", 1, seq),
          seq = ifelse(item == "standing", 2, seq),
@@ -365,7 +365,7 @@ data_rug <- data3 %>%
   filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
 
 plot <- ggplot(pass, aes(x = b, y = p, group = item, colour = item)) +
-  scale_x_continuous("Ability (D-score)", limits = xlim,
+  scale_x_continuous("Ability", limits = xlim,
                      breaks = seq(xlim[1], xlim[2], 4)) +
   scale_y_continuous("% pass", breaks = seq(0, 100, 20),
                      limits = c(0, 100)) + 
@@ -410,10 +410,12 @@ and correspond to the amount of development of each measurement.
 Also, the logistic curves are estimated from the data, and reflect
 the probability of passing each milestone at a given level of ability.
 
-The figure shows that the probability of passing an milestone increases
-with ability. Milestones are ordered in difficulty from left to right. Milestone `stepping` is the easiest and `walk_alone` is most difficult. The
-right. The point at which a logistic curve crosses the 50 percent line
-(marked by a cross) is customarily taken as the *difficulty of the milestone*.
+The figure shows that the probability of passing an milestone
+increases with ability. Milestones are ordered in difficulty from left
+to right. Milestone `stepping` is the easiest and `walk_alone` is most
+difficult. The point at which a logistic curve crosses the 50 percent
+line (marked by a cross) is customarily taken as the *difficulty of
+the milestone*.
 
 The increase in ability that is needed to go from 10 to 90 percent is
 about five units here. Since all curves are parallel, the interval is

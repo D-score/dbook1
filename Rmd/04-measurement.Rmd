@@ -54,8 +54,7 @@ percent.
 ### Codebook of Dutch Development Instrument 0-15 months
 
 ```{r smoccitems, echo = FALSE}
-library(gseddata)
-meta <- get_itemtable(get_itemnames(instrument = "ddi")) %>%
+meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
@@ -73,14 +72,22 @@ Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for
 ages 0 - 30 months. The response to each milestones is either a 
 PASS (1) or a FAIL (0). Missing values are allowed.
 
-## Probability of passing DDI milestones given age
+## Probability of passing a milestone given age
+
+```{r smoccfit, echo = FALSE, warning = FALSE}
+library(gseddata)
+library(plotly)
+data <- get_data(cohorts = 53)
+items <- get_itemnames(data)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
+```
 
 ```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)', fig.height = 4}
-smocc <- get_data(cohorts = 53)
-items <- get_itemnames(smocc)
-
 # define data for rug plot
-data_rug <- smocc$itm %>%
+data_rug <- data$itm %>%
   mutate(agemos = round(12 * agedays / 365.25), 3) %>%
   dplyr::select(item, value, agemos)
 
@@ -126,9 +133,170 @@ The item are colored by domain. In general, domains are well mixed
 across age, though around some ages, e.g., at 4 months, multiple
 milestones from the same domain appear.
 
-## Rasch model
+## Probability of passing a milestone given $D$-score
 
+```{r smoccpd, echo = FALSE, fig.cap = '(ref:smoccpd)', fig.height = 4}
+modelb <- model$dscore
+delta <- dscore::gettau(model$items, model$itembank, lexicon = model$lexicon)
+data2 <- data$itm %>%
+  filter(item %in% items) %>%
+  left_join(data$visit, by = c("subjid", "agedays")) %>%
+  left_join(modelb, by = c("subjid", "agedays")) %>%
+  dplyr::select(subjid, agedays, item, value, b)
 
+pass <- data2 %>% 
+  tidyr::drop_na("value", "b") %>%
+  mutate(dgp = cut(.data$b, breaks = seq(0, 70, 1)),
+         agemos = round(.data$agedays / 365.25 * 12, 3)) %>%
+  group_by(dgp, item) %>%
+  summarise(
+    p = round(100 * mean(.data$value, na.rm = TRUE)),
+    a = mean(.data$agemos, na.rm = TRUE),
+    b = mean(.data$b, na.rm = TRUE),
+    n = n())
+pass <- pass %>%
+  group_by() %>%
+  left_join(model$itemtable, by = "item") %>%
+  arrange(.data$item, dgp) %>%
+  dplyr::select(item, dgp, a, b, p, n, domain, label) %>%
+  filter(n >= 10 & p > 0 & p < 100) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+
+plot <- ggplot(pass, aes(b, p, group = item, colour = domain, 
+                         label = label)) +
+  scale_x_continuous(paste0("D-score (", model$name,")"),
+                     limits = c(0, 70),
+                     breaks = seq(0, 70, 10)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 10),
+                     limits = c(0, 100)) +
+  theme_light() +
+  geom_line(size = 0.3) + 
+  geom_point(size = 1.0) +
+  theme(legend.position = "none")
+py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
+py
+```
+
+(ref:smoccpd) Empirical percentage of passing each milestone in the
+DDI againt the $D$-score (Source: SMOCC data, $n$ = 2151, 9 occasions).
+
+Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but
+with the horizontal axis replaced by the $D$-score. The $D$-score
+summarizes development into one number. Section X explains the steps
+involved in calculating the score. The vertical axis with percent pass
+is unchanged.
+
+The percentage of successes increases with $D$-score for all
+milestones. In contrast to Figure \@ref(fig:smoccpa) all curves have a
+similar slope, a desirable property needed for an interval scale with
+a constant unit of measurement (c.f. Section \@ref(sec:unitbased)).
+
+How can the relation between percent pass and age be so different
+from the relation between percent pass and the $D$-score? The next
+section provides the explanation.
+
+## Relation between age and the $D$-score
+
+```{r smoccda, echo = FALSE, fig.cap = '(ref:smoccda)', warning = FALSE}
+reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+  filter(month <= 30) %>%
+  tidyr::gather(key = centile, value = d,-month)
+model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
+plot <-
+  ggplot(reference, aes(x = month, y = d, group = centile)) +
+  theme_light() +
+#  coord_fixed(ratio = 60/80 * 688/818) +
+  scale_colour_manual(values = dmetric::get_palette("study", package = model$data_package),
+                      na.value = "grey") +
+  scale_x_continuous("Age (in months)",
+                     limits = c(0, 30),
+                     breaks = seq(0, 28, 4)) +
+  scale_y_continuous(
+    paste0("D-score (", model$name, ")"),
+    breaks = seq(0, 70, 10),
+    limits = c(0, 70)
+  ) +
+# geom_line(colour = get_palette("study", package = model$data_package)["GCDG-NLD-SMOCC"]) +
+  geom_line(colour = "grey90") +
+  geom_point(
+    mapping = aes(
+      x = agemos,
+      y = b,
+      group = cohort,
+      colour = cohort
+    ),
+    data = model$dscore,
+    size = 0.5,
+    shape = 1
+  ) +
+  facet_wrap( ~ cohort, ncol = 4) +
+  theme(legend.position = "none")
+plot
+```
+
+(ref:smoccda) Relation between child $D$-score and child age in a
+cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9
+occasions).
+
+The relation between $D$-score and age is nonlinear. Development in
+the first year is more rapid than in the second year. During the first
+year infants gain about 40$D$, whereas in the second year they gain
+about 20$D$. A similar change in growth rate occurs in length (first
+year: 23 cm, second year: 12 cm, for Dutch children).
+
+```{r smoccdap, echo = FALSE, fig.cap = '(ref:smoccdap)', warning = FALSE}
+# model ICC curves D-score
+grid <- crossing(
+  item = items,
+  b = seq(0, 70, 0.2))
+ib <- model$itembank %>%
+  rename(item = lex_gsed) %>%
+  dplyr::select(item, domain, label, tau)
+tab <- grid %>%
+  left_join(ib, by = "item") %>%
+  mutate(p = 100 * plogis(b, location = tau, scale = model$transform[2])) %>%
+  filter(p > 1 & p < 99) %>%
+  mutate(a = approx(x = dscore::Dreference$mu, 
+                    y = dscore::Dreference$month, xout = b)$y) %>%
+  tidyr::drop_na("a") %>%
+  group_by(item)
+
+py <- plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain) %>%
+  add_lines() %>%
+  layout(scene = list(xaxis = list(title = 'Age'),
+                      yaxis = list(title = 'D-score'),
+                      zaxis = list(title = 'Probability'),
+                      aspectratio = list(x = 1, y = 1, z = 0.5),
+                      camera = list(
+                        up = list(
+                          x = 1,
+                          y = 0,
+                          z = 0
+                        ),
+                        eye = list(
+                          x = 0,
+                          y = 0,
+                          z = 2
+                        )
+                      )
+  ))
+py
+```
+
+(ref:smoccdap) 3D-line graph illustrating how the patterns in Figures \@ref(fig:smoccpa) and \@ref(fig:smoccpd) induce the curvature in the relation between $D$-score and age.
+
+\@ref(fig:smoccdap) shows the mutual relations between age, milestone
+success and the $D$-score.
+
+* Rotate the graph to the age - probability plane, and observe the
+communality with the pattern in Figure \@ref(fig:smoccpa) with unequal
+slopes; 
+
+* Rotate the graph to the $D$-score - probability plane, and observe
+the communality with the pattern in Figure \@ref(fig:smoccpd) with
+equal slopes.
 
 ## Estimation of $D$-score
 
@@ -146,7 +314,6 @@ age. In this way, we can show how different scores on a item affect
 the D-score.
 
 So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays 'give and take', crawls (abdomen off the floor), walks along, understands a few words, and says 2 'sound-words' with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
-
 
 
 ## Measurement model {#sec:measurementmodel}
