@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ch-itemfit.html">
-<link rel="next" href="item-fit.html">
+<link rel="prev" href="sec-unitbased.html">
+<link rel="next" href="sec-whyunit.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -243,18 +243,26 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="empirical-and-fitted-item-response-curves" class="section level2">
-<h2><span class="header-section-number">6.1</span> Empirical and fitted item response curves</h2>
-<p>An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as: <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span> where <span class="math inline">\(\beta_n\)</span> is the ability of person <span class="math inline">\(n\)</span> and <span class="math inline">\(\delta_i\)</span> is the difficulty of item <span class="math inline">\(i\)</span>. In the Figure below, the item characteristics curve can be obverved for an example item “n26” and item “n40”. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).</p>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="dbook1_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<div id="sec:whatismeasurement" class="section level2">
+<h2><span class="header-section-number">3.4</span> What is measurement?</h2>
+<p>Measurement is the process of locating milestones and children on a line. This line represents a latent variable, a continuous construct that defines the different poles of the concept that we want to measure. In our case, the concept is <em>child development</em>. Other constructs, like <em>height</em>, <em>temperature</em> or <em>happiness</em> would be equally valid constructs. A latent variable ranges from low to high. A latent variable cannot be measured directly. It is a theoretical construct.</p>
+<div class="figure" style="text-align: center"><span id="fig:lineplot"></span>
+<img src="fig/lineplot.png" alt="Placing milestones and children onto the same line reveals their positions." width="80%" />
+<p class="caption">
+Figure 3.6: Placing milestones and children onto the same line reveals their positions.
+</p>
+</div>
+
+<p>Figure <a href="sec-whatismeasurement.html#fig:lineplot">3.6</a> shows the imaginary positions on a gross-motor continuum of three babies from Figure <a href="sec-definitions.html#fig:shirleyplot">2.1</a> at the age of 30 weeks. Both milestones and children are ordered along the continuum. Thus, standing is more difficult than stepping, and at week 30, Doris is ahead of Walley in terms of motor development.</p>
+<p>Latent variable cannot be measured directly. However, we may be able to actually measure variables (milestones) that are related to the latent variable. For example, we may have the child’s scores on tasks like <em>standing</em> or <em>walking with help</em>. The <em>measurement model</em> specifies the relations between the data and the latent variable. Under a given measurement model, we may estimate the locations of milestones and children on the line. Section <a href="sec-measurementmodel.html#sec:measurementmodel">4.5</a> discusses measurement models in more detail.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ch-itemfit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="item-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-unitbased.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-whyunit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

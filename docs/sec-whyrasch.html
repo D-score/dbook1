@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ch-itemfit.html">
-<link rel="next" href="item-fit.html">
+<link rel="prev" href="sec-engelhard.html">
+<link rel="next" href="ch-D-score.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -243,18 +243,35 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="empirical-and-fitted-item-response-curves" class="section level2">
-<h2><span class="header-section-number">6.1</span> Empirical and fitted item response curves</h2>
-<p>An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as: <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span> where <span class="math inline">\(\beta_n\)</span> is the ability of person <span class="math inline">\(n\)</span> and <span class="math inline">\(\delta_i\)</span> is the difficulty of item <span class="math inline">\(i\)</span>. In the Figure below, the item characteristics curve can be obverved for an example item “n26” and item “n40”. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).</p>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="dbook1_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<div id="sec:whyrasch" class="section level2">
+<h2><span class="header-section-number">4.8</span> Why take the Rasch model?</h2>
+<ul>
+<li><p><em>Invariant measurement</em>: The Rasch model meets the five Engelhard criteria (c.f. Section <a href="sec-engelhard.html#sec:engelhard">4.7</a>).</p></li>
+<li><p><em>Interval scale</em>: When it fits, the Rasch model provides an interval scale, the de-facto requirement for any numerical comparisons (c.f. Section <a href="sec-unitbased.html#sec:motivationunit">3.3.1</a>).</p></li>
+<li><p><em>Parsimonious</em>: The Rasch model has one parameter for each item and one parameter for each person. It’s one of the most parsimonous IRT models, and can easily be applied to thousands of items and millions of persons.</p></li>
+<li><p><em>Specific objectivity</em>: Person and item parameters are mathematically separate entities in the Rasch model. In practice, this means that the estimated difference in ability between two persons does not depend on the difficulty of the test. Also, the estimated differences in difficulties between two items does not depend on the abilities in the calibration sample.</p></li>
+<li><em>Unified model</em>: The Rasch model unifies distinct traditions in measurement theory. The Rasch model can be derived from
+<ul>
+<li><a href="https://www.rasch.org/rmt/rmt143g.htm">Thorndike’s 1904 criteria</a></li>
+<li><a href="https://www.rasch.org/rmt/rmt63e.htm">Guttman scalogram model</a></li>
+<li><a href="https://www.rasch.org/rmt/rmt62c.htm">Ratio-scale counts</a></li>
+<li><a href="https://www.rasch.org/rmt/rmt32e.htm">Raw scores as sufficient statistics</a></li>
+<li><a href="https://www.rasch.org/rmt/rmt21a.htm">Thurstone’s scaling requirements</a></li>
+<li><a href="https://www.rasch.org/rmt/rmt21b.htm">Campbell concatenation</a></li>
+<li><a href="https://www.rasch.org/rmt/rmt11a.htm">Rasch’s specific objectivity</a></li>
+</ul></li>
+<li><p><em>Fits child development data</em>: Last but not least, as we will show in Section x.x, the Rasch model provides excellent fit to well-developed instruments in child development.</p></li>
+</ul>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="ch-itemfit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="item-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-engelhard.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-D-score.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
