@@ -1,8 +1,43 @@
 # What is a D-score? {#ch:D-score}
 
-## The Dutch Development Instrument (DDI)
+## Estimation of $D$-score
 
-In the Netherlands, development of children is monitored by using the Dutch Developmental Instrument (DDI; in Dutch: Van Wiechenschema). The DDI consists of 76 items and a subset of these items are assessed at different ages, ranging from 1 month to 4.5 years old. To explain how the D-score is calculated and demonstrate the use of the D-score package two example children, both of the age of 15 months, are used. One of the example children is able to do all items of his/her age, and the other example child is not able to do all items of his/her age. In this way, we can show how different scores on a item affect the D-score.
+Once we know the score on one or more items, and the difficulties of these
+items, we may calculate the position of the person on the latent
+variable.
+
+
+With the SMOCC dataset we can compare the D-scores calculated by
+making use of calibrated milestones (the current wave milestones) with
+the D-scores calculated by making use of non-calibrated milestones
+(the next wave milestones). These D-scores for children of the age of
+2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in
+figure \@ref(fig:dscoresnw). The continuous variable IQ at 5 years
+allows for nice visualization of the variation in D-scores. Moreover,
+the densities of the D-score are given at the bottom of the plots
+showing the distribution of the values of the D-score.
+
+
+## Estimation of the $D$-score
+
+To explain how the D-score is calculated and demonstrate the use of
+the D-score package two example children, both of the age of 15
+months, are used. One of the example children is able to do all items
+of his/her age, and the other example child is not able to do all
+items of his/her age. In this way, we can show how different scores on
+a item affect the D-score.
+
+So for example, for a child of the age of 15 months the Dutch
+Developmental Instrument consists of the following six items: puts
+cube in and out of a box, plays 'give and take', crawls (abdomen off
+the floor), walks along, understands a few words, and says 2
+'sound-words' with comprehension. For each of these six items it is
+noted whether the child was able to perform this item. An example of
+the results can be found in table \@ref(tab:tableWS), in which *child
+1* was able to perform all items and *child 2* was able to perform
+four of the six items. Based on these scores we can calculate the
+dscore for both these children.
+
 
 So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays 'give and take', crawls (abdomen off the floor), walks along, understands a few words, and says 2 'sound-words' with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
 

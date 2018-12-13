@@ -444,7 +444,7 @@ and increase the fit between data and model.
 expertise, specialized computer software and considerable sample
 sizes.
 
-## What is measurement?
+## What is measurement? {#sec:whatismeasurement}
 
 Measurement is the process of locating milestones and children on a
 line. This line represents a latent variable, a continuous construct
