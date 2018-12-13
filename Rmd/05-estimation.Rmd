@@ -1,6 +1,14 @@
-# What is a D-score? {#ch:D-score}
+# Estimation {#ch:estimation}
 
-## Estimation of $D$-score
+## General approach
+
+two steps: 
+
+## Item difficulty
+
+
+
+## $D$-score
 
 Once we know the score on one or more items, and the difficulties of these
 items, we may calculate the position of the person on the latent
