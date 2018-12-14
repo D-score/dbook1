@@ -1,12 +1,10 @@
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Appendix - notation
-**!!Eventueel notaties die wij niet gebruikt hebben nog verwijderen uit onderstaande tabel!!**
+# Appendix - notation {#ch:notation}
 
-The notation in this Booklet is based on the notation used in the book of [@wright1982rating].
+The notation in this booklet is based on the notation used in the book of @wright1982.
 
 ```{r, echo=FALSE}
 
@@ -23,3 +21,9 @@ tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", 
 
 knitr::kable(tcomb, caption = "Notation", booktabs = TRUE, digits = 4, col.names = NULL)
 ```
+
+
+```{warnings r}
+warnings()
+```
+
