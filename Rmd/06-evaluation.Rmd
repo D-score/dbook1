@@ -1,4 +1,18 @@
-# Interpretation of item fit {#ch:itemfit}
+# Evaluation {#ch:evaluation}
+
+The nice properties of the Rasch model (c.f. Section
+\@ref(sec:whyrasch)) only hold when the data and model agree. It is
+therefore important to study and remove discrepancies between model
+and data. This chapter explains several techniques that aid in the
+evualation of model fit.
+
+* Item fit (\@ref(sec:itemfit))
+* Person fit \@ref(sec:personfit)
+* Differential item functioning \@ref(sec:dif)
+* Item information \@ref(sec:iteminformation)
+
+These topics adress different aspects of the solution. In practice, we
+have found that item fit is the most important concern.
 
 <!--5.2
 formules eerder achterin, of uitleggen
@@ -23,7 +37,7 @@ Plaatje van de (gestandardiseerde) residuen?
 psychometric information?
 -->
 
-## SMOCC data: design
+## Item fit {#sec:itemfit}
 
 To illustrate the interpretation of fit measures for the D-score we use the SMOCC study [@herngreen1994], which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
 
@@ -37,9 +51,23 @@ library(gseddata)
 ```
 
 
-## Empirical and fitted item response curves
+### Empirical and fitted item response curves
 
-An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+An imporant aspect of the Rasch analysis is the issue of model fit.
+Actually, for the Rasch model it is not the task of the model to
+account for the data, however it is the task of the data to fit the
+Rasch model. Accordingly, the model fit determines how well emprirical
+data meets the requirement of the Rasch model. The fit of the data to
+a Rasch model can be visually inspected by comparing the observed
+probability of endorsing an item to the fitted item response curve for
+endorsing the item. The fitted item response curve for each item $i$
+is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i}
+)}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of
+person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure
+below, the item characteristics curve can be obverved for two example
+items. It can be observed that for both items the observed data
+(orange line) fits nicely to the estimated item response curve (dashed
+line).
 
 
 ```{r icc, include=FALSE, message=FALSE, warning=FALSE}
@@ -69,7 +97,7 @@ print(plot_p_d_item(data = data, model = model, items = "ddicmm036", show_fit = 
 ```
 
 
-## Item fit
+### Item fit examples
 
 The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. . 
 
@@ -137,7 +165,7 @@ $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
 As a guideline for interpreting the item fit-measures a threshold of fit < 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit < 1.3 can be considered. 
 
 
-## Person fit
+## Person fit {#sec:personfit}
 
 The fit of the persons evaluates the extent to which the responses of any person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass any item than a less able person. Fit analysis evaluates the extend to which this is true for any person. Two types of person fit are distinguished: the person outfit and the person infit. The outfit evaluates the extent to which the responses to of the persons are consistent with the model. In other words wheter persons with a lower ability also have a lower probability to pass items. The outfit statistic is heavily infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
 
@@ -145,7 +173,7 @@ To determine the fit of persons to the model we compare the observed responses a
    $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. As a threshold for person fit < 3 can be used to clean out persons with inplausible response patterns. 
 
 
-## Different item functioning (DIF)
+## Differential item functioning (DIF) {#sec:dif}
 
 An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two items do not shown DIF:
 
@@ -163,8 +191,9 @@ print(plot_dif(data = data, model = model, dif = "male", metric = "logit", item 
 
 ```
 
+## Item information {#sec:iteminformation}
 
-## Item information at a given ability
+### Item information at a given ability
 
 The item information can be calculated as the amount of psychometric information an item contains for a given ability. The formula for the item information is the first derivative of the item response curve and can be written as follows: $$I(\delta)=P_i(\delta)(1-P_i(\delta))$$ where $P_i(\delta)$ is the conditional probability of endorsing an item. For example for item n40 "Says three words" the $\delta_i$ equals $3.47$. The probability of endorsing this item for a person with an ability level of $2$ standard deviation above the mean is $$P_{ni}= \frac{exp(2 -  3.47)}{1+exp(2-3.47)}$$ $$P_{ni}= 0.19$$
 So for an ability level of $2$ standard deviations above the mean $\beta_n=2$, item n40 has an information value of $$I(\delta)=0.19(1-0.19)$$ $$I(\delta)=0.15$$ 
@@ -194,7 +223,7 @@ In the Figure below, the item information curves for item n26 and n40 are displa
 ```
 
 
-## Item information at a given age
+### Item information at a given age
 
 The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
 

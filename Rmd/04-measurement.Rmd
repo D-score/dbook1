@@ -339,7 +339,7 @@ be combined. In this work, we will restrict to models that assume
 probability that two items are passed can be found by multiplying each
 item's success probability.
 
-### Adapt the model? Or adapt the data?
+### Adapt the model? Or adapt the data? {#sec:adaptmodel}
 
 The measurement model induces a predictable pattern in the observed
 items, and this pattern can be tested against the observed data. When
