@@ -18,6 +18,7 @@ translate_gcdg_gsed <- function(input, items = NULL){
     model$items <- gseddata::rename_gcdg_gsed(model$items)
     model$itemtable$item <- gseddata::rename_gcdg_gsed(model$itemtable$item)
     model$item_fit$item <- gseddata::rename_gcdg_gsed(model$item_fit$item)
+    names(model$fit$b) <- gseddata::rename_gcdg_gsed(names(model$fit$b))
     output <- model
   }
   if("data.frame" %in% class(input)){
