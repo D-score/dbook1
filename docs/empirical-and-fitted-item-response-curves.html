@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ch-itemfit.html">
+<link rel="prev" href="smocc-data-design.html">
 <link rel="next" href="item-fit.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -175,14 +175,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="estimation-of-the-d-score.html"><a href="estimation-of-the-d-score.html"><i class="fa fa-check"></i><b>5.2</b> Estimation of the <span class="math inline">\(D\)</span>-score</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-itemfit.html"><a href="ch-itemfit.html"><i class="fa fa-check"></i><b>6</b> Interpretation of item fit</a><ul>
-<li class="chapter" data-level="6.1" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.1</b> Empirical and fitted item response curves</a></li>
-<li class="chapter" data-level="6.2" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.2</b> Item fit</a></li>
-<li class="chapter" data-level="6.3" data-path="hier-eventueel-person-fit-formulas-invoegen.html"><a href="hier-eventueel-person-fit-formulas-invoegen.html"><i class="fa fa-check"></i><b>6.3</b> HIER EVENTUEEL PERSON FIT FORMULAS INVOEGEN</a></li>
-<li class="chapter" data-level="6.4" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.4</b> Different item functioning (DIF)</a></li>
-<li class="chapter" data-level="6.5" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.5</b> Item information at a given ability</a></li>
-<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given age</a></li>
-<li class="chapter" data-level="6.7" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.7</b> Person fit</a></li>
-<li class="chapter" data-level="6.8" data-path="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><a href="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><i class="fa fa-check"></i><b>6.8</b> hele inconsistente kinderen toevoegen als voorbeeld. eerst lopen en dan staan.</a></li>
+<li class="chapter" data-level="6.1" data-path="smocc-data-design.html"><a href="smocc-data-design.html"><i class="fa fa-check"></i><b>6.1</b> SMOCC data: design</a></li>
+<li class="chapter" data-level="6.2" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.2</b> Empirical and fitted item response curves</a></li>
+<li class="chapter" data-level="6.3" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.3</b> Item fit</a></li>
+<li class="chapter" data-level="6.4" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.4</b> Person fit</a></li>
+<li class="chapter" data-level="6.5" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.5</b> Different item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given ability</a></li>
+<li class="chapter" data-level="6.7" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.7</b> Item information at a given age</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
@@ -244,16 +243,24 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="empirical-and-fitted-item-response-curves" class="section level2">
-<h2><span class="header-section-number">6.1</span> Empirical and fitted item response curves</h2>
-<p>An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as: <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span> where <span class="math inline">\(\beta_n\)</span> is the ability of person <span class="math inline">\(n\)</span> and <span class="math inline">\(\delta_i\)</span> is the difficulty of item <span class="math inline">\(i\)</span>. In the Figure below, the item characteristics curve can be obverved for an example item “n26” and item “n40”. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).</p>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="dbook1_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<h2><span class="header-section-number">6.2</span> Empirical and fitted item response curves</h2>
+<p>An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as: <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span> where <span class="math inline">\(\beta_n\)</span> is the ability of person <span class="math inline">\(n\)</span> and <span class="math inline">\(\delta_i\)</span> is the difficulty of item <span class="math inline">\(i\)</span>. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).</p>
+<pre><code>## Item:  1 ddifmd005 
+## $ddifmd005</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre><code>## Item:  1 ddigmm060 
+## $ddigmm060</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<pre><code>## Item:  1 ddicmm036 
+## $ddicmm036</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-14-3.png" width="672" /></p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ch-itemfit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="smocc-data-design.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="item-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
