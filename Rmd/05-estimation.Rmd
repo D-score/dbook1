@@ -1,6 +1,30 @@
-# What is a D-score? {#ch:D-score}
+# Computation {#ch:computation}
 
-## Estimation of $D$-score
+This chapter explains the basic computations needed for fitting and
+evaluation the Rasch model. We distinguish the following steps:
+
+* Data preparation (\@ref(sec:datapreparation))
+* Estimation of item parameters (\@ref(sec:itemestimation))
+* Anchoring (\@ref(sec:anchoring))
+* Estimation of the $D$-score (\@ref(sec:dscoreestimation))
+
+Reader not interested in these details may continue to model
+evaluation in Chapter \@ref(ch:evaluation).
+
+## Data preparation {#sec:datapreparation}
+
+Data SMOCC data of Secion \@ref(sec:ddi)
+
+## Item parameter estimation {#sec:itemestimation}
+
+There are many computer routines for this task, but only a few produce
+the desired result when applied to developmental data.
+
+## Anchoring {#sec:anchoring}
+
+
+
+## Estimation of the $D$-score {#sec:dscoreestimation}
 
 Once we know the score on one or more items, and the difficulties of these
 items, we may calculate the position of the person on the latent
@@ -17,8 +41,7 @@ allows for nice visualization of the variation in D-scores. Moreover,
 the densities of the D-score are given at the bottom of the plots
 showing the distribution of the values of the D-score.
 
-
-## Estimation of the $D$-score
+### Numerical example
 
 To explain how the D-score is calculated and demonstrate the use of
 the D-score package two example children, both of the age of 15
@@ -39,7 +62,16 @@ four of the six items. Based on these scores we can calculate the
 dscore for both these children.
 
 
-So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays 'give and take', crawls (abdomen off the floor), walks along, understands a few words, and says 2 'sound-words' with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table \@ref(tab:tableWS), in which *child 1* was able to perform all items and *child 2* was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.
+So for example, for a child of the age of 15 months the Dutch
+Developmental Instrument consists of the following six items: puts
+cube in and out of a box, plays 'give and take', crawls (abdomen off
+the floor), walks along, understands a few words, and says 2
+'sound-words' with comprehension. For each of these six items it is
+noted whether the child was able to perform this item. An example of
+the results can be found in table \@ref(tab:tableWS), in which *child
+1* was able to perform all items and *child 2* was able to perform
+four of the six items. Based on these scores we can calculate the
+dscore for both these children.
 
 ```{r, echo=FALSE}
 child1 <- c(15/12, 1, 1, 1, 1, 1, 1)
@@ -56,13 +88,33 @@ library(knitr)
 kable(tableWS, caption = "Example of scores on the items of the DDI at the age of 15 months", booktabs = TRUE)
 ```
 
-Calculation of the D-score is an iterative procedure, in which in each step information of one item is added. The iterative procedure uses Bayes rule to update the prior (knowledge) with data to calculate a posterior. In the next step, this posterior is used as the prior and information, the score, from a new item is added. This results in a new posterior distribution. When the information of all items have been added to the procedure, the D-score is equal to the mean of the final posterior distribution. 
+Calculation of the D-score is an iterative procedure, in which in each
+step information of one item is added. The iterative procedure uses
+Bayes rule to update the prior (knowledge) with data to calculate a
+posterior. In the next step, this posterior is used as the prior and
+information, the score, from a new item is added. This results in a
+new posterior distribution. When the information of all items have
+been added to the procedure, the D-score is equal to the mean of the
+final posterior distribution.
 
 *!!plafond prior nog uitleggen!!*
 
-In the first step, the score of the first item is combined with the prior. However, at the first step we cannot use the previous posterior as our prior. Hence, we need a starting distribution to use as the prior in the first step. It is important that this starting distribution is a bit informative but not too much, so it was decided to choose a quite broad distribution which was centred quite well. The prior was chosen in such a way that the mean value of the prior distribution was equal to the median D-score at that age. The standard deviation is equal to 5, which about twice the normal variation in the D-score.
+In the first step, the score of the first item is combined with the
+prior. However, at the first step we cannot use the previous posterior
+as our prior. Hence, we need a starting distribution to use as the
+prior in the first step. It is important that this starting
+distribution is a bit informative but not too much, so it was decided
+to choose a quite broad distribution which was centred quite well. The
+prior was chosen in such a way that the mean value of the prior
+distribution was equal to the median D-score at that age. The standard
+deviation is equal to 5, which about twice the normal variation in the
+D-score.
 
-The starting distributions (priors) for the ages of 1, 15 and 24 months are given in figure \@ref(fig:figpriors). This figure shows that the priors assume that ability of a child of the age of 1 month is lower than the ability of a child of the age of 15 months, which in turn is lower than the ability of a child of the age of 24 months. 
+The starting distributions (priors) for the ages of 1, 15 and 24
+months are given in figure \@ref(fig:figpriors). This figure shows
+that the priors assume that ability of a child of the age of 1 month
+is lower than the ability of a child of the age of 15 months, which in
+turn is lower than the ability of a child of the age of 24 months.
 
 ```{r, figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Priors at ages of 1, 15 and 24 months"}
 library(dscore)
@@ -85,7 +137,11 @@ p <- ggplot(dataprior, aes(qp, p, group = month)) +
 p
 ```
 
-First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example the lexicon *gcdg* is used. Moreover, the data should be in long format with the following columnnames: *items*, *scores* and *ages*. This leads to table \@ref(tab:tablenewWS1).
+First, it is important that the names of the items used are similar to
+the names of the items in the built-in item bank. In this example the
+lexicon *gcdg* is used. Moreover, the data should be in long format
+with the following columnnames: *items*, *scores* and *ages*. This
+leads to table \@ref(tab:tablenewWS1).
 
 ```{r, tablenewWS1, echo=FALSE}
 WS1 <- data.frame(child = c("child 1", "child 1", "child 1", "child 1", "child 1", "child 1", "child 2", "child 2", "child 2", "child 2", "child 2", "child 2"),items = c("n32", "n33", "v38", "n37", "n34", "n35", "n32", "n33", "v38", "n37", "n34", "n35"), scores = c(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0), ages = c(15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12))
@@ -93,9 +149,26 @@ WS1 <- data.frame(child = c("child 1", "child 1", "child 1", "child 1", "child 1
 kable(WS1, caption = "Long format of the example of scores on the items of the DDI at the age of 15 months", row.names = NA)
 ```
 
-Now that the data is in long format and the item names are changed to the lexicon *gcdg*, we can calculate the D-score for both children. In the first step of the iterative procedure, we combine the age-dependent prior of 15 months with the score of the first item *n34* to define the posterior. Item *n34* is a gross motor item: 'crawls, abdomen off the floor'. In table \@ref(tab:tablenewWS1), we can see that both example children were able to crawl with their abdomen off the floor. Note, that we could have chosen any of the items as the first item, since the D-score is independent of the order of items in the calculation. 
+Now that the data is in long format and the item names are changed to
+the lexicon *gcdg*, we can calculate the D-score for both children. In
+the first step of the iterative procedure, we combine the
+age-dependent prior of 15 months with the score of the first item
+*n34* to define the posterior. Item *n34* is a gross motor item:
+'crawls, abdomen off the floor'. In table \@ref(tab:tablenewWS1), we
+can see that both example children were able to crawl with their
+abdomen off the floor. Note, that we could have chosen any of the
+items as the first item, since the D-score is independent of the order
+of items in the calculation.
 
-The age dependent prior of 15 months and the posterior distribution after adding information from item *n34* are given in figure \@ref(fig:fig1item). In this figure, we can see that the posterior distribution doesnot differ that much from the prior distribution. Both distributions are centred at the same point, while the posterior distribution is smaller than the prior distribution indicating more precision. Since both example children were able to crawl with their abdomen off the floor, the posterior distribution after the first step of the procedure is equal. 
+The age dependent prior of 15 months and the posterior distribution
+after adding information from item *n34* are given in figure
+\@ref(fig:fig1item). In this figure, we can see that the posterior
+distribution doesnot differ that much from the prior distribution.
+Both distributions are centred at the same point, while the posterior
+distribution is smaller than the prior distribution indicating more
+precision. Since both example children were able to crawl with their
+abdomen off the floor, the posterior distribution after the first step
+of the procedure is equal.
 
 ```{r, fig1item, echo=FALSE, fig.cap="\\label{fig:fig1item} Age-dependent priors of 15 months and posterior after 1st item n34"}
 items <- c("n34")
@@ -118,9 +191,20 @@ p1 <- ggplot(dataprior, aes(qp, fp, group = distribution)) +
 p1
 ```
 
-Now, let's add an item on which the scores for the two example children differ, e.g. item *n35*. Item *n35* is also a gross motor item, namely 'walks along'. So both children are able to crawl (with their abdomen of the floor), but only *child 1* is able to walk along. We can use the previously calculated posterior distribution as prior when we add item *n35*. 
+Now, let's add an item on which the scores for the two example
+children differ, e.g. item *n35*. Item *n35* is also a gross motor
+item, namely 'walks along'. So both children are able to crawl (with
+their abdomen of the floor), but only *child 1* is able to walk along.
+We can use the previously calculated posterior distribution as prior
+when we add item *n35*.
 
-Let's start with *child 1*, who is able to walk along. Using Bayes rule, the new posterior distribution can be calculated. In figure \@ref(fig:fig2itemC1) the prior, in this case the posterior after adding item *n34* to the age-dependent prior, and the newly calculated posterior distribution are visualized. Again, the posterior and prior are centred around the same point, while the posterior has a bit more precision.
+Let's start with *child 1*, who is able to walk along. Using Bayes
+rule, the new posterior distribution can be calculated. In figure
+\@ref(fig:fig2itemC1) the prior, in this case the posterior after
+adding item *n34* to the age-dependent prior, and the newly calculated
+posterior distribution are visualized. Again, the posterior and prior
+are centred around the same point, while the posterior has a bit more
+precision.
 
 ```{r, fig2itemC1, echo=FALSE, fig.cap="\\label{fig:fig2itemC1} Prior and posterior in the 2nd step of the iterative process for child 1"}
 items <- c("n34", "n35")
@@ -145,7 +229,16 @@ p2
 
 ```
 
-Now we can do the same thing for *child 2*, who is able to crawl with his/her abdomen off the floor (*n34*) but not to walk along (*n35*). Again, we can use the posterior after adding information from *n34* as the prior and use the information from *n35* to calculate the posterior. In figure \@ref(fig:fig2itemC2) the prior and posterior are given. Now the prior and posterior are different, the posterior is on the left of the prior and has an high precision in comparison to the prior. Hence, being unable to walk along at the age of 15 months, like *child 2*, is more indicative for the development of a child of 15 months than being able to walk along like *child 1*. 
+Now we can do the same thing for *child 2*, who is able to crawl with
+his/her abdomen off the floor (*n34*) but not to walk along (*n35*).
+Again, we can use the posterior after adding information from *n34* as
+the prior and use the information from *n35* to calculate the
+posterior. In figure \@ref(fig:fig2itemC2) the prior and posterior are
+given. Now the prior and posterior are different, the posterior is on
+the left of the prior and has an high precision in comparison to the
+prior. Hence, being unable to walk along at the age of 15 months, like
+*child 2*, is more indicative for the development of a child of 15
+months than being able to walk along like *child 1*.
 
 ```{r, fig2itemC2, echo=FALSE, fig.cap="\\label{fig:fig2itemC2} Prior and posterior in the 2nd step of the iterative process for child 2"}
 items <- c("n34", "n35")
@@ -170,7 +263,14 @@ p3
 ```
 
 
-The next four steps in the iterative procedure, information from the other four items (*n32*, *n33*, *v38* and *n37*) can be added in a similar fashion. Figure \@ref(fig:fig6itemC1C2) shows the final posterior distributions for *child 1* and *child 2* and the prior distribution for the age of 15 months. The D-score can now be determined by looking at the mean of the posterior distributions. Hence, the D-score for *child 1* and *child 2* are equal to 55.75 and 47.76, respectively.
+The next four steps in the iterative procedure, information from the
+other four items (*n32*, *n33*, *v38* and *n37*) can be added in a
+similar fashion. Figure \@ref(fig:fig6itemC1C2) shows the final
+posterior distributions for *child 1* and *child 2* and the prior
+distribution for the age of 15 months. The D-score can now be
+determined by looking at the mean of the posterior distributions.
+Hence, the D-score for *child 1* and *child 2* are equal to 55.75 and
+47.76, respectively.
 
 ```{r, fig6itemC1C2, echo=FALSE, fig.cap="\\label{fig:fig6itemC1C2} Prior and final posterior for child 1 and 2"}
 items <- c("n32", "n33", "v38", "n37","n34", "n35")
@@ -212,5 +312,12 @@ dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
 *Prior die gekozen was: plafond prior (wanneer je alle items kan)*
 
 
-
-We already explained how the D-score suffers from a ceiling and bottom at the start and end of the scale. However, this can also happen within the D-score scale: some values of the D-score will never occur no matter the combination of scores on the milestones. This will mainly occur when calibrated milestones are used to calculate the D-score. For example, the Dutch Developmental Instrument (DDI), which is used as a screening instrument, is calibrated: at each wave 90\% of the children should be able to get a positive score on the milestones. Which allows for detection of children with a developmental delay.
+We already explained how the D-score suffers from a ceiling and bottom
+at the start and end of the scale. However, this can also happen
+within the D-score scale: some values of the D-score will never occur
+no matter the combination of scores on the milestones. This will
+mainly occur when calibrated milestones are used to calculate the
+D-score. For example, the Dutch Developmental Instrument (DDI), which
+is used as a screening instrument, is calibrated: at each wave 90\% of
+the children should be able to get a positive score on the milestones.
+Which allows for detection of children with a developmental delay.
