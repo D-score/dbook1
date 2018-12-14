@@ -252,7 +252,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:dscoreestimation" class="section level2">
 <h2><span class="header-section-number">5.4</span> Estimation of the <span class="math inline">\(D\)</span>-score</h2>
-<p>Once we know the score on one or more items, and the difficulties of these items, we may calculate the position of the person on the latent variable.</p>
+<p>The <span class="math inline">\(D\)</span>-score is the estimate of the developmental status of a child at a given age. In order to calculate the <span class="math inline">\(D\)</span>-score we need the following ingredients:</p>
+<ul>
+<li><p>Child’s PASS/FAIL scores on the milestones administered;</p></li>
+<li><p>The difficulty estimates of each milestone administered;</p></li>
+<li><p>A prior distribution, an estimate of the <span class="math inline">\(D\)</span>-score distribution before seeing any PASS/FAIL score.</p></li>
+</ul>
+<p>Using these input, we may use Bayes theorem to calculate the position of the person on the latent variable.</p>
 <p>With the SMOCC dataset we can compare the D-scores calculated by making use of calibrated milestones (the current wave milestones) with the D-scores calculated by making use of non-calibrated milestones (the next wave milestones). These D-scores for children of the age of 2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in figure <a href="d-score-of-reference-children-at-2-years-pd.html#fig:dscoresnw">8.1</a>. The continuous variable IQ at 5 years allows for nice visualization of the variation in D-scores. Moreover, the densities of the D-score are given at the bottom of the plots showing the distribution of the values of the D-score.</p>
 <div id="numerical-example" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Numerical example</h3>
