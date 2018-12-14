@@ -7,9 +7,9 @@ and data. This chapter explains several techniques that aid in the
 evualation of model fit.
 
 * Item fit (\@ref(sec:itemfit))
-* Person fit \@ref(sec:personfit)
-* Differential item functioning \@ref(sec:dif)
-* Item information \@ref(sec:iteminformation)
+* Person fit (\@ref(sec:personfit))
+* Differential item functioning (\@ref(sec:dif))
+* Item information (\@ref(sec:iteminformation))
 
 These topics adress different aspects of the solution. In practice, we
 have found that item fit is the most important concern.
