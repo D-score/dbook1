@@ -189,6 +189,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.1" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-ability"><i class="fa fa-check"></i><b>6.4.1</b> Item information at a given ability</a></li>
 <li class="chapter" data-level="6.4.2" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-age"><i class="fa fa-check"></i><b>6.4.2</b> Item information at a given age</a></li>
 </ul></li>
+<li class="chapter" data-level="6.5" data-path="sec-reliability.html"><a href="sec-reliability.html"><i class="fa fa-check"></i><b>6.5</b> Reliability</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
@@ -251,37 +252,14 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:dif" class="section level2">
 <h2><span class="header-section-number">6.3</span> Differential item functioning (DIF)</h2>
-<p>An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: “DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.” <span class="citation">(Zumbo <a href="#ref-zumbo1999">1999</a>)</span> The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two items do not shown DIF:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddigmd063&quot;</span>))</code></pre></div>
-<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
+<p>An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: “DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.” <span class="citation">(Zumbo <a href="#ref-zumbo1999">1999</a>)</span> The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two milestones do not shown DIF:</p>
 <pre><code>## Item:  1 ddigmd063</code></pre>
-<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 0, 1, 1, 0, :
-## provided 3528 variables to replace 1 variables</code></pre>
-<pre><code>## $ddigmd063</code></pre>
-<pre><code>## Warning: Removed 6 rows containing missing values (geom_path).</code></pre>
-<p><img src="dbook1_files/figure-html/dif1-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddifmd011&quot;</span>))</code></pre></div>
-<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
 <pre><code>## Item:  1 ddifmd011</code></pre>
-<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 1, 0, 0, 1, :
-## provided 3171 variables to replace 1 variables</code></pre>
-<pre><code>## $ddifmd011</code></pre>
-<p><img src="dbook1_files/figure-html/dif1-2.png" width="672" /></p>
-<p>However, these two items do show a small amount of DIF. Which means that the difficulty for the items for male respondent is different than for female respondents. The item “Says three ‘words’” is less difficult for female respondents, whereas the item “Walks while holding onto play-pen or furniture” is less difficult for the male respondents.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddicmm039&quot;</span>))</code></pre></div>
-<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
+<p><img src="dbook1_files/figure-html/dif1-1.png" width="288" /><img src="dbook1_files/figure-html/dif1-2.png" width="288" /></p>
+<p>However, these two items do show a small amount of DIF. This means that the difficulty for the items for male respondent is different than for female respondents. The milestone “Says three words” is less difficult for female respondents, whereas the milestone “Walks while holding onto play-pen or furniture” is less difficult for the male respondents.</p>
 <pre><code>## Item:  1 ddicmm039</code></pre>
-<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 1, 0, 0, 1, :
-## provided 3321 variables to replace 1 variables</code></pre>
-<pre><code>## $ddicmm039</code></pre>
-<p><img src="dbook1_files/figure-html/dif2-1.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddigmm067&quot;</span>))</code></pre></div>
-<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
 <pre><code>## Item:  1 ddigmm067</code></pre>
-<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 1, 0, 0, 1, :
-## provided 3402 variables to replace 1 variables</code></pre>
-<pre><code>## $ddigmm067</code></pre>
-<p><img src="dbook1_files/figure-html/dif2-2.png" width="672" /></p>
+<p><img src="dbook1_files/figure-html/dif2-1.png" width="288" /><img src="dbook1_files/figure-html/dif2-2.png" width="288" /></p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">

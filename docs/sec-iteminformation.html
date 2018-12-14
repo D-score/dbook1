@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="sec-dif.html">
-<link rel="next" href="validity.html">
+<link rel="next" href="sec-reliability.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -189,6 +189,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.4.1" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-ability"><i class="fa fa-check"></i><b>6.4.1</b> Item information at a given ability</a></li>
 <li class="chapter" data-level="6.4.2" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-age"><i class="fa fa-check"></i><b>6.4.2</b> Item information at a given age</a></li>
 </ul></li>
+<li class="chapter" data-level="6.5" data-path="sec-reliability.html"><a href="sec-reliability.html"><i class="fa fa-check"></i><b>6.5</b> Reliability</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
@@ -253,40 +254,23 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">6.4</span> Item information</h2>
 <div id="item-information-at-a-given-ability" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Item information at a given ability</h3>
-<p>The item information can be calculated as the amount of psychometric information an item contains for a given ability. The formula for the item information is the first derivative of the item response curve and can be written as follows: <span class="math display">\[I(\delta)=P_i(\delta)(1-P_i(\delta))\]</span> where <span class="math inline">\(P_i(\delta)\)</span> is the conditional probability of endorsing an item. For example for item n40 “Says three words” the <span class="math inline">\(\delta_i\)</span> equals <span class="math inline">\(3.47\)</span>. The probability of endorsing this item for a person with an ability level of <span class="math inline">\(2\)</span> standard deviation above the mean is <span class="math display">\[P_{ni}= \frac{exp(2 -  3.47)}{1+exp(2-3.47)}\]</span> <span class="math display">\[P_{ni}= 0.19\]</span> So for an ability level of <span class="math inline">\(2\)</span> standard deviations above the mean <span class="math inline">\(\beta_n=2\)</span>, item n40 has an information value of <span class="math display">\[I(\delta)=0.19(1-0.19)\]</span> <span class="math display">\[I(\delta)=0.15\]</span> In the Figure below, the item information curves for item n26 and n40 are displayed. The implications of the item information is that the amount of information an item provides is maximized around the item-difficulty parameter.</p>
+<p>The item information is defined as the amount of psychometric information an item contains for a given ability. The item information can be plotted for each item. In the Figure below, the item information curves for some example milestones are displayed. The amount of information for an item is maximized around the item-difficulty parameter.</p>
+<p><img src="dbook1_files/figure-html/iic-1.png" width="672" /></p>
+<p>The formula to obtain the item information is the first derivative of the item response curve and can be written as follows: <span class="math display">\[I(\delta)=P_i(\delta)(1-P_i(\delta))\]</span> where <span class="math inline">\(P_i(\delta)\)</span> is the conditional probability of endorsing an item. For example for milestone “Says three words” the <span class="math inline">\(\delta_i\)</span> equals <span class="math inline">\(3.81\)</span>. The probability of endorsing this item for a person with an ability level of <span class="math inline">\(2\)</span> standard deviation above the mean is <span class="math display">\[P_{ni}= \frac{exp(2 -  3.81)}{1+exp(2-3.81)}\]</span> <span class="math display">\[P_{ni}= 0.14\]</span> So for an ability level of <span class="math inline">\(2\)</span> standard deviations above the mean <span class="math inline">\(\beta_n=2\)</span>, milestone “Says three words” has an information value of <span class="math display">\[I(\delta)=0.14(1-0.14)\]</span> <span class="math display">\[I(\delta)=0.12\]</span></p>
 </div>
 <div id="item-information-at-a-given-age" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Item information at a given age</h3>
 <p>The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calculate_age_equivalents &lt;-<span class="st"> </span><span class="cf">function</span>(model,
-                                      <span class="dt">p =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">90</span>),
-                                      <span class="dt">reference =</span> dscore<span class="op">::</span>gcdg_reference) {
-  <span class="cf">if</span> (<span class="op">!</span><span class="kw">inherits</span>(model, <span class="st">&quot;dmodel&quot;</span>))
-    <span class="kw">stop</span> (<span class="st">&quot;Argument `model` not of class `dmodel`&quot;</span>)
-
-  ib &lt;-<span class="st"> </span>model<span class="op">$</span>itembank
-  scalefactor &lt;-<span class="st"> </span>model<span class="op">$</span>transform[<span class="dv">2</span>]
-  pd &lt;-<span class="st"> </span><span class="kw">matrix</span>(ib<span class="op">$</span>tau, <span class="dt">nrow =</span> <span class="kw">nrow</span>(ib), <span class="dt">ncol =</span> <span class="kw">length</span>(p)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">matrix</span>(scalefactor <span class="op">*</span><span class="st"> </span><span class="kw">qlogis</span>(p <span class="op">/</span><span class="st"> </span><span class="dv">100</span>),
-           <span class="dt">nrow =</span> <span class="kw">nrow</span>(ib), <span class="dt">ncol =</span> <span class="kw">length</span>(p), <span class="dt">byrow =</span> <span class="ot">TRUE</span>)
-  pa &lt;-<span class="st"> </span><span class="kw">approx</span>(<span class="dt">x =</span> reference<span class="op">$</span>mu, <span class="dt">y =</span> reference<span class="op">$</span>month, <span class="dt">xout =</span> <span class="kw">as.vector</span>(pd))<span class="op">$</span>y
-  pa &lt;-<span class="st"> </span><span class="kw">matrix</span>(pa, <span class="dt">ncol =</span> <span class="dv">3</span>)
-  pda &lt;-<span class="st"> </span><span class="kw">data.frame</span>(ib<span class="op">$</span>lex_gcdg, <span class="kw">round</span>(pd, <span class="dv">2</span>), <span class="kw">round</span>(pa, <span class="dv">2</span>))
-  <span class="kw">names</span>(pda) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;item&quot;</span>, <span class="kw">paste0</span>(<span class="st">&quot;D&quot;</span>, p), <span class="kw">paste0</span>(<span class="st">&quot;A&quot;</span>, p))
-  pda
-}</code></pre></div>
 <p>The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item.</p>
-
 </div>
 </div>
-<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="sec-dif.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="validity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-reliability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
