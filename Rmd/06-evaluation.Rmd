@@ -232,7 +232,7 @@ So for an ability level of $2$ standard deviations above the mean $\beta_n=2$, m
 
 The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
 
-```{r iia, echo=FALSE, message=FALSE,  warning=FALSE,  fig.height = 3, eval = FALSE}
+```{r iia, echo=FALSE, message=FALSE,  warning=FALSE,  fig.height = 3}
 colnames(model$dscore)[7] <-"b"
 model$dscore$age <- model$dscore$agedays/12
 #model in logit
