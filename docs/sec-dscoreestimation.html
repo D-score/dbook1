@@ -175,7 +175,9 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a></li>
 <li class="chapter" data-level="5.3" data-path="sec-anchoring.html"><a href="sec-anchoring.html"><i class="fa fa-check"></i><b>5.3</b> Anchoring</a></li>
 <li class="chapter" data-level="5.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.4</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#numerical-example"><i class="fa fa-check"></i><b>5.4.1</b> Numerical example</a></li>
+<li class="chapter" data-level="5.4.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#eap-algorithm"><i class="fa fa-check"></i><b>5.4.1</b> EAP algorithm</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#age-dependent-starting-prior"><i class="fa fa-check"></i><b>5.4.2</b> Age-dependent starting prior</a></li>
+<li class="chapter" data-level="5.4.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#numerical-example"><i class="fa fa-check"></i><b>5.4.3</b> Numerical example</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-evaluation.html"><a href="ch-evaluation.html"><i class="fa fa-check"></i><b>6</b> Evaluation</a><ul>
@@ -252,66 +254,80 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:dscoreestimation" class="section level2">
 <h2><span class="header-section-number">5.4</span> Estimation of the <span class="math inline">\(D\)</span>-score</h2>
-<p>The <span class="math inline">\(D\)</span>-score is the estimate of the developmental status of a child at a given age. In order to calculate the <span class="math inline">\(D\)</span>-score we need the following ingredients:</p>
+<p>The <span class="math inline">\(D\)</span>-score quantifies development of a child. In order to calculate the <span class="math inline">\(D\)</span>-score we need the following ingredients:</p>
 <ul>
 <li><p>Child’s PASS/FAIL scores on the milestones administered;</p></li>
 <li><p>The difficulty estimates of each milestone administered;</p></li>
 <li><p>A prior distribution, an estimate of the <span class="math inline">\(D\)</span>-score distribution before seeing any PASS/FAIL score.</p></li>
 </ul>
-<p>Using these input, we may use Bayes theorem to calculate the position of the person on the latent variable.</p>
-<p>With the SMOCC dataset we can compare the D-scores calculated by making use of calibrated milestones (the current wave milestones) with the D-scores calculated by making use of non-calibrated milestones (the next wave milestones). These D-scores for children of the age of 2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in figure <a href="d-score-of-reference-children-at-2-years-pd.html#fig:dscoresnw">8.1</a>. The continuous variable IQ at 5 years allows for nice visualization of the variation in D-scores. Moreover, the densities of the D-score are given at the bottom of the plots showing the distribution of the values of the D-score.</p>
+<p>Using these inputs, we may use Bayes theorem to calculate the position of the person on the latent variable. The method, first described by <span class="citation">Bock and Mislevy (<a href="#ref-bock1982">1982</a>)</span>, an is known as the Expected a posteriori (EAP) estimation.</p>
+<div id="eap-algorithm" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> EAP algorithm</h3>
+<p>Calculation of the <span class="math inline">\(D\)</span>-score proceeds item by item. Suppose we have some vague and preliminary idea about the distribution of <span class="math inline">\(D\)</span>. The procedure uses Bayes rule to update this prior knowledge with data from the first item (fail/pass score, item difficulty) to calculate the posterior. In the next step, this posterior is used as the prior for the next item, and so on. The procedure stops when all items have been used. The order in which items are entered does not matter for the end result. The <span class="math inline">\(D\)</span>-score is equal to the mean of the last posterior.</p>
+</div>
+<div id="age-dependent-starting-prior" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Age-dependent starting prior</h3>
+<p>In the first step, we need a starting distribution as prior. The starting prior should define the range of reasonable values for <span class="math inline">\(D\)</span>. For example, an infant aged 2 months the <span class="math inline">\(D\)</span>-score will have lower <span class="math inline">\(D\)</span>-score than a baby aged 12 months. The prior should be a bit informative but not too much, so it was decided to choose a broad distribution which was centred quite well. The prior was chosen as a normal distribution with a mean equal to the <span class="math inline">\(D\)</span>-score expected at the child’s age, and with a standard deviation of 5, which about twice the normal variation in the <span class="math inline">\(D\)</span>-score.</p>
+<div class="figure"><span id="fig:figpriors"></span>
+<img src="dbook1_files/figure-html/figpriors-1.png" alt="\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months" width="672" />
+<p class="caption">
+Figure 5.1:  Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months
+</p>
+</div>
+<p>Figure <a href="sec-dscoreestimation.html#fig:figpriors">5.1</a> illustrates starting distributions (priors) for the ages of 1, 15 and 24 months. As expected, the assumed ability of an infant aged of 1 month is lower than that of a child aged 15 months, which in turn is lower than the ability of a toddler aged 24 months.</p>
+</div>
 <div id="numerical-example" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> Numerical example</h3>
-<p>To explain how the D-score is calculated and demonstrate the use of the D-score package two example children, both of the age of 15 months, are used. One of the example children is able to do all items of his/her age, and the other example child is not able to do all items of his/her age. In this way, we can show how different scores on a item affect the D-score.</p>
-<p>So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays ‘give and take’, crawls (abdomen off the floor), walks along, understands a few words, and says 2 ‘sound-words’ with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table <a href="sec-dscoreestimation.html#tab:tableWS">5.1</a>, in which <em>child 1</em> was able to perform all items and <em>child 2</em> was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.</p>
-<p>So for example, for a child of the age of 15 months the Dutch Developmental Instrument consists of the following six items: puts cube in and out of a box, plays ‘give and take’, crawls (abdomen off the floor), walks along, understands a few words, and says 2 ‘sound-words’ with comprehension. For each of these six items it is noted whether the child was able to perform this item. An example of the results can be found in table <a href="sec-dscoreestimation.html#tab:tableWS">5.1</a>, in which <em>child 1</em> was able to perform all items and <em>child 2</em> was able to perform four of the six items. Based on these scores we can calculate the dscore for both these children.</p>
+<h3><span class="header-section-number">5.4.3</span> Numerical example</h3>
+<p>Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David passes the first four milestones, but does not complete the test. Rob completes the test, but fails on two out of five milestones. How do we calculate the <span class="math inline">\(D\)</span>-score for David and Rob?</p>
 <table>
-<caption><span id="tab:tableWS">Table 5.1: </span>Example of scores on the items of the DDI at the age of 15 months</caption>
+<caption><span id="tab:datadavidandrob">Table 5.1: </span>Scores of David and Rob on five milestones from the DDI</caption>
 <thead>
 <tr class="header">
-<th></th>
-<th align="right">age in years</th>
-<th align="right">item 1</th>
-<th align="right">item 2</th>
-<th align="right">item 3</th>
-<th align="right">item 4</th>
-<th align="right">item 5</th>
-<th align="right">item 6</th>
+<th align="left">Item</th>
+<th align="left">Label</th>
+<th align="right">Delta</th>
+<th align="right">David</th>
+<th align="right">Rob</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>child 1</td>
-<td align="right">1.25</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="left">ddicmm037</td>
+<td align="left">Uses two words with comprehension</td>
+<td align="right">50.1</td>
 <td align="right">1</td>
 <td align="right">1</td>
 </tr>
 <tr class="even">
-<td>child 2</td>
-<td align="right">1.25</td>
+<td align="left">ddifmd011</td>
+<td align="left">Puts cube in and out of a box</td>
+<td align="right">46.0</td>
 <td align="right">1</td>
 <td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">ddifmm012</td>
+<td align="left">Plays ‘give and take’ (M; can ask parents)</td>
+<td align="right">46.5</td>
 <td align="right">1</td>
 <td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">ddigmm066</td>
+<td align="left">Crawls, abdomen off the floor (M; can ask parents)</td>
+<td align="right">46.1</td>
 <td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">ddigmm067</td>
+<td align="left">Walks while holding onto play-pen or furniture</td>
+<td align="right">46.1</td>
+<td align="right">NA</td>
 <td align="right">0</td>
 </tr>
 </tbody>
 </table>
-<p>Calculation of the D-score is an iterative procedure, in which in each step information of one item is added. The iterative procedure uses Bayes rule to update the prior (knowledge) with data to calculate a posterior. In the next step, this posterior is used as the prior and information, the score, from a new item is added. This results in a new posterior distribution. When the information of all items have been added to the procedure, the D-score is equal to the mean of the final posterior distribution.</p>
-<p><em>!!plafond prior nog uitleggen!!</em></p>
-<p>In the first step, the score of the first item is combined with the prior. However, at the first step we cannot use the previous posterior as our prior. Hence, we need a starting distribution to use as the prior in the first step. It is important that this starting distribution is a bit informative but not too much, so it was decided to choose a quite broad distribution which was centred quite well. The prior was chosen in such a way that the mean value of the prior distribution was equal to the median D-score at that age. The standard deviation is equal to 5, which about twice the normal variation in the D-score.</p>
-<p>The starting distributions (priors) for the ages of 1, 15 and 24 months are given in figure <a href="sec-dscoreestimation.html#fig:figpriors">5.1</a>. This figure shows that the priors assume that ability of a child of the age of 1 month is lower than the ability of a child of the age of 15 months, which in turn is lower than the ability of a child of the age of 24 months.</p>
-<div class="figure"><span id="fig:figpriors"></span>
-<img src="dbook1_files/figure-html/figpriors-1.png" alt="\label{fig:figpriors} Priors at ages of 1, 15 and 24 months" width="672" />
-<p class="caption">
-Figure 5.1:  Priors at ages of 1, 15 and 24 months
-</p>
-</div>
 <p>First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example the lexicon <em>gcdg</em> is used. Moreover, the data should be in long format with the following columnnames: <em>items</em>, <em>scores</em> and <em>ages</em>. This leads to table <a href="sec-dscoreestimation.html#tab:tablenewWS1">5.2</a>.</p>
 <table>
 <caption><span id="tab:tablenewWS1">Table 5.2: </span>Long format of the example of scores on the items of the DDI at the age of 15 months</caption>
@@ -441,6 +457,12 @@ Figure 5.5:  Prior and final posterior for child 1 and 2
 </div>
 </div>
 <!-- </div> -->
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-bock1982">
+<p>Bock, D. D., and R. J. Mislevy. 1982. “Adaptive Eap Estimation of Ability in a Microcomputer Environment.” <em>Applied Psychological Measurement</em> 6 (4): 431–44.</p>
+</div>
+</div>
             </section>
 
           </div>
