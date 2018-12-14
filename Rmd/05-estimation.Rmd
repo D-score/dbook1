@@ -20,103 +20,62 @@ Data SMOCC data of Secion \@ref(sec:ddi)
 There are many computer routines for this task, but only a few produce
 the desired result when applied to developmental data.
 
+```{r smoccfit2, echo = FALSE, warning = FALSE}
+library(gseddata)
+data <- get_data(cohorts = 53)
+items <- get_itemnames(data)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
+```
+
+
 ## Anchoring {#sec:anchoring}
 
 
 
 ## Estimation of the $D$-score {#sec:dscoreestimation}
 
-Once we know the score on one or more items, and the difficulties of these
-items, we may calculate the position of the person on the latent
-variable.
+The $D$-score quantifies development of a child. In order to calculate
+the $D$-score we need the following ingredients:
 
+* Child's PASS/FAIL scores on the milestones administered;
 
-With the SMOCC dataset we can compare the D-scores calculated by
-making use of calibrated milestones (the current wave milestones) with
-the D-scores calculated by making use of non-calibrated milestones
-(the next wave milestones). These D-scores for children of the age of
-2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in
-figure \@ref(fig:dscoresnw). The continuous variable IQ at 5 years
-allows for nice visualization of the variation in D-scores. Moreover,
-the densities of the D-score are given at the bottom of the plots
-showing the distribution of the values of the D-score.
+* The difficulty estimates of each milestone administered;
 
-### Numerical example
+* A prior distribution, an estimate of the $D$-score distribution
+before seeing any PASS/FAIL score.
 
-To explain how the D-score is calculated and demonstrate the use of
-the D-score package two example children, both of the age of 15
-months, are used. One of the example children is able to do all items
-of his/her age, and the other example child is not able to do all
-items of his/her age. In this way, we can show how different scores on
-a item affect the D-score.
+Using these inputs, we may use Bayes theorem to calculate the position
+of the person on the latent variable. The method, first described by
+@bock1982, an is known as the Expected a posteriori (EAP) estimation.
 
-So for example, for a child of the age of 15 months the Dutch
-Developmental Instrument consists of the following six items: puts
-cube in and out of a box, plays 'give and take', crawls (abdomen off
-the floor), walks along, understands a few words, and says 2
-'sound-words' with comprehension. For each of these six items it is
-noted whether the child was able to perform this item. An example of
-the results can be found in table \@ref(tab:tableWS), in which *child
-1* was able to perform all items and *child 2* was able to perform
-four of the six items. Based on these scores we can calculate the
-dscore for both these children.
+### EAP algorithm
 
+Calculation of the $D$-score proceeds item by item. Suppose we have
+some vague and preliminary idea about the distribution of $D$. The
+procedure uses Bayes rule to update this prior knowledge with data
+from the first item (fail/pass score, item difficulty) to calculate
+the posterior. In the next step, this posterior is used as the prior
+for the next item, and so on. The procedure stops when all items have
+been used. The order in which items are entered does not matter for
+the end result. The $D$-score is equal to the mean of the last
+posterior.
 
-So for example, for a child of the age of 15 months the Dutch
-Developmental Instrument consists of the following six items: puts
-cube in and out of a box, plays 'give and take', crawls (abdomen off
-the floor), walks along, understands a few words, and says 2
-'sound-words' with comprehension. For each of these six items it is
-noted whether the child was able to perform this item. An example of
-the results can be found in table \@ref(tab:tableWS), in which *child
-1* was able to perform all items and *child 2* was able to perform
-four of the six items. Based on these scores we can calculate the
-dscore for both these children.
+### Age-dependent starting prior
 
-```{r, echo=FALSE}
-child1 <- c(15/12, 1, 1, 1, 1, 1, 1)
-child2 <- c(15/12, 1, 0, 1, 1, 1, 0)
-tableWS <- rbind(child1, child2)
-colnames(tableWS) <- c("age in years", "item 1", "item 2", "item 3", "item 4", "item 5", "item 6")
-rownames(tableWS) <- c("child 1", "child 2" )
-#item2 : speelt geven/nemen
-#item6 : loopt langs
-```
+In the first step, we need a starting distribution as prior. The
+starting prior should define the range of reasonable values for $D$.
+For example, an infant aged 2 months the $D$-score will have lower
+$D$-score than a baby aged 12 months. The prior should be a bit
+informative but not too much, so it was decided to choose a broad
+distribution which was centred quite well. The prior was chosen as a
+normal distribution with a mean equal to the $D$-score expected at the
+child's age, and with a standard deviation of 5, which about twice the
+normal variation in the $D$-score.
 
-```{r, tableWS, echo=FALSE}
-library(knitr)
-kable(tableWS, caption = "Example of scores on the items of the DDI at the age of 15 months", booktabs = TRUE)
-```
-
-Calculation of the D-score is an iterative procedure, in which in each
-step information of one item is added. The iterative procedure uses
-Bayes rule to update the prior (knowledge) with data to calculate a
-posterior. In the next step, this posterior is used as the prior and
-information, the score, from a new item is added. This results in a
-new posterior distribution. When the information of all items have
-been added to the procedure, the D-score is equal to the mean of the
-final posterior distribution.
-
-*!!plafond prior nog uitleggen!!*
-
-In the first step, the score of the first item is combined with the
-prior. However, at the first step we cannot use the previous posterior
-as our prior. Hence, we need a starting distribution to use as the
-prior in the first step. It is important that this starting
-distribution is a bit informative but not too much, so it was decided
-to choose a quite broad distribution which was centred quite well. The
-prior was chosen in such a way that the mean value of the prior
-distribution was equal to the median D-score at that age. The standard
-deviation is equal to 5, which about twice the normal variation in the
-D-score.
-
-The starting distributions (priors) for the ages of 1, 15 and 24
-months are given in figure \@ref(fig:figpriors). This figure shows
-that the priors assume that ability of a child of the age of 1 month
-is lower than the ability of a child of the age of 15 months, which in
-turn is lower than the ability of a child of the age of 24 months.
-
-```{r, figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Priors at ages of 1, 15 and 24 months"}
+```{r figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
 library(dscore)
 library(ggplot2)
 #example from the adp function in ggplot:
@@ -126,16 +85,47 @@ p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = adp(1/12, qp))
 p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = adp(15/12, qp))
 p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = adp(24/12, qp))
 
-dataprior <- rbind(p1m, p15m, p24m)
-dataprior$month <- as.factor(dataprior$month)
+dataprior <- rbind(p1m, p15m, p24m) %>%
+  mutate(month = as.factor(month)) %>%
+  dplyr::filter(p > 0.00001)
 
 p <- ggplot(dataprior, aes(qp, p, group = month)) +
-      geom_path(aes(col = month)) +
-      coord_cartesian(xlim=c(-10, 80)) +
-      scale_y_continuous(name = "Density") +
-      scale_x_discrete(name = "D-score")
+  theme_light() + 
+  theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1)) +
+  geom_path(aes(col = month)) +
+  coord_cartesian(xlim = c(-10, 80)) +
+  scale_y_continuous(name = "Density", limits = c(0, 0.3)) +
+  scale_x_continuous(name = "D-score") +
+  labs(fill = "Age (in months)")
 p
 ```
+
+Figure \@ref(fig:figpriors) illustrates starting distributions
+(priors) for the ages of 1, 15 and 24 months. As expected, the assumed
+ability of an infant aged of 1 month is lower than that of a child
+aged 15 months, which in turn is lower than the ability of a toddler
+aged 24 months.
+
+### Numerical example
+
+Suppose we measure two boys aged 15 months, David and Rob, by the DDI.
+David passes the first four milestones, but does not complete the test.
+Rob completes the test, but fails on two out of five milestones. How 
+do we calculate the $D$-score for David and Rob?
+
+```{r datadavidandrob, echo = FALSE}
+items <- c("ddifmd011", "ddifmm012", "ddicmm037", "ddigmm066", "ddigmm067")
+ib <- model$itembank %>%
+  rename(item  = lex_gsed, delta = tau) %>%
+  filter(item %in% items) %>%
+  dplyr::select(item, label, delta)
+tab <- data.frame(ib, 
+                  David = c(1, 1, 1, 1, NA),
+                  Rob = c(1, 0, 1, 1, 0))
+kable(tab, caption = "Scores of David and Rob on five milestones from the DDI", 
+      row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"))
+```
+
 
 First, it is important that the names of the items used are similar to
 the names of the items in the built-in item bank. In this example the
