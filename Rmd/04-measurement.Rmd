@@ -33,7 +33,7 @@ months. The YHC professionals administer an age-appropriate subset at
 each of the scheduled visits, thus building a 
 *longitudinal developmental profile* for each child.
 
-### Description of SMOCC study
+### Description of SMOCC study {#sec:smocc}
 
 The Social Medical Survey of Children Attending Child Health Clinics
 (SMOCC) study is a a nationally representative cohort of 2,151
@@ -76,8 +76,7 @@ PASS (1) or a FAIL (0). Missing values are allowed.
 
 ```{r smoccfit, echo = FALSE, warning = FALSE}
 library(gseddata)
-library(plotly)
-data <- get_data(cohorts = 53)
+data <- get_data(cohort = 53)
 items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
@@ -114,7 +113,7 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
                      limits = c(0, 100)) + 
   theme_light() +
   geom_line(size = 0.3) + 
-  geom_point(size = 1.0) +
+  geom_point(size = 1.0)  +
   theme(legend.position = "none")
 py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
 py
@@ -184,9 +183,10 @@ DDI againt the $D$-score (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
 Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but
 with the horizontal axis replaced by the $D$-score. The $D$-score
-summarizes development into one number. Section X explains the steps
-involved in calculating the score. The vertical axis with percent pass
-is unchanged.
+summarizes development into one number. See
+\@ref(sec:dscoreestimation) for a detailed explaination on how to
+calculate the $D$-score. The vertical axis with percent pass is
+unchanged.
 
 The percentage of successes increases with $D$-score for all
 milestones. In contrast to Figure \@ref(fig:smoccpa) all curves have a
@@ -339,7 +339,7 @@ be combined. In this work, we will restrict to models that assume
 probability that two items are passed can be found by multiplying each
 item's success probability.
 
-### Adapt the model? Or adapt the data?
+### Adapt the model? Or adapt the data? {#sec:adaptmodel}
 
 The measurement model induces a predictable pattern in the observed
 items, and this pattern can be tested against the observed data. When
