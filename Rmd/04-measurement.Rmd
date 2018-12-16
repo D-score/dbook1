@@ -113,7 +113,8 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
                      limits = c(0, 100)) + 
   theme_light() +
   geom_line(size = 0.3) + 
-  geom_point(size = 1.0) 
+  geom_point(size = 1.0)  +
+  theme(legend.position = "none")
 py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
 py
 ```
