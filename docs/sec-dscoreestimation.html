@@ -152,7 +152,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(D\)</span>-score: A unit to quantify general child development</a><ul>
 <li class="chapter" data-level="4.1" data-path="sec-ddi.html"><a href="sec-ddi.html"><i class="fa fa-check"></i><b>4.1</b> The Dutch Development Instrument (DDI)</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="sec-ddi.html"><a href="sec-ddi.html#setting"><i class="fa fa-check"></i><b>4.1.1</b> Setting</a></li>
-<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#description-of-smocc-study"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#sec:smocc"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
 <li class="chapter" data-level="4.1.3" data-path="sec-ddi.html"><a href="sec-ddi.html#codebook-of-dutch-development-instrument-0-15-months"><i class="fa fa-check"></i><b>4.1.3</b> Codebook of Dutch Development Instrument 0-15 months</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="probability-of-passing-a-milestone-given-age.html"><a href="probability-of-passing-a-milestone-given-age.html"><i class="fa fa-check"></i><b>4.2</b> Probability of passing a milestone given age</a></li>
@@ -171,7 +171,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.8" data-path="sec-whyrasch.html"><a href="sec-whyrasch.html"><i class="fa fa-check"></i><b>4.8</b> Why take the Rasch model?</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-computation.html"><a href="ch-computation.html"><i class="fa fa-check"></i><b>5</b> Computation</a><ul>
-<li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Identify nature of the problem</a></li>
 <li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a></li>
 <li class="chapter" data-level="5.3" data-path="sec-anchoring.html"><a href="sec-anchoring.html"><i class="fa fa-check"></i><b>5.3</b> Anchoring</a></li>
 <li class="chapter" data-level="5.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.4</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
@@ -272,16 +272,16 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div class="figure"><span id="fig:figpriors"></span>
 <img src="dbook1_files/figure-html/figpriors-1.png" alt="\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months" width="672" />
 <p class="caption">
-Figure 5.1:  Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months
+Figure 5.3:  Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months
 </p>
 </div>
-<p>Figure <a href="sec-dscoreestimation.html#fig:figpriors">5.1</a> illustrates starting distributions (priors) for the ages of 1, 15 and 24 months. As expected, the assumed ability of an infant aged of 1 month is lower than that of a child aged 15 months, which in turn is lower than the ability of a toddler aged 24 months.</p>
+<p>Figure <a href="sec-dscoreestimation.html#fig:figpriors">5.3</a> illustrates starting distributions (priors) for the ages of 1, 15 and 24 months. As expected, the assumed ability of an infant aged of 1 month is lower than that of a child aged 15 months, which in turn is lower than the ability of a toddler aged 24 months.</p>
 </div>
 <div id="numerical-example" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Numerical example</h3>
 <p>Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David passes the first four milestones, but does not complete the test. Rob completes the test, but fails on two out of five milestones.</p>
 <table>
-<caption><span id="tab:datadavidandrob">Table 5.1: </span>Scores of David and Rob on five milestones from the DDI</caption>
+<caption><span id="tab:datadavidandrob">Table 5.2: </span>Scores of David and Rob on five milestones from the DDI</caption>
 <thead>
 <tr class="header">
 <th align="left">Item</th>
@@ -329,17 +329,17 @@ Figure 5.1:  Age-dependent starting priors for the D-score at the ages of 1, 15 
 </tr>
 </tbody>
 </table>
-<p>Table <a href="sec-dscoreestimation.html#tab:datadavidandrob">5.1</a> shows the difficulties of each milestone and the responses of David and Rob for the standard five DDI milestones for the age of 15 months. The mean <span class="math inline">\(D\)</span>-score for Dutch children aged 15 months is 53.6<span class="math inline">\(D\)</span>, so the milestones are easy to pass at this age, with the most difficult being <code>ddicmm037</code>. David passed all milestones, but has no score on the last. Rob fails on <code>ddifmm012</code> and <code>ddigmm067</code>. How do we calculate the <span class="math inline">\(D\)</span>-score for David and Rob?</p>
+<p>Table <a href="sec-dscoreestimation.html#tab:datadavidandrob">5.2</a> shows the difficulties of each milestone and the responses of David and Rob for the standard five DDI milestones for the age of 15 months. The mean <span class="math inline">\(D\)</span>-score for Dutch children aged 15 months is 53.6<span class="math inline">\(D\)</span>, so the milestones are easy to pass at this age, with the most difficult being <code>ddicmm037</code>. David passed all milestones, but has no score on the last. Rob fails on <code>ddifmm012</code> and <code>ddigmm067</code>. How do we calculate the <span class="math inline">\(D\)</span>-score for David and Rob?</p>
 <div class="figure"><span id="fig:davidplot"></span>
 <img src="dbook1_files/figure-html/davidplot-1.png" alt="\(D\)-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account." width="672" />
 <p class="caption">
-Figure 5.2: <span class="math inline">\(D\)</span>-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
+Figure 5.4: <span class="math inline">\(D\)</span>-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
 </p>
 </div>
 
-<p>Figure <a href="sec-dscoreestimation.html#fig:davidplot">5.2</a> shows how the prior transforms into the posterior after the measurement outcomes is fed into the calculation. There are five milestones, and so calculation is done in five steps:</p>
+<p>Figure <a href="sec-dscoreestimation.html#fig:davidplot">5.4</a> shows how the prior transforms into the posterior after the measurement outcomes is fed into the calculation. There are five milestones, and so calculation is done in five steps:</p>
 <ol style="list-style-type: decimal">
-<li><p>Both David and Rob pass <code>ddifmd011</code>. The prior (lightgreen) is the same as in Figure <a href="sec-dscoreestimation.html#fig:figpriors">5.1</a>. After a PASS, the posterior will be located more to the right, and will often be more peaked. Both happen here, but the change is small. The reason is that a PASS on this milestone is not very informative. For a child with a true <span class="math inline">\(D\)</span>-score of 53<span class="math inline">\(D\)</span>, the probability of passing <code>ddifmd011</code> is equal to 0.966. If passing is so common, there is not much information in the measurement.</p></li>
+<li><p>Both David and Rob pass <code>ddifmd011</code>. The prior (lightgreen) is the same as in Figure <a href="sec-dscoreestimation.html#fig:figpriors">5.3</a>. After a PASS, the posterior will be located more to the right, and will often be more peaked. Both happen here, but the change is small. The reason is that a PASS on this milestone is not very informative. For a child with a true <span class="math inline">\(D\)</span>-score of 53<span class="math inline">\(D\)</span>, the probability of passing <code>ddifmd011</code> is equal to 0.966. If passing is so common, there is not much information in the measurement.</p></li>
 <li><p>David passes <code>ddifmm012</code> but Rob does not. Observe that the prior is identical to the posterior of <code>ddifmd011</code>. For David, the posterior is only slightly different from the prior, for the same reason as above. For Rob, we find a huge change to the left, both in terms of location (from 54.3<span class="math inline">\(D\)</span> to 47.1<span class="math inline">\(D\)</span>) and in terms of peakedness. This one FAIL lowers Rob’s score by 7.2<span class="math inline">\(D\)</span>.</p></li>
 <li><p>Milestone <code>ddicmm037</code> is more difficult than the previous two milestones, so a pass on <code>ddicmm037</code> does have a clear effect on the posterior for both David and Rob.</p></li>
 <li><p>David’s PASS on <code>ddigmm066</code> does not bring any additional information, so his prior and posterior are virtually indistinguishable. For Rob, we find a slight effect to the right.</p></li>
@@ -362,7 +362,7 @@ Figure 5.2: <span class="math inline">\(D\)</span>-score distribution for David 
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-bock1982">
-<p>Bock, D. D., and R. J. Mislevy. 1982. “Adaptive Eap Estimation of Ability in a Microcomputer Environment.” <em>Applied Psychological Measurement</em> 6 (4): 431–44.</p>
+<p>Bock, D. D., and R. J. Mislevy. 1982. “Adaptive EAP Estimation of Ability in a Microcomputer Environment.” <em>Applied Psychological Measurement</em> 6 (4): 431–44.</p>
 </div>
 </div>
             </section>
