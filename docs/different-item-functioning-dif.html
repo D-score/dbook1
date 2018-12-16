@@ -30,7 +30,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="hier-eventueel-person-fit-formulas-invoegen.html">
+<link rel="prev" href="person-fit.html">
 <link rel="next" href="item-information-at-a-given-ability.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -175,14 +175,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="estimation-of-the-d-score.html"><a href="estimation-of-the-d-score.html"><i class="fa fa-check"></i><b>5.2</b> Estimation of the <span class="math inline">\(D\)</span>-score</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-itemfit.html"><a href="ch-itemfit.html"><i class="fa fa-check"></i><b>6</b> Interpretation of item fit</a><ul>
-<li class="chapter" data-level="6.1" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.1</b> Empirical and fitted item response curves</a></li>
-<li class="chapter" data-level="6.2" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.2</b> Item fit</a></li>
-<li class="chapter" data-level="6.3" data-path="hier-eventueel-person-fit-formulas-invoegen.html"><a href="hier-eventueel-person-fit-formulas-invoegen.html"><i class="fa fa-check"></i><b>6.3</b> HIER EVENTUEEL PERSON FIT FORMULAS INVOEGEN</a></li>
-<li class="chapter" data-level="6.4" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.4</b> Different item functioning (DIF)</a></li>
-<li class="chapter" data-level="6.5" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.5</b> Item information at a given ability</a></li>
-<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given age</a></li>
-<li class="chapter" data-level="6.7" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.7</b> Person fit</a></li>
-<li class="chapter" data-level="6.8" data-path="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><a href="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><i class="fa fa-check"></i><b>6.8</b> hele inconsistente kinderen toevoegen als voorbeeld. eerst lopen en dan staan.</a></li>
+<li class="chapter" data-level="6.1" data-path="smocc-data-design.html"><a href="smocc-data-design.html"><i class="fa fa-check"></i><b>6.1</b> SMOCC data: design</a></li>
+<li class="chapter" data-level="6.2" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.2</b> Empirical and fitted item response curves</a></li>
+<li class="chapter" data-level="6.3" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.3</b> Item fit</a></li>
+<li class="chapter" data-level="6.4" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.4</b> Person fit</a></li>
+<li class="chapter" data-level="6.5" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.5</b> Different item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given ability</a></li>
+<li class="chapter" data-level="6.7" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.7</b> Item information at a given age</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
@@ -244,17 +243,38 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="different-item-functioning-dif" class="section level2">
-<h2><span class="header-section-number">6.4</span> Different item functioning (DIF)</h2>
-<p>An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: “DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.” <span class="citation">(Zumbo <a href="#ref-zumbo1999">1999</a>)</span> The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(sm1<span class="op">$</span>beta_l)</code></pre></div>
-<pre><code>##   country         study    id wave    age  n      b
-## 1      NL Netherlands 1 10001    1 0.0833  5 -17.07
-## 2      NL Netherlands 1 10001    2 0.1583  2 -11.91
-## 3      NL Netherlands 1 10001    3 0.2583 11  -8.58
-## 4      NL Netherlands 1 10001    4 0.5000 13  -4.72
-## 5      NL Netherlands 1 10001    5 0.7500  8  -1.99
-## 6      NL Netherlands 1 10001    6 1.0000  8   1.86</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#make dataframe with covariates, b, and pass</span></code></pre></div>
+<h2><span class="header-section-number">6.5</span> Different item functioning (DIF)</h2>
+<p>An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: “DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.” <span class="citation">(Zumbo <a href="#ref-zumbo1999">1999</a>)</span> The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two items do not shown DIF:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddigmd063&quot;</span>))</code></pre></div>
+<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
+<pre><code>## Item:  1 ddigmd063</code></pre>
+<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 0, 1, 1, 0, :
+## provided 3528 variables to replace 1 variables</code></pre>
+<pre><code>## $ddigmd063</code></pre>
+<pre><code>## Warning: Removed 6 rows containing missing values (geom_path).</code></pre>
+<p><img src="dbook1_files/figure-html/dif1-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddifmd011&quot;</span>))</code></pre></div>
+<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
+<pre><code>## Item:  1 ddifmd011</code></pre>
+<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 1, 0, 0, 1, :
+## provided 3171 variables to replace 1 variables</code></pre>
+<pre><code>## $ddifmd011</code></pre>
+<p><img src="dbook1_files/figure-html/dif1-2.png" width="672" /></p>
+<p>However, these two items do show a small amount of DIF. Which means that the difficulty for the items for male respondent is different than for female respondents. The item “Says three ‘words’” is less difficult for female respondents, whereas the item “Walks while holding onto play-pen or furniture” is less difficult for the male respondents.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddicmm039&quot;</span>))</code></pre></div>
+<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
+<pre><code>## Item:  1 ddicmm039</code></pre>
+<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 1, 0, 0, 1, :
+## provided 3321 variables to replace 1 variables</code></pre>
+<pre><code>## $ddicmm039</code></pre>
+<p><img src="dbook1_files/figure-html/dif2-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">print</span>(<span class="kw">plot_dif</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">dif =</span> <span class="st">&quot;male&quot;</span>, <span class="dt">metric =</span> <span class="st">&quot;logit&quot;</span>, <span class="dt">item =</span> <span class="st">&quot;ddigmm067&quot;</span>))</code></pre></div>
+<pre><code>## Joining, by = c(&quot;country&quot;, &quot;study&quot;, &quot;id&quot;, &quot;wave&quot;, &quot;agedays&quot;, &quot;subjid&quot;)</code></pre>
+<pre><code>## Item:  1 ddigmm067</code></pre>
+<pre><code>## Warning in `[&lt;-.data.frame`(`*tmp*`, , dif, value = list(c(0, 1, 0, 0, 1, :
+## provided 3402 variables to replace 1 variables</code></pre>
+<pre><code>## $ddigmm067</code></pre>
+<p><img src="dbook1_files/figure-html/dif2-2.png" width="672" /></p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -267,7 +287,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="hier-eventueel-person-fit-formulas-invoegen.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="person-fit.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="item-information-at-a-given-ability.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

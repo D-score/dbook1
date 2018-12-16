@@ -1,5 +1,48 @@
-# Interpretation of fit
+# Evaluation {#ch:evaluation}
 
+The nice properties of the Rasch model (c.f. Section
+\@ref(sec:whyrasch)) only hold when the data and model agree. It is
+therefore important to study and remove discrepancies between model
+and data. This chapter explains several techniques that aid in the
+evualation of model fit.
+
+* Item fit (\@ref(sec:itemfit))
+* Person fit (\@ref(sec:personfit))
+* Differential item functioning (\@ref(sec:dif))
+* Item information (\@ref(sec:iteminformation))
+* Reliability (\@ref(sec:reliability))
+
+These topics adress different aspects of the solution. In practice, we
+have found that item fit is the most important concern.
+
+<!--5.2
+formules eerder achterin, of uitleggen
+terugverwijzen
+zeggen dat je zowel visueel als met fitmaat kunt werken
+item namen = gsed
+
+bespreken van verschillende voorbeelden, plat, te steil
+n26 is steiler, hoe erg is dat?
+is er ook een vlakker item
+figuur aspect ratio, compacter maken, nu te hoog, combineren mogelijk?
+kunnen we ook de observaties tonen, rugplot?
+#voorbeelden gedragstoestand tijdens van wiechenschema als items nemen en laten zien als illustratie van slechte items. Of niet geselecteerde items.
+
+5.3 
+Interpretation van infit en outfit komt te vroeg
+laat eerst zien wat beide zijn
+E_ni -> P_ni
+Plaatje van de (gestandardiseerde) residuen?
+
+5.4 
+psychometric information?
+-->
+
+## Item fit {#sec:itemfit}
+
+To illustrate the interpretation of fit measures for the D-score we use the SMOCC study [@herngreen1994], which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
+
+### Empirical and fitted item response curves
 
 ```{r, include=FALSE}
 library(ddata)
@@ -10,10 +53,7 @@ library(dplyr)
 library(gseddata)
 ```
 
-
-## Empirical and fitted item response curves
-
-An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for three example milestones. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
 
 
 ```{r icc, include=FALSE, message=FALSE, warning=FALSE}
@@ -44,14 +84,13 @@ An imporant aspect of the Rasch analysis is the issue of model fit. Actually, fo
  
 ```
 
-
 ```{r plot icc, echo=FALSE, fig.height=3, fig.show='hold', fig.width=3, message=FALSE, warning=FALSE}
 plot_p_d_item(data = data, model = model, items = "ddifmd005", show_fit = FALSE, metric = "logit")[[1]]
 plot_p_d_item(data = data, model = model, items = "ddigmm060", show_fit = FALSE, metric = "logit")[[1]]
 plot_p_d_item(data = data, model = model, items = "ddicmm036", show_fit = FALSE, metric = "logit")[[1]]
 ```
 
-## Item fit
+### Item fit examples
 
 The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. 
 
@@ -93,7 +132,7 @@ The fit of the items evaluate the extent to which data performs with the constru
  data2 <- data02
  colnames(data2)[colnames(data2) %in% model02$items] <- gseddata::rename_gcdg_gsed(colnames(data2)[colnames(data2) %in% model02$items])
 
-  source('C:/Users/eekhouti/Documents/GitHub/dbook1/R/translate_gcdg_gsed.R')
+ source(file.path(getwd(), "R/translate_gcdg_gsed.R"))
  model2 <- translate_gcdg_gsed(input = model02)
 ```
 
@@ -127,7 +166,7 @@ $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
 As a guideline for interpreting the item fit-measures a threshold of fit < 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit < 1.3 can be considered. 
 
 
-## Person fit
+## Person fit {#sec:personfit}
 
 ---
 # Voor person fit heb ik verder geen plaatjes, ik weet niet zo goed hoe ik dan moet weergeven. Het is natuurlijk ook meer een soort van toevoeging aan de item fit hierboven. 
@@ -139,7 +178,7 @@ To determine the fit of persons to the model we compare the observed responses a
    $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. As a threshold for person fit < 3 can be used to clean out persons with inplausible response patterns. 
 
 
-## Different item functioning (DIF)
+## Differential item functioning (DIF) {#sec:dif}
 
 An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two milestones do not shown DIF:
 
@@ -147,7 +186,6 @@ An important aspect of item fit to the Rasch model is the assumption that items 
 
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
-
 ```
 
 However, these two items do show a small amount of DIF. This means that the difficulty for the items for male respondent is different than for female respondents. The milestone "Says three words" is less difficult for female respondents, whereas the milestone "Walks while holding onto play-pen or furniture" is less difficult for the male respondents.
@@ -155,17 +193,15 @@ However, these two items do show a small amount of DIF. This means that the diff
 ```{r dif2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddicmm039")[[1]]
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm067")[[1]]
-
 ```
 
+## Item information {#sec:iteminformation}
 
-## Item information at a given ability
+### Item information at a given ability
 
 The item information is defined as the amount of psychometric information an item contains for a given ability. The item information can be plotted for each item. In the Figure below, the item information curves for some example milestones are displayed. The amount of information for an item is maximized around the item-difficulty parameter. 
 
 ```{r iic, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 3}
-
-
 #item information curve
 ## bereken item info by difficulty
  info <- function(beta, delta) {(exp(beta-delta)/(1+exp(beta-delta)) * (1-exp(beta-delta)/(1+exp(beta-delta))))}
@@ -192,7 +228,7 @@ The formula to obtain the item information is the first derivative of the item r
 So for an ability level of $2$ standard deviations above the mean $\beta_n=2$, milestone "Says three words" has an information value of $$I(\delta)=0.14(1-0.14)$$ $$I(\delta)=0.12$$ 
 
 
-## Item information at a given age
+### Item information at a given age
 
 The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
 
@@ -229,10 +265,9 @@ refs$month <- refs$age
 
 The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item. 
 
+## Reliability {#sec:reliability}
 
-## Person seperation index
-
-The person seperation index is a measure for reliability for the Rasch model that is comparable to Cronbach's $\alpha$. In that context we define the reliability as the proportion of variance of the estimated person estimates (i.e. abilities) and the total variance including error. PSI obtained as follows: $PSI = \frac{\sigma_{\hat\beta}^2 -\hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}$, where $\sigma_{\hat\beta}^2$ is the variance of the estimated abilities and $\sigma_{\hat e}^2$ is the error variance of the abilities. The standard error of measurement can be obtained from this information as $SEM = \sqrt{\sigma_{\hat e}^2}$, which reflects the precision of the ability estimation. Below the $PSI$ and $SEM$ are calculated for our example data. 
+The *person seperation index* is a measure for reliability for the Rasch model that is comparable to Cronbach's $\alpha$. In that context we define the reliability as the proportion of variance of the estimated person estimates (i.e. abilities) and the total variance including error. PSI obtained as follows: $PSI = \frac{\sigma_{\hat\beta}^2 -\hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}$, where $\sigma_{\hat\beta}^2$ is the variance of the estimated abilities and $\sigma_{\hat e}^2$ is the error variance of the abilities. The standard error of measurement can be obtained from this information as $SEM = \sqrt{\sigma_{\hat e}^2}$, which reflects the precision of the ability estimation. Below the $PSI$ and $SEM$ are calculated for our example data. 
 
 ---
 # Ik weet niet zeker of het nuttig is om PSI te bespreken, maar het blijkt wel dat veel onderzoekers een reliability maat fijn vinden om te hebben. Kun jij hieronder kijken of mijn berekening klopt? Ik heb de functie een beetje geannoteerd.

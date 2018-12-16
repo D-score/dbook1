@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="item-information-at-a-given-ability.html">
-<link rel="next" href="person-fit.html">
+<link rel="next" href="validity.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -175,14 +175,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="estimation-of-the-d-score.html"><a href="estimation-of-the-d-score.html"><i class="fa fa-check"></i><b>5.2</b> Estimation of the <span class="math inline">\(D\)</span>-score</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-itemfit.html"><a href="ch-itemfit.html"><i class="fa fa-check"></i><b>6</b> Interpretation of item fit</a><ul>
-<li class="chapter" data-level="6.1" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.1</b> Empirical and fitted item response curves</a></li>
-<li class="chapter" data-level="6.2" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.2</b> Item fit</a></li>
-<li class="chapter" data-level="6.3" data-path="hier-eventueel-person-fit-formulas-invoegen.html"><a href="hier-eventueel-person-fit-formulas-invoegen.html"><i class="fa fa-check"></i><b>6.3</b> HIER EVENTUEEL PERSON FIT FORMULAS INVOEGEN</a></li>
-<li class="chapter" data-level="6.4" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.4</b> Different item functioning (DIF)</a></li>
-<li class="chapter" data-level="6.5" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.5</b> Item information at a given ability</a></li>
-<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given age</a></li>
-<li class="chapter" data-level="6.7" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.7</b> Person fit</a></li>
-<li class="chapter" data-level="6.8" data-path="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><a href="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><i class="fa fa-check"></i><b>6.8</b> hele inconsistente kinderen toevoegen als voorbeeld. eerst lopen en dan staan.</a></li>
+<li class="chapter" data-level="6.1" data-path="smocc-data-design.html"><a href="smocc-data-design.html"><i class="fa fa-check"></i><b>6.1</b> SMOCC data: design</a></li>
+<li class="chapter" data-level="6.2" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.2</b> Empirical and fitted item response curves</a></li>
+<li class="chapter" data-level="6.3" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.3</b> Item fit</a></li>
+<li class="chapter" data-level="6.4" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.4</b> Person fit</a></li>
+<li class="chapter" data-level="6.5" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.5</b> Different item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given ability</a></li>
+<li class="chapter" data-level="6.7" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.7</b> Item information at a given age</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
@@ -244,7 +243,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="item-information-at-a-given-age" class="section level2">
-<h2><span class="header-section-number">6.6</span> Item information at a given age</h2>
+<h2><span class="header-section-number">6.7</span> Item information at a given age</h2>
 <p>The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calculate_age_equivalents &lt;-<span class="st"> </span><span class="cf">function</span>(model,
                                       <span class="dt">p =</span> <span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">90</span>),
@@ -264,14 +263,16 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
   pda
 }</code></pre></div>
 <p>The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item.</p>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
 <a href="item-information-at-a-given-ability.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="person-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="validity.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
