@@ -255,14 +255,21 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:itemfit" class="section level2">
 <h2><span class="header-section-number">6.1</span> Item fit</h2>
-<p>To illustrate the interpretation of fit measures for the D-score we use the SMOCC study <span class="citation">(Herngreen et al. <a href="#ref-herngreen1994">1994</a>)</span>, which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score.</p>
 <div id="empirical-and-fitted-item-response-curves" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Empirical and fitted item response curves</h3>
-<p>An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as: <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span> where <span class="math inline">\(\beta_n\)</span> is the ability of person <span class="math inline">\(n\)</span> and <span class="math inline">\(\delta_i\)</span> is the difficulty of item <span class="math inline">\(i\)</span>. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).</p>
-<pre><code>## Item:  1 ddifmd005</code></pre>
-<pre><code>## Item:  1 ddigmm060</code></pre>
-<pre><code>## Item:  1 ddicmm036</code></pre>
-<p><img src="dbook1_files/figure-html/plot%20icc-1.png" width="288" /><img src="dbook1_files/figure-html/plot%20icc-2.png" width="288" /><img src="dbook1_files/figure-html/plot%20icc-3.png" width="288" /></p>
+<p>The philosophy of the Rasch model is different from conventional statistical modeling. It is not the task of the Rasch model to account for the data. Rather it is the task of the data to fit the Rasch model. We saw this distinction before in Section <a href="sec-measurementmodel.html#sec:adaptmodel">4.5.2</a>.</p>
+<p>The goal of model fit assessment is to explore and quantify how well empirical data meet the requirements of the Rasch model. One way to gauge model fit is to compare the observed probability of passing an item to the fitted item response curve for endorsing the item.</p>
+<p>The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as:</p>
+<p><span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i})}{1+exp(\beta_{n}-\delta_{i})}, \]</span></p>
+<p>where <span class="math inline">\(\beta_n\)</span> is the ability of person <span class="math inline">\(n\)</span> and <span class="math inline">\(\delta_i\)</span> is the difficulty of item <span class="math inline">\(i\)</span>. It is thus natural to compare the observed and modelled probabilities at various levels of ability.</p>
+<div class="figure"><span id="fig:ploticc"></span>
+<img src="dbook1_files/figure-html/ploticc-1.png" alt="Empirical and fitted item response curves for two milestones from the DDI (SMOCC data)." width="672" />
+<p class="caption">
+Figure 6.1: Empirical and fitted item response curves for two milestones from the DDI (SMOCC data).
+</p>
+</div>
+
+<p>Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a> shows the item characteristics curves of two DDI milestones. The orange line represents the empirical probability at different ability levels. The dashed line represents the estimated item response curve according to the Rasch model. The empirical and estimated curves are close together, so both items fit the model very well.</p>
 </div>
 <div id="item-fit-examples" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Item fit examples</h3>
@@ -279,12 +286,6 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <pre><code>## Item:  1 a13f2</code></pre>
 <p><img src="dbook1_files/figure-html/unnamed-chunk-14-1.png" width="288" /><img src="dbook1_files/figure-html/unnamed-chunk-14-2.png" width="288" /></p>
 <p>The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response <span class="math inline">\(x_{ni}\)</span> of person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. The expected response <span class="math inline">\(P_{ni}\)</span> is modelled as <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span>. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances <span class="math inline">\(W_{ni}\)</span>. The expected response variance <span class="math inline">\(W_{ni}\)</span> can be obtained as <span class="math inline">\(P_{ni}(1-P_{ni})\)</span>. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: <span class="math display">\[z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}\]</span> Accordingly the infit and outfit are calculated as: <span class="math display">\[Infit = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}\]</span> <span class="math display">\[Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}\]</span> As a guideline for interpreting the item fit-measures a threshold of fit &lt; 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit &lt; 1.3 can be considered.</p>
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-herngreen1994">
-<p>Herngreen, W.P., S. van Buuren, J.C. van Wieringen, J.D. Reerink, S.P. Verloove-Vanhorick, and J.H. Ruys. 1994. “Growth in Length and Weight from Birth to 2 Years of a Representative Sample of Netherlands Children (Born in 1988-89) Related to Socio-Economic Status and Other Background Characteristics.” <em>Annals of Human Biology</em> 21 (5): 449–63.</p>
 </div>
 </div>
             </section>
