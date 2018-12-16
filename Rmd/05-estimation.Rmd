@@ -3,7 +3,7 @@
 This chapter explains the basic computations needed for fitting and
 evaluation the Rasch model. We distinguish the following steps:
 
-* Data preparation (\@ref(sec:datapreparation))
+* Identify nature of the problem (\@ref(sec:datapreparation))
 * Estimation of item parameters (\@ref(sec:itemestimation))
 * Anchoring (\@ref(sec:anchoring))
 * Estimation of the $D$-score (\@ref(sec:dscoreestimation))
@@ -11,30 +11,147 @@ evaluation the Rasch model. We distinguish the following steps:
 Reader not interested in these details may continue to model
 evaluation in Chapter \@ref(ch:evaluation).
 
-## Data preparation {#sec:datapreparation}
+## Identify nature of the problem {#sec:datapreparation}
 
-Data SMOCC data of Secion \@ref(sec:ddi)
+The SMOCC dataset, introduced in Section \@ref(sec:smocc), contains
+scores on the DDI of Dutch children aged 0-2 years made during nine
+visits.
 
-## Item parameter estimation {#sec:itemestimation}
-
-There are many computer routines for this task, but only a few produce
-the desired result when applied to developmental data.
-
-```{r smoccfit2, echo = FALSE, warning = FALSE}
+```{r smoccdata2, echo = FALSE, warning = FALSE}
 library(gseddata)
 library(dmetric)
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
+broad <- as.data.frame(data) %>% 
+  dplyr::select(subjid, agedays, items) %>% 
+  dplyr::slice(1:26)
+options(knitr.table.format = "html", knitr.kable.NA = "") 
+kable(broad,
+      caption = "SMOCC DDI milestones, first three children, 0-2 years.",
+      row.names = FALSE, 
+      col.names = c("Child", "Age (days)", items)) %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+Table \@ref(tab:smoccdata2) contains data of three children, measured
+on nine visits between ages 0 - 2 years. The DDI scores are coded as 0
+(FAIL) or 1 (PASS). Since the selection of milestones depends on age,
+the dataset contains a large number of empty cells. Naive use of sum
+scores as a proxy to person ability is therefore problematic. An empty
+cell is not a FAIL, so it's an error to impute those cells by zeroes.
+
+Note that some rows contain only 1's, e.g., in row 2 or row 10. Many
+computer program for Rasch analysis routinely remove such *perfect
+scores* before fitting. However, unless the number of perfect scores
+is very small, this is not recommended because doing so can severely
+affect the distribution of person abilities.
+
+In order to effectively handle the missing data and to preserve all
+persons in the analysis we separate estimation of item difficulties
+and person abilities into two steps.
+
+## Item parameter estimation {#sec:itemestimation}
+
+```{r smoccfit2, echo = FALSE, warning = FALSE}
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
 model <- fit_dmodel(varlist, data, name = "57_0")
 ```
 
+There are many methods for estimating the difficulty parameters of the
+Rasch estimation. See @linacre2004 for an overview. We will use the
+pairwise method estimation method (@zwinderman1995), as implemented in
+the function `rasch.pairwise.itemcluster()` of the `sirt` package
+(@robitzsch2016).
+
+```{r itemdiflplot, echo = FALSE, fig.height = 10, fig.cap = '(ref:itemdiflplot)'}
+d1 <- data.frame(delta = model$fit$b, 
+                 item = names(model$fit$b), 
+                 stringsAsFactors = FALSE, 
+                 row.names = NULL)
+ib <- model$itembank %>% 
+  rename(item = lex_gsed) %>% 
+  left_join(d1, by = "item") %>% 
+  mutate(lab = substr(label, 1L, 30)) %>% 
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+
+p <- ggplot(ib, aes(x = delta, y = reorder(lab, -delta))) + 
+  geom_segment(aes(yend = lab), xend = -30, colour = "grey50") +
+  geom_point(size = 2, aes(colour = domain)) + 
+  theme_light() + 
+  theme(panel.grid.major.y = element_blank()) +
+  facet_grid(domain ~ ., scales = "free_y", space = "free_y") + 
+  theme(legend.position = "none") + 
+  xlab("Item difficulty (logits)") +
+  theme(axis.title.y = element_blank())
+p
+```
+
+(ref:itemdiflplot) Estimated item difficulty parameters ($d_i$) for 57 milestones
+of the DDI (0 - 2 years).
+
+Figure \@ref(fig:itemdiflplot) summarizes the estimated item
+difficulty parameters. Although the model makes no distinction between
+domains, the results have been ordered to ease spotting of the natural
+progression of the milestones per domain. The figure also suggests
+that not all domain are equally represented across the scale. For
+example, there are no communication milestones around the logit of
+$-10$.
 
 ## Anchoring {#sec:anchoring}
 
+The Rasch model identifies the item difficulties up to a linear
+transformation. By default, the software produces estimates in the
+logit scale (c.f. Figure \@ref(fig:itemdiflplot)). The logit scale is
+inconvenient for two reasons:
 
+* The logit scale has negative values. Negative values do not have a
+sensible interpretation in child development, and are likely to
+introduce errors in practice;
+
+* Both the zero in the logit scale as well as its variance depend on
+the sample used to calibrate the item difficulties.
+
+The properties of the Rasch model are preserved under a rescaling of
+the derived scale. In order to make the scale independent of the
+specified sample, we transform the scale so that two items will always
+have the same value on the transformed scale. The choice of the two
+anchor items is essentially arbitrary, but they should correspond to
+milestones that are easy to measure with small error. In the sequel,
+we use the two milestones to anchor the scale:
+
+Value  | Item        | Label
+------ | ----------- | ------------------------------------------
+20     | `ddigmd057` | Lifts head to 45 degrees on prone position
+40     | `ddigmd063` | Sits in stable position without support
+
+This is called the $D$-score scale. 
+
+With this choice, $D$-score values are approximately 0$D$ around
+birth. At the age of 1 year, the score will around 50$D$, so during
+the first year of life, one $D$ unit corresponds to approximately a
+one-week interval.
+
+```{r itemdifdplot, echo = FALSE, fig.height = 10, fig.cap = '(ref:itemdifdplot)'}
+p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) + 
+  geom_segment(aes(yend = lab), xend = -30, colour = "grey50") +
+  geom_point(size = 2, aes(colour = domain)) + 
+  theme_light() + 
+  theme(panel.grid.major.y = element_blank()) +
+  facet_grid(domain ~ ., scales = "free_y", space = "free_y") + 
+  theme(legend.position = "none") + 
+  xlab("Item difficulty (D-score)") +
+  theme(axis.title.y = element_blank())
+p
+```
+
+(ref:itemdifdplot) Estimated item difficulty parameters ($d_i$) for 57 milestones
+of the DDI (0 - 2 years). Milestones `ddigmd057` and `ddigmd063` are anchored at 
+values of 20 and 40, respectively.
 
 ## Estimation of the $D$-score {#sec:dscoreestimation}
 
