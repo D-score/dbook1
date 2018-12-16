@@ -40,55 +40,66 @@ psychometric information?
 
 ## Item fit {#sec:itemfit}
 
-To illustrate the interpretation of fit measures for the D-score we use the SMOCC study [@herngreen1994], which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
-
 ### Empirical and fitted item response curves
 
-```{r, include=FALSE}
-library(ddata)
-library(dmetric)
-library(dscore)
-library(sirt)
-library(dplyr)
+```{r, include = FALSE}
+# library(ddata)
+# library(dmetric)
+# library(dscore)
+# library(sirt)
+# library(gseddata)
+```
+
+The philosophy of the Rasch model is different from conventional
+statistical modeling. It is not the task of the Rasch model to account
+for the data. Rather it is the task of the data to fit the Rasch
+model. We saw this distinction before in Section
+\@ref(sec:adaptmodel).
+
+The goal of model fit assessment is to explore and quantify how well
+empirical data meet the requirements of the Rasch model. One way to
+gauge model fit is to compare the observed probability of passing an
+item to the fitted item response curve for endorsing the item.
+
+The fitted item response curve for each item $i$ is modeled as: 
+
+$$P_{ni}= \frac{exp( \beta_{n} - \delta_{i})}{1+exp(\beta_{n}-\delta_{i})}, $$ 
+
+where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the
+difficulty of item $i$. It is thus natural to compare the observed and
+modelled probabilities at various levels of ability.
+
+```{r smoccdata3, echo = FALSE, warning = FALSE}
 library(gseddata)
+library(dmetric)
+data <- get_data(cohorts = 53)
+items <- get_itemnames(data)
 ```
 
-An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
-
-
-```{r icc, include=FALSE, message=FALSE, warning=FALSE}
-
- # data0 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
- # data0$agedays <- as.integer(data0$age /12 *365.25)
- # data0$subjid <- data0$id
- # varlist <- prepare_items(study = "Netherlands 1")
- # varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
- # equatelist <- prepare_equates(varlist)
- # model_name<- "smocc"
- # model0 <- fit_dmodel(varlist=varlist, data = data0, equate=equatelist, name = model_name, data_package = "ddata")
- # 
- # #translate to gsed names
- # data <- data0
- # colnames(data)[colnames(data) %in% model0$items] <- gseddata::rename_gcdg_gsed(colnames(data)[colnames(data) %in% model0$items])
- # source('C:/Users/eekhouti/Documents/GitHub/dbook1/R/translate_gcdg_gsed.R')
- # model <- translate_gcdg_gsed(input = model0)
-
-  data <- gseddata::get_data(adm = ".", cov = ".", aux = ".", cohorts = 53, items = ".")
-  items <- rename_gcdg_gsed(prepare_items(study = "Netherlands 1")$items)
-  varlist <- list(adm = c("subjid", "agedays", "cohort", "cohortn", "subjido"),
-                 items = items)
-  model <- fit_dmodel(varlist, data = data,
-                     name = "SMOCC", age_unit = "years")
-
- 
- 
+```{r smoccfit3, echo = FALSE, warning = FALSE}
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
 ```
 
-```{r plot icc, echo=FALSE, fig.height=3, fig.show='hold', fig.width=3, message=FALSE, warning=FALSE}
-plot_p_d_item(data = data, model = model, items = "ddifmd005", show_fit = FALSE, metric = "logit")[[1]]
-plot_p_d_item(data = data, model = model, items = "ddigmm060", show_fit = FALSE, metric = "logit")[[1]]
-plot_p_d_item(data = data, model = model, items = "ddicmm036", show_fit = FALSE, metric = "logit")[[1]]
+```{r ploticc, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:ploticc)'}
+theme_set(theme_light())
+p1 <- plot_p_d_item(data = data, model = model, items = "ddifmd005", 
+                    show_fit = FALSE, metric = "logit")[[1]]
+p2 <- plot_p_d_item(data = data, model = model, items = "ddigmm060", 
+                    show_fit = FALSE, metric = "logit")[[1]]
+grid.arrange(p1, p2)
 ```
+
+(ref:ploticc) Empirical and fitted item response curves for two milestones from the DDI (SMOCC data).
+
+Figure \@ref(fig:ploticc) shows the item characteristics curves of two
+DDI milestones. The orange line represents the empirical probability
+at different ability levels. The dashed line represents the estimated
+item response curve according to the Rasch model. The empirical and
+estimated curves are close together, so both items fit the model very
+well.
 
 ### Item fit examples
 
