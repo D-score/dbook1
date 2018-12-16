@@ -22,6 +22,7 @@ the desired result when applied to developmental data.
 
 ```{r smoccfit2, echo = FALSE, warning = FALSE}
 library(gseddata)
+library(dmetric)
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
@@ -48,8 +49,9 @@ the $D$-score we need the following ingredients:
 before seeing any PASS/FAIL score.
 
 Using these inputs, we may use Bayes theorem to calculate the position
-of the person on the latent variable. The method, first described by
-@bock1982, an is known as the Expected a posteriori (EAP) estimation.
+of the person on the latent variable. The method is known as the
+Expected a posteriori (EAP) estimation, and was first described by
+@bock1982.
 
 ### EAP algorithm
 
@@ -67,8 +69,8 @@ posterior.
 
 In the first step, we need a starting distribution as prior. The
 starting prior should define the range of reasonable values for $D$.
-For example, an infant aged 2 months the $D$-score will have lower
-$D$-score than a baby aged 12 months. The prior should be a bit
+For example, an infant aged 1 months the $D$-score will have lower
+$D$-score than a child aged 15 months. The prior should be a bit
 informative but not too much, so it was decided to choose a broad
 distribution which was centred quite well. The prior was chosen as a
 normal distribution with a mean equal to the $D$-score expected at the
@@ -92,11 +94,12 @@ dataprior <- rbind(p1m, p15m, p24m) %>%
 p <- ggplot(dataprior, aes(qp, p, group = month)) +
   theme_light() + 
   theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1)) +
-  geom_path(aes(col = month)) +
+  geom_path(aes(colour = month)) +
   coord_cartesian(xlim = c(-10, 80)) +
   scale_y_continuous(name = "Density", limits = c(0, 0.3)) +
   scale_x_continuous(name = "D-score") +
-  labs(fill = "Age (in months)")
+  labs(colour = "Age (in months)") +
+  scale_colour_manual(values = brewer.pal(12, "Paired")[c(1, 3, 5)])
 p
 ```
 
@@ -110,8 +113,7 @@ aged 24 months.
 
 Suppose we measure two boys aged 15 months, David and Rob, by the DDI.
 David passes the first four milestones, but does not complete the test.
-Rob completes the test, but fails on two out of five milestones. How 
-do we calculate the $D$-score for David and Rob?
+Rob completes the test, but fails on two out of five milestones. 
 
 ```{r datadavidandrob, echo = FALSE}
 items <- c("ddifmd011", "ddifmm012", "ddicmm037", "ddigmm066", "ddigmm067")
@@ -119,195 +121,157 @@ ib <- model$itembank %>%
   rename(item  = lex_gsed, delta = tau) %>%
   filter(item %in% items) %>%
   dplyr::select(item, label, delta)
-tab <- data.frame(ib, 
+dr <- data.frame(ib, 
                   David = c(1, 1, 1, 1, NA),
                   Rob = c(1, 0, 1, 1, 0))
-kable(tab, caption = "Scores of David and Rob on five milestones from the DDI", 
+dr <- dr[c(2, 3, 1, 4, 5), ]
+kable(dr, caption = "Scores of David and Rob on five milestones from the DDI", 
       row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"))
 ```
 
+Table \@ref(tab:datadavidandrob) shows the difficulties of each
+milestone and the responses of David and Rob for the standard five DDI
+milestones for the age of 15 months. The mean $D$-score for Dutch
+children aged 15 months is 53.6$D$, so the milestones are easy to pass
+at this age, with the most difficult being `ddicmm037`. David passed
+all milestones, but has no score on the last. Rob fails on `ddifmm012`
+and `ddigmm067`. How do we calculate the $D$-score for David and Rob?
 
-First, it is important that the names of the items used are similar to
-the names of the items in the built-in item bank. In this example the
-lexicon *gcdg* is used. Moreover, the data should be in long format
-with the following columnnames: *items*, *scores* and *ages*. This
-leads to table \@ref(tab:tablenewWS1).
-
-```{r, tablenewWS1, echo=FALSE}
-WS1 <- data.frame(child = c("child 1", "child 1", "child 1", "child 1", "child 1", "child 1", "child 2", "child 2", "child 2", "child 2", "child 2", "child 2"),items = c("n32", "n33", "v38", "n37", "n34", "n35", "n32", "n33", "v38", "n37", "n34", "n35"), scores = c(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0), ages = c(15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12))
-
-kable(WS1, caption = "Long format of the example of scores on the items of the DDI at the age of 15 months", row.names = NA)
-```
-
-Now that the data is in long format and the item names are changed to
-the lexicon *gcdg*, we can calculate the D-score for both children. In
-the first step of the iterative procedure, we combine the
-age-dependent prior of 15 months with the score of the first item
-*n34* to define the posterior. Item *n34* is a gross motor item:
-'crawls, abdomen off the floor'. In table \@ref(tab:tablenewWS1), we
-can see that both example children were able to crawl with their
-abdomen off the floor. Note, that we could have chosen any of the
-items as the first item, since the D-score is independent of the order
-of items in the calculation.
-
-The age dependent prior of 15 months and the posterior distribution
-after adding information from item *n34* are given in figure
-\@ref(fig:fig1item). In this figure, we can see that the posterior
-distribution doesnot differ that much from the prior distribution.
-Both distributions are centred at the same point, while the posterior
-distribution is smaller than the prior distribution indicating more
-precision. Since both example children were able to crawl with their
-abdomen off the floor, the posterior distribution after the first step
-of the procedure is equal.
-
-```{r, fig1item, echo=FALSE, fig.cap="\\label{fig:fig1item} Age-dependent priors of 15 months and posterior after 1st item n34"}
-items <- c("n34")
-age <- 1.25
-  
-#full posterior 1e item
+```{r davidplot, echo = FALSE, fig.height = 12, fig.cap = '(ref:davidplot)'}
+# full posterior 1e item
 qp <- -10:80
-fp <- dscore(1, items, age, full = TRUE, lexicon = "gcdg", qp = qp)
-fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("posterior", length(qp)))
-prior <- data.frame(qp = qp, fp = fp[[1]]$start, distribution = rep("prior", length(qp)))
 
-dataprior <- rbind(fp1, prior)
-dataprior$distribution <- as.factor(dataprior$distribution)
+# David
+david <- matrix(NA, nrow = length(qp), ncol = 10, 
+                dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
+it1 <- dscore(c(1, NA, NA, NA, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it2 <- dscore(c(1,  1, NA, NA, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it3 <- dscore(c(1,  1,  1, NA, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it4 <- dscore(c(1,  1,  1,  1, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it5 <- dscore(c(1,  1,  1,  1,  NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+david[, "prior1"] <- it1$`1.25`$start
+david[, c("post1", "prior2")] <- it1$`1.25`$posterior
+david[, c("post2", "prior3")] <- it2$`1.25`$posterior
+david[, c("post3", "prior4")] <- it3$`1.25`$posterior
+david[, c("post4", "prior5")] <- it4$`1.25`$posterior
+david[, "post5"] <- it5$`1.25`$posterior
 
-p1 <- ggplot(dataprior, aes(qp, fp, group = distribution)) +
-      geom_path(aes(col = distribution)) +
-      coord_cartesian(xlim=c(-10, 80)) +
-      scale_y_continuous(name = "Density") +
-      scale_x_discrete(name = "D-score")
-p1
+# Rob
+rob <- matrix(NA, nrow = length(qp), ncol = 10, 
+                dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
+it1 <- dscore(c(1, NA, NA, NA, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it2 <- dscore(c(1,  0, NA, NA, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it3 <- dscore(c(1,  0,  1, NA, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it4 <- dscore(c(1,  0,  1,  1, NA), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it5 <- dscore(c(1,  0,  1,  1,  0), 
+              items = items, age = rep(1.25, 5), full = TRUE, 
+              itembank = model$itembank, lexicon = "gsed", qp = qp)
+rob[, "prior1"] <- it1$`1.25`$start
+rob[, c("post1", "prior2")] <- it1$`1.25`$posterior
+rob[, c("post2", "prior3")] <- it2$`1.25`$posterior
+rob[, c("post3", "prior4")] <- it3$`1.25`$posterior
+rob[, c("post4", "prior5")] <- it4$`1.25`$posterior
+rob[, "post5"] <- it5$`1.25`$posterior
+
+# create plotting data
+plotdata <- expand.grid(x = qp, item = items, 
+                        type = c("Prior", "Posterior"), 
+                        person = c("David", "Rob"))
+plotdata <- cbind(plotdata, y = c(as.vector(david), as.vector(rob)))
+plotdata <- plotdata %>%
+  dplyr::filter(y > 0.00001)
+
+p <- ggplot(plotdata, aes(x = x, y = y)) +
+  theme_light() + 
+  theme(legend.position = "bottom") + 
+  geom_path(aes(colour = type)) +
+  facet_grid(item ~ person) +
+  coord_cartesian(xlim = c(40, 70)) +
+  scale_y_continuous(name = "Density", limits = c(0, 0.32)) +
+  scale_x_continuous(name = "D-score") +
+  labs(colour = "Type of distribution") + 
+  scale_colour_manual(values = brewer.pal(12, "Paired")[c(3, 4)])
+p
 ```
 
-Now, let's add an item on which the scores for the two example
-children differ, e.g. item *n35*. Item *n35* is also a gross motor
-item, namely 'walks along'. So both children are able to crawl (with
-their abdomen of the floor), but only *child 1* is able to walk along.
-We can use the previously calculated posterior distribution as prior
-when we add item *n35*.
+(ref:davidplot) $D$-score distribution for David and Rob before
+(prior) and after (posterior) a milestone is taken into account.
 
-Let's start with *child 1*, who is able to walk along. Using Bayes
-rule, the new posterior distribution can be calculated. In figure
-\@ref(fig:fig2itemC1) the prior, in this case the posterior after
-adding item *n34* to the age-dependent prior, and the newly calculated
-posterior distribution are visualized. Again, the posterior and prior
-are centred around the same point, while the posterior has a bit more
-precision.
+Figure \@ref(fig:davidplot) shows how the prior transforms into the
+posterior after the measurement outcomes is fed into the calculation. There 
+are five milestones, and so calculation is done in five steps:
 
-```{r, fig2itemC1, echo=FALSE, fig.cap="\\label{fig:fig2itemC1} Prior and posterior in the 2nd step of the iterative process for child 1"}
-items <- c("n34", "n35")
-age <- rep(1.25, length(items))
-  
-#full posterior 2e item
-qp <- -10:80
-fp2 <- dscore(c(1,1), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
-fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("1st posterior", length(qp)))
-fp2 <- data.frame(qp = qp, fp = fp2[[1]]$posterior, distribution = rep("2nd posterior", length(qp)))
+1. Both David and Rob pass `ddifmd011`. The prior (lightgreen) is the
+same as in Figure \@ref(fig:figpriors). After a PASS, the posterior
+will be located more to the right, and will often be more peaked. Both
+happen here, but the change is small. The reason is that a PASS on
+this milestone is not very informative. For a child with a true
+$D$-score of 53$D$, the probability of passing `ddifmd011` is equal to
+`r plogis((53 - 46) / model$transform[2])`. If passing is so common,
+there is not much information in the measurement.
 
-datafp <- rbind(fp1, fp2)
-datafp$distribution <- as.factor(datafp$distribution)
+2. David passes `ddifmm012` but Rob does not. Observe that the prior
+is identical to the posterior of `ddifmd011`. For David, the posterior
+is only slightly different from the prior, for the same reason as
+above. For Rob, we find a huge change to the left, both in terms of
+location (from 54.3$D$ to 47.1$D$) and in terms of peakedness. This one 
+FAIL lowers Rob's score by 7.2$D$.
 
-p2 <- ggplot(datafp, aes(qp, fp, group = distribution)) +
-      geom_path(aes(col = distribution)) +
-      coord_cartesian(xlim=c(-10, 80)) +
-      scale_y_continuous(name = "Density") +
-      scale_x_discrete(name = "D-score")
-p2
+3. Milestone `ddicmm037` is more difficult than the previous two
+milestones, so a pass on `ddicmm037` does have a clear effect on the
+posterior for both David and Rob.
 
+4. David's PASS on `ddigmm066` does not bring any additional
+information, so his prior and posterior are virtually
+indistinguishable. For Rob, we find a slight effect to the right.
 
-```
+5. There is no measurement for David on `ddigmm067`, so the prior and 
+posterior are equivalent. For Rob, we observe a FAIL, which shifts his 
+posterior to the left.
 
-Now we can do the same thing for *child 2*, who is able to crawl with
-his/her abdomen off the floor (*n34*) but not to walk along (*n35*).
-Again, we can use the posterior after adding information from *n34* as
-the prior and use the information from *n35* to calculate the
-posterior. In figure \@ref(fig:fig2itemC2) the prior and posterior are
-given. Now the prior and posterior are different, the posterior is on
-the left of the prior and has an high precision in comparison to the
-prior. Hence, being unable to walk along at the age of 15 months, like
-*child 2*, is more indicative for the development of a child of 15
-months than being able to walk along like *child 1*.
+The $D$-score is calculated as the mean of the posterior. David's
+$D$-score is equal to 55.7$D$. Note that the measurement error, as
+estimated from the variance of the posterior, is fairly large. Rob's
+$D$-score is equal to 47.7$D$, with a much smaller measurement error.
+This result is consistent with the design principles of the DDI, which
+is meant to detect children with developmental delay.
 
-```{r, fig2itemC2, echo=FALSE, fig.cap="\\label{fig:fig2itemC2} Prior and posterior in the 2nd step of the iterative process for child 2"}
-items <- c("n34", "n35")
-age <- rep(1.25, length(items))
-  
-#full posterior 2e item FAIL
-qp <- -10:80
-fp2 <- dscore(c(1,0), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
-fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("1st posterior", length(qp)))
-fp2 <- data.frame(qp = qp, fp = fp2[[1]]$posterior, distribution = rep("2nd posterior", length(qp)))
+The example illustrates that the effects of the measurement on the
+$D$-score depend on the match between the true (but unknown) $D$-score
+of the child and the difficulty of the milestone.
 
-datafp2 <- rbind(fp1, fp2)
-datafp2$distribution <- as.factor(datafp2$distribution)
+### Technical observations on $D$-score estimation
 
-p3 <- ggplot(datafp2, aes(qp, fp, group = distribution)) +
-      geom_path(aes(col = distribution)) +
-      coord_cartesian(xlim=c(-10, 80)) +
-      scale_y_continuous(name = "Density") +
-      scale_x_discrete(name = "D-score")
-p3
+* Administration of a very easy set of milestones introduces a
+*ceiling* with children that pass all milestones, but whose true
+$D$-score could extend well beyond the ceiling. Depending on the goal
+of the measurement, this may or may not be a problem.
 
-```
+* The specification of the prior and posterior distributions requires a
+set of quadrature points at which their densities are calculated. The
+set of quadrature is taken here as the static and evenly-spaced set of
+integers between -10 and +80. Using other quadrature points may have a
+slight effect on the estimate.
 
+* The actual calculations are here done item by item. A more efficient
+method is to handle all responses at once. The end result will be the
+same.
 
-The next four steps in the iterative procedure, information from the
-other four items (*n32*, *n33*, *v38* and *n37*) can be added in a
-similar fashion. Figure \@ref(fig:fig6itemC1C2) shows the final
-posterior distributions for *child 1* and *child 2* and the prior
-distribution for the age of 15 months. The D-score can now be
-determined by looking at the mean of the posterior distributions.
-Hence, the D-score for *child 1* and *child 2* are equal to 55.75 and
-47.76, respectively.
-
-```{r, fig6itemC1C2, echo=FALSE, fig.cap="\\label{fig:fig6itemC1C2} Prior and final posterior for child 1 and 2"}
-items <- c("n32", "n33", "v38", "n37","n34", "n35")
-age <- rep(1.25, length(items))
-  
-#full posterior for both children and prior
-qp <- -10:80
-fp6_1 <- dscore(c(1,1,1,1,1,1), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
-fp6_2 <- dscore(c(1,0,1,1,1,0), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
-prior <- data.frame(qp = qp, fp = fp[[1]]$start, distribution = rep("prior", length(qp)))
-fp6_1 <- data.frame(qp = qp, fp = fp6_1[[1]]$posterior, distribution = rep("final posterior child 1", length(qp)))
-fp6_2 <- data.frame(qp = qp, fp = fp6_2[[1]]$posterior, distribution = rep("final posterior child 2", length(qp)))
-
-datafp6 <- rbind(prior, fp6_1, fp6_2)
-datafp6$distribution <- as.factor(datafp6$distribution)
-
-p6 <- ggplot(datafp6, aes(qp, fp, group = distribution)) +
-      geom_path(aes(col = distribution)) +
-      coord_cartesian(xlim=c(-10, 80)) +
-      scale_y_continuous(name = "Density") +
-      scale_x_discrete(name = "D-score")
-p6
-
-```
-
-```{r, echo=FALSE, message=FALSE}
-#Dscore child1
-dscore(c(1,1,1,1,1,1), items, age, full = FALSE, lexicon = "gcdg") #55.75
-#Dscore child2
-dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
-```
-
-*nog toe te voegen in de tekst*
-
-*quadratic points*
-
-*Note: met deze methode is het mogelijk om scores voor extremen te berekenen, andere methodes (zoals de worms estimator) kunnen dit niet altijd.*
-
-*Prior die gekozen was: plafond prior (wanneer je alle items kan)*
-
-
-We already explained how the D-score suffers from a ceiling and bottom
-at the start and end of the scale. However, this can also happen
-within the D-score scale: some values of the D-score will never occur
-no matter the combination of scores on the milestones. This will
-mainly occur when calibrated milestones are used to calculate the
-D-score. For example, the Dutch Developmental Instrument (DDI), which
-is used as a screening instrument, is calibrated: at each wave 90\% of
-the children should be able to get a positive score on the milestones.
-Which allows for detection of children with a developmental delay.
