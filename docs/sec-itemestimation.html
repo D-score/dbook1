@@ -152,7 +152,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(D\)</span>-score: A unit to quantify general child development</a><ul>
 <li class="chapter" data-level="4.1" data-path="sec-ddi.html"><a href="sec-ddi.html"><i class="fa fa-check"></i><b>4.1</b> The Dutch Development Instrument (DDI)</a><ul>
 <li class="chapter" data-level="4.1.1" data-path="sec-ddi.html"><a href="sec-ddi.html#setting"><i class="fa fa-check"></i><b>4.1.1</b> Setting</a></li>
-<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#description-of-smocc-study"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#sec:smocc"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
 <li class="chapter" data-level="4.1.3" data-path="sec-ddi.html"><a href="sec-ddi.html#codebook-of-dutch-development-instrument-0-15-months"><i class="fa fa-check"></i><b>4.1.3</b> Codebook of Dutch Development Instrument 0-15 months</a></li>
 </ul></li>
 <li class="chapter" data-level="4.2" data-path="probability-of-passing-a-milestone-given-age.html"><a href="probability-of-passing-a-milestone-given-age.html"><i class="fa fa-check"></i><b>4.2</b> Probability of passing a milestone given age</a></li>
@@ -171,7 +171,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.8" data-path="sec-whyrasch.html"><a href="sec-whyrasch.html"><i class="fa fa-check"></i><b>4.8</b> Why take the Rasch model?</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-computation.html"><a href="ch-computation.html"><i class="fa fa-check"></i><b>5</b> Computation</a><ul>
-<li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Data preparation</a></li>
+<li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Identify nature of the problem</a></li>
 <li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a></li>
 <li class="chapter" data-level="5.3" data-path="sec-anchoring.html"><a href="sec-anchoring.html"><i class="fa fa-check"></i><b>5.3</b> Anchoring</a></li>
 <li class="chapter" data-level="5.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.4</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
@@ -255,7 +255,27 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:itemestimation" class="section level2">
 <h2><span class="header-section-number">5.2</span> Item parameter estimation</h2>
-<p>There are many computer routines for this task, but only a few produce the desired result when applied to developmental data.</p>
+<p>There are many methods for estimating the difficulty parameters of the Rasch estimation. See <span class="citation">Linacre (<a href="#ref-linacre2004">2004</a>)</span> for an overview. We will use the pairwise method estimation method (<span class="citation">Zwinderman (<a href="#ref-zwinderman1995">1995</a>)</span>), as implemented in the function <code>rasch.pairwise.itemcluster()</code> of the <code>sirt</code> package (<span class="citation">Robitzsch (<a href="#ref-robitzsch2016">2016</a>)</span>).</p>
+<div class="figure"><span id="fig:itemdiflplot"></span>
+<img src="dbook1_files/figure-html/itemdiflplot-1.png" alt="Estimated item difficulty parameters (\(d_i\)) for 57 milestones of the DDI (0 - 2 years)." width="672" />
+<p class="caption">
+Figure 5.1: Estimated item difficulty parameters (<span class="math inline">\(d_i\)</span>) for 57 milestones of the DDI (0 - 2 years).
+</p>
+</div>
+
+<p>Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a> summarizes the estimated item difficulty parameters. Although the model makes no distinction between domains, the results have been ordered to ease spotting of the natural progression of the milestones per domain. The figure also suggests that not all domain are equally represented across the scale. For example, there are no communication milestones around the logit of <span class="math inline">\(-10\)</span>.</p>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-linacre2004">
+<p>Linacre, J.M. 2004. “Rasch Model Estimation: Further Topics.” <em>Journal of Applied Measurement</em> 5 (1): 95–110.</p>
+</div>
+<div id="ref-zwinderman1995">
+<p>Zwinderman, A. H. 1995. “Pairwise Estimation in the Rasch Models.” <em>Applied Psychological Measurement</em> 19 (4): 369–75.</p>
+</div>
+<div id="ref-robitzsch2016">
+<p>Robitzsch, A. 2016. <em>Sirt: Supplementary Item Response Theory Models</em>. <a href="https://CRAN.R-project.org/package=sirt" class="uri">https://CRAN.R-project.org/package=sirt</a>.</p>
+</div>
 </div>
             </section>
 
