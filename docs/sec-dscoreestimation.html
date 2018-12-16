@@ -178,6 +178,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.4.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#eap-algorithm"><i class="fa fa-check"></i><b>5.4.1</b> EAP algorithm</a></li>
 <li class="chapter" data-level="5.4.2" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#age-dependent-starting-prior"><i class="fa fa-check"></i><b>5.4.2</b> Age-dependent starting prior</a></li>
 <li class="chapter" data-level="5.4.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#numerical-example"><i class="fa fa-check"></i><b>5.4.3</b> Numerical example</a></li>
+<li class="chapter" data-level="5.4.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#technical-observations-on-d-score-estimation"><i class="fa fa-check"></i><b>5.4.4</b> Technical observations on <span class="math inline">\(D\)</span>-score estimation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-evaluation.html"><a href="ch-evaluation.html"><i class="fa fa-check"></i><b>6</b> Evaluation</a><ul>
@@ -260,14 +261,14 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><p>The difficulty estimates of each milestone administered;</p></li>
 <li><p>A prior distribution, an estimate of the <span class="math inline">\(D\)</span>-score distribution before seeing any PASS/FAIL score.</p></li>
 </ul>
-<p>Using these inputs, we may use Bayes theorem to calculate the position of the person on the latent variable. The method, first described by <span class="citation">Bock and Mislevy (<a href="#ref-bock1982">1982</a>)</span>, an is known as the Expected a posteriori (EAP) estimation.</p>
+<p>Using these inputs, we may use Bayes theorem to calculate the position of the person on the latent variable. The method is known as the Expected a posteriori (EAP) estimation, and was first described by <span class="citation">Bock and Mislevy (<a href="#ref-bock1982">1982</a>)</span>.</p>
 <div id="eap-algorithm" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> EAP algorithm</h3>
 <p>Calculation of the <span class="math inline">\(D\)</span>-score proceeds item by item. Suppose we have some vague and preliminary idea about the distribution of <span class="math inline">\(D\)</span>. The procedure uses Bayes rule to update this prior knowledge with data from the first item (fail/pass score, item difficulty) to calculate the posterior. In the next step, this posterior is used as the prior for the next item, and so on. The procedure stops when all items have been used. The order in which items are entered does not matter for the end result. The <span class="math inline">\(D\)</span>-score is equal to the mean of the last posterior.</p>
 </div>
 <div id="age-dependent-starting-prior" class="section level3">
 <h3><span class="header-section-number">5.4.2</span> Age-dependent starting prior</h3>
-<p>In the first step, we need a starting distribution as prior. The starting prior should define the range of reasonable values for <span class="math inline">\(D\)</span>. For example, an infant aged 2 months the <span class="math inline">\(D\)</span>-score will have lower <span class="math inline">\(D\)</span>-score than a baby aged 12 months. The prior should be a bit informative but not too much, so it was decided to choose a broad distribution which was centred quite well. The prior was chosen as a normal distribution with a mean equal to the <span class="math inline">\(D\)</span>-score expected at the child’s age, and with a standard deviation of 5, which about twice the normal variation in the <span class="math inline">\(D\)</span>-score.</p>
+<p>In the first step, we need a starting distribution as prior. The starting prior should define the range of reasonable values for <span class="math inline">\(D\)</span>. For example, an infant aged 1 months the <span class="math inline">\(D\)</span>-score will have lower <span class="math inline">\(D\)</span>-score than a child aged 15 months. The prior should be a bit informative but not too much, so it was decided to choose a broad distribution which was centred quite well. The prior was chosen as a normal distribution with a mean equal to the <span class="math inline">\(D\)</span>-score expected at the child’s age, and with a standard deviation of 5, which about twice the normal variation in the <span class="math inline">\(D\)</span>-score.</p>
 <div class="figure"><span id="fig:figpriors"></span>
 <img src="dbook1_files/figure-html/figpriors-1.png" alt="\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months" width="672" />
 <p class="caption">
@@ -278,7 +279,7 @@ Figure 5.1:  Age-dependent starting priors for the D-score at the ages of 1, 15 
 </div>
 <div id="numerical-example" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Numerical example</h3>
-<p>Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David passes the first four milestones, but does not complete the test. Rob completes the test, but fails on two out of five milestones. How do we calculate the <span class="math inline">\(D\)</span>-score for David and Rob?</p>
+<p>Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David passes the first four milestones, but does not complete the test. Rob completes the test, but fails on two out of five milestones.</p>
 <table>
 <caption><span id="tab:datadavidandrob">Table 5.1: </span>Scores of David and Rob on five milestones from the DDI</caption>
 <thead>
@@ -292,23 +293,23 @@ Figure 5.1:  Age-dependent starting priors for the D-score at the ages of 1, 15 
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ddicmm037</td>
-<td align="left">Uses two words with comprehension</td>
-<td align="right">50.1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-</tr>
-<tr class="even">
 <td align="left">ddifmd011</td>
 <td align="left">Puts cube in and out of a box</td>
 <td align="right">46.0</td>
 <td align="right">1</td>
 <td align="right">0</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">ddifmm012</td>
 <td align="left">Plays ‘give and take’ (M; can ask parents)</td>
 <td align="right">46.5</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">ddicmm037</td>
+<td align="left">Uses two words with comprehension</td>
+<td align="right">50.1</td>
 <td align="right">1</td>
 <td align="right">1</td>
 </tr>
@@ -328,131 +329,32 @@ Figure 5.1:  Age-dependent starting priors for the D-score at the ages of 1, 15 
 </tr>
 </tbody>
 </table>
-<p>First, it is important that the names of the items used are similar to the names of the items in the built-in item bank. In this example the lexicon <em>gcdg</em> is used. Moreover, the data should be in long format with the following columnnames: <em>items</em>, <em>scores</em> and <em>ages</em>. This leads to table <a href="sec-dscoreestimation.html#tab:tablenewWS1">5.2</a>.</p>
-<table>
-<caption><span id="tab:tablenewWS1">Table 5.2: </span>Long format of the example of scores on the items of the DDI at the age of 15 months</caption>
-<thead>
-<tr class="header">
-<th align="left">child</th>
-<th align="left">items</th>
-<th align="right">scores</th>
-<th align="right">ages</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">child 1</td>
-<td align="left">n32</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="even">
-<td align="left">child 1</td>
-<td align="left">n33</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="odd">
-<td align="left">child 1</td>
-<td align="left">v38</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="even">
-<td align="left">child 1</td>
-<td align="left">n37</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="odd">
-<td align="left">child 1</td>
-<td align="left">n34</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="even">
-<td align="left">child 1</td>
-<td align="left">n35</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="odd">
-<td align="left">child 2</td>
-<td align="left">n32</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="even">
-<td align="left">child 2</td>
-<td align="left">n33</td>
-<td align="right">0</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="odd">
-<td align="left">child 2</td>
-<td align="left">v38</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="even">
-<td align="left">child 2</td>
-<td align="left">n37</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="odd">
-<td align="left">child 2</td>
-<td align="left">n34</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-</tr>
-<tr class="even">
-<td align="left">child 2</td>
-<td align="left">n35</td>
-<td align="right">0</td>
-<td align="right">1.25</td>
-</tr>
-</tbody>
-</table>
-<p>Now that the data is in long format and the item names are changed to the lexicon <em>gcdg</em>, we can calculate the D-score for both children. In the first step of the iterative procedure, we combine the age-dependent prior of 15 months with the score of the first item <em>n34</em> to define the posterior. Item <em>n34</em> is a gross motor item: ‘crawls, abdomen off the floor’. In table <a href="sec-dscoreestimation.html#tab:tablenewWS1">5.2</a>, we can see that both example children were able to crawl with their abdomen off the floor. Note, that we could have chosen any of the items as the first item, since the D-score is independent of the order of items in the calculation.</p>
-<p>The age dependent prior of 15 months and the posterior distribution after adding information from item <em>n34</em> are given in figure <a href="sec-dscoreestimation.html#fig:fig1item">5.2</a>. In this figure, we can see that the posterior distribution doesnot differ that much from the prior distribution. Both distributions are centred at the same point, while the posterior distribution is smaller than the prior distribution indicating more precision. Since both example children were able to crawl with their abdomen off the floor, the posterior distribution after the first step of the procedure is equal.</p>
-<div class="figure"><span id="fig:fig1item"></span>
-<img src="dbook1_files/figure-html/fig1item-1.png" alt="\label{fig:fig1item} Age-dependent priors of 15 months and posterior after 1st item n34" width="672" />
+<p>Table <a href="sec-dscoreestimation.html#tab:datadavidandrob">5.1</a> shows the difficulties of each milestone and the responses of David and Rob for the standard five DDI milestones for the age of 15 months. The mean <span class="math inline">\(D\)</span>-score for Dutch children aged 15 months is 53.6<span class="math inline">\(D\)</span>, so the milestones are easy to pass at this age, with the most difficult being <code>ddicmm037</code>. David passed all milestones, but has no score on the last. Rob fails on <code>ddifmm012</code> and <code>ddigmm067</code>. How do we calculate the <span class="math inline">\(D\)</span>-score for David and Rob?</p>
+<div class="figure"><span id="fig:davidplot"></span>
+<img src="dbook1_files/figure-html/davidplot-1.png" alt="\(D\)-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account." width="672" />
 <p class="caption">
-Figure 5.2:  Age-dependent priors of 15 months and posterior after 1st item n34
+Figure 5.2: <span class="math inline">\(D\)</span>-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
 </p>
 </div>
-<p>Now, let’s add an item on which the scores for the two example children differ, e.g. item <em>n35</em>. Item <em>n35</em> is also a gross motor item, namely ‘walks along’. So both children are able to crawl (with their abdomen of the floor), but only <em>child 1</em> is able to walk along. We can use the previously calculated posterior distribution as prior when we add item <em>n35</em>.</p>
-<p>Let’s start with <em>child 1</em>, who is able to walk along. Using Bayes rule, the new posterior distribution can be calculated. In figure <a href="sec-dscoreestimation.html#fig:fig2itemC1">5.3</a> the prior, in this case the posterior after adding item <em>n34</em> to the age-dependent prior, and the newly calculated posterior distribution are visualized. Again, the posterior and prior are centred around the same point, while the posterior has a bit more precision.</p>
-<div class="figure"><span id="fig:fig2itemC1"></span>
-<img src="dbook1_files/figure-html/fig2itemC1-1.png" alt="\label{fig:fig2itemC1} Prior and posterior in the 2nd step of the iterative process for child 1" width="672" />
-<p class="caption">
-Figure 5.3:  Prior and posterior in the 2nd step of the iterative process for child 1
-</p>
+
+<p>Figure <a href="sec-dscoreestimation.html#fig:davidplot">5.2</a> shows how the prior transforms into the posterior after the measurement outcomes is fed into the calculation. There are five milestones, and so calculation is done in five steps:</p>
+<ol style="list-style-type: decimal">
+<li><p>Both David and Rob pass <code>ddifmd011</code>. The prior (lightgreen) is the same as in Figure <a href="sec-dscoreestimation.html#fig:figpriors">5.1</a>. After a PASS, the posterior will be located more to the right, and will often be more peaked. Both happen here, but the change is small. The reason is that a PASS on this milestone is not very informative. For a child with a true <span class="math inline">\(D\)</span>-score of 53<span class="math inline">\(D\)</span>, the probability of passing <code>ddifmd011</code> is equal to 0.966. If passing is so common, there is not much information in the measurement.</p></li>
+<li><p>David passes <code>ddifmm012</code> but Rob does not. Observe that the prior is identical to the posterior of <code>ddifmd011</code>. For David, the posterior is only slightly different from the prior, for the same reason as above. For Rob, we find a huge change to the left, both in terms of location (from 54.3<span class="math inline">\(D\)</span> to 47.1<span class="math inline">\(D\)</span>) and in terms of peakedness. This one FAIL lowers Rob’s score by 7.2<span class="math inline">\(D\)</span>.</p></li>
+<li><p>Milestone <code>ddicmm037</code> is more difficult than the previous two milestones, so a pass on <code>ddicmm037</code> does have a clear effect on the posterior for both David and Rob.</p></li>
+<li><p>David’s PASS on <code>ddigmm066</code> does not bring any additional information, so his prior and posterior are virtually indistinguishable. For Rob, we find a slight effect to the right.</p></li>
+<li><p>There is no measurement for David on <code>ddigmm067</code>, so the prior and posterior are equivalent. For Rob, we observe a FAIL, which shifts his posterior to the left.</p></li>
+</ol>
+<p>The <span class="math inline">\(D\)</span>-score is calculated as the mean of the posterior. David’s <span class="math inline">\(D\)</span>-score is equal to 55.7<span class="math inline">\(D\)</span>. Note that the measurement error, as estimated from the variance of the posterior, is fairly large. Rob’s <span class="math inline">\(D\)</span>-score is equal to 47.7<span class="math inline">\(D\)</span>, with a much smaller measurement error. This result is consistent with the design principles of the DDI, which is meant to detect children with developmental delay.</p>
+<p>The example illustrates that the effects of the measurement on the <span class="math inline">\(D\)</span>-score depend on the match between the true (but unknown) <span class="math inline">\(D\)</span>-score of the child and the difficulty of the milestone.</p>
 </div>
-<p>Now we can do the same thing for <em>child 2</em>, who is able to crawl with his/her abdomen off the floor (<em>n34</em>) but not to walk along (<em>n35</em>). Again, we can use the posterior after adding information from <em>n34</em> as the prior and use the information from <em>n35</em> to calculate the posterior. In figure <a href="sec-dscoreestimation.html#fig:fig2itemC2">5.4</a> the prior and posterior are given. Now the prior and posterior are different, the posterior is on the left of the prior and has an high precision in comparison to the prior. Hence, being unable to walk along at the age of 15 months, like <em>child 2</em>, is more indicative for the development of a child of 15 months than being able to walk along like <em>child 1</em>.</p>
-<div class="figure"><span id="fig:fig2itemC2"></span>
-<img src="dbook1_files/figure-html/fig2itemC2-1.png" alt="\label{fig:fig2itemC2} Prior and posterior in the 2nd step of the iterative process for child 2" width="672" />
-<p class="caption">
-Figure 5.4:  Prior and posterior in the 2nd step of the iterative process for child 2
-</p>
-</div>
-<p>The next four steps in the iterative procedure, information from the other four items (<em>n32</em>, <em>n33</em>, <em>v38</em> and <em>n37</em>) can be added in a similar fashion. Figure <a href="sec-dscoreestimation.html#fig:fig6itemC1C2">5.5</a> shows the final posterior distributions for <em>child 1</em> and <em>child 2</em> and the prior distribution for the age of 15 months. The D-score can now be determined by looking at the mean of the posterior distributions. Hence, the D-score for <em>child 1</em> and <em>child 2</em> are equal to 55.75 and 47.76, respectively.</p>
-<div class="figure"><span id="fig:fig6itemC1C2"></span>
-<img src="dbook1_files/figure-html/fig6itemC1C2-1.png" alt="\label{fig:fig6itemC1C2} Prior and final posterior for child 1 and 2" width="672" />
-<p class="caption">
-Figure 5.5:  Prior and final posterior for child 1 and 2
-</p>
-</div>
-<pre><code>## 1.25 
-## 55.7</code></pre>
-<pre><code>## 1.25 
-## 47.8</code></pre>
-<p><em>nog toe te voegen in de tekst</em></p>
-<p><em>quadratic points</em></p>
-<p><em>Note: met deze methode is het mogelijk om scores voor extremen te berekenen, andere methodes (zoals de worms estimator) kunnen dit niet altijd.</em></p>
-<p><em>Prior die gekozen was: plafond prior (wanneer je alle items kan)</em></p>
-<p>We already explained how the D-score suffers from a ceiling and bottom at the start and end of the scale. However, this can also happen within the D-score scale: some values of the D-score will never occur no matter the combination of scores on the milestones. This will mainly occur when calibrated milestones are used to calculate the D-score. For example, the Dutch Developmental Instrument (DDI), which is used as a screening instrument, is calibrated: at each wave 90% of the children should be able to get a positive score on the milestones. Which allows for detection of children with a developmental delay.</p>
+<div id="technical-observations-on-d-score-estimation" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Technical observations on <span class="math inline">\(D\)</span>-score estimation</h3>
+<ul>
+<li><p>Administration of a very easy set of milestones introduces a <em>ceiling</em> with children that pass all milestones, but whose true <span class="math inline">\(D\)</span>-score could extend well beyond the ceiling. Depending on the goal of the measurement, this may or may not be a problem.</p></li>
+<li><p>The specification of the prior and posterior distributions requires a set of quadrature points at which their densities are calculated. The set of quadrature is taken here as the static and evenly-spaced set of integers between -10 and +80. Using other quadrature points may have a slight effect on the estimate.</p></li>
+<li><p>The actual calculations are here done item by item. A more efficient method is to handle all responses at once. The end result will be the same.</p></li>
+</ul>
 
 </div>
 </div>
