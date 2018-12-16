@@ -184,7 +184,6 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="ch-evaluation.html"><a href="ch-evaluation.html"><i class="fa fa-check"></i><b>6</b> Evaluation</a><ul>
 <li class="chapter" data-level="6.1" data-path="sec-itemfit.html"><a href="sec-itemfit.html"><i class="fa fa-check"></i><b>6.1</b> Item fit</a><ul>
 <li class="chapter" data-level="6.1.1" data-path="sec-itemfit.html"><a href="sec-itemfit.html#empirical-and-fitted-item-response-curves"><i class="fa fa-check"></i><b>6.1.1</b> Empirical and fitted item response curves</a></li>
-<li class="chapter" data-level="6.1.2" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-fit-examples"><i class="fa fa-check"></i><b>6.1.2</b> Item fit examples</a></li>
 </ul></li>
 <li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a></li>
 <li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a></li>
@@ -196,10 +195,13 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
-<li class="chapter" data-level="7.2" data-path="internal-validity.html"><a href="internal-validity.html"><i class="fa fa-check"></i><b>7.2</b> Internal validity</a></li>
+<li class="chapter" data-level="7.2" data-path="internal-validity.html"><a href="internal-validity.html"><i class="fa fa-check"></i><b>7.2</b> Internal validity</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="internal-validity.html"><a href="internal-validity.html#content-validity"><i class="fa fa-check"></i><b>7.2.1</b> Content validity</a></li>
+<li class="chapter" data-level="7.2.2" data-path="internal-validity.html"><a href="internal-validity.html#construct-validity"><i class="fa fa-check"></i><b>7.2.2</b> Construct validity</a></li>
+</ul></li>
 <li class="chapter" data-level="7.3" data-path="external-validity.html"><a href="external-validity.html"><i class="fa fa-check"></i><b>7.3</b> External validity</a><ul>
 <li class="chapter" data-level="7.3.1" data-path="external-validity.html"><a href="external-validity.html#discriminatory-validity"><i class="fa fa-check"></i><b>7.3.1</b> Discriminatory validity</a></li>
-<li class="chapter" data-level="7.3.2" data-path="external-validity.html"><a href="external-validity.html#concurrent-validity"><i class="fa fa-check"></i><b>7.3.2</b> Concurrent validity</a></li>
+<li class="chapter" data-level="7.3.2" data-path="external-validity.html"><a href="external-validity.html#convergent-validity"><i class="fa fa-check"></i><b>7.3.2</b> Convergent validity</a></li>
 <li class="chapter" data-level="7.3.3" data-path="external-validity.html"><a href="external-validity.html#predictive-validity"><i class="fa fa-check"></i><b>7.3.3</b> Predictive validity</a></li>
 </ul></li>
 </ul></li>
@@ -270,21 +272,18 @@ Figure 6.1: Empirical and fitted item response curves for two milestones from th
 </div>
 
 <p>Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a> shows the item characteristics curves of two DDI milestones. The orange line represents the empirical probability at different ability levels. The dashed line represents the estimated item response curve according to the Rasch model. The empirical and estimated curves are close together, so both items fit the model very well.</p>
-</div>
-<div id="item-fit-examples" class="section level3">
-<h3><span class="header-section-number">6.1.2</span> Item fit examples</h3>
-<p>The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level.</p>
-<p>The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as presented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. In the examples below, the the probability to pass the item does not increase by ability in the same rate as the model.</p>
+<p>The examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern.</p>
+<p>When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. In the examples below, the the probability to pass the item does not increase by ability in the same rate as the model.</p>
 <pre><code>## Item:  1 a3com1</code></pre>
 <pre><code>## Item:  1 a4f2</code></pre>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-12-1.png" width="288" /><img src="dbook1_files/figure-html/unnamed-chunk-12-2.png" width="288" /></p>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-11-1.png" width="288" /><img src="dbook1_files/figure-html/unnamed-chunk-11-2.png" width="288" /></p>
 <p>Another example that results in an extremely large outfit is when the probability for passing the item decreases when the ability increases:</p>
 <pre><code>## Item:  1 a4com1</code></pre>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-13-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-12-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. So, the infit measures the extend to which the observed data follow the model and that the responses are as expected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response patterns.A pattern that can be observed is when the observed data points actually have a steaper curve, compared to the model. This pattern, with a very steap curve, is called the Gutman pattern and actually fits the model very well and would even discriminate better (plot on the left). An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way (plot on the right)</p>
 <pre><code>## Item:  1 a13f1</code></pre>
 <pre><code>## Item:  1 a13f2</code></pre>
-<p><img src="dbook1_files/figure-html/unnamed-chunk-14-1.png" width="288" /><img src="dbook1_files/figure-html/unnamed-chunk-14-2.png" width="288" /></p>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-13-1.png" width="288" /><img src="dbook1_files/figure-html/unnamed-chunk-13-2.png" width="288" /></p>
 <p>The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response <span class="math inline">\(x_{ni}\)</span> of person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. The expected response <span class="math inline">\(P_{ni}\)</span> is modelled as <span class="math display">\[P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span>. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances <span class="math inline">\(W_{ni}\)</span>. The expected response variance <span class="math inline">\(W_{ni}\)</span> can be obtained as <span class="math inline">\(P_{ni}(1-P_{ni})\)</span>. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: <span class="math display">\[z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}\]</span> Accordingly the infit and outfit are calculated as: <span class="math display">\[Infit = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}\]</span> <span class="math display">\[Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}\]</span> As a guideline for interpreting the item fit-measures a threshold of fit &lt; 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit &lt; 1.3 can be considered.</p>
 </div>
 </div>
