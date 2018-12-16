@@ -42,14 +42,6 @@ psychometric information?
 
 ### Empirical and fitted item response curves
 
-```{r, include = FALSE}
-# library(ddata)
-# library(dmetric)
-# library(dscore)
-# library(sirt)
-# library(gseddata)
-```
-
 The philosophy of the Rasch model is different from conventional
 statistical modeling. It is not the task of the Rasch model to account
 for the data. Rather it is the task of the data to fit the Rasch
@@ -101,54 +93,40 @@ item response curve according to the Rasch model. The empirical and
 estimated curves are close together, so both items fit the model very
 well.
 
-### Item fit examples
-
-The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. 
-
----
-#Hier wilde ik ook de gseddata gebruiken, maar het lukte niet om daar extra items aan toe te voegen. Het zit zo hard ingeprogrammeerd dat de items moeten voorkomen in de itemtable. In de gcdg data heb ik een work-around ervoor gevonden, maar voor gsed bleef hij errors geven bi het fitten van het model. 
-#Het sourcen van R-functies werkt ook niet.. ik heb nu hard de locatie op mijn PC erin gezet, maar dat zal wel problemen geven als jij de code draait. Hoe heb jij dit gedaan?
----
-
-```{r fit, include=FALSE, message=FALSE, warning=FALSE}
-#add random variable to first model to show misfit
-  data02 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
-  data02$agedays <- as.integer(data02$age /12 *365.25)
-  data02$subjid <- as.numeric(gsub("^1", 530, data02$id))
- 
- data02$a3com1 <- as.integer(runif(n = nrow(data02), 0,2)) #flat
- data02$a4com1 <- ifelse(data02$age > 2, 0, 1) #gutmanage
- rand <- runif(nrow(data02), 0 , 1)
- data02$a4f2 <- ifelse(data02$age > 2 & rand > 0.2 , 1 , 0) #flat2
- data02$a4f2 <- ifelse(data02$age <= 2 & rand < 0.2 , 1 , data02$a4f2) #flat2
-  dsc <- model$beta_l
-  dsc$a13f1 <- ifelse(dsc$b < 2 , 0 ,1) #gutmand
-  dsc$a13f2 <- ifelse(dsc$b > 2  & runif(nrow(dsc), 0, 1) > 0.1 , 1 ,0) #gutmand_error
-  dsc <- dsc[,c("subjid","agedays", "a13f1", "a13f2")]
-  head(dsc)
-  data02 <- left_join(data02, dsc)
- # 
- varlist <- prepare_items(study = "Netherlands 1")
- varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
- transtab <- cbind(gcdg = varlist$items, gsed = rename_gcdg_gsed(varlist$items))
- fixedb <- model$fit$b  
- names(fixedb)[match(names(fixedb), transtab[,"gsed"])] <- transtab[,"gcdg"]
-
- varlist$items <- union(varlist$items, c("a13f2", "a3com1", "a4com1", "a4f2", "a13f1"))
-
- model02 <- fit_dmodel(varlist=varlist, data = data02,  data_package = "ddata", b_fixed = fixedb)
- 
-
- #translate to gsed names
- data2 <- data02
- colnames(data2)[colnames(data2) %in% model02$items] <- gseddata::rename_gcdg_gsed(colnames(data2)[colnames(data2) %in% model02$items])
-
- source(file.path(getwd(), "R/translate_gcdg_gsed.R"))
- model2 <- translate_gcdg_gsed(input = model02)
+```{r smoccfit4, echo = FALSE, warning = FALSE}
+plus_items <- c("a3com1", "a4com1", "a4f2", "a13f1", "a13f2")
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = c(items, plus_items),
+                cov = NULL)
+data2 <- as.data.frame(data)
+data2 <- data2 %>% 
+  mutate(a3com1 = as.integer(runif(n = nrow(data2), 0, 2)), # flat
+         a4com1 = ifelse(agedays > 65, 0, 1), #gutman age
+         rand   = runif(nrow(data2), 0 , 1),
+         a4f2   = ifelse(agedays  > 65 & rand > 0.2, 1, 0), # flat2
+         a4f2   = ifelse(agedays <= 65 & rand < 0.2, 1, a4f2), # flat2
+         a13f1  = ifelse(model$beta_l$b < 2, 0, 1), # gutman d
+         a13f2  = ifelse(model$beta_l$b > 2 & runif(nrow(data2), 0, 1) > 0.1, 1, 0) # gutman d_error
+         ) %>% 
+  dplyr::select(-rand)
+b_fixed <- model$fit$b
+model2 <- fit_dmodel(varlist = varlist, data = data2, 
+                     name = "57_0_plus", b_fixed = b_fixed)
 ```
 
-The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as presented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. 
-When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. In the examples below, the the probability to pass the item does not increase by ability in the same rate as the model. 
+The examples of item response curves fit the model
+nicely. However, there are many examples imaginable that result in bad
+fitting items to the model. Two types of item fit are distinguished:
+the item outfit and the item infit. The outfit evaluates the extent to
+which the responses to the items are consistent with the model. In
+other words whether items with a lower difficulty also have a higher
+probability to pass. The outfit statistic is heavily influenced by
+outlying responses that do not fit the expected pattern.
+
+When the probability to pass an item does not increase by the ability,
+but apears to be rather flat, the outfit is too large. In the examples
+below, the the probability to pass the item does not increase by
+ability in the same rate as the model.
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
 plot_p_d_item(data = data2, model = model2, items = "a3com1", show_fit = TRUE, metric = "logit")[[1]]
