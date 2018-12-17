@@ -15,32 +15,7 @@ evualation of model fit.
 These topics adress different aspects of the solution. In practice, we
 have found that item fit is the most important concern.
 
-<!--5.2
-formules eerder achterin, of uitleggen
-terugverwijzen
-zeggen dat je zowel visueel als met fitmaat kunt werken
-item namen = gsed
-
-bespreken van verschillende voorbeelden, plat, te steil
-n26 is steiler, hoe erg is dat?
-is er ook een vlakker item
-figuur aspect ratio, compacter maken, nu te hoog, combineren mogelijk?
-kunnen we ook de observaties tonen, rugplot?
-#voorbeelden gedragstoestand tijdens van wiechenschema als items nemen en laten zien als illustratie van slechte items. Of niet geselecteerde items.
-
-5.3 
-Interpretation van infit en outfit komt te vroeg
-laat eerst zien wat beide zijn
-E_ni -> P_ni
-Plaatje van de (gestandardiseerde) residuen?
-
-5.4 
-psychometric information?
--->
-
 ## Item fit {#sec:itemfit}
-
-### Empirical and fitted item response curves
 
 The philosophy of the Rasch model is different from conventional
 statistical modeling. It is not the task of the Rasch model to account
@@ -61,6 +36,8 @@ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the
 difficulty of item $i$. It is thus natural to compare the observed and
 modelled probabilities at various levels of ability.
 
+### Well-fitting item response curves
+
 ```{r smoccdata3, echo = FALSE, warning = FALSE}
 library(gseddata)
 library(dmetric)
@@ -77,14 +54,13 @@ model <- fit_dmodel(varlist, data, name = "57_0")
 
 ```{r ploticc, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:ploticc)'}
 theme_set(theme_light())
-p1 <- plot_p_d_item(data = data, model = model, items = "ddifmd005", 
-                    show_fit = FALSE, metric = "logit")[[1]]
-p2 <- plot_p_d_item(data = data, model = model, items = "ddigmm060", 
-                    show_fit = FALSE, metric = "logit")[[1]]
-grid.arrange(p1, p2)
+p1 <- plot_p_d_item(data = data, model = model, items = "ddifmd005")[[1]]
+p2 <- plot_p_d_item(data = data, model = model, items = "ddigmm060")[[1]]
+gridExtra::grid.arrange(p1, p2)
 ```
 
-(ref:ploticc) Empirical and fitted item response curves for two milestones from the DDI (SMOCC data).
+(ref:ploticc) Empirical and fitted item response curves for two
+milestones from the DDI (SMOCC data).
 
 Figure \@ref(fig:ploticc) shows the item characteristics curves of two
 DDI milestones. The orange line represents the empirical probability
@@ -93,20 +69,26 @@ item response curve according to the Rasch model. The empirical and
 estimated curves are close together, so both items fit the model very
 well.
 
+### Item response curves showing severe underfit
+
+These examples of item response curves fit the model nicely. There are
+however many cases where things are less bright. 
+
 ```{r smoccfit4, echo = FALSE, warning = FALSE}
-plus_items <- c("a3com1", "a4com1", "a4f2", "a13f1", "a13f2")
+set.seed(12345)
+plus_items <- paste0("hypgmd00", 1:5)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = c(items, plus_items),
                 cov = NULL)
 data2 <- as.data.frame(data)
 data2 <- data2 %>% 
-  mutate(a3com1 = as.integer(runif(n = nrow(data2), 0, 2)), # flat
-         a4com1 = ifelse(agedays > 65, 0, 1), #gutman age
+  mutate(hypgmd001 = as.integer(runif(n = nrow(data2), 0, 2)), # flat
          rand   = runif(nrow(data2), 0 , 1),
-         a4f2   = ifelse(agedays  > 65 & rand > 0.2, 1, 0), # flat2
-         a4f2   = ifelse(agedays <= 65 & rand < 0.2, 1, a4f2), # flat2
-         a13f1  = ifelse(model$beta_l$b < 2, 0, 1), # gutman d
-         a13f2  = ifelse(model$beta_l$b > 2 & runif(nrow(data2), 0, 1) > 0.1, 1, 0) # gutman d_error
+         hypgmd002 = ifelse(agedays  > 65 & rand > 0.2, 1, 0), # flat2
+         hypgmd002 = ifelse(agedays <= 65 & rand < 0.2, 1, hypgmd002), # flat2
+         hypgmd003 = ifelse(agedays > 65, 0, 1), # gutman age
+         hypgmd004 = ifelse(model$beta_l$b < 2, 0, 1), # gutman d
+         hypgmd005 = ifelse(model$beta_l$b > 2 & runif(nrow(data2), 0, 1) > 0.1, 1, 0) # gutman d_error
          ) %>% 
   dplyr::select(-rand)
 b_fixed <- model$fit$b
@@ -114,39 +96,78 @@ model2 <- fit_dmodel(varlist = varlist, data = data2,
                      name = "57_0_plus", b_fixed = b_fixed)
 ```
 
-The examples of item response curves fit the model
-nicely. However, there are many examples imaginable that result in bad
-fitting items to the model. Two types of item fit are distinguished:
-the item outfit and the item infit. The outfit evaluates the extent to
-which the responses to the items are consistent with the model. In
-other words whether items with a lower difficulty also have a higher
-probability to pass. The outfit statistic is heavily influenced by
-outlying responses that do not fit the expected pattern.
 
-When the probability to pass an item does not increase by the ability,
-but apears to be rather flat, the outfit is too large. In the examples
-below, the the probability to pass the item does not increase by
-ability in the same rate as the model.
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
-plot_p_d_item(data = data2, model = model2, items = "a3com1", show_fit = TRUE, metric = "logit")[[1]]
-plot_p_d_item(data = data2, model = model2, items = "a4f2", show_fit = TRUE, metric = "logit")[[1]]
-
+```{r plothyp1, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 11, warning = FALSE, fig.cap = '(ref:plothyp1)', message = FALSE}
+theme_set(theme_light())
+p1 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd001")[[1]]
+p2 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd002")[[1]]
+p3 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd003")[[1]]
+gridExtra::grid.arrange(p1, p2, p3)
 ```
 
-Another example that results in an extremely large outfit is when the probability for passing the item decreases when the ability increases:
+(ref:plothyp1) Three simulated items that illustrate various forms of item misfit.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold',fig.align='center'}
-plot_p_d_item(data = data2, model = model2, items = "a4com1", show_fit = TRUE, metric = "logit")[[1]]
+Figure \@ref(fig:plothyp1) shows three forms of severe underfit. The
+probability to pass item `hypgmd001` is almost constant across
+ability, so retaining this item essentially only adds to the noise.
+Item `hypgmd002` converges to an asymptote around 80 percent and has a
+severe dip in the middle. The dip is caused by the strong relation to
+age. Item `hypgmd003` appears to have the wrong coding. In addition,
+the spike-like behavior in the middle is often seen when two or more
+different items are erroneously given the same code.
+
+Removing of items like these could substantially improve model fit.
+
+### Item response curves showing overfit
+
+```{r plothyp2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plothyp2)', message = FALSE}
+theme_set(theme_light())
+p1 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd004")[[1]]
+p2 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd005")[[1]]
+gridExtra::grid.arrange(p1, p2)
 ```
 
-The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. So, the infit measures the extend to which the observed data follow the model and that the responses are as expected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response patterns.A pattern that can be observed is when the observed data points actually have a steaper curve, compared to the model. This pattern, with a very steap curve, is called the Gutman pattern and actually fits the model very well and would even discriminate better (plot on the left).  An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way (plot on the right)
+(ref:plothyp2) Two simulated items that illustrate item overfit.
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
-plot_p_d_item(data = data2, model = model2, items = "a13f1", show_fit = TRUE, metric = "logit")[[1]]
-plot_p_d_item(data = data2, model = model2, items = "a13f2", show_fit = TRUE, metric = "logit")[[1]]
+Figure \@ref(fig:plothyp2) shows two forms of overfit. The curve of item
+`hypgmd004` is much steeper than the modelled curve. Thus, just this
+one item is exceptionally well-suited to distinguish children with a
+$D$-score below 50 from those with a $D$-score above 50. Note that the
+item isn't sensitive anywhere else on the scale. In general, having
+items like these is good news, because they allow us to increase the
+reliability of the instrument. One should make certain though, that
+FAIL and PASS scores are all measured (not imputed) values.
 
-```
+Multiple perfect items could hint to a violation of the *local
+independence assumption* (c.f. Section \@ref(sec:measurementmodel)).
+Developmental milestones sometimes have combinations of responses that
+are impossible. For example, one cannot walk without being able to
+stand, so the inconsistent combination (stand: FAIL, walk: PASS) will
+not be observed. This leads to more consistent responses that would be
+expected by chance. In principle, one could combine the two such items
+into one three-category items, which effectively set the probability of 
+inconsistent combinations to zero.
+
+Item `hypgmd005` is also steep, but has an asymptote around 80
+percent. This causes discrepancies between the empirical and modelled
+curves around the middle of the probability scale. In general, such
+items could be removed if a sufficient number of better items are
+available.
+
+### Item infit and outfit
+
+The infit is the information weighted fit and is more sensitive to
+inlying, on-target, unexpected responses. So, the infit measures the
+extend to which the observed data follow the model and that the
+responses are as expected. This fit is harder to observe visually,
+because the infit is sensitive to small errors in individual response
+patterns. A pattern that can be observed is when the observed data
+points actually have a steeper curve, compared to the model. This
+pattern, with a very steep curve, is called the Gutman pattern and
+actually fits the model very well and would even discriminate better
+(plot on the left).  An example of a larger infit is when an item
+seems to follow the curve well but has some odd data points along the
+way (plot on the right)
 
 
 The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $P_{ni}(1-P_{ni})$. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}$$ 
