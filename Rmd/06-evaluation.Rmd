@@ -214,7 +214,7 @@ the number of available items. When there are many items to choose
 from, we could use a stricter criterion, say infit and outfit < 1.0 to
 select only the absolutely best items.
 
-### Infit and outfit in the DDI
+### Infit and outfit in the DDI {#sec:fitddi}
 
 ```{r fitplot, echo = FALSE, fig.cap = '(ref:fitplot)', fig.height = 4}
 oldpar <- par(mfrow = c(1, 2))
