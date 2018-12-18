@@ -214,6 +214,30 @@ the number of available items. When there are many items to choose
 from, we could use a stricter criterion, say infit and outfit < 1.0 to
 select only the absolutely best items.
 
+### Infit and outfit in the DDI
+
+```{r fitplot, echo = FALSE, fig.cap = '(ref:fitplot)', fig.height = 4}
+oldpar <- par(mfrow = c(1, 2))
+hist(model$item_lfit$infit, breaks = 20, col = "grey", 
+     border = FALSE, xlim = c(0, 1.2), ylim = c(0, 12),
+     main = "", xlab = "Infit", ylab = "Number of DDI milestones")
+hist(model$item_lfit$outfit, breaks = 20, col = "grey", 
+     border = FALSE, xlim = c(0, 1.2), ylim = c(0, 12), 
+     main = "", xlab = "Outfit", ylab = "Number of DDI milestones")
+par(oldpar)
+```
+
+(ref:fitplot) Frequency distribution of infit (left) and outfit
+(right) of 57 milestones from the DDI (SMOCC data).
+
+Figure \@ref(fig:fitplot) displays the histogram of the 57 milestones
+from the DDI (c.f. Section \@ref(sec:ddi)). Most infits are within the
+the range 0.6 - 1.1, thus indicating excellent fit. The two milestones
+with extremely low infits are `ddigmd052` and `ddigmd053`. These two
+items actually screen for paralysis for newborns, so the data contain
+hardly any FAILs on these milestones. The outfit statistics also
+indicate good fit.
+
 ## Person fit {#sec:personfit}
 
 ---
