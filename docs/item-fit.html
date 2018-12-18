@@ -31,7 +31,7 @@
   
   
 <link rel="prev" href="empirical-and-fitted-item-response-curves.html">
-<link rel="next" href="hier-eventueel-person-fit-formulas-invoegen.html">
+<link rel="next" href="person-fit.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -45,6 +45,14 @@
 
 
 
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -122,7 +130,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="2.4" data-path="sec-questions.html"><a href="sec-questions.html"><i class="fa fa-check"></i><b>2.4</b> Typical questions asked in child development</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="sec-threeways.html"><a href="sec-threeways.html"><i class="fa fa-check"></i><b>3</b> Three ways to quantify child development</a><ul>
+<li class="chapter" data-level="3" data-path="ch-threeways.html"><a href="ch-threeways.html"><i class="fa fa-check"></i><b>3</b> Three ways to quantify child development</a><ul>
 <li class="chapter" data-level="3.1" data-path="sec-agebased.html"><a href="sec-agebased.html"><i class="fa fa-check"></i><b>3.1</b> Age-based measurement of development</a><ul>
 <li class="chapter" data-level="3.1.1" data-path="sec-agebased.html"><a href="sec-agebased.html#motivation-for-age-based-measurement"><i class="fa fa-check"></i><b>3.1.1</b> Motivation for age-based measurement</a></li>
 <li class="chapter" data-level="3.1.2" data-path="sec-agebased.html"><a href="sec-agebased.html#sec:ageequivalent"><i class="fa fa-check"></i><b>3.1.2</b> Age equivalent as difficulty</a></li>
@@ -133,41 +141,47 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2.2" data-path="sec-scorebased.html"><a href="sec-scorebased.html#example-of-score-based-measurement"><i class="fa fa-check"></i><b>3.2.2</b> Example of score-based measurement</a></li>
 <li class="chapter" data-level="3.2.3" data-path="sec-scorebased.html"><a href="sec-scorebased.html#limitations-of-score-based-measurement"><i class="fa fa-check"></i><b>3.2.3</b> Limitations of score-based measurement</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html"><i class="fa fa-check"></i><b>3.3</b> Unit-based measurement of development</a></li>
-<li class="chapter" data-level="3.4" data-path="sec-whyunit.html"><a href="sec-whyunit.html"><i class="fa fa-check"></i><b>3.4</b> Role of unit-based measurement</a></li>
+<li class="chapter" data-level="3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html"><i class="fa fa-check"></i><b>3.3</b> Unit-based measurement of development</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-unitbased.html"><a href="sec-unitbased.html#sec:motivationunit"><i class="fa fa-check"></i><b>3.3.1</b> Motivation for unit-based measurement</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-unitbased.html"><a href="sec-unitbased.html#sec:unitbasedexample"><i class="fa fa-check"></i><b>3.3.2</b> Example of unit-based measurement</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html#limitations-of-unit-based-measurement"><i class="fa fa-check"></i><b>3.3.3</b> Limitations of unit-based measurement</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> New model to quantify child development</a><ul>
-<li class="chapter" data-level="4.1" data-path="measurement-through-latent-variables.html"><a href="measurement-through-latent-variables.html"><i class="fa fa-check"></i><b>4.1</b> Measurement through latent variables</a></li>
-<li class="chapter" data-level="4.2" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html"><i class="fa fa-check"></i><b>4.2</b> Measurement model</a></li>
-<li class="chapter" data-level="4.3" data-path="sec-logit.html"><a href="sec-logit.html"><i class="fa fa-check"></i><b>4.3</b> Logit scale</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="sec-logit.html"><a href="sec-logit.html#item-response-functions"><i class="fa fa-check"></i><b>4.3.1</b> Item response functions</a></li>
-<li class="chapter" data-level="4.3.2" data-path="sec-logit.html"><a href="sec-logit.html#section"><i class="fa fa-check"></i><b>4.3.2</b> </a></li>
-<li class="chapter" data-level="4.3.3" data-path="sec-logit.html"><a href="sec-logit.html#criteria-for-invariant-measurement"><i class="fa fa-check"></i><b>4.3.3</b> Criteria for invariant measurement</a></li>
-<li class="chapter" data-level="4.3.4" data-path="sec-logit.html"><a href="sec-logit.html#person-response-functions"><i class="fa fa-check"></i><b>4.3.4</b> Person response functions</a></li>
-<li class="chapter" data-level="4.3.5" data-path="sec-logit.html"><a href="sec-logit.html#what-is-a-test"><i class="fa fa-check"></i><b>4.3.5</b> What is a test?</a></li>
-<li class="chapter" data-level="4.3.6" data-path="sec-logit.html"><a href="sec-logit.html#interval-scale"><i class="fa fa-check"></i><b>4.3.6</b> Interval scale</a></li>
-<li class="chapter" data-level="4.3.7" data-path="sec-logit.html"><a href="sec-logit.html#family-of-item-response-theory-models"><i class="fa fa-check"></i><b>4.3.7</b> Family of item response theory models</a></li>
+<li class="chapter" data-level="3.4" data-path="sec-whatismeasurement.html"><a href="sec-whatismeasurement.html"><i class="fa fa-check"></i><b>3.4</b> What is measurement?</a></li>
+<li class="chapter" data-level="3.5" data-path="sec-whyunit.html"><a href="sec-whyunit.html"><i class="fa fa-check"></i><b>3.5</b> Why unit-based measurement</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="comparisonagebased.html"><a href="comparisonagebased.html"><i class="fa fa-check"></i><b>4.4</b> Comparison to classic age-based approach</a></li>
-<li class="chapter" data-level="4.5" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html"><i class="fa fa-check"></i><b>4.5</b> Why some prefer the Rasch model</a><ul>
-<li class="chapter" data-level="4.5.1" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#the-model-as-ideal"><i class="fa fa-check"></i><b>4.5.1</b> The model as ideal</a></li>
-<li class="chapter" data-level="4.5.2" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#perfect-symmetry"><i class="fa fa-check"></i><b>4.5.2</b> Perfect symmetry</a></li>
-<li class="chapter" data-level="4.5.3" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#specific-objectivity-example"><i class="fa fa-check"></i><b>4.5.3</b> Specific objectivity (example)</a></li>
-<li class="chapter" data-level="4.5.4" data-path="why-some-prefer-the-rasch-model.html"><a href="why-some-prefer-the-rasch-model.html#simplicity"><i class="fa fa-check"></i><b>4.5.4</b> Simplicity</a></li>
+<li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(D\)</span>-score: A unit to quantify general child development</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-ddi.html"><a href="sec-ddi.html"><i class="fa fa-check"></i><b>4.1</b> The Dutch Development Instrument (DDI)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-ddi.html"><a href="sec-ddi.html#setting"><i class="fa fa-check"></i><b>4.1.1</b> Setting</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#description-of-smocc-study"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sec-ddi.html"><a href="sec-ddi.html#codebook-of-dutch-development-instrument-0-15-months"><i class="fa fa-check"></i><b>4.1.3</b> Codebook of Dutch Development Instrument 0-15 months</a></li>
 </ul></li>
+<li class="chapter" data-level="4.2" data-path="probability-of-passing-a-milestone-given-age.html"><a href="probability-of-passing-a-milestone-given-age.html"><i class="fa fa-check"></i><b>4.2</b> Probability of passing a milestone given age</a></li>
+<li class="chapter" data-level="4.3" data-path="probability-of-passing-a-milestone-given-d-score.html"><a href="probability-of-passing-a-milestone-given-d-score.html"><i class="fa fa-check"></i><b>4.3</b> Probability of passing a milestone given <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.4" data-path="relation-between-age-and-the-d-score.html"><a href="relation-between-age-and-the-d-score.html"><i class="fa fa-check"></i><b>4.4</b> Relation between age and the <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.5" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html"><i class="fa fa-check"></i><b>4.5</b> Measurement model for the <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html#what-are-measurement-models"><i class="fa fa-check"></i><b>4.5.1</b> What are measurement models?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html#adapt-the-model-or-adapt-the-data"><i class="fa fa-check"></i><b>4.5.2</b> Adapt the model? Or adapt the data?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html"><i class="fa fa-check"></i><b>4.6</b> Item response functions</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#logistic-model"><i class="fa fa-check"></i><b>4.6.1</b> Logistic model</a></li>
+<li class="chapter" data-level="4.6.2" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#types-of-item-response-functions"><i class="fa fa-check"></i><b>4.6.2</b> Types of item response functions</a></li>
+<li class="chapter" data-level="4.6.3" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#person-response-functions"><i class="fa fa-check"></i><b>4.6.3</b> Person response functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="sec-engelhard.html"><a href="sec-engelhard.html"><i class="fa fa-check"></i><b>4.7</b> Engelhard criteria for invariant measurement</a></li>
+<li class="chapter" data-level="4.8" data-path="sec-whyrasch.html"><a href="sec-whyrasch.html"><i class="fa fa-check"></i><b>4.8</b> Why take the Rasch model?</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-D-score.html"><a href="ch-D-score.html"><i class="fa fa-check"></i><b>5</b> What is a D-score?</a><ul>
-<li class="chapter" data-level="5.1" data-path="the-dutch-development-instrument-ddi.html"><a href="the-dutch-development-instrument-ddi.html"><i class="fa fa-check"></i><b>5.1</b> The Dutch Development Instrument (DDI)</a></li>
+<li class="chapter" data-level="5.1" data-path="estimation-of-d-score.html"><a href="estimation-of-d-score.html"><i class="fa fa-check"></i><b>5.1</b> Estimation of <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="5.2" data-path="estimation-of-the-d-score.html"><a href="estimation-of-the-d-score.html"><i class="fa fa-check"></i><b>5.2</b> Estimation of the <span class="math inline">\(D\)</span>-score</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-itemfit.html"><a href="ch-itemfit.html"><i class="fa fa-check"></i><b>6</b> Interpretation of item fit</a><ul>
-<li class="chapter" data-level="6.1" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.1</b> Empirical and fitted item response curves</a></li>
-<li class="chapter" data-level="6.2" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.2</b> Item fit</a></li>
-<li class="chapter" data-level="6.3" data-path="hier-eventueel-person-fit-formulas-invoegen.html"><a href="hier-eventueel-person-fit-formulas-invoegen.html"><i class="fa fa-check"></i><b>6.3</b> HIER EVENTUEEL PERSON FIT FORMULAS INVOEGEN</a></li>
-<li class="chapter" data-level="6.4" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.4</b> Different item functioning (DIF)</a></li>
-<li class="chapter" data-level="6.5" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.5</b> Item information at a given ability</a></li>
-<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given age</a></li>
-<li class="chapter" data-level="6.7" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.7</b> Person fit</a></li>
-<li class="chapter" data-level="6.8" data-path="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><a href="hele-inconsistente-kinderen-toevoegen-als-voorbeeld-eerst-lopen-en-dan-staan-.html"><i class="fa fa-check"></i><b>6.8</b> hele inconsistente kinderen toevoegen als voorbeeld. eerst lopen en dan staan.</a></li>
+<li class="chapter" data-level="6.1" data-path="smocc-data-design.html"><a href="smocc-data-design.html"><i class="fa fa-check"></i><b>6.1</b> SMOCC data: design</a></li>
+<li class="chapter" data-level="6.2" data-path="empirical-and-fitted-item-response-curves.html"><a href="empirical-and-fitted-item-response-curves.html"><i class="fa fa-check"></i><b>6.2</b> Empirical and fitted item response curves</a></li>
+<li class="chapter" data-level="6.3" data-path="item-fit.html"><a href="item-fit.html"><i class="fa fa-check"></i><b>6.3</b> Item fit</a></li>
+<li class="chapter" data-level="6.4" data-path="person-fit.html"><a href="person-fit.html"><i class="fa fa-check"></i><b>6.4</b> Person fit</a></li>
+<li class="chapter" data-level="6.5" data-path="different-item-functioning-dif.html"><a href="different-item-functioning-dif.html"><i class="fa fa-check"></i><b>6.5</b> Different item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.6" data-path="item-information-at-a-given-ability.html"><a href="item-information-at-a-given-ability.html"><i class="fa fa-check"></i><b>6.6</b> Item information at a given ability</a></li>
+<li class="chapter" data-level="6.7" data-path="item-information-at-a-given-age.html"><a href="item-information-at-a-given-age.html"><i class="fa fa-check"></i><b>6.7</b> Item information at a given age</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
 <li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
@@ -229,10 +243,29 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="item-fit" class="section level2">
-<h2><span class="header-section-number">6.2</span> Item fit</h2>
-<p>The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. Fit analysis evaluates the extend to which this is true for each item. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words wheter items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavity infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses.</p>
-<p>To determine the fit of items to the model we compare the observed responses and the expected values. The observed response <span class="math inline">\(x_{ni}\)</span> of person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. The expected response <span class="math inline">\(P_{ni}\)</span> is modelled as <span class="math display">\[E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span>. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances <span class="math inline">\(W_{ni}\)</span>. The expected response variance <span class="math inline">\(W_{ni}\)</span> can be obtained as <span class="math inline">\(E_{ni}(1-E_{ni})\)</span>. The outfit is calculated as the sum of the squared standardizes errors. The residual errors are standardized by dividing by the expected binomial standard deviation: <span class="math display">\[z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}\]</span> Accordingly the infit and outfit are calculated as: <span class="math display">\[Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}\]</span> <span class="math display">\[Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}\]</span></p>
-<p>In the figure below an item with a large outfit is presented as well as an item with a large infit.</p>
+<h2><span class="header-section-number">6.3</span> Item fit</h2>
+<p>The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. .</p>
+<p>The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as presented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. An example of such an item is presented below:</p>
+<pre><code>## Item:  1 a3com1 
+## $a3com1</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Another example of a bad outfit is when the probability for passing increases by the ability, but not as steap that it would fit the model, such as this example:</p>
+<pre><code>## Item:  1 a4f2 
+## $a4f2</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>When the item apears to become more difficult when the ability increases, the outfit is also too large. In this example, the probability for passing decreases when the ability increases:</p>
+<pre><code>## Item:  1 a4com1 
+## $a4com1</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>A pattern that can also be observed is when the observed data points actually have a steaper curve, compared to the model. This pattern, with a very steap curve, is called the Gutman pattern and actually fits the model very well and would even discriminate better.</p>
+<pre><code>## Item:  1 a13f1 
+## $a13f1</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
+<p>The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. So, the infit measures the extend to which the observed data follow the model and that the responses are as expected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response patterns. An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way:</p>
+<pre><code>## Item:  1 a13f2 
+## $a13f2</code></pre>
+<p><img src="dbook1_files/figure-html/unnamed-chunk-20-1.png" width="672" /></p>
+<p>The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response <span class="math inline">\(x_{ni}\)</span> of person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>. The expected response <span class="math inline">\(P_{ni}\)</span> is modelled as <span class="math display">\[E_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}\]</span>. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances <span class="math inline">\(W_{ni}\)</span>. The expected response variance <span class="math inline">\(W_{ni}\)</span> can be obtained as <span class="math inline">\(E_{ni}(1-E_{ni})\)</span>. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: <span class="math display">\[z_{ni} = \frac{x_{ni}-E_{ni}}{\sqrt{W_{ni}}}\]</span> Accordingly the infit and outfit are calculated as: <span class="math display">\[Infit = \frac{\sum_{n}^N (x_{ni}-E_{ni})^2}{\sum_n^N W_{ni}}\]</span> <span class="math display">\[Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}\]</span> As a guideline for interpreting the item fit-measures a threshold of fit &lt; 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit &lt; 1.3 can be considered.</p>
 </div>
             </section>
 
@@ -240,7 +273,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="empirical-and-fitted-item-response-curves.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="hier-eventueel-person-fit-formulas-invoegen.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="person-fit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -1,124 +1,173 @@
-# Interpretation of fit
+# Evaluation {#ch:evaluation}
 
+The nice properties of the Rasch model (c.f. Section
+\@ref(sec:whyrasch)) only hold when the data and model agree. It is
+therefore important to study and remove discrepancies between model
+and data. This chapter explains several techniques that aid in the
+evualation of model fit.
 
-```{r, include=FALSE}
-library(ddata)
-library(dmetric)
-library(dscore)
-library(sirt)
-library(dplyr)
+* Item fit (\@ref(sec:itemfit))
+* Person fit (\@ref(sec:personfit))
+* Differential item functioning (\@ref(sec:dif))
+* Item information (\@ref(sec:iteminformation))
+* Reliability (\@ref(sec:reliability))
+
+These topics adress different aspects of the solution. In practice, we
+have found that item fit is the most important concern.
+
+## Item fit {#sec:itemfit}
+
+The philosophy of the Rasch model is different from conventional
+statistical modeling. It is not the task of the Rasch model to account
+for the data. Rather it is the task of the data to fit the Rasch
+model. We saw this distinction before in Section
+\@ref(sec:adaptmodel).
+
+The goal of model fit assessment is to explore and quantify how well
+empirical data meet the requirements of the Rasch model. One way to
+gauge model fit is to compare the observed probability of passing an
+item to the fitted item response curve for endorsing the item.
+
+The fitted item response curve for each item $i$ is modeled as: 
+
+$$P_{ni}= \frac{exp( \beta_{n} - \delta_{i})}{1+exp(\beta_{n}-\delta_{i})}, $$ 
+
+where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the
+difficulty of item $i$. It is thus natural to compare the observed and
+modelled probabilities at various levels of ability.
+
+### Well-fitting item response curves
+
+```{r smoccdata3, echo = FALSE, warning = FALSE}
 library(gseddata)
+library(dmetric)
+data <- get_data(cohorts = 53)
+items <- get_itemnames(data)
+```
+
+```{r smoccfit3, echo = FALSE, warning = FALSE}
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
+```
+
+```{r ploticc, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:ploticc)'}
+theme_set(theme_light())
+p1 <- plot_p_d_item(data = data, model = model, items = "ddifmd005")[[1]]
+p2 <- plot_p_d_item(data = data, model = model, items = "ddigmm060")[[1]]
+gridExtra::grid.arrange(p1, p2)
+```
+
+(ref:ploticc) Empirical and fitted item response curves for two
+milestones from the DDI (SMOCC data).
+
+Figure \@ref(fig:ploticc) shows the item characteristics curves of two
+DDI milestones. The orange line represents the empirical probability
+at different ability levels. The dashed line represents the estimated
+item response curve according to the Rasch model. The empirical and
+estimated curves are close together, so both items fit the model very
+well.
+
+### Item response curves showing severe underfit
+
+These examples of item response curves fit the model nicely. There are
+however many cases where things are less bright. 
+
+```{r smoccfit4, echo = FALSE, warning = FALSE}
+set.seed(12345)
+plus_items <- paste0("hypgmd00", 1:5)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = c(items, plus_items),
+                cov = NULL)
+data2 <- as.data.frame(data)
+data2 <- data2 %>% 
+  mutate(hypgmd001 = as.integer(runif(n = nrow(data2), 0, 2)), # flat
+         rand   = runif(nrow(data2), 0 , 1),
+         hypgmd002 = ifelse(agedays  > 65 & rand > 0.2, 1, 0), # flat2
+         hypgmd002 = ifelse(agedays <= 65 & rand < 0.2, 1, hypgmd002), # flat2
+         hypgmd003 = ifelse(agedays > 65, 0, 1), # gutman age
+         hypgmd004 = ifelse(model$beta_l$b < 2, 0, 1), # gutman d
+         hypgmd005 = ifelse(model$beta_l$b > 2 & runif(nrow(data2), 0, 1) > 0.1, 1, 0) # gutman d_error
+         ) %>% 
+  dplyr::select(-rand)
+b_fixed <- model$fit$b
+model2 <- fit_dmodel(varlist = varlist, data = data2, 
+                     name = "57_0_plus", b_fixed = b_fixed)
 ```
 
 
-## Empirical and fitted item response curves
-
-An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for three example milestones. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
-
-
-```{r icc, include=FALSE, message=FALSE, warning=FALSE}
-
- # data0 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
- # data0$agedays <- as.integer(data0$age /12 *365.25)
- # data0$subjid <- data0$id
- # varlist <- prepare_items(study = "Netherlands 1")
- # varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
- # equatelist <- prepare_equates(varlist)
- # model_name<- "smocc"
- # model0 <- fit_dmodel(varlist=varlist, data = data0, equate=equatelist, name = model_name, data_package = "ddata")
- # 
- # #translate to gsed names
- # data <- data0
- # colnames(data)[colnames(data) %in% model0$items] <- gseddata::rename_gcdg_gsed(colnames(data)[colnames(data) %in% model0$items])
- # source('C:/Users/eekhouti/Documents/GitHub/dbook1/R/translate_gcdg_gsed.R')
- # model <- translate_gcdg_gsed(input = model0)
-
-  data <- gseddata::get_data(adm = ".", cov = ".", aux = ".", cohorts = 53, items = ".")
-  items <- rename_gcdg_gsed(prepare_items(study = "Netherlands 1")$items)
-  varlist <- list(adm = c("subjid", "agedays", "cohort", "cohortn", "subjido"),
-                 items = items)
-  model <- fit_dmodel(varlist, data = data,
-                     name = "SMOCC", age_unit = "years")
-
- 
- 
+```{r plothyp1, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 11, warning = FALSE, fig.cap = '(ref:plothyp1)', message = FALSE}
+theme_set(theme_light())
+p1 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd001")[[1]]
+p2 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd002")[[1]]
+p3 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd003")[[1]]
+gridExtra::grid.arrange(p1, p2, p3)
 ```
 
+(ref:plothyp1) Three simulated items that illustrate various forms of item misfit.
 
-```{r plot icc, echo=FALSE, fig.height=3, fig.show='hold', fig.width=3, message=FALSE, warning=FALSE}
-plot_p_d_item(data = data, model = model, items = "ddifmd005", show_fit = FALSE, metric = "logit")[[1]]
-plot_p_d_item(data = data, model = model, items = "ddigmm060", show_fit = FALSE, metric = "logit")[[1]]
-plot_p_d_item(data = data, model = model, items = "ddicmm036", show_fit = FALSE, metric = "logit")[[1]]
+Figure \@ref(fig:plothyp1) shows three forms of severe underfit. The
+probability to pass item `hypgmd001` is almost constant across
+ability, so retaining this item essentially only adds to the noise.
+Item `hypgmd002` converges to an asymptote around 80 percent and has a
+severe dip in the middle. The dip is caused by the strong relation to
+age. Item `hypgmd003` appears to have the wrong coding. In addition,
+the spike-like behavior in the middle is often seen when two or more
+different items are erroneously given the same code.
+
+Removing of items like these could substantially improve model fit.
+
+### Item response curves showing overfit
+
+```{r plothyp2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plothyp2)', message = FALSE}
+theme_set(theme_light())
+p1 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd004")[[1]]
+p2 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd005")[[1]]
+gridExtra::grid.arrange(p1, p2)
 ```
 
-## Item fit
+(ref:plothyp2) Two simulated items that illustrate item overfit.
 
-The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. 
+Figure \@ref(fig:plothyp2) shows two forms of overfit. The curve of item
+`hypgmd004` is much steeper than the modelled curve. Thus, just this
+one item is exceptionally well-suited to distinguish children with a
+$D$-score below 50 from those with a $D$-score above 50. Note that the
+item isn't sensitive anywhere else on the scale. In general, having
+items like these is good news, because they allow us to increase the
+reliability of the instrument. One should make certain though, that
+FAIL and PASS scores are all measured (not imputed) values.
 
----
-#Hier wilde ik ook de gseddata gebruiken, maar het lukte niet om daar extra items aan toe te voegen. Het zit zo hard ingeprogrammeerd dat de items moeten voorkomen in de itemtable. In de gcdg data heb ik een work-around ervoor gevonden, maar voor gsed bleef hij errors geven bi het fitten van het model. 
-#Het sourcen van R-functies werkt ook niet.. ik heb nu hard de locatie op mijn PC erin gezet, maar dat zal wel problemen geven als jij de code draait. Hoe heb jij dit gedaan?
----
+Multiple perfect items could hint to a violation of the *local
+independence assumption* (c.f. Section \@ref(sec:measurementmodel)).
+Developmental milestones sometimes have combinations of responses that
+are impossible. For example, one cannot walk without being able to
+stand, so the inconsistent combination (stand: FAIL, walk: PASS) will
+not be observed. This leads to more consistent responses that would be
+expected by chance. In principle, one could combine the two such items
+into one three-category items, which effectively set the probability of 
+inconsistent combinations to zero.
 
-```{r fit, include=FALSE, message=FALSE, warning=FALSE}
-#add random variable to first model to show misfit
-  data02 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
-  data02$agedays <- as.integer(data02$age /12 *365.25)
-  data02$subjid <- as.numeric(gsub("^1", 530, data02$id))
- 
- data02$a3com1 <- as.integer(runif(n = nrow(data02), 0,2)) #flat
- data02$a4com1 <- ifelse(data02$age > 2, 0, 1) #gutmanage
- rand <- runif(nrow(data02), 0 , 1)
- data02$a4f2 <- ifelse(data02$age > 2 & rand > 0.2 , 1 , 0) #flat2
- data02$a4f2 <- ifelse(data02$age <= 2 & rand < 0.2 , 1 , data02$a4f2) #flat2
-  dsc <- model$beta_l
-  dsc$a13f1 <- ifelse(dsc$b < 2 , 0 ,1) #gutmand
-  dsc$a13f2 <- ifelse(dsc$b > 2  & runif(nrow(dsc), 0, 1) > 0.1 , 1 ,0) #gutmand_error
-  dsc <- dsc[,c("subjid","agedays", "a13f1", "a13f2")]
-  head(dsc)
-  data02 <- left_join(data02, dsc)
- # 
- varlist <- prepare_items(study = "Netherlands 1")
- varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
- transtab <- cbind(gcdg = varlist$items, gsed = rename_gcdg_gsed(varlist$items))
- fixedb <- model$fit$b  
- names(fixedb)[match(names(fixedb), transtab[,"gsed"])] <- transtab[,"gcdg"]
+Item `hypgmd005` is also steep, but has an asymptote around 80
+percent. This causes discrepancies between the empirical and modelled
+curves around the middle of the probability scale. In general, such
+items could be removed if a sufficient number of better items are
+available.
 
- varlist$items <- union(varlist$items, c("a13f2", "a3com1", "a4com1", "a4f2", "a13f1"))
+### Item infit and outfit
 
- model02 <- fit_dmodel(varlist=varlist, data = data02,  data_package = "ddata", b_fixed = fixedb)
- 
-
- #translate to gsed names
- data2 <- data02
- colnames(data2)[colnames(data2) %in% model02$items] <- gseddata::rename_gcdg_gsed(colnames(data2)[colnames(data2) %in% model02$items])
-
-  source('C:/Users/eekhouti/Documents/GitHub/dbook1/R/translate_gcdg_gsed.R')
- model2 <- translate_gcdg_gsed(input = model02)
-```
-
-The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as presented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. 
-When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. In the examples below, the the probability to pass the item does not increase by ability in the same rate as the model. 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
-plot_p_d_item(data = data2, model = model2, items = "a3com1", show_fit = TRUE, metric = "logit")[[1]]
-plot_p_d_item(data = data2, model = model2, items = "a4f2", show_fit = TRUE, metric = "logit")[[1]]
-
-```
-
-Another example that results in an extremely large outfit is when the probability for passing the item decreases when the ability increases:
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold',fig.align='center'}
-plot_p_d_item(data = data2, model = model2, items = "a4com1", show_fit = TRUE, metric = "logit")[[1]]
-```
-
-The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. So, the infit measures the extend to which the observed data follow the model and that the responses are as expected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response patterns.A pattern that can be observed is when the observed data points actually have a steaper curve, compared to the model. This pattern, with a very steap curve, is called the Gutman pattern and actually fits the model very well and would even discriminate better (plot on the left).  An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way (plot on the right)
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
-plot_p_d_item(data = data2, model = model2, items = "a13f1", show_fit = TRUE, metric = "logit")[[1]]
-plot_p_d_item(data = data2, model = model2, items = "a13f2", show_fit = TRUE, metric = "logit")[[1]]
-
-```
+The infit is the information weighted fit and is more sensitive to
+inlying, on-target, unexpected responses. So, the infit measures the
+extend to which the observed data follow the model and that the
+responses are as expected. This fit is harder to observe visually,
+because the infit is sensitive to small errors in individual response
+patterns. A pattern that can be observed is when the observed data
+points actually have a steeper curve, compared to the model. This
+pattern, with a very steep curve, is called the Gutman pattern and
+actually fits the model very well and would even discriminate better
+(plot on the left).  An example of a larger infit is when an item
+seems to follow the curve well but has some odd data points along the
+way (plot on the right)
 
 
 The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $P_{ni}(1-P_{ni})$. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}$$ 
@@ -127,7 +176,7 @@ $$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
 As a guideline for interpreting the item fit-measures a threshold of fit < 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit < 1.3 can be considered. 
 
 
-## Person fit
+## Person fit {#sec:personfit}
 
 ---
 # Voor person fit heb ik verder geen plaatjes, ik weet niet zo goed hoe ik dan moet weergeven. Het is natuurlijk ook meer een soort van toevoeging aan de item fit hierboven. 
@@ -139,7 +188,7 @@ To determine the fit of persons to the model we compare the observed responses a
    $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. As a threshold for person fit < 3 can be used to clean out persons with inplausible response patterns. 
 
 
-## Different item functioning (DIF)
+## Differential item functioning (DIF) {#sec:dif}
 
 An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two milestones do not shown DIF:
 
@@ -147,7 +196,6 @@ An important aspect of item fit to the Rasch model is the assumption that items 
 
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
-
 ```
 
 However, these two items do show a small amount of DIF. This means that the difficulty for the items for male respondent is different than for female respondents. The milestone "Says three words" is less difficult for female respondents, whereas the milestone "Walks while holding onto play-pen or furniture" is less difficult for the male respondents.
@@ -155,17 +203,15 @@ However, these two items do show a small amount of DIF. This means that the diff
 ```{r dif2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddicmm039")[[1]]
 plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm067")[[1]]
-
 ```
 
+## Item information {#sec:iteminformation}
 
-## Item information at a given ability
+### Item information at a given ability
 
 The item information is defined as the amount of psychometric information an item contains for a given ability. The item information can be plotted for each item. In the Figure below, the item information curves for some example milestones are displayed. The amount of information for an item is maximized around the item-difficulty parameter. 
 
 ```{r iic, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 3}
-
-
 #item information curve
 ## bereken item info by difficulty
  info <- function(beta, delta) {(exp(beta-delta)/(1+exp(beta-delta)) * (1-exp(beta-delta)/(1+exp(beta-delta))))}
@@ -192,7 +238,7 @@ The formula to obtain the item information is the first derivative of the item r
 So for an ability level of $2$ standard deviations above the mean $\beta_n=2$, milestone "Says three words" has an information value of $$I(\delta)=0.14(1-0.14)$$ $$I(\delta)=0.12$$ 
 
 
-## Item information at a given age
+### Item information at a given age
 
 The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
 
@@ -229,10 +275,9 @@ refs$month <- refs$age
 
 The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item. 
 
+## Reliability {#sec:reliability}
 
-## Person seperation index
-
-The person seperation index is a measure for reliability for the Rasch model that is comparable to Cronbach's $\alpha$. In that context we define the reliability as the proportion of variance of the estimated person estimates (i.e. abilities) and the total variance including error. PSI obtained as follows: $PSI = \frac{\sigma_{\hat\beta}^2 -\hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}$, where $\sigma_{\hat\beta}^2$ is the variance of the estimated abilities and $\sigma_{\hat e}^2$ is the error variance of the abilities. The standard error of measurement can be obtained from this information as $SEM = \sqrt{\sigma_{\hat e}^2}$, which reflects the precision of the ability estimation. Below the $PSI$ and $SEM$ are calculated for our example data. 
+The *person seperation index* is a measure for reliability for the Rasch model that is comparable to Cronbach's $\alpha$. In that context we define the reliability as the proportion of variance of the estimated person estimates (i.e. abilities) and the total variance including error. PSI obtained as follows: $PSI = \frac{\sigma_{\hat\beta}^2 -\hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}$, where $\sigma_{\hat\beta}^2$ is the variance of the estimated abilities and $\sigma_{\hat e}^2$ is the error variance of the abilities. The standard error of measurement can be obtained from this information as $SEM = \sqrt{\sigma_{\hat e}^2}$, which reflects the precision of the ability estimation. Below the $PSI$ and $SEM$ are calculated for our example data. 
 
 ---
 # Ik weet niet zeker of het nuttig is om PSI te bespreken, maar het blijkt wel dat veel onderzoekers een reliability maat fijn vinden om te hebben. Kun jij hieronder kijken of mijn berekening klopt? Ik heb de functie een beetje geannoteerd.
