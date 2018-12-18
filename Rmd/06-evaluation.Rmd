@@ -220,10 +220,10 @@ select only the absolutely best items.
 oldpar <- par(mfrow = c(1, 2))
 hist(model$item_lfit$infit, breaks = 20, col = "grey", 
      border = FALSE, xlim = c(0, 1.2), ylim = c(0, 12),
-     main = "", xlab = "Infit", ylab = "Number of DDI milestones")
+     main = "", xlab = "Item infit", ylab = "Number of milestones")
 hist(model$item_lfit$outfit, breaks = 20, col = "grey", 
      border = FALSE, xlim = c(0, 1.2), ylim = c(0, 12), 
-     main = "", xlab = "Outfit", ylab = "Number of DDI milestones")
+     main = "", xlab = "Item outfit", ylab = "Number of milestones")
 par(oldpar)
 ```
 
@@ -240,15 +240,56 @@ indicate good fit.
 
 ## Person fit {#sec:personfit}
 
----
-# Voor person fit heb ik verder geen plaatjes, ik weet niet zo goed hoe ik dan moet weergeven. Het is natuurlijk ook meer een soort van toevoeging aan de item fit hierboven. 
----
+The person fit quantifies the extent to which the responses of a given
+person conform to the Rasch model expectation. The Rasch model expects
+that a more able person has a greater probabilty to pass an item than
+a less able person. Fit analysis evaluates the extend to which this is
+true. 
 
-The fit of the persons evaluates the extent to which the responses of any person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass any item than a less able person. Fit analysis evaluates the extend to which this is true for any person. Two types of person fit are distinguished: the person outfit and the person infit. The outfit evaluates the extent to which the responses to of the persons are consistent with the model. In other words wheter persons with a lower ability also have a lower probability to pass items. The outfit statistic is heavily infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+### Person infit and outfit
 
-To determine the fit of persons to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The person infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $P_{ni}(1-P_{ni})$. The outfit is calculated as the sum of the squared standardizes errors accumulated over the items $L$ to evaluate the plausability of any person response. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^L (x_{ni}-P_{ni})^2}{\sum_n^L W_{ni}}$$
-   $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. As a threshold for person fit < 3 can be used to clean out persons with inplausible response patterns. 
+In parallel to item fit, we can calculate *person infit* and *person
+outfit*. Both statistics evaluate how well the responses of the
+persons are consistent with the model. The outfit statistic is heavily
+influenced by outlying responses that do not fit the expected pattern.
+Outfit is high, for example, when the person fails easy items but
+passes difficult items. The infit is the information weighted fit and
+is more sensitive to inlying, on-target, unexpected responses.
 
+Similar to item fit, person fit is also calculated from the residuals,
+but aggregated in a different way. Person infit is calculated as
+
+$$\mathrm{Infit} = \frac{\sum_{n}^L (x_{ni}-P_{ni})^2}{\sum_n^L W_{ni}}$$
+
+and person outfit is
+
+$$\mathrm{Outfit} = \frac{\sum_{n}^L z_{ni}^2}{L}$$
+
+As a threshold for person fit < 3.0 can be used to clean out persons
+with inplausible response patterns.
+
+### Person infit and outfit in the DDI
+
+```{r personfitplot, echo = FALSE, fig.cap = '(ref:personfitplot)', fig.height = 4}
+oldpar <- par(mfrow = c(1, 2))
+hist(model$person_lfit$infit, breaks = c(seq(0, 1000, 0.25)), col = "grey", 
+     border = FALSE, xlim = c(0, 5), freq = TRUE, ylim = c(0, 7000),
+     main = "", xlab = "Person infit", ylab = "Number of measurements")
+hist(model$person_lfit$outfit, breaks = c(seq(0, 1000, 0.25)), col = "grey", 
+     border = FALSE, xlim = c(0, 5), freq = TRUE, ylim = c(0, 7000),
+     main = "", xlab = "Person outfit", ylab = "Number of measurements")
+par(oldpar)
+```
+
+(ref:personfitplot) Frequency distribution of person infit (left) and
+person outfit (right) for 16538 measurements of the DDI (SMOCC data).
+
+Figure \@ref(fig:personfitplot) displays the frequency distribution of
+person infit and person outfit 16538 measurement of the DDI in the
+SMOCC data. The large majority of the values falls below 3.0. For
+infit, only 43 out of 16538 measurements (0.3 percent) is above 3.0.
+For outfit, there are 446 out of 16538 measurement (2.7 percent) above
+3.0. Expect the solution to improve after deleting these measurements.
 
 ## Differential item functioning (DIF) {#sec:dif}
 
