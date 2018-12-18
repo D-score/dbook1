@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>D-score for measuring development of children 0-4 years</title>
+  <meta name="description" content="D-score I: Measurement">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="D-score for measuring development of children 0-4 years" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="D-score I: Measurement" />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="D-score for measuring development of children 0-4 years" />
+  
+  <meta name="twitter:description" content="D-score I: Measurement" />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="ch-newmodel.html">
+<link rel="next" href="probability-of-passing-a-milestone-given-age.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+pre, code { background-color: #f8f8f8; }
+code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code > span.dt { color: #204a87; } /* DataType */
+code > span.dv { color: #0000cf; } /* DecVal */
+code > span.bn { color: #0000cf; } /* BaseN */
+code > span.fl { color: #0000cf; } /* Float */
+code > span.ch { color: #4e9a06; } /* Char */
+code > span.st { color: #4e9a06; } /* String */
+code > span.co { color: #8f5902; font-style: italic; } /* Comment */
+code > span.ot { color: #8f5902; } /* Other */
+code > span.al { color: #ef2929; } /* Alert */
+code > span.fu { color: #000000; } /* Function */
+code > span.er { color: #a40000; font-weight: bold; } /* Error */
+code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #000000; } /* Constant */
+code > span.sc { color: #000000; } /* SpecialChar */
+code > span.vs { color: #4e9a06; } /* VerbatimString */
+code > span.ss { color: #4e9a06; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #000000; } /* Variable */
+code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code > span.ex { } /* Extension */
+code > span.at { color: #c4a000; } /* Attribute */
+code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">D-score I: Measurement</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="first-1000-days.html"><a href="first-1000-days.html"><i class="fa fa-check"></i><b>1.1</b> First 1000 days</a></li>
+<li class="chapter" data-level="1.2" data-path="relevance-of-child-development.html"><a href="relevance-of-child-development.html"><i class="fa fa-check"></i><b>1.2</b> Relevance of child development</a></li>
+<li class="chapter" data-level="1.3" data-path="advantages-and-limitations-of-stunting.html"><a href="advantages-and-limitations-of-stunting.html"><i class="fa fa-check"></i><b>1.3</b> Advantages and limitations of stunting</a></li>
+<li class="chapter" data-level="1.4" data-path="measuring-neurocognitive-development.html"><a href="measuring-neurocognitive-development.html"><i class="fa fa-check"></i><b>1.4</b> Measuring neurocognitive development</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-history.html"><a href="ch-history.html"><i class="fa fa-check"></i><b>2</b> Short history of child development</a><ul>
+<li class="chapter" data-level="2.1" data-path="sec-definitions.html"><a href="sec-definitions.html"><i class="fa fa-check"></i><b>2.1</b> What is child development?</a></li>
+<li class="chapter" data-level="2.2" data-path="sec-theories.html"><a href="sec-theories.html"><i class="fa fa-check"></i><b>2.2</b> Theories of child development</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="sec-theories.html"><a href="sec-theories.html#continuous-or-discontinuous"><i class="fa fa-check"></i><b>2.2.1</b> Continuous or discontinuous?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sec-theories.html"><a href="sec-theories.html#one-course-or-many"><i class="fa fa-check"></i><b>2.2.2</b> One course or many?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sec-theories.html"><a href="sec-theories.html#nature-or-nurture"><i class="fa fa-check"></i><b>2.2.3</b> Nature or nurture?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sec-motorexample.html"><a href="sec-motorexample.html"><i class="fa fa-check"></i><b>2.3</b> Example of motor development</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="sec-motorexample.html"><a href="sec-motorexample.html#shirleys-motor-data"><i class="fa fa-check"></i><b>2.3.1</b> Shirley’s motor data</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sec-motorexample.html"><a href="sec-motorexample.html#individual-trajectories-of-motor-development"><i class="fa fa-check"></i><b>2.3.2</b> Individual trajectories of motor development</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="sec-questions.html"><a href="sec-questions.html"><i class="fa fa-check"></i><b>2.4</b> Typical questions asked in child development</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-threeways.html"><a href="ch-threeways.html"><i class="fa fa-check"></i><b>3</b> Three ways to quantify child development</a><ul>
+<li class="chapter" data-level="3.1" data-path="sec-agebased.html"><a href="sec-agebased.html"><i class="fa fa-check"></i><b>3.1</b> Age-based measurement of development</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="sec-agebased.html"><a href="sec-agebased.html#motivation-for-age-based-measurement"><i class="fa fa-check"></i><b>3.1.1</b> Motivation for age-based measurement</a></li>
+<li class="chapter" data-level="3.1.2" data-path="sec-agebased.html"><a href="sec-agebased.html#sec:ageequivalent"><i class="fa fa-check"></i><b>3.1.2</b> Age equivalent as difficulty</a></li>
+<li class="chapter" data-level="3.1.3" data-path="sec-agebased.html"><a href="sec-agebased.html#limitations-of-age-based-measurement"><i class="fa fa-check"></i><b>3.1.3</b> Limitations of age-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="sec-scorebased.html"><a href="sec-scorebased.html"><i class="fa fa-check"></i><b>3.2</b> Score-based measurement of development</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-scorebased.html"><a href="sec-scorebased.html#motivation-for-score-based-measurement"><i class="fa fa-check"></i><b>3.2.1</b> Motivation for score-based measurement</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-scorebased.html"><a href="sec-scorebased.html#example-of-score-based-measurement"><i class="fa fa-check"></i><b>3.2.2</b> Example of score-based measurement</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sec-scorebased.html"><a href="sec-scorebased.html#limitations-of-score-based-measurement"><i class="fa fa-check"></i><b>3.2.3</b> Limitations of score-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html"><i class="fa fa-check"></i><b>3.3</b> Unit-based measurement of development</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-unitbased.html"><a href="sec-unitbased.html#sec:motivationunit"><i class="fa fa-check"></i><b>3.3.1</b> Motivation for unit-based measurement</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-unitbased.html"><a href="sec-unitbased.html#sec:unitbasedexample"><i class="fa fa-check"></i><b>3.3.2</b> Example of unit-based measurement</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html#limitations-of-unit-based-measurement"><i class="fa fa-check"></i><b>3.3.3</b> Limitations of unit-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sec-whatismeasurement.html"><a href="sec-whatismeasurement.html"><i class="fa fa-check"></i><b>3.4</b> What is measurement?</a></li>
+<li class="chapter" data-level="3.5" data-path="sec-whyunit.html"><a href="sec-whyunit.html"><i class="fa fa-check"></i><b>3.5</b> Why unit-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> <span class="math inline">\(D\)</span>-score: A unit to quantify general child development</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-ddi.html"><a href="sec-ddi.html"><i class="fa fa-check"></i><b>4.1</b> The Dutch Development Instrument (DDI)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-ddi.html"><a href="sec-ddi.html#setting"><i class="fa fa-check"></i><b>4.1.1</b> Setting</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#sec:smocc"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sec-ddi.html"><a href="sec-ddi.html#codebook-of-dutch-development-instrument-0-15-months"><i class="fa fa-check"></i><b>4.1.3</b> Codebook of Dutch Development Instrument 0-15 months</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="probability-of-passing-a-milestone-given-age.html"><a href="probability-of-passing-a-milestone-given-age.html"><i class="fa fa-check"></i><b>4.2</b> Probability of passing a milestone given age</a></li>
+<li class="chapter" data-level="4.3" data-path="probability-of-passing-a-milestone-given-d-score.html"><a href="probability-of-passing-a-milestone-given-d-score.html"><i class="fa fa-check"></i><b>4.3</b> Probability of passing a milestone given <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.4" data-path="relation-between-age-and-the-d-score.html"><a href="relation-between-age-and-the-d-score.html"><i class="fa fa-check"></i><b>4.4</b> Relation between age and the <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.5" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html"><i class="fa fa-check"></i><b>4.5</b> Measurement model for the <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html#what-are-measurement-models"><i class="fa fa-check"></i><b>4.5.1</b> What are measurement models?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html#sec:adaptmodel"><i class="fa fa-check"></i><b>4.5.2</b> Adapt the model? Or adapt the data?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html"><i class="fa fa-check"></i><b>4.6</b> Item response functions</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#logistic-model"><i class="fa fa-check"></i><b>4.6.1</b> Logistic model</a></li>
+<li class="chapter" data-level="4.6.2" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#types-of-item-response-functions"><i class="fa fa-check"></i><b>4.6.2</b> Types of item response functions</a></li>
+<li class="chapter" data-level="4.6.3" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#person-response-functions"><i class="fa fa-check"></i><b>4.6.3</b> Person response functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="sec-engelhard.html"><a href="sec-engelhard.html"><i class="fa fa-check"></i><b>4.7</b> Engelhard criteria for invariant measurement</a></li>
+<li class="chapter" data-level="4.8" data-path="sec-whyrasch.html"><a href="sec-whyrasch.html"><i class="fa fa-check"></i><b>4.8</b> Why take the Rasch model?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch-computation.html"><a href="ch-computation.html"><i class="fa fa-check"></i><b>5</b> Computation</a><ul>
+<li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Identify nature of the problem</a></li>
+<li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a></li>
+<li class="chapter" data-level="5.3" data-path="sec-anchoring.html"><a href="sec-anchoring.html"><i class="fa fa-check"></i><b>5.3</b> Anchoring</a></li>
+<li class="chapter" data-level="5.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.4</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#eap-algorithm"><i class="fa fa-check"></i><b>5.4.1</b> EAP algorithm</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#age-dependent-starting-prior"><i class="fa fa-check"></i><b>5.4.2</b> Age-dependent starting prior</a></li>
+<li class="chapter" data-level="5.4.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#numerical-example"><i class="fa fa-check"></i><b>5.4.3</b> Numerical example</a></li>
+<li class="chapter" data-level="5.4.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#technical-observations-on-d-score-estimation"><i class="fa fa-check"></i><b>5.4.4</b> Technical observations on <span class="math inline">\(D\)</span>-score estimation</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch-evaluation.html"><a href="ch-evaluation.html"><i class="fa fa-check"></i><b>6</b> Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="sec-itemfit.html"><a href="sec-itemfit.html"><i class="fa fa-check"></i><b>6.1</b> Item fit</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="sec-itemfit.html"><a href="sec-itemfit.html#well-fitting-item-response-curves"><i class="fa fa-check"></i><b>6.1.1</b> Well-fitting item response curves</a></li>
+<li class="chapter" data-level="6.1.2" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-severe-underfit"><i class="fa fa-check"></i><b>6.1.2</b> Item response curves showing severe underfit</a></li>
+<li class="chapter" data-level="6.1.3" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-overfit"><i class="fa fa-check"></i><b>6.1.3</b> Item response curves showing overfit</a></li>
+<li class="chapter" data-level="6.1.4" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-infit-and-outfit"><i class="fa fa-check"></i><b>6.1.4</b> Item infit and outfit</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a></li>
+<li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.4" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html"><i class="fa fa-check"></i><b>6.4</b> Item information</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-ability"><i class="fa fa-check"></i><b>6.4.1</b> Item information at a given ability</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-age"><i class="fa fa-check"></i><b>6.4.2</b> Item information at a given age</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sec-reliability.html"><a href="sec-reliability.html"><i class="fa fa-check"></i><b>6.5</b> Reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="validity.html"><a href="validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
+<li class="chapter" data-level="7.1" data-path="role-of-validity.html"><a href="role-of-validity.html"><i class="fa fa-check"></i><b>7.1</b> Role of validity</a></li>
+<li class="chapter" data-level="7.2" data-path="internal-validity.html"><a href="internal-validity.html"><i class="fa fa-check"></i><b>7.2</b> Internal validity</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="internal-validity.html"><a href="internal-validity.html#content-validity"><i class="fa fa-check"></i><b>7.2.1</b> Content validity</a></li>
+<li class="chapter" data-level="7.2.2" data-path="internal-validity.html"><a href="internal-validity.html#construct-validity"><i class="fa fa-check"></i><b>7.2.2</b> Construct validity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="external-validity.html"><a href="external-validity.html"><i class="fa fa-check"></i><b>7.3</b> External validity</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="external-validity.html"><a href="external-validity.html#discriminatory-validity"><i class="fa fa-check"></i><b>7.3.1</b> Discriminatory validity</a></li>
+<li class="chapter" data-level="7.3.2" data-path="external-validity.html"><a href="external-validity.html#convergent-validity"><i class="fa fa-check"></i><b>7.3.2</b> Convergent validity</a></li>
+<li class="chapter" data-level="7.3.3" data-path="external-validity.html"><a href="external-validity.html#predictive-validity"><i class="fa fa-check"></i><b>7.3.3</b> Predictive validity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="outcome.html"><a href="outcome.html"><i class="fa fa-check"></i><b>8</b> Outcome</a><ul>
+<li class="chapter" data-level="8.1" data-path="d-score-of-reference-children-at-2-years-pd.html"><a href="d-score-of-reference-children-at-2-years-pd.html"><i class="fa fa-check"></i><b>8.1</b> D-score of reference children at 2 years (PD)</a></li>
+<li class="chapter" data-level="8.2" data-path="d-score-of-reference-children-at-2-years-pd-1.html"><a href="d-score-of-reference-children-at-2-years-pd-1.html"><i class="fa fa-check"></i><b>8.2</b> D-score of reference children at 2 years (PD)</a></li>
+<li class="chapter" data-level="8.3" data-path="d-score-of-reference-children-at-2-years-pd-2.html"><a href="d-score-of-reference-children-at-2-years-pd-2.html"><i class="fa fa-check"></i><b>8.3</b> D-score of reference children at 2 years (PD)</a></li>
+<li class="chapter" data-level="8.4" data-path="usability-and-validity-of-the-d-score-in-a-low-income-country-the-case-of-togo.html"><a href="usability-and-validity-of-the-d-score-in-a-low-income-country-the-case-of-togo.html"><i class="fa fa-check"></i><b>8.4</b> Usability and validity of the D-score in a low income country: The case of Togo</a></li>
+<li class="chapter" data-level="8.5" data-path="comparison.html"><a href="comparison.html"><i class="fa fa-check"></i><b>8.5</b> Comparison</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="delay.html"><a href="delay.html"><i class="fa fa-check"></i><b>9</b> Delay</a><ul>
+<li class="chapter" data-level="9.1" data-path="application-ii-d-score-to-identify-delayed-development-pd.html"><a href="application-ii-d-score-to-identify-delayed-development-pd.html"><i class="fa fa-check"></i><b>9.1</b> Application II: D-score to identify delayed development (PD)</a></li>
+<li class="chapter" data-level="9.2" data-path="longitudinal-d-score-patterns-in-different-populations.html"><a href="longitudinal-d-score-patterns-in-different-populations.html"><i class="fa fa-check"></i><b>9.2</b> Longitudinal D-score patterns in different populations</a></li>
+<li class="chapter" data-level="9.3" data-path="issues-in-defining-developmental-delay.html"><a href="issues-in-defining-developmental-delay.html"><i class="fa fa-check"></i><b>9.3</b> Issues in defining developmental delay</a></li>
+<li class="chapter" data-level="9.4" data-path="specificity-in-reference-pre-term-and-lmic-populations.html"><a href="specificity-in-reference-pre-term-and-lmic-populations.html"><i class="fa fa-check"></i><b>9.4</b> Specificity in reference, pre-term and LMIC populations</a></li>
+<li class="chapter" data-level="9.5" data-path="practical-implications.html"><a href="practical-implications.html"><i class="fa fa-check"></i><b>9.5</b> Practical implications</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="consequences.html"><a href="consequences.html"><i class="fa fa-check"></i><b>10</b> Consequences</a><ul>
+<li class="chapter" data-level="10.1" data-path="application-iii-long-term-health-consequences-of-delay-in-pre-terms.html"><a href="application-iii-long-term-health-consequences-of-delay-in-pre-terms.html"><i class="fa fa-check"></i><b>10.1</b> Application III: Long-term health consequences of delay in pre-terms</a></li>
+<li class="chapter" data-level="10.2" data-path="relevance-of-long-term-health-outcomes.html"><a href="relevance-of-long-term-health-outcomes.html"><i class="fa fa-check"></i><b>10.2</b> Relevance of long-term health outcomes</a></li>
+<li class="chapter" data-level="10.3" data-path="predictive-power-of-d-score.html"><a href="predictive-power-of-d-score.html"><i class="fa fa-check"></i><b>10.3</b> Predictive power of D-score</a></li>
+<li class="chapter" data-level="10.4" data-path="practical-implications-1.html"><a href="practical-implications-1.html"><i class="fa fa-check"></i><b>10.4</b> Practical implications</a></li>
+<li class="chapter" data-level="10.5" data-path="opportunities-and-impact-of-early-intervention.html"><a href="opportunities-and-impact-of-early-intervention.html"><i class="fa fa-check"></i><b>10.5</b> Opportunities and impact of early intervention</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="discussion.html"><a href="discussion.html"><i class="fa fa-check"></i><b>11</b> Discussion</a><ul>
+<li class="chapter" data-level="11.1" data-path="usefulness-of-d-score-for-monitoring-child-health.html"><a href="usefulness-of-d-score-for-monitoring-child-health.html"><i class="fa fa-check"></i><b>11.1</b> Usefulness of D-score for monitoring child health</a></li>
+<li class="chapter" data-level="11.2" data-path="opportunities-for-early-intervention.html"><a href="opportunities-for-early-intervention.html"><i class="fa fa-check"></i><b>11.2</b> Opportunities for early intervention</a></li>
+<li class="chapter" data-level="11.3" data-path="d-score-for-international-settings.html"><a href="d-score-for-international-settings.html"><i class="fa fa-check"></i><b>11.3</b> D-score for international settings</a></li>
+<li class="chapter" data-level="11.4" data-path="d-score-from-existing-instruments.html"><a href="d-score-from-existing-instruments.html"><i class="fa fa-check"></i><b>11.4</b> D-score from existing instruments</a></li>
+<li class="chapter" data-level="11.5" data-path="creating-new-instruments-for-d-score.html"><a href="creating-new-instruments-for-d-score.html"><i class="fa fa-check"></i><b>11.5</b> Creating new instruments for D-score</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="ch-notation.html"><a href="ch-notation.html"><i class="fa fa-check"></i><b>12</b> Appendix - notation</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org/yihui/bookdown/" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score for measuring development of children 0-4 years</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:ddi" class="section level2">
+<h2><span class="header-section-number">4.1</span> The Dutch Development Instrument (DDI)</h2>
+<div id="setting" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Setting</h3>
+<p>The Dutch Youth Health Care (YHC) routinely monitors development of almost all children living in The Netherlands. During the first four years, there are 13 scheduled visits. During these visits, the YHC professionals evaluate - amongst others - growth and development of the child.</p>
+<p>The <em>Dutch Development Instrument</em> (DDI; in Dutch: <em>Van Wiechenschema</em>) is the standard instrument used to measure development during the ages 0-4 years. The DDI consists of <a href="https://www.ncj.nl/van-wiechen/kenmerken/">75 milestones</a>. The instrument assesses three developmental domains:</p>
+<ol style="list-style-type: decimal">
+<li>Fine motor, adaptation, personality and social behavior;</li>
+<li>Communication</li>
+<li>Gross motor</li>
+</ol>
+<p>The milestones are organized on two <a href="https://www.ggdghorkennisnet.nl/?file=656&amp;m=1310474916&amp;action=file.download">forms</a>, one for children aged 0-15 months, and another for children ages 15-54 months. The YHC professionals administer an age-appropriate subset at each of the scheduled visits, thus building a <em>longitudinal developmental profile</em> for each child.</p>
+</div>
+<div id="sec:smocc" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Description of SMOCC study</h3>
+<p>The Social Medical Survey of Children Attending Child Health Clinics (SMOCC) study is a a nationally representative cohort of 2,151 children born in The Netherlands during the years 1988–1989 <span class="citation">(Herngreen et al. <a href="#ref-herngreen1994">1994</a>)</span>. The study monitored child development using observations made on the DDI during 10 visits in the first 30 months of life.</p>
+<p>The standard set in the DDI consists of relatively easy milestones that 90 percent of the children can pass at the scheduled age. This set of designed to have maximal sensitivity for picking up delays in development. A special feature of the SMOCC study was the inclusion of additional, and more difficult, milestones beyond the standard set. The additional milestones are taken as the set for the next time point. The success percentage on additional milestones is about 50 percent.</p>
+</div>
+<div id="codebook-of-dutch-development-instrument-0-15-months" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Codebook of Dutch Development Instrument 0-15 months</h3>
+<div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:smoccitems">Table 4.1: </span>Codebook of DDI, 0-15 months
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Item
+</th>
+<th style="text-align:left;">
+Domain
+</th>
+<th style="text-align:left;">
+Label
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ddicmm029
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Reacts when spoken to
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm030
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Smiles in response (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm031
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+vocalizes in response
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm033
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Says dada, baba, gaga
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm034
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Babbles while playing
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm036
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Waves ‘bye-bye’ (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm037
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Uses two words with comprehension
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm039
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Says three ‘words’
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm040
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Understands ‘play’ orders. For example, “Give the dolly a little bite of your cookie”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm041
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Says sentences with 2 words
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm042
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Points at 6 parts of body of a doll.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm043
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Refers to self using ‘me’ or ‘I’ (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmd044
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Points at 5 pictures in the book
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm045
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Says “sentences” of 3 or more words
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm046
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Can be understood by family (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm047
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Talks spontaneously on daily events (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm048
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Asks questions about “who”, “what”, Asks questions beginning by who, what, where and “how”
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmd049
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Can be understood by tester
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmm050
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Asks questions:how many, when, why (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmd116
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Turn head to sound
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmd136
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Reacts to verbal request (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmd141
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Identifies two named objects
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddicmd148
+</td>
+<td style="text-align:left;">
+Communication
+</td>
+<td style="text-align:left;">
+Understands ‘play’ orders
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd001
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Eyes fixate
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd002
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Follows with eyes and head 30d &lt; 0 &gt; 30d
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd003
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Hands open occasionally
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm004
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Watches own hands
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd005
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Plays with hands in midline
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd007
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Passes cube from hand to hand
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd008
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Holds cube, grasps another one with other hand
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm009
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Plays with both feet
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd010
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Picks up pellet between thumb and index finger
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd011
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Puts cube in and out of a box
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm012
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Plays ‘give and take’ (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd013
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Tower of 2 cubes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm014
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Explores environment energetically (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd015
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Builds tower of 3 cubes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm016
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Imitates everyday activities (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd017
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Tower of 6 cubes
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd018
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Places round block in board
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm019
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Takes off shoes and socks (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd020
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Imitates building a truck
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd021
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Places 3 forms in form-box
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd022
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Imitates drawing vertical line
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd023
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Imitates building a bridge
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd024
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Places 4 forms in form-box
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmm025
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Can dress (one piece) (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd026
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Copies a circle
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd027
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Holds pencil with fingers
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddifmd154
+</td>
+<td style="text-align:left;">
+Fine motor
+</td>
+<td style="text-align:left;">
+Eats with spoon without help (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd006
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Grasps object within reach
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd052
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Moves arms equally well
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd053
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Moves legs equally well
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd054
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Stays suspended when lifted under the armpits
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd055
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+No head lag if pulled to sitting
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd056
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Lifts chin off table for a moment
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd057
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Lifts head to 45 degrees on prone position
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd058
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Looks around to side with angle face-table 90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd059
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Flexes or stomps legs while being swung
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmm060
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Rolls over back to front
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd061
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Balances head well while sitting
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd062
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Sits on buttocks while legs stretched
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd063
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Sits in stable position without support
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmm064
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Crawls forward, abdomen on the floor
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmm065
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Pulls up to standing position
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmm066
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Crawls, abdomen off the floor (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmm067
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Walks while holding onto play-pen or furniture
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd068
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Walks alone
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd069
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Throws ball without falling
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd070
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Squats or bends to pick things up
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd071
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Kicks ball
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd072
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Can rotace fluently in sitting position
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmm073
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Rides on tricycle (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd074
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Jumps with both feet simultaneously
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd146
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Drinks from cup (M; can ask parents)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd168
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Walks well
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd268
+</td>
+<td style="text-align:left;">
+Gross motor
+</td>
+<td style="text-align:left;">
+Walks well alone/walks smoothly
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Table <a href="sec-ddi.html#tab:smoccitems">4.1</a> shows the 57 milestones from the DDI for ages 0 - 30 months. The response to each milestones is either a PASS (1) or a FAIL (0). Missing values are allowed.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-herngreen1994">
+<p>Herngreen, W.P., S. van Buuren, J.C. van Wieringen, J.D. Reerink, S.P. Verloove-Vanhorick, and J.H. Ruys. 1994. “Growth in Length and Weight from Birth to 2 Years of a Representative Sample of Netherlands Children (Born in 1988-89) Related to Socio-Economic Status and Other Background Characteristics.” <em>Annals of Human Biology</em> 21 (5): 449–63.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ch-newmodel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="probability-of-passing-a-milestone-given-age.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
