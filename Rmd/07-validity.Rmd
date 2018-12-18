@@ -139,9 +139,14 @@ Convergent validity is the extend to which the D-score relates to other similar 
 # Er zitten nu geen auxiliary variables in de data
 ---
 
-```{r plot concurrent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plot concurrent, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 
 plots <- plot_d_aux(data = data, model = model, metric = "dscore")
+
+adm_list <- names(data$visit)[!(names(data$visit) %in% c("studyid", "ctrycd", 
+            "cohort", "cohortn", "subjid", "subjido", "agedays", 
+            "sex", "sexn"))]
+plots <- plot_d_adm(data = data, model = model, metric = "dscore", adm_list = adm_list, show_legend = FALSE, show_cor = TRUE)
 
 ```
 
