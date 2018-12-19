@@ -1,0 +1,513 @@
+# Three ways to quantify child development {#ch:threeways}
+
+This section distinguishes three different principles that are being
+used to quantify child development: 
+
+* Age-based measurement (\@ref(sec:agebased))
+* Score-based measurement (\@ref(sec:scorebased))
+* Unit-based measurement (\@ref(sec:unitbased))
+
+## Age-based measurement of development {#sec:agebased}
+
+### Motivation for age-based measurement
+
+The motivation for measuring child development is to be able to
+describe the behavior expected at a selected age. @gesell1943 (p. 89)
+formulates this goal as follows:
+
+> We think of behavior in terms of age, and we think of age in terms
+> of behavior. For any selected age it is possible to sketch a portrait
+> which delineates the behavior characteristics typical of the age.
+
+There is a large literature that quantifies development in terms of
+ages at which the child is expected to show a specific behavior. For
+example, in Shirley's motor data in Table \@ref(tab:shirley), we may
+summarize the ages at which each of the 21 children enters a given
+stage.
+
+```{r agebased, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebased)', warning = FALSE}
+load(file = file.path("data/shirley.rda"))
+
+d <- shirley %>%
+  mutate(name = factor(name, as.character(name))) %>%
+  gather(key = "stage", value = "age", -name, -sex) %>%
+  mutate(
+    stage = factor(stage, unique(stage)),
+    score = rep(1:4, each = 21))
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_point(cex = 3, pch = 1) + 
+  geom_point() + 
+  theme_light() + 
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Stage")
+```
+
+(ref:agebased) Ages at which 21 children achieve four motor development milestones. 
+
+### Age equivalent as difficulty {#sec:ageequivalent}
+
+Since age and development are so intimately related, the *difficulty*
+of a given developmental milestone is traditionally expressed in terms
+of the age at which children achieve it. For example,
+@stott1967 (p. 25) defines the *age equivalent* and its use for
+measurement, as follows:
+
+> The age equivalent of a particular stage is simply the average age 
+> at which children reach that particular stage. 
+
+```{r agebox, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebox)', warning = FALSE}
+means <- aggregate(age ~  stage, d, mean)
+ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
+  geom_boxplot(col = "skyblue", fill = "transparent", width = 0.3) +
+  geom_point(cex = 3, pch = 1) + 
+  geom_point() + 
+  stat_summary(fun.y = mean, colour = "black", geom = "point", 
+               shape = 4, size = 3, show.legend = FALSE) +
+  theme_light() + 
+  guides(colour = FALSE) + 
+  labs(y = "Age (weeks)", x = "Stage") +
+  coord_flip()
+```
+
+(ref:agebox) Boxplot and mean (symbol `x`) of the ages at which 21 children achieve four motor development milestones.
+
+Figure \@ref(fig:agebox) adds boxplot and the mean age at which the
+children enter the four stages. The difficulty of the stages can thus
+be expressed as age equivalents: 16.1 weeks for stepping, 27.2 weeks
+for standing, 43.3 weeks for walking with help and 63.3 weeks for
+walking alone. 
+
+Alternatives to the mean age equivalent include the ages at which 10,
+50 or 90 percent of the children achieve the milestone. This line of
+reasoning has led to the widely used concept of *developmental age* as
+a measure of a child's development (in body size or motor skill or
+psychological function) expressed in terms of age norms.
+
+### Limitations of age-based measurement 
+
+Age-based measurement is easy to understand, but is not without 
+pitfalls:
+
+1. Age-based measurement can inform us whether a child is earlier or
+later for a given milestone. However, it does not tell us what
+behaviors are characteristic for a child of a given age.
+
+2. Age-based measurement cannot exists without an age norm. When there
+is no norms, we cannot quantify development. Age-based measurement
+intertwines quantification of development with evaluation of
+development.
+
+3. Age-based measurement only works at the milestone level, and is 
+cumbersome to apply with multiple milestones.
+
+## Score-based measurement of development {#sec:scorebased}
+
+### Motivation for score-based measurement
+
+Score-based measurement takes the responses on multiple milestones and
+counts the total number of passed milestones as a measure of child's
+development. This approach takes multiple measurement into account,
+hence leading to a more stable measurement. 
+
+If milestones are ordered in difficulty, so one may skip milestones that are too
+easy, and stop when milestones become too difficult for the child, for
+example as age-forms. In such cases, we cannot simply interpret the
+sum score of a measure of development, and need to correct for the
+subset of milestones that was actually administered. The usual working
+assumption is that the child would have passed all easier milestones and
+failed on all more difficult milestones. This procedure is typically
+repeated for different domains, e.g. motor, cognitive, and so on.
+
+### Example of score-based measurement
+
+```{r scoreplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:scoreplot)', warning = FALSE}
+levels(d$stage) <- as.character(0:3)
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_step() + 
+  geom_point() + 
+  theme_light() + 
+  facet_wrap(~ name, nrow = 3) +
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Gross-motor score")
+```
+
+(ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with 
+the vertical axis representing gross-motor score.
+
+Figure \@ref(fig:scoreplot) is a gross-motor score calculated as the
+number of milestones passed. It varies from 0 to 3. 
+
+The plot suggests that the difference in development between scores 0
+and 1 is the same as the difference in development between, say,
+scores 2 and 3. *This is not true*. For example, suppose that we
+express difficulty of the milestone as an age-equivalent. From section
+\@ref(sec:ageequivalent) we see that the difference in difficulty
+between stepping and standing is 27.2 - 16.1 = 11.1 weeks, whereas the
+difference between walking alone and walking with help is 63.3 - 43.3
+= 20 weeks. Thus, according to age equivalents scores 0 and 1 should be 
+closer to each other, and scores 2 and 3 should be drawn wider apart.
+
+### Limitations of score-based measurement
+
+Score-based measurement is today's dominant approach, but is not
+without conceptual and logistical issues.
+
+1. The total score depends not only on the (true) developmental status
+of the child, but also on the set of milestones actually administered. If
+a milestone is skipped or added, the sum score cannot be interpreted
+anymore as a measure of the child's developmental status.
+
+2. It is not possible to compare scores made by different instruments.
+Some instruments allows conversion to age-conditional scores. However,
+the sample used to derive such conversions are typically restricted to
+one instrument, and does not extend to measurements made by other
+instruments.
+
+3. Domains are hard to separate. For example, some cognitive milestones tap
+into fine motor capabilities, and vice versa. There are different ways
+to define domains, so domain interpretation varies by instrument.
+
+4. Administration of a full test may take substantial time. The
+materials are often proprietary and sometimes costly.
+
+## Unit-based measurement of development {#sec:unitbased}
+
+### Motivation for unit-based measurement {#sec:motivationunit}
+
+Unit-based measurement starts by defining the ideal properties of the
+measurement, and derives a procedure to aggregate the responses on
+milestones into an overall score that will meet the ideal.
+
+Section \@ref(sec:questions) highlighted questions for individuals,
+groups and populations. There are basically three questions:
+
+* What is the difference in development over time for the same child,
+group or population?
+
+* What is the difference in development between different children,
+groups or populations of the same age?
+
+* How does child development compare to a norm?
+
+In the ideal situation, we would like to have a continuous (latent)
+variable $D$ (for development) that measures child development. The
+scale should allow us to quantify *ability* of persons, groups or
+populations from low to high. The scale should have a *constant unit*,
+so that a given difference in ability quantifies means the same across
+the entire scale, just like that a difference of 10 cm means the same
+irrespective of whether we compare the heights of books or houses.
+When are these conditions are met, we say that we measure on an
+*interval scale*.
+
+If we succeed in creating an interval scale for child development, an
+enormous arsenal of technique developed for quantitative variables
+opens up to measure, track and analyze child development. We may then
+evaluate the development of a child in terms of $D$ points gained,
+create age-dependent charts for development (just like growth charts
+for height and weight), devise age-conditional measures for child
+development, and intelligent adaptive testing schemes. Promising
+studies on Dutch data (@jacobusse2006, @jacobusse2007, @vanbuuren2014)
+suggest that such benefits are well within reach.
+
+### Example of unit-based measurement {#sec:unitbasedexample}
+
+```{r weekly, echo = FALSE}
+load(file = file.path("data/shirley.rda"))
+data <- expand.grid(age = c(12:52, seq(54, 76, 2)), 
+                    name = shirley$name) %>%
+  left_join(shirley, by = c("name")) %>%
+  mutate(stepping   = ifelse(age <   stepping, 0, 1),
+         stepping   = ifelse(is.na(stepping), 1, stepping),
+         standing   = ifelse(age <   standing, 0, 1),
+         walk_help  = ifelse(age <  walk_help, 0, 1),
+         walk_alone = ifelse(age < walk_alone, 0, 1)) %>%
+  dplyr::select(name, age, everything())
+# introduce some deviations from perfect Guttmann in order to 
+# prevent orphaned "stepping" milestone
+data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <- 
+  c(0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 1, 
+    0 ,1, 1, 1, 0)
+
+options(knitr.table.format = "html") 
+kable(data, 
+      caption = "Hypothetical (bi-)weekly measurements as reconstructed from Table 2.1.") %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+
+Table \@ref(tab:weekly) reconstructs the weekly motor measurements
+made by Shirley from Table \@ref(tab:shirley). Each of the
+measurements is coded as a PASS (1) or a FAIL (0).
+
+It is now straighforward to calculate the probability of passing each milestone at different ages. 
+
+```{r echo = FALSE}
+data2 <- data %>%
+  mutate(country = "USA",
+         study = "Shirley",
+         subjid = name,
+         agedays = round(age * 7),
+         wave = 1L)
+
+varlist <- list(adm = c("country", "study", "subjid", "wave", "agedays"), 
+                items = c("stepping", "standing", "walk_help", "walk_alone"),
+                cov = NULL)
+anchors <- c(40, 60)
+names(anchors) <- c("standing", "walk_alone")
+model <- fit_dmodel(varlist, data2, data_package = "", 
+                    anchors = anchors, model_name = "Motor")
+```
+
+
+```{r shirleypa, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE}
+# create long matrix
+itm <- data2 %>%
+  dplyr::select(subjid, agedays, stepping, standing, walk_help, walk_alone) %>%
+  reshape2::melt(id.vars = c("subjid", "agedays"),
+                 value.name = "value", variable.name = "item",
+                 measure.vars = varlist$items, 
+                 na.rm = TRUE) %>%
+  mutate(value = as.integer(.data$value),
+         item = as.character(.data$item))
+
+# define data for rug plot
+data_rug <- itm %>%
+  mutate(study = "Shirley",
+         ageweeks = agedays / 7) %>%
+  dplyr::select(item, value, ageweeks, study)
+
+# calculate summary statistics
+pass <- data_rug %>%
+  mutate(agegp = cut(ageweeks, breaks = seq(0, 76, 2))) %>%
+  group_by(item, study, agegp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(ageweeks, na.rm = TRUE),
+            n = n()) %>%
+  ungroup %>%
+  left_join(dmetric::get_itemtable(items = varlist$items, package = ""), by = "item")
+
+plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
+  scale_x_continuous("Age (in weeks)", limits = c(0, 76),
+                     breaks = seq(0, 76, 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
+        legend.key.size = unit(3.0, "mm"),
+        legend.spacing.y = unit(0.5, "mm"),
+        legend.background = element_rect(fill = "transparent", colour = "transparent")) +
+  scale_colour_discrete(limits = c("stepping", "standing", "walk_help", "walk_alone")) +
+  labs(colour = "Item") +
+  guides(fill = guide_legend(title = NULL)) +
+  guides(col = guide_legend(ncol = 1))
+plot
+```
+
+(ref:shirleypa) Probability of achieving four motor milestones against age. Data from Table \@ref(tab:weekly).
+
+Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
+
+```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
+items <- varlist$items
+modelb <- model$dscore
+colnames(modelb)[colnames(modelb) == "d"] <- "b"
+delta <- dscore::gettau(items, model$itembank, lexicon = model$lexicon)
+beta_breaks <- seq(20, 70, 1)
+xlim <- c(20, 70)
+scale <- model$transform[2]
+
+# create long matrix
+data3 <- left_join(data2, modelb)
+data3 <- data3 %>%
+      gather(key = "item", value = "value", items) %>%
+      drop_na("value")
+
+# proportion pass per dscore group
+# observations per months (n) by study and item
+pass <- data3 %>%
+  drop_na("item", "value", "b") %>%
+  mutate(
+    bgp = cut(b, breaks = beta_breaks),
+    age = agedays / 365.25) %>%
+  group_by(item, study, bgp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(age, na.rm = TRUE),
+            b = mean(b, na.rm = TRUE),
+            n = n()) %>%
+  ungroup() %>%
+  left_join(dmetric::get_itemtable(items = items, package = ""), by = "item") %>%
+  mutate(seq = 0,
+         seq = ifelse(item == "stepping", 1, seq),
+         seq = ifelse(item == "standing", 2, seq),
+         seq = ifelse(item == "walk_help", 3, seq), 
+         seq = ifelse(item == "walk_alone", 4, seq)) %>%
+  arrange(seq) %>%
+  filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
+
+# define data for rug plot
+data_rug <- data3 %>%
+  mutate(age = agedays / 365.25) %>%
+  dplyr::select(item, study, subjid, age, b, value) %>%
+  group_by(item, study, subjid, age, value) %>%
+  summarise(b = mean(b, na.rm = TRUE)) %>%
+  ungroup() %>%
+  drop_na(b) %>%
+  mutate(seq = 0,
+         seq = ifelse(item == "stepping", 1, seq),
+         seq = ifelse(item == "standing", 2, seq),
+         seq = ifelse(item == "walk_help", 3, seq), 
+         seq = ifelse(item == "walk_alone", 4, seq)) %>%
+  arrange(seq) %>%
+  filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
+
+plot <- ggplot(pass, aes(x = b, y = p, group = item, colour = item)) +
+  scale_x_continuous("Ability", limits = xlim,
+                     breaks = seq(xlim[1], xlim[2], 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_point(aes(x = delta, y = y), 
+             data = data.frame(delta = delta, y = 50, item = names(delta)),
+             pch = 4, cex = 2) +
+  # geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
+        legend.key.size = unit(3.0, "mm"),
+        legend.spacing.y = unit(0.5, "mm"),
+        legend.background = element_rect(fill = "transparent", colour = "transparent")) +
+  scale_colour_discrete(limits = c("stepping", "standing", "walk_help", "walk_alone")) +
+  labs(colour = "Item", shape = 19) +
+  guides(fill = guide_legend(title = NULL)) +
+  guides(col = guide_legend(ncol = 1))
+
+plot <- plot +
+  geom_rug(aes_string(x = "b", y = "value", group = "item", colour = "item"),
+           data = filter(data_rug, value == 0),
+           position = "jitter", sides = "b", size = 0.2) +
+  geom_rug(aes_string(x = "b", y = "value", group = "item", colour = "item"),
+           data = filter(data_rug, value == 1),
+           position = "jitter", sides = "t", size = 0.2)
+
+plot <- dmetric:::draw_logistic(plot, location = delta[1], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[2], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[3], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[4], size = 0.5, linetype = "dashed", scale = scale)
+plot
+```
+
+(ref:shirleypd) Modeled probability of achieving four motor milestones against the $D$-score. Data from Table \@ref(tab:weekly).
+
+Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
+but with `Age` is replaced by `Ability`, and with the empirical curves
+replaced by modelled curves.
+
+The ability values on the horizontal axis are estimated from the data
+and correspond to the amount of development of each measurement.
+Also, the logistic curves are estimated from the data, and reflect
+the probability of passing each milestone at a given level of ability.
+
+The figure shows that the probability of passing an milestone
+increases with ability. Milestones are ordered in difficulty from left
+to right. Milestone `stepping` is the easiest and `walk_alone` is most
+difficult. The point at which a logistic curve crosses the 50 percent
+line (marked by a cross) is customarily taken as the *difficulty of
+the milestone*.
+
+The increase in ability that is needed to go from 10 to 90 percent is
+about five units here. Since all curves are parallel, the interval is
+constant for all scale locations. Thus, the scale is an *interval scale*
+with a *constant unit of measurement*. This is the type of measurement
+scale needed for answering the basic questions identified in Section
+\@ref(sec:motivationunit).
+
+### Limitations of unit-based measurement
+
+While unit-based measurement has many advantages, it cannot perform
+miracles.
+
+1. An important assumption is that the milestones "measure the same
+thing", or put differently, are manifestations of an underlying
+continuous latent variable that can be measured by empirical
+observations. Unit-based measurement won't work if there is no
+sensible latent scale.
+
+2. The portrayed advantages hold only if the discrepancies between the
+data and the model are relatively small. Since the simplest and most
+powerful measurement models are very strict, it is important to assess
+and increase the fit between data and model.
+
+3. The construction of unit-based measurement requires psychometric
+expertise, specialized computer software and considerable sample
+sizes.
+
+## What is measurement? {#sec:whatismeasurement}
+
+Measurement is the process of locating milestones and children on a
+line. This line represents a latent variable, a continuous construct
+that defines the different poles of the concept that we want to
+measure. In our case, the concept is *child development*. Other
+constructs, like *height*, *temperature* or *happiness* would be
+equally valid constructs. A latent variable ranges from low to high. A
+latent variable cannot be measured directly. It is a theoretical
+construct.
+
+```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)', out.width='80%', fig.align='center'}
+knitr::include_graphics("fig/lineplot.png")
+```
+(ref:lineplot) Placing milestones and children onto the same line reveals their positions.
+
+Figure \@ref(fig:lineplot) shows the imaginary positions on a
+gross-motor continuum of three babies from Figure
+\@ref(fig:shirleyplot) at the age of 30 weeks. Both milestones and
+children are ordered along the continuum. Thus, standing is more
+difficult than stepping, and at week 30, Doris is ahead of Walley in
+terms of motor development.
+
+Latent variable cannot be measured directly. However, we may be able
+to actually measure variables (milestones) that are related to the
+latent variable. For example, we may have the child's scores on tasks
+like *standing* or *walking with help*. The *measurement model*
+specifies the relations between the data and the latent variable.
+Under a given measurement model, we may estimate the locations of
+milestones and children on the line. Section
+\@ref(sec:measurementmodel) discusses measurement models in more
+detail.
+
+## Why unit-based measurement {#sec:whyunit}
+
+Criterion                 | Age-based | Score-based | Unit-based
+------------------------- | --------- | ----------- | ----------
+Independent of age norm   |   NO      | YES         | YES
+Supports multiple milestones   |   NO      | YES         | YES
+Latent variable           |   NO      | YES         | YES
+Robust to milestone skipping   |  YES      | NO          | YES
+Comparable scores         |  YES      | NO          | YES
+Probability model         |   NO      | NO          | YES
+Defines measurement unit  |   NO      | NO          | YES
+
+: (\#tab:measurement) Evaluation of three measurement approaches on nine criteria.
+
+This chapter distinguished three approaches to measure child
+development: *age-based*, *score-based* and *unit-based* measurement.
+Table \@ref(tab:measurement) summarizes how the approaches evaluate on
+nine criteria.
+
+*Age-based measurement* expresses development in age equivalents,
+whose precise definition depends on the reference population.
+Age-based measurement does not support multiple milestones, and does not
+used the concept of a latent variable.
+
+*Score-based measurement* quantifies development by summing the number
+of passes. Different instruments make different selections of milestones,
+so the measurements taken are unique to the instruments, so comparing
+the measurement obtained by different instruments is difficult.
+Corrections are needed if milestones are skipped or added.
+
+*Unit-based measurement* defines a unit of measurement by a
+theoretical model. When the data fit the model, we are able to
+construct instruments that produce measurement in a common metric.
+
