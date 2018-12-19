@@ -82,7 +82,7 @@ items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
-model <- fit_dmodel(varlist, data, name = "57_0")
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)', fig.height = 4}

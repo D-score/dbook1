@@ -256,7 +256,7 @@ varlist <- list(adm = c("country", "study", "subjid", "wave", "agedays"),
                 cov = NULL)
 anchors <- c(40, 60)
 names(anchors) <- c("standing", "walk_alone")
-model <- fit_dmodel(varlist, data2, data_package = "", 
+model <- dmetric::fit_dmodel(varlist, data2, data_package = "", 
                     anchors = anchors, model_name = "Motor")
 ```
 

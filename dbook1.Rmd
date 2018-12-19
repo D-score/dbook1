@@ -1,0 +1,3533 @@
+--- 
+title: "D-score for measuring development of children 0-4 years"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "D-score I: Measurement"
+---
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+
+```{r include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+# Preface {-}
+
+This is an introductory booklet on the measurement of child
+development by means of the D-score. The D-score is a one-number
+summary that quantifies generic neurocognitive development for
+children with ages 0-4 years.
+
+This is the *first* in a series of three booklets. The series consists
+of the following titles:
+
+1. [D-score for measuring development of children 0-4 years](https://stefvanbuuren.github.io/dbook1/)
+2. [D-score for international comparisons](https://stefvanbuuren.github.io/dbook2/)
+3. D-score for creating better instruments
+
+
+<!--chapter:end:index.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Introduction {#intro}
+
+## First 1000 days
+
+The first 1000 days between a woman's pregnancy and her child's second birthday is a time of rapid change. In this period  the architecture of the developing brain is most open to the influence of relationships and experiences @skonkhoff2016best. Early experiences affect the nature and quality of the brain’s developing architecture by determining which synapses  are reinforced and which are pruned through lack of use. [FIGURE 1.1] During the first 1000 days, brain architecture is basically shaped, but higher-order brain functions still continue to develop into adolescence and early adulthood @kolb2017principles.
+
+The ‘nature versus nurture’ debate assumes that variation in development is primarily due to either genetic or environmental differences. However, the current scientific opinion holds that virtually all traits are influenced by both genetic predisposition and environmental differences @rutter2007genes. The environment in which a child develops (before and soon after birth) provides experiences that can modify the expression of certain genes @caspi2010genetic. Negative influences, such as exposure to stressful life circumstances or environmental toxins, leave a “chemical signature” on the genes. 
+
+During the first 1000 days, infants are highly dependent on their caregivers to protect them from adversities and to help them regulate their physiology and behavior. Caregivers can do this through responsive care, including routines for sleeping and feeding. To reach their developmental potential, children require nutrition, responsive caregiving, opportunities to explore and learn, and protection from environmental threats @black2017early. [FIGURE 1.2] Gradually, children build self-regulatory skills that enable them to manage stress as they interact with their caregivers @johnson2013science. 
+
+
+## Relevance of child development
+
+The first 1000 days is a time of rapid change. At the same time, significant disadvantages in the first 1000 days can undermine children’s development. In situations where caregivers are unable to protect and buffer their infants from adverse exposures, this can place an infant  at risk for mental health problems @johnson2013science. The physiological consequences of early adversities have been well documented and linked to difficulties with self-regulation and anxiety throughout childhood and adolescence @burkholder2016early. 
+
+Young children who have been exposed to adversity or violence do not invariably develop stress-related disorders. They are at greater risk, but can also be helped substantially if reliable and nurturing relationships with supportive caregivers are established, and appropriate treatments are provided as needed @belsky2002early. An important protective factor for infants and young children in high-risk situations is a secure attachment to their caregivers. The adverse effects of cumulative risk and conditions of deprivation are reduced substantially by secure parent-child attachments @sciaraffa2018understanding. 
+[FIGURE 1.3] 
+
+
+
+## Advantages and limitations of stunting
+
+Stunting is the impaired growth and development that children experience from poor nutrition, repeated infection, and inadequate psychosocial stimulation. According to the World Health Organization (WHO) children are defined as stunted if their height-for-age is more than two standard deviations below the Child Growth Standards median. [FIGURE 1.4]  
+
+Stunting caused by chronic nutritional deprivation in early childhood can be considered as an indicator of (poor) child development @perkins2017understanding. There is consistent evidence for the association between stunting and poor child development, despite heterogeneity in the magnitude of associations @miller2016consistent @sudfeld2015linear. Linear growth in children is commonly expressed as length-for-age or height-for-age in comparison to normative growth standards @wit2017practical. Thus, considering impaired linear length as a ‘proxy measure’ for child development is eligible, in the sense that child development can be determined in a very simple way. Even in developing countries and deprived populations, anthropometric measures such as weight-for-age and height-for-age for children in the first two years are available.
+However, using impaired growth as measure  for child development has also limitations. It is a physical indicator that does not take into account a direct evaluation of a child’s cognitive or mental performance. Second, the indicator can be flawed because measurements can be inaccurate. Third, there is considerable heterogeneity in how linear growth is measured in children all over the world. 
+
+
+
+## Measuring neurocognitive development
+
+Assessment of early neurocognitive development in children is challenging for many reasons @ellingsen2016standardized. During the first years of life developmental change occurs most rapidly, and the manifestation of different skills and abilities varies considerably for children.  Moreover, a child’s performance on a cognitive task is very susceptible to environmental and situational factors. [FIGURE 1.5]
+
+Recently, a toolkit was published that reviews 147 assessment tools that have been developed
+for children ages 0–8 years in low- and middle-income countries @fernald2017toolkit. The ideal child development assessment is easy to administer, has high reliability, validity, and cross-cultural appropriateness. It should also show variance in scores at different ages and ability levels. It will be no surprise that no test can meet all of these criteria. Many tests are too long, rather difficult to administer, and lack cross-cultural assessment of the reliability and validity.  The most widely used tools include the Achenbach Child Behavior Checklist (CBCL), Bayley Scales of Infant Development (BSID), Wechsler Intelligence Scale for Children (WISC), Ages & Stages Questionnaires (ASQ), and  Strengths and Difficulties Questionnaire (SDQ).  None of these questionnaires can be considered as the ‘best’ child development assessment for children from different countries. We wonder if there is an alternative method to assess neurocognitive development in children?
+
+
+<!--chapter:end:Rmd/01-intro.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+<<<<<<< HEAD
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+# Short history {#ch:history}
+=======
+>>>>>>> master
+
+# Short history of child development {#ch:history}
+
+The measurement of child development has quite an extensive history. 
+This chapter 
+
+* reviews definitions of child development (\@ref(sec:definitions))
+* discusses concepts in the nature of child development (\@ref(sec:theories))
+* shows an classic example of motor measurements (\@ref(sec:motorexample))
+* summarizes typical questions whose answers need proper measurements (\@ref(sec:questions))
+
+## What is child development? {#sec:definitions}
+
+In contrast to concepts like height or temperature, it is unclear what
+exactly constitutes child development. One of the first rigorous studies
+in the field [@shirley1931] was executed under the explicit aim 
+
+> ... that the many aspects of development, anatomical, physical, 
+> motor, intellectual, and emotional, be studied simultaneously.
+
+Shirley gave empirical operationalizations of each of these
+domains of development. 
+
+
+```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)', out.width='80%', fig.align='center'}
+include_graphics("fig/shirley-motor.png")
+```
+(ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
+
+Certain domains advance through a fixed sequence. Figure
+\@ref(fig:shirleyplot) illustrates the various stages needed for going
+from a *fetal posture* to *walking alone*. The ages are indicative
+when these events happen, but there is a large variation in timing
+between infants.
+
+@gesell1943 (p. 88) formulated the following definition of development:
+
+> Development is a continuous process that proceeds stage by stage in
+> an orderly sequence. 
+
+Gesell's definition emphasizes that development is a continuous
+process. The stages are useful as indicators to infer the level of
+maturity, but are of limited interest by themselves.
+
+@liebert1974 (p. 5) emphasized that development is not a phenomenon
+that unfolds in isolation.
+
+> Development refers to a process in growth and capability over 
+> time, as a function of both maturation and interaction with 
+> the environment.
+
+@cameron2012 (p. 11) defined an end-point of development, as follows:
+
+> "Growth" is defined as an increase in size, while "maturity" or 
+> "development" is an increase in functional ability...The endpoint
+> of maturity is when a human is functionally able to procreate 
+> successfully ... not just biological maturity but also behavioral
+> and perhaps social maturity.
+
+@berk2013 (p. 30) presented a dynamic systems perspective on
+child development as follows:
+
+> Development cannot be characterized as a single line of change, 
+> and is more like a web of fibers branching out in many directions,
+> each representing a different skill area that may undergo both
+> continuous and stagewise transformation.
+
+There are many more definitions of child development. The ones given
+here just illustrate the main points of view in the field.
+
+## Theories of child development {#sec:theories}
+
+The field of child development is huge and spans multiple academic
+disciplines. This short overview therefore cannot do justice to
+the enormous richness. Readers new to the field might orient
+themselves by browsing through an introductory academic title (e.g.
+@santrock2010, @berk2013), or by searching for the topic of interest
+in an encyclopedia (e.g. @salkind2002).
+
+The introductions by @santrock2010 and @berk2013 both distinguish
+major theories in child development according to how each answers
+to following three questions:
+
+### Continuous or discontinuous?
+
+Does development evolve gradually as a continuous process 
+or are there qualitatively distinct stages, with jumps occurring 
+from one stage to another?
+
+Many stage-based theories of human development have
+been proposed over the years: social and emotional development by
+psychosexual stages of development proposed by Freud and furthered by
+Erikson [@erikson1963], Kohlberg's six stages of moral development
+[@kohlberg1984] and Piaget's cognitive development theory
+[@piaget1969]. Piaget distinguishes four main periods throughout
+childhood. The first period, the *sensimotor period* (approximately
+0-2 years), is subdivided into six stages. When taken together these
+six stages describe "the road to conceptual thought". Piaget's stages
+are qualitatively different, and aim to unravel the mechanism in
+intellectual development.
+
+On the other hand, Gesell and others emphasize development as a 
+continuous process. @gesell1943 (p. 88) says:
+
+> A stage represents a degree or level of maturity in the cycle 
+> of development. A stage is simply a passing moment, while 
+> development, like time, keeps marching on.
+
+### One course or many?
+
+Stage theorists assume that children progress sequentially through 
+the same set of stages. This assumption is also explicit in the 
+work of Gesell.
+
+The ecological and dynamic systems theories view development as
+continuous, though not necessarily progressing in an orderly fashion,
+so there may be multiple ways to reach the same point. Figure
+\@ref(fig:dynamic) illustrates that the path taken by a given child
+will depend on the child's unique combination of personal and
+environmental circumstances, including cultural diversity in
+development.
+
+```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)', out.width='80%', fig.align='center'}
+include_graphics("fig/dynamic.png")
+```
+
+(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
+
+### Nature or nurture?
+
+Are genetic or environmental factor more important for influencing
+development? Most theories generally acknowledge the role of both, but
+differ in emphasis. In practice, the debate centers on the question
+how to explain individual differences.
+
+Maturation usually defined as the genetically determined, naturally
+unfolding course of growth, much like a flower. Some theorists
+emphasize that differences in development are innate and stable over
+time, but that there may be differences in speed. Others argue that
+individual differences are primarily driven by environmental factors,
+and changing these factors could very well impact child development.
+
+The answer --- if there is one --- in this stability-versus-plasticity
+debate has important practical consequences. If we believe that
+differences are natural and stable, then it may not make sense trying
+to change the environment, as the impact on development is likely to
+be small. On the other hand, if we view development as plastic, then
+improving the environment may have substantial pay-offs in terms of
+improved development.
+
+## Example of motor development {#sec:motorexample}
+
+### Shirley's motor data
+
+For illustration, we use data on locomotor development collected in
+the classic study on child development among 25 babies by
+@shirley1931. Starting at ages around 13 weeks, a graphic record of
+the baby's walking was obtained as follows. The investigator lays out
+a white paper of twelve inches wide on the floor of the living room,
+and lightly greases the soles of the baby's feet with olive oil. The
+baby was invited to "walk" on the sheet. Of course, very young infants
+need substantial assistence. Footprints left were later colored by
+graphite and measured. Measurements during the first year were
+repeated every week or bi-weekly.
+
+```{r shirley, echo = FALSE}
+load(file = file.path("data/shirley.rda"))
+options(knitr.kable.NA = '?')
+kable(shirley, 
+      col.names = c("Name", "Sex", "Stepping", "Standing", 
+                    "Walking with help", "Walking alone"))
+```
+
+: (\#tab:shirley) Age at beginning stages of walking (in weeks) for 21 babies [@shirley1931, Appendix 8].
+
+Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies
+when they started, respectively, stepping, standing, walking with
+help, and walking alone, as taken from Table 3 in @vanbuuren1992.
+Question marks indicate missing data. A question mark in the first
+column the babies were already stepping when the observation started
+(Virginia Ruth, Sibyl, Donovan and Doris). Max and Martin, who have a
+question mark in the second column, skipped standing and went directly
+from stepping to walking with help. Doris has a question mark in the
+last column, because she died before she could walk alone.
+
+### Individual trajectories of motor development
+
+```{r stepplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:stepplot)', warning = FALSE}
+d <- shirley %>%
+  mutate(name = factor(name, as.character(name))) %>%
+  gather(key = "stage", value = "age", -name, -sex) %>%
+  mutate(
+    stage = factor(stage, unique(stage)),
+    score = rep(1:4, each = 21))
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_step() + 
+  geom_point() + 
+  theme_light() + 
+  facet_wrap(~ name, nrow = 3) +
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Stage")
+```
+
+(ref:stepplot) Staircase plot indicating the age at which each baby 
+achieve a new milestone of gross-motor functioning.
+
+Figure \@ref(fig:stepplot) is a visual representation of the
+information in Table \@ref(tab:shirley). Each data point is the age of
+first occurence of the next stage. Before that age, the baby is
+supposed to be in the previous stage, so once the next stage occurs,
+there is a jump to the next level.
+
+The figure makes it easy to spot the quick walkers (Martin, Carol) and
+slow walkers (Patricia, Torey, Larry). Furthermore, we may also spot 
+children who remain a long time in a particular stage (Torey, Larry)
+or who jump over stages (Martin, Max).
+
+For ease of plotting, the categories on the vertical axis are equally
+spaced. The height of the jump from one stage to the next has no
+sensible interpretation. We might be inclined to think that the
+vertical distance portrays to how difficult it is to achieve the
+next stage, but this is inaccurate. Instead, difficulty of passing from
+one stage to the next corresponds to the *length of the line in the
+horizontal direction* between stages. For example, on average the line
+for `stepping` is rather short in all plots, so going from `stepping`
+to `standing` is relatively easy.
+
+The figure presents data from only those visits where a jump occurred.
+The number of house visits made during ages 0-2 years was far higher.
+@shirley1931 actually collected data from 1370 visits, whereas Figure
+\@ref(fig:stepplot) plot only the 76 visits that showed a jump.
+In order to obtain individual curves like these, the data collection 
+needs to be intense and costly. Fortunately, there are alternatives that
+are much more efficient.
+
+## Typical questions asked in child development {#sec:questions}
+
+Child development is very relevant for answering clinical, policy and
+public health questions.
+
+Table: (\#tab:question) Questions whose answers require quantitative measurements of child development.
+
+```{r echo = FALSE}
+questions <- data.frame(
+  Level = c(rep("Individual", 3), rep("Group", 2), rep("Population", 3)),
+  Question = c(
+    "What is your gain in development since your last visit?",
+    "What is the difference in development between you and your friend of the same age?",
+    "How does your development compare to a norm?",
+    "What is the effect of this intervention on child development?",
+    "What is the difference in child development between these two groups?",
+    "What is the change in average child development since the last measurement?",
+    "What was the effect of implementing this policy on child development?",
+    "How does this country compare to other countries in terms of child development?"
+  ))
+
+kable(questions)
+```
+
+Table \@ref(tab:question) lists typical questions whose answers
+require measuring child development. Note that all questions compare
+the amount of child development between groups and/or time points. A
+few questions compare development for the same child, group or
+population at different ages. Some others compare development within
+the same age across different children, group or populations.
+
+<!--chapter:end:Rmd/02-history.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Three ways to quantify child development {#ch:threeways}
+
+This section distinguishes three different principles that are being
+used to quantify child development: 
+
+* Age-based measurement (\@ref(sec:agebased))
+* Score-based measurement (\@ref(sec:scorebased))
+* Unit-based measurement (\@ref(sec:unitbased))
+
+## Age-based measurement of development {#sec:agebased}
+
+### Motivation for age-based measurement
+
+The motivation for measuring child development is to be able to
+describe the behavior expected at a selected age. @gesell1943 (p. 89)
+formulates this goal as follows:
+
+> We think of behavior in terms of age, and we think of age in terms
+> of behavior. For any selected age it is possible to sketch a portrait
+> which delineates the behavior characteristics typical of the age.
+
+There is a large literature that quantifies development in terms of
+ages at which the child is expected to show a specific behavior. For
+example, in Shirley's motor data in Table \@ref(tab:shirley), we may
+summarize the ages at which each of the 21 children enters a given
+stage.
+
+```{r agebased, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebased)', warning = FALSE}
+load(file = file.path("data/shirley.rda"))
+
+d <- shirley %>%
+  mutate(name = factor(name, as.character(name))) %>%
+  gather(key = "stage", value = "age", -name, -sex) %>%
+  mutate(
+    stage = factor(stage, unique(stage)),
+    score = rep(1:4, each = 21))
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_point(cex = 3, pch = 1) + 
+  geom_point() + 
+  theme_light() + 
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Stage")
+```
+
+(ref:agebased) Ages at which 21 children achieve four motor development milestones. 
+
+### Age equivalent as difficulty {#sec:ageequivalent}
+
+Since age and development are so intimately related, the *difficulty*
+of a given developmental milestone is traditionally expressed in terms
+of the age at which children achieve it. For example,
+@stott1967 (p. 25) defines the *age equivalent* and its use for
+measurement, as follows:
+
+> The age equivalent of a particular stage is simply the average age 
+> at which children reach that particular stage. 
+
+```{r agebox, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebox)', warning = FALSE}
+means <- aggregate(age ~  stage, d, mean)
+ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
+  geom_boxplot(col = "skyblue", fill = "transparent", width = 0.3) +
+  geom_point(cex = 3, pch = 1) + 
+  geom_point() + 
+  stat_summary(fun.y = mean, colour = "black", geom = "point", 
+               shape = 4, size = 3, show.legend = FALSE) +
+  theme_light() + 
+  guides(colour = FALSE) + 
+  labs(y = "Age (weeks)", x = "Stage") +
+  coord_flip()
+```
+
+(ref:agebox) Boxplot and mean (symbol `x`) of the ages at which 21 children achieve four motor development milestones.
+
+Figure \@ref(fig:agebox) adds boxplot and the mean age at which the
+children enter the four stages. The difficulty of the stages can thus
+be expressed as age equivalents: 16.1 weeks for stepping, 27.2 weeks
+for standing, 43.3 weeks for walking with help and 63.3 weeks for
+walking alone. 
+
+Alternatives to the mean age equivalent include the ages at which 10,
+50 or 90 percent of the children achieve the milestone. This line of
+reasoning has led to the widely used concept of *developmental age* as
+a measure of a child's development (in body size or motor skill or
+psychological function) expressed in terms of age norms.
+
+### Limitations of age-based measurement 
+
+Age-based measurement is easy to understand, but is not without 
+pitfalls:
+
+1. Age-based measurement can inform us whether a child is earlier or
+later for a given milestone. However, it does not tell us what
+behaviors are characteristic for a child of a given age.
+
+2. Age-based measurement cannot exists without an age norm. When there
+is no norms, we cannot quantify development. Age-based measurement
+intertwines quantification of development with evaluation of
+development.
+
+3. Age-based measurement only works at the milestone level, and is 
+cumbersome to apply with multiple milestones.
+
+## Score-based measurement of development {#sec:scorebased}
+
+### Motivation for score-based measurement
+
+Score-based measurement takes the responses on multiple milestones and
+counts the total number of passed milestones as a measure of child's
+development. This approach takes multiple measurement into account,
+hence leading to a more stable measurement. 
+
+If milestones are ordered in difficulty, so one may skip milestones that are too
+easy, and stop when milestones become too difficult for the child, for
+example as age-forms. In such cases, we cannot simply interpret the
+sum score of a measure of development, and need to correct for the
+subset of milestones that was actually administered. The usual working
+assumption is that the child would have passed all easier milestones and
+failed on all more difficult milestones. This procedure is typically
+repeated for different domains, e.g. motor, cognitive, and so on.
+
+### Example of score-based measurement
+
+```{r scoreplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:scoreplot)', warning = FALSE}
+levels(d$stage) <- as.character(0:3)
+ggplot(d, aes(age, stage, group = name, colour = name)) +
+  geom_step() + 
+  geom_point() + 
+  theme_light() + 
+  facet_wrap(~ name, nrow = 3) +
+  guides(colour = FALSE) + 
+  labs(x = "Age (weeks)", y = "Gross-motor score")
+```
+
+(ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with 
+the vertical axis representing gross-motor score.
+
+Figure \@ref(fig:scoreplot) is a gross-motor score calculated as the
+number of milestones passed. It varies from 0 to 3. 
+
+The plot suggests that the difference in development between scores 0
+and 1 is the same as the difference in development between, say,
+scores 2 and 3. *This is not true*. For example, suppose that we
+express difficulty of the milestone as an age-equivalent. From section
+\@ref(sec:ageequivalent) we see that the difference in difficulty
+between stepping and standing is 27.2 - 16.1 = 11.1 weeks, whereas the
+difference between walking alone and walking with help is 63.3 - 43.3
+= 20 weeks. Thus, according to age equivalents scores 0 and 1 should be 
+closer to each other, and scores 2 and 3 should be drawn wider apart.
+
+### Limitations of score-based measurement
+
+Score-based measurement is today's dominant approach, but is not
+without conceptual and logistical issues.
+
+1. The total score depends not only on the (true) developmental status
+of the child, but also on the set of milestones actually administered. If
+a milestone is skipped or added, the sum score cannot be interpreted
+anymore as a measure of the child's developmental status.
+
+2. It is not possible to compare scores made by different instruments.
+Some instruments allows conversion to age-conditional scores. However,
+the sample used to derive such conversions are typically restricted to
+one instrument, and does not extend to measurements made by other
+instruments.
+
+3. Domains are hard to separate. For example, some cognitive milestones tap
+into fine motor capabilities, and vice versa. There are different ways
+to define domains, so domain interpretation varies by instrument.
+
+4. Administration of a full test may take substantial time. The
+materials are often proprietary and sometimes costly.
+
+## Unit-based measurement of development {#sec:unitbased}
+
+### Motivation for unit-based measurement {#sec:motivationunit}
+
+Unit-based measurement starts by defining the ideal properties of the
+measurement, and derives a procedure to aggregate the responses on
+milestones into an overall score that will meet the ideal.
+
+Section \@ref(sec:questions) highlighted questions for individuals,
+groups and populations. There are basically three questions:
+
+* What is the difference in development over time for the same child,
+group or population?
+
+* What is the difference in development between different children,
+groups or populations of the same age?
+
+* How does child development compare to a norm?
+
+In the ideal situation, we would like to have a continuous (latent)
+variable $D$ (for development) that measures child development. The
+scale should allow us to quantify *ability* of persons, groups or
+populations from low to high. The scale should have a *constant unit*,
+so that a given difference in ability quantifies means the same across
+the entire scale, just like that a difference of 10 cm means the same
+irrespective of whether we compare the heights of books or houses.
+When are these conditions are met, we say that we measure on an
+*interval scale*.
+
+If we succeed in creating an interval scale for child development, an
+enormous arsenal of technique developed for quantitative variables
+opens up to measure, track and analyze child development. We may then
+evaluate the development of a child in terms of $D$ points gained,
+create age-dependent charts for development (just like growth charts
+for height and weight), devise age-conditional measures for child
+development, and intelligent adaptive testing schemes. Promising
+studies on Dutch data (@jacobusse2006, @jacobusse2007, @vanbuuren2014)
+suggest that such benefits are well within reach.
+
+### Example of unit-based measurement {#sec:unitbasedexample}
+
+```{r weekly, echo = FALSE}
+load(file = file.path("data/shirley.rda"))
+data <- expand.grid(age = c(12:52, seq(54, 76, 2)), 
+                    name = shirley$name) %>%
+  left_join(shirley, by = c("name")) %>%
+  mutate(stepping   = ifelse(age <   stepping, 0, 1),
+         stepping   = ifelse(is.na(stepping), 1, stepping),
+         standing   = ifelse(age <   standing, 0, 1),
+         walk_help  = ifelse(age <  walk_help, 0, 1),
+         walk_alone = ifelse(age < walk_alone, 0, 1)) %>%
+  dplyr::select(name, age, everything())
+# introduce some deviations from perfect Guttmann in order to 
+# prevent orphaned "stepping" milestone
+data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <- 
+  c(0, 0, 0, 0, 0, 
+    0, 0, 0, 0, 1, 
+    0 ,1, 1, 1, 0)
+
+options(knitr.table.format = "html") 
+kable(data, 
+      caption = "Hypothetical (bi-)weekly measurements as reconstructed from Table 2.1.") %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+
+Table \@ref(tab:weekly) reconstructs the weekly motor measurements
+made by Shirley from Table \@ref(tab:shirley). Each of the
+measurements is coded as a PASS (1) or a FAIL (0).
+
+It is now straighforward to calculate the probability of passing each milestone at different ages. 
+
+```{r echo = FALSE}
+data2 <- data %>%
+  mutate(country = "USA",
+         study = "Shirley",
+         subjid = name,
+         agedays = round(age * 7),
+         wave = 1L)
+
+varlist <- list(adm = c("country", "study", "subjid", "wave", "agedays"), 
+                items = c("stepping", "standing", "walk_help", "walk_alone"),
+                cov = NULL)
+anchors <- c(40, 60)
+names(anchors) <- c("standing", "walk_alone")
+model <- dmetric::fit_dmodel(varlist, data2, data_package = "", 
+                    anchors = anchors, model_name = "Motor")
+```
+
+
+```{r shirleypa, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE}
+# create long matrix
+itm <- data2 %>%
+  dplyr::select(subjid, agedays, stepping, standing, walk_help, walk_alone) %>%
+  reshape2::melt(id.vars = c("subjid", "agedays"),
+                 value.name = "value", variable.name = "item",
+                 measure.vars = varlist$items, 
+                 na.rm = TRUE) %>%
+  mutate(value = as.integer(.data$value),
+         item = as.character(.data$item))
+
+# define data for rug plot
+data_rug <- itm %>%
+  mutate(study = "Shirley",
+         ageweeks = agedays / 7) %>%
+  dplyr::select(item, value, ageweeks, study)
+
+# calculate summary statistics
+pass <- data_rug %>%
+  mutate(agegp = cut(ageweeks, breaks = seq(0, 76, 2))) %>%
+  group_by(item, study, agegp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(ageweeks, na.rm = TRUE),
+            n = n()) %>%
+  ungroup %>%
+  left_join(dmetric::get_itemtable(items = varlist$items, package = ""), by = "item")
+
+plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
+  scale_x_continuous("Age (in weeks)", limits = c(0, 76),
+                     breaks = seq(0, 76, 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
+        legend.key.size = unit(3.0, "mm"),
+        legend.spacing.y = unit(0.5, "mm"),
+        legend.background = element_rect(fill = "transparent", colour = "transparent")) +
+  scale_colour_discrete(limits = c("stepping", "standing", "walk_help", "walk_alone")) +
+  labs(colour = "Item") +
+  guides(fill = guide_legend(title = NULL)) +
+  guides(col = guide_legend(ncol = 1))
+plot
+```
+
+(ref:shirleypa) Probability of achieving four motor milestones against age. Data from Table \@ref(tab:weekly).
+
+Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
+
+```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
+items <- varlist$items
+modelb <- model$dscore
+colnames(modelb)[colnames(modelb) == "d"] <- "b"
+delta <- dscore::gettau(items, model$itembank, lexicon = model$lexicon)
+beta_breaks <- seq(20, 70, 1)
+xlim <- c(20, 70)
+scale <- model$transform[2]
+
+# create long matrix
+data3 <- left_join(data2, modelb)
+data3 <- data3 %>%
+      gather(key = "item", value = "value", items) %>%
+      drop_na("value")
+
+# proportion pass per dscore group
+# observations per months (n) by study and item
+pass <- data3 %>%
+  drop_na("item", "value", "b") %>%
+  mutate(
+    bgp = cut(b, breaks = beta_breaks),
+    age = agedays / 365.25) %>%
+  group_by(item, study, bgp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(age, na.rm = TRUE),
+            b = mean(b, na.rm = TRUE),
+            n = n()) %>%
+  ungroup() %>%
+  left_join(dmetric::get_itemtable(items = items, package = ""), by = "item") %>%
+  mutate(seq = 0,
+         seq = ifelse(item == "stepping", 1, seq),
+         seq = ifelse(item == "standing", 2, seq),
+         seq = ifelse(item == "walk_help", 3, seq), 
+         seq = ifelse(item == "walk_alone", 4, seq)) %>%
+  arrange(seq) %>%
+  filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
+
+# define data for rug plot
+data_rug <- data3 %>%
+  mutate(age = agedays / 365.25) %>%
+  dplyr::select(item, study, subjid, age, b, value) %>%
+  group_by(item, study, subjid, age, value) %>%
+  summarise(b = mean(b, na.rm = TRUE)) %>%
+  ungroup() %>%
+  drop_na(b) %>%
+  mutate(seq = 0,
+         seq = ifelse(item == "stepping", 1, seq),
+         seq = ifelse(item == "standing", 2, seq),
+         seq = ifelse(item == "walk_help", 3, seq), 
+         seq = ifelse(item == "walk_alone", 4, seq)) %>%
+  arrange(seq) %>%
+  filter((seq == 1) | (b > 32 & seq == 2) | (b > 40 & seq == 3) | (b > 49 & seq == 4))
+
+plot <- ggplot(pass, aes(x = b, y = p, group = item, colour = item)) +
+  scale_x_continuous("Ability", limits = xlim,
+                     breaks = seq(xlim[1], xlim[2], 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  geom_point(aes(x = delta, y = y), 
+             data = data.frame(delta = delta, y = 50, item = names(delta)),
+             pch = 4, cex = 2) +
+  # geom_line() + 
+  geom_point() +
+  theme_light() +
+  theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
+        legend.key.size = unit(3.0, "mm"),
+        legend.spacing.y = unit(0.5, "mm"),
+        legend.background = element_rect(fill = "transparent", colour = "transparent")) +
+  scale_colour_discrete(limits = c("stepping", "standing", "walk_help", "walk_alone")) +
+  labs(colour = "Item", shape = 19) +
+  guides(fill = guide_legend(title = NULL)) +
+  guides(col = guide_legend(ncol = 1))
+
+plot <- plot +
+  geom_rug(aes_string(x = "b", y = "value", group = "item", colour = "item"),
+           data = filter(data_rug, value == 0),
+           position = "jitter", sides = "b", size = 0.2) +
+  geom_rug(aes_string(x = "b", y = "value", group = "item", colour = "item"),
+           data = filter(data_rug, value == 1),
+           position = "jitter", sides = "t", size = 0.2)
+
+plot <- dmetric:::draw_logistic(plot, location = delta[1], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[2], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[3], size = 0.5, linetype = "dashed", scale = scale)
+plot <- dmetric:::draw_logistic(plot, location = delta[4], size = 0.5, linetype = "dashed", scale = scale)
+plot
+```
+
+(ref:shirleypd) Modeled probability of achieving four motor milestones against the $D$-score. Data from Table \@ref(tab:weekly).
+
+Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
+but with `Age` is replaced by `Ability`, and with the empirical curves
+replaced by modelled curves.
+
+The ability values on the horizontal axis are estimated from the data
+and correspond to the amount of development of each measurement.
+Also, the logistic curves are estimated from the data, and reflect
+the probability of passing each milestone at a given level of ability.
+
+The figure shows that the probability of passing an milestone
+increases with ability. Milestones are ordered in difficulty from left
+to right. Milestone `stepping` is the easiest and `walk_alone` is most
+difficult. The point at which a logistic curve crosses the 50 percent
+line (marked by a cross) is customarily taken as the *difficulty of
+the milestone*.
+
+The increase in ability that is needed to go from 10 to 90 percent is
+about five units here. Since all curves are parallel, the interval is
+constant for all scale locations. Thus, the scale is an *interval scale*
+with a *constant unit of measurement*. This is the type of measurement
+scale needed for answering the basic questions identified in Section
+\@ref(sec:motivationunit).
+
+### Limitations of unit-based measurement
+
+While unit-based measurement has many advantages, it cannot perform
+miracles.
+
+1. An important assumption is that the milestones "measure the same
+thing", or put differently, are manifestations of an underlying
+continuous latent variable that can be measured by empirical
+observations. Unit-based measurement won't work if there is no
+sensible latent scale.
+
+2. The portrayed advantages hold only if the discrepancies between the
+data and the model are relatively small. Since the simplest and most
+powerful measurement models are very strict, it is important to assess
+and increase the fit between data and model.
+
+3. The construction of unit-based measurement requires psychometric
+expertise, specialized computer software and considerable sample
+sizes.
+
+## What is measurement? {#sec:whatismeasurement}
+
+Measurement is the process of locating milestones and children on a
+line. This line represents a latent variable, a continuous construct
+that defines the different poles of the concept that we want to
+measure. In our case, the concept is *child development*. Other
+constructs, like *height*, *temperature* or *happiness* would be
+equally valid constructs. A latent variable ranges from low to high. A
+latent variable cannot be measured directly. It is a theoretical
+construct.
+
+```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)', out.width='80%', fig.align='center'}
+knitr::include_graphics("fig/lineplot.png")
+```
+(ref:lineplot) Placing milestones and children onto the same line reveals their positions.
+
+Figure \@ref(fig:lineplot) shows the imaginary positions on a
+gross-motor continuum of three babies from Figure
+\@ref(fig:shirleyplot) at the age of 30 weeks. Both milestones and
+children are ordered along the continuum. Thus, standing is more
+difficult than stepping, and at week 30, Doris is ahead of Walley in
+terms of motor development.
+
+Latent variable cannot be measured directly. However, we may be able
+to actually measure variables (milestones) that are related to the
+latent variable. For example, we may have the child's scores on tasks
+like *standing* or *walking with help*. The *measurement model*
+specifies the relations between the data and the latent variable.
+Under a given measurement model, we may estimate the locations of
+milestones and children on the line. Section
+\@ref(sec:measurementmodel) discusses measurement models in more
+detail.
+
+## Why unit-based measurement {#sec:whyunit}
+
+Criterion                 | Age-based | Score-based | Unit-based
+------------------------- | --------- | ----------- | ----------
+Independent of age norm   |   NO      | YES         | YES
+Supports multiple milestones   |   NO      | YES         | YES
+Latent variable           |   NO      | YES         | YES
+Robust to milestone skipping   |  YES      | NO          | YES
+Comparable scores         |  YES      | NO          | YES
+Probability model         |   NO      | NO          | YES
+Defines measurement unit  |   NO      | NO          | YES
+
+: (\#tab:measurement) Evaluation of three measurement approaches on nine criteria.
+
+This chapter distinguished three approaches to measure child
+development: *age-based*, *score-based* and *unit-based* measurement.
+Table \@ref(tab:measurement) summarizes how the approaches evaluate on
+nine criteria.
+
+*Age-based measurement* expresses development in age equivalents,
+whose precise definition depends on the reference population.
+Age-based measurement does not support multiple milestones, and does not
+used the concept of a latent variable.
+
+*Score-based measurement* quantifies development by summing the number
+of passes. Different instruments make different selections of milestones,
+so the measurements taken are unique to the instruments, so comparing
+the measurement obtained by different instruments is difficult.
+Corrections are needed if milestones are skipped or added.
+
+*Unit-based measurement* defines a unit of measurement by a
+theoretical model. When the data fit the model, we are able to
+construct instruments that produce measurement in a common metric.
+
+
+<!--chapter:end:Rmd/03-threeways.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# $D$-score: A unit to quantify general child development {#ch:newmodel}
+
+Chapter \@ref(ch:history) provided historic background on the nature
+of child development. Chapter \@ref(ch:threeways) discussed three
+general quantification approaches. This chapter explains the concepts
+for the unit-based approach, and how to arrive at the $D$-score scale.
+The text uses Dutch data to illustration the process.
+
+## The Dutch Development Instrument (DDI) {#sec:ddi}
+
+### Setting
+
+The Dutch Youth Health Care (YHC) routinely monitors development of
+almost all children living in The Netherlands. During the first four
+years, there are 13 scheduled visits. During these visits, the YHC
+professionals evaluate - amongst others - growth and development of
+the child.
+
+The *Dutch Development Instrument* (DDI; in Dutch: *Van Wiechenschema*) 
+is the standard instrument used to measure development
+during the ages 0-4 years. The DDI consists of 
+[75 milestones](https://www.ncj.nl/van-wiechen/kenmerken/). 
+The instrument assesses three developmental domains:
+
+1. Fine motor, adaptation, personality and social behavior;
+2. Communication
+3. Gross motor
+
+The milestones are organized on two
+[forms](https://www.ggdghorkennisnet.nl/?file=656&m=1310474916&action=file.download),
+one for children aged 0-15 months, and another for children ages 15-54
+months. The YHC professionals administer an age-appropriate subset at
+each of the scheduled visits, thus building a 
+*longitudinal developmental profile* for each child.
+
+### Description of SMOCC study
+
+The Social Medical Survey of Children Attending Child Health Clinics
+(SMOCC) study is a a nationally representative cohort of 2,151
+children born in The Netherlands during the years 1988–1989
+[@herngreen1994]. The study monitored child development using
+observations made on the DDI during 10 visits in the first 30 months 
+of life.
+
+The standard set in the DDI consists of relatively easy milestones
+that 90 percent of the children can pass at the scheduled age. This
+set of designed to have maximal sensitivity for picking up delays in
+development. A special feature of the SMOCC study was the inclusion of
+additional, and more difficult, milestones beyond the standard set.
+The additional milestones are taken as the set for the next time
+point. The success percentage on additional milestones is about 50
+percent.
+
+### Codebook of Dutch Development Instrument 0-15 months
+
+```{r smoccitems, echo = FALSE}
+meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
+  dplyr::select(item, domain, label) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+options(knitr.table.format = "html") 
+kable(meta, 
+      caption = "Codebook of DDI, 0-15 months",
+      row.names = FALSE, 
+      col.names = c("Item", "Domain", "Label")) %>%
+  kableExtra::kable_styling() %>%
+  kableExtra::scroll_box(width = "100%", height = "400px")
+```
+
+Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for
+ages 0 - 30 months. The response to each milestones is either a 
+PASS (1) or a FAIL (0). Missing values are allowed.
+
+## Probability of passing a milestone given age
+
+```{r smoccfit, echo = FALSE, warning = FALSE}
+library(gseddata)
+library(plotly)
+data <- get_data(cohorts = 53)
+items <- get_itemnames(data)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
+```
+
+```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)', fig.height = 4}
+# define data for rug plot
+data_rug <- data$itm %>%
+  mutate(agemos = round(12 * agedays / 365.25), 3) %>%
+  dplyr::select(item, value, agemos)
+
+# calculate summary statistics
+pass <- data_rug %>%
+  mutate(agegp = cut(.data$agemos, breaks = seq(0, 60, 1))) %>%
+  group_by(item, agegp) %>%
+  summarise(p = round(100 * mean(.data$value, na.rm = TRUE)),
+            a = mean(.data$agemos, na.rm = TRUE),
+            n = n()) %>%
+  ungroup() %>%
+  left_join(dmetric::get_itemtable(items = items, package = "gseddata"), by = "item") %>% 
+  filter(n >= 5) %>%
+  arrange(.data$item, a) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+
+plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
+                         label = label)) +
+  scale_x_continuous("Age (in months)", limits = c(0, 30),
+                     breaks = seq(0, 28, 4)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
+                     limits = c(0, 100)) + 
+  theme_light() +
+  geom_line(size = 0.3) + 
+  geom_point(size = 1.0) +
+  theme(legend.position = "none")
+py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
+py
+```
+
+(ref:smoccpa) Empirical percentage of passing each milestone in the
+DDI against age (Source: SMOCC data, $n$ = 2151, 9 occasions).
+
+Figure \@ref(fig:smoccpa) summarizes the response obtained on each
+milestone as a curve against age. The percentage of pass scores
+increases with age for all milestones. Note that curves on the left
+have steeper slopes than those on the right, thus indicating that
+development is faster for younger children.
+
+The item are colored by domain. In general, domains are well mixed
+across age, though around some ages, e.g., at 4 months, multiple
+milestones from the same domain appear.
+
+## Probability of passing a milestone given $D$-score
+
+```{r smoccpd, echo = FALSE, fig.cap = '(ref:smoccpd)', fig.height = 4}
+modelb <- model$dscore
+delta <- dscore::gettau(model$items, model$itembank, lexicon = model$lexicon)
+data2 <- data$itm %>%
+  filter(item %in% items) %>%
+  left_join(data$visit, by = c("subjid", "agedays")) %>%
+  left_join(modelb, by = c("subjid", "agedays")) %>%
+  dplyr::select(subjid, agedays, item, value, b)
+
+pass <- data2 %>% 
+  tidyr::drop_na("value", "b") %>%
+  mutate(dgp = cut(.data$b, breaks = seq(0, 70, 1)),
+         agemos = round(.data$agedays / 365.25 * 12, 3)) %>%
+  group_by(dgp, item) %>%
+  summarise(
+    p = round(100 * mean(.data$value, na.rm = TRUE)),
+    a = mean(.data$agemos, na.rm = TRUE),
+    b = mean(.data$b, na.rm = TRUE),
+    n = n())
+pass <- pass %>%
+  group_by() %>%
+  left_join(model$itemtable, by = "item") %>%
+  arrange(.data$item, dgp) %>%
+  dplyr::select(item, dgp, a, b, p, n, domain, label) %>%
+  filter(n >= 10 & p > 0 & p < 100) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+
+plot <- ggplot(pass, aes(b, p, group = item, colour = domain, 
+                         label = label)) +
+  scale_x_continuous(paste0("D-score (", model$name,")"),
+                     limits = c(0, 70),
+                     breaks = seq(0, 70, 10)) +
+  scale_y_continuous("% pass", breaks = seq(0, 100, 10),
+                     limits = c(0, 100)) +
+  theme_light() +
+  geom_line(size = 0.3) + 
+  geom_point(size = 1.0) +
+  theme(legend.position = "none")
+py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
+py
+```
+
+(ref:smoccpd) Empirical percentage of passing each milestone in the
+DDI againt the $D$-score (Source: SMOCC data, $n$ = 2151, 9 occasions).
+
+Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but
+with the horizontal axis replaced by the $D$-score. The $D$-score
+summarizes development into one number. Section X explains the steps
+involved in calculating the score. The vertical axis with percent pass
+is unchanged.
+
+The percentage of successes increases with $D$-score for all
+milestones. In contrast to Figure \@ref(fig:smoccpa) all curves have a
+similar slope, a desirable property needed for an interval scale with
+a constant unit of measurement (c.f. Section \@ref(sec:unitbased)).
+
+How can the relation between percent pass and age be so different
+from the relation between percent pass and the $D$-score? The next
+section provides the explanation.
+
+## Relation between age and the $D$-score
+
+```{r smoccda, echo = FALSE, fig.cap = '(ref:smoccda)', warning = FALSE}
+reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+  filter(month <= 30) %>%
+  tidyr::gather(key = centile, value = d,-month)
+model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
+plot <-
+  ggplot(reference, aes(x = month, y = d, group = centile)) +
+  theme_light() +
+#  coord_fixed(ratio = 60/80 * 688/818) +
+  scale_colour_manual(values = dmetric::get_palette("study", package = model$data_package),
+                      na.value = "grey") +
+  scale_x_continuous("Age (in months)",
+                     limits = c(0, 30),
+                     breaks = seq(0, 28, 4)) +
+  scale_y_continuous(
+    paste0("D-score (", model$name, ")"),
+    breaks = seq(0, 70, 10),
+    limits = c(0, 70)
+  ) +
+# geom_line(colour = get_palette("study", package = model$data_package)["GCDG-NLD-SMOCC"]) +
+  geom_line(colour = "grey90") +
+  geom_point(
+    mapping = aes(
+      x = agemos,
+      y = b,
+      group = cohort,
+      colour = cohort
+    ),
+    data = model$dscore,
+    size = 0.5,
+    shape = 1
+  ) +
+  facet_wrap( ~ cohort, ncol = 4) +
+  theme(legend.position = "none")
+plot
+```
+
+(ref:smoccda) Relation between child $D$-score and child age in a
+cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9
+occasions).
+
+The relation between $D$-score and age is nonlinear. Development in
+the first year is more rapid than in the second year. During the first
+year infants gain about 40$D$, whereas in the second year they gain
+about 20$D$. A similar change in growth rate occurs in length (first
+year: 23 cm, second year: 12 cm, for Dutch children).
+
+```{r smoccdap, echo = FALSE, fig.cap = '(ref:smoccdap)', warning = FALSE}
+# model ICC curves D-score
+grid <- crossing(
+  item = items,
+  b = seq(0, 70, 0.2))
+ib <- model$itembank %>%
+  rename(item = lex_gsed) %>%
+  dplyr::select(item, domain, label, tau)
+tab <- grid %>%
+  left_join(ib, by = "item") %>%
+  mutate(p = 100 * plogis(b, location = tau, scale = model$transform[2])) %>%
+  filter(p > 1 & p < 99) %>%
+  mutate(a = approx(x = dscore::Dreference$mu, 
+                    y = dscore::Dreference$month, xout = b)$y) %>%
+  tidyr::drop_na("a") %>%
+  group_by(item)
+
+py <- plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain) %>%
+  add_lines() %>%
+  layout(scene = list(xaxis = list(title = 'Age'),
+                      yaxis = list(title = 'D-score'),
+                      zaxis = list(title = 'Probability'),
+                      aspectratio = list(x = 1, y = 1, z = 0.5),
+                      camera = list(
+                        up = list(
+                          x = 1,
+                          y = 0,
+                          z = 0
+                        ),
+                        eye = list(
+                          x = 0,
+                          y = 0,
+                          z = 2
+                        )
+                      )
+  ))
+py
+```
+
+(ref:smoccdap) 3D-line graph illustrating how the patterns in Figures \@ref(fig:smoccpa) and \@ref(fig:smoccpd) induce the curvature in the relation between $D$-score and age.
+
+Figure \@ref(fig:smoccdap) shows the mutual relations between age,
+milestone success and the $D$-score.
+
+* Rotate the graph to the age - probability plane, and observe the
+communality with the pattern in Figure \@ref(fig:smoccpa) with unequal
+slopes; 
+
+* Rotate the graph to the $D$-score - probability plane, and observe
+the communality with the pattern in Figure \@ref(fig:smoccpd) with
+equal slopes;
+
+* Rotate the graph to the $D$-score - age plan, and observe that all
+patterns can co-exist because of the curvature in the relation between
+$D$-score and age.
+
+## Measurement model for the $D$-score {#sec:measurementmodel}
+
+### What are measurement models? 
+
+From section \@ref(sec:whatismeasurement) we quote:
+
+> The measurement model specifies the relations between the data 
+> and the latent variable.
+
+The scientific theory of measurement models is known under the name of
+*Item Response Theory* (IRT). Good introductory works include
+@wright1982, @embretsen2000 and @engelhard2013.
+
+IRT models enables quantification of the locations of both *items*
+(milestones) and *persons* on the latent variable. We reserve the term
+*item* for generic properties, and *milestone* for child development.
+In general, items are part of the measurement instrument, persons are
+the objects to be measured.
+
+An IRT model has three major stuctural components: 
+ 
+* Specification of the underlying *latent variable(s)*. In this
+work, we restrict ourselves to models with just one latent variable.
+Multi-dimensional IRT models do have their uses, but they are
+complicated to fit and not widely used;
+
+* For a given item, a specification of the *probability of success*
+given a value on the latent variables. This specification can take
+many forms. Section \@ref(sec:itemresponsefunctions) focusses on this
+in more detail;
+
+* Specification how probability models for the different items should
+be combined. In this work, we will restrict to models that assume
+*local independence* of the probabilities. In that case, the
+probability that two items are passed can be found by multiplying each
+item's success probability.
+
+### Adapt the model? Or adapt the data? {#sec:adaptmodel}
+
+The measurement model induces a predictable pattern in the observed
+items, and this pattern can be tested against the observed data. When
+there is misfit between the expected and observed data, we can follow
+two strategies:
+
+* Make the measurement model more general.
+
+* Discard items (and sometimes persons) to make the model fit.
+
+These are very different strategies that have led to heated debates
+among psychometricians. See @engelhard2013 for an overview.
+
+In this work, we opt for the - very strict - Rasch model (@rasch1960),
+and will adapt the data to reduce discrepancies between model and
+data. Arguments for this choice are given later, in Section
+\@ref(sec:whyrasch).
+
+## Item response functions {#sec:itemresponsefunctions}
+
+Most measurement models describe the probability of passing an item as
+a function of the *difference* between the person's ability and the
+item's difficulty. A person with low ability will almost surely fail a
+difficult item, whereas a highly able person will almost surely pass
+an easy item.
+
+Let us now introduce a few symbols. We adopt the notation used in
+@wright1982. See Chapter \@ref(ch:notation) for a complete list.
+
+Symbol        | Term          | Description
+------------- | ------------- | -----------
+$\beta_n$     | Ability       | True (but unknown) developmental score of child $n$
+$\delta_i$    | Difficulty    | True (but unknown) difficulty of an item $i$
+$\pi_{ni}$    | Probability   | Probability that child $n$ passes item $i$
+
+Thus, Figure \@ref(fig:lineplot) shows three $\beta_n$'s and four
+$\delta_i$'s.
+
+The difference between ability of child $n$ and difficulty of item $i$ is
+
+$$\beta_n - \delta_i$$
+
+In the special case that $\beta_n = \delta_i$, the person will have a
+probability of 0.5 of passing the item. 
+
+### Logistic model
+
+A widely used method to map differences on the latent scale are
+*logistic units* (or  *logits*) [@berkson1944]. In `R` we can
+calculate the probability by the inverse-logit (or *logistic*
+function) for a difference of 0 and 1 as
+
+```{r logit0}
+plogis(c(0, 1))
+```
+
+```{r logisticplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:logisticplot)', width = "80%"}
+pkg <- c("ggplot2", "RColorBrewer")
+loaded <- sapply(pkg, require, character.only = TRUE, 
+                 warn.conflicts = FALSE, quietly = TRUE)
+options(knitr.kable.NA = "?")
+
+x <- seq(-5, 5, 0.25)
+items <- data.frame(
+  Items = c(rep(c("C", "B", "A", "D", "E"), times = c(4, 2, length(x), length(x), length(x)))),
+  beta = c(-5, 1, 1, +5,  -5,  +5, x, x, x),
+  pass = c( 0, 0, 1,  1, 0.3, 0.3,
+           plogis(x),
+           plogis(0.6 * (x + 1)),
+           smooth.spline(x = x, y = plogis(c(x[1:15], rep(x[16], 10), x[26:41])), df = 8)$y))
+ggplot(subset(items, Items == "A"), aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
+  geom_line(lwd = 0.55) + 
+  scale_x_continuous("logits", breaks = -5:5) + 
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
+  scale_colour_brewer(palette = "Set1", labels = c("A: Logistic", "B: Constant", "C: Step", "D: 2PL", "E: Monotone")) + 
+  theme_light() + 
+  theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
+```
+
+(ref:logisticplot) Standard logistic curve. Percentage of children
+passing an item for a given ability-difficulty gap $\beta_n -
+\delta_i$.
+
+Figure \@ref(fig:logisticplot) shows how the percentage that pass the
+item varies in terms of the ability-difficulty gap $\beta_n -
+\delta_i$. The gap  can vary either by $\beta_n$ or $\delta_i$, so we
+may use the graph in two ways:
+
+* To find the probability of passing various items for a child with
+ability $\beta_n$. If $\delta_i = \beta_n$ then $\pi_{ni} = 0.5$. If
+$\delta_i < \beta_n$ then $\pi_{ni} < 0.5$, and if $\delta_i >
+\beta_n$ then $\pi_{ni} > 0.5$.
+
+* To find the probability of passing a given item $\delta_i$ for
+children that vary in ability. If $\beta_n = \delta_i$ then $\pi_{ni} =
+0.5$. If $\beta_n < \delta_i$ then $\pi_{ni} < 0.5$, and if $\beta_n >
+\delta_i$ then $\pi_{ni} > 0.5$.
+
+### Types of item response functions
+
+The standard logistic function is by no means the only option to map
+the relation between the latent variable and the probability of
+passing an item. The logistic function is the dominant choice in IRT,
+but it is instructive to study some other mappings. The *item response
+function* maps success probability against ability.
+
+```{r irfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:irfplot)'}
+ggplot(items, aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
+  geom_line(lwd = 0.75) + 
+  scale_x_continuous("Child ability (logits)", breaks = -5:5) + 
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
+  scale_colour_brewer(palette = "Set1", labels = c("A: Logistic", "B: Constant", "C: Step", "D: 2PL", "E: Monotone")) + 
+  theme_light() + 
+  theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
+```
+
+(ref:irfplot) Item response functions for five hypothetical items,
+each demonstrating a positive relation between ability and probability
+to pass.
+
+Figure \@ref(fig:irfplot) illustrates several other possibilities. Let
+us consider five hypothetical items, A-E. Note that the horizontal
+axis now refers to ability, instead of ability-item gap in
+\@ref(fig:logisticplot).
+
+- A: Item A is the logistic function discussed in Section
+\@ref(sec:itemresponsefunctions).
+
+- B: For item B, the probability of passing is constant at 30 percent.
+This 30 percent is not related to ability. This item does not measure
+ability, and only adds to the noise. It is a bad item for measurement.
+
+- C: Item C is step function centered at an ability level of 1, so *all*
+children with an ability below 1 logit fail, and *all* children with
+ability above 1 pass. This is the ideal item for discriminating
+children with an abilities above and below 1. The item is not
+sensitive to differences at other ability levels, and often not so
+realistic in practice.
+
+- D: Like A, item D is a smoothly increasing logistic function, but it
+has an extra parameter that allows it to vary its slope (or
+discrimination). The extra parameter can make the curve steeper (more
+discriminatory) than the red curve, in the limit approaching a step
+curve. It can also become shallower (less discriminatory) than the red
+curve (as plotted here), in the limit approaching a constant curve
+(item B). Thus, item D generalizes items A, B or C.
+
+- E: Item E is even more general in the sense that it need not be
+logistic, but a general monotonically increasing function. As plotted,
+the item is insensitive to abilities between -1 and 0 logits, and more
+sensitive to abilities between 0 to 2 logits.
+
+These are just some examples of how the relation between the child's
+ability and passing probability could look. In practice, the curves
+need not start at 0 percent or end at 100 percent. They could also be
+U-shaped, of have other non-monotonic forms. See @coombs1964 for a
+thorough overview of such models. In practice, most models are
+restricted to shapes A-D.
+
+### Person response functions
+
+The roles of persons and items can be switched. The *person response
+function* tells us how likely it is that a single person can pass an
+item, or more commonly, a set of items.
+
+Let us continue with items A, C and D from Figure \@ref(fig:irfplot), and 
+calculate the response function for three children, respectively with 
+abilities $\beta_1 = -2$, $\beta_2 = 0$ and $\beta_3 = 2$.
+
+```{r prfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:prfplot)'}
+x <- c(seq(-5.00, -2.25, 0.25), -2.001, -2, -1.999, 
+       seq(-1.75, -0.25, 0.25), -0.001,  0,  0.001,
+       seq( 0.25,  1.75, 0.25),  1.999,  2,  2.001,
+       seq( 2.25,  5.00, 0.25))
+A1 <- c(rep(1, 23), 0.5, rep(0, 23))
+C1 <- 1 - plogis(x)
+D1 <- 1 - plogis(0.6 * (x + 1))
+ACD1 <- (A1 + C1 + D1) / 3
+
+A2 <- c(rep(1, 33), 0.5, rep(0, 13))
+C2 <- 1 - plogis(x - 2)
+D2 <- 1 - plogis(0.6 * (x - 1))
+ACD2 <- (A2 + C2 + D2) / 3
+
+A3 <- c(rep(1, 13), 0.5, rep(0, 33))
+C3 <- 1 - plogis(x + 3)
+D3 <- 1 - plogis(0.6 * (x + 4))
+ACD3 <- (A3 + C3 + D3) / 3
+
+data <- data.frame(delta = x,
+                   person = rep(c("-2", "0", "+2"), each = 47),
+                   pass = c(ACD3, ACD1, ACD2))
+ggplot(data, aes(x = delta, y = 100 * pass, group = person, colour = person)) +
+  geom_line(lwd = 0.75) + 
+  scale_x_continuous("Item difficulty (logits)", breaks = -5:5) + 
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
+  scale_colour_brewer(name = "Person ability", palette = "Set1", limits = c("-2", "0", "+2")) + 
+  theme_light() + 
+  theme(legend.position = c(0.8, 0.6), legend.justification = c(0, 0)) +
+  annotate("text", x = -4.5, y = 15, label = "Easy items", fontface = "bold") + 
+  annotate("text", x =  4.5, y = 15, label = "Hard items", fontface = "bold")
+```
+
+(ref:prfplot) Person response functions for three children with abilities 
+-2, 0 and +2, using a small test of items A, C and D.
+
+Figure \@ref(fig:prfplot) presents the person response functions from
+three persons with abilities of -2, 0 and +2 logits. The functions are
+calculated as the average of response probabilities on items A, C and
+D. Thus, on average, we expect that child 1 will pass an easy item of
+difficulty -3 in about 60 percent of the time, whereas for an
+intermediate item of difficulty of -1 the passing probility would be
+10 percent. For child 3, with a higher ability, these probabilities
+are quite different: 97% and 90%. The substantial drop in the middle
+of the curve is caused by the step function of item A. 
+
+## Engelhard criteria for invariant measurement {#sec:engelhard}
+
+In this work, we strive to achieve *invariant measurement*, a very
+strict form of measurements that is subject to the following
+requirements (@engelhard2013, p. 14):
+
+1. *Item-invariant measurement of persons*: The measurement of persons
+must be independent of the particular items that happen to be used for
+the measuring.
+
+2. *Non-crossing persons response functions*: A more able person must
+always have a better chance of success on an item that a less able
+person.
+
+3. *Person-invariant calibration of test items*: The calibration of
+the items must be independent of the particular persons used for
+calibration.
+
+4. *Non-crossing item response functions*: Any person must have a
+better chance of success on an easy item than on a more difficult
+item.
+
+5. *Unidimensionality*: Items and persons must be simultaneously
+located on a single underlying latent variable.
+
+Three families of IRT models actually support invariant measurement:
+
+1. Scalogram model (@guttman1950)
+
+2. Rasch model (@rasch1960, @andrich1978, @wright1982)
+
+3. Mokken scaling model (@mokken1971, @molenaar1997)
+
+The Guttman and Mokken model yield an ordinal latent scale, while the 
+Rasch model yields an interval scale (with a constant unit).
+
+## Why take the Rasch model? {#sec:whyrasch}
+
+* *Invariant measurement*: The Rasch model meets the five Engelhard
+criteria (c.f. Section \@ref(sec:engelhard)).
+
+* *Interval scale*: When it fits, the Rasch model provides an interval
+scale, the de-facto requirement for any numerical comparisons (c.f.
+Section \@ref(sec:motivationunit)).
+
+* *Parsimonious*: The Rasch model has one parameter for each item and
+one parameter for each person. It's one of the most parsimonous IRT
+models, and can easily be applied to thousands of items and millions
+of persons.
+
+* *Specific objectivity*: Person and item parameters are
+mathematically separate entities in the Rasch model. In practice, this
+means that the estimated difference in ability between two persons
+does not depend on the difficulty of the test. Also, the estimated
+differences in difficulties between two items does not depend on the
+abilities in the calibration sample.
+
+* *Unified model*: The Rasch model unifies distinct traditions in
+measurement theory. The Rasch model can be derived from
+    + [Thorndike's 1904 criteria](https://www.rasch.org/rmt/rmt143g.htm) 
+    + [Guttman scalogram model](https://www.rasch.org/rmt/rmt63e.htm)
+    + [Ratio-scale counts](https://www.rasch.org/rmt/rmt62c.htm)
+    + [Raw scores as sufficient statistics](https://www.rasch.org/rmt/rmt32e.htm)
+    + [Thurstone's scaling requirements](https://www.rasch.org/rmt/rmt21a.htm)
+    + [Campbell concatenation](https://www.rasch.org/rmt/rmt21b.htm)
+    + [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
+
+
+* *Fits child development data*: Last but not least, as we will show
+in Section x.x, the Rasch model provides excellent fit to
+well-developed instruments in child development.
+
+<!--chapter:end:Rmd/04-measurement.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Computation {#ch:computation}
+
+This chapter explains the basic computations needed for fitting and
+evaluation the Rasch model. We distinguish the following steps:
+
+* Data preparation (\@ref(sec:datapreparation))
+* Estimation of item parameters (\@ref(sec:itemestimation))
+* Anchoring (\@ref(sec:anchoring))
+* Estimation of the $D$-score (\@ref(sec:dscoreestimation))
+
+Reader not interested in these details may continue to model
+evaluation in Chapter \@ref(ch:evaluation).
+
+## Data preparation {#sec:datapreparation}
+
+Data SMOCC data of Secion \@ref(sec:ddi)
+
+## Item parameter estimation {#sec:itemestimation}
+
+There are many computer routines for this task, but only a few produce
+the desired result when applied to developmental data.
+
+## Anchoring {#sec:anchoring}
+
+
+
+## Estimation of the $D$-score {#sec:dscoreestimation}
+
+Once we know the score on one or more items, and the difficulties of these
+items, we may calculate the position of the person on the latent
+variable.
+
+
+With the SMOCC dataset we can compare the D-scores calculated by
+making use of calibrated milestones (the current wave milestones) with
+the D-scores calculated by making use of non-calibrated milestones
+(the next wave milestones). These D-scores for children of the age of
+2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in
+figure \@ref(fig:dscoresnw). The continuous variable IQ at 5 years
+allows for nice visualization of the variation in D-scores. Moreover,
+the densities of the D-score are given at the bottom of the plots
+showing the distribution of the values of the D-score.
+
+### Numerical example
+
+To explain how the D-score is calculated and demonstrate the use of
+the D-score package two example children, both of the age of 15
+months, are used. One of the example children is able to do all items
+of his/her age, and the other example child is not able to do all
+items of his/her age. In this way, we can show how different scores on
+a item affect the D-score.
+
+So for example, for a child of the age of 15 months the Dutch
+Developmental Instrument consists of the following six items: puts
+cube in and out of a box, plays 'give and take', crawls (abdomen off
+the floor), walks along, understands a few words, and says 2
+'sound-words' with comprehension. For each of these six items it is
+noted whether the child was able to perform this item. An example of
+the results can be found in table \@ref(tab:tableWS), in which *child
+1* was able to perform all items and *child 2* was able to perform
+four of the six items. Based on these scores we can calculate the
+dscore for both these children.
+
+
+So for example, for a child of the age of 15 months the Dutch
+Developmental Instrument consists of the following six items: puts
+cube in and out of a box, plays 'give and take', crawls (abdomen off
+the floor), walks along, understands a few words, and says 2
+'sound-words' with comprehension. For each of these six items it is
+noted whether the child was able to perform this item. An example of
+the results can be found in table \@ref(tab:tableWS), in which *child
+1* was able to perform all items and *child 2* was able to perform
+four of the six items. Based on these scores we can calculate the
+dscore for both these children.
+
+```{r, echo=FALSE}
+child1 <- c(15/12, 1, 1, 1, 1, 1, 1)
+child2 <- c(15/12, 1, 0, 1, 1, 1, 0)
+tableWS <- rbind(child1, child2)
+colnames(tableWS) <- c("age in years", "item 1", "item 2", "item 3", "item 4", "item 5", "item 6")
+rownames(tableWS) <- c("child 1", "child 2" )
+#item2 : speelt geven/nemen
+#item6 : loopt langs
+```
+
+```{r, tableWS, echo=FALSE}
+library(knitr)
+kable(tableWS, caption = "Example of scores on the items of the DDI at the age of 15 months", booktabs = TRUE)
+```
+
+Calculation of the D-score is an iterative procedure, in which in each
+step information of one item is added. The iterative procedure uses
+Bayes rule to update the prior (knowledge) with data to calculate a
+posterior. In the next step, this posterior is used as the prior and
+information, the score, from a new item is added. This results in a
+new posterior distribution. When the information of all items have
+been added to the procedure, the D-score is equal to the mean of the
+final posterior distribution.
+
+*!!plafond prior nog uitleggen!!*
+
+In the first step, the score of the first item is combined with the
+prior. However, at the first step we cannot use the previous posterior
+as our prior. Hence, we need a starting distribution to use as the
+prior in the first step. It is important that this starting
+distribution is a bit informative but not too much, so it was decided
+to choose a quite broad distribution which was centred quite well. The
+prior was chosen in such a way that the mean value of the prior
+distribution was equal to the median D-score at that age. The standard
+deviation is equal to 5, which about twice the normal variation in the
+D-score.
+
+The starting distributions (priors) for the ages of 1, 15 and 24
+months are given in figure \@ref(fig:figpriors). This figure shows
+that the priors assume that ability of a child of the age of 1 month
+is lower than the ability of a child of the age of 15 months, which in
+turn is lower than the ability of a child of the age of 24 months.
+
+```{r, figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Priors at ages of 1, 15 and 24 months"}
+library(dscore)
+library(ggplot2)
+#example from the adp function in ggplot:
+qp <- -10:80
+
+p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = adp(1/12, qp))
+p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = adp(15/12, qp))
+p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = adp(24/12, qp))
+
+dataprior <- rbind(p1m, p15m, p24m)
+dataprior$month <- as.factor(dataprior$month)
+
+p <- ggplot(dataprior, aes(qp, p, group = month)) +
+      geom_path(aes(col = month)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p
+```
+
+First, it is important that the names of the items used are similar to
+the names of the items in the built-in item bank. In this example the
+lexicon *gcdg* is used. Moreover, the data should be in long format
+with the following columnnames: *items*, *scores* and *ages*. This
+leads to table \@ref(tab:tablenewWS1).
+
+```{r, tablenewWS1, echo=FALSE}
+WS1 <- data.frame(child = c("child 1", "child 1", "child 1", "child 1", "child 1", "child 1", "child 2", "child 2", "child 2", "child 2", "child 2", "child 2"),items = c("n32", "n33", "v38", "n37", "n34", "n35", "n32", "n33", "v38", "n37", "n34", "n35"), scores = c(1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0), ages = c(15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12, 15/12))
+
+kable(WS1, caption = "Long format of the example of scores on the items of the DDI at the age of 15 months", row.names = NA)
+```
+
+Now that the data is in long format and the item names are changed to
+the lexicon *gcdg*, we can calculate the D-score for both children. In
+the first step of the iterative procedure, we combine the
+age-dependent prior of 15 months with the score of the first item
+*n34* to define the posterior. Item *n34* is a gross motor item:
+'crawls, abdomen off the floor'. In table \@ref(tab:tablenewWS1), we
+can see that both example children were able to crawl with their
+abdomen off the floor. Note, that we could have chosen any of the
+items as the first item, since the D-score is independent of the order
+of items in the calculation.
+
+The age dependent prior of 15 months and the posterior distribution
+after adding information from item *n34* are given in figure
+\@ref(fig:fig1item). In this figure, we can see that the posterior
+distribution doesnot differ that much from the prior distribution.
+Both distributions are centred at the same point, while the posterior
+distribution is smaller than the prior distribution indicating more
+precision. Since both example children were able to crawl with their
+abdomen off the floor, the posterior distribution after the first step
+of the procedure is equal.
+
+```{r, fig1item, echo=FALSE, fig.cap="\\label{fig:fig1item} Age-dependent priors of 15 months and posterior after 1st item n34"}
+items <- c("n34")
+age <- 1.25
+  
+#full posterior 1e item
+qp <- -10:80
+fp <- dscore(1, items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("posterior", length(qp)))
+prior <- data.frame(qp = qp, fp = fp[[1]]$start, distribution = rep("prior", length(qp)))
+
+dataprior <- rbind(fp1, prior)
+dataprior$distribution <- as.factor(dataprior$distribution)
+
+p1 <- ggplot(dataprior, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p1
+```
+
+Now, let's add an item on which the scores for the two example
+children differ, e.g. item *n35*. Item *n35* is also a gross motor
+item, namely 'walks along'. So both children are able to crawl (with
+their abdomen of the floor), but only *child 1* is able to walk along.
+We can use the previously calculated posterior distribution as prior
+when we add item *n35*.
+
+Let's start with *child 1*, who is able to walk along. Using Bayes
+rule, the new posterior distribution can be calculated. In figure
+\@ref(fig:fig2itemC1) the prior, in this case the posterior after
+adding item *n34* to the age-dependent prior, and the newly calculated
+posterior distribution are visualized. Again, the posterior and prior
+are centred around the same point, while the posterior has a bit more
+precision.
+
+```{r, fig2itemC1, echo=FALSE, fig.cap="\\label{fig:fig2itemC1} Prior and posterior in the 2nd step of the iterative process for child 1"}
+items <- c("n34", "n35")
+age <- rep(1.25, length(items))
+  
+#full posterior 2e item
+qp <- -10:80
+fp2 <- dscore(c(1,1), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("1st posterior", length(qp)))
+fp2 <- data.frame(qp = qp, fp = fp2[[1]]$posterior, distribution = rep("2nd posterior", length(qp)))
+
+datafp <- rbind(fp1, fp2)
+datafp$distribution <- as.factor(datafp$distribution)
+
+p2 <- ggplot(datafp, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p2
+
+
+```
+
+Now we can do the same thing for *child 2*, who is able to crawl with
+his/her abdomen off the floor (*n34*) but not to walk along (*n35*).
+Again, we can use the posterior after adding information from *n34* as
+the prior and use the information from *n35* to calculate the
+posterior. In figure \@ref(fig:fig2itemC2) the prior and posterior are
+given. Now the prior and posterior are different, the posterior is on
+the left of the prior and has an high precision in comparison to the
+prior. Hence, being unable to walk along at the age of 15 months, like
+*child 2*, is more indicative for the development of a child of 15
+months than being able to walk along like *child 1*.
+
+```{r, fig2itemC2, echo=FALSE, fig.cap="\\label{fig:fig2itemC2} Prior and posterior in the 2nd step of the iterative process for child 2"}
+items <- c("n34", "n35")
+age <- rep(1.25, length(items))
+  
+#full posterior 2e item FAIL
+qp <- -10:80
+fp2 <- dscore(c(1,0), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp1 <- data.frame(qp = qp, fp = fp[[1]]$posterior, distribution = rep("1st posterior", length(qp)))
+fp2 <- data.frame(qp = qp, fp = fp2[[1]]$posterior, distribution = rep("2nd posterior", length(qp)))
+
+datafp2 <- rbind(fp1, fp2)
+datafp2$distribution <- as.factor(datafp2$distribution)
+
+p3 <- ggplot(datafp2, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p3
+
+```
+
+
+The next four steps in the iterative procedure, information from the
+other four items (*n32*, *n33*, *v38* and *n37*) can be added in a
+similar fashion. Figure \@ref(fig:fig6itemC1C2) shows the final
+posterior distributions for *child 1* and *child 2* and the prior
+distribution for the age of 15 months. The D-score can now be
+determined by looking at the mean of the posterior distributions.
+Hence, the D-score for *child 1* and *child 2* are equal to 55.75 and
+47.76, respectively.
+
+```{r, fig6itemC1C2, echo=FALSE, fig.cap="\\label{fig:fig6itemC1C2} Prior and final posterior for child 1 and 2"}
+items <- c("n32", "n33", "v38", "n37","n34", "n35")
+age <- rep(1.25, length(items))
+  
+#full posterior for both children and prior
+qp <- -10:80
+fp6_1 <- dscore(c(1,1,1,1,1,1), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+fp6_2 <- dscore(c(1,0,1,1,1,0), items, age, full = TRUE, lexicon = "gcdg", qp = qp)
+prior <- data.frame(qp = qp, fp = fp[[1]]$start, distribution = rep("prior", length(qp)))
+fp6_1 <- data.frame(qp = qp, fp = fp6_1[[1]]$posterior, distribution = rep("final posterior child 1", length(qp)))
+fp6_2 <- data.frame(qp = qp, fp = fp6_2[[1]]$posterior, distribution = rep("final posterior child 2", length(qp)))
+
+datafp6 <- rbind(prior, fp6_1, fp6_2)
+datafp6$distribution <- as.factor(datafp6$distribution)
+
+p6 <- ggplot(datafp6, aes(qp, fp, group = distribution)) +
+      geom_path(aes(col = distribution)) +
+      coord_cartesian(xlim=c(-10, 80)) +
+      scale_y_continuous(name = "Density") +
+      scale_x_discrete(name = "D-score")
+p6
+
+```
+
+```{r, echo=FALSE, message=FALSE}
+#Dscore child1
+dscore(c(1,1,1,1,1,1), items, age, full = FALSE, lexicon = "gcdg") #55.75
+#Dscore child2
+dscore(c(1,0,1,1,1,0), items, age, full = FALSE, lexicon = "gcdg") #47.76
+```
+
+*nog toe te voegen in de tekst*
+
+*quadratic points*
+
+*Note: met deze methode is het mogelijk om scores voor extremen te berekenen, andere methodes (zoals de worms estimator) kunnen dit niet altijd.*
+
+*Prior die gekozen was: plafond prior (wanneer je alle items kan)*
+
+
+We already explained how the D-score suffers from a ceiling and bottom
+at the start and end of the scale. However, this can also happen
+within the D-score scale: some values of the D-score will never occur
+no matter the combination of scores on the milestones. This will
+mainly occur when calibrated milestones are used to calculate the
+D-score. For example, the Dutch Developmental Instrument (DDI), which
+is used as a screening instrument, is calibrated: at each wave 90\% of
+the children should be able to get a positive score on the milestones.
+Which allows for detection of children with a developmental delay.
+
+<!--chapter:end:Rmd/05-estimation.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Evaluation {#ch:evaluation}
+
+The nice properties of the Rasch model (c.f. Section
+\@ref(sec:whyrasch)) only hold when the data and model agree. It is
+therefore important to study and remove discrepancies between model
+and data. This chapter explains several techniques that aid in the
+evualation of model fit.
+
+* Item fit (\@ref(sec:itemfit))
+* Person fit (\@ref(sec:personfit))
+* Differential item functioning (\@ref(sec:dif))
+* Item information (\@ref(sec:iteminformation))
+* Reliability (\@ref(sec:reliability))
+
+These topics adress different aspects of the solution. In practice, we
+have found that item fit is the most important concern.
+
+<!--5.2
+formules eerder achterin, of uitleggen
+terugverwijzen
+zeggen dat je zowel visueel als met fitmaat kunt werken
+item namen = gsed
+
+bespreken van verschillende voorbeelden, plat, te steil
+n26 is steiler, hoe erg is dat?
+is er ook een vlakker item
+figuur aspect ratio, compacter maken, nu te hoog, combineren mogelijk?
+kunnen we ook de observaties tonen, rugplot?
+#voorbeelden gedragstoestand tijdens van wiechenschema als items nemen en laten zien als illustratie van slechte items. Of niet geselecteerde items.
+
+5.3 
+Interpretation van infit en outfit komt te vroeg
+laat eerst zien wat beide zijn
+E_ni -> P_ni
+Plaatje van de (gestandardiseerde) residuen?
+
+5.4 
+psychometric information?
+-->
+
+## Item fit {#sec:itemfit}
+
+To illustrate the interpretation of fit measures for the D-score we use the SMOCC study [@herngreen1994], which covers the age range 0-2 years. In the SMOCC study 57 items are asssesed to measure the D-score. 
+
+### Empirical and fitted item response curves
+
+```{r, include=FALSE}
+library(ddata)
+library(dmetric)
+library(dscore)
+library(sirt)
+library(dplyr)
+library(gseddata)
+```
+
+An imporant aspect of the Rasch analysis is the issue of model fit. Actually, for the Rasch model it is not the task of the model to account for the data, however it is the task of the data to fit the Rasch model. Accordingly, the model fit determines how well emprirical data meets the requirement of the Rasch model. The fit of the data to a Rasch model can be visually inspected by comparing the observed probability of endorsing an item to the fitted item response curve for endorsing the item. The fitted item response curve for each item $i$ is modeled as: $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$ where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the difficulty of item $i$. In the Figure below, the item characteristics curve can be obverved for two example items. It can be observed that for both items the observed data (orange line) fits nicely to the estimated item response curve (dashed line).  
+
+
+```{r icc, include=FALSE, message=FALSE, warning=FALSE}
+
+ # data0 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
+ # data0$agedays <- as.integer(data0$age /12 *365.25)
+ # data0$subjid <- data0$id
+ # varlist <- prepare_items(study = "Netherlands 1")
+ # varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
+ # equatelist <- prepare_equates(varlist)
+ # model_name<- "smocc"
+ # model0 <- fit_dmodel(varlist=varlist, data = data0, equate=equatelist, name = model_name, data_package = "ddata")
+ # 
+ # #translate to gsed names
+ # data <- data0
+ # colnames(data)[colnames(data) %in% model0$items] <- gseddata::rename_gcdg_gsed(colnames(data)[colnames(data) %in% model0$items])
+ # source('C:/Users/eekhouti/Documents/GitHub/dbook1/R/translate_gcdg_gsed.R')
+ # model <- translate_gcdg_gsed(input = model0)
+
+  data <- gseddata::get_data(adm = ".", cov = ".", aux = ".", cohorts = 53, items = ".")
+  items <- rename_gcdg_gsed(prepare_items(study = "Netherlands 1")$items)
+  varlist <- list(adm = c("subjid", "agedays", "cohort", "cohortn", "subjido"),
+                 items = items)
+  model <- dmetric::fit_dmodel(varlist, data = data,
+                     name = "SMOCC", age_unit = "years")
+
+ 
+ 
+```
+
+```{r plot icc, echo=FALSE, fig.height=3, fig.show='hold', fig.width=3, message=FALSE, warning=FALSE}
+plot_p_d_item(data = data, model = model, items = "ddifmd005", show_fit = FALSE, metric = "logit")[[1]]
+plot_p_d_item(data = data, model = model, items = "ddigmm060", show_fit = FALSE, metric = "logit")[[1]]
+plot_p_d_item(data = data, model = model, items = "ddicmm036", show_fit = FALSE, metric = "logit")[[1]]
+```
+
+### Item fit examples
+
+The fit of the items evaluate the extent to which data performs with the construction of measurement. An assumption of the Rasch model is that items with a lower difficulty will always have a higher probability to pass in comparison to items with a higher difficulty level. 
+
+---
+#Hier wilde ik ook de gseddata gebruiken, maar het lukte niet om daar extra items aan toe te voegen. Het zit zo hard ingeprogrammeerd dat de items moeten voorkomen in de itemtable. In de gcdg data heb ik een work-around ervoor gevonden, maar voor gsed bleef hij errors geven bi het fitten van het model. 
+#Het sourcen van R-functies werkt ook niet.. ik heb nu hard de locatie op mijn PC erin gezet, maar dat zal wel problemen geven als jij de code draait. Hoe heb jij dit gedaan?
+---
+
+```{r fit, include=FALSE, message=FALSE, warning=FALSE}
+#add random variable to first model to show misfit
+  data02 <- ddata::get_gcdg(study="Netherlands 1", adm = TRUE, cov = TRUE)
+  data02$agedays <- as.integer(data02$age /12 *365.25)
+  data02$subjid <- as.numeric(gsub("^1", 530, data02$id))
+ 
+ data02$a3com1 <- as.integer(runif(n = nrow(data02), 0,2)) #flat
+ data02$a4com1 <- ifelse(data02$age > 2, 0, 1) #gutmanage
+ rand <- runif(nrow(data02), 0 , 1)
+ data02$a4f2 <- ifelse(data02$age > 2 & rand > 0.2 , 1 , 0) #flat2
+ data02$a4f2 <- ifelse(data02$age <= 2 & rand < 0.2 , 1 , data02$a4f2) #flat2
+  dsc <- model$beta_l
+  dsc$a13f1 <- ifelse(dsc$b < 2 , 0 ,1) #gutmand
+  dsc$a13f2 <- ifelse(dsc$b > 2  & runif(nrow(dsc), 0, 1) > 0.1 , 1 ,0) #gutmand_error
+  dsc <- dsc[,c("subjid","agedays", "a13f1", "a13f2")]
+  head(dsc)
+  data02 <- left_join(data02, dsc)
+ # 
+ varlist <- prepare_items(study = "Netherlands 1")
+ varlist$adm <- union(varlist$adm, c("subjid", "agedays"))
+ transtab <- cbind(gcdg = varlist$items, gsed = rename_gcdg_gsed(varlist$items))
+ fixedb <- model$fit$b  
+ names(fixedb)[match(names(fixedb), transtab[,"gsed"])] <- transtab[,"gcdg"]
+
+ varlist$items <- union(varlist$items, c("a13f2", "a3com1", "a4com1", "a4f2", "a13f1"))
+
+ model02 <- dmetric::fit_dmodel(varlist=varlist, data = data02,  data_package = "ddata", b_fixed = fixedb)
+ 
+
+ #translate to gsed names
+ data2 <- data02
+ colnames(data2)[colnames(data2) %in% model02$items] <- gseddata::rename_gcdg_gsed(colnames(data2)[colnames(data2) %in% model02$items])
+
+ source(file.path(getwd(), "R/translate_gcdg_gsed.R"))
+ model2 <- translate_gcdg_gsed(input = model02)
+```
+
+The fit of the items can be visually inspected using the item response curves.The data fit the Rasch model when the observed data, as presented by the orange lined follow the dashed curve of the fitted model. The previous examples of item response curves fit the model nicely. However, there are many examples imaginable that result in bad fitting items to the model. Two types of item fit are distinguished: the item outfit and the item infit. The outfit evaluates the extent to which the responses to the items are consistent with the model. In other words whether items with a lower difficulty also have a higher probability to pass. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. 
+When the probability to pass an item does not increase by the ability, but apears to be rather flat, the outfit is too large. In the examples below, the the probability to pass the item does not increase by ability in the same rate as the model. 
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
+plot_p_d_item(data = data2, model = model2, items = "a3com1", show_fit = TRUE, metric = "logit")[[1]]
+plot_p_d_item(data = data2, model = model2, items = "a4f2", show_fit = TRUE, metric = "logit")[[1]]
+
+```
+
+Another example that results in an extremely large outfit is when the probability for passing the item decreases when the ability increases:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold',fig.align='center'}
+plot_p_d_item(data = data2, model = model2, items = "a4com1", show_fit = TRUE, metric = "logit")[[1]]
+```
+
+The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. So, the infit measures the extend to which the observed data follow the model and that the responses are as expected. This fit is harder to observe visually, because the infit is sensitive to small errors in individual response patterns.A pattern that can be observed is when the observed data points actually have a steaper curve, compared to the model. This pattern, with a very steap curve, is called the Gutman pattern and actually fits the model very well and would even discriminate better (plot on the left).  An example of a larger infit is when an item seems to follow the curve well but has some odd data points along the way (plot on the right)
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
+plot_p_d_item(data = data2, model = model2, items = "a13f1", show_fit = TRUE, metric = "logit")[[1]]
+plot_p_d_item(data = data2, model = model2, items = "a13f2", show_fit = TRUE, metric = "logit")[[1]]
+
+```
+
+
+The item fit can also be inspected by using the statistical fit-measures. To determine the fit of items to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The item infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $P_{ni}(1-P_{ni})$. The outfit is calculated as the sum of the squared standardized errors. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}$$ 
+Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}$$
+$$Outfit = \frac{\sum_{n}^N z_{ni}^2}{N}$$
+As a guideline for interpreting the item fit-measures a threshold of fit < 1 can be used when you want to be very strict in the item selection and only select the absolute best items. This threshold would be used when the amount of available items is rather large. When the selection should be less strict a thresold of fit < 1.3 can be considered. 
+
+
+## Person fit {#sec:personfit}
+
+---
+# Voor person fit heb ik verder geen plaatjes, ik weet niet zo goed hoe ik dan moet weergeven. Het is natuurlijk ook meer een soort van toevoeging aan de item fit hierboven. 
+---
+
+The fit of the persons evaluates the extent to which the responses of any person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass any item than a less able person. Fit analysis evaluates the extend to which this is true for any person. Two types of person fit are distinguished: the person outfit and the person infit. The outfit evaluates the extent to which the responses to of the persons are consistent with the model. In other words wheter persons with a lower ability also have a lower probability to pass items. The outfit statistic is heavily infulenced by outlying responses that do not fit the expected pattern. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses. 
+
+To determine the fit of persons to the model we compare the observed responses and the expected values. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$. The expected response $P_{ni}$ is modelled as $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i} )}{1+exp(\beta_{n}-\delta_{i})}$$. The difference between the observed and the expected responses are the residual errors. The person infit is the sum of the squared errors divided by the sum of the expected response variances $W_{ni}$. The expected response variance $W_{ni}$ can be obtained as $P_{ni}(1-P_{ni})$. The outfit is calculated as the sum of the squared standardizes errors accumulated over the items $L$ to evaluate the plausability of any person response. The residual errors are standardized by dividing by the expected binomial standard deviation: $$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}$$. Accordingly the infit and outfit are calculated as: $$Infit = \frac{\sum_{n}^L (x_{ni}-P_{ni})^2}{\sum_n^L W_{ni}}$$
+   $$Outfit = \frac{\sum_{n}^L z_{ni}^2}{L}$$. As a threshold for person fit < 3 can be used to clean out persons with inplausible response patterns. 
+
+
+## Differential item functioning (DIF) {#sec:dif}
+
+An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two milestones do not shown DIF:
+
+```{r dif1, echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
+
+plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
+plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
+```
+
+However, these two items do show a small amount of DIF. This means that the difficulty for the items for male respondent is different than for female respondents. The milestone "Says three words" is less difficult for female respondents, whereas the milestone "Walks while holding onto play-pen or furniture" is less difficult for the male respondents.
+
+```{r dif2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
+plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddicmm039")[[1]]
+plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm067")[[1]]
+```
+
+## Item information {#sec:iteminformation}
+
+### Item information at a given ability
+
+The item information is defined as the amount of psychometric information an item contains for a given ability. The item information can be plotted for each item. In the Figure below, the item information curves for some example milestones are displayed. The amount of information for an item is maximized around the item-difficulty parameter. 
+
+```{r iic, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 3}
+#item information curve
+## bereken item info by difficulty
+ info <- function(beta, delta) {(exp(beta-delta)/(1+exp(beta-delta)) * (1-exp(beta-delta)/(1+exp(beta-delta))))}
+ delta <- model$fit$b["ddigmm060"]
+ betar <- c(-10,2)
+ beta = seq(betar[1], betar[2], length = 200)
+ iteminfo1 <- data.frame(ability=beta,I=info(beta,delta))
+
+ delta <- model$fit$b["ddicmm039"]
+ betar <- c(-2,10)
+ beta = seq(betar[1], betar[2], length = 200)
+ iteminfo2 <- data.frame(ability=beta,I=info(beta,delta))
+
+
+ iteminfo1$item <- "Rolls over back to front"
+ iteminfo2$item <- "Says three words"
+ df <- rbind(iteminfo1,iteminfo2)
+ 
+ ggplot(df, aes(ability,I, group=item, color=item))+geom_line()+xlab("Ability")+ylab("Item information")
+
+```
+
+The formula to obtain the item information is the first derivative of the item response curve and can be written as follows: $$I(\delta)=P_i(\delta)(1-P_i(\delta))$$ where $P_i(\delta)$ is the conditional probability of endorsing an item. For example for milestone "Says three words" the $\delta_i$ equals $3.81$. The probability of endorsing this item for a person with an ability level of $2$ standard deviation above the mean is $$P_{ni}= \frac{exp(2 -  3.81)}{1+exp(2-3.81)}$$ $$P_{ni}= 0.14$$
+So for an ability level of $2$ standard deviations above the mean $\beta_n=2$, milestone "Says three words" has an information value of $$I(\delta)=0.14(1-0.14)$$ $$I(\delta)=0.12$$ 
+
+
+### Item information at a given age
+
+The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
+
+```{r iia, echo=FALSE, message=FALSE,  warning=FALSE,  fig.height = 3}
+colnames(model$dscore)[7] <-"b"
+model$dscore$age <- model$dscore$agedays/12
+#model in logit
+refs<- calculate_references(model = model, metric="logit")
+refs$month <- refs$age
+
+
+#item information curve
+## bereken item info by difficulty
+ info_age <- function(betas, p = 50, reference) {
+ pd <- matrix(betas, nrow = length(betas), ncol = length(p)) +
+    matrix(1 * qlogis(p / 100),
+           nrow = length(betas), ncol = length(p), byrow = TRUE)
+  pa <- approx(x = reference$mu, y = reference$month, xout = as.vector(pd))$y
+  pa <- matrix(pa, ncol = length(p))
+  pda <- data.frame(round(pd, 2), round(pa, 2))
+  names(pda) <- c("delta", paste0("A", p))
+  pda
+ }
+  
+
+ iteminfo1$age <-info_age(betas = iteminfo1$ability, reference = refs)$A50
+ iteminfo2$age <-info_age(betas = iteminfo2$ability, reference = refs)$A50
+
+ df <- rbind(iteminfo1,iteminfo2)
+ 
+ ggplot(df, aes(age,I, group=item, color=item))+geom_line()+xlab("Age(months)")+ylab("Item information")
+
+```
+
+The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item. 
+
+## Reliability {#sec:reliability}
+
+The *person seperation index* is a measure for reliability for the Rasch model that is comparable to Cronbach's $\alpha$. In that context we define the reliability as the proportion of variance of the estimated person estimates (i.e. abilities) and the total variance including error. PSI obtained as follows: $PSI = \frac{\sigma_{\hat\beta}^2 -\hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}$, where $\sigma_{\hat\beta}^2$ is the variance of the estimated abilities and $\sigma_{\hat e}^2$ is the error variance of the abilities. The standard error of measurement can be obtained from this information as $SEM = \sqrt{\sigma_{\hat e}^2}$, which reflects the precision of the ability estimation. Below the $PSI$ and $SEM$ are calculated for our example data. 
+
+---
+# Ik weet niet zeker of het nuttig is om PSI te bespreken, maar het blijkt wel dat veel onderzoekers een reliability maat fijn vinden om te hebben. Kun jij hieronder kijken of mijn berekening klopt? Ik heb de functie een beetje geannoteerd.
+#Het idee is om aan de hand van de model resultaten, item data te simuleren en deze data weer te gebruiken om een ability score te schatten. De originele ability uit het mdoel is dan de true en de geschatte uit de simulatie de etsimated. Daarmee ga ik dan de PSI berekenen. Ik vind de SEM wel wat hoog uitvallen, want deze is in logit - units - dan dus al 2.5. Kan dit kloppen?
+---
+
+```{r psi, echo=FALSE, message=FALSE, warning=FALSE}
+
+model_psi <- function(model){
+  b_true <- model$beta_l$b #abilities uit dmodel object - b_true
+  sim_data <- sim.raschtype(theta = b_true, b = model$fit$b) #simulate item data based on abilities from model and delta's
+  colnames(sim_data) <- names(model$fit$b)
+  sim_data$age <- model$beta_l$agedays / 365.25
+  b_est <- ability(data = sim_data, items = names(model$fit$b), key = data.frame(item = names(model$fit$b), delta = model$fit$b), metric = "logit")$b #estimate new abilities based on simulated data - b_est
+  
+  #calculate parameters for PSI calculation
+  var_b_est <- var(b_est, na.rm = TRUE)
+  var_b_true <- var(b_true, na.rm = TRUE)
+  var_error_est <- var(b_true - b_est , na.rm = TRUE)
+
+  #psi calculation
+  psi <- (var_b_est - var_error_est) / var_b_est
+  var_error_true = (var_b_true / psi) - var_b_true
+  psi <- var_b_true / (var_b_true + var_error_true)
+
+   sem <- sqrt(var_error_est)
+   return(round(c(psi = psi, sem = sem), 3))
+}
+
+model_psi(model)
+
+
+```
+
+
+
+<!--chapter:end:Rmd/06-evaluation.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Validity {#validity}
+
+## Role of validity
+
+## Internal validity
+domain representation
+how calculated
+interpretation
+
+## External validity
+
+### Discriminatory validity
+
+### Concurrent validity
+at least cor = >.6
+
+### Predictive validity
+
+For examples see CH 8
+
+<!--chapter:end:Rmd/07-validity.Rmd-->
+
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+```{r, echo=FALSE}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+# Outcome {#outcome}
+
+This chapter focusses on the first application of the D-score: the D-score as neurocognitive outcome at 1000 days. In this chapter, we show how the D-score is calculated, demonstrate how to work with the D-score package, and how the D-score can be used as neurocognitive outcome in three different populations. First, the calculations behind the D-score are explained step-by-step and how to do this with the D-score package by means of two example children. Thereafter, the D-scores will be calculated for three different populations at the age of two years: the reference population, population of preterm children, and population of children in LMIC. 
+
+
+## D-score of reference children at 2 years (PD)
+
+A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994] . Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,578 children. 
+
+During the SMOCC study the milestones of the current wave and the next wave were assessed [@herngreen1994]. With the SMOCC dataset we can compare the D-scores calculated by making use of calibrated milestones (the current wave milestones) with the D-scores calculated by making use of non-calibrated milestones (the next wave milestones). These D-scores for children of the age of 2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in figure \@ref(fig:dscoresnw). The continuous variable IQ at 5 years allows for nice visualization of the variation in D-scores. Moreover, the densities of the D-score are given at the bottom of the plots showing the distribution of the values of the D-score.
+
+
+```{r, echo=FALSE, message=FALSE, warning = FALSE}
+library(gridExtra)
+library(dplyr)
+# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long3.sav")
+data.long <- haven::read_sav("data-raw/data/smocc/smocc_long3.sav")
+data.long$scores_false <- data.long$scores_false - 1
+data.long$scores_false_nw <- data.long$scores_false_nw - 1
+data.long <- as_tibble(data.long)
+
+data.long$wave <- factor(data.long$wave)
+data.long1 <- data.long[!is.na(data.long$IQ), ]
+data.long1 <- data.long1[!is.na(data.long1$dscore), ]
+data.long1$scores_false <- as.factor(data.long1$scores_false) 
+data.long1$scores_false_nw <- as.factor(data.long1$scores_false_nw) 
+```
+
+```{r, echo=FALSE, message=FALSE, warning = FALSE}
+library(ggplot2)
+
+p2 <- ggplot()+
+  geom_point(data=subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave, col=scores_false), show.legend=F, size = 1)+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_x_continuous(name = "D-score (2 month milestones) ") +
+  facet_grid(. ~ wave) +
+  geom_density(data=subset(data.long1, wave == c(2)),   
+               aes(dscore, y = ..density..*100),
+               show.legend = F) +
+  theme(legend.position = "none") + 
+  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+
+p3 <- ggplot()+
+  geom_point(data=subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave, col=scores_false), show.legend=F, size = 1)+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_x_continuous(name = "D-score (3 month milestones) ") +
+  facet_grid(. ~ wave) +
+  geom_density(data=subset(data.long1, wave == c(3)),   
+               aes(dscore, y = ..density..*100),
+               show.legend = F) +
+  theme(legend.position = "none") + 
+  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+  
+
+#D-score next wave
+p2.nw <- ggplot()+
+  geom_point(data=subset(data.long1, wave == c(2)), aes(dscore.nw, IQ, group = wave, col=scores_false_nw), show.legend=F, size = 1)+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_x_continuous(name = "D-score (3 month milestones) ") +
+  facet_grid(. ~ wave) +
+  geom_density(data=subset(data.long1, wave == c(2)),   
+               aes(dscore.nw, y = ..density..*100),
+               show.legend = F) +
+  theme(legend.position = "none") + 
+  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+
+p3.nw <- ggplot()+
+  geom_point(data=subset(data.long1, wave == c(3)), aes(dscore.nw, IQ, group = wave, col=scores_false_nw), show.legend=T, size = 1)+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"), 
+                      name = "Number of negative scores")+
+  coord_cartesian(xlim=c(0, 75)) +
+  scale_x_continuous(name = "D-score (6 month milestones) ") +
+  facet_grid(. ~ wave) +
+  geom_density(data=subset(data.long1, wave == c(3)),   
+               aes(dscore.nw, y = ..density..*100),
+               show.legend = F) + 
+  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+```
+
+```{r, dscoresnw, echo = FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:dscoresnw} Comparison of the D-scores calculated by calibrated and non-calibrated milestones at the age of 2 months (Wave 2) and 3 months (Wave 3)"}
+library(ggpubr)
+ggarrange(p2, p2.nw, p3, p3.nw, ncol=2, nrow=2, common.legend = TRUE, legend="bottom")
+
+```
+
+The colours of the dots in figure \@ref(fig:dscoresnw) indicate the number of negative scores on the milestones: note that the number of milestones can differ per wave. Wave 2 has two milestones, Wave 3 has five milestones and Wave 4 has six milestones of the DDI. The variation in the D-score of the children with the same number of negative scores (the same colour of dots) is caused by variation in age. Since the D-score is calculated by using an age-dependent prior, younger children in the same wave with the same scores will have a lower D-score.
+
+Moreover, the plots on the left in figure \@ref(fig:dscoresnw) show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. For example, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find children that have a delay in their development in comparison to their peers.
+
+In addition, the plots on the right in figure \@ref(fig:dscoresnw), show the D-scores when non-calibrated milestones (the milestones of the next wave) are used. For the DDI, on average, around 50\% of the children should be able to get a positive score in this situation. For example, 50\% of the children of the age of 2 months should be able to get a positive score on the 3 month milestones. Since these milestones are considered to be more difficult, a negative score on one of the milestones will have a smaller effect on the D-score. Hence, the gap we saw before between the green and yellow dots disappears. Furthermore, there is more variation in the D-scores and the ceiling/bottom within the D-score scale disappears.
+
+Previously described phenomena are also visible in the densities of the D-scores. When the D-scores are calculated with the calibrated milestones, the left plots in figure \@ref(fig:dscoresnw), the density consists (at least) of two (small) peaks. While the D-scores calculated with non-calibrated milestones, the plots on the right, show a broader variation in the values of the D-score. Note, that the density of the D-score in the plot on the bottom right also shows the bottom effect of the D-score: the D-score is at least equal to 20. A lower D-score is not possible with this set of milestones at the age of 3 months. 
+
+Linear regression analyses were performed with DAZ as outcome and the indicators as predictors. Calculation of the DAZ was unadjusted for gestational age.
+
+
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+#D-scores plot
+p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
+  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore
+
+p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
+  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore.nw
+
+resultsSMOCC <- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urban", "metropolitan", "Maternal education (in years)", "Paternal education (in years)", "Maternal age (in years)", "Gestational age (in weeks)", "Gestational age (in categories)", "$\\geq 37$ weeks", "$\\geq 32 - 37$ weeks", "$<32$ weeks*", "Gender", "boys", "girls", "Birthweight (in kg)","Birthweight (in categories)", "$\\geq 2500$ grams", "$\\geq 1500 - <2500$ grams", "$<1500$ grams", "Birth size (in cm)", "Apgar score after 1 min", "$<5$", "$\\geq 5$", "Apgar score after 5 min", "$<7$", "$\\geq 7$"), 
+                b = c(" ","$15$", "$1257$" , "$294$", "$0$", "$1559$", "$1555$", "$1577$", "$1578$", " ", "$1495$", "$78$", "$5$", " ", "$768", "$810$", "$1578$"," ", "$1485$", "$85$", "$8$", "$1381$", " ", "$28$", "$1304$", " ", "$15$", "$1336$"),
+                c = c( " ","$1.0%$", "$80.3%$" , "$18.8%$", "$0.0%$", "$13 (2.3)$", "$14 (2.6)$", "$30 (4.5)$", "$40 (1.8)$", " ", "$94.7%$", "$4.9%$", "$0.3%$", " ", "$48.7%$", "$51.3%$", "$3.419 (0.559)$"," ", "$94.1%$", "$5.4%$", "$0.5%$", "$51 (2.6)$", " ", "$2.1%$", "$97.8%$", " ", "$1.1%$", "$98.9%$"),
+                d = c(" ","$0.2842 (0.2469)$", "$0$", "$0.0723 (0.0616)$", " ", "$0.0805 (0.0103)$", "$0.0546 (0.0092)$", "$0.0007 (0.0054)$", "$0.0675 (0.0130)$", " ", "$0$", "$-0.3786 (0.1098)$","$-1.2844 (0.4236)$", " ", "$-0.2896 (0.0474)$", "$0$", "$0.1234 (0.0427)$"," ", "$0$", "$-0.2454 (0.1057)$", "$-0.9537 (0.3361)$", "$0.0163 (0.0097)$", " ", "$0.0493 (0.178)$", "$0$", " ", "$0.1493 (0.2422)$", "$0$"),
+                e = c(" ","$1.15$", " " , "$1.17$", " ", "$7.84$", "$5.91$", "$0.13$", "$5.18$", " ", " ", "$-3.45$", "$-3.03$", " ", "$-6.11$", " ", "$2.89$"," ", " ", "$-2.32$", "$-2.84$", "$1.68$", " ", "$0.28$", " ", " ", "$0.62$", " "),
+               f = c(" ","$0.25$", " " , "$0.24$", " ", "$<.001$", "$<.001$", "$0.90$", "$<.001$", " ", " ", "$<.001$", "$0.002$", " ", "$<.001$", " ", "$0.004$"," ", " ", "$0.0204$", "$0.0046$", "$0.093$", " ", "$0.78$", " ", " ", "$0.54$", " "))
+```
+
+## D-score of reference children at 2 years (PD)
+
+**Data**
+
+**Conclusions**
+
+Maternal and paternal education, gestational age, gender and birthweight were significantly associated with DAZ at 2 years of age.  
+
+Moreover, the plots on the left in figure \@ref(fig:dscoresnw) show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. For example, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find children that have a delay in their development in comparison to their peers.
+
+In addition, the plots on the right in figure \@ref(fig:dscoresnw), show the D-scores when non-calibrated milestones (the milestones of the next wave) are used. For the DDI, on average, around 50\% of the children should be able to get a positive score in this situation. For example, 50\% of the children of the age of 2 months should be able to get a positive score on the 3 month milestones. Since these milestones are considered to be more difficult, a negative score on one of the milestones will have a smaller effect on the D-score. Hence, the gap we saw before between the green and yellow dots disappears. Furthermore, there is more variation in the D-scores and the ceiling/bottom within the D-score scale disappears.
+
+Previously described phenomena are also visible in the densities of the D-scores. When the D-scores are calculated with the calibrated milestones, the left plots in figure \@ref(fig:dscoresnw), the density consists (at least) of two (small) peaks. While the D-scores calculated with non-calibrated milestones, the plots on the right, show a broader variation in the values of the D-score. Note, that the density of the D-score in the plot on the bottom right also shows the bottom effect of the D-score: the D-score is at least equal to 20. A lower D-score is not possible with this set of milestones at the age of 3 months. 
+
+
+```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
+#D-scores plot
+p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
+  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore
+
+p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
+  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+  coord_cartesian(xlim=c(0, 25)) +
+  scale_y_continuous(name = "D") +
+  scale_x_continuous(name = "age") 
+p.dscore.nw
+```
+
+
+## D-score of reference children at 2 years (PD)
+
+**Data**
+
+A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994]. Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children.
+
+**Methods**
+
+Several characteristics were selected from the SMOCC cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birthweight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the SMOCC study:
+
+-	Paternal education (in years)
+-	Maternal age (in years)
+-	Apgar score after 1 min < 5 (yes vs no)
+-	Apgar score after 5 min < 7 (yes vs no)
+
+**Results**
+
+```{r, echo=FALSE}
+
+resultsSMOCC <- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urban", "metropolitan", "Maternal education (in years)", "Paternal education (in years)", "Maternal age (in years)", "Gestational age (in weeks)", "Gestational age (in categories)", "$\\geq 37$ weeks", "$\\geq 32 - 37$ weeks", "$<32$ weeks*", "Gender", "boys", "girls", "Birthweight (in kg)","Birthweight (in categories)", "$\\geq 2500$ grams", "$\\geq 1500 - <2500$ grams", "$<1500$ grams", "Birth size (in cm)", "Apgar score after 1 min", "$<5$", "$\\geq 5$", "Apgar score after 5 min", "$<7$", "$\\geq 7$"),
+                b = c(" ","$15$", "$1262$" , "$294$", "$0$", "$1564$", "$1560$", "$1582$", "$1583$", " ", "$1500$", "$78$", "$5$", " ", "$771$", "$812$", "$1583$"," ", "$1490$", "$85$", "$8$", "$1383$", " ", "$29$", "$1306$", " ", "$15$", "$1339$"),
+                c = c( " ","$1.0%$", "$80.3%$" , "$18.7%$", "$0.0%$", "$13 (2.3)$", "$14 (2.6)$", "$30 (4.5)$", "$40 (1.8)$", " ", "$94.8%$", "$4.9%$", "$0.3%$", " ", "$51.0%$", "$49.0%$", "$3.419 (0.559)$"," ", "$94.1%$", "$5.4%$", "$0.5%$", "$51 (2.6)$", " ", "$2.2%$", "$97.8%$", " ", "$1.1%$", "$98.9%$"),
+                d = c(" ","$0.2838 (0.2467)$", "$0$", "$0.0719 (0.0615)$", " ", "$0.0802 (0.0102)$", "$0.0538 (0.0092)$", "$0.0005 (0.0054)$", "$0.0676 (0.0130)$", " ", "$0$", "$-0.3788 (0.1097)$","$-1.2846 (0.4233)$", " ", "$-0.2904 (0.0473)$", "$0$", "$0.1226 (0.0427)$"," ", "$0$", "$-0.2456 (0.1056)$", "$-0.9539 (0.3358)$", "$0.0165 (0.0097)$", " ", "$0.0524 (0.1752)$", "$0$", " ", "$0.1497 (0.2420)$", "$0$"),
+                e = c(" ","$1.15$", " " , "$1.17$", " ", "$7.83$", "$5.83$", "$0.10$", "$5.20$", " ", " ", "$-3.45$", "$-3.03$", " ", "$-6.15$", " ", "$2.87$"," ", " ", "$-2.33$", "$-2.84$", "$1.70$", " ", "$0.3$", " ", " ", "$0.62$", " "),
+               f = c(" ","$0.25$", " " , "$0.24$", " ", "$<.001$", "$<.001$", "$0.92$", "$<.001$", " ", " ", "$<.001$", "$0.002$", " ", "$<.001$", " ", "$0.0041$"," ", " ", "$0.0202$", "$0.0046$", "$0.089$", " ", "$0.76$", " ", " ", "$0.54$", " "))
+
+knitr::kable(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
+```
+
+
+```{r, echo=FALSE, eval = FALSE}
+#Script van Stef:
+library("ddata")
+library("dscore")
+library("dmetric")
+studies <- c("Netherlands 1", "Netherlands 2")
+data <- get_gcdg(study = studies, min_cat = 10, adm = TRUE, cov = TRUE)
+items <- intersect(item_names(study = studies), names(data))
+nlbank <- dscore::itembank
+d_dutch <- calculate_dscore(data = data, items = items,
+                            itembank = nlbank, lexicon = "gcdg")
+ref <- dscore::gcdg_reference
+d_dutch$daz <- with(d_dutch, dscore::daz(d = d, x = age / 12, ref = ref))
+n_items <- data.frame(id = data$id, age = data$age,
+                      n = rowSums(!is.na(data[, items])))
+d_dutch <- dplyr::left_join(d_dutch, n_items, by = c("id", "age"))
+```
+
+**How to adjust development for age of gestation?**
+
+Developmental milestones can be assessed at several chronological ages (defined as age since birth, or postnatal age) to identify very preterm children who have developmental delay and who would benefit from stimulation programs. However, assessment of very preterm children at the same chronological age as term children may cause overdiagnosis of developmental delay in very preterm children and excessive referral for stimulation programs. Very preterm children may require additional time, determined by a factor that considers the difference between gestational age at birth ($GA_{birth}$) vs 40 wk ($GA_{birth}$ for normal term birth), to enable development equivalent to that of normal term birth children. Several authors have proposed full or half correction of chronological age of very preterm birth children to provide a realistic evaluation of age-appropriate milestones; e.g. compare milestones for a child born at $GA_{birth}$ 30 wk vs a normal term child when the chronological age is 10 (full correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40 minus 35 wk) lower for the term than very preterm child. The Dutch Development Instrument (DDI) – a modification of the Gesell test – is used in preventive child health care to assess development from birth to chronological age 4 y.
+
+**Data**
+
+In 1983, data were collected for 1338 infants in the Netherlands who had very preterm birth ($GA_{birth} \geq$ 25 and < 32 wk) or very low birth weight (birth weight < 1500 g) (Project On Preterm and Small for Gestational Age Infants [POPS]).
+
+**Methods**
+
+The $GA_{birth}$ was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings.
+We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth (<32 wk) and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurologic disorder, visual or hearing defects, or psychosocial problems. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$).
+Development was considered equal to the general Dutch population when mean DAZ = 0.
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $0.67 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0.75$ was:
+
+-	Uncorrected chronological age 19-26 wk: $-0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
+
+-	Uncorrected chronological age 19-26 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-1.9 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.4 \pm 1$.
+
+**Conclusions**
+
+Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.
+
+**Impact of characteristics on the DAZ in preterm children**
+
+**Data**
+
+When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.
+
+**Methods**
+
+Several characteristics were selected from the POPS cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birthweight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the POPS study:
+
+=======
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$).
+Development was considered equal to the general Dutch population when mean DAZ = 0.
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $0.67 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0.75$ was:
+
+-	Uncorrected chronological age 19-26 wk: $-0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
+
+-	Uncorrected chronological age 19-26 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-1.9 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.4 \pm 1$.
+
+**Conclusions**
+
+Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.
+
+**Impact of characteristics on the DAZ in preterm children**
+
+**Data**
+
+When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.
+
+**Methods**
+
+Several characteristics were selected from the POPS cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birthweight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the POPS study:
+
+-	Paternal education (in years)
+-	Maternal age (in years)
+-	Apgar score after 1 min < 5 (yes vs no)
+-	Apgar score after 5 min < 7 (yes vs no)
+
+Linear regression analyses were performed with DAZ as outcome and the indicators as predictors. Calculation of the DAZ was based on fully corrected chronological age.
+
+
+**Results**
+
+```{r, echo=FALSE}
+
+resultsPOPS<- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urban", "metropolitan", "Maternal education (in years)", "Paternal education (in years)", "Maternal age (in years)", "Gestational age (in weeks)", "Gestational age (in categories)", "$\\geq 37$ weeks", "$\\geq 32 - 37$ weeks", "$<32$ weeks*", "Gender", "boys", "girls", "Birthweight (in kg)","Birthweight (in categories)", "$\\geq 2500$ grams", "$\\geq 1500 - <2500$ grams", "$<1500$ grams", "Birth size (in cm)", "Apgar score after 1 min", "$<5$", "$\\geq 5$", "Apgar score after 5 min", "$<7$", "$\\geq 7$"),
+                b = c(" ","$1$", "$120$" , "$71$", "$0$", "$152$", "$156$", "$193$", "$199$", " ", "$0$", "$0$", "$199$", " ", "$88$", "$111$", "$199$"," ", "$1$", "$65$", "$133$", "$165$", " ", "$44$", "$147$", " ", "$16$", "$160$"),
+                c = c( " ","$0.5%$", "$62.5%$" , "$37.0%$", "$0%$", "$13.4 (2.2)$", "$14.1 (2.4)$", "$27.5 (4.4)$", "$30.1 (1.4)$", " ", "$0%$", "$0%$", "$100%$", " ", "$44.2%$", "$55.8%$", "$1.371 (0.341)$"," ", "$0.5%$", "$32.7%$", "$66.8%$", "$39.6 (3.2)$", " ", "$77.0%$", "$23.0%$", " ", "$9.1%$", "$90.9%$"),
+                d = c(" ","", "$0$", "$-0.1561 (0.1661)$", " ", "$0.07417 (0.03897)$", "$0.08542 (0.03458)$", "$0.01462 (0.01810)$", "$0.02039 (0.05784)$", " ", " ", " "," ", " ", "$-0.09883 (0.15862)$", "$0$", "$0.4280  (0.2299)$"," ", "", "$0.14866 (0.16782)$", "$0$", "$0.01707 (0.02706)$", " ", "$-0.13315 (0.19208)$", "$0$", " ", "$0.56013 (0.28326)$", "$0$"),
+                e = c(" "," "," " , "$-0.939$", " ", "$1.903$", "$2.470$", "$0.808$", "$0.352$", " ", " ", " ", " "," ", " ","$0.623$","$1.862$"," "," ","$0.886$"," ","$0.631$", " ", "$-0.693$"," "," ","$1.977$", " "),
+               f = c(" "," "," ","$0.349$" , " ","0.0589","$0.0146$","$0.420$","$0.725$", " ", " ", " ", " ", " ", " ", "$0.534$", "$0.0641$", " ", " ","$0.377$", " ", "$0.529$", " ","$0.4890$", " ", " ", "$0.0496$", " "))
+
+knitr::kable(resultsPOPS, caption = "Results POPS", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
+```
+
+**Conclusions**
+
+Paternal education and apgar score after 5 minutes below 7 were significantly associated with DAZ at 2 years of age.
+
+
+## Usability and validity of the D-score in a low income country: The case of Togo
+
+The D-score is intended as a universal measure of children’s development. There is ample research indicating that the D-score actually is a valid indicator of development in western European countries like the Netherlands. If the D-score is a universal measure it should be informative in low and middle income countries as well. However, little is known about the usability and validity of the D-score in such countries. The aim of the present study is to examine the usability and validity of the D-score in the western African country of Togo. Togo definitely qualifies as a low income country with a 2017 GNI per capita of $610 versus $46,180 in the Netherlands, and $744 for low income countries in general (data.worldbank.org).   
+	To address this issue, we used data that were gathered by a French physician in Kpalimé, Togo. She set up a child health care system that was modeled after the Dutch preventive health care system. The system included the use of the so called Van Wiechen system to assess whether children’s developmental progress is in the normal range. The Van Wiechen data were used to calculate the D-scores as well as the age-corrected z-score of the D-score relative to a Dutch sample (DAZ). These two indices are the dependent variables in the present study. Data were gathered from about 9747 individuals in the 0-18 age range, but for the present study we focus on data from children in the 0-4 age range because the Van Wiechen assessment system is meant for this age range.  
+	Other available measures include father’s level of schooling, father’s number of children at the child’s first visit to the medical center, the APGAR score as a newborn, children’s weight, and the results of a physician’s neurological examination during visits to the health center. These variables are used to predict children’s D-scores and thereby to examine the D-score’s usability and validity in Togo.  
+
+**Methods**  
+
+Participants 
+	Participants potentially included 1859 children in the 0-4 age range who paid at least one visit to the Kpalimé health center. Kpalimé is the fourth biggest town in Togo, but the health center also attracted parents and children from a wide surrounding rural area. Parents visited the health center for several reasons, including for a preventive health check or because of their child’s apparent health problems. The possibility of visiting the health center was made known to parents by information sessions for parents at primary schools. Parents paid a small amount of money per visiting child (about €4 for children of 4 years or older, and €0.80 for children younger than 4 years).  
+	Because of limitations that are inherent to working in a low income country (limited access to the internet, computer failure) data of newly digitalized paper dossiers were sent to the Netherlands on a regular basis, but this practice unavoidably caused some unclarities and inconsistencies in the resulting dataset. Many of these could be solved, but time constraints prevented us from solving them all. Consequently, the data of .. potential participants (..%) were not yet included in the present study which leaves a dataset of 1659 (of 1644 NOG UITZOEKEN). Moreover D-scores could not be calculated when either age or Van Wiechen data were missing, which leaves a dataset of 2342 visits from 1522 children. The number of visits that parents of these children in the 0-4 age range paid to the health center varied from 1 – 9, but the majority of children were seen only once (n = 1146; 75.3%).  
+
+Measures  
+D-score  
+D-scores were calculated based on a French-language version of the Van Wiechen assessment. As in the Dutch preventive health care system, the goal of administering the Van Wiechen assessment was to  distinguish children with developmental problems from normal children. This means that items were chosen such that 90% of the children is expected to pass on age-equivalent items. Generally, for children that did not pass items age-equivalent items, extra items meant for a lower age were assessed (with the exception that items meant for children younger than 15 months were never administered to children of age 15 months or older). Scores were strictly based on observations rather than on parent report. For the exact procedure to calculate d-scores based on Van Wiechen-scores, see chapter ..  
+
+Medical assessment  
+At each visit a physician notated whether problems were observed regarding a wide renage of health aspects including problems with reflexes and muscle tension. Also, weight was measured at each visit.
+
+Background characteristics  
+At the first visit of each child, the accompanying adult (mostly the mother) was asked to report on general background characteristics, including profession of the parents and the number of children each of the parents has (due to polygamy this number may differ between parents). As a measure of socio-economic status (SES) we constructed a dichotomous variable 'schooling of father' based on the reported profession of the father. As the main physician and founder of the medical center is familiar with the local culture and schooling system, she indicated which of the thirteen most common professions were likely to be schooled professions (i.e. need more than primary education). Fathers with one of these professions were classified as 'schooled'. When 'another profession' was marked, the father was categorized as unschooled.  
+	Other background characteristics included gender of the child, number of children of the father at the moment of the first visit, and birth date. Age of the child at the moment of visiting was calculated based on the date of visit and the birth date. In Togo, medical information about a newborn is notated on a special card which parents receive. Parents were asked to take this card to the medical center; in this way information about the birth situation of part of the children was obtained, including birth weight, gestational age (<37 weeks versus 37 weeks or more) and APGAR scores at 1, 5 and 10 minutes after birth.  
+
+Procedure  
+Measures used in this study were assessed at the medical center in Kpalimé which parents visited with their children, and were part of a general preventive health assessment (including physical measurements of weight, height, and head size, a medical examination, a few blood tests, and a hearing test). Also, parents were asked to report on characteristics of the birth situation, previous health issues, nutrition situation, and background characteristics of the family.   
+During the visits, medical assessment took place before assessment of the Van Wiechen assessment, and was conducted by the same physician. All assessments, including the Van Wiechen assessment, were either performed by the initiating physician and founder of the medical center, or by one of three local physicians trained to assess the Van Wiechen procedure. Resulting data of the assessment (including advice given and/or references to another professional) were documented in paper dossiers and in 2017 digitalized by four local assistants via software program EpiData. 
+ 
+Analyses  
+To assess the validity of the D-score in this population, we inspected scatterplots in which d-scores are plotted against age for all available visits, and in which children with neurological problems as observed by a physician are highlighted. It was expected that a curve is seen, with higher d-scores for older children, moreover children with very low D-scores for their age were expected to be assessed by the physician as having a neurological problem.
+	Validity and usability of the D-score in this population would also be supported when known risk factors of developmental problems would be found to be predictors of a lower D-score in this population as well. Risk factors of interest are health problems of a newborn (as indicated by a less than optimal APGAR score at 10 minutes), and being underweighted. Furthermore, if a relation between underweight and a lower D-score is observed, it would also be interesting to see whether there is a relation between family size and D-score, as many children per family could be a cause of malnutrition. For this purpose children were classified as being part of a large family when the number of children of their father was 5 or more (at the moment of their first visit) versus 4 or less.  
+  To assess which risk factors predict a lower than normal D-score, several regression analyses were conducted. Outcome variable is the Development - Age adjusted Z-score (DAZ) which tells how many standard deviations the D-score of the child deviates from his/her age mates. To calculate these z-scores, data of Dutch children are used as reference data. As this reference data is only available for children younger than age 2.78 years, only DAZ-scores could be calculated for age group 0 – 2.78, and therefore all regression analyses were performed for this subgroup.  
+  For some of the risk factor variables data is only available for part of the children. In order to prevent a loss of power, for each risk factor separate regression analyses were conducted. In each regression sex and education level of father (schooled versus unschooled) were added as covariates (except for the regression where the relation between large families and the DAZ is analyzed, as family size and schooling may be confounded). As data from visits of the same children are not independent, regressions were performed on data with one visit per child only. All regression analyses were conducted twice: once with the data from the first visit of each child, and once with the last visit of each child.
+
+
+**Results**  
+
+<!-- nog ergens invoegen (in tekst?): n-en van de regressies ## -->
+
+```{r, echo=FALSE}
+library(ddata)
+library(dscore)
+
+# remove rows without valid agedays
+togo <- TGO %>%
+  filter(!is.na(agedays)) %>%
+  arrange(id, agedays)
+
+# calculate d and daz
+togo$d <- NA
+togo$daz <- NA
+
+# select subset with first child measurement
+togo_first <- togo %>% 
+  group_by(id) %>%
+  mutate(first = min(agedays)) %>%
+  filter(agedays == first)
+
+# select subset with last child measurement
+togo_last <- togo %>% 
+  group_by(id) %>%
+  mutate(last = max(agedays)) %>%
+  filter(agedays == last)
+```
+
+
+```{r, echo=FALSE}
+# the continuous variables:
+contvars <- c("agedays", "d", "daz", "weight", "waz")
+# the categorical variables:
+catvars <- c("sex.01", "prof_father_dich", "tonus.and.or.reflex.problems", # deze var nog construeren hieronder
+             "apgar.10min.dich.less.than.10") # deze var nog construeren (omscoren van 'apgar.10min.dich10')
+
+# for descriptives, use child level data, last visit
+curdat <- togo_last
+
+# variabele aanmaken: tonus.and.or.reflex.problems (met beide apart is het lastig de descriptives uit te rekenen)
+curdat$tonus.and.or.reflex.problems <- NA
+curdat$tonus.and.or.reflex.problems[
+  is.na(curdat$neuro.reflex) == FALSE & is.na(curdat$neuro.tonus) == FALSE] <- 0
+curdat$tonus.and.or.reflex.problems[
+  is.na(curdat$neuro.reflex)==FALSE & 
+    is.na(curdat$neuro.tonus)==FALSE & 
+    (curdat$neuro.reflex==1 | curdat$neuro.tonus==1)] <- 1
+# table(curdat$tonus.and.or.reflex.problems, useNA="ifany")
+# table(curdat$neuro.tonus,
+      # curdat$neuro.reflex, useNA="ifany")
+
+# variabele 'apgar.10min.dich10' omscoren (zodat 1='niet optimaal' en 0='optimaal')
+curdat$apgar.10min.dich.less.than.10 <- NA
+curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==1] <- 0
+curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==0] <- 1
+
+# ok, in orde
+#table(curdat$apgar.10min.dich.less.than.10, curdat$apgar.10min.dich10, useNA="ifany")
+
+no.digits <- 2
+
+# voor de continuous vars:
+v_n <- lapply(curdat[contvars], function(x) sum(is.na(x) == FALSE))
+v_mean <- lapply(curdat[contvars], mean, na.rm = TRUE)
+# v_mean <- lapply(lapply(lapply(curdat[contvars], mean, na.rm=TRUE), round, no.digits), format, nsmall=2)
+v_sd <- lapply(curdat[contvars], sd, na.rm=TRUE)
+v_median <- lapply(curdat[contvars], median, na.rm=TRUE)
+# v_min <- lapply(curdat[contvars], min, na.rm=TRUE)
+# v_max <- lapply(curdat[contvars], max, na.rm=TRUE)
+
+descr <- as.data.frame(cbind(v_n, v_mean, v_sd, v_median)) # , v_min, v_max)
+descr <- format(descr, digits=2, nsmall=2)
+row.names(descr) <- c("age", "D-score","DAZ","weight (kg)", "weight z-score (age-corrected, WHO-reference data)")
+
+knitr::kable(descr, 
+             caption="Descriptives (last visit per child)",
+             col.names=c("N", "mean", "SD", "median"))
+```
+
+```{r eval = FALSE}
+# voor de categorical vars:
+v2_n <- lapply(curdat[catvars], function(x) sum(is.na(x)==FALSE))
+v2_perc <- lapply(curdat[catvars], function(x) prop.table(table(x))["1"] * 100) # 
+
+descr2 <- as.data.frame(cbind(v2_n, v2_perc))
+descr2 <- format(descr2, digits=1, nsmall=1)
+row.names(descr2) <- c("gender (% girls)", "fathers' schooling (% schooled)","tonus and/or reflex problems (% with problems, as observed by physician)","APGAR 10 min. (% with score <10)")
+
+knitr::kable(descr2, 
+             # caption="Descriptives", 
+             col.names=c("N", "%"))
+
+# knitr::kable(resultsPOPS, caption = "Results POPS", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
+
+```
+
+The relation between D-score and age can be found in figure .. As expected, a curve is seen, with higher ages related to higher D-scores. Also, it can be seen that several D-scores are below the curve, i.e. these children had lower D-scores than their age mates. In figure .. it can be seen that many of these lower than normal D-scores are not artefacts of the data, but belong to children that were observed to have reflex and/or tonus problems.  
+
+```{r, echo=FALSE, eval=FALSE}
+
+
+library(ggplot2)
+
+# kale plot hele groep; alle visits
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores,
+             aes(x=age*12, 
+                 y=d #, colour=no_of_items_completed<4
+                 )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+                     ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+                     ) +
+  xlab("age (months)")+ylab("d-score") #+
+  # geom_line(data=ref_NL, aes(x=month, y=SDP2), colour="blue") +
+  # geom_line(data=ref_NL, aes(x=month, y=SD0), colour="red") +
+  # geom_line(data=ref_NL, aes(x=month, y=SDM2), colour="blue")
+
+nvisits_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores)
+# van .. unieke kinderen:
+n_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[,"kindnr"]))  
+
+```
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+# als validatie: 
+# tonus en/of reflex-probleem uitlichten
+# klaar; deze naar dbook
+ggplot(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE),], 
+       aes(x=age*12, y=d)) +
+  geom_point() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE),],
+             aes(x=age*12, y=d, colour=(neuro.reflex==1|neuro.tonus==1) )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)")+ylab("d-score") +
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("no reflex or tonus problems", "reflex and/or tonus problems"),
+                     name="as observed by physician:") 
+
+# aantal bezoeken in deze plot:
+nvisits_tonus_reflex_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),])
+# van .. unieke kinderen:
+n_tonus_reflex_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.reflex)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$neuro.tonus)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"]))  
+```
+
+
+```{r, echo=FALSE, eval=FALSE}
+# regressie-analyses ondergewicht als predictor van dscore (i.e waz -> daz)
+# figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
+
+# data: laatste visit van elk kind
+# stap 1: alleen sekse (covariaat)
+regr10.1 <- lm(togodaz ~ sex.01, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind) 
+# stap 2: voeg fathers' schooling toe (covariaat)
+regr10.2 <- lm(togodaz ~ sex.01 + prof_father_dich, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)  
+# stap 3: voeg predictor of interest toe: waz
+regr10.3 <- lm(togodaz ~ sex.01 + prof_father_dich + weight_WHOz_no_outliers, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)  
+
+regr10.3.summary <- summary(regr10.3)
+regr10.3.weight_WHOz.coeff <- summary(regr10.3)$coefficients["weight_WHOz_no_outliers",]
+
+```
+
+```{r, echo=FALSE, eval=FALSE}
+
+# vervolganalyse relatie weight dscore: 
+# relatie aantal kinderen in gezin -> dscore
+# data: laatste visit van elk kind
+# stap 1: alleen sekse (covariaat)
+regr6.1 <- lm(togodaz ~ sex.01, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)  
+# stap 3: voeg predictor of interest toe: no.of.children.father (5 or more vs 4 or less)
+regr6.2 <- lm(togodaz ~ sex.01 + no.of.children.father.dich5, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)  
+
+regr6.2.summary <- summary(regr6.2)
+regr6.2.no_of_children_father_dich5.coeff <- summary(regr6.2)$coefficients["no.of.children.father.dich5",]
+
+```
+
+```{r eval = FALSE}
+In figure .. underweighted children are highlighted. Visually there seems to be a relation between being underweighted and having a lower than normal D-score. A regression based on data of children's last visit showed that indeed the age-corrected weight z-score, after correction for fathers' schooling and sex of the child, did predict the DAZ: a decrease of 1 SD in age-corrected weight was related to a decrease of `r round(regr10.3.weight_WHOz.coeff["Estimate"],1) ` SD in age-corrected D-score (p `r format.pval(regr10.3.weight_WHOz.coeff["Pr(>|t|)"], eps = .001) `), which is a reasonable effect. The overall model explained `r round(regr10.3.summary$adj.r.squared * 100,0)`% of the DAZ variance (adjusted R^2^). As in the other regression analyses sex and fathers' schooling did not contribute significantly to the model.
+	Because there clearly seems to be a relation between underweight and a lower than normal D-score, it was also tested whether family size (which might be a cause of malnutrition) did predict the DAZ. No such relation was found: children from large families (5 or more children of the father at the moment of the first visit versus 4 or less children) did not have different DAZ-scores at their last visit than children from smaller families (after correction for sex: B = `r round(regr6.2.no_of_children_father_dich5.coeff["Estimate"],2)`, p = `r format.pval(regr6.2.no_of_children_father_dich5.coeff["Pr(>|t|)"], eps = .001, digits=2)`, adjusted R^2^ = `r round(regr6.2.summary$adj.r.squared,3)`).  
+<!-- NOG CHECKEN: is het inderdaad 2zijdig getoetst? -->
+```
+
+```{r, echo=FALSE, eval = FALSE}
+# uitlichten: weight_WHOz_no_outliers < (-2) (eigenlijk waz, want age-corrected z-score) 
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_WHOz_no_outliers)==FALSE,],
+             aes(x=age*12, 
+                 y=d, 
+                 colour=weight_WHOz_no_outliers<(-2)
+             )
+  ) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)") + ylab("d-score") +
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("not underweighted (age-corrected zscore > -2)", 
+                              "underweighted (age-corrected zscore < -2)"),
+                     name="based on WHO reference data:")
+
+# aantal bezoeken in deze plot:
+nvisits_weight_WHOz_no_outliers_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_WHOz_no_outliers)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),])
+# van .. unieke kinderen:
+n_weight_WHOz_no_outliers_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$weight_WHOz_no_outliers)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"])) 
+
+#cor(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind$weight_WHOz, Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind$togodaz, use = "complete.obs")
+*`r nvisits_weight_WHOz_no_outliers_d` visits from `r n_weight_WHOz_no_outliers_d` children*
+
+```
+
+
+
+```{r, echo=FALSE, eval=FALSE}
+# regressie-analyses APGAR als predictor van dscore 
+# figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
+
+# data: laatste visit van elk kind
+# stap 1: alleen sekse (covariaat)
+regr2.1 <- lm(togodaz ~ sex.01, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)
+# stap 2: voeg fathers' schooling toe (covariaat)
+regr2.2 <- lm(togodaz ~ sex.01 + prof_father_dich, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)
+# stap 3: voeg predictor of interest toe: waz
+regr2.3 <- lm(togodaz ~ sex.01 + prof_father_dich + apgar.10min.dich10, data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_laatstevisit_per_kind)
+
+regr2.3.summary <- summary(regr2.3)
+regr2.3.APGAR10min_dich10.coeff <- summary(regr2.3)$coefficients["apgar.10min.dich10",]
+
+```
+
+```{r eval=FALSE}
+In figure .. 1070 D-scores of 534 children for who a 10-minute APGAR score was available are shown. A less than optimal 10-minute APGAR score (i.e. less than 10 points) did predict a lower DAZ at their last visit after correction for sex and father's schooling (B = `r format(round(regr2.3.APGAR10min_dich10.coeff["Estimate"],2), nsmall=2)`, p `r format.pval(regr2.3.APGAR10min_dich10.coeff["Pr(>|t|)"], eps = .001, digits=2)`, adjusted R^2^ = `r round(regr2.3.summary$adj.r.squared,3)`). So, children with a less than optimal APGAR score at ten minutes after birth, had somewhat lower D-scores.  
+<!-- NOG CHECKEN: waarom is df zoveel kleiner dan 534? Komt dat door 'laatste visit'-selectie?   -->
+<!-- en bij deze nog prematuriteit en evt. geb.gew toevoegen als covariaat? Kan dat dit vooral gaat over prematuur vs niet-prematuur # -->
+
+For all regression analyses mentioned, results were similar when based on children's first visit.
+```
+
+```{r, echo=FALSE, eval=FALSE}
+# uitlichten: apgar score lager dan 10 bij 10min
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE,],
+             aes(x=age*12, 
+                 y=d, 
+                 colour=apgar.10min<10
+             )
+  ) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)") + ylab("d-score")+
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("10 points at apgar 10 min",
+                              "less than 10 points at apgar 10 min"),
+                     name="")
+
+# aantal bezoeken in deze plot:
+nvisits_apgar10_d <- nrow(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),])
+# van .. unieke kinderen:
+n_apgar10_d <- length(unique(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores[(is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$apgar.10min)==FALSE) & (is.na(Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores$d)==FALSE),"kindnr"]))    
+
+ *`r nvisits_apgar10_d` visits from `r n_apgar10_d` children* 
+
+```  
+ 
+
+**Discussion and conclusions**  
+
+In this study we examined the validity and usability of the D-score in low income country Togo. The D-score does seem to be informative in this country. The D-score did increase with age, and for the majority of the children D-scores were very similar within their age group. It is notable that there were also several children with much lower D-scores when compared with their age mates. This does not seem to be an artifact of the data or of the measures as the majority of these children were observed to have tonus and/or reflex problems. So, it is plausible that these children indeed had developmental problems. Furthermore, health factors that were expected to be related to having a lower D-score were found to be significant predictors: a less than optimal APGAR score 10 minutes after birth, and a lower than normal weight at the time of the assessment were related to a lower than normal D-score. Especially the relation between weight and D-score was quite strong, as the model with age-corrected weight, sex and father's schooling explained 18% of the variance in age-corrected D-score. The positive relation between weight and D-score, as well as the fact that children were often underweighted in this population, seems to indicate that being underweighted is a risk factor for developmental problems. The main physician of the medical center noted that not many children with extreme underweight were seen, but our results do indicate that also less than severe underweight does have a negative impact on the development of children.  
+	The idea that having many children in the family would be related to having a lower D-score (due to possible malnutrition), was not supported. This might mean that there is no clear relation between living in a large family and being underweighted, or that we did not have enough power to detect this, as there were not that many children from large families.  
+Neither sex nor father's schooling did significantly contribute to variance in age-corrected D-scores. For sex at this young ages, this is consistent with results found in other studies (… refs…). Parents' schooling has been found to be related to D-scores in other studies (… refs..), that it was not in the present study might have to do with the population, or with the current method where it was estimated whether the parent was schooled based on profession. Many fathers had a profession other than the thirteen most common professions and were estimated to have no schooling, which might not be correct for part of this group.  
+	A limitation of the present study is that our sample might not be representative of children in a low income country, or even of children in Togo. Especially the fact that many children came to the medical center because they were ill might mean that they are not representative in terms of general development and other measures. However, the current goal was to examine the validity and usability of the D-score in a low income country, and the result that, even though many children were ill, the D-score is clearly related to neurological problems (as indicated by reflex, and/or tonus problems), age, APGAR score as a newborn and weight does show that the D-score ís informative in a low income country as well.  
+
+  
+  
+  
+Evt nog doen:  
+-	Na overleg met Cécile Schat: zij zagen heel weinig echte ondervoeding; wel is lichaamsbouw daar zeer tenger; wat gebeurt er als je ipv ondergewicht 'voedingstoestand geobserveerd door arts' neemt als predictor? Betere indicator van ondervoeding is bovendien: specifieke vorm van bloedarmoede; die variabele zit er ook in; zegt ook iets over eenzijdig eten in plaats van simpelweg te weinig (volgens Cécile Schat komt eenzijdig wel veel voor; te weinig niet)  
+-	Gestational age en gebgewicht variabelen naar juiste dataset overhevelen zodat die ook gebruikt kunnen worden (GEDAAN; gebruiken om te laten zien dat verband APGAR-score niet verklaard wordt door prematuriteit?)
+
+
+
+## Comparison
+
+
+```{r, echo=FALSE, eval=FALSE}
+
+# voor plotten referentie-lijnen:
+ref_NL <- dscore::Dreference # dutch reference group (also used to calculate DAZ (variable 'togodaz'))
+
+
+# kale plot Togodata hele groep; alle visits
+ggplot() +
+  geom_point(data=Togodat01_g1g2_long_s_vWiechen_ingevuld_inclDscore_subset_no_NA_dscores,
+             aes(x=age*12, 
+                 y=d #, colour=no_of_items_completed<4
+                 )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+                     ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+                     ) +
+  xlab("age (months)")+ylab("d-score") +
+   geom_line(data=ref_NL, aes(x=month, y=SDP2), colour="blue") +
+   geom_line(data=ref_NL, aes(x=month, y=SD0), colour="red") +
+   geom_line(data=ref_NL, aes(x=month, y=SDM2), colour="blue")
+```
+
+<!--chapter:end:Rmd/08-outcome.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Delay {#delay}
+
+## Application II: D-score to identify delayed development (PD)
+
+## Longitudinal D-score patterns in different populations
+
+## Issues in defining developmental delay
+
+## Specificity in reference, pre-term and LMIC populations
+
+## Practical implications
+
+<!--chapter:end:Rmd/09-delay.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ddata)
+library(dscore)
+library(haven)
+library(dplyr)
+library(tibble)
+library(lme4)
+library(MASS)
+library(ggplot2)
+library(gridExtra)
+library(ggpubr)
+```
+
+# Consequences {#consequences}
+
+This chapter focusses on the third application of the D-score: the long-term health consequences of delay in development in pre-terms. In this chapter, we explain the relevance of long-term health outcomes and show how the D-score can be used to predict these long-term health outcomes. In addition, we present the practical implications and how this leads to new opportunities and show the impact of early intervention.
+
+
+
+## Application III: Long-term health consequences of delay in pre-terms
+
+
+## Relevance of long-term health outcomes
+
+
+## Predictive power of D-score
+
+To demonstrate the predictive power of the D-score, we will predict IQ at the age of 5 years for children in the SMOCC dataset. We have data for nine different waves, which includes different numbers of milestones of the Dutch Developmental Instrument (DDI). See table \@ref(tab:tableSMOCC) for an overview.
+
+```{r, echo=FALSE}
+w1 <- c(1, 5)
+w2 <- c(2, 2)
+w3 <- c(3, 5)
+w4 <- c(6, 6)
+w5 <- c(9, 7)
+w6 <- c(12, 6)
+w7 <- c(15, 6)
+w8 <- c(18, 6)
+w9 <- c(24, 6)
+tableSMOCC <- rbind(w1, w2, w3, w4, w5, w6, w7, w8, w9)
+colnames(tableSMOCC) <- c("Age in months", "Number of milestones of the DDI")
+rownames(tableSMOCC) <- c("wave 1", "wave 2", "wave 3", "wave 4",
+                          "wave 5", "wave 6", "wave 7", "wave 8",
+                          "wave 9")
+```
+
+```{r, tableSMOCC, echo=FALSE}
+library(knitr)
+kable(tableSMOCC, caption = "Overview of the nine waves of the SMOCC data", booktabs = TRUE)
+```
+
+
+First, we will plot the D-scores against IQ at 5 years for each of the waves (see figure \@ref(fig:dscoresIQ5yrs)). In this way, we can see the variation in D-scores for the different waves and how this relates to IQ at the age of 5 years. The colours indicate the number of milestones that got a negative score. Thus, for example, yellow indicates that one of the milestones got a negative score, however this does not mean that all yellow dots in the same plot represent the same number of positive scores. It could be that for some children not all scores of the milestones were available. The same holds, ofcourse, for the other colours as well.
+
+```{r, echo = FALSE}
+#Subset van de data zonder de losse scores op de items:
+# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long2.sav")
+data.long <- haven::read_sav("data-raw/data/smocc/smocc_long2.sav")
+data.long$scores_false <- data.long$scores_false - 1
+data.long <- as_tibble(data.long)
+# data.wide <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_wide.sav")
+data.wide <- haven::read_sav("data-raw/data/smocc/smocc_wide.sav")
+
+data.wide <- as_tibble(data.wide)
+
+
+library(gridExtra)
+data.long$wave <- factor(data.long$wave)
+data.long1 <- data.long[!is.na(data.long$IQ), ]
+data.long1 <- data.long1[!is.na(data.long1$dscore), ]
+data.long1$scores_false <- as.factor(data.long1$scores_false) 
+
+
+```
+
+
+
+
+```{r, dscoresIQ5yrs, echo = FALSE,  fig.cap="\\label{fig:dscoresIQ5yrs} The D-scores plotted against IQ at 5 years for each wave", message=FALSE, warning=FALSE}
+p1 <- ggplot(subset(data.long1, wave == c(1)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p2 <- ggplot(subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p3 <- ggplot(subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p4 <- ggplot(subset(data.long1, wave == c(4)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p5 <- ggplot(subset(data.long1, wave == c(5)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p6 <- ggplot(subset(data.long1, wave == c(6)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p7 <- ggplot(subset(data.long1, wave == c(7)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p8 <- ggplot(subset(data.long1, wave == c(8)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=T, size = 1 )+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+p9 <- ggplot(subset(data.long1, wave == c(9)), aes(dscore, IQ, group = wave)) +
+      geom_point(aes(col=scores_false), show.legend=F, size = 1)+ 
+      scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40")) +
+      coord_cartesian(xlim=c(0, 75)) +
+      scale_y_continuous(name = "IQ at 5 years") +
+      scale_x_continuous(name = "D-score") +
+      facet_grid(. ~ wave) 
+
+#grid.arrange(p1, p2, p3, p4, p5, p6, p7, p8, p9, nrow=3)
+library(ggpubr)
+ggarrange(p1, p2, p3, p4, p5, p6, p7, p8, p9, ncol=3, nrow=3,
+          common.legend = TRUE, legend="bottom")
+
+```
+In addition, it is important to note that the number of milestones per wave differ. For example, when we compare the plots for wave 8 and wave 9, it seems that at wave 8 the milestones are more difficult, since there are children who got a negative score on more than one milestone. While at wave 9, the maximum number of milestones with a negative score is one (yellow dots). However, wave 8 contains six milestones of the DDI, while wave 9 only contains one milestone of the DDI. Hence, the difference between the number of milestones at each wave causes the variation in the number of colours used between the nine plots. 
+
+Furthermore, we can see that there is a gap between the cloud of blue dots and the cloud of yellow dots in all nine plots. Or in other words, there is a substantial difference in D-score between children without negative scores and childeren with (at least) one negative score on the milestone(s) of the DDI. The rational behind this, was explained in Chapter 8. 
+For most of the waves there is no clear relation between the D-score and IQ at 5 years visible in the plots. However, for wave 7 and 9, we can see that the cloud of blue dots (with higher D-scores) lies a bit higher than the cloud consisting of the other dots. This could indicate that children with an higher D-score at the age of 15 months and 24 months also have an higher IQ at the age of 5 years on average.
+
+Besides the graphical exploration of the relation between the D-score and IQ at 5 years old, we can also use models to determine this relationship. For example, we can model IQ at 5 years old for each wave separately, which allows us to compare the effect of the D-score at each wave on the variation in IQ at 5 years. First, we can estimate models in which the D-score is the only explanatory variable for the variation in IQ at 5 years. The estimate for the D-score and the $R^2$ of these nine models are visualized in figure \@ref(fig:graphestR2).
+
+```{r, echo=FALSE}
+# REGRESSION MODELS (per wave)
+smocc.wave1 <- subset(data.long, data.long$wave == 1)
+smocc.wave2 <- subset(data.long, data.long$wave == 2)
+smocc.wave3 <- subset(data.long, data.long$wave == 3)
+smocc.wave4 <- subset(data.long, data.long$wave == 4)
+smocc.wave5 <- subset(data.long, data.long$wave == 5)
+smocc.wave6 <- subset(data.long, data.long$wave == 6)
+smocc.wave7 <- subset(data.long, data.long$wave == 7)
+smocc.wave8 <- subset(data.long, data.long$wave == 8)
+smocc.wave9 <- subset(data.long, data.long$wave == 9)
+
+# Object to save results
+results.d <- matrix(c(NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA), 
+                    nrow = 9, ncol = 2)
+colnames(results.d) <- c("Esimate D-score", "$R^2$")
+rownames(results.d) <- c("wave 1", "wave 2", "wave 3", "wave 4", "wave 5", "wave 6", "wave 7", "wave 8", "wave 9")
+
+# WAVE 1
+mod.wave1 <- lm(IQ ~ dscore, data = smocc.wave1)
+results.d[1,1] <- coefficients(mod.wave1)[2]
+results.d[1,2] <- summary(mod.wave1)$r.squared 
+
+# WAVE 2
+mod.wave2 <- lm(IQ ~ dscore, data = smocc.wave2)
+results.d[2,1] <- coefficients(mod.wave2)[2]
+results.d[2,2] <- summary(mod.wave2)$r.squared 
+
+# WAVE 3
+mod.wave3 <- lm(IQ ~ dscore, data = smocc.wave3)
+results.d[3,1] <- coefficients(mod.wave3)[2]
+results.d[3,2] <- summary(mod.wave3)$r.squared 
+
+# WAVE 4
+mod.wave4 <- lm(IQ ~ dscore, data = smocc.wave4)
+results.d[4,1] <- coefficients(mod.wave4)[2]
+results.d[4,2] <- summary(mod.wave4)$r.squared 
+
+# WAVE 5
+mod.wave5 <- lm(IQ ~ dscore, data = smocc.wave5)
+results.d[5,1] <- coefficients(mod.wave5)[2]
+results.d[5,2] <- summary(mod.wave5)$r.squared 
+
+# WAVE 6
+mod.wave6 <- lm(IQ ~ dscore, data = smocc.wave6)
+results.d[6,1] <- coefficients(mod.wave6)[2]
+results.d[6,2] <- summary(mod.wave6)$r.squared 
+
+# WAVE 7
+mod.wave7 <- lm(IQ ~ dscore, data = smocc.wave7)
+results.d[7,1] <- coefficients(mod.wave7)[2]
+results.d[7,2] <- summary(mod.wave7)$r.squared 
+
+# WAVE 8
+mod.wave8 <- lm(IQ ~ dscore, data = smocc.wave8)
+results.d[8,1] <- coefficients(mod.wave8)[2]
+results.d[8,2] <- summary(mod.wave8)$r.squared 
+
+# WAVE 9
+mod.wave9 <- lm(IQ ~ dscore, data = smocc.wave9)
+results.d[9,1] <- coefficients(mod.wave9)[2]
+results.d[9,2] <- summary(mod.wave9)$r.squared 
+
+
+tableIQonlyD <- results.d
+```
+
+```{r, tableIQonlyD, echo=FALSE}
+#library(knitr)
+#kable(tableIQonlyD, caption = "Estimates of the D-score and the $R^2$ for the regression models where only D-score is used as explanatory variable", booktabs = TRUE, digits = 4)
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+results.d1 <- as.data.frame(results.d)
+names(results.d1) <- c("estimate", "R2")
+results.d1$wave <- c(1,2,3,4,5,6,7,8,9)
+
+pest <- ggplot(results.d1, aes(wave, estimate)) +
+      geom_point( )+
+      scale_y_continuous(breaks = seq(0, 1, 0.2),
+                         name = "estimate D-score") +
+      scale_x_continuous(breaks = seq(1, 10, 2), name = "Wave") 
+
+pR2 <- ggplot(results.d1, aes(wave, R2)) +
+      geom_point( )+
+      scale_y_continuous(breaks = seq(0, 0.04, 0.01), 
+                         name = "R-squared") +
+      scale_x_continuous(breaks = seq(1, 10, 2), name = "Wave") 
+```
+
+```{r, graphestR2, echo = FALSE,  fig.cap="\\label{fig:graphestR2} The estimate for the D-score and $R^2$ plotted for each wave", message=FALSE, warning=FALSE}
+
+#arrange
+ggarrange(pest, pR2, ncol=2, nrow=1)
+
+```
+
+In figure \@ref(fig:graphestR2), we can see that the estimates for the D-score and the $R^2$ are the highest for wave 7 and wave 9. Indicating that the D-score at wave 7 and wave 9 has the largest effect on IQ at 5 years and explain the most variation in IQ at 5 years. In addition, figure \@ref(fig:graphestR2) shows that the D-score of the first four waves barely explains any variation in IQ at 5 years. Thus, the D-scores of the first six months is not capable of explaining the variation in IQ at 5 years. Hence, the D-score when the children are older is better in explaining the variation in IQ at 5 years. 
+
+Secondly, we can add explanatory variables to the regression model to control for confounding effects. For example, the education level of the mother can also partly explain the variation in IQ at 5 years, so it is important to add these to your prediction model. To predict IQ at 5 years, the following explanatory variables are added to the regression model:
+
+- gender
+- birthweight
+- birthsize
+- agemom: age mother
+- edumocat: low, middle or high education level of the mother
+- age
+- D-score
+
+The first five variables are constant over the waves, while the other two variables vary over time.
+
+For each wave we have estimated two models, *model 1* including all variables as listed above, and *model 2* including all variables except for the D-score. Then, we can compare the explained variation of IQ at 5 years old of both models by comparing the adjusted $R^2$. We have chosen for the adjusted $R^2$ since it corrects for the number of variables added to the model: the $R^2$ will always get higher when a new variable is added to the model. In this way, we can see how much of the variation in IQ is explained by adding the D-score to the regression model for each wave.
+
+```{r, echo=FALSE}
+
+# Object to save results
+results <- matrix(c(NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA,
+                    NA, NA, NA, NA, NA, NA, NA, NA, NA), nrow = 9, ncol = 7)
+colnames(results) <- c("Esimate D-score", "95% CI LL", "95% CI UL", "p-value", 
+                       "model 1 adj. $R^2$", "model 2 adj. $R^2$", "diff. adj. $R^2$")
+rownames(results) <- c("wave 1", "wave 2", "wave 3", "wave 4", "wave 5", "wave 6", 
+                       "wave 7", "wave 8", "wave 9")
+
+
+#In veel waves zijn de haz en waz voor veel kinderen NA.
+#Deze wel toevoegen aan het grote model???
+
+# WAVE 1
+model.wave1 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave1)
+results[1,1] <- coefficients(model.wave1)[5]
+results[1,2] <- confint(model.wave1, level = 0.95)[8, 1]
+results[1,3] <- confint(model.wave1, level = 0.95)[8, 2]
+results[1,4] <- summary(model.wave1)$coefficients[8,4]  
+results[1,5] <- summary(model.wave1)$adj.r.squared 
+model.wave1.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize + factor(edumocat) + agemom, data = smocc.wave1)
+results[1,6] <- summary(model.wave1.wd)$adj.r.squared 
+results[1,7] <- results[1,5] - results[1,6]
+
+# WAVE 2
+model.wave2 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave2)
+results[2,1] <- coefficients(model.wave2)[5]
+results[2,2] <- confint(model.wave2, level = 0.95)[8, 1]
+results[2,3] <- confint(model.wave2, level = 0.95)[8, 2]
+results[2,4] <- summary(model.wave2)$coefficients[8,4]  
+results[2,5] <- summary(model.wave2)$adj.r.squared
+model.wave2.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave2)
+results[2,6] <- summary(model.wave2.wd)$adj.r.squared 
+results[2,7] <- results[2,5] - results[2,6]
+
+# WAVE 3
+model.wave3 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave3)
+results[3,1] <- coefficients(model.wave3)[5]
+results[3,2] <- confint(model.wave3, level = 0.95)[8, 1]
+results[3,3] <- confint(model.wave3, level = 0.95)[8, 2]
+results[3,4] <- summary(model.wave3)$coefficients[8,4]  
+results[3,5] <- summary(model.wave3)$adj.r.squared
+model.wave3.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave3)
+results[3,6] <- summary(model.wave3.wd)$adj.r.squared 
+results[3,7] <- results[3,5] - results[3,6]
+
+# WAVE 4
+model.wave4 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave4)
+results[4,1] <- coefficients(model.wave4)[5]
+results[4,2] <- confint(model.wave4, level = 0.95)[8, 1]
+results[4,3] <- confint(model.wave4, level = 0.95)[8, 2]
+results[4,4] <- summary(model.wave4)$coefficients[8,4]  
+results[4,5] <- summary(model.wave4)$adj.r.squared
+model.wave4.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave4)
+results[4,6] <- summary(model.wave4.wd)$adj.r.squared 
+results[4,7] <- results[4,5] - results[4,6]
+
+# WAVE 5
+model.wave5 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave5)
+results[5,1] <- coefficients(model.wave5)[5]
+results[5,2] <- confint(model.wave5, level = 0.95)[8, 1]
+results[5,3] <- confint(model.wave5, level = 0.95)[8, 2]
+results[5,4] <- summary(model.wave5)$coefficients[8,4]  
+results[5,5] <- summary(model.wave5)$adj.r.squared
+model.wave5.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave5)
+results[5,6] <- summary(model.wave5.wd)$adj.r.squared 
+results[5,7] <- results[5,5] - results[5,6]
+
+# WAVE 6
+model.wave6 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave6)
+results[6,1] <- coefficients(model.wave6)[5]
+results[6,2] <- confint(model.wave6, level = 0.95)[8, 1]
+results[6,3] <- confint(model.wave6, level = 0.95)[8, 2]
+results[6,4] <- summary(model.wave6)$coefficients[8,4]  
+results[6,5] <- summary(model.wave6)$adj.r.squared 
+model.wave6.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave6)
+results[6,6] <- summary(model.wave6.wd)$adj.r.squared 
+results[6,7] <- results[6,5] - results[6,6]
+
+# WAVE 7
+model.wave7 <- lm(IQ ~ factor(male) + age + birthweight + birthsize + haz + waz
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave7)
+results[7,1] <- coefficients(model.wave7)[5]
+results[7,2] <- confint(model.wave7, level = 0.95)[8, 1]
+results[7,3] <- confint(model.wave7, level = 0.95)[8, 2]
+results[7,4] <- summary(model.wave7)$coefficients[8,4]  
+results[7,5] <- summary(model.wave7)$adj.r.squared
+model.wave7.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave7)
+results[7,6] <- summary(model.wave7.wd)$adj.r.squared 
+results[7,7] <- results[7,5] - results[7,6]
+
+# WAVE 8
+model.wave8 <- lm(IQ ~ factor(male) + age+ birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave8)
+results[8,1] <- coefficients(model.wave8)[5]
+results[8,2] <- confint(model.wave8, level = 0.95)[8, 1]
+results[8,3] <- confint(model.wave8, level = 0.95)[8, 2]
+results[8,4] <- summary(model.wave8)$coefficients[8,4]  
+results[8,5] <- summary(model.wave8)$adj.r.squared
+model.wave8.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave8)
+results[8,6] <- summary(model.wave8.wd)$adj.r.squared 
+results[8,7] <- results[8,5] - results[8,6]
+
+# WAVE 9
+model.wave9 <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                  + factor(edumocat) + dscore + agemom, data = smocc.wave9)
+results[9,1] <- coefficients(model.wave9)[5]
+results[9,2] <- confint(model.wave9, level = 0.95)[8, 1]
+results[9,3] <- confint(model.wave9, level = 0.95)[8, 2]
+results[9,4] <- summary(model.wave9)$coefficients[8,4]  
+results[9,5] <- summary(model.wave9)$adj.r.squared
+model.wave9.wd <- lm(IQ ~ factor(male) + age + birthweight + birthsize 
+                     + factor(edumocat) + agemom, data = smocc.wave9)
+results[9,6] <- summary(model.wave9.wd)$adj.r.squared 
+results[9,7] <- results[9,5] - results[9,6]
+
+#Misschien beter om de DAZ er in te doen?!
+
+```
+
+The estimates for the predictor D-score, and it's 95\% confidence interval are given in table \@ref(tab:tableIQ). Moreover, it contains the p-values for the predictor D-score in *model 1* and the adjusted $R^2$'s for *model 1* and *model 2*. The adjusted $R^2$ determines the explained variation in the outcome measure, in this case IQ at 5 years, while penalizing for the number of predictors in the model. Comparison of the $R^2$ is not feasible, since it will always increase when another predictor is added to the model.
+
+```{r, tableIQ, echo=FALSE}
+library(knitr)
+kable(results, caption = "Comparison of the models per wave to explain IQ at 5 years by D-score", booktabs = TRUE, digits = 4)
+```
+
+From table \@ref(tab:tableIQ) we can see that the D-score does not explain variation in IQ at 5 years for the first 6 waves. In other words, the D-scores until the age of 1 year will not explain the variation in IQ at the age of 5 years. However, for wave 7, at the age of 15 months, the estimate for the D-score is just significant and explains almost 3\% of the variation in IQ at the age of 5 years. There is also an almost significant effect of the D-score on IQ at waves 8 and 9, however this only explains around 0.5\% of the variation in IQ at 5 years.
+
+## Practical implications
+
+## Opportunities and impact of early intervention
+
+<!--chapter:end:Rmd/10-consequences.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+# Discussion {#discussion}
+
+## Usefulness of D-score for monitoring child health
+
+## Opportunities for early intervention
+
+## D-score for international settings
+
+## D-score from existing instruments
+
+## Creating new instruments for D-score
+
+<!--chapter:end:Rmd/11-discussion.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Appendix - notation {#ch:notation}
+
+The notation in this booklet is based on the notation used in the book of @wright1982.
+
+```{r, echo=FALSE}
+
+tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", "item step", "", "", "item", "", "", "threshold", "", "",
+                          "DATA", "", "", "", "", "", "", "", "", "", "", "", "",
+                          "FIT", "", "", "","", "","", "","", "","", "","", "","", "","", "","", ""), 
+                b = c("" ,"$\\pi_{nik}$", "$P_{nik}$" , "$P_{rik}$", "$\\beta_n$", "$b_n$", "$b_r$", "$s_n$", "$\\delta_{ij}$", "$d_{ij}$", "$s_{ij}$", "$\\delta_i$", "$d_i$", "$s_i$", "$\\tau_j$", "$h_j$", "$s_j$",
+                      "", "$x_{ni}$", "$m_i$", "$m$", "$r_n$", "$T_{ij}$", "$S_{ij}$", "$S_{i+}$", "$S_{+j}$", "$L$", "$M$", "$N$", "$N_r$",
+                      "", "$E_{ni}$", "$W_{ni}$", "$C_{ni}$","$y_{ni}$", "$z_{ni}$","$u_i$", "$v_i$","$q_i^2$", "$t_i$","$u_n$", "$v_n$","$q_n^2$", "$t_n$","$G_I$", "$H_I$","$R_I$", "$G_P$","$H_P$", "$R_P$"), 
+                c = c("" ,"Model probability of Person $n$ responding in category $k$ to Item $i$", "Estimated probability of Person $n$ responding in category $k$ to Item $i$" , "Estimated probability of a person with test score $r$ responding in categor $k$ to Item $i$", "Ability/attitude of Person $n$", "Estimated ability/attitude of Person $n$", "Estimated ability/attitude of a person with score $r$", "Measurement error", "Difficulty of $j$th step in Item $i$", "Calibration error", "Scale value of item $i$", "Scale value of Item $i$", "Estimated scale value of Item $i$", "Calibration error", "Response threshold $j$", "Estimated response threshold $j$", "Calibration error",
+                      "", "Response of Person $n$ to Item $i$", "Number of steps in Item $i$", "Number of thresholds in response format", "Test score of Person $n$", "Number of persons responding in category $j$ of Item $i$", "Number of persons responding in or above category $j$ of Item $i$", "Sample score of Item $i$", "Sample score of catefory $j$", "Number of items", "Number of points on test", "Number of persons", "Number of persons with score $r$",
+                      "","Expected value of $x_{ni}$", "Variance of $x_{ni}$", "Kurtosis of $x_{ni}$","Score residual", "Standardized residual","Unweighted mean square for Item $i$", "Weighted mean square for Item $i$","Variance of weighted mean square for Item $i$", "Standardized weighted mean square for Item $i$","Unweighted mean square for Person $n$", "Weighted mean square for Person $n$","Variance of weighted mean square for Person $n$", "Standardized weighted mean square for Person $n$","Item seperation index", "Number of item strata","Sample reliability of item separation", "Person separation index","Number of person strata", "Test reliability of person separation"))
+
+
+knitr::kable(tcomb, caption = "Notation", booktabs = TRUE, digits = 4, col.names = NULL)
+```
+
+
+```{warnings r}
+warnings()
+```
+
+
+<!--chapter:end:Rmd/Appendix-notation.Rmd-->
+
+```{r include=FALSE, cache=FALSE}
+# automatically run before each new chapter
+
+# clean out session objects
+rm(list = ls(all = TRUE))
+
+# graphical parameter hooks
+source("R/hooks.R")
+```
+`r if (knitr:::is_html_output()) '
+# References {-}
+'`
+
+<!--chapter:end:Rmd/12-references.Rmd-->
+
