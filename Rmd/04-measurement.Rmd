@@ -54,7 +54,7 @@ percent.
 ### Codebook of Dutch Development Instrument 0-15 months
 
 ```{r smoccitems, echo = FALSE}
-meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
+meta <- dmetric::get_itemtable(gseddata::get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
