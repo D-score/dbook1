@@ -6,12 +6,17 @@ This chapter
 * reviews some key discussions about the first 1000 days in a child's life (\@ref(sec:first1000))
 * highlights the relevance of early childhood development for later life  (\@ref(sec:relevance))
 * discusses the advantages and limitations of using stunting as a proxy measure for development  (\@ref(sec:stunting))
-* -	outlines the difficulties of measuring neurocognitive development in children  (\@ref(sec:neurocognitive))
+* outlines the difficulties of measuring neurocognitive development in children  (\@ref(sec:neurocognitive))
 
 
 ## First 1000 days {#sec:first1000}
 
-The first 1000 days between a woman's pregnancy and her child's second birthday is a time of rapid change. In this period  the architecture of the developing brain is most open to the influence of relationships and experiences [@skonkhoff2016best]. Early experiences affect the nature and quality of the brain’s developing architecture by determining which synapses  are reinforced and which are pruned through lack of use. [FIGURE 1.1] During the first 1000 days, brain architecture is basically shaped, but higher-order brain functions still continue to develop into adolescence and early adulthood [@kolb2017principles].
+The first 1000 days between a woman's pregnancy and her child's second birthday is a time of rapid change. In this period  the architecture of the developing brain is most open to the influence of relationships and experiences [@skonkhoff2016best]. Early experiences affect the nature and quality of the brain’s developing architecture by determining which synapses  are reinforced and which are pruned through lack of use. During the first 1000 days, brain architecture is basically shaped, but higher-order brain functions still continue to develop into adolescence and early adulthood [@kolb2017principles].
+
+```{r shonkoffplot, echo = FALSE, fig.cap = '(ref:shonkoffplot)', out.width='80%', fig.align='center'}
+include_graphics("fig/Shonkoff_Ch1.png")
+```
+(ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: @skonkhoff2016best.
 
 The ‘nature versus nurture’ debate assumes that variation in development is primarily due to either genetic or environmental differences. However, the current scientific opinion holds that virtually all traits are influenced by both genetic predisposition and environmental differences [@rutter2007genes]. The environment in which a child develops (before and soon after birth) provides experiences that can modify the expression of certain genes [@caspi2010genetic]. Negative influences, such as exposure to stressful life circumstances or environmental toxins, leave a “chemical signature” on the genes. 
 
