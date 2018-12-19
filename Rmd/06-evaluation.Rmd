@@ -571,10 +571,10 @@ The estimated variance of the modeled abilities is
 $\hat\sigma_{\hat\beta}^2 = 76.6$, and the variance of the difference
 between modeled and re-estimated abilities is equal to
 $\hat\sigma_{\hat e}^2 = 1.74$. The corresponding *standard error of
-measurement (sem)* is $\hat\sigma_{\hat e} = 1.32$.
+measurement (sem)* is $\hat\sigma_{\hat e} = 1.32$ logits.
 
 The estimated reliability in the SMOCC data can now be calculated as
 $(76.6-1.74)/76.6 = 0.977$. This number can be interpreted in the same
 way as Cronbach's $\alpha$. The reliability is very high here because
 of the large variation in $D$-scores. In practice, the *sem* is perhaps
-a more relevant measure.
+a more relevant measure of precision.
