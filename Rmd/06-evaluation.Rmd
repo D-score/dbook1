@@ -77,7 +77,7 @@ An imporant aspect of the Rasch analysis is the issue of model fit. Actually, fo
   items <- rename_gcdg_gsed(prepare_items(study = "Netherlands 1")$items)
   varlist <- list(adm = c("subjid", "agedays", "cohort", "cohortn", "subjido"),
                  items = items)
-  model <- fit_dmodel(varlist, data = data,
+  model <- dmetric::fit_dmodel(varlist, data = data,
                      name = "SMOCC", age_unit = "years")
 
  
@@ -125,7 +125,7 @@ The fit of the items evaluate the extent to which data performs with the constru
 
  varlist$items <- union(varlist$items, c("a13f2", "a3com1", "a4com1", "a4f2", "a13f1"))
 
- model02 <- fit_dmodel(varlist=varlist, data = data02,  data_package = "ddata", b_fixed = fixedb)
+ model02 <- dmetric::fit_dmodel(varlist=varlist, data = data02,  data_package = "ddata", b_fixed = fixedb)
  
 
  #translate to gsed names
