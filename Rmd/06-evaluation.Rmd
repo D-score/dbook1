@@ -368,7 +368,7 @@ while holding onto play-pen or furniture") is easier for boys by about
 DDI. Both are primarily uniform DIF.
 
 In practice, having milestones with opposite forms of DIF in the same
-instrument will cancel out one another, so one need to be overly
+instrument will cancel out one another, so one need not be overly
 concerned in that case. However, we should be careful when the
 instrument consists of milestones that all have DIF in the same
 direction.
@@ -377,38 +377,69 @@ direction.
 
 ### Item information at a given ability
 
-The item information is defined as the amount of psychometric information an item contains for a given ability. The item information can be plotted for each item. In the Figure below, the item information curves for some example milestones are displayed. The amount of information for an item is maximized around the item-difficulty parameter. 
+Items are generally sensitive to only a part of the ability scale.
+Item information is a psychometric measure that quantifies how
+informative the item is at different levels of ability. Item
+information can be plotted as a curve for each item.
 
-```{r iic, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 3}
+```{r iic, echo=FALSE, message=FALSE, warning=FALSE, fig.height = 3, fig.cap = '(ref:iic)'}
+items <- c("ddigmm060", "ddicmm039")
 #item information curve
 ## bereken item info by difficulty
  info <- function(beta, delta) {(exp(beta-delta)/(1+exp(beta-delta)) * (1-exp(beta-delta)/(1+exp(beta-delta))))}
- delta <- model$fit$b["ddigmm060"]
+ delta <- model$fit$b[items[1]]
  betar <- c(-10,2)
  beta = seq(betar[1], betar[2], length = 200)
  iteminfo1 <- data.frame(ability=beta,I=info(beta,delta))
 
- delta <- model$fit$b["ddicmm039"]
+ delta <- model$fit$b[items[2]]
  betar <- c(-2,10)
  beta = seq(betar[1], betar[2], length = 200)
  iteminfo2 <- data.frame(ability=beta,I=info(beta,delta))
 
-
- iteminfo1$item <- "Rolls over back to front"
- iteminfo2$item <- "Says three words"
+ iteminfo1$item <- paste(items[1], get_labels(items[1]))
+ iteminfo2$item <- paste(items[2], get_labels(items[2]))
  df <- rbind(iteminfo1,iteminfo2)
- 
- ggplot(df, aes(ability,I, group=item, color=item))+geom_line()+xlab("Ability")+ylab("Item information")
 
+ theme_set(theme_light()) 
+ ggplot(df, aes(ability, I, group = item, color = item)) +
+   geom_line() + 
+   xlab("Ability (logit)") +
+   ylab("Item information") +
+   theme(legend.position = "bottom") +
+   scale_x_continuous(breaks = seq(-10, 10, 2)) +
+   guides(color=guide_legend(title = NULL))
 ```
 
-The formula to obtain the item information is the first derivative of the item response curve and can be written as follows: $$I(\delta)=P_i(\delta)(1-P_i(\delta))$$ where $P_i(\delta)$ is the conditional probability of endorsing an item. For example for milestone "Says three words" the $\delta_i$ equals $3.81$. The probability of endorsing this item for a person with an ability level of $2$ standard deviation above the mean is $$P_{ni}= \frac{exp(2 -  3.81)}{1+exp(2-3.81)}$$ $$P_{ni}= 0.14$$
-So for an ability level of $2$ standard deviations above the mean $\beta_n=2$, milestone "Says three words" has an information value of $$I(\delta)=0.14(1-0.14)$$ $$I(\delta)=0.12$$ 
+(ref:iic) The item information curve for two milestones from the DDI. 
+
+Figure \@ref(fig:iic) displays the item information curves for two
+milestones from the DDI. Note that the amount of information
+for the item is maximal around the item difficulty. In the Rasch
+model, the information curves of different items are just translations
+along the ability scale.
+
+The formula to obtain the item information is the first derivative of
+the item response curve and can be written as follows:
+
+$$I(\delta)=P_i(\delta)(1-P_i(\delta))$$ 
+where $P_i(\delta)$ is the conditional probability of endorsing an
+item. For example for milestone `ddicmm039` ("Says three words") the $\delta_i$
+equals $4.06$. The probability of endorsing this item for a person
+with an ability level of $2$ standard deviation above the mean is
+
+$$P_{ni}= \frac{\mathrm{exp}(2 - 4.06)}{1+\mathrm{exp}(2-4.06)} = 0.113$$
+
+So for an ability level of $2$ standard deviations above the mean
+$\beta_n = 2$, milestone `ddicmm039` has an information of
+
+$$I(\delta)=0.113(1-0.113) = 0.1$$ 
 
 
 ### Item information at a given age
 
-The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.  
+The item information can also be expressed against age. By doing so,
+one can identify at what age an item provides the most information.
 
 ```{r iia, echo=FALSE, message=FALSE,  warning=FALSE,  fig.height = 3}
 colnames(model$dscore)[7] <-"b"
@@ -441,7 +472,15 @@ refs$month <- refs$age
 
 ```
 
-The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item. 
+The item information at a given age, can ultimately help determine at
+what age the item can best be administered. The item will be most
+informative, when adiminered at the age at which 50% of the
+respondents will pass the item. Administering the item at this age can
+be helpful when the item is used in an instrument to determine the
+ability of a population. However, when the item is used in a screening
+instrument, the goal would be to identify respondents that
+underperform compared to a norm group. In that case, the item can best
+be asessed at the age where 90% of respondents will pass the item.
 
 ## Reliability {#sec:reliability}
 
