@@ -276,11 +276,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h3><span class="header-section-number">6.3.2</span> How to detect DIF?</h3>
 <p><span class="citation">Zumbo (<a href="#ref-zumbo1999">1999</a>)</span> provised a clear definition of DIF:</p>
 <blockquote>
-<blockquote>
-<blockquote>
 <p>DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.</p>
-</blockquote>
-</blockquote>
 </blockquote>
 <p>There are various ways to detect DIF. Here we will model the probability of endorsing an item by logistic regression using the observed item responses as outcome, and with ability, the grouping variable, and the ability-grouping interaction as predictors. When the latter two terms explain the residual variance of the item scores after adjusting for ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately.</p>
 <p>The are two forms of DIF:</p>
