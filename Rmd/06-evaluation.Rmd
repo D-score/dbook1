@@ -293,20 +293,85 @@ For outfit, there are 446 out of 16538 measurement (2.7 percent) above
 
 ## Differential item functioning (DIF) {#sec:dif}
 
-An important aspect of item fit to the Rasch model is the assumption that items have the same difficulty in different subgroups of respondents, which is called Differential Item Functioning (DIF). Zumbo (1999) describes a clear definition: "DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure." [@zumbo1999] The examination of DIF can be done by modelling the probability of endorsing an item in a logistic regression model by the ability from the Rasch model and a grouping variable. When the grouping variable significantly explains residual variance of the item scores after adjusting for the ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately. For example when inspecting the DIF for male and female respondents, the following two milestones do not shown DIF:
+### Relevance of DIF for cross-cultural equivalence
 
-```{r dif1, echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
+An important assumption in the Rasch model is that a given item has
+the same difficulty in different subgroups of respondents. Climbing
+stairs is an example where this assumption is suspect. The exposure to
+stairs, and hence the opportunity for a child to practice, varies
+across different cultures. It could thus be that two children with the
+same ability but from different cultures have different success
+probabilities for climbing stairs. When these probabilities
+systematically vary between subgroup, we say there is *Differential
+Item Functioning*, or *DIF* [@holland1983]. DIF is undesirable
+since it can make the instrument culturally biased.
 
-plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
-plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
+### How to detect DIF?
+
+@zumbo1999 provised a clear definition of DIF:
+
+>>> DIF occurs when examinees from different groups show differing
+probabilities of success on (or endorsing) the item after matching on
+the underlying ability that the item is intended to measure.
+
+There are various ways to detect DIF. Here we will model the
+probability of endorsing an item by logistic regression using the
+observed item responses as outcome, and with ability, the grouping
+variable, and the ability-grouping interaction as predictors. When the
+latter two terms explain the residual variance of the item scores
+after adjusting for ability, the item presents DIF for that group. DIF
+can be visually inspected by plotting the curves for the subgroups
+separately.
+
+The are two forms of DIF: 
+
+* *Uniform DIF*: The item response curve differ between groups in
+location, but are parallel;
+
+* *Non-uniform DIF*: The item response curve differ between groups in
+location, in slope and possibly in other characteristics.
+
+These forms correspond to, respectively, the main effect of group and
+the ability-group interaction in the logistic regression model.
+
+### Examples of DIF
+
+```{r plotdif1, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif1)', message = FALSE}
+theme_set(theme_light())
+p1 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
+p2 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
+gridExtra::grid.arrange(p1, p2)
 ```
 
-However, these two items do show a small amount of DIF. This means that the difficulty for the items for male respondent is different than for female respondents. The milestone "Says three words" is less difficult for female respondents, whereas the milestone "Walks while holding onto play-pen or furniture" is less difficult for the male respondents.
+(ref:plotdif1) Two milestones from the DDI with similar item response curves for boys and girls. There is no DIF for sex.
 
-```{r dif2, echo=FALSE, message=FALSE, warning=FALSE, fig.width=3, fig.height=3,fig.show='hold'}
-plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddicmm039")[[1]]
-plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm067")[[1]]
+Figure \@ref(fig:plotdif1) shows an example comparing boys and girls.
+For both milestones, the item response curves are similar for boys and
+girs, so we see no evidence of DIF here.
+
+```{r plotdif2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif2)', message = FALSE}
+theme_set(theme_light())
+p1 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddicmm039")[[1]]
+p2 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm067")[[1]]
+gridExtra::grid.arrange(p1, p2)
 ```
+
+(ref:plotdif2) Two milestones from the DDI with different item
+response curves for boys and girls. There is evidence for uniform DIF.
+
+Figure \@ref(fig:plotdif2) displays two milestones with DIF between
+boys and girls. Milestone `ddicmm039` ("Says three words") is easier
+for girls by about 0.68 logits (= the difference in ability at the
+intersection of 50 percent). Conversely, milestone `ddigmm067` ("Walks
+while holding onto play-pen or furniture") is easier for boys by about
+0.54 logits. These are the largest differences found for sex in the
+DDI. Both are primarily uniform DIF.
+
+In practice, having milestones with opposite forms of DIF in the same
+instrument will cancel out one another, so one need to be overly
+concerned in that case. However, we should be careful when the
+instrument consists of milestones that all have DIF in the same
+direction.
 
 ## Item information {#sec:iteminformation}
 
