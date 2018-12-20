@@ -29,6 +29,7 @@ The validity is stutdie to evaluate the extend to which the constuct that is mea
 ---
 #hier twijfel is of we the SME stuk erin moeten doen, of voor het domein van het instrument moeten gaan? ik gebruik wel de voting data, als ik alleen de informatie van het instrument gebruik hebben we maar twee domeinen - alleen motor en language.
 #For the domain coverage of the D-score, subject matter experts were asked to indicate the domain for each milestone. This resulted in several votes for each milestone that were translated to percentage domain representation per miletsone.
+# >> toch dus domeinen obv de itemnamen - coloring van stef gebruiken. 
 ---
 
 Content validity is the extend to which the D-score represents all facets of development. One way to investigate this is to evaluate to what extend the development domains are covered by the development scale. In contrast to "face validity", which assesses whether the test appears valid to respondents, content validity is about what is actually measured. Each milestone can be assigned to a domain. Subsequently, the information that each milestone provides to the scale can be weighted by the domain representation. A visualistion of this information restuls in the following plot.
@@ -127,6 +128,7 @@ print(dmetric::plot_d_a_group(data = data, model = model, by = "cohort", ref_nam
 
 ---
 # hier wist ik niet echt goed wat ik erover moet zeggen, misschien gewoon weglaten? Of verwijzen nog naar voorbeelden in CH8? Over Togo data?
+# >> achtergrondvariabelen gebruiken zoals opleidingsniveau ? Disclamer toevoegen dat de informatie ind e data summier is, maar dat we nog wel meer zouden willen toevoegen. 
 ---
 
 With discriminatory validity, we indicate the extend to which the D-score can discriminate repondents that are not developing normally from respondents that are normally developing. This can be evaluated by deviding respondents for who we know that development lags as indicated by another measure, for example reflex and/or tonus problems in a population form Togo (Chapter 8).  The D-score should be able to discriminate between these two types of respondents accurately.
@@ -136,7 +138,7 @@ With discriminatory validity, we indicate the extend to which the D-score can di
 Convergent validity is the extend to which the D-score relates to other similar constructs and can be measured as the correlation with another tests that is assumed to measure the same thing. This is similar to concurrent validity. For a good convergent validity the correlation to other construct should be at least 0.6. In the Figure below, the correlation of the D-score with .. are displayed. 
 
 ---
-# Er zitten nu geen auxiliary variables in de data
+# Er zitten nu geen auxiliary variables in de data - hier de haz evt voor gebruiken, dan misschien niet onder convergent validity scharen. Bij convergent validity noemen dat we idealiter zouden willen schalen aan scores van andere development vragenlijsten (bayley-III score)
 ---
 
 ```{r plot concurrent, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
