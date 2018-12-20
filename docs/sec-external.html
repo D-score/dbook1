@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="issues-in-defining-developmental-delay.html">
-<link rel="next" href="practical-implications.html">
+<link rel="prev" href="sec-internal.html">
+<link rel="next" href="outcome.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -265,16 +265,36 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="specificity-in-reference-pre-term-and-lmic-populations" class="section level2">
-<h2><span class="header-section-number">9.4</span> Specificity in reference, pre-term and LMIC populations</h2>
+<div id="sec:external" class="section level2">
+<h2><span class="header-section-number">7.2</span> External validity</h2>
+<div id="discriminatory-validity" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Discriminatory validity</h3>
+<p>With discriminatory validity, we indicate the extend to which the D-score can discriminate repondents that are not developing normally from respondents that are normally developing. This can be evaluated by deviding respondents for who we know that development lags as indicated by another measure, for example reflex and/or tonus problems in a population form Togo (Chapter 8). The D-score should be able to discriminate between these two types of respondents accurately.</p>
 </div>
+<div id="convergent-validity" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Convergent validity</h3>
+<p>Convergent validity is the extend to which the D-score relates to other similar constructs and can be measured as the correlation with another tests that is assumed to measure the same thing. This is similar to concurrent validity. For a good convergent validity the correlation to other construct should be at least 0.6. In the Figure below, the correlation of the D-score with .. are displayed.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plots &lt;-<span class="st"> </span><span class="kw">plot_d_aux</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">metric =</span> <span class="st">&quot;dscore&quot;</span>)
+
+adm_list &lt;-<span class="st"> </span><span class="kw">names</span>(data<span class="op">$</span>visit)[<span class="op">!</span>(<span class="kw">names</span>(data<span class="op">$</span>visit) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;studyid&quot;</span>, <span class="st">&quot;ctrycd&quot;</span>, 
+            <span class="st">&quot;cohort&quot;</span>, <span class="st">&quot;cohortn&quot;</span>, <span class="st">&quot;subjid&quot;</span>, <span class="st">&quot;subjido&quot;</span>, <span class="st">&quot;agedays&quot;</span>, 
+            <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;sexn&quot;</span>))]
+plots &lt;-<span class="st"> </span><span class="kw">plot_d_adm</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">metric =</span> <span class="st">&quot;dscore&quot;</span>, <span class="dt">adm_list =</span> adm_list, <span class="dt">show_legend =</span> <span class="ot">FALSE</span>, <span class="dt">show_cor =</span> <span class="ot">TRUE</span>)</code></pre></div>
+</div>
+<div id="predictive-validity" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Predictive validity</h3>
+<p>Predictive validity refers to the degree to which the D-score predicts score on a criterion that is measured late rin time. For the D-score we have measures for IQ at the age of 5 as a possible criterion. Subsequently, for other examples we have other criteria. In Chapter 8, some examples are presented.</p>
+
+</div>
+</div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="issues-in-defining-developmental-delay.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="practical-implications.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-internal.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="outcome.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
