@@ -624,6 +624,6 @@ measurement theory. The Rasch model can be derived from
     + [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
 
 
-* *Fits child development data*: Last but not least, as we will show
-in Section x.x, the Rasch model provides excellent fit to
-well-developed instruments in child development.
+* *Fits child development data*: Last but not least, as we will see
+in Section \@ref(sec:fitddi), the Rasch model provides excellent fit to
+child development milestones.

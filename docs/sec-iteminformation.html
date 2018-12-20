@@ -187,9 +187,17 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.2" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-severe-underfit"><i class="fa fa-check"></i><b>6.1.2</b> Item response curves showing severe underfit</a></li>
 <li class="chapter" data-level="6.1.3" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-overfit"><i class="fa fa-check"></i><b>6.1.3</b> Item response curves showing overfit</a></li>
 <li class="chapter" data-level="6.1.4" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-infit-and-outfit"><i class="fa fa-check"></i><b>6.1.4</b> Item infit and outfit</a></li>
+<li class="chapter" data-level="6.1.5" data-path="sec-itemfit.html"><a href="sec-itemfit.html#sec:fitddi"><i class="fa fa-check"></i><b>6.1.5</b> Infit and outfit in the DDI</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a></li>
-<li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="sec-personfit.html"><a href="sec-personfit.html#person-infit-and-outfit"><i class="fa fa-check"></i><b>6.2.1</b> Person infit and outfit</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sec-personfit.html"><a href="sec-personfit.html#person-infit-and-outfit-in-the-ddi"><i class="fa fa-check"></i><b>6.2.2</b> Person infit and outfit in the DDI</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="sec-dif.html"><a href="sec-dif.html#relevance-of-dif-for-cross-cultural-equivalence"><i class="fa fa-check"></i><b>6.3.1</b> Relevance of DIF for cross-cultural equivalence</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sec-dif.html"><a href="sec-dif.html#how-to-detect-dif"><i class="fa fa-check"></i><b>6.3.2</b> How to detect DIF?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sec-dif.html"><a href="sec-dif.html#examples-of-dif"><i class="fa fa-check"></i><b>6.3.3</b> Examples of DIF</a></li>
+</ul></li>
 <li class="chapter" data-level="6.4" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html"><i class="fa fa-check"></i><b>6.4</b> Item information</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-ability"><i class="fa fa-check"></i><b>6.4.1</b> Item information at a given ability</a></li>
 <li class="chapter" data-level="6.4.2" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-age"><i class="fa fa-check"></i><b>6.4.2</b> Item information at a given age</a></li>
@@ -262,27 +270,34 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">6.4</span> Item information</h2>
 <div id="item-information-at-a-given-ability" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Item information at a given ability</h3>
-<p>The item information is defined as the amount of psychometric information an item contains for a given ability. The item information can be plotted for each item. In the Figure below, the item information curves for some example milestones are displayed. The amount of information for an item is maximized around the item-difficulty parameter.</p>
-<p><img src="dbook1_files/figure-html/iic-1.png" width="672" /></p>
-<p>The formula to obtain the item information is the first derivative of the item response curve and can be written as follows: <span class="math display">\[I(\delta)=P_i(\delta)(1-P_i(\delta))\]</span> where <span class="math inline">\(P_i(\delta)\)</span> is the conditional probability of endorsing an item. For example for milestone “Says three words” the <span class="math inline">\(\delta_i\)</span> equals <span class="math inline">\(3.81\)</span>. The probability of endorsing this item for a person with an ability level of <span class="math inline">\(2\)</span> standard deviation above the mean is <span class="math display">\[P_{ni}= \frac{exp(2 -  3.81)}{1+exp(2-3.81)}\]</span> <span class="math display">\[P_{ni}= 0.14\]</span> So for an ability level of <span class="math inline">\(2\)</span> standard deviations above the mean <span class="math inline">\(\beta_n=2\)</span>, milestone “Says three words” has an information value of <span class="math display">\[I(\delta)=0.14(1-0.14)\]</span> <span class="math display">\[I(\delta)=0.12\]</span></p>
+<p>Items are generally sensitive to only a part of the ability scale. Item information is a psychometric measure that quantifies how informative the item is at different levels of ability. Item information can be plotted as a curve for each item.</p>
+<div class="figure"><span id="fig:iic"></span>
+<img src="dbook1_files/figure-html/iic-1.png" alt="The item information curve for two milestones from the DDI." width="672" />
+<p class="caption">
+Figure 6.8: The item information curve for two milestones from the DDI.
+</p>
+</div>
+
+<p>Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> displays the item information curves for two milestones from the DDI. Note that the amount of information for the item is maximal around the item difficulty. In the Rasch model, the information curves of different items are just translations along the ability scale.</p>
+<p>The formula to obtain the item information is the first derivative of the item response curve and can be written as follows:</p>
+<p><span class="math display">\[I(\delta)=P_i(\delta)(1-P_i(\delta))\]</span> where <span class="math inline">\(P_i(\delta)\)</span> is the conditional probability of endorsing an item. For example for milestone <code>ddicmm039</code> (“Says three words”) the <span class="math inline">\(\delta_i\)</span> equals <span class="math inline">\(4.06\)</span>. The probability of endorsing this item for a person with an ability level of <span class="math inline">\(2\)</span> standard deviation above the mean is</p>
+<p><span class="math display">\[P_{ni}= \frac{\mathrm{exp}(2 - 4.06)}{1+\mathrm{exp}(2-4.06)} = 0.113\]</span></p>
+<p>So for an ability level of <span class="math inline">\(2\)</span> standard deviations above the mean <span class="math inline">\(\beta_n = 2\)</span>, milestone <code>ddicmm039</code> has an information of</p>
+<p><span class="math display">\[I(\delta)=0.113(1-0.113) = 0.1\]</span></p>
 </div>
 <div id="item-information-at-a-given-age" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Item information at a given age</h3>
-<p>The item information can also be expressed against age. By doing so, one can identify at what age an item provides the most information.</p>
-<pre><code>## GAMLSS-RS iteration 1: Global Deviance = 59364 
-## GAMLSS-RS iteration 2: Global Deviance = 59208 
-## GAMLSS-RS iteration 3: Global Deviance = 59200 
-## GAMLSS-RS iteration 4: Global Deviance = 59200 
-## GAMLSS-RS iteration 5: Global Deviance = 59200 
-## GAMLSS-RS iteration 6: Global Deviance = 59200 
-## GAMLSS-RS iteration 7: Global Deviance = 59200 
-## GAMLSS-RS iteration 8: Global Deviance = 59200 
-## GAMLSS-RS iteration 9: Global Deviance = 59200 
-## new prediction 
-## new prediction 
-## new prediction</code></pre>
-<p><img src="dbook1_files/figure-html/iia-1.png" width="672" /></p>
-<p>The item information at a given age, can ultimately help determine at what age the item can best be administered. The item will be most informative, when adiminered at the age at which 50% of the respondents will pass the item. Administering the item at this age can be helpful when the item is used in an instrument to determine the ability of a population. However, when the item is used in a screening instrument, the goal would be to identify respondents that underperform compared to a norm group. In that case, the item can best be asessed at the age where 90% of respondents will pass the item.</p>
+<p>In practice, it is often interesting to express the item information against age. By doing so, one can identify at what ages the item provides the most information.</p>
+<div class="figure"><span id="fig:iia"></span>
+<img src="dbook1_files/figure-html/iia-1.png" alt="Information information of Figure 6.8 plotted against age." width="672" />
+<p class="caption">
+Figure 6.9: Information information of Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> plotted against age.
+</p>
+</div>
+
+<p>Figure <a href="sec-iteminformation.html#fig:iia">6.9</a> shows that the sensitive age ranges differ considerably between items. Milestone <code>ddigmm060</code> is sensitive at between ages 10–20 months, where <code>ddicmm039</code> is sensitive between ages 27–47, a range that is twice as broad. Note also that the information curves are no longer symmetric.</p>
+<p>The item information by age curve helps to determine at what ages the item can best be administered. The item will be most informative, when administered at the age at which 50% of the children will pass the milestone. Administering the item closely around that age provide the most efficient measurement of ability. When space is at premium (e.g. as in population surveys) using a well-chosen set of age-sensitive milestones will help in reducing the total number of milestones that needs to be measured.</p>
+<p>In other contexts, milestones may be used as a screening instrument to identify developmental delay. In that case, it is more efficient to administer items that are very easy for the age, e.g. milestones on which, say, 90% of the children will pass.</p>
 </div>
 </div>
             </section>
