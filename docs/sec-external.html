@@ -274,12 +274,6 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="convergent-validity" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Convergent validity</h3>
 <p>Convergent validity is the extend to which the D-score relates to other similar constructs and can be measured as the correlation with another tests that is assumed to measure the same thing. This is similar to concurrent validity. For a good convergent validity the correlation to other construct should be at least 0.6. In the Figure below, the correlation of the D-score with .. are displayed.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">plots &lt;-<span class="st"> </span><span class="kw">plot_d_aux</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">metric =</span> <span class="st">&quot;dscore&quot;</span>)
-
-adm_list &lt;-<span class="st"> </span><span class="kw">names</span>(data<span class="op">$</span>visit)[<span class="op">!</span>(<span class="kw">names</span>(data<span class="op">$</span>visit) <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;studyid&quot;</span>, <span class="st">&quot;ctrycd&quot;</span>, 
-            <span class="st">&quot;cohort&quot;</span>, <span class="st">&quot;cohortn&quot;</span>, <span class="st">&quot;subjid&quot;</span>, <span class="st">&quot;subjido&quot;</span>, <span class="st">&quot;agedays&quot;</span>, 
-            <span class="st">&quot;sex&quot;</span>, <span class="st">&quot;sexn&quot;</span>))]
-plots &lt;-<span class="st"> </span><span class="kw">plot_d_adm</span>(<span class="dt">data =</span> data, <span class="dt">model =</span> model, <span class="dt">metric =</span> <span class="st">&quot;dscore&quot;</span>, <span class="dt">adm_list =</span> adm_list, <span class="dt">show_legend =</span> <span class="ot">FALSE</span>, <span class="dt">show_cor =</span> <span class="ot">TRUE</span>)</code></pre></div>
 </div>
 <div id="predictive-validity" class="section level3">
 <h3><span class="header-section-number">7.2.3</span> Predictive validity</h3>
