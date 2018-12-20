@@ -11,16 +11,45 @@ This chapter
 
 ## First 1000 days {#sec:first1000}
 
-The first 1000 days between a woman's pregnancy and her child's second birthday is a time of rapid change. In this period  the architecture of the developing brain is most open to the influence of relationships and experiences [@skonkhoff2016best]. Early experiences affect the nature and quality of the brain’s developing architecture by determining which synapses  are reinforced and which are pruned through lack of use. During the first 1000 days, brain architecture is basically shaped, but higher-order brain functions still continue to develop into adolescence and early adulthood [@kolb2017principles].
+The *first 1000 days* refers to time needed for a child to grow from
+conception to the second birthday. It is a time of rapid change.
+During this period the architecture of the developing brain is very
+open to the influence of relationships and experiences
+[@skonkhoff2016best].
+
+Early experiences affect the nature and quality of the brain’s
+developing architecture by determining which synapses are reinforced,
+and which are pruned through lack of use. During the first 1000 days,
+brain architecture is basically shaped, but higher-order brain
+functions still continue to develop into adolescence and early
+adulthood [@kolb2017principles].
 
 ```{r shonkoffplot, echo = FALSE, fig.cap = '(ref:shonkoffplot)', out.width='80%', fig.align='center'}
 include_graphics("fig/Shonkoff_Ch1.png")
 ```
 (ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: @skonkhoff2016best.
 
-The ‘nature versus nurture’ debate assumes that variation in development is primarily due to either genetic or environmental differences. However, the current scientific opinion holds that virtually all traits are influenced by both genetic predisposition and environmental differences [@rutter2007genes]. The environment in which a child develops (before and soon after birth) provides experiences that can modify the expression of certain genes [@caspi2010genetic]. Negative influences, such as exposure to stressful life circumstances or environmental toxins, leave a “chemical signature” on the genes. 
+The classic *nature versus nurture debate* constrasts the viewpoints
+that variation in development is primarily due to either genetic or
+environmental differences. The current scientific consensus is that
+virtually all traits are influenced by both genetic predisposition and
+environmental differences [@rutter2007genes]. 
 
-During the first 1000 days, infants are highly dependent on their caregivers to protect them from adversities and to help them regulate their physiology and behavior. Caregivers can do this through responsive care, including routines for sleeping and feeding. To reach their developmental potential, children require nutrition, responsive caregiving, opportunities to explore and learn, and protection from environmental threats @black2017early. [FIGURE 1.2] Gradually, children build self-regulatory skills that enable them to manage stress as they interact with their caregivers [@johnson2013science]. 
+The environment in which a child develops (before and soon after
+birth) provides experiences that can modify the expression of certain
+genes [@caspi2010genetic]. Negative influences, such as exposure to
+stressful life circumstances or environmental toxins, leave a
+*chemical signature* on the genes.
+
+During the first 1000 days, infants are highly dependent on their
+caregivers to protect them from adversities and to help them regulate
+their physiology and behavior. Caregivers can do this through
+responsive care, including routines for sleeping and feeding. To reach
+their developmental potential, children require nutrition, responsive
+caregiving, opportunities to explore and learn, and protection from
+environmental threats [@black2017early]. Gradually, children build
+self-regulatory skills that enable them to manage stress as they
+interact with their caregivers [@johnson2013science].
 
 
 ## Relevance of child development {#sec:relevance}
