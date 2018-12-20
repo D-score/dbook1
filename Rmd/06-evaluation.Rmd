@@ -194,7 +194,7 @@ model, as in Figure \@ref(fig:ploticc);
 * If infit and outfit > 1.0, then the item has underfit. The amount of
 underfit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
 
-* If infit and outfit < 1.0, then the item fit the model better than
+* If infit and outfit < 1.0, then the item fits the model better than
 expected (overfit). The amount of overfit is quantified by infit and
 outfit, as in \@ref(fig:plothyp2).
 
