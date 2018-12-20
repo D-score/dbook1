@@ -187,9 +187,17 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6.1.2" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-severe-underfit"><i class="fa fa-check"></i><b>6.1.2</b> Item response curves showing severe underfit</a></li>
 <li class="chapter" data-level="6.1.3" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-overfit"><i class="fa fa-check"></i><b>6.1.3</b> Item response curves showing overfit</a></li>
 <li class="chapter" data-level="6.1.4" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-infit-and-outfit"><i class="fa fa-check"></i><b>6.1.4</b> Item infit and outfit</a></li>
+<li class="chapter" data-level="6.1.5" data-path="sec-itemfit.html"><a href="sec-itemfit.html#sec:fitddi"><i class="fa fa-check"></i><b>6.1.5</b> Infit and outfit in the DDI</a></li>
 </ul></li>
-<li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a></li>
-<li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a></li>
+<li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="sec-personfit.html"><a href="sec-personfit.html#person-infit-and-outfit"><i class="fa fa-check"></i><b>6.2.1</b> Person infit and outfit</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sec-personfit.html"><a href="sec-personfit.html#person-infit-and-outfit-in-the-ddi"><i class="fa fa-check"></i><b>6.2.2</b> Person infit and outfit in the DDI</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="sec-dif.html"><a href="sec-dif.html#relevance-of-dif-for-cross-cultural-equivalence"><i class="fa fa-check"></i><b>6.3.1</b> Relevance of DIF for cross-cultural equivalence</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sec-dif.html"><a href="sec-dif.html#how-to-detect-dif"><i class="fa fa-check"></i><b>6.3.2</b> How to detect DIF?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sec-dif.html"><a href="sec-dif.html#examples-of-dif"><i class="fa fa-check"></i><b>6.3.3</b> Examples of DIF</a></li>
+</ul></li>
 <li class="chapter" data-level="6.4" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html"><i class="fa fa-check"></i><b>6.4</b> Item information</a><ul>
 <li class="chapter" data-level="6.4.1" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-ability"><i class="fa fa-check"></i><b>6.4.1</b> Item information at a given ability</a></li>
 <li class="chapter" data-level="6.4.2" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-age"><i class="fa fa-check"></i><b>6.4.2</b> Item information at a given age</a></li>
@@ -260,9 +268,14 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:reliability" class="section level2">
 <h2><span class="header-section-number">6.5</span> Reliability</h2>
-<p>The <em>person seperation index</em> is a measure for reliability for the Rasch model that is comparable to Cronbach’s <span class="math inline">\(\alpha\)</span>. In that context we define the reliability as the proportion of variance of the estimated person estimates (i.e. abilities) and the total variance including error. PSI obtained as follows: <span class="math inline">\(PSI = \frac{\sigma_{\hat\beta}^2 -\hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}\)</span>, where <span class="math inline">\(\sigma_{\hat\beta}^2\)</span> is the variance of the estimated abilities and <span class="math inline">\(\sigma_{\hat e}^2\)</span> is the error variance of the abilities. The standard error of measurement can be obtained from this information as <span class="math inline">\(SEM = \sqrt{\sigma_{\hat e}^2}\)</span>, which reflects the precision of the ability estimation. Below the <span class="math inline">\(PSI\)</span> and <span class="math inline">\(SEM\)</span> are calculated for our example data.</p>
-<pre><code>##  psi  sem 
-## 0.85 2.49</code></pre>
+<p>Reliability is defined as the proportion of variance of the person estimates (i.e. abilities) relative to the total variance, including errors. More specifically, the reliability <span class="math inline">\(R\)</span> of a test is written as</p>
+<p><span class="math display">\[R \equiv \frac{\sigma_{\beta}^2}{\sigma_{\beta}^2 + \sigma_{e}^2},\]</span></p>
+<p>where <span class="math inline">\(\sigma_{\beta}^2\)</span> is the variance of true ability and <span class="math inline">\(\sigma_{e}^2\)</span> is the error variance.</p>
+<p>Cronbach’s <span class="math inline">\(\alpha\)</span> is a popular estimate of the lower bound of the reliability of a test. In the Rasch model, we can estimate reliability by the <a href="http://www.rummlab.com.au/rmrelidx2030">ratio</a></p>
+<p><span class="math display">\[\hat{R} = \frac{\hat\sigma_{\hat\beta}^2 - \hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}.\]</span></p>
+<p>For a given model, we can calculate <span class="math inline">\(\hat\sigma_{\hat\beta}^2\)</span> directly as the sampling variance of the estimated abilities, but getting an estimate for <span class="math inline">\(\hat\sigma_{\hat e}^2\)</span> is more difficult. We use the modeled abilities and modeled difficulties to generate a hypothetical data set of the same size and same missing data pattern, and re-estimate the abilities from the simulated data. Then <span class="math inline">\(\hat\sigma_{\hat e}^2\)</span> is computable as variance of the difference between the modeled abilities and the re-estimated abilities.</p>
+<p>The estimated variance of the modeled abilities is <span class="math inline">\(\hat\sigma_{\hat\beta}^2 = 76.6\)</span>, and the variance of the difference between modeled and re-estimated abilities is equal to <span class="math inline">\(\hat\sigma_{\hat e}^2 = 1.74\)</span>. The corresponding <em>standard error of measurement (sem)</em> is <span class="math inline">\(\hat\sigma_{\hat e} = 1.32\)</span> logits.</p>
+<p>The estimated reliability in the SMOCC data can now be calculated as <span class="math inline">\((76.6-1.74)/76.6 = 0.977\)</span>. This number can be interpreted in the same way as Cronbach’s <span class="math inline">\(\alpha\)</span>. The reliability is very high here because of the large variation in <span class="math inline">\(D\)</span>-scores. In practice, the <em>sem</em> is perhaps a more relevant measure of precision.</p>
 
 </div>
 <!-- </div> -->
