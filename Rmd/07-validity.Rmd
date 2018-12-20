@@ -1,4 +1,13 @@
-# Validity {#validity}
+# Validity {#ch:validity}
+
+Validity is a generic term that refers to the question how well an
+instrument measures what it claims to measure. There are many various
+aspect of validity. The chapter we briefly review the main types of
+validity:
+
+* Internal validity (\@ref(sec:internal))
+* External validity (\@ref(sec:external))
+
 
 ```{r init07, include=FALSE}
 library(ddata)
@@ -25,111 +34,40 @@ varlist <- list(adm = c("cohort", "subjid", "agedays"),
 model <- fit_dmodel(varlist, data, name = "57_0")
 ```
 
-## Role of validity
-
-The validity is stutdie to evaluate the extend to which the constuct that is measured (e.g. development), measures what it claims to measure. In other words, how accurately the D-score corresponds to reality. There are many different types of validity, that can roughly be distinguised in two main kinds of validity: internal validity and external validity. 
-
-## Internal validity
+## Internal validity {#sec:internal}
 
 ### Content validity
 
----
-#hier twijfel is of we the SME stuk erin moeten doen, of voor het domein van het instrument moeten gaan? ik gebruik wel de voting data, als ik alleen de informatie van het instrument gebruik hebben we maar twee domeinen - alleen motor en language.
-#For the domain coverage of the D-score, subject matter experts were asked to indicate the domain for each milestone. This resulted in several votes for each milestone that were translated to percentage domain representation per miletsone.
-# >> toch dus domeinen obv de itemnamen - coloring van stef gebruiken. 
----
+Content validity is the extent to which the D-score represents all
+facets of development. In contrast to "face validity", which assesses
+whether the test appears valid to respondents, content validity is
+about what is actually measured. 
 
-Content validity is the extend to which the D-score represents all facets of development. One way to investigate this is to evaluate to what extend the development domains are covered by the development scale. In contrast to "face validity", which assesses whether the test appears valid to respondents, content validity is about what is actually measured. Each milestone can be assigned to a domain. Subsequently, the information that each milestone provides to the scale can be weighted by the domain representation. A visualistion of this information restuls in the following plot.
+One important form of content validity is that we wish to make sure
+that the measurement scale represents the various developmental
+domains in a fair way. In the simplest case, we can assign each
+milestone uniquely to one domain, and evaluate coverage by splitting
+the cumulative item information over domains.
 
-
-```{r plotcontent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
-#   info_data <-
-#       dinstrument::info_d_item(
-#         itembank = model$itembank,
-#         delta = "tau",
-#         long = TRUE,
-#         beta_range = 0:80
-#       )
-# 
-# dom_data <- info_data  %>%
-#         mutate(
-#           domain = domain_rec(gseddata::decompose_itemnames(lex_gsed)[, "domain"]),
-#           motor = ifelse(domain == "motor", 1, 0),
-#           lang = ifelse(domain == "lang", 1, 0),
-#           cog = ifelse(domain == "cog", 1, 0),
-#           sem = ifelse(domain == "sem", 1, 0),
-#           life = ifelse(domain == "life", 1, 0),
-#           motor_info = motor * info,
-#           lang_info = lang * info,
-#           cog_info = cog * info,
-#           sem_info = sem * info,
-#           life_info = life * info
-#         )
-# 
-# plot_data <- dom_data %>%
-#         group_by(ability) %>%
-#         summarise(
-#           motor = sum(motor_info, na.rm = TRUE),
-#           lang = sum(lang_info, na.rm = TRUE),
-#           cog = sum(cog_info, na.rm = TRUE),
-#           sem = sum(sem_info, na.rm = TRUE),
-#           life = sum(life_info, na.rm = TRUE),
-#           missing = (sum(info) - sum(motor_info, na.rm = TRUE) -
-#                        sum(lang_info, na.rm = TRUE) - sum(cog_info, na.rm = TRUE) -
-#                        sum(sem_info, na.rm = TRUE) - sum(life_info, na.rm = TRUE) )
-#         ) %>%
-#         gather(key = "domain",
-#                value = "info",
-#                motor,
-#                lang,
-#                cog,
-#                sem,
-#                life,
-#                missing) %>%
-#         mutate(domain = ifelse(domain =="missing",  NA, domain))
-# 
-#       y_title <- "Information"
-#     
-# color_domain <- c(
-#   brewer.pal(8, "Set2")[2],   # Cognitive
-#   brewer.pal(8, "Set2")[6],   # Language
-#   brewer.pal(8, "Set2")[3],   # Motor
-#   brewer.pal(8, "Set2")[1],   # life
-#   brewer.pal(8, "Set2")[4],   # sem
-#   brewer.pal(8, "Set2")[7],   # unvoted
-#   rgb(0, 0, 0)                # NA
-# )
-# names(color_domain) <- c("cog", "lang", "motor", "life", "sem", "unvoted",  "")
-# 
-#     ggplot(data = plot_data, aes(x = ability, y = info, fill = domain)) +
-#       geom_bar(stat = "identity") +
-#       ylab(y_title) +
-#       xlab("Ability")+
-#       scale_color_manual(values = color_domain,
-#                          na.value = "grey")
-
+```{r plotcontent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotcontent)'}
 plot_info_d_domain(itembank = model$itembank, domaintable = dinstrument::domaintable, delta ="tau", all = TRUE, abs = TRUE)
-
 ```
 
+(ref:plotcontent) Cumulative item information by DDI domain.
 
+Figure \@ref(fig:plotcontent) shows how well each of the three domains
+of the DDI are covered at various levels of the $D$-score.
 
 ### Construct validity
 
----
-# ik neem aan dat we dit ook uitleggen in de eerste hoofdstukken? Dus dat dit verder niet heel uitgebreid hoeft. Dan hieronder nog wel even de referentie invullen?
----
+Construct validity is the extent to which the $D$-score behaves like
+the theory says the construct should behave. For example, we expect
+that child development advances with by age. Figure \@ref(fig:smoccda)
+actually confirms that the $D$-score increases fastest in the first
+six months and keeps increasing, but slower, as children age. This is
+consistent with theories in growth and child development.
 
-Construct validity is the extend to which the D-score behaves like the theory says the construct should behave. An important aspect for development is that the D-score should increase by age. The Figure below shows that the D-score increases fastest in the first six months and keeps increasing, but slower, as children age. This is consistent with development theory.
-
-```{r plotconstruct, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
-
-print(dmetric::plot_d_a_group(data = data, model = model, by = "cohort", ref_name = "dutch", grouping = "GCDG-NLD-SMOCC"))
-
-```
-
-
-## External validity
+## External validity {#sec:external}
 
 ### Discriminatory validity
 
