@@ -76,17 +76,28 @@ consistent with theories in growth and child development.
 # >> achtergrondvariabelen gebruiken zoals opleidingsniveau ? Disclamer toevoegen dat de informatie ind e data summier is, maar dat we nog wel meer zouden willen toevoegen. 
 ---
 
-With discriminatory validity, we indicate the extend to which the D-score can discriminate repondents that are not developing normally from respondents that are normally developing. This can be evaluated by deviding respondents for who we know that development lags as indicated by another measure, for example reflex and/or tonus problems in a population form Togo (Chapter 8).  The D-score should be able to discriminate between these two types of respondents accurately.
+With discriminatory validity, we indicate the extend to which the
+D-score can discriminate repondents that are not developing normally
+from respondents that are normally developing. This can be evaluated
+by deviding respondents for who we know that development lags as
+indicated by another measure, for example reflex and/or tonus problems
+in a population form Togo (Chapter 8).  The D-score should be able to
+discriminate between these two types of respondents accurately.
 
 ### Convergent validity
 
-Convergent validity is the extend to which the D-score relates to other similar constructs and can be measured as the correlation with another tests that is assumed to measure the same thing. This is similar to concurrent validity. For a good convergent validity the correlation to other construct should be at least 0.6. In the Figure below, the correlation of the D-score with .. are displayed. 
+Convergent validity is the extend to which the D-score relates to
+other similar constructs and can be measured as the correlation with
+another tests that is assumed to measure the same thing. This is
+similar to concurrent validity. For a good convergent validity the
+correlation to other construct should be at least 0.6. In the Figure
+below, the correlation of the D-score with .. are displayed.
 
 ---
 # Er zitten nu geen auxiliary variables in de data - hier de haz evt voor gebruiken, dan misschien niet onder convergent validity scharen. Bij convergent validity noemen dat we idealiter zouden willen schalen aan scores van andere development vragenlijsten (bayley-III score)
 ---
 
-```{r plotconcurrent, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plotconcurrent, eval=FALSE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 
 plots <- plot_d_aux(data = data, model = model, metric = "dscore")
 
@@ -101,4 +112,8 @@ plots <- plot_d_adm(data = data, model = model, metric = "dscore", adm_list = ad
 
 ### Predictive validity
 
-Predictive validity refers to the degree to which the D-score predicts score on a criterion that is measured late rin time. For the D-score we have measures for IQ at the age of 5 as a possible criterion. Subsequently, for other examples we have other criteria. In Chapter 8, some examples are presented.
+Predictive validity refers to the degree to which the D-score predicts
+score on a criterion that is measured late rin time. For the D-score
+we have measures for IQ at the age of 5 as a possible criterion.
+Subsequently, for other examples we have other criteria. In Chapter 8,
+some examples are presented.
