@@ -1,6 +1,6 @@
 # Validity {#validity}
 
-```{r, include=FALSE}
+```{r init07, include=FALSE}
 library(ddata)
 library(dmetric)
 library(dscore)
@@ -9,13 +9,20 @@ library(gseddata)
 library(dplyr)
 library(tidyr)
 library(RColorBrewer)
+```
 
-  data <- gseddata::get_data(adm = ".", cov = ".", aux = ".", cohorts = 53, items = ".")
-  items <- rename_gcdg_gsed(prepare_items(study = "Netherlands 1")$items)
-  varlist <- list(adm = c("subjid", "agedays", "cohort", "cohortn", "subjido"),
-                 items = items)
-  model <- fit_dmodel(varlist, data = data,
-                     name = "SMOCC", age_unit = "years")
+```{r smoccdata5, echo = FALSE, warning = FALSE}
+library(gseddata)
+library(dmetric)
+data <- get_data(cohorts = 53)
+items <- get_itemnames(data)
+```
+
+```{r smoccfit5, echo = FALSE, warning = FALSE}
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ## Role of validity
@@ -35,7 +42,7 @@ The validity is stutdie to evaluate the extend to which the constuct that is mea
 Content validity is the extend to which the D-score represents all facets of development. One way to investigate this is to evaluate to what extend the development domains are covered by the development scale. In contrast to "face validity", which assesses whether the test appears valid to respondents, content validity is about what is actually measured. Each milestone can be assigned to a domain. Subsequently, the information that each milestone provides to the scale can be weighted by the domain representation. A visualistion of this information restuls in the following plot.
 
 
-```{r plot content, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plotcontent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 #   info_data <-
 #       dinstrument::info_d_item(
 #         itembank = model$itembank,
@@ -115,7 +122,7 @@ plot_info_d_domain(itembank = model$itembank, domaintable = dinstrument::domaint
 
 Construct validity is the extend to which the D-score behaves like the theory says the construct should behave. An important aspect for development is that the D-score should increase by age. The Figure below shows that the D-score increases fastest in the first six months and keeps increasing, but slower, as children age. This is consistent with development theory.
 
-```{r plot construct, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plotconstruct, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 
 print(dmetric::plot_d_a_group(data = data, model = model, by = "cohort", ref_name = "dutch", grouping = "GCDG-NLD-SMOCC"))
 
@@ -141,7 +148,7 @@ Convergent validity is the extend to which the D-score relates to other similar 
 # Er zitten nu geen auxiliary variables in de data - hier de haz evt voor gebruiken, dan misschien niet onder convergent validity scharen. Bij convergent validity noemen dat we idealiter zouden willen schalen aan scores van andere development vragenlijsten (bayley-III score)
 ---
 
-```{r plot concurrent, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plotconcurrent, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 
 plots <- plot_d_aux(data = data, model = model, metric = "dscore")
 
