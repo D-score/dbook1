@@ -194,7 +194,7 @@ model, as in Figure \@ref(fig:ploticc);
 * If infit and outfit > 1.0, then the item has underfit. The amount of
 underfit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
 
-* If infit and outfit > 1.0, then the item fit the model better than
+* If infit and outfit < 1.0, then the item fit the model better than
 expected (overfit). The amount of overfit is quantified by infit and
 outfit, as in \@ref(fig:plothyp2).
 
@@ -351,8 +351,8 @@ girs, so we see no evidence of DIF here.
 
 ```{r plotdif2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif2)', message = FALSE}
 theme_set(theme_light())
-p1 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddicmm039")[[1]]
-p2 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm067")[[1]]
+p1 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmm019")[[1]]
+p2 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm064")[[1]]
 gridExtra::grid.arrange(p1, p2)
 ```
 
@@ -360,11 +360,11 @@ gridExtra::grid.arrange(p1, p2)
 response curves for boys and girls. There is evidence for uniform DIF.
 
 Figure \@ref(fig:plotdif2) displays two milestones with DIF between
-boys and girls. Milestone `ddicmm039` ("Says three words") is easier
-for girls by about 0.68 logits (= the difference in ability at the
-intersection of 50 percent). Conversely, milestone `ddigmm067` ("Walks
-while holding onto play-pen or furniture") is easier for boys by about
-0.54 logits. These are the largest differences found for sex in the
+boys and girls. Milestone `ddifmm019` ("Takes off shoes and socks")
+is easier for girls by about 0.86 logits (= the difference in ability
+at the intersection of 50 percent). Conversely, milestone `ddigmm064`
+("Crawls forward, abdomen on the floor") is easier for boys by about
+0.84 logits. These are the largest differences found for sex in the
 DDI. Both are primarily uniform DIF.
 
 In practice, having milestones with opposite forms of DIF in the same
