@@ -22,8 +22,8 @@ During the SMOCC study the milestones of the current wave and the next wave were
 ```{r, echo=FALSE, message=FALSE, warning = FALSE}
 library(gridExtra)
 library(dplyr)
-# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long3.sav")
-data.long <- haven::read_sav("data-raw/data/smocc/smocc_long3.sav")
+data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long3.sav")
+#data.long <- haven::read_sav("data-raw/data/smocc/smocc_long3.sav")
 data.long$scores_false <- data.long$scores_false - 1
 data.long$scores_false_nw <- data.long$scores_false_nw - 1
 data.long <- as_tibble(data.long)
