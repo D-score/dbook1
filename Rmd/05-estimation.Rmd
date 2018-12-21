@@ -182,7 +182,7 @@ been used. The order in which items are entered does not matter for
 the end result. The $D$-score is equal to the mean of the last
 posterior.
 
-### Age-dependent starting prior
+### Age-dependent starting prior {#sec:adp}
 
 In the first step, we need a starting distribution as prior. The
 starting prior should define the range of reasonable values for $D$.
