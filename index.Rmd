@@ -1,5 +1,5 @@
 --- 
-title: "D-score for measuring development of children 0-4 years"
+title: "D-score for measuring development of children 0-2 years"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib]
@@ -17,12 +17,12 @@ knitr::opts_chunk$set(cache = TRUE)
 This is an introductory booklet on the measurement of child
 development by means of the D-score. The D-score is a one-number
 summary that quantifies generic neurocognitive development for
-children with ages 0-4 years.
+children with ages 0-2 years.
 
 This is the *first* in a series of three booklets. The series consists
 of the following titles:
 
-1. [D-score for measuring development of children 0-4 years](https://stefvanbuuren.github.io/dbook1/)
+1. [D-score for measuring development of children 0-2 years](https://stefvanbuuren.github.io/dbook1/)
 2. [D-score for international comparisons](https://stefvanbuuren.github.io/dbook2/)
 3. D-score for creating better instruments
 
