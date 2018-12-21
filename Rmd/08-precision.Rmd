@@ -81,7 +81,7 @@ data.long1$scores_false <- as.factor(data.long1$scores_false)
 data.long1$scores_false_nw <- as.factor(data.long1$scores_false_nw) 
 ```
 
-```{r calcmonth23d, cache = FALSE, echo=FALSE, message=FALSE, warning = FALSE}
+```{r calcmonth23d, echo=FALSE, message=FALSE, warning = FALSE}
 library(ggplot2)
 library(ggpubr)
 theme_set(theme_light())
@@ -145,7 +145,7 @@ p3.nw <- ggplot()+
   scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
 ```
 
-```{r month2d, echo = FALSE, cache = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month2d)'}
+```{r month2d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month2d)'}
 ggarrange(p2, p2.nw, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
 ```
 
@@ -188,7 +188,7 @@ both plots. This is because $D$-score estimation takes the difficulty
 level of the milestones into account. The estimate of the $D$-score is
 *unbiased* for difficulty.
 
-```{r month3d, echo = FALSE, cache=FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
+```{r month3d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
 ggarrange(p3, p3.nw, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
 ```
 
