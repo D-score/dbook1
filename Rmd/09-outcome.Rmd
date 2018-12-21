@@ -9,173 +9,30 @@ knitr::opts_chunk$set(error = TRUE)
 
 # Outcome {#outcome}
 
-This chapter focusses on the first application of the D-score: the D-score as neurocognitive outcome at 1000 days. In this chapter, we show how the D-score is calculated, demonstrate how to work with the D-score package, and how the D-score can be used as neurocognitive outcome in three different populations. First, the calculations behind the D-score are explained step-by-step and how to do this with the D-score package by means of two example children. Thereafter, the D-scores will be calculated for three different populations at the age of two years: the reference population, population of preterm children, and population of children in LMIC. 
+This chapter focusses on an application of the $D$-score, with the
+$D$-score as neurocognitive outcome at 1000 days. This chapter shows
+how to use the $D$-score as neurocognitive outcome in three different
+populations, at the age of two years:
+
+* A representative sample of Dutch children;
+
+* A cohort of preterm Dutch children;
+
+* A sample of children living in a Togo.
+
+First, the calculations behind the D-score are explained step-by-step
+and how to do this with the D-score package by means of two example
+children. Thereafter, the D-scores will be calculated for three
+different populations
 
 
-## D-score of reference children at 2 years (PD)
-
-A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994] . Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,578 children. 
-
-During the SMOCC study the milestones of the current wave and the next wave were assessed [@herngreen1994]. With the SMOCC dataset we can compare the D-scores calculated by making use of calibrated milestones (the current wave milestones) with the D-scores calculated by making use of non-calibrated milestones (the next wave milestones). These D-scores for children of the age of 2 and 3 months (wave 2 and 3) are plotted against IQ at 5 years in figure \@ref(fig:dscoresnw). The continuous variable IQ at 5 years allows for nice visualization of the variation in D-scores. Moreover, the densities of the D-score are given at the bottom of the plots showing the distribution of the values of the D-score.
-
-
-```{r, echo=FALSE, message=FALSE, warning = FALSE}
-library(gridExtra)
-library(dplyr)
-# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long3.sav")
-data.long <- haven::read_sav("data-raw/data/smocc/smocc_long3.sav")
-data.long$scores_false <- data.long$scores_false - 1
-data.long$scores_false_nw <- data.long$scores_false_nw - 1
-data.long <- as_tibble(data.long)
-
-data.long$wave <- factor(data.long$wave)
-data.long1 <- data.long[!is.na(data.long$IQ), ]
-data.long1 <- data.long1[!is.na(data.long1$dscore), ]
-data.long1$scores_false <- as.factor(data.long1$scores_false) 
-data.long1$scores_false_nw <- as.factor(data.long1$scores_false_nw) 
-```
-
-```{r, echo=FALSE, message=FALSE, warning = FALSE}
-library(ggplot2)
-
-p2 <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave, col=scores_false), show.legend=F, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 75)) +
-  scale_x_continuous(name = "D-score (2 month milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(2)),   
-               aes(dscore, y = ..density..*100),
-               show.legend = F) +
-  theme(legend.position = "none") + 
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
-
-p3 <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave, col=scores_false), show.legend=F, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 75)) +
-  scale_x_continuous(name = "D-score (3 month milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(3)),   
-               aes(dscore, y = ..density..*100),
-               show.legend = F) +
-  theme(legend.position = "none") + 
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
-  
-
-#D-score next wave
-p2.nw <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(2)), aes(dscore.nw, IQ, group = wave, col=scores_false_nw), show.legend=F, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 75)) +
-  scale_x_continuous(name = "D-score (3 month milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(2)),   
-               aes(dscore.nw, y = ..density..*100),
-               show.legend = F) +
-  theme(legend.position = "none") + 
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
-
-p3.nw <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(3)), aes(dscore.nw, IQ, group = wave, col=scores_false_nw), show.legend=T, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"), 
-                      name = "Number of negative scores")+
-  coord_cartesian(xlim=c(0, 75)) +
-  scale_x_continuous(name = "D-score (6 month milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(3)),   
-               aes(dscore.nw, y = ..density..*100),
-               show.legend = F) + 
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
-```
-
-```{r, dscoresnw, echo = FALSE, message=FALSE, warning=FALSE, fig.cap="\\label{fig:dscoresnw} Comparison of the D-scores calculated by calibrated and non-calibrated milestones at the age of 2 months (Wave 2) and 3 months (Wave 3)"}
-library(ggpubr)
-ggarrange(p2, p2.nw, p3, p3.nw, ncol=2, nrow=2, common.legend = TRUE, legend="bottom")
-
-```
-
-The colours of the dots in figure \@ref(fig:dscoresnw) indicate the number of negative scores on the milestones: note that the number of milestones can differ per wave. Wave 2 has two milestones, Wave 3 has five milestones and Wave 4 has six milestones of the DDI. The variation in the D-score of the children with the same number of negative scores (the same colour of dots) is caused by variation in age. Since the D-score is calculated by using an age-dependent prior, younger children in the same wave with the same scores will have a lower D-score.
-
-Moreover, the plots on the left in figure \@ref(fig:dscoresnw) show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. For example, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find children that have a delay in their development in comparison to their peers.
-
-In addition, the plots on the right in figure \@ref(fig:dscoresnw), show the D-scores when non-calibrated milestones (the milestones of the next wave) are used. For the DDI, on average, around 50\% of the children should be able to get a positive score in this situation. For example, 50\% of the children of the age of 2 months should be able to get a positive score on the 3 month milestones. Since these milestones are considered to be more difficult, a negative score on one of the milestones will have a smaller effect on the D-score. Hence, the gap we saw before between the green and yellow dots disappears. Furthermore, there is more variation in the D-scores and the ceiling/bottom within the D-score scale disappears.
-
-Previously described phenomena are also visible in the densities of the D-scores. When the D-scores are calculated with the calibrated milestones, the left plots in figure \@ref(fig:dscoresnw), the density consists (at least) of two (small) peaks. While the D-scores calculated with non-calibrated milestones, the plots on the right, show a broader variation in the values of the D-score. Note, that the density of the D-score in the plot on the bottom right also shows the bottom effect of the D-score: the D-score is at least equal to 20. A lower D-score is not possible with this set of milestones at the age of 3 months. 
-
-Linear regression analyses were performed with DAZ as outcome and the indicators as predictors. Calculation of the DAZ was unadjusted for gestational age.
-
-
-```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-#D-scores plot
-p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
-  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore
-
-p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
-  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore.nw
-
-resultsSMOCC <- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urban", "metropolitan", "Maternal education (in years)", "Paternal education (in years)", "Maternal age (in years)", "Gestational age (in weeks)", "Gestational age (in categories)", "$\\geq 37$ weeks", "$\\geq 32 - 37$ weeks", "$<32$ weeks*", "Gender", "boys", "girls", "Birthweight (in kg)","Birthweight (in categories)", "$\\geq 2500$ grams", "$\\geq 1500 - <2500$ grams", "$<1500$ grams", "Birth size (in cm)", "Apgar score after 1 min", "$<5$", "$\\geq 5$", "Apgar score after 5 min", "$<7$", "$\\geq 7$"), 
-                b = c(" ","$15$", "$1257$" , "$294$", "$0$", "$1559$", "$1555$", "$1577$", "$1578$", " ", "$1495$", "$78$", "$5$", " ", "$768", "$810$", "$1578$"," ", "$1485$", "$85$", "$8$", "$1381$", " ", "$28$", "$1304$", " ", "$15$", "$1336$"),
-                c = c( " ","$1.0%$", "$80.3%$" , "$18.8%$", "$0.0%$", "$13 (2.3)$", "$14 (2.6)$", "$30 (4.5)$", "$40 (1.8)$", " ", "$94.7%$", "$4.9%$", "$0.3%$", " ", "$48.7%$", "$51.3%$", "$3.419 (0.559)$"," ", "$94.1%$", "$5.4%$", "$0.5%$", "$51 (2.6)$", " ", "$2.1%$", "$97.8%$", " ", "$1.1%$", "$98.9%$"),
-                d = c(" ","$0.2842 (0.2469)$", "$0$", "$0.0723 (0.0616)$", " ", "$0.0805 (0.0103)$", "$0.0546 (0.0092)$", "$0.0007 (0.0054)$", "$0.0675 (0.0130)$", " ", "$0$", "$-0.3786 (0.1098)$","$-1.2844 (0.4236)$", " ", "$-0.2896 (0.0474)$", "$0$", "$0.1234 (0.0427)$"," ", "$0$", "$-0.2454 (0.1057)$", "$-0.9537 (0.3361)$", "$0.0163 (0.0097)$", " ", "$0.0493 (0.178)$", "$0$", " ", "$0.1493 (0.2422)$", "$0$"),
-                e = c(" ","$1.15$", " " , "$1.17$", " ", "$7.84$", "$5.91$", "$0.13$", "$5.18$", " ", " ", "$-3.45$", "$-3.03$", " ", "$-6.11$", " ", "$2.89$"," ", " ", "$-2.32$", "$-2.84$", "$1.68$", " ", "$0.28$", " ", " ", "$0.62$", " "),
-               f = c(" ","$0.25$", " " , "$0.24$", " ", "$<.001$", "$<.001$", "$0.90$", "$<.001$", " ", " ", "$<.001$", "$0.002$", " ", "$<.001$", " ", "$0.004$"," ", " ", "$0.0204$", "$0.0046$", "$0.093$", " ", "$0.78$", " ", " ", "$0.54$", " "))
-```
-
-## D-score of reference children at 2 years (PD)
-
-**Data**
-
-**Conclusions**
-
-Maternal and paternal education, gestational age, gender and birthweight were significantly associated with DAZ at 2 years of age.  
-
-Moreover, the plots on the left in figure \@ref(fig:dscoresnw) show that using calibrated milestones leads to a gap between the green dots (zero negative scores) and the yellow dots (one negative score). Since 90\% of the children should be able to get a positive score on each of the milestones implies that the milestones should be quite easy for the children of that age. So, when a child gets a negative score, it should have an impact on the D-score. For example, when a child of the age of 2 months has one negative score, his/her D-score immediately drops from around 20 to around 14. Which implicates that if you use the 2 month milestones for a child of the age of 2 months he/she will never have a D-score in the range of 15 - 18. This shows that it is also possible to have a ceiling/bottom within the D-score scale. This would be ideal in screening purposes, were you want to find children that have a delay in their development in comparison to their peers.
-
-In addition, the plots on the right in figure \@ref(fig:dscoresnw), show the D-scores when non-calibrated milestones (the milestones of the next wave) are used. For the DDI, on average, around 50\% of the children should be able to get a positive score in this situation. For example, 50\% of the children of the age of 2 months should be able to get a positive score on the 3 month milestones. Since these milestones are considered to be more difficult, a negative score on one of the milestones will have a smaller effect on the D-score. Hence, the gap we saw before between the green and yellow dots disappears. Furthermore, there is more variation in the D-scores and the ceiling/bottom within the D-score scale disappears.
-
-Previously described phenomena are also visible in the densities of the D-scores. When the D-scores are calculated with the calibrated milestones, the left plots in figure \@ref(fig:dscoresnw), the density consists (at least) of two (small) peaks. While the D-scores calculated with non-calibrated milestones, the plots on the right, show a broader variation in the values of the D-score. Note, that the density of the D-score in the plot on the bottom right also shows the bottom effect of the D-score: the D-score is at least equal to 20. A lower D-score is not possible with this set of milestones at the age of 3 months. 
-
-
-```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-#D-scores plot
-p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
-  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore
-
-p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
-  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore.nw
-```
-
-
-## D-score of reference children at 2 years (PD)
-
-**Data**
-
-A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994]. Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,583 children.
+## D-score of reference children at 2 years
 
 **Methods**
 
-Several characteristics were selected from the SMOCC cohort.  The following indicators are in agreement with the Global Indicators Project:
+Several characteristics were selected from the SMOCC cohort.  The
+following indicators are in agreement with the Global Indicators
+Project:
 
 - Area of residence:
     - rural: <2,000 inhabitants
@@ -232,11 +89,33 @@ d_dutch <- dplyr::left_join(d_dutch, n_items, by = c("id", "age"))
 
 **How to adjust development for age of gestation?**
 
-Developmental milestones can be assessed at several chronological ages (defined as age since birth, or postnatal age) to identify very preterm children who have developmental delay and who would benefit from stimulation programs. However, assessment of very preterm children at the same chronological age as term children may cause overdiagnosis of developmental delay in very preterm children and excessive referral for stimulation programs. Very preterm children may require additional time, determined by a factor that considers the difference between gestational age at birth ($GA_{birth}$) vs 40 wk ($GA_{birth}$ for normal term birth), to enable development equivalent to that of normal term birth children. Several authors have proposed full or half correction of chronological age of very preterm birth children to provide a realistic evaluation of age-appropriate milestones; e.g. compare milestones for a child born at $GA_{birth}$ 30 wk vs a normal term child when the chronological age is 10 (full correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40 minus 35 wk) lower for the term than very preterm child. The Dutch Development Instrument (DDI) – a modification of the Gesell test – is used in preventive child health care to assess development from birth to chronological age 4 y.
+Developmental milestones can be assessed at several chronological ages
+(defined as age since birth, or postnatal age) to identify very
+preterm children who have developmental delay and who would benefit
+from stimulation programs. However, assessment of very preterm
+children at the same chronological age as term children may cause
+overdiagnosis of developmental delay in very preterm children and
+excessive referral for stimulation programs. Very preterm children may
+require additional time, determined by a factor that considers the
+difference between gestational age at birth ($GA_{birth}$) vs 40 wk
+($GA_{birth}$ for normal term birth), to enable development equivalent
+to that of normal term birth children. Several authors have proposed
+full or half correction of chronological age of very preterm birth
+children to provide a realistic evaluation of age-appropriate
+milestones; e.g. compare milestones for a child born at $GA_{birth}$
+30 wk vs a normal term child when the chronological age is 10 (full
+correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40
+minus 35 wk) lower for the term than very preterm child. The Dutch
+Development Instrument (DDI) – a modification of the Gesell test – is
+used in preventive child health care to assess development from birth
+to chronological age 4 y.
 
 **Data**
 
-In 1983, data were collected for 1338 infants in the Netherlands who had very preterm birth ($GA_{birth} \geq$ 25 and < 32 wk) or very low birth weight (birth weight < 1500 g) (Project On Preterm and Small for Gestational Age Infants [POPS]).
+In 1983, data were collected for 1338 infants in the Netherlands who
+had very preterm birth ($GA_{birth} \geq$ 25 and < 32 wk) or very low
+birth weight (birth weight < 1500 g) (Project On Preterm and Small for
+Gestational Age Infants [POPS]).
 
 **Methods**
 
@@ -270,17 +149,33 @@ Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
 
 **Conclusions**
 
-Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.
+Compared with the general population, more very preterm children
+reached developmental milestones within chronological age 26 wk when
+chronological age was fully corrected, and fewer preterm children
+reached the milestones when uncorrected chronological age was used;
+fewer children reached the milestones when 0.5 correction for
+$GA_{birth}$ was used, and similar proportions were observed when 0.75
+correction for $GA_{birth}$ was used within the first 26 weeks after
+birth. After chronological age 26 wk, similar proportions were
+observed between very preterm and full term children when
+chronological age was fully corrected for $GA_{birth}$. We recommend
+0.75 correction of chronological age before uncorrected chronological
+age 26 wk and full correction for uncorrected chronological age 26 to
+119 wk.
 
 **Impact of characteristics on the DAZ in preterm children**
 
 **Data**
 
-When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.
+When we select the DAZ at 2y of fully corrected chronological age
+(range 22-26 months) within the POPS study, 199 children were
+available.
 
 **Methods**
 
-Several characteristics were selected from the POPS cohort.  The following indicators are in agreement with the Global Indicators Project:
+Several characteristics were selected from the POPS cohort.  The
+following indicators are in agreement with the Global Indicators
+Project:
 
 - Area of residence:
     - rural: <2,000 inhabitants
@@ -326,7 +221,19 @@ Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
 
 **Conclusions**
 
-Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.
+Compared with the general population, more very preterm children
+reached developmental milestones within chronological age 26 wk when
+chronological age was fully corrected, and fewer preterm children
+reached the milestones when uncorrected chronological age was used;
+fewer children reached the milestones when 0.5 correction for
+$GA_{birth}$ was used, and similar proportions were observed when 0.75
+correction for $GA_{birth}$ was used within the first 26 weeks after
+birth. After chronological age 26 wk, similar proportions were
+observed between very preterm and full term children when
+chronological age was fully corrected for $GA_{birth}$. We recommend
+0.75 correction of chronological age before uncorrected chronological
+age 26 wk and full correction for uncorrected chronological age 26 to
+119 wk.
 
 **Impact of characteristics on the DAZ in preterm children**
 
