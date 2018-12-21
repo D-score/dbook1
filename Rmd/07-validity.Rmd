@@ -21,8 +21,6 @@ library(RColorBrewer)
 ```
 
 ```{r smoccdata5, echo = FALSE, warning = FALSE}
-library(gseddata)
-library(dmetric)
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
 ```
@@ -63,10 +61,12 @@ the cumulative item information over domains.
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
     ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
+      theme_light() +
       geom_bar(stat = "identity") +
       ylab("Item information") +
-      xlab("Ability (D-score)")
-
+      xlab("Ability (D-score)") + 
+      labs(fill = "DDI domain") +
+      theme(legend.position = c(0.15, 0.75))
 ```
 
 (ref:plotcontent) Cumulative item information by DDI domain.
