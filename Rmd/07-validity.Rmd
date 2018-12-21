@@ -50,7 +50,23 @@ milestone uniquely to one domain, and evaluate coverage by splitting
 the cumulative item information over domains.
 
 ```{r plotcontent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotcontent)'}
-plot_info_d_domain(itembank = model$itembank, domaintable = dinstrument::domaintable, delta ="tau", all = TRUE, abs = TRUE)
+    info_data <-
+      info_d_item(
+        itembank = model$itembank,
+        delta = "tau",
+        long = TRUE,
+        beta_range = 0:80
+      )
+    dom_data <- info_data %>% 
+          mutate(domain = gseddata::decompose_itemnames(lex_gsed)[, "domain"],
+                 domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+    ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
+      geom_bar(stat = "identity") +
+      ylab("Item information") +
+      xlab("Ability (D-score)")
+
 ```
 
 (ref:plotcontent) Cumulative item information by DDI domain.
@@ -72,7 +88,6 @@ consistent with theories in growth and child development.
 ### Discriminatory validity
 
 ---
-# hier wist ik niet echt goed wat ik erover moet zeggen, misschien gewoon weglaten? Of verwijzen nog naar voorbeelden in CH8? Over Togo data?
 # >> achtergrondvariabelen gebruiken zoals opleidingsniveau ? Disclamer toevoegen dat de informatie ind e data summier is, maar dat we nog wel meer zouden willen toevoegen. 
 ---
 
@@ -84,27 +99,63 @@ indicated by another measure, for example reflex and/or tonus problems
 in a population form Togo (Chapter 8).  The D-score should be able to
 discriminate between these two types of respondents accurately.
 
+
+```{r plotdiscr, eval=FALSE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+plotdat <- left_join(model$dscore, data$visit) %>%
+  mutate(agemos = agedays /365.25 * 12,
+         edumocat = factor(edumocat, labels = c("none", "primary", "secondary", "above secondary")),
+         residence = factor(residence, labels = c("semi-urban", "urban", "metropolitan")))
+
+ggplot(plotdat, aes(x = agemos, y = b, group = edumocat, colour = edumocat))+
+  geom_point()+
+  xlab("Age (months)")+
+  ylab("D-score")
+
+
+ggplot(plotdat, aes(x = agemos, y = b, group = residence, colour = residence))+
+  geom_point()+
+  xlab("Age (months)")+
+  ylab("D-score")
+
+```
+
+
+
 ### Convergent validity
 
 Convergent validity is the extend to which the D-score relates to
 other similar constructs and can be measured as the correlation with
-another tests that is assumed to measure the same thing. This is
+other tests that are assumed to measure the same thing. Examples are
+the total score for Bayley-III or the Denver, which are both 
+instruments to measure early child development. This is
 similar to concurrent validity. For a good convergent validity the
-correlation to other construct should be at least 0.6. In the Figure
-below, the correlation of the D-score with .. are displayed.
+correlation to other construct should be at least 0.6. Unforetunatly,
+only limited data are available for teh DDI, so convergent validity 
+for the D-score cannot be assessed at this point. 
 
----
-# Er zitten nu geen auxiliary variables in de data - hier de haz evt voor gebruiken, dan misschien niet onder convergent validity scharen. Bij convergent validity noemen dat we idealiter zouden willen schalen aan scores van andere development vragenlijsten (bayley-III score)
----
+Another option is to evaluate the extend to which the D-score relates
+to measures that are currently used as a proxy for child development, 
+such as stunting (height) (see section \@ref(sec:stunting)).
 
-```{r plotconcurrent, eval=FALSE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 
-plots <- plot_d_aux(data = data, model = model, metric = "dscore")
+```{r plotconcurrent, eval=TRUE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+cor1dat <- left_join(model$dscore, data$visit)%>% mutate(daz = dscore::daz(b, 
+            x = .data$agedays, x.unit = "day"))
+cor1 <- round(cor(cor1dat[,c("b", "htcm")], use = "complete.obs")[1,2],2)
+cor2 <- round(cor(cor1dat[,c("daz", "haz")], use = "complete.obs")[1,2],2)
 
-adm_list <- names(data$visit)[!(names(data$visit) %in% c("studyid", "ctrycd", 
-            "cohort", "cohortn", "subjid", "subjido", "agedays", 
-            "sex", "sexn"))]
-plots <- plot_d_adm(data = data, model = model, metric = "dscore", adm_list = adm_list, show_legend = FALSE, show_cor = TRUE)
+
+plot_d_adm(data = data, model = model, metric = "dscore", adm_list = "htcm", show_legend = FALSE, show_cor = FALSE)[[1]]+
+  annotate("text", x = 60, y = 5, hjust = 0, label = paste("correlation =", cor1))+
+  ylab("Height (cm)")
+
+
+#plot_d_adm(data = data, model = model, metric = "daz", adm_list = "haz", show_legend = FALSE, show_cor = FALSE)[[1]]+
+#  annotate("text", x = 2, y = -5.5, hjust = 0, label = paste("correlation =", cor2))+
+#  ylab("z-score for height")+
+#  xlab("z-score for D")
+
+
 
 ```
 
