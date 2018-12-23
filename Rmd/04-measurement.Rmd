@@ -39,19 +39,20 @@ The Social Medical Survey of Children Attending Child Health Clinics
 (SMOCC) study is a a nationally representative cohort of 2,151
 children born in The Netherlands during the years 1988–1989
 [@herngreen1994]. The study monitored child development using
-observations made on the DDI during 10 visits in the first 30 months 
-of life.
+observations made on the DDI during nine visits covering the first 24
+months of life. The SMOCC study collected information during the first
+two years on 57 out of 75 milestones.
 
-The standard set in the DDI consists of relatively easy milestones
+The *standard* set in the DDI consists of relatively easy milestones
 that 90 percent of the children can pass at the scheduled age. This
 set of designed to have maximal sensitivity for picking up delays in
 development. A special feature of the SMOCC study was the inclusion of
 additional, and more difficult, milestones beyond the standard set.
-The additional milestones are taken as the set for the next time
+The *additional* milestones are taken as the set for the next time
 point. The success percentage on additional milestones is about 50
 percent.
 
-### Codebook of Dutch Development Instrument 0-15 months
+### Codebook of DDI 0-24 months
 
 ```{r smoccitems, echo = FALSE}
 meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
@@ -59,24 +60,39 @@ meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
+# calculate visit from data
+library(gseddata)
+data <- get_data(cohort = 53)
+meta <- data$itm %>%
+  group_by(item) %>% 
+  summarize(min_age = min(agedays, na.rm = TRUE)) %>% 
+  mutate(visit = cut(min_age, 
+                    breaks = c(18, 43, 76, 149, 216, 320, 399, 481, 633, 800),
+                    labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m"),
+                    right = FALSE),
+         wave = as.integer(visit)) %>% 
+  arrange(wave) %>% 
+  dplyr::select(item, visit) %>% 
+  left_join(meta, by = "item")
+
 options(knitr.table.format = "html") 
 kable(meta, 
-      caption = "Codebook of DDI, 0-15 months",
+      caption = "Codebook of DDI as used in the SMOCC study",
       row.names = FALSE, 
-      col.names = c("Item", "Domain", "Label")) %>%
+      col.names = c("Item", "Visit", "Domain", "Label")) %>%
   kableExtra::kable_styling() %>%
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
 Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for
-ages 0 - 30 months. The response to each milestones is either a 
-PASS (1) or a FAIL (0). Missing values are allowed.
+ages 0 - 24 months as they were administered in the SMOCC study. The
+response to each milestones is either a PASS (1) or a FAIL (0).
+Children who did not pass a milestone were re-measured on that
+milestone during the next visit.
 
 ## Probability of passing a milestone given age
 
 ```{r smoccfit, echo = FALSE, warning = FALSE}
-library(gseddata)
-data <- get_data(cohort = 53)
 items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
