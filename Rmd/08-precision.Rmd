@@ -10,7 +10,7 @@ behavior of the $D$-score when the measurement is inherently imprecise.
 
 * Impact of short tests on predicting IQ (\@ref(sec:predictiq))
 
-## SMOCC design: standard and additional milestones {#sec:smoccmilestones}
+## SMOCC design: Standard and additional milestones {#sec:smoccmilestones}
 
 At each visit the SMOCC study collected scores on a set of *standard
 milestones* (that about 90 percent of the children will pass) and a
@@ -20,188 +20,325 @@ will pass). See Section \@ref(sec:smocc).
 The SMOCC dataset covers nine different *waves* (occasions, visits).
 The set of milestones used in the DDI varies per wave. The number of
 standard milestones varies between 2 and 7 at the various waves. The
-additional milestones are the milestones for the next wave.
+additional milestones are the standard milestones from the next wave.
 
-```{r, echo=FALSE}
-w1 <- c(1, 5, 2)
-w2 <- c(2, 2, 5)
-w3 <- c(3, 5, 6)
-w4 <- c(6, 6, 7)
-w5 <- c(9, 7, 6)
-w6 <- c(12, 6, 6)
-w7 <- c(15, 6, 6)
-w8 <- c(18, 6, 6)
-w9 <- c(24, 6, 6)
-tableSMOCC <- rbind(w1, w2, w3, w4, w5, w6, w7, w8, w9)
-colnames(tableSMOCC) <- c("Age in months", "Standard milestones", "Additional milestones")
-rownames(tableSMOCC) <- c("wave 1", "wave 2", "wave 3", "wave 4",
-                          "wave 5", "wave 6", "wave 7", "wave 8",
-                          "wave 9")
+```{r smoccfit8, echo = FALSE, warning = FALSE}
+library(gseddata)
+library(dmetric)
+library(dscore)
+
+data <- get_data(cohort = 53)
+items <- get_itemnames(data)
+
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
+```
+
+```{r getddi, echo = FALSE}
+meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
+  dplyr::select(item, domain, label) %>%
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
+df <- data.frame(
+  item = get_itemnames(data),
+  debut = c(1, 2, 3, 5, 6, 6, 7, 8, 9, 10, 10,
+                 4, 7, 8, 9,
+                 1, 2, 3, 3, 4, 5, 5, 5, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 10, 
+                 4, 1, 1, 3, 4, 1, 3, 4, 4, 5, 5, 5, 6, 6, 6, 7, 7, 8, 8, 9, 10, 9, 9), 
+  stringsAsFactors = FALSE)
+ddi <- df %>%  
+  left_join(meta, by = "item") %>% 
+  mutate(
+    itemorder = order_itemnames(item, order = "idnm"), 
+    debut = factor(debut, 
+                   labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m", "30m"))
+    ) %>% 
+  arrange(debut, itemorder) %>% 
+  dplyr::select(item, debut, domain, label)
+
+# library(gseddata)
+# data <- get_data(cohort = 53)
+# ddi <- data$itm %>%
+#   group_by(item) %>% 
+#   summarize(min_age = min(agedays, na.rm = TRUE)) %>% 
+#   mutate(visit = cut(min_age, 
+#                     breaks = c(18, 43, 76, 149, 216, 320, 399, 481, 633, 800),
+#                     labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m"),
+#                     right = FALSE),
+#          wave = as.integer(visit)) %>% 
+#   arrange(wave) %>% 
+#   dplyr::select(wave, visit, item)
 ```
 
 ```{r tableSMOCC, echo=FALSE}
-## 
-kable(tableSMOCC, caption = "Overview of the nine waves of the SMOCC data", booktabs = TRUE)
+tableSMOCC <- data.frame(
+  Age = names(table(ddi$debut)),
+  Standard = as.vector(table(ddi$debut)),
+  Additional = c(as.vector(table(ddi$debut))[-1], 0), 
+  stringsAsFactors = FALSE)
+tableSMOCC <- tableSMOCC[-nrow(tableSMOCC), ]
+kable(tableSMOCC, 
+      caption = "Overview of the nine waves of the SMOCC data", 
+      booktabs = TRUE)
 ```
 
 Table \@ref(tab:tableSMOCC) summarizes the schedules age for each
 wave, the number of standard milestones and the number of additional
 milestones.
 
-In the analyses done thus far we have calculated $D$-scores from
-responses on the combined (standard plus additional) milestones. So,
-for wave 2, we calculated the $D$-score from 2 (standard) + 5
-(additional) = 7 milestones. 
+```{r ageitemgrid, echo=FALSE, fig.height = 10, fig.cap='(ref:ageitemgrid)'}
+# split response into standard/additional according to 
+# item-agedays combinations
 
-In daily routine, the set of additional milestones often lacks. This
-chapter explores the impact of using the (smaller) subset of standard
-milestones on measurement error and prediction.
+data2 <- left_join(data$itm, ddi, by = "item") %>%
+  tidyr::drop_na(agedays) %>% 
+  mutate(itemorder = order_itemnames(item, order = "idnm")) %>% 
+  arrange(desc(debut), desc(itemorder)) %>% 
+  mutate(ord = 1:n(), 
+         agemos = agedays / 365.25 * 12, 
+         visit  = cut(agedays, 
+                    breaks = c(18, 43, 76, 149, 216, 320, 399, 481, 633, 1200),
+                    labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m"),
+                    right = FALSE))
 
-## Comparing $D$-scores calculated from different milestones {#sec:comparingd}
-
-In this section, we calculate the $D$-score from the standard and
-additional milestones separately. This is a more difficult task,
-especially in the case of the 2-month standard set, which has only
-very easy milestones. There is thus very little information to inform
-the $D$-score.
-
-```{r init08, echo=FALSE, message=FALSE, warning = FALSE}
-library(gridExtra)
-library(dplyr)
-# data.long <- haven::read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/smocc_long3.sav")
-data.long <- haven::read_sav("data-raw/data/smocc/smocc_long3.sav")
-data.long$scores_false <- data.long$scores_false - 1
-data.long$scores_false_nw <- data.long$scores_false_nw - 1
-data.long <- as_tibble(data.long)
-
-data.long$wave <- factor(data.long$wave)
-data.long1 <- data.long[!is.na(data.long$IQ), ]
-data.long1 <- data.long1[!is.na(data.long1$dscore), ]
-data.long1$scores_false <- as.factor(data.long1$scores_false) 
-data.long1$scores_false_nw <- as.factor(data.long1$scores_false_nw) 
+g <- ggplot(data2, aes(y = agemos, x = reorder(item, ord), color = debut)) +
+  coord_flip() +
+  geom_point(size = 0.7) +
+  scale_y_continuous(breaks = seq(0, 30, 6)) +
+  ylab("Age (months)") +
+  labs(color = "Debut") +
+  theme_light() +
+  theme(panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_line(),
+        axis.text.y = element_text(family = "Courier", face = "bold"),
+        axis.title.y = element_blank(), 
+        legend.position = c(0.85, 0.75))
+g
 ```
 
-```{r calcmonth23d, echo=FALSE, message=FALSE, warning = FALSE}
-library(ggplot2)
-library(ggpubr)
-theme_set(theme_light())
-set.seed(33311)
+(ref:ageitemgrid) Age-item grid of the SMOCC study, illustrating how
+the 57 DDI items are distributed over nine visits during the first 24
+months.
 
-xlim <- c(10, 40)
-data.long1$IQ <- rnorm(n = nrow(data.long1), mean = 100, sd = 15)
-p2 <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(2)), aes(dscore, IQ, group = wave, col=scores_false), show.legend=F, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=xlim) +
-  scale_x_continuous(name = "D-score (standard milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(2)),   
-               aes(dscore, y = ..density..*100),
-               show.legend = F) +
-  theme(legend.position = "none", axis.text.y = element_blank()) + 
-    ylab("") +
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+Figure \@ref(fig:ageitemgrid) shows which subset of DDI items is
+administered at each age. For example, at the 1-month visit the five
+standard milestones are `ddicmm029 - ddigm056` and the two additional
+milestones are `ddicmm030` and `ddifmd002`. At the 2-month visit, the
+standard milestones are `ddicmm030` and `ddifmd002`, and the five
+additional milestones are `ddicmm031 - ddigmd057`. And so on.
 
-p3 <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(3)), aes(dscore, IQ, group = wave, col=scores_false), show.legend=F, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=xlim) +
-  scale_x_continuous(name = "D-score (standard milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(3)),   
-               aes(dscore, y = ..density..*100),
-               show.legend = F) +
-  theme(legend.position = "none", axis.text.y = element_blank()) + 
-    ylab("") +
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
-  
-# D-score next wave
-p2.nw <- ggplot() +
-  geom_point(data=subset(data.long1, wave == c(2)), aes(dscore.nw, IQ, group = wave, col=scores_false_nw), show.legend=T, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"), 
-                      name = "Number of fails")+
-  coord_cartesian(xlim=xlim) +
-  scale_x_continuous(name = "D-score (additional milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(2)),   
-               aes(dscore.nw, y = ..density..*100),
-               show.legend = F) +
-  theme(axis.text.y = element_blank()) + 
-  ylab("") +
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+## $D$-score from standard and additional milestones {#sec:comparingd}
 
-p3.nw <- ggplot()+
-  geom_point(data=subset(data.long1, wave == c(3)), aes(dscore.nw, IQ, group = wave, col=scores_false_nw), show.legend=T, size = 1)+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"), 
-                      name = "Number of fails")+
-  coord_cartesian(xlim=xlim) +
-  scale_x_continuous(name = "D-score (additional milestones) ") +
-  facet_grid(. ~ wave) +
-  geom_density(data=subset(data.long1, wave == c(3)),   
-               aes(dscore.nw, y = ..density..*100),
-               show.legend = F) + 
-  theme(axis.text.y = element_blank()) + 
-    ylab("") +
-  scale_y_continuous(sec.axis = sec_axis(~./100, name = "Density D-score"))
+In the analyses done thus far we have calculated $D$-scores from
+responses on the combined (standard plus additional) milestones. Thus,
+at the 2-month visit, the $D$-score was calculated from 2 (standard) +
+5 (additional) = 7 milestones.
+
+In daily practice, the set of additional milestones is often lacking.
+This chapter explores the impact of using the (smaller) subset of
+standard milestones on measurement error and prediction.
+
+This section reports and compares three $D$-scores: 
+
+1. $D$-score from standard milestones;
+2. $D$-score from additional milestones.
+3. $D$-score from all available milestones;
+
+Estimation of 1 is more diffucult than for 2 and 3, for the following
+reasons:
+
+* There are fewer milestones, so the estimate is less precise and more
+influenced by the choice of the prior distribution;
+
+* The standard set contains only easy milestones, which are
+uninformative for the majority of children.
+
+```{r d3, echo = FALSE}
+# calculate three versions of D-score
+
+# calculate std set of items
+data3 <- data2 %>% 
+  mutate(visit_n = as.integer(visit),
+         debut_n = as.integer(debut), 
+         std = visit_n >= debut_n, 
+         exact = visit_n == debut_n, 
+         age = round(agedays / 365.25, 4)) %>% 
+  dplyr::select(subjid, agedays, age, item, value, std, exact)
+
+# split three versions of the data
+data_std <- data3 %>% 
+  dplyr::filter(exact) %>%
+  dplyr::select(-std) %>% 
+  tidyr::spread(key = "item", value = "value")
+data_add <- data3 %>% 
+  dplyr::filter(!std) %>%
+  dplyr::select(-exact) %>% 
+  tidyr::spread(key = "item", value = "value")
+data_all <- data3 %>% 
+  dplyr::select(-std, -exact) %>% 
+  tidyr::spread(key = "item", value = "value")
+
+# determine dscore key
+dkey <- data.frame(item = model$itembank[, paste("lex", "gsed", sep = "_")],
+                   delta = model$itembank$tau,
+                   stringsAsFactors = FALSE)
+
+# calculate the ability for three versions
+beta_std <- ability(data = data_std, 
+                    items = intersect(items, names(data_std)), 
+                    key = dkey)
+beta_add <- ability(data = data_add, 
+                    items = intersect(items, names(data_add)), 
+                    key = dkey)
+beta_all <- ability(data = data_all, 
+                    items = items, 
+                    key = dkey)
+
+# combine into one data set
+data_std <- cbind(data_std[, c("subjid", "agedays")], 
+                  d_std = beta_std$b, n_std = beta_std$n, 
+                  s_std = rowSums(data_std[, -(1:4)], na.rm = TRUE),
+                  f_std = rowSums(1 - data_std[, -(1:4)], na.rm = TRUE))
+data_add <- cbind(data_add[, c("subjid", "agedays")], 
+                  d_add = beta_add$b, n_add = beta_add$n,
+                  s_add = rowSums(data_add[, -(1:4)], na.rm = TRUE),
+                  f_add = rowSums(1 - data_add[, -(1:4)], na.rm = TRUE))
+data_all <- cbind(data_all[, c("subjid", "agedays")], 
+                  d_all = beta_all$b, n_all = beta_all$n,
+                  s_all = rowSums(data_all[, -(1:4)], na.rm = TRUE),
+                  f_all = rowSums(1 - data_all[, -(1:4)], na.rm = TRUE))
+broad <- data$visit %>% 
+  left_join(data_all, by = c("subjid", "agedays")) %>% 
+  left_join(data_std, by = c("subjid", "agedays")) %>% 
+  left_join(data_add, by = c("subjid", "agedays"))
+```
+
+```{r preparmonth2d, echo = FALSE, message=FALSE, warning=FALSE}
+long1 <- broad %>% 
+  dplyr::select(subjid, agedays, d_all, d_std, d_add) %>% 
+  tidyr::gather(d_all:d_add, key = "set", value = "d") %>% 
+  mutate(set = substr(set, 3, 5), 
+         set = factor(set, levels = c("std", "add", "all"), 
+                      labels = c("Standard", "Additional", "All")), 
+         agemos = round(agedays / 365.25 * 12, 3),
+         visit  = cut(agedays, 
+                      breaks = c(18, 43, 76, 149, 216, 320, 399, 481, 633, 1200),
+                      labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m"),
+                      right = FALSE))
+long2 <- broad %>% 
+  dplyr::select(subjid, agedays, n_all, n_std, n_add) %>% 
+  tidyr::gather(n_all:n_add, key = "set", value = "n")
+long3 <- broad %>% 
+  dplyr::select(subjid, agedays, s_all, s_std, s_add) %>% 
+  tidyr::gather(s_all:s_add, key = "set", value = "s")
+long4 <- broad %>% 
+  dplyr::select(subjid, agedays, f_all, f_std, f_add) %>% 
+  tidyr::gather(f_all:f_add, key = "set", value = "f")
+long <- bind_cols(long1, n = long2$n, pass = long3$s, fail = long4$f)
 ```
 
 ```{r month2d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month2d)'}
-ggarrange(p2, p2.nw, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
+g <- ggplot(subset(long, 
+                   subset = (set == "Standard" & visit == "2m" & n == 2) | 
+                     (set == "Additional" & visit == "2m" & n == 5) |
+                     (set == "All" & visit == "2m")), 
+            aes(x = agemos, y = d, col = as.factor(fail))) +
+  geom_point() + 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", 
+                                 "2" = "darkorange2", "3" = "red3", 
+                                 "4" = "deeppink3", "5" = "purple3",
+                                 "6" = "steelblue4", "7" = "grey40")) +
+  xlab("Age (in months)") +
+  ylab("D-score") +
+  labs(col = "Fails") +
+  facet_wrap("set") +
+  ylim(4, 35) +
+  guides(col = guide_legend(nrow = 1)) +
+  theme_light() +
+  theme(legend.position = "bottom")
+g  
 ```
 
 (ref:month2d) Distribution of the $D$-scores calculated from the
-standard (left) and additional (right) milestones at month 2. Colors
-correspond to sum scores.
+standard, additional and all available milestones at month 2. Colors
+correspond to the number of fails.
 
-The horizontal axis of Figure \@ref(fig:month2d) shows the $D$-score,
-separately calculated from the standard and additional milestones for
-month 2. The vertical axis is a random normal variate that jitters the
-points. It is unrelated to the $D$-score, and carries no further
-meaning. The densities located at the bottom show the distribution of
-the values of the $D$-score. The colours of the dots in the figure
-vary with the number of FAIL scores. The number of milestones differs
-per wave.
+The vertical axis of Figure \@ref(fig:month2d) shows the $D$-score,
+separately calculated from the standard, additional and all available
+milestones for children aged 2 months. The color of the dots
+represents the number of FAIL scores within each set of milestones.
 
-At month 2 there are two standard milestones. About 90 percent of the
-infants will pass these. The five additional milestones are the
-standard milestones from month 3. At month 2 infants have
-approximately a 50 percent chance of passing. There is some variation
-in $D$-scores with the same number of fails, which is caused by
-differences in age. As explained in Section \@ref(sec:adp), remember
-that the $D$-score is calculated by using an age-dependent prior. If
-the ages vary (and they do), then the $D$-score for infants having the
-same total score will also vary.
+At month 2 there are just two standard milestones: `ddicmm030` and
+`ddifmd002`. About 90 percent of the infants will pass these. The
+estimated $D$-scores corresponding to two passes is represented by the
+green dots in the left-hand side figure. As explained in Section
+\@ref(sec:adp), the $D$-score is calculated by using an age-dependent
+prior. If the ages vary (and they do), then the $D$-score for infants
+having the same total score will also vary. 
 
-The left-hand figure shows a substantial *gap* between the green dots
-(perfect score) and the yellow dots (one FAIL). Since 90\% of the
-children should be able to pass each milestone, the impact of a FAIL
-on the $D$-dcore is substantial. For example, the $D$-score of an
-infant with one FAIL on a standard milestone drops from about 20$D$ to
-14$D$. Thus, with these two milestones there cannot be any $D$-score
-in the range 15$D$ - 18$D$. It depends on the purposes of the
-measurement whether this is acceptable. We can prevent such gaps by
-measuring more milestones, e.g., milestones taken from the additional
-set.
+If a child fails on either `ddicmm030` or `ddifmd002`, then the
+$D$-score is substantiallly lower. The left-hand figure shows a *gap*
+between the green dots (perfect score) and the yellow dots (one FAIL).
+The impact of a FAIL on the $D$-dcore is substantial. For example, the
+$D$-score of an infant with one FAIL on a standard milestone drops
+from about 20$D$ to 14$D$. Thus, with these two milestones there
+cannot be a $D$-score in the range 15$D$ - 18$D$. It depends on the
+purposes of the measurement whether this is acceptable. We can prevent
+such gaps by measuring more milestones, e.g., milestones taken from
+the additional set. Another gap occurs between 14$D$ and 11$D$. These
+gaps illustrate that precision is constrained when only two milestones
+are administered.
 
-Note that the range of the estimated $D$-score is quite similar in
+The middle figure shows the estimated $D$-score at the same visit, but
+now calculated from the five additional milestones (i.e., the standard
+milestones from month 3). Infant aged 2 months have approximately a 50
+percent chance of passing each. Note that administration of the additional milestones 
+will cover the range 14$D$-20$D$ quite well. Note the ceiling is also 
+higher with these milestones. 
+
+Note that the range of the estimated $D$-scores is quite similar in
 both plots. This is because $D$-score estimation takes the difficulty
-level of the milestones into account. The estimate of the $D$-score is
+level of milestones into account. The estimate of the $D$-score is
 *unbiased* for difficulty.
 
 ```{r month3d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
-ggarrange(p3, p3.nw, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
+g <- ggplot(subset(long, 
+                   subset = (set == "Standard" & visit == "3m" & n == 5) | 
+                     (set == "Additional" & visit == "3m" & n == 6) |
+                     (set == "All" & visit == "3m")), 
+            aes(x = agemos, y = d, col = as.factor(fail))) +
+  geom_point() + 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", 
+                                 "2" = "darkorange2", "3" = "red3", 
+                                 "4" = "deeppink3", "5" = "purple3",
+                                 "6" = "steelblue4", "7" = "grey40",
+                                 "8" = "grey20", "9" = "grey10")) +
+  xlab("Age (in months)") +
+  ylab("D-score") +
+  labs(col = "Fails") +
+  facet_wrap("set") +
+  ylim(4, 35) +
+  guides(col = guide_legend(nrow = 1)) +
+  theme_light() +
+  theme(legend.position = "bottom")
+g  
 ```
 
 (ref:month3d) Distribution of the $D$-scores calculated from the
-standard (left) and additional (right) milestones at month 3.
+standard, additional and all available milestones at month 3. Colors
+correspond to the number of fails.
 
 Figure \@ref(fig:month3d) is the same plot as before, but now for
-month 3. Compared to Figure \@ref(fig:month2d) all points have shifted
-to the right, because the children are now one month older. The
-additional milestones from month 2 are the standard milestones of
-month 3. In Figure \@ref(fig:month2d) eight children (in purple)
-failed all five additional milestones. One month later, there is no
-child that failed more than three times.
+month 3. Compared to Figure \@ref(fig:month2d) all points shifted
+upwards, as a consequence that the children are now one month older.
+
+The additional milestones from month 2 are the standard milestones of
+month 3. In Figure \@ref(fig:month2d) there were at least 11 children
+(in purple) failed all five additional milestones. One month later,
+there is one child having five fails.
 
 ```{r d23comp, eval = FALSE, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:d23comp)'}
 ggplot(data.long1, aes(x = dscore, y = dscore.nw, group = scores_false)) + 
