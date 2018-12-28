@@ -130,7 +130,9 @@ milestones are `ddicmm030` and `ddifmd002`. At the 2-month visit, the
 standard milestones are `ddicmm030` and `ddifmd002`, and the five
 additional milestones are `ddicmm031 - ddigmd057`. And so on.
 
-## $D$-score from standard and additional milestones {#sec:comparingd}
+## $D$-score from short tests {#sec:comparingd}
+
+### Milestone sets
 
 In the analyses done thus far we have calculated $D$-scores from
 responses on the combined (standard plus additional) milestones. Thus,
@@ -147,7 +149,7 @@ This section reports and compares three $D$-scores:
 2. $D$-score from additional milestones.
 3. $D$-score from all available milestones;
 
-Estimation of 1 is more diffucult than for 2 and 3, for the following
+Estimation of 1 is more difficult than for 2 and 3, for the following
 reasons:
 
 * There are fewer milestones, so the estimate is less precise and more
@@ -155,6 +157,8 @@ influenced by the choice of the prior distribution;
 
 * The standard set contains only easy milestones, which are
 uninformative for the majority of children.
+
+### Milestone sets at month 2
 
 ```{r d3, echo = FALSE}
 # calculate three versions of D-score
@@ -304,6 +308,8 @@ both plots. This is because $D$-score estimation takes the difficulty
 level of milestones into account. The estimate of the $D$-score is
 *unbiased* for difficulty.
 
+### Milestone sets at month 3
+
 ```{r month3d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
 g <- ggplot(subset(long, 
                    subset = (set == "Standard" & visit == "3m" & n == 5) | 
@@ -340,67 +346,60 @@ month 3. In Figure \@ref(fig:month2d) there were at least 11 children
 (in purple) failed all five additional milestones. One month later,
 there is one child having five fails.
 
-```{r d23comp, eval = FALSE, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:d23comp)'}
-ggplot(data.long1, aes(x = dscore, y = dscore.nw, group = scores_false)) + 
-  coord_fixed(ratio = 1) +
-  geom_abline(col = "grey") + 
-  geom_point()
-ggarrange(p3, p3.nw, ncol=2, nrow=1, common.legend = TRUE, legend="bottom")
+### Floor and ceiling effects
+
+```{r alld, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:alld)'}
+g <- ggplot(drop_na(long, fail), 
+            aes(x = agemos, y = d, col = as.factor(fail))) +
+  geom_point(size = 0.6, shape = 16) + 
+  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", 
+                                 "2" = "darkorange2", "3" = "red3", 
+                                 "4" = "deeppink3", "5" = "purple3",
+                                 "6" = "steelblue4", "7" = "grey40",
+                                 "8" = "grey20", "9" = "grey10", 
+                                 "10" = "black", "11" = "black", 
+                                 "12" = "black", "13" = "black", 
+                                 `NA` = "grey")) +
+  ylab("D-score") +
+  labs(col = "Fails") +
+  facet_wrap("set") +
+  guides(col = guide_legend(nrow = 1)) +
+  theme_light() +
+  scale_x_continuous(name = "Age (in months)", 
+                     breaks = seq(0, 30, 6), 
+                     limits = c(0, 30)) +
+  theme(legend.position = "bottom")
+g  
 ```
 
-(ref:d23comp) Distribution of the $D$-scores calculated from the
-standard (left) and additional (right) milestones at month 3.
+(ref:alld) $D$-score by age 0-30 months for standard, additional and
+all available milestones at each measurement occasion.
 
+Figure \@ref(fig:alld) plot the $D$-score distribution for all
+occasions. Some observations:
 
-```{r}
+* *Ceiling effect*: The ceiling effect (green) is most prominent in
+the *standard* set, but is also present in the other two sets. None of
+the three sets is able to filter out children with really advanced
+development. In order to achieve more precision at the upper end, we
+would need to include more difficult milestones.
 
-```
+* *Floor effect*: There are almost no floor effects in the *standard*
+and *all* sets. These sets discriminate well among children with
+delayed development, which was the design purpose of the DDI. Floor
+effects visible in the *additional* set.
 
+* *Average level*: All three sets capture the overall relation between
+age and development. The *additional* set is quite efficient for
+measuring average levels development, but lacks detail on the
+extremes.
 
-```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-#D-scores plot
-p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
-  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore
+Figure \@ref(fig:alld) shows that a short test (5-6 milestones) can
+precisely measure the lower tail of the $D$-score distribution
+(*standard* set) or the middle of the $D$-score distribution
+(*additional* set), but cannot do both at the same time.
 
-p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
-  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore.nw
-
-resultsSMOCC <- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urban", "metropolitan", "Maternal education (in years)", "Paternal education (in years)", "Maternal age (in years)", "Gestational age (in weeks)", "Gestational age (in categories)", "$\\geq 37$ weeks", "$\\geq 32 - 37$ weeks", "$<32$ weeks*", "Gender", "boys", "girls", "Birthweight (in kg)","Birthweight (in categories)", "$\\geq 2500$ grams", "$\\geq 1500 - <2500$ grams", "$<1500$ grams", "Birth size (in cm)", "Apgar score after 1 min", "$<5$", "$\\geq 5$", "Apgar score after 5 min", "$<7$", "$\\geq 7$"), 
-                b = c(" ","$15$", "$1257$" , "$294$", "$0$", "$1559$", "$1555$", "$1577$", "$1578$", " ", "$1495$", "$78$", "$5$", " ", "$768", "$810$", "$1578$"," ", "$1485$", "$85$", "$8$", "$1381$", " ", "$28$", "$1304$", " ", "$15$", "$1336$"),
-                c = c( " ","$1.0%$", "$80.3%$" , "$18.8%$", "$0.0%$", "$13 (2.3)$", "$14 (2.6)$", "$30 (4.5)$", "$40 (1.8)$", " ", "$94.7%$", "$4.9%$", "$0.3%$", " ", "$48.7%$", "$51.3%$", "$3.419 (0.559)$"," ", "$94.1%$", "$5.4%$", "$0.5%$", "$51 (2.6)$", " ", "$2.1%$", "$97.8%$", " ", "$1.1%$", "$98.9%$"),
-                d = c(" ","$0.2842 (0.2469)$", "$0$", "$0.0723 (0.0616)$", " ", "$0.0805 (0.0103)$", "$0.0546 (0.0092)$", "$0.0007 (0.0054)$", "$0.0675 (0.0130)$", " ", "$0$", "$-0.3786 (0.1098)$","$-1.2844 (0.4236)$", " ", "$-0.2896 (0.0474)$", "$0$", "$0.1234 (0.0427)$"," ", "$0$", "$-0.2454 (0.1057)$", "$-0.9537 (0.3361)$", "$0.0163 (0.0097)$", " ", "$0.0493 (0.178)$", "$0$", " ", "$0.1493 (0.2422)$", "$0$"),
-                e = c(" ","$1.15$", " " , "$1.17$", " ", "$7.84$", "$5.91$", "$0.13$", "$5.18$", " ", " ", "$-3.45$", "$-3.03$", " ", "$-6.11$", " ", "$2.89$"," ", " ", "$-2.32$", "$-2.84$", "$1.68$", " ", "$0.28$", " ", " ", "$0.62$", " "),
-               f = c(" ","$0.25$", " " , "$0.24$", " ", "$<.001$", "$<.001$", "$0.90$", "$<.001$", " ", " ", "$<.001$", "$0.002$", " ", "$<.001$", " ", "$0.004$"," ", " ", "$0.0204$", "$0.0046$", "$0.093$", " ", "$0.78$", " ", " ", "$0.54$", " "))
-```
-
-```{r, eval=FALSE, echo=FALSE, warning=FALSE, message=FALSE}
-#D-scores plot
-p.dscore <- ggplot(data.long1, aes(age, dscore, group = wave)) +
-  geom_point(aes(col=scores_false), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore
-
-p.dscore.nw <- ggplot(data.long1, aes(age, dscore.nw, group = wave)) +
-  geom_point(aes(col=scores_false_nw), show.legend=F, size = 1 )+ 
-  scale_colour_manual(values = c("0" = "springgreen3", "1" = "gold2", "2" = "darkorange2", "3" = "red3", "4" = "deeppink3", "5" = "purple3","6" = "steelblue4", "7" = "grey40"))+
-  coord_cartesian(xlim=c(0, 25)) +
-  scale_y_continuous(name = "D") +
-  scale_x_continuous(name = "age") 
-p.dscore.nw
-```
+## Impact of short tests on predicting IQ {#sec:predictiq}
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(ddata)
@@ -415,7 +414,6 @@ library(gridExtra)
 library(ggpubr)
 ```
 
-## Impact of short tests on predicting IQ {#sec:predictiq}
 
 First, we will plot the D-scores against IQ at 5 years for each of the waves (see figure \@ref(fig:dscoresIQ5yrs)). In this way, we can see the variation in D-scores for the different waves and how this relates to IQ at the age of 5 years. The colours indicate the number of milestones that got a negative score. Thus, for example, yellow indicates that one of the milestones got a negative score, however this does not mean that all yellow dots in the same plot represent the same number of positive scores. It could be that for some children not all scores of the milestones were available. The same holds, ofcourse, for the other colours as well.
 
