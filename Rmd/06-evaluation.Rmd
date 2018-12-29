@@ -4,7 +4,7 @@ The nice properties of the Rasch model (c.f. Section
 \@ref(sec:whyrasch)) only hold when the data and model agree. It is
 therefore important to study and remove discrepancies between model
 and data. This chapter explains several techniques that aid in the
-evualation of model fit.
+evaluation of model fit.
 
 * Item fit (\@ref(sec:itemfit))
 * Person fit (\@ref(sec:personfit))
@@ -12,7 +12,7 @@ evualation of model fit.
 * Item information (\@ref(sec:iteminformation))
 * Reliability (\@ref(sec:reliability))
 
-These topics adress different aspects of the solution. In practice, we
+These topics address different aspects of the solution. In practice, we
 have found that item fit is the most important concern.
 
 ## Item fit {#sec:itemfit}
@@ -34,7 +34,7 @@ $$P_{ni}= \frac{exp( \beta_{n} - \delta_{i})}{1+exp(\beta_{n}-\delta_{i})}, $$
 
 where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the
 difficulty of item $i$. It is thus natural to compare the observed and
-modelled probabilities at various levels of ability.
+modeled probabilities at various levels of ability.
 
 ### Well-fitting item response curves
 
@@ -130,7 +130,7 @@ gridExtra::grid.arrange(p1, p2)
 (ref:plothyp2) Two simulated items that illustrate item overfit.
 
 Figure \@ref(fig:plothyp2) shows two forms of overfit. The curve of item
-`hypgmd004` is much steeper than the modelled curve. Thus, just this
+`hypgmd004` is much steeper than the modeled curve. Thus, just this
 one item is exceptionally well-suited to distinguish children with a
 $D$-score below 50 from those with a $D$-score above 50. Note that the
 item isn't sensitive anywhere else on the scale. In general, having
@@ -149,7 +149,7 @@ items into one three-category items, which effectively set the
 probability of inconsistent combinations to zero.
 
 Item `hypgmd005` is also steep, but has an asymptote around 80
-percent. This causes discrepancies between the empirical and modelled
+percent. This causes discrepancies between the empirical and modeled
 curves around the middle of the probability scale. In general, such
 items could be removed if a sufficient number of better items are
 available.
@@ -159,7 +159,7 @@ available.
 Item fit can quantified by item *infit* and *outfit*. Both are
 aggregates of the model residuals. The observed response $x_{ni}$ of
 person $n$ on item $i$ can be $0$ or $1$. The expected response
-$P_{ni}$ is modelled as
+$P_{ni}$ is modeled as
 
 $$P_{ni} = \frac{exp(\hat\beta_{n} - \hat\delta_{i})}{1 + exp(\hat\beta_{n} - \hat\delta_{i})}$$, 
 
@@ -192,10 +192,10 @@ interpretation is as follows:
 model, as in Figure \@ref(fig:ploticc);
 
 * If infit and outfit > 1.0, then the item has underfit. The amount of
-underfit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
+under fit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
 
 * If infit and outfit < 1.0, then the item fits the model better than
-expected (overfit). The amount of overfit is quantified by infit and
+expected (overfit). The amount of over fit is quantified by infit and
 outfit, as in \@ref(fig:plothyp2).
 
 Infit is more sensitive to discrepancies in the middle of the
@@ -235,14 +235,14 @@ from the DDI (c.f. Section \@ref(sec:ddi)). Most infits are within the
 the range 0.6 - 1.1, thus indicating excellent fit. The two milestones
 with extremely low infits are `ddigmd052` and `ddigmd053`. These two
 items actually screen for paralysis for newborns, so the data contain
-hardly any FAILs on these milestones. The outfit statistics also
+hardly any fails on these milestones. The outfit statistics also
 indicate good fit.
 
 ## Person fit {#sec:personfit}
 
 The person fit quantifies the extent to which the responses of a given
 person conform to the Rasch model expectation. The Rasch model expects
-that a more able person has a greater probabilty to pass an item than
+that a more able person has a greater probability to pass an item than
 a less able person. Fit analysis evaluates the extend to which this is
 true. 
 
@@ -254,7 +254,7 @@ persons are consistent with the model. The outfit statistic is heavily
 influenced by outlying responses that do not fit the expected pattern.
 Outfit is high, for example, when the person fails easy items but
 passes difficult items. The infit is the information weighted fit and
-is more sensitive to inlying, on-target, unexpected responses.
+is more sensitive to inlaying, on-target, unexpected responses.
 
 Similar to item fit, person fit is also calculated from the residuals,
 but aggregated in a different way. Person infit is calculated as
@@ -266,7 +266,7 @@ and person outfit is
 $$\mathrm{Outfit} = \frac{\sum_{n}^L z_{ni}^2}{L}$$
 
 As a threshold for person fit < 3.0 can be used to clean out persons
-with inplausible response patterns.
+with implausible response patterns.
 
 ### Person infit and outfit in the DDI
 
@@ -308,7 +308,7 @@ since it can make the instrument culturally biased.
 
 ### How to detect DIF?
 
-@zumbo1999 provised a clear definition of DIF:
+@zumbo1999 provided a clear definition of DIF:
 
 > DIF occurs when examinees from different groups show differing
 > probabilities of success on (or endorsing) the item after matching on
@@ -347,7 +347,7 @@ gridExtra::grid.arrange(p1, p2)
 
 Figure \@ref(fig:plotdif1) shows an example comparing boys and girls.
 For both milestones, the item response curves are similar for boys and
-girs, so we see no evidence of DIF here.
+girls, so we see no evidence of DIF here.
 
 ```{r plotdif2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif2)', message = FALSE}
 theme_set(theme_light())

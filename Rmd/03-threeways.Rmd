@@ -164,7 +164,7 @@ one instrument, and does not extend to measurements made by other
 instruments.
 
 3. Domains are hard to separate. For example, some cognitive milestones tap
-into fine motor capabilities, and vice versa. There are different ways
+into fine motor capabilities, and vice verso. There are different ways
 to define domains, so domain interpretation varies by instrument.
 
 4. Administration of a full test may take substantial time. The
@@ -241,7 +241,7 @@ Table \@ref(tab:weekly) reconstructs the weekly motor measurements
 made by Shirley from Table \@ref(tab:shirley). Each of the
 measurements is coded as a PASS (1) or a FAIL (0).
 
-It is now straighforward to calculate the probability of passing each milestone at different ages. 
+It is now straightforward to calculate the probability of passing each milestone at different ages. 
 
 ```{r echo = FALSE}
 data2 <- data %>%
@@ -309,7 +309,7 @@ plot
 
 (ref:shirleypa) Probability of achieving four motor milestones against age. Data from Table \@ref(tab:weekly).
 
-Figure \@ref(fig:shirleypa) plots the empirical probablity curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
+Figure \@ref(fig:shirleypa) plots the empirical probability curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
 
 ```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
 items <- varlist$items
@@ -403,7 +403,7 @@ plot
 
 Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
 but with `Age` is replaced by `Ability`, and with the empirical curves
-replaced by modelled curves.
+replaced by modeled curves.
 
 The ability values on the horizontal axis are estimated from the data
 and correspond to the amount of development of each measurement.

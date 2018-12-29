@@ -29,7 +29,7 @@ include_graphics("fig/Shonkoff_Ch1.png")
 ```
 (ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: @skonkhoff2016best.
 
-The classic *nature versus nurture debate* constrasts the viewpoints
+The classic *nature versus nurture debate* contrasts the viewpoints
 that variation in development is primarily due to either genetic or
 environmental differences. The current scientific consensus is that
 virtually all traits are influenced by both genetic predisposition and
@@ -46,7 +46,7 @@ caregivers to protect them from adversities and to help them regulate
 their physiology and behavior. Caregivers can do this through
 responsive care, including routines for sleeping and feeding. To reach
 their developmental potential, children require nutrition, responsive
-caregiving, opportunities to explore and learn, and protection from
+care-giving, opportunities to explore and learn, and protection from
 environmental threats [@black2017early]. Gradually, children build
 self-regulatory skills that enable them to manage stress as they
 interact with their caregivers [@johnson2013science].
@@ -79,7 +79,7 @@ reduced substantially by secure parent-child attachments
 
 Stunting is the impaired growth and development that children
 experience from poor nutrition, repeated infection, and inadequate
-psychosocial stimulation. According to the World Health Organization
+psycho social stimulation. According to the World Health Organization
 (WHO) children are defined as stunted if their height-for-age is more
 than two standard deviations below the Child Growth Standards median.
 Stunting caused by chronic nutritional deprivation in early childhood
@@ -90,7 +90,7 @@ can be considered as an indicator of (poor) child development
 include_graphics("fig/stuntedchildren.jpg")
 ```
 
-(ref:shortkids) Seven eigth-year old children standing in front of a wall
+(ref:shortkids) Seven eight-year old children standing in front of a wall
 with the line depicting the average height according to the WHO Child
 Growth Standards.
 

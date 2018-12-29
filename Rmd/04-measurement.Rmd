@@ -13,8 +13,7 @@ The text uses Dutch data to illustration the process.
 The Dutch Youth Health Care (YHC) routinely monitors development of
 almost all children living in The Netherlands. During the first four
 years, there are 13 scheduled visits. During these visits, the YHC
-professionals evaluate - amongst others - growth and development of
-the child.
+professionals evaluate growth and development of the child.
 
 The *Dutch Development Instrument* (DDI; in Dutch: *Van Wiechenschema*) 
 is the standard instrument used to measure development
@@ -214,12 +213,12 @@ py
 ```
 
 (ref:smoccpd) Empirical percentage of passing each milestone in the
-DDI againt the $D$-score (Source: SMOCC data, $n$ = 2151, 9 occasions).
+DDI against the $D$-score (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
 Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but
 with the horizontal axis replaced by the $D$-score. The $D$-score
 summarizes development into one number. See
-\@ref(sec:dscoreestimation) for a detailed explaination on how to
+\@ref(sec:dscoreestimation) for a detailed explanation on how to
 calculate the $D$-score. The vertical axis with percent pass is
 unchanged.
 
@@ -326,11 +325,11 @@ Figure \@ref(fig:smoccdap) shows the mutual relations between age,
 milestone success and the $D$-score.
 
 * Rotate the graph to the age - probability plane, and observe the
-communality with the pattern in Figure \@ref(fig:smoccpa) with unequal
+commonality with the pattern in Figure \@ref(fig:smoccpa) with unequal
 slopes; 
 
 * Rotate the graph to the $D$-score - probability plane, and observe
-the communality with the pattern in Figure \@ref(fig:smoccpd) with
+the commonality with the pattern in Figure \@ref(fig:smoccpd) with
 equal slopes;
 
 * Rotate the graph to the $D$-score - age plan, and observe that all
@@ -356,7 +355,7 @@ IRT models enables quantification of the locations of both *items*
 In general, items are part of the measurement instrument, persons are
 the objects to be measured.
 
-An IRT model has three major stuctural components: 
+An IRT model has three major structural components: 
  
 * Specification of the underlying *latent variable(s)*. In this
 work, we restrict ourselves to models with just one latent variable.
@@ -365,7 +364,7 @@ complicated to fit and not widely used;
 
 * For a given item, a specification of the *probability of success*
 given a value on the latent variables. This specification can take
-many forms. Section \@ref(sec:itemresponsefunctions) focusses on this
+many forms. Section \@ref(sec:itemresponsefunctions) focuses on this
 in more detail;
 
 * Specification how probability models for the different items should
@@ -586,7 +585,7 @@ three persons with abilities of -2, 0 and +2 logits. The functions are
 calculated as the average of response probabilities on items A, C and
 D. Thus, on average, we expect that child 1 will pass an easy item of
 difficulty -3 in about 60 percent of the time, whereas for an
-intermediate item of difficulty of -1 the passing probility would be
+intermediate item of difficulty of -1 the passing probability would be
 10 percent. For child 3, with a higher ability, these probabilities
 are quite different: 97% and 90%. The substantial drop in the middle
 of the curve is caused by the step function of item A. 
@@ -637,7 +636,7 @@ scale, the de-facto requirement for any numerical comparisons (c.f.
 Section \@ref(sec:motivationunit)).
 
 * *Parsimonious*: The Rasch model has one parameter for each item and
-one parameter for each person. It's one of the most parsimonous IRT
+one parameter for each person. It's one of the most parsimonious IRT
 models, and can easily be applied to thousands of items and millions
 of persons.
 

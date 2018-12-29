@@ -284,9 +284,9 @@ prior. If the ages vary (and they do), then the $D$-score for infants
 having the same total score will also vary. 
 
 If a child fails on either `ddicmm030` or `ddifmd002`, then the
-$D$-score is substantiallly lower. The left-hand figure shows a *gap*
+$D$-score is substantially lower. The left-hand figure shows a *gap*
 between the green dots (perfect score) and the yellow dots (one FAIL).
-The impact of a FAIL on the $D$-dcore is substantial. For example, the
+The impact of a FAIL on the $D$-score is substantial. For example, the
 $D$-score of an infant with one FAIL on a standard milestone drops
 from about 20$D$ to 14$D$. Thus, with these two milestones there
 cannot be a $D$-score in the range 15$D$ - 18$D$. It depends on the
@@ -423,9 +423,9 @@ Intelligence was measured by the Utrechtse Korte Kleuter
 Intelligentietest (UKKI) [@baarda1978]. The UKKI is a simple test with
 just three components:
 
-* Redraw five figures (square, triangle, cross, trapeziod, rhomboid);
+* Redraw five figures (square, triangle, cross, trapezoid, rhomboid);
 
-* Draw human figure, with 28 characterstics, like legs, eyes, and so on;
+* Draw human figure, with 28 characteristics, like legs, eyes, and so on;
 
 * Give meaning to 13 words like knife, banana, umbrella, and so on.
 
@@ -466,7 +466,7 @@ five years (SMOCC data, $n = 557$).
 Figure \@ref(fig:histiq) shows the empirical IQ distribution of 557
 children. The mean IQ score is 108 and the standard deviation is 15,
 so the IQ-scores of children in the sample is about a half standard
-deviation above the 1978 norming sample. 
+deviation above the 1978 reference sample. 
 
 ```{r plotdiq, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 16, fig.cap='(ref:plotdiq)'}
 long2 <- long %>%
@@ -497,7 +497,7 @@ Figure \@ref(fig:plotdiq) shows that the relation between the
 $D$-score 0-2 years and IQ at 5 years is positive for all milestone
 sets and for all ages. The strength of the relation increases with
 age. At the age of 2 years, the regression coefficient for $D$-score
-is equal to $\beta(D) = 1.4$ (se: $0.21, p < 0.0001$), so on average
+is equal to $\beta(D) = 1.4$ (SE: $0.21, p < 0.0001$), so on average
 an increase of 1.0 unit in the $D$-score at the age of 2 years
 corresponds to a 1.4 IQ-score points increase at the age 5 years.
 
