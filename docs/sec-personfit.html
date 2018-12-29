@@ -267,15 +267,15 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="sec:personfit" class="section level2">
 <h2><span class="header-section-number">6.2</span> Person fit</h2>
-<p>The person fit quantifies the extent to which the responses of a given person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probabilty to pass an item than a less able person. Fit analysis evaluates the extend to which this is true.</p>
+<p>The person fit quantifies the extent to which the responses of a given person conform to the Rasch model expectation. The Rasch model expects that a more able person has a greater probability to pass an item than a less able person. Fit analysis evaluates the extend to which this is true.</p>
 <div id="person-infit-and-outfit" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Person infit and outfit</h3>
-<p>In parallel to item fit, we can calculate <em>person infit</em> and <em>person outfit</em>. Both statistics evaluate how well the responses of the persons are consistent with the model. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. Outfit is high, for example, when the person fails easy items but passes difficult items. The infit is the information weighted fit and is more sensitive to inlying, on-target, unexpected responses.</p>
+<p>In parallel to item fit, we can calculate <em>person infit</em> and <em>person outfit</em>. Both statistics evaluate how well the responses of the persons are consistent with the model. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. Outfit is high, for example, when the person fails easy items but passes difficult items. The infit is the information weighted fit and is more sensitive to inlaying, on-target, unexpected responses.</p>
 <p>Similar to item fit, person fit is also calculated from the residuals, but aggregated in a different way. Person infit is calculated as</p>
 <p><span class="math display">\[\mathrm{Infit} = \frac{\sum_{n}^L (x_{ni}-P_{ni})^2}{\sum_n^L W_{ni}}\]</span></p>
 <p>and person outfit is</p>
 <p><span class="math display">\[\mathrm{Outfit} = \frac{\sum_{n}^L z_{ni}^2}{L}\]</span></p>
-<p>As a threshold for person fit &lt; 3.0 can be used to clean out persons with inplausible response patterns.</p>
+<p>As a threshold for person fit &lt; 3.0 can be used to clean out persons with implausible response patterns.</p>
 </div>
 <div id="person-infit-and-outfit-in-the-ddi" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Person infit and outfit in the DDI</h3>
