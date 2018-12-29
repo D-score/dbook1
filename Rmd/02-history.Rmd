@@ -17,8 +17,8 @@ in the field [@shirley1931] was executed under the explicit aim
 > ... that the many aspects of development, anatomical, physical, 
 > motor, intellectual, and emotional, be studied simultaneously.
 
-Shirley gave empirical operationalizations of each of these
-domains of development. 
+Shirley gave empirical definitions of each of these domains of
+development.
 
 
 ```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)', out.width='80%', fig.align='center'}
@@ -88,7 +88,7 @@ from one stage to another?
 
 Many stage-based theories of human development have
 been proposed over the years: social and emotional development by
-psychosexual stages of development proposed by Freud and furthered by
+psycho-sexual stages of development proposed by Freud and furthered by
 Erikson [@erikson1963], Kohlberg's six stages of moral development
 [@kohlberg1984] and Piaget's cognitive development theory
 [@piaget1969]. Piaget distinguishes four main periods throughout
@@ -151,14 +151,14 @@ improved development.
 
 ### Shirley's motor data
 
-For illustration, we use data on locomotor development collected in
+For illustration, we use data on loco-motor development collected in
 the classic study on child development among 25 babies by
 @shirley1931. Starting at ages around 13 weeks, a graphic record of
 the baby's walking was obtained as follows. The investigator lays out
 a white paper of twelve inches wide on the floor of the living room,
 and lightly greases the soles of the baby's feet with olive oil. The
 baby was invited to "walk" on the sheet. Of course, very young infants
-need substantial assistence. Footprints left were later colored by
+need substantial assistance. Footprints left were later colored by
 graphite and measured. Measurements during the first year were
 repeated every week or bi-weekly.
 
@@ -205,7 +205,7 @@ achieve a new milestone of gross-motor functioning.
 
 Figure \@ref(fig:stepplot) is a visual representation of the
 information in Table \@ref(tab:shirley). Each data point is the age of
-first occurence of the next stage. Before that age, the baby is
+first occurrence of the next stage. Before that age, the baby is
 supposed to be in the previous stage, so once the next stage occurs,
 there is a jump to the next level.
 

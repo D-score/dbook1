@@ -189,7 +189,7 @@ starting prior should define the range of reasonable values for $D$.
 For example, an infant aged 1 months the $D$-score will have lower
 $D$-score than a child aged 15 months. The prior should be a bit
 informative but not too much, so it was decided to choose a broad
-distribution which was centred quite well. The prior was chosen as a
+distribution which was centered quite well. The prior was chosen as a
 normal distribution with a mean equal to the $D$-score expected at the
 child's age, and with a standard deviation of 5, which about twice the
 normal variation in the $D$-score.
@@ -336,7 +336,7 @@ Figure \@ref(fig:davidplot) shows how the prior transforms into the
 posterior after the measurement outcomes is fed into the calculation. There 
 are five milestones, and so calculation is done in five steps:
 
-1. Both David and Rob pass `ddifmd011`. The prior (lightgreen) is the
+1. Both David and Rob pass `ddifmd011`. The prior (light green) is the
 same as in Figure \@ref(fig:figpriors). After a PASS, the posterior
 will be located more to the right, and will often be more peaked. Both
 happen here, but the change is small. The reason is that a PASS on

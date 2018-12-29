@@ -13,7 +13,7 @@ library(ggpubr)
 
 # Consequences {#consequences}
 
-This chapter focusses on the third application of the D-score: the long-term health consequences of delay in development in pre-terms. In this chapter, we explain the relevance of long-term health outcomes and show how the D-score can be used to predict these long-term health outcomes. In addition, we present the practical implications and how this leads to new opportunities and show the impact of early intervention.
+This chapter focuses on the third application of the D-score: the long-term health consequences of delay in development in pre-terms. In this chapter, we explain the relevance of long-term health outcomes and show how the D-score can be used to predict these long-term health outcomes. In addition, we present the practical implications and how this leads to new opportunities and show the impact of early intervention.
 
 
 

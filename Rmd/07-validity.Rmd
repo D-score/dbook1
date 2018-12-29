@@ -92,7 +92,7 @@ consistent with theories in growth and child development.
 ---
 
 With discriminatory validity, we indicate the extend to which the
-D-score can discriminate repondents that are not developing normally
+D-score can discriminate respondents that are not developing normally
 from respondents that are normally developing. This can be evaluated
 by deviding respondents for who we know that development lags as
 indicated by another measure, for example reflex and/or tonus problems
@@ -129,8 +129,8 @@ other tests that are assumed to measure the same thing. Examples are
 the total score for Bayley-III or the Denver, which are both 
 instruments to measure early child development. This is
 similar to concurrent validity. For a good convergent validity the
-correlation to other construct should be at least 0.6. Unforetunatly,
-only limited data are available for teh DDI, so convergent validity 
+correlation to other construct should be at least 0.6. Unfortunately,
+only limited data are available for the DDI, so convergent validity 
 for the D-score cannot be assessed at this point. 
 
 Another option is to evaluate the extend to which the D-score relates
@@ -164,7 +164,7 @@ plot_d_adm(data = data, model = model, metric = "dscore", adm_list = "htcm", sho
 ### Predictive validity
 
 Predictive validity refers to the degree to which the D-score predicts
-score on a criterion that is measured late rin time. For the D-score
+score on a criterion that is measured late in time. For the D-score
 we have measures for IQ at the age of 5 as a possible criterion.
 Subsequently, for other examples we have other criteria. In Chapter 8,
 some examples are presented.
