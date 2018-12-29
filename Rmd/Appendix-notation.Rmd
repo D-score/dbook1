@@ -23,7 +23,7 @@ knitr::kable(tcomb, caption = "Notation", booktabs = TRUE, digits = 4, col.names
 ```
 
 
-```{warnings r}
+```{r warnings}
 warnings()
 ```
 
