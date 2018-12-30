@@ -1,0 +1,2096 @@
+# Three studies {#ch:threestudies}
+
+This chapter compares child development between samples from three
+different studies:
+
+* *SMOCC*, a representative sample of Dutch children;
+
+* *POPS*, a cohort of all Dutch preterms in 1983;
+
+* *TOGO*, a set of medical records from preventive health service in Togo.
+
+Each study used the DDI (see Section \@ref(sec:ddi)). This chapter
+focuses in comparing the $D$-scores calculated from the study data.
+
+## SMOCC study
+
+```{r smoccfit9, echo = FALSE, warning = FALSE}
+library(gseddata)
+data <- get_data(cohort = 53)
+items <- get_itemnames(data)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- fit_dmodel(varlist, data, name = "57_0")
+```
+
+```{r smoccda9, echo = FALSE, fig.cap = '(ref:smoccda9)', warning = FALSE}
+reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+  filter(month <= 30) %>%
+  tidyr::gather(key = centile, value = d,-month)
+model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
+plot <-
+  ggplot(reference, aes(x = month, y = d, group = centile)) +
+  theme_light() +
+  # coord_fixed(ratio = 60/80 * 688/818) +
+  scale_colour_manual(values = dmetric::get_palette("study", package = model$data_package),
+                      na.value = "grey") +
+  scale_x_continuous("Age (in months)",
+                     limits = c(0, 30),
+                     breaks = seq(0, 30, 6)) +
+  scale_y_continuous(
+    paste0("D-score (", model$name, ")"),
+    breaks = seq(0, 70, 10),
+    limits = c(-5, 75)
+  ) +
+# geom_line(colour = get_palette("study", package = model$data_package)["GCDG-NLD-SMOCC"]) +
+  geom_line(colour = "grey70") +
+  geom_point(
+    mapping = aes(
+      x = agemos,
+      y = b,
+      group = cohort,
+      colour = cohort
+    ),
+    data = model$dscore,
+    size = 0.5,
+    shape = 1
+  ) +
+  facet_wrap( ~ cohort, ncol = 4) +
+  theme(legend.position = "none")
+plot
+```
+
+(ref:smoccda9) Relation between child $D$-score and child age in a
+cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9 occasions).
+
+Figure \@ref(fig:smoccda9) shows the $D$-score distribution by age in
+the SMOCC data.
+
+## POPS study
+
+### D-score of reference children at 2 years
+
+**Data**
+
+A reference sample was obtained from the Social Medical Survey of Children Attending Child Health Clinics (SMOCC) cohort, a nationally representative cohort of 2,151 children born in The Netherlands during 1988–1989 [@herngreen1994] . Of this cohort, general characteristics and developmental milestones of the Dutch Development Instrument at 2y of age (range 22-26 months) were available for 1,705 children. 
+
+
+**Statistical analyses**
+
+Several characteristics were selected from the SMOCC cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million (there are no metropolitans in the Netherlands)
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birthweight (in grams)
+     - Birth size (in cm) 
+
+
+We also added the following indicators from the SMOCC study:
+
+-	Maternal education (in years)
+-  Paternal education (in years)
+-	Maternal age (in years)
+-	Apgar score after 1 min < 5 (yes vs no)
+-	Apgar score after 5 min < 7 (yes vs no)
+
+Linear regression analyses were performed with DAZ as outcome and the indicators as predictors. Calculation of the DAZ was unadjusted for gestational age.
+
+
+**Results**
+
+```{r, echo=FALSE, eval=FALSE}
+
+---
+title: "SMOCC and POPS Book BMGF part "
+author: "Paula van Dommelen"
+date: "19 december 2018"
+output:
+  html_document: default
+  word_document: default
+---
+
+###START SMOCC 
+
+
+## Paula van Dommelen
+## Analyses impact global indicators on D-score at two years of  age
+
+#install packages
+
+install.packages("//tsn.tno.nl/data/Projects/060/2/22857/Kluis/PvD/Book/R/dscore_0.36.0.tar.gz", repos = NULL, type = "source")
+install.packages("//tsn.tno.nl/data/Projects/060/2/22857/Kluis/PvD/Book/R/dmetric_0.40.1.tar.gz", repos = NULL, type = "source")
+install.packages("//tsn.tno.nl/data/Projects/060/2/22857/Kluis/PvD/Book/R/gseddata_1.2.5.tar.gz", repos = NULL, type = "source")
+
+pkgs <- c("prediction", "sjlabelled", "dplyr", "haven", "gtools","devtools","rlang","gtools","AGD","foreign","gseddata","dmetric","dscore")
+lapply(pkgs, require, character.only = TRUE)
+
+
+
+
+## Read original smocc data
+
+## Netherlands
+## using smock.sav, dated 22May2009
+filenames <- c("smock.sav",
+               "SMOCCchildpc.sav",
+               "SMOCCtime.sav")
+
+
+file1 <- read_spss("\\\\tsn.tno.nl\\data\\Projects\\060\\2\\22857\\Kluis\\PvD\\Book\\Data smock\\smock.sav")
+file2 <- read_spss("\\\\tsn.tno.nl\\data\\Projects\\060\\2\\22857\\Kluis\\PvD\\Book\\Data smock\\SMOCCchildpc.sav")
+file3 <- read_spss("\\\\tsn.tno.nl\\data\\Projects\\060\\2\\22857\\Kluis\\PvD\\Book\\Data smock\\SMOCCtime.sav")
+
+
+# file1
+# decompose pnr
+names(file1) <- tolower(names(file1))
+file1$id <- floor(file1$pnr.new/10)
+file1$wave <- file1$pnr.new %% 10
+file1$agedays <- file1$lft
+
+# adopt "lex_gcdg" naming
+oldnames <- names(file1)[8:64]
+newnames <- paste0("n", 1:57)
+names(file1)[8:64] <-  newnames
+
+# recode
+z <- get_labels(file1)
+items <- paste0("n", 1:57)
+tab <- function(x) table(x, useNA = "always")
+raw1 <- t(sapply(file1[, items], tab))
+to_0_1 <- function(x) recode(x, "0" = 0, "1" = 1, .default = NaN)
+file1[, items] <- lapply(file1[, items], to_0_1)
+
+# file2
+z <- get_labels(file2)
+## find birth wgt, birth hgt and birth hdc in broad data
+file2$id <- file2$pnr
+file2$birthweight <- file2$k061417
+file2$birthsize <- file2$k062223
+file2$birthsize[file2$birthsize == 0] <- NA
+
+# add birth measurements to long data
+wgt.0 <- file2$birthweight / 1000
+hgt.0 <- file2$birthsize
+hdc.0 <- file2$k062425
+hdc.0[hdc.0 == 0] <- NA
+dob <- with(file2, ISOdate(1900 + k011617, k011415, k011213))
+dob <- format(as.Date(dob), "%d-%m-%y")
+
+male <- recode(as_label(file2$k0118), "Jongen" = 1, "Meisje" = 0, .default = NaN)
+birth <- data.frame(src = "smocc", id = file2$pnr,
+                    male = male,
+                    agedays = 0, agemth = 0, ageyr = 0,
+                    height = hgt.0, weight = wgt.0, hdc = hdc.0)
+
+## Child level variables
+
+
+file2$edumocat <- recode(as_label(file2$k0273), "Blo" = 0, "Lo" = 1, "Lbo" = 1,
+                         "Havo" = 2, "Mavo" = 2, "Mbo" = 2, "Vwo" = 2,
+                         "Hbo" = 3, "Univ." = 3, .default = NaN)
+file2$edumocat <- ifelse(is.nan(file2$edumocat), NA, file2$edumocat)
+
+
+file2$edufacat <- recode(as_label(file2$k0246), "Blo" = 0, "Lo" = 1, "Lbo" = 1,
+                         "Havo" = 2, "Mavo" = 2, "Mbo" = 2, "Vwo" = 2,
+                         "Hbo" = 3, "Univ." = 3, .default = NaN)
+file2$edufacat <- ifelse(is.nan(file2$edufacat), NA, file2$edufacat)
+
+#Living conditions
+file2$poorlivingconditions<-recode(as_label(file2$k0332), "Goed" = 0, "Matig" = 1, "Slecht" = 1,
+                                   .default = NaN)
+
+file2$male <- recode(as_label(file2$k0118), "Jongen" = 1, "Meisje" = 0, .default = NaN)
+file2$gestage <- file2$k051213
+file2$gestage[file2$gestage == 0] <- NA
+file2$apgar1min <- file2$k062627
+file2$apgar5min <- file2$k062829
+
+hgtm <- file2$k032123
+hgtm[hgtm == 0] <- NA
+hgtf <- file2$k026062
+hgtf[hgtf == 0] <- NA
+# age of mother
+bdm <- file2$k026364
+bdm[bdm == 0 | bdm == 99 | is.na(bdm)] <- 1
+bmm <- file2$k026566
+bmm[bmm == 0 | bmm == 99 | is.na(bmm)] <- 1
+bym <- file2$k026768
+bym[bym == 0] <- NA
+daym <- as.numeric(with(file2,
+                        ISOdate(1900 + k011617, k011415, k011213) -
+                           ISOdate(1900 + bym, bmm, bdm)))
+file2$agemom <- round(daym / 365.25)
+
+timefixed <- file2[, c("id", "male", "edumocat", "k0273","k0246","birthweight", "birthsize",
+                       "gestage", "agemom","edufacat","apgar1min","apgar5min","poorlivingconditions","totnumberofresidents")]
+
+# file3
+# >>> time-varying covariates
+# agemth, agedays, male, height, weight, haz, whz, waz
+# select all visits from the long data (n = 16953) 2040 unique children
+file3 <- file3[file3$visit == 1, ]
+id <- file3$pnr
+male <- recode(as_label(file3$k1018), "Jongen" = 1, "Meisje" = 0, .default = NaN)
+
+# calculate dates of measurement and dates of birth
+dom <- with(file3, ISOdate(1900 + year, month, day))
+dob <- with(file3, ISOdate(1900 + k101617, k101415, k101213))
+
+# calculate decimal age
+agedays <- as.numeric(dom - dob)
+ageyr <- round(agedays / 365.25, 4)
+agemth <- ageyr * 12
+
+# simple data transforms and edits
+hgt <- file3$k103336 / 10
+hgt[hgt < 35] <- NA
+wgt <- file3$k102832/1000
+wgt[wgt == 0] <- NA
+hdc <- file3$k103739 / 10
+hdc[hdc == 0] <- NA
+
+# save dates in Dutch format
+dob <- format(as.Date(dob), "%d-%m-%y")
+dom <- format(as.Date(dom), "%d-%m-%y")
+
+timevarying <- data.frame(src = "smocc",
+                          id = id,
+                          male = male,
+                          agedays = agedays,
+                          agemth = agemth,
+                          ageyr = ageyr,
+                          height = hgt,
+                          weight = wgt,
+                          hdc = hdc)
+#
+timevarying <- rbind(birth, timevarying)
+
+# pad record number, sort according to id and age
+idx <- order(timevarying$id, timevarying$agedays)
+timevarying <- timevarying[idx, ]
+mrec <- table(timevarying[idx, "id"])
+rec <- unlist(sapply(mrec, seq)) # record number
+nrec <- rep(mrec, times = mrec)  # number of records
+timevarying <- data.frame(rec = rec, nrec = nrec, timevarying)
+rownames(timevarying) <- 1:nrow(timevarying)
+
+# add Z-scores
+sexc <- recode(male, "1" = "M", "0" = "F", .default = NA_character_)
+
+haz <- with(timevarying,
+            y2z(y = height, x = ageyr, ref = AGD::who.hgt,
+                sex = sexc))
+whz <- with(timevarying,
+            y2z(y = weight, x = height, ref = AGD::who.wfl,
+                sex = sexc))
+waz <- with(timevarying,
+            y2z(y = weight, x = ageyr, ref = AGD::who.wgt,
+                sex = sexc))
+baz <- with(timevarying,
+            y2z(y = weight/(height/100)^2,
+                x = ageyr, ref = AGD::who.bmi,
+                sex = sexc))
+timevarying <- data.frame(timevarying,
+                          haz = haz,
+                          waz = waz,
+                          baz = baz,
+                          whz = whz)
+
+# join the three datasets
+
+datasmock <- merge(file1, timevarying, by = c("id", "agedays"), all = TRUE)
+datasmock <- merge(datasmock, timefixed, by = c("id"))
+
+# remove rows without any Van Wiechen data
+items <- paste0("n", 1:57)
+observed <- rowSums(!is.na(datasmock[, items]))
+datasmock <- datasmock[observed > 0, ]
+
+
+# restructure
+cov <- c("height", "weight",
+         "haz", "waz", "baz", "whz", "edumocat","k0273","k0246",
+         "birthweight", "birthsize", "gestage", "agemom","edufacat","apgar1min","apgar5min","poorlivingconditions","totnumberofresidents")
+datasmock <- data.frame(country = "NL",
+                   study = "Netherlands 1",
+                   id = datasmock$id,
+                   male = datasmock$male.y,
+                   agemonths = round(12 * datasmock$agedays / 365.25, 1),
+                   age = (datasmock$agedays / 365.25),
+                   wave = datasmock$wave,
+                   datasmock[, items],
+                   datasmock[, cov],
+                   stringsAsFactors = FALSE)
+
+datasmocksel<-datasmock[,c("id","k0273","k0246","edufacat","apgar1min","apgar5min","poorlivingconditions","totnumberofresidents")]
+
+datasmocksel<-datasmocksel[!duplicated(datasmocksel$id), ]
+
+
+###Calculate D-SCORE
+
+
+
+
+
+studies <- c("Netherlands 1", "Netherlands 2")
+#1=smocc, 2=dove
+
+dat<-datasmock
+
+#dat <- get_gcdg(study = studies, min_cat = 10, adm = TRUE, cov = TRUE)
+
+
+# calculate D-score and DAZ
+type_dscore="NL_dscore" # vul in: "NL_dscore" of "internationale_dscore"
+
+
+if (type_dscore=="NL_dscore") {
+  itembank_NL <- dscore::itembank[,c("lex_gcdg", "tau")]
+  # zorg dat age echt age in jaren is: daarom nog even overnemen van age_yr, voor zekerheid:
+  output_dscore <- ability(data=dat,
+                              items = colnames(dat)[colnames(dat)%in%itembank$lex_gcdg],
+                              age="age", # let op: deze var moet leeftijd in jaren bevatten
+                              metric="dscore",
+                              itembank=itembank_NL,
+                              lexicon="gcdg")
+  # id zit niet in resultaat dus mergen kan niet; maar volgorde is zelfde gebleven, dus gebruik cbind
+  dat_inclDscore <- cbind(dat, output_dscore)
+  # uit ability() rolt de d-score als 'b'; rename 'b' tot 'd', voor consistentie:
+  colnames(dat_inclDscore)[grep("^b$", colnames(dat_inclDscore))] <- "d"
+  # om duidelijk te houden welke d-score gebruikt is: voeg evt. ook een variabele 'd_NL' toe; als d hier gelijk aan is dan is dit #dus de 'oude' dscore gebaseerd op de 'dscore::itembank'-tau's, dus op NL-data en de ability()-functie
+  dat_inclDscore$d_NL <- dat_inclDscore$d
+
+  # bereken daz (z-score per leeftijd) en voeg deze toe aan data
+  ref_NL <- dscore::Dreference # referentie-groep
+  # met 'x.unit' op 'year' omdat 'age' nu in jaren is
+  dat_inclDscore$daz <- daz(dat_inclDscore$d,
+                                dat_inclDscore$age,
+                                x.unit = "year",
+                                ref = ref_NL)
+}
+
+
+## Additional variables and selection age 22-26 months
+
+dat_inclDscore$agemonthstrunc<-trunc(dat_inclDscore$agemonths)
+
+smockbmgf2y <- dat_inclDscore[dat_inclDscore$agemonths>=22 & dat_inclDscore$agemonths<=26,]
+smockbmgf2y<-smockbmgf2y[!(is.na(smockbmgf2y$age)),]
+
+nrow(smockbmgf2y)
+length(unique(smockbmgf2y$id))
+
+smockbmgf2ytot<- smockbmgf2y[!duplicated(smockbmgf2y$id),]
+
+
+#DEFINE VARIABLES
+
+#residence -- totnumberofresidents based on postal code merged with number of residents (last version 1-1-1998)
+#maternal factors
+#edumo -- missing data
+#edumocat
+#•	edumocat: maternal education, categorical
+#0 – none
+#1 – any primary (inc primary completed)
+#2 – any secondary (inc secondary completed)
+#3 – above secondary
+#in global indicators, but in SMOCC it is the following (NL in C:\Users\dommelenpv\Documents\GitHub\ddata\data-raw\R) :
+#"Blo" = 0, "Lo" = 1, "Lbo" = 1,
+#"Havo" = 2, "Mavo" = 2, "Mbo" = 2, "Vwo" = 2,
+#"Hbo" = 3, "Univ" = 3, .default = NaN)
+#
+
+#agemom
+
+#child factors
+#age
+#male
+#birthweight
+#birthsize
+#gestage
+
+#Additional (not in global indicators):
+#edufacat
+#apgar1min < 5 at 1 minute
+#apgar5min <7 at 5 minutes
+#poorlivingconditions
+
+smockbmgf2ytot$apgar1mincat<-ifelse(smockbmgf2ytot$apgar1min<5,1,0)
+smockbmgf2ytot$apgar5mincat<-ifelse(smockbmgf2ytot$apgar5min<7,1,0)
+smockbmgf2ytot$preterm<-ifelse(smockbmgf2ytot$gestage<37,1,0)
+smockbmgf2ytot$preterm2<-ifelse(smockbmgf2ytot$gestage<32,1,
+                                ifelse(smockbmgf2ytot$gestage<37,2,3))
+smockbmgf2ytot$birthweightcat<-ifelse(smockbmgf2ytot$birthweight<1500,1,
+                                ifelse(smockbmgf2ytot$birthweight<2500,2,3))
+
+
+smockbmgf2ytot$residence<-ifelse(smockbmgf2ytot$totnumberofresidents<2000,1,
+                                 ifelse(smockbmgf2ytot$totnumberofresidents<50000,2,
+                                        ifelse(smockbmgf2ytot$totnumberofresidents<1000000,3,
+                                               ifelse(smockbmgf2ytot$totnumberofresidents>=1000000,4, NA))))
+
+
+
+#only 2 mothers and 3 fathers with BLO. Add to LO
+
+smockbmgf2ytot$edumocat<-ifelse(smockbmgf2ytot$edumocat==0,1,smockbmgf2ytot$edumocat)
+smockbmgf2ytot$edufacat<-ifelse(smockbmgf2ytot$edufacat==0,1,smockbmgf2ytot$edufacat)
+
+#RECODE EDUCATION INTO NUMBER OF YEARS EDUCATION:
+#blo/lo --> 8 years
+#lbo --> 8+4 years
+#mavo--> 8+4 years
+#mbo--> 8+4+3 years
+#havo--> 8+5 years
+#vwo--> 8+6 years
+#hbo--> 8+5+4 years
+#univ--> 8+6+4 years
+
+smockbmgf2ytot$edumocatfinal<-ifelse(smockbmgf2ytot$k0273==1|smockbmgf2ytot$k0273==2,8,
+                                     ifelse(smockbmgf2ytot$k0273==3 | smockbmgf2ytot$k0273==4,12,
+                                            ifelse(smockbmgf2ytot$k0273==5,15,
+                                                   ifelse(smockbmgf2ytot$k0273==6,13,
+                                                          ifelse(smockbmgf2ytot$k0273==7,14,
+                                                                 ifelse(smockbmgf2ytot$k0273==8,17,
+                                                                        ifelse(smockbmgf2ytot$k0273==9,18,NA)))))))
+
+smockbmgf2ytot$edufacatfinal<-ifelse(smockbmgf2ytot$k0246==1|smockbmgf2ytot$k0246==2,8,
+                                     ifelse(smockbmgf2ytot$k0246==3 | smockbmgf2ytot$k0246==4,12,
+                                            ifelse(smockbmgf2ytot$k0246==5,15,
+                                                   ifelse(smockbmgf2ytot$k0246==6,13,
+                                                          ifelse(smockbmgf2ytot$k0246==7,14,
+                                                                 ifelse(smockbmgf2ytot$k0246==8,17,
+                                                                        ifelse(smockbmgf2ytot$k0246==9,18,NA)))))))
+
+
+
+smockbmgf2ytot$apgar1min<-ifelse(smockbmgf2ytot$apgar1min==99,NA,smockbmgf2ytot$apgar1min)
+smockbmgf2ytot$apgar5min<-ifelse(smockbmgf2ytot$apgar5min>10,NA,smockbmgf2ytot$apgar5min)
+smockbmgf2ytot$apgar1mincat<-ifelse(smockbmgf2ytot$apgar1min<5,1,0)
+smockbmgf2ytot$apgar5mincat<-ifelse(smockbmgf2ytot$apgar5min<7,1,0)
+
+smockbmgf2ytot$female<-ifelse(smockbmgf2ytot$male==0,1,0)
+
+smockbmgf2ytot$apgar1mincatdummy1<-ifelse(smockbmgf2ytot$apgar1mincat==1,1,0)
+smockbmgf2ytot$apgar1mincatdummy2<-ifelse(smockbmgf2ytot$apgar1mincat==0,1,0)
+
+smockbmgf2ytot$apgar5mincatdummy1<-ifelse(smockbmgf2ytot$apgar5mincat==1,1,0)
+smockbmgf2ytot$apgar5mincatdummy2<-ifelse(smockbmgf2ytot$apgar5mincat==0,1,0)
+
+smockbmgf2ytot$preterm2dummy1<-ifelse(smockbmgf2ytot$preterm2==1,1,0)
+smockbmgf2ytot$preterm2dummy2<-ifelse(smockbmgf2ytot$preterm2==2,1,0)
+smockbmgf2ytot$preterm2dummy3<-ifelse(smockbmgf2ytot$preterm2==3,1,0)
+
+smockbmgf2ytot$birthweightcatdummy1<-ifelse(smockbmgf2ytot$birthweightcat==1,1,0)
+smockbmgf2ytot$birthweightcatdummy2<-ifelse(smockbmgf2ytot$birthweightcat==2,1,0)
+smockbmgf2ytot$birthweightcatdummy3<-ifelse(smockbmgf2ytot$birthweightcat==3,1,0)
+
+smockbmgf2ytot$edumocatdummy1<-ifelse(smockbmgf2ytot$edumocat==1,1,0)
+smockbmgf2ytot$edumocatdummy2<-ifelse(smockbmgf2ytot$edumocat==2,1,0)
+smockbmgf2ytot$edumocatdummy3<-ifelse(smockbmgf2ytot$edumocat==3,1,0)
+
+smockbmgf2ytot$edufacatdummy1<-ifelse(smockbmgf2ytot$edufacat==1,1,0)
+smockbmgf2ytot$edufacatdummy2<-ifelse(smockbmgf2ytot$edufacat==2,1,0)
+smockbmgf2ytot$edufacatdummy3<-ifelse(smockbmgf2ytot$edufacat==3,1,0)
+
+smockbmgf2ytot$residencedummy1<-ifelse(smockbmgf2ytot$residence==1,1,0)
+smockbmgf2ytot$residencedummy2<-ifelse(smockbmgf2ytot$residence==2,1,0)
+smockbmgf2ytot$residencedummy3<-ifelse(smockbmgf2ytot$residence==3,1,0)
+
+
+table(smockbmgf2ytot$preterm)
+table(smockbmgf2ytot$male)
+hist(smockbmgf2ytot$birthweight)
+sort(smockbmgf2ytot$birthweight)
+
+hist(smockbmgf2ytot$birthsize)
+sort(smockbmgf2ytot$birthsize)
+hist(smockbmgf2ytot$apgar1min)
+sort(smockbmgf2ytot$apgar1min)
+
+hist(smockbmgf2ytot$gestage)
+sort(smockbmgf2ytot$gestage)
+
+table(smockbmgf2ytot$edumocat)
+
+
+library(psych)
+
+describe(smockbmgf2ytot[,c("edumocatfinal","edufacatfinal","agemom", "gestage","birthweight","birthsize")],trim=0)
+100*(table(smockbmgf2ytot$preterm2))/sum(table(smockbmgf2ytot$preterm2))
+100*(table(smockbmgf2ytot$male))/sum(table(smockbmgf2ytot$male))
+100*(table(smockbmgf2ytot$birthweightcat))/sum(table(smockbmgf2ytot$birthweightcat))
+100*(table(smockbmgf2ytot$apgar1mincat))/sum(table(smockbmgf2ytot$apgar1mincat))
+100*(table(smockbmgf2ytot$apgar5mincat))/sum(table(smockbmgf2ytot$apgar5mincat))
+100*(table(smockbmgf2ytot$residence))/sum(table(smockbmgf2ytot$residence))
+
+
+#Linear regression analyses
+
+hist(smockbmgf2ytot$daz)
+sort(smockbmgf2ytot$daz)
+
+smockbmgf2ytot$residence<-as.factor(smockbmgf2ytot$residence)
+smockbmgf2ytot$birthweightcat<-as.factor(smockbmgf2ytot$birthweightcat)
+smockbmgf2ytot$preterm2<-as.factor(smockbmgf2ytot$preterm2)
+smockbmgf2ytot$male<-as.factor(smockbmgf2ytot$male)
+smockbmgf2ytot$apgar1mincat<-as.factor(smockbmgf2ytot$apgar1mincat)
+smockbmgf2ytot$apgar5mincat<-as.factor(smockbmgf2ytot$apgar5mincat)
+
+DF <- within(smockbmgf2ytot, residence <- relevel(residence, ref = 2))
+DF <- within(DF, preterm2 <- relevel(preterm2, ref = 3))
+DF <- within(DF, birthweightcat <- relevel(birthweightcat, ref = 3))
+
+summary(lm(daz~residence,data=DF))
+summary(lm(daz~edumocatfinal,data=DF))
+summary(lm(daz~edufacatfinal,data=DF))
+summary(lm(daz~agemom,data=DF))
+summary(lm(daz~gestage,data=DF))
+summary(lm(daz~preterm2,data=DF))
+summary(lm(daz~male,data=DF))
+summary(lm(daz~I(birthweight/1000),data=DF))
+summary(lm(daz~birthweightcat,data=DF))
+summary(lm(daz~birthsize,data=DF))
+table(DF$birthweightcat)
+summary(lm(daz~apgar1mincat,data=DF))
+summary(lm(daz~apgar5mincat,data=DF))
+summary(lm(daz~age,data=DF))
+
+summary(lm(daz~gestage,data=DF))
+
+
+
+plot(DF$daz, DF$edumocatfinal)
+
+
+summary(lm(daz~as.factor(edumocat)+age,data=smockbmgf2ytot))
+summary(lm(daz~as.factor(male)+age,data=smockbmgf2ytot))
+summary(lm(daz~birthweight+age,data=smockbmgf2ytot))
+summary(lm(daz~birthsize+age,data=smockbmgf2ytot))
+summary(lm(daz~gestage+age,data=smockbmgf2ytot))
+summary(lm(daz~as.factor(preterm)+age,data=smockbmgf2ytot))
+summary(lm(daz~agemom+age,data=smockbmgf2ytot))
+summary(lm(daz~as.factor(edufacat)+age,data=smockbmgf2ytot))
+summary(lm(daz~as.factor(edumocat)+as.factor(edufacat)+age,data=smockbmgf2ytot))
+summary(lm(daz~apgar5min+age,data=smockbmgf2ytot))
+summary(lm(daz~apgar1min+age,data=smockbmgf2ytot))
+summary(lm(daz~as.factor(apgar5mincat)+age,data=smockbmgf2ytot))
+summary(lm(daz~as.factor(apgar1mincat)+age,data=smockbmgf2ytot))
+summary(lm(daz~poorlivingconditions+age,data=smockbmgf2ytot))
+
+
+
+summary(lm(daz~as.factor(edumocat)+as.factor(male)+birthweight+birthsize+gestage+agemom+age,data=smockbmgf2ytot))
+#age mother out
+summary(lm(daz~as.factor(edumocat)+as.factor(male)+birthweight+birthsize+gestage+age,data=smockbmgf2ytot))
+#birthweight out
+summary(lm(daz~as.factor(edumocat)+as.factor(male)+birthsize+gestage+age,data=smockbmgf2ytot))
+#birthsize out
+summary(lm(daz~as.factor(edumocat)+as.factor(male)+gestage+age,data=smockbmgf2ytot))
+
+plot(smockbmgf2ytot$birthweight,smockbmgf2ytot$daz)
+hist(smockbmgf2ytot$daz)
+lm(daz~age,data=smockbmgf2ytot)
+
+plot(smockbmgf2ytot$age,smockbmgf2ytot$daz)
+plot(smockbmgf2ytot$age,smockbmgf2ytot$d)
+
+hist(smockbmgf2ytot$daz)
+hist(smockbmgf2ytot$daz)
+plot(smockbmgf2ytot$age,smockbmgf2ytot$daz)
+plot(smockbmgf2ytot$age,smockbmgf2ytot$d)
+
+
+## Descriptives
+
+
+# report descriptives in table
+# the continuous variables:
+contvars <- c("age", "d", "daz", "birthweight","birthsize","gestage", "apgar1min", "apgar5min","agemom","edumocatfinal","edufacatfinal")
+# the categorical variables:
+catvars <- c("male", "female","preterm2dummy1","preterm2dummy2","preterm2dummy3","birthweightcatdummy1","birthweightcatdummy2","birthweightcatdummy3","apgar1mincatdummy1","apgar1mincatdummy2","apgar5mincatdummy1","apgar5mincatdummy2","residencedummy1","residencedummy2","residencedummy3")
+
+catvars2 <- list("male"=smockbmgf2ytot$male[smockbmgf2ytot$male==1 & !(is.na(smockbmgf2ytot$male))],
+"female"=smockbmgf2ytot$female[smockbmgf2ytot$female==1 & !(is.na(smockbmgf2ytot$female))],
+"preterm2dummy1"=smockbmgf2ytot$preterm2dummy1[smockbmgf2ytot$preterm2dummy1==1 & !(is.na(smockbmgf2ytot$preterm2dummy1))],
+"preterm2dummy2"=smockbmgf2ytot$preterm2dummy2[smockbmgf2ytot$preterm2dummy2==1 & !(is.na(smockbmgf2ytot$preterm2dummy2))],
+"preterm2dummy3"=smockbmgf2ytot$preterm2dummy3[smockbmgf2ytot$preterm2dummy3==1 & !(is.na(smockbmgf2ytot$preterm2dummy3))],
+"birthweightcatdummy1"=smockbmgf2ytot$birthweightcatdummy1[smockbmgf2ytot$birthweightcatdummy1==1 & !(is.na(smockbmgf2ytot$birthweightcatdummy1))],
+"birthweightcatdummy2"=smockbmgf2ytot$birthweightcatdummy2[smockbmgf2ytot$birthweightcatdummy2==1 & !(is.na(smockbmgf2ytot$birthweightcatdummy2))],
+"birthweightcatdummy3"=smockbmgf2ytot$birthweightcatdummy3[smockbmgf2ytot$birthweightcatdummy3==1 & !(is.na(smockbmgf2ytot$birthweightcatdummy3))],
+"apgar1mincatdummy1"=smockbmgf2ytot$apgar1mincatdummy1[smockbmgf2ytot$apgar1mincatdummy1==1 & !(is.na(smockbmgf2ytot$apgar1mincatdummy1))],
+"apgar1mincatdummy2"=smockbmgf2ytot$apgar1mincatdummy2[smockbmgf2ytot$apgar1mincatdummy2==1 & !(is.na(smockbmgf2ytot$apgar1mincatdummy2))],
+"apgar5mincatdummy1"=smockbmgf2ytot$apgar5mincatdummy1[smockbmgf2ytot$apgar5mincatdummy1==1 & !(is.na(smockbmgf2ytot$apgar5mincatdummy1))],
+"apgar5mincatdummy2"=smockbmgf2ytot$apgar5mincatdummy2[smockbmgf2ytot$apgar5mincatdummy2==1 & !(is.na(smockbmgf2ytot$apgar5mincatdummy2))],
+"residencedummy1"=smockbmgf2ytot$residencedummy1[smockbmgf2ytot$residencedummy1==1 & !(is.na(smockbmgf2ytot$residencedummy1))],
+"residencedummy2"=smockbmgf2ytot$residencedummy2[smockbmgf2ytot$residencedummy2==1 & !(is.na(smockbmgf2ytot$residencedummy2))],
+"residencedummy3"=smockbmgf2ytot$residencedummy3[smockbmgf2ytot$residencedummy3==1 & !(is.na(smockbmgf2ytot$residencedummy3))])
+
+
+
+# CONTINUOUS VARIABLES
+
+v_n <- lapply(smockbmgf2ytot[contvars], function(x) sum(is.na(x)==FALSE))
+v_mean <- lapply(smockbmgf2ytot[contvars], mean, na.rm=TRUE)
+v_sd <- lapply(smockbmgf2ytot[contvars], sd, na.rm=TRUE)
+v_median <- lapply(smockbmgf2ytot[contvars], median, na.rm=TRUE)
+##minimum en maximum:
+# v_min <- lapply(curdat[contvars], min, na.rm=TRUE)
+# v_max <- lapply(curdat[contvars], max, na.rm=TRUE)
+
+
+descr <- as.data.frame(cbind(v_n, v_mean, v_sd, v_median)) # , v_min, v_max)
+
+descr <- format(descr, digits=2, nsmall=2)
+
+row.names(descr) <- c("age (in years)", "D-score","DAZ","birthweight (in grams)", "birth size (in cm)","gestational age (in weeks)","apgar score after 1 min","apgar score after 5 min","maternal age (in years)","maternal education (in years)","paternal education (in years)")
+colnames(descr) <- c("N", "mean", "SD", "median")
+
+#knitr::kable(descr,  caption="Descriptives")
+
+
+# CATEGORICAL VARIABLES:
+v2_n <- lapply(catvars2, function(x) sum(is.na(x)==FALSE))
+v2_perc <- lapply(smockbmgf2ytot[catvars], function(x) prop.table(table(x))["1"] * 100) 
+
+
+descr2 <- as.data.frame(cbind(v2_n, v2_perc))
+descr2 <- format(descr2, digits=1, nsmall=1)
+row.names(descr2) <- c("boys", "girls","gestational age <32 weeks","gestational age 32-<37 weeks","gestational age >=37 weeks","birthweight <1500 grams","birthweight >=1500-<2500 grams","birthweight >=2500 grams","apgar score after 1 min <5","apgar score after 1 min >=5","apgar score after 5 min <7","apgar score after 5 min >=7",
+"rural area of residence","semi-urban level of residence","urban level of residence")
+
+colnames(descr2) <- c("N", "%")
+
+
+#knitr::kable(descr2 #, 
+#             # caption="Descriptives"
+#             )
+
+
+## Regression analyses - continuous variables
+
+contvars
+
+regr2.age <- summary(lm(daz ~ age, data=smockbmgf2ytot))$coefficients["age",]
+regr2.birthweight<- summary(lm(daz ~ birthweight, data=smockbmgf2ytot))$coefficients["birthweight",]
+regr2.birthsize<- summary(lm(daz ~ birthsize, data=smockbmgf2ytot))$coefficients["birthsize",]
+regr2.gestage<- summary(lm(daz ~ gestage, data=smockbmgf2ytot))$coefficients["gestage",]
+regr2.apgar1min<- summary(lm(daz ~ apgar1min, data=smockbmgf2ytot))$coefficients["apgar1min",]
+regr2.apgar5min<- summary(lm(daz ~ apgar5min, data=smockbmgf2ytot))$coefficients["apgar5min",]
+regr2.agemom<- summary(lm(daz ~ agemom, data=smockbmgf2ytot))$coefficients["agemom",]
+regr2.edumocatfinal<- summary(lm(daz ~ edumocatfinal, data=smockbmgf2ytot))$coefficients["edumocatfinal",]
+regr2.edufacatfinal<- summary(lm(daz ~ edufacatfinal, data=smockbmgf2ytot))$coefficients["edufacatfinal",]
+
+
+
+# regression analysis - categorical variables
+
+
+catvars
+
+
+
+regr2.male <- summary(lm(daz ~ as.factor(male), data=smockbmgf2ytot))$coefficients["as.factor(male)1",]
+
+smockbmgf2ytot$preterm2 <- relevel(smockbmgf2ytot$preterm2, ref = 3)
+
+regr2.below32weeks <- summary(lm(daz ~ as.factor(preterm2), data=smockbmgf2ytot))$coefficients["as.factor(preterm2)1",]
+regr2.below37weeks <- summary(lm(daz ~ as.factor(preterm2), data=smockbmgf2ytot))$coefficients["as.factor(preterm2)2",]
+
+smockbmgf2ytot$birthweightcat <- relevel(smockbmgf2ytot$birthweightcat, ref = 3)
+
+regr2.below1500 <- summary(lm(daz ~ as.factor(birthweightcat), data=smockbmgf2ytot))$coefficients["as.factor(birthweightcat)1",]
+regr2.below2500 <- summary(lm(daz ~ as.factor(birthweightcat), data=smockbmgf2ytot))$coefficients["as.factor(birthweightcat)2",]
+regr2.apgar1minbelow5 <- summary(lm(daz ~ as.factor(apgar1mincat), data=smockbmgf2ytot))$coefficients["as.factor(apgar1mincat)1",]
+regr2.apgar5minbelow7 <- summary(lm(daz ~ as.factor(apgar5mincat), data=smockbmgf2ytot))$coefficients["as.factor(apgar5mincat)1",]
+
+smockbmgf2ytot$residence <- relevel(smockbmgf2ytot$residence, ref = 2)
+
+regr2.rural <- summary(lm(daz ~ as.factor(residence), data=smockbmgf2ytot))$coefficients["as.factor(residence)1",]
+regr2.urban <- summary(lm(daz ~ as.factor(residence), data=smockbmgf2ytot))$coefficients["as.factor(residence)3",]
+
+
+#all results in one table:  
+
+regr2.d<-rep(NA,4)
+regr2.daz<-rep(NA,4)
+regr2.female<-c(0,rep(NA,3))
+regr2.aboveorat2500gram<-c(0,rep(NA,3))
+regr2.aboveorat37weeks<-c(0,rep(NA,3))
+regr2.apgar1minabove5<-c(0,rep(NA,3))
+regr2.apgar5minabove7<-c(0,rep(NA,3))
+regr2.semiurban<-c(0,rep(NA,3))
+
+
+all_regr_coef <- rbind(regr2.d, regr2.daz,regr2.age, regr2.male,
+regr2.female,
+regr2.birthweight, regr2.aboveorat2500gram, regr2.below2500,
+regr2.below1500, 
+regr2.birthsize,
+regr2.gestage,
+regr2.aboveorat37weeks,regr2.below37weeks, regr2.below32weeks,
+regr2.apgar1min, regr2.apgar1minabove5, regr2.apgar1minbelow5,
+regr2.apgar5min, regr2.apgar5minabove7,regr2.apgar5minbelow7, regr2.urban,
+regr2.semiurban, regr2.rural,regr2.agemom,regr2.edumocatfinal,regr2.edufacatfinal)
+
+  
+
+colnames(all_regr_coef) <- c("Estimate", "SE", "t-statistics", "p-value")
+
+
+all_regr_coef[,c("Estimate", "SE","t-statistics","p-value")] <- 
+format(round(all_regr_coef[,c("Estimate", "SE","t-statistics","p-value")],4), nsmall=4)
+
+# round p-values and present low p-values as .001
+all_regr_coef[,c("p-value")] <- format.pval(as.numeric(all_regr_coef[,c("p-value")]), eps = .001, digits=4)
+
+
+#knitr::kable(all_regr_coef, 
+#            caption="Coefficients",
+#            col.names=colnames(all_regr_coef))
+
+
+
+# Descriptives and regression coefficients in one table
+
+all_regr_coef <- as.data.frame(all_regr_coef)
+
+all_regr_coef$varbeschr <- c("D-score","DAZ","age (in years)","boys","girls","birthweight (in grams)","birthweight >=2500 grams","birthweight >=1500-<2500 grams","birthweight <1500 grams","birth size (in cm)","gestational age (in weeks)","gestational age >=37 weeks","gestational age 32-<37 weeks","gestational age <32 weeks","apgar score after 1 min",
+"apgar score after 1 min >=5","apgar score after 1 min <5","apgar score after 5 min","apgar score after 5 min >=7",
+"apgar score after 5 min <7","urban level of residence","semi-urban level of residence","rural area of residence","maternal age (in years)","maternal education (in years)","paternal education (in years)")
+
+
+
+descr$varbeschr <- rownames(descr)
+
+# merge with 'varbeschr':
+
+descrx<-data.frame(descr,rep(NA,nrow(descr)))
+colnames(descrx)[6]<-("%")
+
+descr2x<-data.frame(descr2[,1],rep(NA,nrow(descr2)),rep(NA,nrow(descr2)),rep(NA,nrow(descr2)),rownames(descr2),descr2[,2])
+rownames(descr2x)<-rownames(descr2)
+dimnames(descr2x)[[2]]<-dimnames(descrx)[[2]]
+
+all_regr_coef$sort<-1:nrow(all_regr_coef)
+
+descrtot<-rbind(descrx,descr2x)
+descr_regr_coef_tot <- merge(descrtot,all_regr_coef,by ="varbeschr",all.x=TRUE,all.y=TRUE)
+descr_regr_coef_tot<-descr_regr_coef_tot[order(descr_regr_coef_tot$sort),]
+ 
+
+rownames(descr_regr_coef_tot) <- descr_regr_coef_tot$varbeschr
+
+descr_regr_coef_tot <- descr_regr_coef_tot[,-grep("varbeschr", colnames(descr_regr_coef_tot))]
+descr_regr_coef_tot <- descr_regr_coef_tot[,-grep("sort", colnames(descr_regr_coef_tot))]
+
+
+# change 'NA' values to empty spaces in table 
+options(knitr.kable.NA = '')
+
+# maak tabel
+knitr::kable(descr_regr_coef_tot, 
+      caption="Descriptives and coefficients")
+
+
+####END SMOCC
+
+```
+
+**Conclusions**
+
+Gender, birthweight, gestational age, maternal and paternal education were significantly associated with DAZ at 2 years of age with  girls, a higher birthweight and more years of maternal and paternal education having a higher mean DAZ.
+
+
+
+## D-score of preterms at 2 years 
+
+```{r, echo=FALSE, eval=FALSE}
+
+####START POPS
+
+
+########################POPS
+
+
+dpopsdat<- data.frame(read_spss("\\\\tsn.tno.nl\\data\\Projects\\060\\2\\22857\\Kluis\\PvD\\Book\\Data Pops in GHAP\\POPS19groeiSDS2whoTranslatedExtrav2PLUS.sav"))
+
+dpopsdat$age<-dpopsdat$Age
+
+
+#selection below 32 weeks of gestational age
+dpopsdat<-dpopsdat[dpopsdat$gestationalage<32 & !(is.na(dpopsdat$gestationalage)),]
+
+#no dead, no handicap
+dpopsdat<-dpopsdat[dpopsdat$dead==0 & dpopsdat$handicap==0 & !(is.na(dpopsdat$handicap)) &  !(is.na(dpopsdat$dead)),]
+dpopsdat<-data.frame(dpopsdat)
+
+#select at least one outcome on VWO: 258 children
+dpopsdat$counts = apply(dpopsdat,1,function(x) sum(is.na(x[44:100])))
+dpopsdat[dpopsdat$counts==57,]
+dpopsdat<-dpopsdat[dpopsdat$counts<57,]
+length(unique(dpopsdat$patid))
+
+
+nrow(dpopsdat)
+length(unique(dpopsdat$patid))
+
+
+#transform VWO such that 1=pass, 0=fail
+for(i in 44:100) {
+   dpopsdat[,i]<-1-dpopsdat[,i]
+}
+
+
+dpopsdat$age<-dpopsdat$Age
+
+dpopsdat$ageweeks<-trunc(dpopsdat$age/7)
+table(dpopsdat$ageweeks)
+
+dpopsdat$ageweekscat<-ifelse(dpopsdat$ageweeks<19,1,ifelse(dpopsdat$ageweeks>=19 & dpopsdat$ageweeks<27,2,
+                                                           ifelse(dpopsdat$ageweeks>=27 & dpopsdat$ageweeks<32,3, ifelse(dpopsdat$ageweeks>=32 & dpopsdat$ageweeks<41,4,
+                                                                                                                         ifelse(dpopsdat$ageweeks>=41 & dpopsdat$ageweeks<59,5, ifelse(dpopsdat$ageweeks>=59 & dpopsdat$ageweeks<67,6,
+                                                                                                                                                                                       ifelse(dpopsdat$ageweeks>=67 & dpopsdat$ageweeks<111,7, ifelse(dpopsdat$ageweeks>=111 & dpopsdat$ageweeks<120,8,ifelse(dpopsdat$ageweeks>=120,9,NA)))))))))
+###########Developmental item at appropriate age
+
+#original age is defined as Age
+
+#fully corrected:
+dpopsdat$age<-dpopsdat$Age-7*(40-dpopsdat$gestationalage)
+
+#D-SCORE (new package)
+
+#?dscore
+#index
+#Calculate D-score and DAZ
+
+
+head(dpopsdat[, 1:10], 5)
+
+items <- names(dpopsdat)[44:100]
+names(itembank)[grep("lex_", names(itembank))]
+
+itemset <- !is.na(itembank$lex_dutch1983)
+head(cbind(items, itembank[itemset, c("lex_ghap")]))
+
+ib <- itembank[itemset,c("lex_dutch1983", "lex_ghap", "labelEN", "tau")]
+head(ib, 3)
+item_locations <- names(dpopsdat) %in% items
+names(dpopsdat)[item_locations] <- as.character(ib$lex_ghap)
+gettau(items = names(dpopsdat)[item_locations])
+
+library("tidyr")
+library("dplyr")
+data <- dpopsdat %>%
+   select(patid, moment, age, GSFIXEYE:GSKIK) %>%
+   gather(items, scores, GSFIXEYE:GSKIK, na.rm = TRUE) %>%
+   arrange(patid, moment)
+head(data)
+
+
+data <- na.omit(data.frame(data))
+data$ages <- round(data$age/365.25, 4)
+
+# calculate D-score and DAZ
+ds <- split(data, data$patid)
+dl <- parallel::mclapply(ds, FUN = dscore)
+dazl <- lapply(dl, FUN = daz)
+
+dffull <- data.frame(
+   patid = rep(as.numeric(names(dl)), times = unlist(lapply(dl, length))),
+   ages = as.numeric(unlist(lapply(dl, names))),
+   dscore = as.numeric(unlist(dl)),
+   dazfull = as.numeric(unlist(dazl)))
+head(dffull)
+
+dpopsdat$ages <- round((dpopsdat$Age-7*(40-dpopsdat$gestationalage))/365.25, 4)
+dpopsdatFIN <- merge(dpopsdat, dffull,all.x = TRUE)
+dpopsdatFIN<-dpopsdatFIN[order(dpopsdatFIN$patid),]
+
+head(select(dpopsdatFIN, patid, moment, ages, dscore, dazfull))
+
+
+
+#0.75  corrected:
+dpopsdat$age<-dpopsdat$Age-7*0.75*(40-dpopsdat$gestationalage)
+
+#D-SCORE
+
+head(dpopsdat[, 1:10], 5)
+
+items <- names(dpopsdat)[44:100]
+names(itembank)[grep("lex_", names(itembank))]
+
+itemset <- !is.na(itembank$lex_dutch1983)
+head(cbind(items, itembank[itemset, c("lex_ghap")]))
+
+ib <- itembank[itemset,c("lex_dutch1983", "lex_ghap", "labelEN", "tau")]
+head(ib, 3)
+item_locations <- names(dpopsdat) %in% items
+names(dpopsdat)[item_locations] <- as.character(ib$lex_ghap)
+gettau(items = names(dpopsdat)[item_locations])
+
+library("tidyr")
+library("dplyr")
+data <- dpopsdat %>%
+   select(patid, moment, age, GSFIXEYE:GSKIK) %>%
+   gather(items, scores, GSFIXEYE:GSKIK, na.rm = TRUE) %>%
+   arrange(patid, moment)
+head(data)
+
+
+data <- na.omit(data.frame(data))
+data$ages <- round(data$age/365.25, 4)
+
+# calculate D-score and DAZ
+ds <- split(data, data$patid)
+dl <- parallel::mclapply(ds, FUN = dscore)
+dazl <- lapply(dl, FUN = daz)
+
+df75 <- data.frame(
+   patid = rep(as.numeric(names(dl)), times = unlist(lapply(dl, length))),
+   ages = as.numeric(unlist(lapply(dl, names))),
+   dscore = as.numeric(unlist(dl)),
+   daz75 = as.numeric(unlist(dazl)))
+head(df75)
+
+dpopsdatFIN$ages <- round((dpopsdatFIN$Age-7*0.75*(40-dpopsdatFIN$gestationalage))/365.25, 4)
+dpopsdatFIN2 <- merge(dpopsdatFIN, df75,all.x = TRUE,by=c("patid","ages"))
+dpopsdatFIN2<-dpopsdatFIN2[order(dpopsdatFIN2$patid),]
+
+#no correction:
+dpopsdat$age<-dpopsdat$Age
+
+
+#D-SCORE (new package)
+
+#?dscore
+#index
+#Calculate D-score and DAZ
+
+
+head(dpopsdat[, 1:10], 5)
+
+items <- names(dpopsdat)[44:100]
+names(itembank)[grep("lex_", names(itembank))]
+
+itemset <- !is.na(itembank$lex_dutch1983)
+head(cbind(items, itembank[itemset, c("lex_ghap")]))
+
+ib <- itembank[itemset,c("lex_dutch1983", "lex_ghap", "labelEN", "tau")]
+head(ib, 3)
+item_locations <- names(dpopsdat) %in% items
+names(dpopsdat)[item_locations] <- as.character(ib$lex_ghap)
+gettau(items = names(dpopsdat)[item_locations])
+
+library("tidyr")
+library("dplyr")
+data <- dpopsdat %>%
+   select(patid, moment, age, GSFIXEYE:GSKIK) %>%
+   gather(items, scores, GSFIXEYE:GSKIK, na.rm = TRUE) %>%
+   arrange(patid, moment)
+head(data)
+
+
+data <- na.omit(data.frame(data))
+data$ages <- round(data$age/365.25, 4)
+
+# calculate D-score and DAZ
+ds <- split(data, data$patid)
+dl <- parallel::mclapply(ds, FUN = dscore)
+dazl <- lapply(dl, FUN = daz)
+
+df <- data.frame(
+   patid = rep(as.numeric(names(dl)), times = unlist(lapply(dl, length))),
+   ages = as.numeric(unlist(lapply(dl, names))),
+   dscore = as.numeric(unlist(dl)),
+   daz = as.numeric(unlist(dazl)))
+head(df)
+
+
+dpopsdatFIN2$ages <- round(dpopsdatFIN2$Age/365.25, 4)
+dpopsdatFINx <- merge(dpopsdatFIN2, df,all.x = TRUE,by=c("patid","ages"))
+dpopsdatFINx<-dpopsdatFINx[order(dpopsdatFINx$patid),]
+
+head(select(dpopsdatFINx, patid, moment, ages, dscore, daz))
+
+
+#Summary 0.75 correction
+
+mean(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==2],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==2],mean))
+mean(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==4],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==4],mean))
+mean(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==6],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==6],mean))
+mean(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==8],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==8],mean))
+
+sd(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==2],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==2],mean))
+sd(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==4],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==4],mean))
+sd(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==6],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==6],mean))
+sd(tapply(dpopsdatFINx$daz75[dpopsdatFIN2$ageweekscat==8],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==8],mean))
+
+#Summary full correction
+
+mean(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==2],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==2],mean))
+mean(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==4],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==4],mean))
+mean(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==6],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==6],mean))
+mean(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==8],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==8],mean))
+
+sd(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==2],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==2],mean))
+sd(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==4],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==4],mean))
+sd(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==6],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==6],mean))
+sd(tapply(dpopsdatFINx$dazfull[dpopsdatFIN2$ageweekscat==8],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==8],mean))
+
+#Summary no correction
+
+mean(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==2],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==2],mean))
+mean(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==4],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==4],mean))
+mean(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==6],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==6],mean))
+mean(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==8],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==8],mean))
+
+sd(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==2],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==2],mean))
+sd(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==4],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==4],mean))
+sd(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==6],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==6],mean))
+sd(tapply(dpopsdatFINx$daz[dpopsdatFIN2$ageweekscat==8],dpopsdatFIN2$patid[dpopsdatFIN2$ageweekscat==8],mean))
+
+#22-26 months
+
+#select data between 22-26 months or 670 and 791 days (corrected age)
+#365.25*22/12 - 365.25*26/12
+
+#fully corrected:
+dpopsdatFINx$age<-dpopsdatFINx$Age-7*(40-dpopsdatFINx$gestationalage)
+
+dpopsdatFINxsel<-dpopsdatFINx[dpopsdatFINx$age>=670 & dpopsdatFINx$age<=791 & !(is.na(dpopsdatFINx$age)),]
+
+
+length(unique(dpopsdatFINxsel$patid))
+nrow(dpopsdatFINxsel)
+
+
+
+#DEFINE VARIABLES
+
+#Residence
+
+dpopsdatFINxsel$residence<-ifelse(dpopsdatFINxsel$totnumberofresidents<2000,1,
+                                 ifelse(dpopsdatFINxsel$totnumberofresidents<50000,2,
+                                        ifelse(dpopsdatFINxsel$totnumberofresidents<1000000,3,
+                                               ifelse(dpopsdatFINxsel$totnumberofresidents>=1000000,4, NA))))
+
+#RECODE EDUCATION INTO NUMBER OF YEARS EDUCATION:
+
+#1 basisschool --> 8 years
+#2 mavo --> 8+4=12 years
+#3 havo --> 8+5=13 years
+#4 vwo --> 8+6=14 years
+#5 ulo --> 8+4=12 years
+#6 Mulo --> 8+4=12 years
+#7 hbs --> 8+5=13 years
+#8 lbo--> 8+4=12 years
+#9 mbo --> 8+4+3=15 years
+#10 hbo --> 8+5+4=17 years
+#11 univ -> 8+6+4=18 years
+#12 speciaal onderwijs --> 8+4 = 12 years
+#13 middelbare school --> 8+4 = 12 years
+
+
+dpopsdatFINxsel$edumocatfinal<-ifelse(dpopsdatFINxsel$oplm==1,8,
+                                    ifelse(dpopsdatFINxsel$oplm==2 | dpopsdatFINxsel$oplm==5| dpopsdatFINxsel$oplm==6 | dpopsdatFINxsel$oplm==8 | dpopsdatFINxsel$oplm==12 | dpopsdatFINxsel$oplm==13,12,
+                                           ifelse(dpopsdatFINxsel$oplm==3 | dpopsdatFINxsel$oplm==7,13,
+                                                  ifelse(dpopsdatFINxsel$oplm==4,14,
+                                                         ifelse(dpopsdatFINxsel$oplm==9,15,
+                                                                ifelse(dpopsdatFINxsel$oplm==10,17,
+                                                                       ifelse(dpopsdatFINxsel$oplm==11,18,NA)))))))
+
+
+
+dpopsdatFINxsel$edufacatfinal<-ifelse(dpopsdatFINxsel$oplv==1,8,
+                                      ifelse(dpopsdatFINxsel$oplv==2 | dpopsdatFINxsel$oplv==5| dpopsdatFINxsel$oplv==6 | dpopsdatFINxsel$oplv==8 | dpopsdatFINxsel$oplv==12 | dpopsdatFINxsel$oplv==13,12,
+                                             ifelse(dpopsdatFINxsel$oplv==3 | dpopsdatFINxsel$oplv==7,13,
+                                                    ifelse(dpopsdatFINxsel$oplv==4,14,
+                                                           ifelse(dpopsdatFINxsel$oplv==9,15,
+                                                                  ifelse(dpopsdatFINxsel$oplv==10,17,
+                                                                         ifelse(dpopsdatFINxsel$oplv==11,18,NA)))))))
+
+
+dpopsdatFINxsel$apgar1min<-dpopsdatFINxsel$var254
+dpopsdatFINxsel$apgar5min<-dpopsdatFINxsel$var258
+dpopsdatFINxsel$apgar1mincat<-ifelse(dpopsdatFINxsel$apgar1min<5,1,0)
+dpopsdatFINxsel$apgar5mincat<-ifelse(dpopsdatFINxsel$apgar5min<7,1,0)
+dpopsdatFINxsel$birthweight<-dpopsdatFINxsel$var243
+dpopsdatFINxsel$birthweightcat<-ifelse(dpopsdatFINxsel$birthweight<1500,1,
+                                      ifelse(dpopsdatFINxsel$birthweight<2500,2,3))
+dpopsdatFINxsel$birthsize<-dpopsdatFINxsel$var247
+
+
+
+
+
+
+#descriptives
+
+
+describe(dpopsdatFINxsel[,c("edumocatfinal","edufacatfinal","agemom", "gestationalage","birthweight","birthsize")],trim=0)
+100*(table(dpopsdatFINxsel$gender))/sum(table(dpopsdatFINxsel$gender))
+#1=male, 2=female
+100*(table(dpopsdatFINxsel$birthweightcat))/sum(table(dpopsdatFINxsel$birthweightcat))
+100*(table(dpopsdatFINxsel$apgar1mincat))/sum(table(dpopsdatFINxsel$apgar1mincat))
+100*(table(dpopsdatFINxsel$apgar5mincat))/sum(table(dpopsdatFINxsel$apgar5mincat))
+100*(table(dpopsdatFINxsel$residence))/sum(table(dpopsdatFINxsel$residence))
+
+#unadjusted DAZ analyses
+
+dpopsdatFINxsel$residence<-as.factor(dpopsdatFINxsel$residence)
+dpopsdatFINxsel$birthweightcat<-as.factor(dpopsdatFINxsel$birthweightcat)
+dpopsdatFINxsel$gender<-as.factor(dpopsdatFINxsel$gender)
+dpopsdatFINxsel$apgar1mincat<-as.factor(dpopsdatFINxsel$apgar1mincat)
+dpopsdatFINxsel$apgar5mincat<-as.factor(dpopsdatFINxsel$apgar5mincat)
+
+DFP <- within(dpopsdatFINxsel, residence <- relevel(residence, ref = 2))
+DFP <- within(DFP, birthweightcat <- relevel(birthweightcat, ref = 3))
+
+summary(lm(dazfull~residence,data=DFP[!(DFP$residence=="1"),]))
+summary(lm(dazfull~edumocatfinal,data=DFP))
+summary(lm(dazfull~edufacatfinal,data=DFP))
+summary(lm(dazfull~gender,data=DFP))
+summary(lm(dazfull~I(birthweight/1000),data=DFP))
+summary(lm(dazfull~birthweightcat,data=DFP[!(DFP$birthweightcat=="3"),]))
+summary(lm(dazfull~apgar1mincat,data=DFP))
+summary(lm(dazfull~apgar5mincat,data=DFP))
+summary(lm(dazfull~gestationalage,data=DFP))
+summary(lm(dazfull~agemom,data=DFP))
+summary(lm(dazfull~birthsize,data=DFP))
+
+mean(DFP$dazfull[DFP$birthweightcat=="2"])
+mean(DFP$dazfull[DFP$birthweightcat=="3"])
+
+mean(na.omit(DFP$dazfull[DFP$apgar5mincat=="1"]))
+mean(na.omit(DFP$dazfull[DFP$apgar5mincat=="0"]))
+
+mean(na.omit(DFP$daz[DFP$apgar5mincat=="1"]))
+mean(na.omit(DFP$daz[DFP$apgar5mincat=="0"]))
+
+###END POPS
+```
+
+**How to adjust development for age of gestation?**
+
+Developmental milestones can be assessed at several chronological ages (defined as age since birth, or postnatal age) to identify very preterm children who have developmental delay and who would benefit from stimulation programs. However, assessment of very preterm children at the same chronological age as term children may cause overdiagnosis of developmental delay in very preterm children and excessive referral for stimulation programs. Very preterm children may require additional time, determined by a factor that considers the difference between gestational age at birth ($GA_{birth}$) vs 40 wk ($GA_{birth}$ for normal term birth), to enable development equivalent to that of normal term birth children. Several authors have proposed full or half correction of chronological age of very preterm birth children to provide a realistic evaluation of age-appropriate milestones; e.g. compare milestones for a child born at $GA_{birth}$ 30 wk vs a normal term child when the chronological age is 10 (full correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40 minus 35 wk) lower for the term than very preterm child. The Dutch Development Instrument (DDI) – a modification of the Gesell test – is used in preventive child health care to assess development from birth to chronological age 4 y.
+
+**Data**
+
+In 1983, data were collected for 1338 infants in the Netherlands who had very preterm birth ($GA_{birth} \geq$ 25 and < 32 wk) or very low birth weight (birth weight < 1500 g) (Project On Preterm and Small for Gestational Age Infants [POPS]).
+
+**Methods**
+
+The $GA_{birth}$ was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings.
+We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth (<32 wk) and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurologic disorder, visual or hearing defects, or psychosocial problems. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$).
+Development was considered equal to the general Dutch population when mean DAZ = 0.
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $0.60 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $0.0 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0.75$ was:
+
+-	Uncorrected chronological age 19-26 wk: $-0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
+
+-	Uncorrected chronological age 19-26 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.5 \pm 1$.
+
+**Conclusions**
+
+Compared with the general population, more very preterm children reached developmental milestones within chronological age 26 wk when chronological age was fully corrected, and fewer preterm children reached the milestones when uncorrected chronological age was used; fewer children reached the milestones when 0.5 correction for $GA_{birth}$ was used, and similar proportions were observed when 0.75 correction for $GA_{birth}$ was used within the first 26 weeks after birth. After chronological age 26 wk, similar proportions were observed between very preterm and full term children when chronological age was fully corrected for $GA_{birth}$. We recommend 0.75 correction of chronological age before uncorrected chronological age 26 wk and full correction for uncorrected chronological age 26 to 119 wk.
+
+**Impact of characteristics on the DAZ in preterm children**
+
+**Data**
+
+When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.
+
+**Methods**
+
+Several characteristics were selected from the POPS cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million (there are no metropolitans in the Netherlands)
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birthweight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the POPS study:
+
+-	Maternal education (in years)
+-  Paternal education (in years)
+-	Maternal age (in years)
+-	Apgar score after 1 min < 5 (yes vs no)
+-	Apgar score after 5 min < 7 (yes vs no)
+
+Linear regression analyses were performed with DAZ as outcome and the indicators as predictors. Calculation of the DAZ was based on fully corrected chronological age.
+
+
+**Results**
+
+```{r, echo=FALSE, eval=FALSE}
+
+## Descriptives
+
+DFP$male<-as.factor(c(2-as.numeric(DFP$gender)))
+DFP$d<-DFP$dscore.x
+DFP$daz<-DFP$dazfull
+DFP$gestage<-DFP$gestationalage
+DFP$preterm<-1
+
+DFP$female<-ifelse(DFP$male==0,1,0)
+
+DFP$apgar1mincatdummy1<-ifelse(DFP$apgar1mincat==1,1,0)
+DFP$apgar1mincatdummy2<-ifelse(DFP$apgar1mincat==0,1,0)
+
+DFP$apgar5mincatdummy1<-ifelse(DFP$apgar5mincat==1,1,0)
+DFP$apgar5mincatdummy2<-ifelse(DFP$apgar5mincat==0,1,0)
+
+
+DFP$birthweightcatdummy1<-ifelse(DFP$birthweightcat==1,1,0)
+DFP$birthweightcatdummy2<-ifelse(DFP$birthweightcat==2,1,0)
+DFP$birthweightcatdummy3<-ifelse(DFP$birthweightcat==3,1,0)
+
+
+DFP$residencedummy1<-ifelse(DFP$residence==1,1,0)
+DFP$residencedummy2<-ifelse(DFP$residence==2,1,0)
+DFP$residencedummy3<-ifelse(DFP$residence==3,1,0)
+
+
+# report descriptives in table
+# the continuous variables:
+contvars <- c("age", "d", "daz", "birthweight","birthsize","gestage", "apgar1min", "apgar5min","agemom","edumocatfinal","edufacatfinal")
+# the categorical variables:
+catvars <- c("male", "female","preterm","birthweightcatdummy1","birthweightcatdummy2","birthweightcatdummy3","apgar1mincatdummy1","apgar1mincatdummy2","apgar5mincatdummy1","apgar5mincatdummy2","residencedummy1","residencedummy2","residencedummy3")
+
+catvars2 <- list("male"=DFP$male[DFP$male==1 & !(is.na(DFP$male))],
+                 "female"=DFP$female[DFP$female==1 & !(is.na(DFP$female))],
+                 "preterm"=DFP$preterm,
+                 "birthweightcatdummy1"=DFP$birthweightcatdummy1[DFP$birthweightcatdummy1==1 & !(is.na(DFP$birthweightcatdummy1))],
+                 "birthweightcatdummy2"=DFP$birthweightcatdummy2[DFP$birthweightcatdummy2==1 & !(is.na(DFP$birthweightcatdummy2))],
+                 "birthweightcatdummy3"=DFP$birthweightcatdummy3[DFP$birthweightcatdummy3==1 & !(is.na(DFP$birthweightcatdummy3))],
+                 "apgar1mincatdummy1"=DFP$apgar1mincatdummy1[DFP$apgar1mincatdummy1==1 & !(is.na(DFP$apgar1mincatdummy1))],
+                 "apgar1mincatdummy2"=DFP$apgar1mincatdummy2[DFP$apgar1mincatdummy2==1 & !(is.na(DFP$apgar1mincatdummy2))],
+                 "apgar5mincatdummy1"=DFP$apgar5mincatdummy1[DFP$apgar5mincatdummy1==1 & !(is.na(DFP$apgar5mincatdummy1))],
+                 "apgar5mincatdummy2"=DFP$apgar5mincatdummy2[DFP$apgar5mincatdummy2==1 & !(is.na(DFP$apgar5mincatdummy2))],
+                 "residencedummy1"=DFP$residencedummy1[DFP$residencedummy1==1 & !(is.na(DFP$residencedummy1))],
+                 "residencedummy2"=DFP$residencedummy2[DFP$residencedummy2==1 & !(is.na(DFP$residencedummy2))],
+                 "residencedummy3"=DFP$residencedummy3[DFP$residencedummy3==1 & !(is.na(DFP$residencedummy3))])
+
+
+
+# CONTINUOUS VARIABLES
+
+v_n <- lapply(DFP[contvars], function(x) sum(is.na(x)==FALSE))
+v_mean <- lapply(DFP[contvars], mean, na.rm=TRUE)
+v_sd <- lapply(DFP[contvars], sd, na.rm=TRUE)
+v_median <- lapply(DFP[contvars], median, na.rm=TRUE)
+##minimum en maximum:
+# v_min <- lapply(curdat[contvars], min, na.rm=TRUE)
+# v_max <- lapply(curdat[contvars], max, na.rm=TRUE)
+
+
+descr <- as.data.frame(cbind(v_n, v_mean, v_sd, v_median)) # , v_min, v_max)
+
+descr <- format(descr, digits=2, nsmall=2)
+
+row.names(descr) <- c("age (in years)", "D-score","DAZ fully corrected","birthweight (in grams)", "birth size (in cm)","gestational age (in weeks)","apgar score after 1 min","apgar score after 5 min","maternal age (in years)","maternal education (in years)","paternal education (in years)")
+colnames(descr) <- c("N", "mean", "SD", "median")
+
+knitr::kable(descr, 
+             caption="Descriptives")
+
+
+# CATEGORICAL VARIABLES:
+v2_n <- lapply(catvars2, function(x) sum(is.na(x)==FALSE))
+v2_perc <- lapply(DFP[catvars], function(x) prop.table(table(x))["1"] * 100) 
+
+
+descr2 <- as.data.frame(cbind(v2_n, v2_perc))
+descr2 <- format(descr2, digits=1, nsmall=1)
+row.names(descr2) <- c("boys", "girls","gestational age <32 weeks","birthweight <1500 grams","birthweight >=1500-<2500 grams","birthweight >=2500 grams","apgar score after 1 min <5","apgar score after 1 min >=5","apgar score after 5 min <7","apgar score after 5 min >=7",
+                       "rural area of residence","semi-urban level of residence","urban level of residence")
+
+colnames(descr2) <- c("N", "%")
+
+
+#knitr::kable(descr2 #, 
+#             # caption="Descriptives"
+#)
+
+
+## Regression analyses - continuous variables
+
+contvars
+
+regr2.age <- summary(lm(daz ~ age, data=DFP))$coefficients["age",]
+regr2.birthweight<- summary(lm(daz ~ birthweight, data=DFP))$coefficients["birthweight",]
+regr2.birthsize<- summary(lm(daz ~ birthsize, data=DFP))$coefficients["birthsize",]
+regr2.gestage<- summary(lm(daz ~ gestage, data=DFP))$coefficients["gestage",]
+regr2.apgar1min<- summary(lm(daz ~ apgar1min, data=DFP))$coefficients["apgar1min",]
+regr2.apgar5min<- summary(lm(daz ~ apgar5min, data=DFP))$coefficients["apgar5min",]
+regr2.agemom<- summary(lm(daz ~ agemom, data=DFP))$coefficients["agemom",]
+regr2.edumocatfinal<- summary(lm(daz ~ edumocatfinal, data=DFP))$coefficients["edumocatfinal",]
+regr2.edufacatfinal<- summary(lm(daz ~ edufacatfinal, data=DFP))$coefficients["edufacatfinal",]
+
+
+
+# regression analysis - categorical variables
+
+
+catvars
+
+
+
+regr2.male <- summary(lm(daz ~ as.factor(male), data=DFP))$coefficients["as.factor(male)1",]
+
+
+DFP$birthweightcat <- relevel(DFP$birthweightcat, ref = 1)
+regr2.below2500 <- summary(lm(daz ~ as.factor(birthweightcat), data=DFP))$coefficients["as.factor(birthweightcat)2",]
+regr2.aboveorat2500gram <- summary(lm(daz ~ as.factor(birthweightcat), data=DFP))$coefficients["as.factor(birthweightcat)3",]
+regr2.apgar1minbelow5 <- summary(lm(daz ~ as.factor(apgar1mincat), data=DFP))$coefficients["as.factor(apgar1mincat)1",]
+regr2.apgar5minbelow7 <- summary(lm(daz ~ as.factor(apgar5mincat), data=DFP))$coefficients["as.factor(apgar5mincat)1",]
+
+DFP$residence <- relevel(DFP$residence, ref = 2)
+regr2.rural <- summary(lm(daz ~ as.factor(residence), data=DFP))$coefficients["as.factor(residence)1",]
+regr2.urban <- summary(lm(daz ~ as.factor(residence), data=DFP))$coefficients["as.factor(residence)3",]
+
+
+#all results in one table:  
+
+regr2.d<-rep(NA,4)
+regr2.daz<-rep(NA,4)
+regr2.female<-c(0,rep(NA,3))
+regr2.preterm<-rep(NA,4)
+regr2.below1500<-c(0,rep(NA,3))
+regr2.apgar1minabove5<-c(0,rep(NA,3))
+regr2.apgar5minabove7<-c(0,rep(NA,3))
+regr2.semiurban<-c(0,rep(NA,3))
+
+
+all_regr_coef <- rbind(regr2.d, regr2.daz,regr2.age, regr2.male,
+                       regr2.female,
+                       regr2.birthweight, regr2.aboveorat2500gram, regr2.below2500,
+                       regr2.below1500, 
+                       regr2.birthsize,
+                       regr2.gestage,regr2.preterm,
+                       regr2.apgar1min, regr2.apgar1minabove5, regr2.apgar1minbelow5,
+                       regr2.apgar5min, regr2.apgar5minabove7,regr2.apgar5minbelow7, regr2.urban,
+                       regr2.semiurban, regr2.rural,regr2.agemom,regr2.edumocatfinal,regr2.edufacatfinal)
+
+
+
+colnames(all_regr_coef) <- c("Estimate", "SE", "t-statistics", "p-value")
+
+
+all_regr_coef[,c("Estimate", "SE","t-statistics","p-value")] <- 
+   format(round(all_regr_coef[,c("Estimate", "SE","t-statistics","p-value")],4), nsmall=4)
+
+# round p-values and present low p-values as .001
+all_regr_coef[,c("p-value")] <- format.pval(as.numeric(all_regr_coef[,c("p-value")]), eps = .001, digits=4)
+
+
+#knitr::kable(all_regr_coef, 
+#             caption="Coefficients",
+#             col.names=colnames(all_regr_coef))
+
+
+
+# Descriptives and regression coefficients in one table
+
+all_regr_coef <- as.data.frame(all_regr_coef)
+
+all_regr_coef$varbeschr <- c("D-score","DAZ fully corrected","age (in years)","boys","girls","birthweight (in grams)","birthweight >=2500 grams","birthweight >=1500-<2500 grams","birthweight <1500 grams","birth size (in cm)","gestational age (in weeks)","gestational age <32 weeks","apgar score after 1 min",
+                             "apgar score after 1 min >=5","apgar score after 1 min <5","apgar score after 5 min","apgar score after 5 min >=7",
+                             "apgar score after 5 min <7","urban level of residence","semi-urban level of residence","rural area of residence","maternal age (in years)","maternal education (in years)","paternal education (in years)")
+
+
+
+descr$varbeschr <- rownames(descr)
+
+# merge with 'varbeschr':
+
+descrx<-data.frame(descr,rep(NA,nrow(descr)))
+colnames(descrx)[6]<-("%")
+
+descr2x<-data.frame(descr2[,1],rep(NA,nrow(descr2)),rep(NA,nrow(descr2)),rep(NA,nrow(descr2)),rownames(descr2),descr2[,2])
+rownames(descr2x)<-rownames(descr2)
+dimnames(descr2x)[[2]]<-dimnames(descrx)[[2]]
+
+all_regr_coef$sort<-1:nrow(all_regr_coef)
+
+descrtot<-rbind(descrx,descr2x)
+descr_regr_coef_tot <- merge(descrtot,all_regr_coef,by ="varbeschr",all.x=TRUE,all.y=TRUE)
+descr_regr_coef_tot<-descr_regr_coef_tot[order(descr_regr_coef_tot$sort),]
+
+
+rownames(descr_regr_coef_tot) <- descr_regr_coef_tot$varbeschr
+
+descr_regr_coef_tot <- descr_regr_coef_tot[,-grep("varbeschr", colnames(descr_regr_coef_tot))]
+descr_regr_coef_tot <- descr_regr_coef_tot[,-grep("sort", colnames(descr_regr_coef_tot))]
+
+
+# change 'NA' values to empty spaces in table 
+options(knitr.kable.NA = '')
+
+# maak tabel
+knitr::kable(descr_regr_coef_tot, 
+             caption="Descriptives and coefficients")
+
+```
+
+**Conclusions**
+
+Paternal education was significantly associated with DAZ at 2 years of age. The more years of education, the higher the mean DAZ.Calculation of the DAZ was based on fully corrected chronological age.
+
+
+
+## How to adjust development for age of gestation?
+
+Developmental milestones can be assessed at several chronological ages
+(defined as age since birth, or postnatal age) to identify very
+preterm children who have developmental delay and who would benefit
+from stimulation programs. However, assessment of very preterm
+children at the same chronological age as term children may cause
+over-diagnosis of developmental delay in very preterm children and
+excessive referral for stimulation programs. Very preterm children may
+require additional time, determined by a factor that considers the
+difference between gestational age at birth ($GA_{birth}$) vs 40 wk
+($GA_{birth}$ for normal term birth), to enable development equivalent
+to that of normal term birth children. Several authors have proposed
+full or half correction of chronological age of very preterm birth
+children to provide a realistic evaluation of age-appropriate
+milestones; e.g. compare milestones for a child born at $GA_{birth}$
+30 wk vs a normal term child when the chronological age is 10 (full
+correction, i.e. 40 minus 30 wk) or 5 wk (half correction, i.e. 40
+minus 35 wk) lower for the term than very preterm child. The Dutch
+Development Instrument (DDI) – a modification of the Gesell test – is
+used in preventive child health care to assess development from birth
+to chronological age 4 y.
+
+**Data**
+
+In 1983, data were collected for 1338 infants in the Netherlands who
+had very preterm birth ($GA_{birth} \geq$ 25 and < 32 wk) or very low
+birth weight (birth weight < 1500 g) (Project On Preterm and Small for
+Gestational Age Infants [POPS]).
+
+**Methods**
+
+The $GA_{birth}$ was determined from the best obstetric estimate, including last menstrual period, results of pregnancy testing, and ultrasonography findings.
+We evaluated development from birth to chronological age 2.5 y in 258 children who had very preterm birth (<32 wk) and no handicaps such as retardation (3 or 4 months retarded or Developmental Quotient between 80 and 90), neurological disorder, visual or hearing defects, or psycho-social problems. For the calculation of DAZ, the uncorrected and several corrected chronological ages were used according to the equation:
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$).
+Development was considered equal to the general Dutch population when mean DAZ = 0.
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $0.67 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0.75$ was:
+
+-	Uncorrected chronological age 19-26 wk: $-0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
+
+-	Uncorrected chronological age 19-26 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-1.9 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.4 \pm 1$.
+
+**Conclusions**
+
+Compared with the general population, more very preterm children
+reached developmental milestones within chronological age 26 wk when
+chronological age was fully corrected, and fewer preterm children
+reached the milestones when uncorrected chronological age was used;
+fewer children reached the milestones when 0.5 correction for
+$GA_{birth}$ was used, and similar proportions were observed when 0.75
+correction for $GA_{birth}$ was used within the first 26 weeks after
+birth. After chronological age 26 wk, similar proportions were
+observed between very preterm and full term children when
+chronological age was fully corrected for $GA_{birth}$. We recommend
+0.75 correction of chronological age before uncorrected chronological
+age 26 wk and full correction for uncorrected chronological age 26 to
+119 wk.
+
+### Impact of characteristics on the DAZ in preterm children**
+
+**Data**
+
+When we select the DAZ at 2y of fully corrected chronological age
+(range 22-26 months) within the POPS study, 199 children were
+available.
+
+**Methods**
+
+Several characteristics were selected from the POPS cohort.  The
+following indicators are in agreement with the Global Indicators
+Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birth weight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the POPS study:
+
+=======
+
+Corrected chronological age ($d$) = uncorrected chronological age ($d$) - ($X_i × 7 × [40 - GA_{birth}(wk)]$)
+
+where the correction factor $X_i$ ranged from full ($X_i = 1$) through half ($X_i = 0.5$) and no correction ($X_i = 0$).
+Development was considered equal to the general Dutch population when mean DAZ = 0.
+
+**Results**
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 1.0$ were:
+
+-	Uncorrected chronological age 19-26 wk: $0.67 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-0.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with correction by $X_i = 0.75$ was:
+
+-	Uncorrected chronological age 19-26 wk: $-0.1 \pm 1$.
+
+Mean DAZ $\pm$ SD for chronological age with no correction ($X_i = 0$) were:
+
+-	Uncorrected chronological age 19-26 wk: $-1.8 \pm 1$;
+-	Uncorrected chronological age 32-40 wk: $-1.9 \pm 1$;
+-	Uncorrected chronological age 59-66 wk: $-1.1 \pm 1$;
+-	Uncorrected chronological age 111-119 wk: $-0.4 \pm 1$.
+
+**Conclusions**
+
+Compared with the general population, more very preterm children
+reached developmental milestones within chronological age 26 wk when
+chronological age was fully corrected, and fewer preterm children
+reached the milestones when uncorrected chronological age was used;
+fewer children reached the milestones when 0.5 correction for
+$GA_{birth}$ was used, and similar proportions were observed when 0.75
+correction for $GA_{birth}$ was used within the first 26 weeks after
+birth. After chronological age 26 wk, similar proportions were
+observed between very preterm and full term children when
+chronological age was fully corrected for $GA_{birth}$. We recommend
+0.75 correction of chronological age before uncorrected chronological
+age 26 wk and full correction for uncorrected chronological age 26 to
+119 wk.
+
+### Impact of characteristics on the DAZ in preterm children
+
+**Data**
+
+When we select the DAZ at 2y of fully corrected chronological age (range 22-26 months) within the POPS study, 199 children were available.
+
+**Methods**
+
+Several characteristics were selected from the POPS cohort.  The following indicators are in agreement with the Global Indicators Project:
+
+- Area of residence:
+    - rural: <2,000 inhabitants
+    - semi-urban: [2000, 50,000] inhabitants
+    - urban: 50,000 – 1 million inhabitants
+    - metropolitan: >1 million
+
+-	Number of years of education by the mother (in years)
+-	Child related factors:
+     - Gestational age (In weeks and in categories of very preterm (<32 weeks), preterm (<37 weeks) and term birth (≥37 weeks))
+     - Gender (boys vs girls)
+     - Birth weight (in grams)
+     - Birth size (in cm)
+
+We also added the following indicators from the POPS study:
+
+-	Paternal education (in years)
+-	Maternal age (in years)
+-	Apgar score after 1 min < 5 (yes vs no)
+-	Apgar score after 5 min < 7 (yes vs no)
+
+Linear regression analyses were performed with DAZ as outcome and the indicators as predictors. Calculation of the DAZ was based on fully corrected chronological age.
+
+
+**Results**
+
+```{r, echo=FALSE, eval=FALSE}
+
+resultsPOPS<- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urban", "metropolitan", "Maternal education (in years)", "Paternal education (in years)", "Maternal age (in years)", "Gestational age (in weeks)", "Gestational age (in categories)", "$\\geq 37$ weeks", "$\\geq 32 - 37$ weeks", "$<32$ weeks*", "Gender", "boys", "girls", "Birthweight (in kg)","Birthweight (in categories)", "$\\geq 2500$ grams", "$\\geq 1500 - <2500$ grams", "$<1500$ grams", "Birth size (in cm)", "Apgar score after 1 min", "$<5$", "$\\geq 5$", "Apgar score after 5 min", "$<7$", "$\\geq 7$"),
+                b = c(" ","$1$", "$120$" , "$71$", "$0$", "$152$", "$156$", "$193$", "$199$", " ", "$0$", "$0$", "$199$", " ", "$88$", "$111$", "$199$"," ", "$1$", "$65$", "$133$", "$165$", " ", "$44$", "$147$", " ", "$16$", "$160$"),
+                c = c( " ","$0.5%$", "$62.5%$" , "$37.0%$", "$0%$", "$13.4 (2.2)$", "$14.1 (2.4)$", "$27.5 (4.4)$", "$30.1 (1.4)$", " ", "$0%$", "$0%$", "$100%$", " ", "$44.2%$", "$55.8%$", "$1.371 (0.341)$"," ", "$0.5%$", "$32.7%$", "$66.8%$", "$39.6 (3.2)$", " ", "$77.0%$", "$23.0%$", " ", "$9.1%$", "$90.9%$"),
+                d = c(" ","", "$0$", "$-0.1561 (0.1661)$", " ", "$0.07417 (0.03897)$", "$0.08542 (0.03458)$", "$0.01462 (0.01810)$", "$0.02039 (0.05784)$", " ", " ", " "," ", " ", "$-0.09883 (0.15862)$", "$0$", "$0.4280  (0.2299)$"," ", "", "$0.14866 (0.16782)$", "$0$", "$0.01707 (0.02706)$", " ", "$-0.13315 (0.19208)$", "$0$", " ", "$0.56013 (0.28326)$", "$0$"),
+                e = c(" "," "," " , "$-0.939$", " ", "$1.903$", "$2.470$", "$0.808$", "$0.352$", " ", " ", " ", " "," ", " ","$0.623$","$1.862$"," "," ","$0.886$"," ","$0.631$", " ", "$-0.693$"," "," ","$1.977$", " "),
+               f = c(" "," "," ","$0.349$" , " ","0.0589","$0.0146$","$0.420$","$0.725$", " ", " ", " ", " ", " ", " ", "$0.534$", "$0.0641$", " ", " ","$0.377$", " ", "$0.529$", " ","$0.4890$", " ", " ", "$0.0496$", " "))
+
+knitr::kable(resultsPOPS, caption = "Results POPS", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
+```
+
+**Conclusions**
+
+Paternal education and Apgar score after 5 minutes below 7 were significantly associated with DAZ at 2 years of age.
+
+
+## TOGO study
+
+### Usability and validity of the $D$-score in a low income country: The case of Togo
+
+The $D$-score is intended as a universal measure of children’s development. There is ample research indicating that the $D$-score actually is a valid indicator of development in western European countries like the Netherlands. If the $D$-score is a universal measure it should be informative in low and middle income countries as well. However, little is known about the usability and validity of the $D$-score in such countries. The aim of the present study is to examine the usability and validity of the $D$-score in the western African country of Togo. Togo definitely qualifies as a low income country with a 2017 GNI per capita of $610 versus $46,180 in the Netherlands, and $744 for low income countries in general (data.worldbank.org).   
+	To address this issue, we used data that were gathered by a French physician in Kpalimé, Togo. She set up a child health care system that was modeled after the Dutch preventive health care system. The system included the use of the *Dutch Development Instrument* (DDI; in Dutch: *Van Wiechenschema*) to assess whether children’s developmental progress is in the normal range. The DDI data were used to calculate the $D$-scores as well as the age-corrected z-score of the $D$-score relative to a Dutch sample (DAZ). These two indices are the dependent variables in the present study. Data were gathered from about 9747 individuals in the 0-18 age range, but for the present study we focus on data from children in the 0-4 age range because the DDI assessment system is meant for this age range.  
+	Other available measures include father’s level of schooling, father’s number of children at the child’s first visit to the medical center, the APGAR score as a newborn, children’s weight, and the results of a physician’s neurological examination during visits to the health center. These variables are used to predict children’s $D$-scores and thereby to examine the $D$-score’s usability and validity in Togo.  
+
+**Methods**  
+
+*Participants*    
+	Participants potentially included 1859 children in the 0-4 age range who paid at least one visit to the Kpalimé health center. Kpalimé is the fourth biggest town in Togo, but the health center also attracted parents and children from a wide surrounding rural area. Parents visited the health center for several reasons, including for a preventive health check or because of their child’s apparent health problems. The possibility of visiting the health center was made known to parents by information sessions for parents at primary schools. Parents paid a small amount of money per visiting child (about €4 for children of 4 years or older, and €0.80 for children younger than 4 years).  
+	Because of limitations that are inherent to working in a low income country (limited access to the internet, computer failure) data of newly digitized paper dossiers were sent to the Netherlands on a regular basis, but this practice unavoidably caused some unclarities and inconsistencies in the resulting dataset. Many of these could be solved, but time constraints prevented us from solving them all. Consequently, the data of .. potential participants (..%) were not yet included in the present study which leaves a dataset of 1659 (of 1644 NOG UITZOEKEN). Moreover $D$-scores could not be calculated when either age or DDI data were missing, which leaves a dataset of 2342 visits from 1522 children. The number of visits that parents of these children in the 0-4 age range paid to the health center varied from 1 – 9, but the majority of children were seen only once (n = 1146; 75.3%).  
+
+*Measures*  
+$D$-score  
+$D$-scores were calculated based on a French-language version of the DDI assessment. As in the Dutch preventive health care system, the goal of administering the DDI assessment was to  distinguish children with developmental problems from normal children. This means that items were chosen such that 90% of the children is expected to pass on age-equivalent items. Generally, for children that did not pass items age-equivalent items, extra items meant for a lower age were assessed (with the exception that items meant for children younger than 15 months were never administered to children of age 15 months or older). Scores were strictly based on observations rather than on parent report. For the exact procedure to calculate $D$-scores based on DDI-scores, see chapter 5.  
+
+Medical assessment  
+At each visit a physician notated whether problems were observed regarding a wide range of health aspects including problems with reflexes and muscle tension. Also, weight was measured at each visit.
+
+Background characteristics  
+At the first visit of each child, the accompanying adult (mostly the mother) was asked to report on general background characteristics, including profession of the parents and the number of children each of the parents has (due to polygamy this number may differ between parents). As a measure of socio-economic status (SES) we constructed a dichotomous variable 'schooling of father' based on the reported profession of the father. As the main physician and founder of the medical center is familiar with the local culture and schooling system, she indicated which of the thirteen most common professions were likely to be schooled professions (i.e. need more than primary education). Fathers with one of these professions were classified as 'schooled'. When 'another profession' was marked, the father was categorized as unschooled.  
+	Other background characteristics included gender of the child, number of children of the father at the moment of the first visit, and birth date. Age of the child at the moment of visiting was calculated based on the date of visit and the birth date. In Togo, medical information about a newborn is notated on a special card which parents receive. Parents were asked to take this card to the medical center; in this way information about the birth situation of part of the children was obtained, including 
+	<!-- birth weight, gestational age (<37 weeks versus 37 weeks or more) and  (wordt in beschreven analyses niks mee gedaan gebruikt, dus niet noemen)-->
+	APGAR scores at 1, 5 and 10 minutes after birth.  
+
+*Procedure*  
+Measures used in this study were assessed at the medical center in Kpalimé which parents visited with their children, and were part of a general preventive health assessment (including physical measurements of weight, height, and head size, a medical examination, a few blood tests, and a hearing test). Also, parents were asked to report on characteristics of the birth situation, previous health issues, nutrition situation, and background characteristics of the family.   
+During the visits, medical assessment took place before assessment of the DDI assessment, and was conducted by the same physician. All assessments, including the DDI assessment, were either performed by the initiating physician and founder of the medical center, or by one of three local physicians trained to assess the DDI procedure. Resulting data of the assessment (including advice given and/or references to another professional) were documented in paper dossiers and in 2017 digitized by four local assistants via software program EpiData. 
+ 
+*Analyses*  
+To assess the validity of the $D$-score in this population, we inspected scatter plots in which $D$-scores are plotted against age for all available visits, and in which children with neurological problems as observed by a physician are highlighted. It was expected that a curve is seen, with higher $D$-scores for older children, moreover children with very low $D$-scores for their age were expected to be assessed by the physician as having a neurological problem.
+	Validity and usability of the $D$-score in this population would also be supported when known risk factors of developmental problems would be found to be predictors of a lower $D$-score in this population as well. Risk factors of interest are health problems of a newborn (as indicated by a less than optimal APGAR score at 10 minutes), and being underweighted. Furthermore, if a relation between underweight and a lower $D$-score is observed, it would also be interesting to see whether there is a relation between family size and $D$-score, as many children per family could be a cause of malnutrition. For this purpose children were classified as being part of a large family when the number of children of their father was 5 or more (at the moment of their first visit) versus 4 or less.  
+  To assess which risk factors predict a lower than normal $D$-score, several regression analyses were conducted. Outcome variable is the Development - Age adjusted Z-score (DAZ) which tells how many standard deviations the $D$-score of the child deviates from his/her age mates. To calculate these z-scores, data of Dutch children are used as reference data. As this reference data is only available for children younger than age 2.78 years, only DAZ-scores could be calculated for age group 0 – 2.78, and therefore all regression analyses were performed for this subgroup.  
+  For some of the risk factor variables data is only available for part of the children. In order to prevent a loss of power, for each risk factor separate regression analyses were conducted. In each regression sex and education level of father (schooled versus unschooled) were added as covariates (except for the regression where the relation between large families and the DAZ is analyzed, as family size and schooling may be confounded). As data from visits of the same children are not independent, regressions were performed on data with one visit per child only. All regression analyses were conducted twice: once with the data from the first visit of each child, and once with the last visit of each child.
+
+
+**Results**  
+
+<!-- nog ergens invoegen (in tekst?): n-en van de regressies ## -->
+
+```{r, echo=FALSE}
+library(ddata)
+library(dscore)
+
+# remove rows without valid agedays
+togo <- TGO %>%
+  filter(!is.na(agedays)) %>%
+  arrange(id, agedays)
+
+# calculate d and daz
+itembank_NL <- dscore::itembank[,c("lex_gcdg", "tau")]
+# lijkt erop togo ability() standaard de var 'age' gebruikt die in je data voorkomt, ook als je in de functie bij age="" een andere var opgegeven hebt die gebruikt moet worden
+# zorg dat age echt age in jaren is: daarom overnemen van age_yr:
+togo$age <- togo$age_yr
+# calculate d
+output_dscore <- ability(data=togo,
+                              items = colnames(togo)[colnames(togo)%in%itembank$lex_gcdg],
+                              age="age", 
+                              metric="dscore",
+                              itembank=itembank_NL,
+                              lexicon="gcdg")
+togo <- cbind(togo, output_dscore)
+# b = d-score; rename 'b' as 'd'
+colnames(togo)[grep("^b$", colnames(togo))] <- "d"
+
+# calculate daz
+ref_NL <- dscore::Dreference # reference group
+# with 'x.unit' as 'year' as 'age' is in years
+togo$daz <- daz(togo$d, togo$age, x.unit = "year", ref = ref_NL)
+
+# select subset: only visits with d-scores (use in plots to prevent warnings about missing values)
+togo_d <- togo[is.na(togo$d)==FALSE,]
+
+# select subset with first daz-measurement per child
+togo <- togo[order(togo$id, is.na(togo$daz), togo$agedays),]
+togo$firstDAZ <- as.numeric(duplicated(togo$id)==FALSE)
+togo_first <- togo[togo$firstDAZ==1,]
+
+# select subset with last daz-measurement per child
+togo <- togo[order(togo$id, is.na(togo$daz), -togo$agedays),]
+togo$lastDAZ <- as.numeric(duplicated(togo$id)==FALSE)
+togo_last <- togo[togo$lastDAZ==1,]
+
+
+# select subset with first child measurement
+# togo_first <- togo %>%
+#   group_by(id) %>%
+#   mutate(first = min(agedays)) %>%
+#   filter(agedays == first)
+
+# select subset with last child measurement (gives less cases as togo_last above as oldest children don't have a daz because no reference data was available above age 2.7)
+# togo_last <- togo %>% 
+#  group_by(id) %>%
+#  mutate(last = max(agedays)) %>%
+#  filter(agedays == last)
+
+
+```
+
+
+```{r, echo=FALSE}
+# the continuous variables:
+contvars <- c("age_yr", "d", "daz", "weight", "waz")
+# the categorical variables:
+catvars <- c("male", "prof_father_dich", "tonus.and.or.reflex.problems", 
+             "apgar.10min.dich.less.than.10") # (below: recode 'apgar.10min.dich10')
+
+# for descriptives use child level data: last visit with daz per child
+curdat <- togo_last
+
+# construct variable tonus.and.or.reflex.problems
+curdat$tonus.and.or.reflex.problems <- NA
+curdat$tonus.and.or.reflex.problems[
+  is.na(curdat$neuro.reflex) == FALSE & is.na(curdat$neuro.tonus) == FALSE] <- 0
+curdat$tonus.and.or.reflex.problems[
+  is.na(curdat$neuro.reflex)==FALSE & 
+    is.na(curdat$neuro.tonus)==FALSE & 
+    (curdat$neuro.reflex==1 | curdat$neuro.tonus==1)] <- 1
+# table(curdat$tonus.and.or.reflex.problems, useNA="ifany")
+# table(curdat$neuro.tonus,
+      # curdat$neuro.reflex, useNA="ifany")
+
+# rescore variable 'apgar.10min.dich10' (to 1='not optimal' and 0='optimal')
+curdat$apgar.10min.dich.less.than.10 <- NA
+curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==1] <- 0
+curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==0] <- 1
+# table(curdat$apgar.10min.dich.less.than.10, curdat$apgar.10min.dich10, useNA="ifany")
+
+# descriptives
+# continuous variables:
+v_n <- lapply(curdat[contvars], function(x) sum(is.na(x) == FALSE))
+v_mean <- lapply(curdat[contvars], mean, na.rm = TRUE)
+v_sd <- lapply(curdat[contvars], sd, na.rm=TRUE)
+v_median <- lapply(curdat[contvars], median, na.rm=TRUE)
+# v_min <- lapply(curdat[contvars], min, na.rm=TRUE)
+# v_max <- lapply(curdat[contvars], max, na.rm=TRUE)
+
+descr <- as.data.frame(cbind(v_n, v_mean, v_sd, v_median)) # , v_min, v_max)
+descr <- format(descr, digits=2, nsmall=2)
+row.names(descr) <- c("age (years)", "D-score","DAZ","weight (kg)", "weight z-score (age-corrected, WHO-reference data)")
+
+knitr::kable(descr, 
+             caption="Descriptives (last visit, for which daz could be calculated, per child)",
+             col.names=c("N", "mean", "SD", "median"))
+```
+
+```{r echo = FALSE}
+# voor de categorical vars:
+v2_n <- lapply(curdat[catvars], function(x) sum(is.na(x)==FALSE))
+v2_perc <- lapply(curdat[catvars], function(x) prop.table(table(x))["1"] * 100) # 
+
+descr2 <- as.data.frame(cbind(v2_n, v2_perc))
+descr2 <- format(descr2, digits=1, nsmall=1)
+row.names(descr2) <- c("gender (% boys)", "fathers' schooling (% schooled)","muscle tension and/or reflex problems (% with problems, as observed by physician)","APGAR 10 min. (% with score <10)")
+
+knitr::kable(descr2, 
+             # caption="Descriptives", 
+             col.names=c("N", "%"))
+
+
+```
+
+The relation between $D$-score and age can be found in figure .. As expected, a curve is seen, with higher ages related to higher $D$-scores. Also, it can be seen that several $D$-scores are below the curve, i.e. these children had lower $D$-scores than their age mates. In figure .. it can be seen that many of these lower than normal $D$-scores are not artifacts of the data, but belong to children that were observed to have reflex and/or muscle tension problems.  
+
+```{r, echo=FALSE}
+
+nvisits_d <- nrow(togo_d)
+# of .. unique children:
+n_d <- length(unique(togo_d[,"id"]))
+
+library(ggplot2)
+
+# whole group, all visits (i.e. can be more per child)
+ggplot() +
+  geom_point(data=togo_d,
+             aes(x=age_yr*12, 
+                 y=d #, colour=no_of_items_completed<4
+                 )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+                     ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+                     ) +
+  xlab("age (months)")+ylab("d-score")  + 
+  annotate("text", label=paste(nvisits_d, "visits from", n_d, "children", sep=" "), x=55, y=5, fontface="italic")
+  # geom_line(data=ref_NL, aes(x=month, y=SDP2), colour="blue") +
+  # geom_line(data=ref_NL, aes(x=month, y=SD0), colour="red") +
+  # geom_line(data=ref_NL, aes(x=month, y=SDM2), colour="blue")
+
+  
+
+```
+
+
+
+```{r, echo=FALSE}
+# no. of visits in this plot:
+nvisits_tonus_reflex_d <- nrow(togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE) & (is.na(togo_d$d)==FALSE),])
+# of .. unique children:
+n_tonus_reflex_d <- length(unique(togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE) & (is.na(togo_d$d)==FALSE),"id"]))
+
+# as validation: 
+# red colour for muscle tone and/or reflex-problems
+ggplot(togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE),], 
+       aes(x=age*12, y=d)) +
+  geom_point() +
+  geom_point(data=togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE),],
+             aes(x=age*12, y=d, colour=(neuro.reflex==1|neuro.tonus==1) )) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)")+ylab("d-score") +
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("no reflex or muscle tone problems", "reflex and/or muscle tone problems"),
+                     name="as observed by physician:")   + 
+  annotate("text", label=paste(nvisits_tonus_reflex_d, "visits from", n_tonus_reflex_d, "children", sep=" "), 
+           x=48, y=10,
+           # x=-Inf,y=-Inf,
+           # hjust=0, vjust=0,
+           fontface="italic")
+
+  
+```
+
+
+```{r, echo=FALSE}
+# regression
+# waz as predictor of daz
+# figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
+
+# data: last visit with daz, per child
+# step 1: gender only (covariate)
+regr10.1 <- lm(daz ~ male, data=togo_last) 
+# step 2: add fathers' schooling (covariate)
+regr10.2 <- lm(daz ~ male + prof_father_dich, data=togo_last)  
+# step 3: add predictor of interest: waz
+regr10.3 <- lm(daz ~ male + prof_father_dich + waz, data=togo_last)  
+
+regr10.3.summary <- summary(regr10.3)
+regr10.3.waz.coeff <- summary(regr10.3)$coefficients["waz",]
+
+```
+
+```{r, echo=FALSE}
+
+# extra analysis relation waz and daz: 
+# daz predicted by no. of children in family?
+# data: last visit with daz, per child
+# step 1: gender only (covariate)
+regr6.1 <- lm(daz ~ male, data=togo_last)  
+# step 2: add predictor of interest: no.of.children.father (5 or more vs 4 or less)
+regr6.2 <- lm(daz ~ male + no.of.children.father.dich5, data=togo_last)  
+
+regr6.2.summary <- summary(regr6.2)
+regr6.2.no_of_children_father_dich5.coeff <- summary(regr6.2)$coefficients["no.of.children.father.dich5",]
+
+```
+
+In figure .. underweighted children are highlighted. Visually there seems to be a relation between being underweighted and having a lower than normal $D$-score. A regression based on data of children's last visit for which the DAZ-score could be calculated, showed that indeed the age-corrected weight z-score (waz), after correction for fathers' schooling and sex of the child, did predict the DAZ: a decrease of 1 SD in age-corrected weight was related to a decrease of `r round(regr10.3.waz.coeff["Estimate"],1) ` SD in age-corrected $D$-score (p `r format.pval(regr10.3.waz.coeff["Pr(>|t|)"], eps = .001) `), which is a reasonable effect. The overall model explained `r round(regr10.3.summary$adj.r.squared * 100,0)`% of the DAZ variance (adjusted R^2^). As in the other regression analyses sex and fathers' schooling did not contribute significantly to the model.
+	Because there clearly seems to be a relation between underweight and a lower than normal $D$-score, it was also tested whether family size (which might be a cause of malnutrition) did predict the DAZ. No such relation was found: children from large families (5 or more children of the father at the moment of the first visit versus 4 or less children) did not have different DAZ-scores at their last visit than children from smaller families (after correction for sex: B = `r round(regr6.2.no_of_children_father_dich5.coeff["Estimate"],2)`, p = `r format.pval(regr6.2.no_of_children_father_dich5.coeff["Pr(>|t|)"], eps = .001, digits=2)`, adjusted R^2^ = `r round(regr6.2.summary$adj.r.squared,3)`).  
+<!-- NOG CHECKEN: is het inderdaad 2zijdig getoetst? -->
+
+```{r, echo=FALSE}
+# aantal bezoeken in deze plot:
+nvisits_waz_d <- nrow(togo_d[(is.na(togo_d$waz)==FALSE) & (is.na(togo_d$d)==FALSE),])
+# van .. unieke kinderen:
+n_waz_d <- length(unique(togo_d[(is.na(togo_d$waz)==FALSE) & (is.na(togo_d$d)==FALSE),"id"])) 
+
+# in red: waz < (-2) (weight age-corrected z-score) 
+ggplot() +
+  geom_point(data=togo_d[is.na(togo_d$waz)==FALSE,],
+             aes(x=age*12, 
+                 y=d, 
+                 colour=waz<(-2)
+             )
+  ) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)") + ylab("d-score") +
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("not underweighted (age-corrected zscore > -2)", 
+                              "underweighted (age-corrected zscore < -2)"),
+                     name="based on WHO reference data:")    + 
+  annotate("text", label=paste(nvisits_waz_d, "visits from", n_waz_d, "children", sep=" "), 
+           x=45, y=5,
+           fontface="italic")
+
+
+```
+<!-- *`r nvisits_waz_d` visits from `r n_waz_d` children* -->
+
+
+
+
+```{r, echo=FALSE}
+# regression APGAR as predictor of daz
+# figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
+
+# data: last visit with daz, per child
+# step 1: gender only (covariate)
+regr2.1 <- lm(daz ~ male, data=togo_last)
+# step 2: add fathers' schooling (covariate)
+regr2.2 <- lm(daz ~ male + prof_father_dich, data=togo_last)
+# step 3: add predictor of interest: apgar
+regr2.3 <- lm(daz ~ male + prof_father_dich + apgar.10min.dich10, data=togo_last)
+
+regr2.3.summary <- summary(regr2.3)
+regr2.3.APGAR10min_dich10.coeff <- summary(regr2.3)$coefficients["apgar.10min.dich10",]
+
+```
+
+In figure .. $D$-scores of the children for who a 10-minute APGAR score was available are shown. A less than optimal 10-minute APGAR score (i.e. less than 10 points) did predict a lower DAZ at their last visit after correction for sex and father's schooling (B = `r format(round(regr2.3.APGAR10min_dich10.coeff["Estimate"],2), nsmall=2)`, p `r format.pval(regr2.3.APGAR10min_dich10.coeff["Pr(>|t|)"], eps = .001, digits=2)`, adjusted R^2^ = `r round(regr2.3.summary$adj.r.squared,3)`). So, children with a less than optimal APGAR score at ten minutes after birth, had somewhat lower $D$-scores.  
+<!-- NOG CHECKEN: waarom is df zoveel kleiner dan 534? Komt dat door 'laatste visit'-selectie?   -->
+<!-- en bij deze nog prematuriteit en evt. geb.gew toevoegen als covariaat? Kan dat dit vooral gaat over prematuur vs niet-prematuur # -->
+
+For all regression analyses mentioned, results were similar when based on children's first visit.
+
+```{r, echo=FALSE}
+# no. of visits in plot:
+nvisits_apgar10_d <- nrow(togo_d[(is.na(togo_d$apgar.10min)==FALSE) & (is.na(togo_d$d)==FALSE),])
+# of .. unique children:
+n_apgar10_d <- length(unique(togo_d[(is.na(togo_d$apgar.10min)==FALSE) & (is.na(togo_d$d)==FALSE),"id"]))    
+
+# in red: apgar score below 10, 10min after birth
+ggplot() +
+  geom_point(data=togo_d[is.na(togo_d$apgar.10min)==FALSE,],
+             aes(x=age*12, 
+                 y=d, 
+                 colour=apgar.10min<10
+             )
+  ) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+  ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+  ) +
+  xlab("age (months)") + ylab("d-score")+
+  scale_color_manual(breaks = c("FALSE", "TRUE"),
+                     values=c("black", "red"),
+                     labels=c("10 points at apgar 10 min",
+                              "less than 10 points at apgar 10 min"),
+                     name="")    + 
+  annotate("text", label=paste(nvisits_apgar10_d, "visits from", n_apgar10_d, "children", sep=" "), 
+           x=50, y=10,
+           fontface="italic")
+
+
+```  
+ <!-- *`r nvisits_apgar10_d` visits from `r n_apgar10_d` children*  -->
+
+ 
+
+**Discussion and conclusions**  
+
+In this study we examined the validity and usability of the $D$-score in low income country Togo. The $D$-score does seem to be informative in this country. The $D$-score did increase with age, and for the majority of the children $D$-scores were very similar within their age group. It is notable that there were also several children with much lower $D$-scores when compared with their age mates. This does not seem to be an artifact of the data or of the measures, as the majority of these children were observed to have muscle tension and/or reflex problems. So, it is plausible that these children indeed had developmental problems. Furthermore, health factors that were expected to be related to having a lower $D$-score were found to be significant predictors: a less than optimal APGAR score 10 minutes after birth, and a lower than normal weight at the time of the assessment were related to a lower than normal $D$-score. Especially the relation between weight and $D$-score was quite strong, as the model with age-corrected weight, sex and father's schooling explained 18% of the variance in age-corrected $D$-score. The positive relation between weight and $D$-score, as well as the fact that children were often underweighted in this population, seems to indicate that being underweighted is a risk factor for developmental problems. The main physician of the medical center noted that not many children with extreme underweight were seen, but our results do indicate that also less than severe underweight does have a negative impact on the development of children.  
+	The idea that having many children in the family would be related to having a lower $D$-score (due to possible malnutrition), was not supported. This might mean that there is no clear relation between living in a large family and being underweighted, or that we did not have enough power to detect this, as there were not that many children from large families.  
+Neither sex nor father's schooling did significantly contribute to variance in age-corrected $D$-scores. For sex at this young ages, this is consistent with results found in other studies (… refs…). Parents' schooling has been found to be related to $D$-scores in other studies (… refs..); that it was not in the present study might have to do with the population, or with the current method where it was estimated whether the parent was schooled based on profession. Many fathers had a profession other than the thirteen most common professions and were estimated to have no schooling, which might not be correct for part of this group.  
+	A limitation of the present study is that our sample might not be representative of children in a low income country, or even of children in Togo. Especially the fact that many children came to the medical center because they were ill might mean that they are not representative in terms of general development and other measures. However, the current goal was to examine the validity and usability of the $D$-score in a low income country, and the result that, even though many children were ill, the $D$-score is clearly related to neurological problems (as indicated by reflex, and/or muscle tension problems), age, APGAR score as a newborn and weight does show that the $D$-score is informative in a low income country as well.  
+
+  
+  
+  
+<!-- Evt nog doen:   -->
+<!-- -	Na overleg met Cécile Schat: zij zagen heel weinig echte ondervoeding; wel is lichaamsbouw daar zeer tenger; wat gebeurt er als je ipv ondergewicht 'voedingstoestand geobserveerd door arts' neemt als predictor? Betere indicator van ondervoeding is bovendien: specifieke vorm van bloedarmoede; die variabele zit er ook in; zegt ook iets over eenzijdig eten in plaats van simpelweg te weinig (volgens Cécile Schat komt eenzijdig wel veel voor; te weinig niet)   -->
+<!-- -	Gestational age en gebgewicht variabelen naar juiste dataset overhevelen zodat die ook gebruikt kunnen worden (GEDAAN; gebruiken om te laten zien dat verband APGAR-score niet verklaard wordt door prematuriteit?) -->
+
+
+
+## Comparison
+
+
+```{r, echo=FALSE}
+
+# base reference lines on:
+ref_NL <- dscore::Dreference # dutch reference group
+
+# togo, whole group, all visits (can be more per child)
+ggplot() +
+  geom_point(data=togo_d,
+             aes(x=age*12, # age in months
+                 y=d)) +
+  scale_x_continuous(name = "age (months)",
+                     limits = c(0,65),
+                     breaks = seq(0,65, by=10)
+                     ) +
+  scale_y_continuous(name = "d-score" #,
+                     # limits = c(40,80),
+                     # breaks = seq(40,80, by=10)
+                     ) +
+  xlab("age (months)")+ylab("d-score") +
+   geom_line(data=ref_NL, aes(x=month, y=SDP2), colour="blue", size=1.5) +
+   geom_line(data=ref_NL, aes(x=month, y=SD0), colour="red", size=1.5) +
+   geom_line(data=ref_NL, aes(x=month, y=SDM2), colour="blue", size=1.5)
+```
