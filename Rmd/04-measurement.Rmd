@@ -246,11 +246,11 @@ plot <-
                       na.value = "grey") +
   scale_x_continuous("Age (in months)",
                      limits = c(0, 30),
-                     breaks = seq(0, 28, 4)) +
+                     breaks = seq(0, 30, 6)) +
   scale_y_continuous(
     paste0("D-score (", model$name, ")"),
     breaks = seq(0, 70, 10),
-    limits = c(0, 70)
+    limits = c(-5, 75)
   ) +
 # geom_line(colour = get_palette("study", package = model$data_package)["GCDG-NLD-SMOCC"]) +
   geom_line(colour = "grey90") +
