@@ -233,7 +233,7 @@ section provides the explanation.
 
 ## Relation between age and the $D$-score
 
-```{r smoccda, echo = FALSE, fig.cap = '(ref:smoccda)', warning = FALSE}
+```{r smoccda, echo = FALSE, fig.cap = '(ref:smoccda)', fig.height = 6, warning = FALSE}
 reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
   filter(month <= 30) %>%
   tidyr::gather(key = centile, value = d,-month)
