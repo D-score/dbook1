@@ -26,15 +26,51 @@ varlist <- list(adm = c("cohort", "subjid", "agedays"),
 model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
-```{r aux9, echo = FALSE}
-reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
-  filter(month <= 30) %>%
-  tidyr::gather(key = centile, value = d,-month)
-polygon <- data.frame(
-  x = c(reference$month[reference$centile == "SDM2"],
-        rev(reference$month[reference$centile == "SDP2"])),
-  y = c(reference$d[reference$centile == "SDM2"],
-        rev(reference$d[reference$centile == "SDP2"])))
+```{r plotddaz, echo = FALSE}
+plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz", 
+                      xlab = "Age (in months)", ylab = "D-score", zlab = "DAZ",
+                      colour = "black") {
+  reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+    filter(month <= 30) %>%
+    tidyr::gather(key = centile, value = d,-month)
+  polygon <- data.frame(
+    x = c(reference$month[reference$centile == "SDM2"],
+          rev(reference$month[reference$centile == "SDP2"])),
+    y = c(reference$d[reference$centile == "SDM2"],
+          rev(reference$d[reference$centile == "SDP2"])))
+  
+  g1 <-
+    ggplot(data, aes_string(x = x, y = y)) +
+    theme_light() +
+    scale_x_continuous(xlab,
+                       limits = c(0, 30),
+                       breaks = seq(0, 30, 6)) +
+    scale_y_continuous(ylab,
+                       limits = c(0, 75),
+                       breaks = seq(0, 70, 10)) +
+    geom_polygon(mapping = aes(x = x, y = y), 
+                 data = polygon, col = "transparent", fill = "grey", alpha = 0.1) + 
+    geom_line(mapping = aes(x = month, y = d, group = centile), 
+              data = reference, colour = "grey", alpha = 0.3) +
+    geom_point(colour = colour, size = 0.5) +
+    facet_wrap( ~ cohort, ncol = 1) +
+    theme(legend.position = "none")
+  g2 <-
+    ggplot(data, aes_string(x = x, y = z)) +
+    theme_light() +
+    scale_x_continuous(xlab,
+                       limits = c(0, 30),
+                       breaks = seq(0, 30, 6)) +
+    scale_y_continuous(zlab,
+                       limits = c(-5, 5),
+                       breaks = seq(-5, 5, 1)) +
+    annotate("rect", xmin = 0, xmax = 30, ymin = -2, ymax = 2, 
+             alpha = 0.1, fill = "grey") +
+    geom_point(colour = colour, size = 0.5) +
+    facet_wrap( ~ cohort, ncol = 1) +
+    theme(legend.position = "none")
+  gridExtra::grid.arrange(g1, g2, nrow = 2)
+}
 ```
 
 ```{r smoccda9, echo = FALSE, fig.cap = '(ref:smoccda9)', fig.height = 12, warning = FALSE}
@@ -43,37 +79,8 @@ model$dscore$daz    <- daz(model$dscore$b, x = model$dscore$agedays,
                            x.unit = "day")
 model$dscore$cohort <- "SMOCC"
 
-g1 <-
-  ggplot(model$dscore, aes(x = agemos, y = b)) +
-  theme_light() +
-  scale_x_continuous("Age (in months)",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("D-score"),
-                     limits = c(0, 75),
-                     breaks = seq(0, 70, 10)) +
-  geom_polygon(mapping = aes(x = x, y = y), 
-               data = polygon, col = "transparent", fill = "grey", alpha = 0.1) + 
-  geom_line(mapping = aes(x = month, y = d, group = centile), 
-            data = reference, colour = "grey", alpha = 0.3) +
-  geom_point(colour = "#FF7F00", size = 0.5, alpha = 0.7) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-g2 <-
-  ggplot(model$dscore, aes(x = agemos, y = daz)) +
-  theme_light() +
-  scale_x_continuous("Age (in months)",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("DAZ"),
-                     limits = c(-5, 5),
-                     breaks = seq(-5, 5, 1)) +
-  annotate("rect", xmin = 0, xmax = 30, ymin = -2, ymax = 2, 
-           alpha = 0.1, fill = "grey") +
-  geom_point(colour = "#FF7F00", size = 0.5, alpha = 0.7) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-grid.arrange(g1, g2, nrow = 2)
+plot_ddaz(model$dscore, x = "agemos", y = "b", z = "daz", 
+          colour = "#FF7F00B3")
 ```
 
 (ref:smoccda9) Distribution of $D$-score and DAZ by child age in a
@@ -185,38 +192,10 @@ data2 <- data2[!is.na(data2$daz_0.75), ]
 
 ```{r popsda9, echo = FALSE, fig.cap = '(ref:popsda9)', fig.height = 12, warning = FALSE}
 data2$cohort <- "POPS"
-
-g1 <-
-  ggplot(data2, aes(x = age_c0.75 * 12, y = d_0.75)) +
-  theme_light() +
-  scale_x_continuous("Age (in months) corrected",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("D-score"),
-                     limits = c(0, 75),
-                     breaks = seq(0, 70, 10)) +
-  geom_polygon(mapping = aes(x = x, y = y), 
-               data = polygon, col = "transparent", fill = "grey", alpha = 0.1) + 
-  geom_line(mapping = aes(x = month, y = d, group = centile), 
-            data = reference, colour = "grey", alpha = 0.3) +
-  geom_point(colour = "#006CC2B3", size = 0.5) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-g2 <-
-  ggplot(data2, aes(x = age_c0.75 * 12, y = daz_0.75)) +
-  theme_light() +
-  scale_x_continuous("Age (in months) corrected",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("DAZ"),
-                     limits = c(-5, 5),
-                     breaks = seq(-5, 5, 1)) +
-  annotate("rect", xmin = 0, xmax = 30, ymin = -2, ymax = 2, 
-           alpha = 0.1, fill = "grey") +
-  geom_point(colour = "#006CC2B3", size = 0.5) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-grid.arrange(g1, g2, nrow = 2)
+data2$agemos <- data2$age_c0.75 * 12
+plot_ddaz(data2, y = "d_0.75", z = "daz_0.75", 
+          xlab = "Age (in months) corrected", 
+          colour = "#006CC2B3")
 ```
 
 (ref:popsda9) Distribution of $D$-score and DAZ by child age in a
@@ -316,37 +295,10 @@ $D$-scores. Discrepancies are tiny for non-perfect scores.
 ### Effect of no age adjustment ($f = 0.00$) on the DAZ
 
 ```{r popsda90, echo = FALSE, fig.cap = '(ref:popsda90)', fig.height = 12, warning = FALSE}
-g1 <-
-  ggplot(data2, aes(x = age_c0.00 * 12, y = d_0.00)) +
-  theme_light() +
-  scale_x_continuous("Calender age (in months)",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("D-score"),
-                     limits = c(0, 75),
-                     breaks = seq(0, 70, 10)) +
-  geom_polygon(mapping = aes(x = x, y = y), 
-               data = polygon, col = "transparent", fill = "grey", alpha = 0.1) + 
-  geom_line(mapping = aes(x = month, y = d, group = centile), 
-            data = reference, colour = "grey", alpha = 0.3) +
-  geom_point(colour = "#006CC2B3", size = 0.5) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-g2 <-
-  ggplot(data2, aes(x = age_c0.00 * 12, y = daz_0.00)) +
-  theme_light() +
-  scale_x_continuous("Calender age (in months)",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("DAZ"),
-                     limits = c(-5, 5),
-                     breaks = seq(-5, 5, 1)) +
-  annotate("rect", xmin = 0, xmax = 30, ymin = -2, ymax = 2, 
-           alpha = 0.1, fill = "grey") +
-  geom_point(colour = "#006CC2B3", size = 0.5) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-grid.arrange(g1, g2, nrow = 2)
+data2$agemos <- data2$age_c0.00 * 12
+plot_ddaz(data2, y = "d_0.00", z = "daz_0.00", 
+          xlab = "Calender age (in months)", 
+          colour = "#006CC2B3")
 ```
 
 (ref:popsda90) Distribution of $D$-score and DAZ without age correction 
@@ -362,37 +314,10 @@ development.
 ### Effect of full age adjustment ($f = 1.00$) on the DAZ
 
 ```{r popsda91, echo = FALSE, fig.cap = '(ref:popsda91)', fig.height = 12, warning = FALSE}
-g1 <-
-  ggplot(data2, aes(x = age_c1.00 * 12, y = d_1.00)) +
-  theme_light() +
-  scale_x_continuous("Age (in months), fully corrected",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("D-score"),
-                     limits = c(0, 75),
-                     breaks = seq(0, 70, 10)) +
-  geom_polygon(mapping = aes(x = x, y = y), 
-               data = polygon, col = "transparent", fill = "grey", alpha = 0.1) + 
-  geom_line(mapping = aes(x = month, y = d, group = centile), 
-            data = reference, colour = "grey", alpha = 0.3) +
-  geom_point(colour = "#006CC2B3", size = 0.5) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-g2 <-
-  ggplot(data2, aes(x = age_c1.00 * 12, y = daz_1.00)) +
-  theme_light() +
-  scale_x_continuous("Age (in months), fully corrected",
-                     limits = c(0, 30),
-                     breaks = seq(0, 30, 6)) +
-  scale_y_continuous(paste0("DAZ"),
-                     limits = c(-5, 5),
-                     breaks = seq(-5, 5, 1)) +
-  annotate("rect", xmin = 0, xmax = 30, ymin = -2, ymax = 2, 
-           alpha = 0.1, fill = "grey") +
-  geom_point(colour = "#006CC2B3", size = 0.5) +
-  facet_wrap( ~ cohort, ncol = 1) +
-  theme(legend.position = "none")
-grid.arrange(g1, g2, nrow = 2)
+data2$agemos <- data2$age_c1.00 * 12
+plot_ddaz(data2, y = "d_1.00", z = "daz_1.00", 
+          xlab = "Age (in months), fully corrected", 
+          colour = "#006CC2B3")
 ```
 
 (ref:popsda91) Distribution of $D$-score and DAZ under full age correction 
