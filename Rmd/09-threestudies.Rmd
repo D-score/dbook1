@@ -492,13 +492,13 @@ Parents paid a small amount of money per visiting child (about USD
 younger than 4 years).
 
 All data were registered in paper dossiers. Data were digitized by
-four local data-assistents, and on a regular basis mailed to TNO, the
+four local data-assistants, and on a regular basis mailed to TNO, the
 Netherlands to check for completeness and consistency.
 
 ```{r dataassistents, echo = FALSE, fig.cap = '(ref:dataassistents)', out.width='60%', fig.align='center'}
 include_graphics("fig/data_assistents.png")
 ```
-(ref:dataassistents) Three of the data-assistents who helped to digitize the paper files.
+(ref:dataassistents) Three of the data-assistants who helped to digitize the paper files.
 
 Here we use a subset of 2674 visits from 1644 unique children who were
 scored on the 57 milestones of the DDI 0-2 years. $D$-scores could not
@@ -553,8 +553,17 @@ data2$cohort <- "TOGO: Marked by presence of neurological problem"
 plot_da(data2, v = "neuro", colour = "#009E73B3")
 ```
 
-(ref:togoda1) Distribution of $D$-score by age labelled by neurologic
+(ref:togoda1) Distribution of $D$-score by age labelled by neurological
 (tonus and/or reflex) problems. (Source: TOGO data).
+
+Figure \@ref(fig:togoda1) is the same scatter plot as in Figure
+\@ref(fig:togoda), but now marked by whether the physician registered
+signs of neuropathology in the form of tonus and reflex problems.
+
+Many children with low $D$-scores also tonus and/or reflex problems.
+This finding alone suggests that extreme $D$-score are not artifacts
+(e.g. caused by a wrongly coded age), but actually indicate major
+adverse health conditions.
 
 ### $D$-scores labelled by Apgar score
 
@@ -563,8 +572,12 @@ data2$cohort <- "TOGO: Marked by Apgar (10 min) < 8"
 plot_da(data2, v = "apgar", colour = "#009E73B3")
 ```
 
-(ref:togoda2) Distribution of $D$-score by age labelled by Agpar score (10 minutes) lower than 8.
-(Source: TOGO data).
+(ref:togoda2) Distribution of $D$-score by age labelled by Apgar score
+(10 minutes) lower than 8. (Source: TOGO data).
+
+Figure \@ref(fig:togoda2) identifies the children who had an Apgar
+score at 10 minutes after birth that was lower than 8. About half of
+these children had a $D$-score below -2 SD curve.
 
 ### $D$-scores labelled by severe underweight
 
@@ -573,7 +586,14 @@ data2$cohort <- "TOGO: Marked by severe underweight (WAZ < -4)"
 plot_da(data2, v = "underweight", colour = "#009E73B3")
 ```
 
-(ref:togoda3) Distribution of $D$-score by age labelled by severe underweight (WAZ < -4) (Source: TOGO data).
+(ref:togoda3) Distribution of $D$-score by age labelled by severe
+underweight (WAZ < -4) (Source: TOGO data).
+
+Many children who visited the Kpalimé health center had a low body
+weight for their age. Figure \@ref(fig:togoda3) marks the subset of
+severely underweight children (WAZ < -4). A substantial proportion of
+these children also had a very low $D$-score.
+
 
 ### $D$-scores labelled by severe stunting
 
@@ -582,7 +602,17 @@ data2$cohort <- "TOGO: Marked by severe stunted growth (HAZ < -4)"
 plot_da(data2, v = "stunted", colour = "#009E73B3")
 ```
 
-(ref:togoda4) Distribution of $D$-score by age labelled by severe stunting (HAZ < -4) (Source: TOGO data).
+(ref:togoda4) Distribution of $D$-score by age labelled by severe
+stunting (HAZ < -4) (Source: TOGO data).
+
+Figure \@ref(fig:togoda4) is similar to \@ref(fig:togoda3), but now
+marked by the subset of severely stunted children (HAZ < -4). Also,
+here a sizable proportion has a low $D$-score.
+
+When taken together, Figures \@ref(fig:togoda1)-\@ref(fig:togoda4)
+show that children with very low $D$-scores often experience
+(multiple) harsh health problems. Those health problems may have
+substantially delayed their development.
 
 
 ```{r echo=FALSE, eval = FALSE}
