@@ -172,7 +172,7 @@ pops_data$age <- pops_data$age_c1.00
 d_1.00 <- ability(data = pops_data, items = items, key = dkey, qp = -10:80)
 z_1.00 <- daz(d = d_1.00$b, x = pops_data$age, ref = ref)
 
-data2 <- bind_cols(pops_data, 
+pops2 <- bind_cols(pops_data, 
                    cohort  = rep("POPS", nrow(pops_data)),
                    n = d_0.00$n, 
                    p = d_0.00$p,
@@ -185,13 +185,13 @@ data2 <- bind_cols(pops_data,
                    daz_0.50 = z_0.50,
                    daz_0.75 = z_0.75,
                    daz_1.00 = z_1.00)
-data2 <- data2[!is.na(data2$daz_0.75), ]
+pops2 <- pops2[!is.na(pops2$daz_0.75), ]
 ```
 
 ```{r popsda9, echo = FALSE, fig.cap = '(ref:popsda9)', fig.height = 12, warning = FALSE}
-data2$cohort <- "POPS"
-data2$agemos <- data2$age_c0.75 * 12
-plot_ddaz(data2, y = "d_0.75", z = "daz_0.75", 
+pops2$cohort <- "POPS"
+pops2$agemos <- pops2$age_c0.75 * 12
+plot_ddaz(pops2, y = "d_0.75", z = "daz_0.75", 
           xlab = "Age (in months) corrected", 
           colour = "#006CC2B3")
 ```
@@ -262,7 +262,7 @@ We evaluate these two effects in turn.
 ### Effect of age-adjustment on the $D$-score
 
 ```{r adjustd, echo = FALSE, fig.cap = '(ref:adjustd)'}
-g <- ggplot(subset(data2, n > 0), 
+g <- ggplot(subset(pops2, n > 0), 
             aes(x = d_0.00, y = d_1.00, 
                 colour = cut(f, breaks = c(-1, 0, 1, 35),
                              labels = c("0", "1", "2+")))) + 
@@ -293,8 +293,8 @@ $D$-scores. Discrepancies are tiny for non-perfect scores.
 ### Effect of no age adjustment ($f = 0.00$) on the DAZ
 
 ```{r popsda90, echo = FALSE, fig.cap = '(ref:popsda90)', fig.height = 12, warning = FALSE}
-data2$agemos <- data2$age_c0.00 * 12
-plot_ddaz(data2, y = "d_0.00", z = "daz_0.00", 
+pops2$agemos <- pops2$age_c0.00 * 12
+plot_ddaz(pops2, y = "d_0.00", z = "daz_0.00", 
           xlab = "Calender age (in months)", 
           colour = "#006CC2B3")
 ```
@@ -312,8 +312,8 @@ development.
 ### Effect of full age adjustment ($f = 1.00$) on the DAZ
 
 ```{r popsda91, echo = FALSE, fig.cap = '(ref:popsda91)', fig.height = 12, warning = FALSE}
-data2$agemos <- data2$age_c1.00 * 12
-plot_ddaz(data2, y = "d_1.00", z = "daz_1.00", 
+pops2$agemos <- pops2$age_c1.00 * 12
+plot_ddaz(pops2, y = "d_1.00", z = "daz_1.00", 
           xlab = "Age (in months), fully corrected", 
           colour = "#006CC2B3")
 ```
@@ -333,7 +333,7 @@ try intermediate values for $f$ between 0 and 1.
 ### Partial age adjustment
 
 ```{r tabz, echo = FALSE}
-tabs <- data2 %>% 
+tabs <- pops2 %>% 
   mutate(gp = cut_number(agemos, n = 8)) %>% 
   group_by(gp) %>% 
   summarise(z0.00 = mean(daz_0.00, na.rm = TRUE),
@@ -419,7 +419,7 @@ ref <- dscore::Dreference
 d <- ability(data = togo, items = items, key = dkey, qp = -10:80)
 z <- daz(d = d$b, x = togo$age, ref = ref)
 
-data2 <- bind_cols(togo, 
+togo2 <- bind_cols(togo, 
                    cohort  = rep("KPALIME", nrow(togo)),
                    n = d$n, 
                    p = d$p,
@@ -429,11 +429,11 @@ data2 <- bind_cols(togo,
 ```
 
 ```{r togoda, echo = FALSE, fig.cap = '(ref:togoda)', fig.height = 12, warning = FALSE}
-data2$agemos <- data2$age * 12
+togo2$agemos <- togo2$age * 12
 
-data2$cohort <- "TOGO"
+togo2$cohort <- "TOGO"
 
-plot_ddaz(data2, y = "d", z = "daz", 
+plot_ddaz(togo2, y = "d", z = "daz", 
           colour = "#009E73B3")
 ```
 
@@ -549,8 +549,8 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
 
 
 ```{r togoda1, echo = FALSE, fig.cap = '(ref:togoda1)', fig.height = 6, warning = FALSE}
-data2$cohort <- "TOGO: Marked by presence of neurological problem"
-plot_da(data2, v = "neuro", colour = "#009E73B3")
+togo2$cohort <- "TOGO: Marked by presence of neurological problem"
+plot_da(togo2, v = "neuro", colour = "#009E73B3")
 ```
 
 (ref:togoda1) Distribution of $D$-score by age labelled by neurological
@@ -568,8 +568,8 @@ adverse health conditions.
 ### $D$-scores labelled by Apgar score
 
 ```{r togoda2, echo = FALSE, fig.cap = '(ref:togoda2)', fig.height = 6, warning = FALSE}
-data2$cohort <- "TOGO: Marked by Apgar (10 min) < 8"
-plot_da(data2, v = "apgar", colour = "#009E73B3")
+togo2$cohort <- "TOGO: Marked by Apgar (10 min) < 8"
+plot_da(togo2, v = "apgar", colour = "#009E73B3")
 ```
 
 (ref:togoda2) Distribution of $D$-score by age labelled by Apgar score
@@ -582,8 +582,8 @@ these children had a $D$-score below -2 SD curve.
 ### $D$-scores labelled by severe underweight
 
 ```{r togoda3, echo = FALSE, fig.cap = '(ref:togoda3)', fig.height = 6, warning = FALSE}
-data2$cohort <- "TOGO: Marked by severe underweight (WAZ < -4)"
-plot_da(data2, v = "underweight", colour = "#009E73B3")
+togo2$cohort <- "TOGO: Marked by severe underweight (WAZ < -4)"
+plot_da(togo2, v = "underweight", colour = "#009E73B3")
 ```
 
 (ref:togoda3) Distribution of $D$-score by age labelled by severe
@@ -598,8 +598,8 @@ these children also had a very low $D$-score.
 ### $D$-scores labelled by severe stunting
 
 ```{r togoda4, echo = FALSE, fig.cap = '(ref:togoda4)', fig.height = 6, warning = FALSE}
-data2$cohort <- "TOGO: Marked by severe stunted growth (HAZ < -4)"
-plot_da(data2, v = "stunted", colour = "#009E73B3")
+togo2$cohort <- "TOGO: Marked by severe stunted growth (HAZ < -4)"
+plot_da(togo2, v = "stunted", colour = "#009E73B3")
 ```
 
 (ref:togoda4) Distribution of $D$-score by age labelled by severe
@@ -615,418 +615,136 @@ show that children with very low $D$-scores often experience
 substantially delayed their development.
 
 
-```{r echo=FALSE, eval = FALSE}
-# select subset with first daz-measurement per child
-togo <- togo[order(togo$id, is.na(togo$daz), togo$agedays),]
-togo$firstDAZ <- as.numeric(duplicated(togo$id)==FALSE)
-togo_first <- togo[togo$firstDAZ==1,]
+```{r bind3, echo = FALSE, warning = FALSE}
+smocc <- as.data.frame(data)
+smocc2 <- smocc %>% 
+  left_join(model$dscore, by = c("subjid", "agedays")) %>% 
+  mutate(f = n - p, 
+         agemos = agedays / 365.25 * 12) %>% 
+  rename(d = b, 
+         cohort = cohort.y) 
+pops3 <- pops2 %>% 
+  mutate(agemos = age_c0.75 * 12) %>% 
+  rename(d = d_0.75, 
+         daz = daz_0.75)
+togo3 <- togo2 %>% 
+  mutate(cohort = "TOGO")
 
-# select subset with last daz-measurement per child
-togo <- togo[order(togo$id, is.na(togo$daz), -togo$agedays),]
-togo$lastDAZ <- as.numeric(duplicated(togo$id)==FALSE)
-togo_last <- togo[togo$lastDAZ==1,]
-
-
-# select subset with first child measurement
-# togo_first <- togo %>%
-#   group_by(id) %>%
-#   mutate(first = min(agedays)) %>%
-#   filter(agedays == first)
-
-# select subset with last child measurement (gives less cases as togo_last above as oldest children don't have a daz because no reference data was available above age 2.7)
-# togo_last <- togo %>% 
-#  group_by(id) %>%
-#  mutate(last = max(agedays)) %>%
-#  filter(agedays == last)
-
-
+combined <- bind_rows(smocc2, pops3, togo3)
 ```
 
+```{r plotcomb, echo = FALSE, warning=FALSE, results = 'hide', fig.keep = 'all'}
+data_rug <- combined %>%
+  select(subjid, agedays, agemos, cohort, items) %>% 
+  gather(key = "item", value = "value", items) %>%
+  drop_na("value")
 
-```{r, echo=FALSE, eval = FALSE}
-# the continuous variables:
-contvars <- c("age_yr", "d", "daz", "weight", "waz")
-# the categorical variables:
-catvars <- c("male", "prof_father_dich", "tonus.and.or.reflex.problems", 
-             "apgar.10min.dich.less.than.10") # (below: recode 'apgar.10min.dich10')
+# calculate summary statistics
+pass <- data_rug %>%
+  mutate(agegp = cut(agemos, breaks = seq(0, 60, 1)),
+         cohort = as.factor(cohort)) %>%
+  group_by(item, cohort, agegp) %>%
+  summarise(p = round(100 * mean(value, na.rm = TRUE)),
+            a = mean(agemos, na.rm = TRUE),
+            n = n()) %>%
+  ungroup() %>%
+  left_join(gseddata::get_itemtable(), by = "item") %>% 
+  arrange(domain, number)
 
-# for descriptives use child level data: last visit with daz per child
-curdat <- togo_last
-
-# construct variable tonus.and.or.reflex.problems
-curdat$tonus.and.or.reflex.problems <- NA
-curdat$tonus.and.or.reflex.problems[
-  is.na(curdat$neuro.reflex) == FALSE & is.na(curdat$neuro.tonus) == FALSE] <- 0
-curdat$tonus.and.or.reflex.problems[
-  is.na(curdat$neuro.reflex)==FALSE & 
-    is.na(curdat$neuro.tonus)==FALSE & 
-    (curdat$neuro.reflex==1 | curdat$neuro.tonus==1)] <- 1
-# table(curdat$tonus.and.or.reflex.problems, useNA="ifany")
-# table(curdat$neuro.tonus,
-      # curdat$neuro.reflex, useNA="ifany")
-
-# rescore variable 'apgar.10min.dich10' (to 1='not optimal' and 0='optimal')
-curdat$apgar.10min.dich.less.than.10 <- NA
-curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==1] <- 0
-curdat$apgar.10min.dich.less.than.10[curdat$apgar.10min.dich10==0] <- 1
-# table(curdat$apgar.10min.dich.less.than.10, curdat$apgar.10min.dich10, useNA="ifany")
-
-# descriptives
-# continuous variables:
-v_n <- lapply(curdat[contvars], function(x) sum(is.na(x) == FALSE))
-v_mean <- lapply(curdat[contvars], mean, na.rm = TRUE)
-v_sd <- lapply(curdat[contvars], sd, na.rm=TRUE)
-v_median <- lapply(curdat[contvars], median, na.rm=TRUE)
-# v_min <- lapply(curdat[contvars], min, na.rm=TRUE)
-# v_max <- lapply(curdat[contvars], max, na.rm=TRUE)
-
-descr <- as.data.frame(cbind(v_n, v_mean, v_sd, v_median)) # , v_min, v_max)
-descr <- format(descr, digits=2, nsmall=2)
-row.names(descr) <- c("age (years)", "D-score","DAZ","weight (kg)", "weight z-score (age-corrected, WHO-reference data)")
-
-knitr::kable(descr, 
-             caption="Descriptives (last visit, for which daz could be calculated, per child)",
-             col.names=c("N", "mean", "SD", "median"))
+colors <- c("#006CC2B3", "#FF7F00B3", "#009E73B3")
+plots <- dmetric::plot_p_a_item(pass = pass, data_rug = data_rug, 
+                                model_name = "none",
+                                col.manual = colors, 
+                                x.limits = c(0, 30),
+                                x.breaks = seq(0, 30, 6))
 ```
 
-```{r echo = FALSE, eval = FALSE}
-# voor de categorical vars:
-v2_n <- lapply(curdat[catvars], function(x) sum(is.na(x)==FALSE))
-v2_perc <- lapply(curdat[catvars], function(x) prop.table(table(x))["1"] * 100) # 
+### Gross motor development
 
-descr2 <- as.data.frame(cbind(v2_n, v2_perc))
-descr2 <- format(descr2, digits=1, nsmall=1)
-row.names(descr2) <- c("gender (% boys)", "fathers' schooling (% schooled)","muscle tension and/or reflex problems (% with problems, as observed by physician)","APGAR 10 min. (% with score <10)")
-
-knitr::kable(descr2, 
-             # caption="Descriptives", 
-             col.names=c("N", "%"))
+```{r grossmotor, echo = FALSE, fig.cap = '(ref:grossmotor)', fig.height = 12, warning = FALSE}
+theme_set(theme_light())
+gridExtra::grid.arrange(plots[[53]], plots[[69]], plots[[64]], ncol = 1)
+#
 ```
 
+(ref:grossmotor) Gross motor milestones. Probability by age for SMOCC,
+POPS (corrected age) and TOGO studies for three milestones.
 
-```{r, echo=FALSE, eval = FALSE}
+Figure \@ref(fig:grossmotor) shows large differences in gross motor
+development between children from Togo and from the Netherlands. For
+example, at the age of three months, about 30 percent of the Dutch
+infants succeed in controlling their head when pulled to sitting.
+However, infants from Togo are already capable to control their head
+when they are just one month old! 
 
-nvisits_d <- nrow(togo_d)
-# of .. unique children:
-n_d <- length(unique(togo_d[,"id"]))
+Moreover, the advantage persists at least until up to the age of two
+years: children in Togo can roll over and sit much earlier, or kick a
+ball without falling. As the documentary
+[Babies](https://www.youtube.com/watch?v=vB36k0hGxDM) shows, African
+children even manage to learn to walk with a tin can on their head, a
+craft that not many westerners can dream of.
 
-library(ggplot2)
+### Fine motor development
 
-# whole group, all visits (i.e. can be more per child)
-ggplot() +
-  geom_point(data=togo_d,
-             aes(x=age_yr*12, 
-                 y=d #, colour=no_of_items_completed<4
-                 )) +
-  scale_x_continuous(name = "age (months)",
-                     limits = c(0,65),
-                     breaks = seq(0,65, by=10)
-                     ) +
-  scale_y_continuous(name = "d-score" #,
-                     # limits = c(40,80),
-                     # breaks = seq(40,80, by=10)
-                     ) +
-  xlab("age (months)")+ylab("d-score")  + 
-  annotate("text", label=paste(nvisits_d, "visits from", n_d, "children", sep=" "), x=55, y=5, fontface="italic")
-  # geom_line(data=ref_NL, aes(x=month, y=SDP2), colour="blue") +
-  # geom_line(data=ref_NL, aes(x=month, y=SD0), colour="red") +
-  # geom_line(data=ref_NL, aes(x=month, y=SDM2), colour="blue")
+```{r finemotor, echo = FALSE, fig.cap = '(ref:finemotor)', fig.height = 12, warning = FALSE}
+theme_set(theme_light())
+gridExtra::grid.arrange(plots[[27]], plots[[29]], plots[[33]], ncol = 1)
 ```
 
+(ref:finemotor) Fine motor milestones. Probability by age for SMOCC,
+POPS (corrected age) and TOGO studies for three milestones.
 
-### Usability and validity of the $D$-score in a low income country: The case of Togo
+Figure \@ref(fig:finemotor) shows a less pronounced but similar
+phenomenon for fine motor skills. These data suggest that children in
+Togo have generally better fine motor skills than the children from
+two Dutch cohorts.
 
-Other available measures include father’s level of schooling, father’s
-number of children at the child’s first visit to the medical center,
-the APGAR score as a newborn, children’s weight, and the results of a
-physician’s neurological examination during visits to the health
-center. These variables are used to predict children’s $D$-scores and
-thereby to examine the $D$-score’s usability and validity in Togo.
+### Communication and language
 
-
-
-
-To assess the validity of the $D$-score in this population, we
-inspected scatter plots in which $D$-scores are plotted against age
-for all available visits, and in which children with neurological
-problems as observed by a physician are highlighted. It was expected
-that a curve is seen, with higher $D$-scores for older children,
-moreover children with very low $D$-scores for their age were expected
-to be assessed by the physician as having a neurological problem.
-
-Validity and usability of the $D$-score in this population would also
-be supported when known risk factors of developmental problems would
-be found to be predictors of a lower $D$-score in this population as
-well. Risk factors of interest are health problems of a newborn (as
-indicated by a less than optimal APGAR score at 10 minutes), and being
-underweighted. Furthermore, if a relation between underweight and a
-lower $D$-score is observed, it would also be interesting to see
-whether there is a relation between family size and $D$-score, as many
-children per family could be a cause of malnutrition. For this purpose
-children were classified as being part of a large family when the
-number of children of their father was 5 or more (at the moment of
-their first visit) versus 4 or less.
-
-To assess which risk factors predict a lower than normal $D$-score,
-several regression analyses were conducted. Outcome variable is the
-Development - Age adjusted Z-score (DAZ) which tells how many standard
-deviations the $D$-score of the child deviates from his/her age mates.
-To calculate these z-scores, data of Dutch children are used as
-reference data. As this reference data is only available for children
-younger than age 2.78 years, only DAZ-scores could be calculated for
-age group 0 – 2.78, and therefore all regression analyses were
-performed for this subgroup.
-
-For some of the risk factor variables data is only available for part
-of the children. In order to prevent a loss of power, for each risk
-factor separate regression analyses were conducted. In each regression
-sex and education level of father (schooled versus unschooled) were
-added as covariates (except for the regression where the relation
-between large families and the DAZ is analyzed, as family size and
-schooling may be confounded). As data from visits of the same children
-are not independent, regressions were performed on data with one visit
-per child only. All regression analyses were conducted twice: once
-with the data from the first visit of each child, and once with the
-last visit of each child.
-
-
-**Results**  
-
-<!-- nog ergens invoegen (in tekst?): n-en van de regressies ## -->
-
-
-
-```{r, echo=FALSE, eval = FALSE}
-# no. of visits in this plot:
-nvisits_tonus_reflex_d <- nrow(togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE) & (is.na(togo_d$d)==FALSE),])
-# of .. unique children:
-n_tonus_reflex_d <- length(unique(togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE) & (is.na(togo_d$d)==FALSE),"id"]))
-
-# as validation: 
-# red colour for muscle tone and/or reflex-problems
-ggplot(togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE),], 
-       aes(x=age*12, y=d)) +
-  geom_point() +
-  geom_point(data=togo_d[(is.na(togo_d$neuro.reflex)==FALSE) & (is.na(togo_d$neuro.tonus)==FALSE),],
-             aes(x=age*12, y=d, colour=(neuro.reflex==1|neuro.tonus==1) )) +
-  scale_x_continuous(name = "age (months)",
-                     limits = c(0,65),
-                     breaks = seq(0,65, by=10)
-  ) +
-  scale_y_continuous(name = "d-score" #,
-                     # limits = c(40,80),
-                     # breaks = seq(40,80, by=10)
-  ) +
-  xlab("age (months)")+ylab("d-score") +
-  scale_color_manual(breaks = c("FALSE", "TRUE"),
-                     values=c("black", "red"),
-                     labels=c("no reflex or muscle tone problems", "reflex and/or muscle tone problems"),
-                     name="as observed by physician:")   + 
-  annotate("text", label=paste(nvisits_tonus_reflex_d, "visits from", n_tonus_reflex_d, "children", sep=" "), 
-           x=48, y=10,
-           # x=-Inf,y=-Inf,
-           # hjust=0, vjust=0,
-           fontface="italic")
-
-  
+```{r commun, echo = FALSE, fig.cap = '(ref:commun)', fig.height = 12, warning = FALSE}
+theme_set(theme_light())
+gridExtra::grid.arrange(plots[[4]], plots[[11]], plots[[16]], ncol = 1)
 ```
 
+(ref:commun) Communication and language milestones. Probability by age for SMOCC,
+POPS (corrected age) and TOGO studies for three milestones.
 
-```{r, echo=FALSE, eval = FALSE}
-# regression
-# waz as predictor of daz
-# figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
+Figure \@ref(fig:commun) summarizes the data for three milestones on
+communication and langauge. In general, the success probability is
+similar in the three studies. 
 
-# data: last visit with daz, per child
-# step 1: gender only (covariate)
-regr10.1 <- lm(daz ~ male, data=togo_last) 
-# step 2: add fathers' schooling (covariate)
-regr10.2 <- lm(daz ~ male + prof_father_dich, data=togo_last)  
-# step 3: add predictor of interest: waz
-regr10.3 <- lm(daz ~ male + prof_father_dich + waz, data=togo_last)  
+One curious finding is that the high proportion of milestones passes in
+`ddicmm041` for the Togo children around the age of 18 months. Note
+that several of the green lines in Figures
+\@ref(fig:grossmotor)-\@ref(fig:commun) start off close to perfect
+scores, which makes is impossible to show the rising patterns found in
+the Dutch data. 
 
-regr10.3.summary <- summary(regr10.3)
-regr10.3.waz.coeff <- summary(regr10.3)$coefficients["waz",]
+It may be indeed be true that children from Togo develop more rapidly
+than Dutch children. It would be desirable if these results could be
+backed up from other sources.
 
-```
+## Conclusions
 
-```{r, echo=FALSE, eval = FALSE}
+This chapter compared the $D$-scores estimated from the DDI
+administered to three different groups of children.
 
-# extra analysis relation waz and daz: 
-# daz predicted by no. of children in family?
-# data: last visit with daz, per child
-# step 1: gender only (covariate)
-regr6.1 <- lm(daz ~ male, data=togo_last)  
-# step 2: add predictor of interest: no.of.children.father (5 or more vs 4 or less)
-regr6.2 <- lm(daz ~ male + no.of.children.father.dich5, data=togo_last)  
+We found that 
 
-regr6.2.summary <- summary(regr6.2)
-regr6.2.no_of_children_father_dich5.coeff <- summary(regr6.2)$coefficients["no.of.children.father.dich5",]
+* The $D$-score by age plot showed postive, curved relation with age
+in all three studies;
 
-```
+* Children born very preterm and/or with very low birth weight had
+similar development to reference children when their age was corrected
+for early birth;
 
+* A relatively small subset of children born in Togo had extremely low
+$D$-scores, not found in the Netherlands, likely the result of
+underlying neuropathology, severe underweight and/or severe stunting;
 
-<!-- NOG CHECKEN: is het inderdaad 2zijdig getoetst? -->
+* On average, children from Togo seemed to faster development during
+the first two years, especially in motor development.
 
-```{r, echo=FALSE, eval = FALSE}
-# aantal bezoeken in deze plot:
-nvisits_waz_d <- nrow(togo_d[(is.na(togo_d$waz)==FALSE) & (is.na(togo_d$d)==FALSE),])
-# van .. unieke kinderen:
-n_waz_d <- length(unique(togo_d[(is.na(togo_d$waz)==FALSE) & (is.na(togo_d$d)==FALSE),"id"])) 
-
-# in red: waz < (-2) (weight age-corrected z-score) 
-ggplot() +
-  geom_point(data=togo_d[is.na(togo_d$waz)==FALSE,],
-             aes(x=age*12, 
-                 y=d, 
-                 colour=waz<(-2)
-             )
-  ) +
-  scale_x_continuous(name = "age (months)",
-                     limits = c(0,65),
-                     breaks = seq(0,65, by=10)
-  ) +
-  scale_y_continuous(name = "d-score" #,
-                     # limits = c(40,80),
-                     # breaks = seq(40,80, by=10)
-  ) +
-  xlab("age (months)") + ylab("d-score") +
-  scale_color_manual(breaks = c("FALSE", "TRUE"),
-                     values=c("black", "red"),
-                     labels=c("not underweighted (age-corrected zscore > -2)", 
-                              "underweighted (age-corrected zscore < -2)"),
-                     name="based on WHO reference data:")    + 
-  annotate("text", label=paste(nvisits_waz_d, "visits from", n_waz_d, "children", sep=" "), 
-           x=45, y=5,
-           fontface="italic")
-
-
-```
-
-
-
-
-```{r, echo=FALSE, eval = FALSE}
-# regression APGAR as predictor of daz
-# figuur verderop (want na tekst); regressie hier zodat resultaten in tekst gebruikt kunnen worden
-
-# data: last visit with daz, per child
-# step 1: gender only (covariate)
-regr2.1 <- lm(daz ~ male, data=togo_last)
-# step 2: add fathers' schooling (covariate)
-regr2.2 <- lm(daz ~ male + prof_father_dich, data=togo_last)
-# step 3: add predictor of interest: apgar
-regr2.3 <- lm(daz ~ male + prof_father_dich + apgar.10min.dich10, data=togo_last)
-
-regr2.3.summary <- summary(regr2.3)
-regr2.3.APGAR10min_dich10.coeff <- summary(regr2.3)$coefficients["apgar.10min.dich10",]
-
-```
-
-<!-- NOG CHECKEN: waarom is df zoveel kleiner dan 534? Komt dat door 'laatste visit'-selectie?   -->
-<!-- en bij deze nog prematuriteit en evt. geb.gew toevoegen als covariaat? Kan dat dit vooral gaat over prematuur vs niet-prematuur # -->
-
-For all regression analyses mentioned, results were similar when based
-on children's first visit.
-
-```{r, echo=FALSE, eval = FALSE}
-# no. of visits in plot:
-nvisits_apgar10_d <- nrow(togo_d[(is.na(togo_d$apgar.10min)==FALSE) & (is.na(togo_d$d)==FALSE),])
-# of .. unique children:
-n_apgar10_d <- length(unique(togo_d[(is.na(togo_d$apgar.10min)==FALSE) & (is.na(togo_d$d)==FALSE),"id"]))    
-
-# in red: apgar score below 10, 10min after birth
-ggplot() +
-  geom_point(data=togo_d[is.na(togo_d$apgar.10min)==FALSE,],
-             aes(x=age*12, 
-                 y=d, 
-                 colour=apgar.10min<10
-             )
-  ) +
-  scale_x_continuous(name = "age (months)",
-                     limits = c(0,65),
-                     breaks = seq(0,65, by=10)
-  ) +
-  scale_y_continuous(name = "d-score" #,
-                     # limits = c(40,80),
-                     # breaks = seq(40,80, by=10)
-  ) +
-  xlab("age (months)") + ylab("d-score")+
-  scale_color_manual(breaks = c("FALSE", "TRUE"),
-                     values=c("black", "red"),
-                     labels=c("10 points at apgar 10 min",
-                              "less than 10 points at apgar 10 min"),
-                     name="")    + 
-  annotate("text", label=paste(nvisits_apgar10_d, "visits from", n_apgar10_d, "children", sep=" "), 
-           x=50, y=10,
-           fontface="italic")
-
-
-```  
- 
- 
-
-**Discussion and conclusions**  
-
-In this study we examined the validity and usability of the $D$-score
-in low income country Togo. The $D$-score does seem to be informative
-in this country. The $D$-score did increase with age, and for the
-majority of the children $D$-scores were very similar within their age
-group. It is notable that there were also several children with much
-lower $D$-scores when compared with their age mates. This does not
-seem to be an artifact of the data or of the measures, as the majority
-of these children were observed to have muscle tension and/or reflex
-problems. So, it is plausible that these children indeed had
-developmental problems. Furthermore, health factors that were expected
-to be related to having a lower $D$-score were found to be significant
-predictors: a less than optimal APGAR score 10 minutes after birth,
-and a lower than normal weight at the time of the assessment were
-related to a lower than normal $D$-score. Especially the relation
-between weight and $D$-score was quite strong, as the model with
-age-corrected weight, sex and father's schooling explained 18% of the
-variance in age-corrected $D$-score. The positive relation between
-weight and $D$-score, as well as the fact that children were often
-underweighted in this population, seems to indicate that being
-underweighted is a risk factor for developmental problems. The main
-physician of the medical center noted that not many children with
-extreme underweight were seen, but our results do indicate that also
-less than severe underweight does have a negative impact on the
-development of children.
-
-The idea that having many children in the family would be related to
-having a lower $D$-score (due to possible malnutrition), was not
-supported. This might mean that there is no clear relation between
-living in a large family and being underweighted, or that we did not
-have enough power to detect this, as there were not that many children
-from large families.
-
-Neither sex nor father's schooling did significantly contribute to
-variance in age-corrected $D$-scores. For sex at this young ages, this
-is consistent with results found in other studies (… refs…). Parents'
-schooling has been found to be related to $D$-scores in other studies
-(… refs..); that it was not in the present study might have to do with
-the population, or with the current method where it was estimated
-whether the parent was schooled based on profession. Many fathers had
-a profession other than the thirteen most common professions and were
-estimated to have no schooling, which might not be correct for part of
-this group.
-
-A limitation of the present study is that our sample might not be
-representative of children in a low income country, or even of
-children in Togo. Especially the fact that many children came to the
-medical center because they were ill might mean that they are not
-representative in terms of general development and other measures.
-However, the current goal was to examine the validity and usability of
-the $D$-score in a low income country, and the result that, even
-though many children were ill, the $D$-score is clearly related to
-neurological problems (as indicated by reflex, and/or muscle tension
-problems), age, APGAR score as a newborn and weight does show that the
-$D$-score is informative in a low income country as well.
-
-  
-  
-  
-<!-- Evt nog doen:   -->
-<!-- -	Na overleg met Cécile Schat: zij zagen heel weinig echte ondervoeding; wel is lichaamsbouw daar zeer tenger; wat gebeurt er als je ipv ondergewicht 'voedingstoestand geobserveerd door arts' neemt als predictor? Betere indicator van ondervoeding is bovendien: specifieke vorm van bloedarmoede; die variabele zit er ook in; zegt ook iets over eenzijdig eten in plaats van simpelweg te weinig (volgens Cécile Schat komt eenzijdig wel veel voor; te weinig niet)   -->
-<!-- -	Gestational age en gebgewicht variabelen naar juiste dataset overhevelen zodat die ook gebruikt kunnen worden (GEDAAN; gebruiken om te laten zien dat verband APGAR-score niet verklaard wordt door prematuriteit?) -->
-
+All in all, these findings support the usefulness and validity of the
+$D$-score as an informative summary of generic development of children
+during their first two years of life.
