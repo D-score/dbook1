@@ -14,7 +14,6 @@ rmd_files: ["index.Rmd",
             "Rmd/07-validity.Rmd",
             "Rmd/08-precision.Rmd",
             "Rmd/09-threestudies.Rmd",
-            "Rmd/10-background.Rmd",
             "Rmd/11-discussion.Rmd",
             "Rmd/Appendix-notation.Rmd",
             "Rmd/12-references.Rmd"]
