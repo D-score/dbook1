@@ -1,0 +1,22 @@
+### A unit for development
+
+The measures in child growth are well-establish physics units, whereas
+the measures in child development are more arbitrary and specific to
+the instrument. While it is hard to create a truly physical analogue
+of a unit that will measure child development, we can imagine one, as
+follows:
+
+* Assume that a milestone has an inherent difficulty that is the same
+for all populations.
+
+* The distance between the difficulty levels of two of such milestones
+is therefore also constant for all populations.
+
+* That distance defines a *unit of development*. Note that we can
+define a unit for any pair of milestones.
+
+The $D$-score unit is just one choice for a unit. This choice is no
+less, and no more, arbitrary than the choice of some standard physical
+rod for the unit of length. The real crucial assumption that the
+difficulties, i.e., the begin and end points of the rod, are identical
+in all populations. 

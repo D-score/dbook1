@@ -1,11 +1,132 @@
 # Discussion {#discussion}
 
-## Usefulness of D-score for monitoring child health
+## Usefulness of $D$-score for monitoring child health
+
+### A scale for child development
+
+The $D$-score is a new approach to measure child development. The
+$D$-score is a scale for quantifying generic child development by a
+single number. The $D$-score fits the Rasch model. The measurements
+can therefore be interpreted as scores on an interval scale, a
+requirement for answering questions like:
+
+* What is the difference in development over time for the same child,
+group or population?
+
+* What is the difference in development between different children,
+groups or populations of the same age?
+
+* How does child development compare to a norm?
+
+The $D$-score is not tied to a particular instrument. Any instrument
+that fits the model underlying the $D$-score can be used to measure
+the child's $D$-score.
+
+The precision of the measurement depends on the number of milestones
+used, as well as on the match between the difficulty of the milestones
+and the ability level of the measured child. The measurement
+instrument can thus be tailored to the question at hand.
+
+### A growth chart for child development
+
+The field of child growth and development roughly divides into two
+areas:
+
+* The subfield *child growth* (or *auxology*) emphasizes body measures
+like height, weight, body mass index, and so on. It is a rigorous
+quantitative science with intimate ties to statistics since the days
+of Quetelet and Galton.
+
+* The subfield *child development* is more recent and builds upon a
+wide-ranging set of domain-specific instruments for measuring motor,
+language, cognitive and behavioral states. 
+
+The *growth chart* is a widely used tool to monitor physical growth.
+The $D$-score can be used in a similar way to create the *$D$-chart*.
+
+```{r smoccfit10, echo = FALSE, warning = FALSE}
+library(gseddata)
+data <- get_data(cohort = 53)
+items <- get_itemnames(data)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
+```
+
+```{r dchart, echo = FALSE, warning = FALSE, fig.cap = '(ref:dchart)', fig.height = 6}
+# set.seed(81104)
+set.seed(3)
+kids <- sample(unique(model$dscore$subjid), 5)
+data <- model$dscore %>% 
+  filter(subjid %in% kids) %>% 
+  mutate(subjid = as.factor(subjid), 
+         agemos = agedays / 365.25 * 12)
+
+reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+  filter(month <= 30) %>%
+  tidyr::gather(key = centile, value = d,-month)
+polygon <- data.frame(
+  x = c(reference$month[reference$centile == "SDM2"],
+        rev(reference$month[reference$centile == "SDP2"])),
+  y = c(reference$d[reference$centile == "SDM2"],
+        rev(reference$d[reference$centile == "SDP2"])))
+
+g1 <- ggplot(data, aes_string(x = "agemos", y = "b", colour = "subjid")) +
+  theme_light() +
+  scale_x_continuous("Age (in months)",
+                     limits = c(0, 30),
+                     breaks = seq(0, 30, 6)) +
+  scale_y_continuous("D-score",
+                     limits = c(0, 75),
+                     breaks = seq(0, 70, 10)) +
+  geom_polygon(mapping = aes(x = x, y = y), 
+               data = polygon, col = "transparent", fill = "grey", alpha = 0.1) + 
+  geom_line(mapping = aes(x = month, y = d, group = centile), 
+            data = reference, colour = "grey", alpha = 0.3) +
+  geom_point() +
+  geom_line() + 
+  theme(legend.position = c(0.8, 0.2))
+g1
+```
+
+(ref:dchart) $D$-chart with five children from the SMOCC study.
+
+Figure \@ref(fig:dchart) shows developmental trajectories of five
+randomly chosen children from the SMOCC study. Note that the
+trajectory can be created even though the milestones are different at
+different ages. The trajectory may help to track development of a
+child on a periodic basis.
+
+The $D$-chart shows that it is straightforward to apply quantitative
+techniques from child growth to child development. Our hope is that
+$D$-score aids in bridging the somewhat disparate subfields of child
+growth and child development.
 
 ## Opportunities for early intervention
 
-## D-score for international settings
+@black2017 estimated that about 250 million children worldwide fail to reach
+their developmental potential. Developmental delays become evident in
+the first year, and worsen during early childhood. The burden of
+children not reaching their developmental potential is high.
 
-## D-score from existing instruments
+Interventions aimed at improving child development should be delivered
+at the sensitive periods for maximum effect. Programs are to be
+comprehensive, incorporating a combination of health, nutrition,
+security and safety, responsive caregiving and early learning. See
+@engle2011 and @grantham2014 for recent overviews.
 
-## Creating new instruments for D-score
+Both estimation of intervention effects as well as comparison across
+different treatments is hampered by the absence of universal measure
+for child development. The lack of a common yardstick may have adverse
+impact on proper policy and priority setting.
+
+Since the $D$-score is not tied to a particular instrument, our hope
+is that it may help in improving decision making, ultimately lowering
+the number of children not reaching their developmental potential.
+
+## $D$-score for international settings
+
+## $D$-score from existing instruments
+
+## Creating new instruments for $D$-score
