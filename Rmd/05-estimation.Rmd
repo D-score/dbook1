@@ -17,7 +17,7 @@ The SMOCC dataset, introduced in Section \@ref(sec:smocc), contains
 scores on the DDI of Dutch children aged 0-2 years made during nine
 visits.
 
-```{r smoccdata2, echo = FALSE, warning = FALSE}
+```{r smoccdata2, warning = FALSE}
 library(gseddata)
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
@@ -52,7 +52,7 @@ and person abilities into two steps.
 
 ## Item parameter estimation {#sec:itemestimation}
 
-```{r smoccfit2, echo = FALSE, warning = FALSE}
+```{r smoccfit2, warning = FALSE}
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
@@ -65,7 +65,7 @@ pairwise method estimation method (@zwinderman1995), as implemented in
 the function `rasch.pairwise.itemcluster()` of the `sirt` package
 (@robitzsch2016).
 
-```{r itemdiflplot, echo = FALSE, fig.height = 10, fig.cap = '(ref:itemdiflplot)'}
+```{r itemdiflplot, fig.height = 10, fig.cap = '(ref:itemdiflplot)'}
 d1 <- data.frame(delta = model$fit$b, 
                  item = names(model$fit$b), 
                  stringsAsFactors = FALSE, 
@@ -134,7 +134,7 @@ birth. At the age of 1 year, the score will around 50$D$, so during
 the first year of life, one $D$ unit corresponds to approximately a
 one-week interval.
 
-```{r itemdifdplot, echo = FALSE, fig.height = 10, fig.cap = '(ref:itemdifdplot)'}
+```{r itemdifdplot, fig.height = 10, fig.cap = '(ref:itemdifdplot)'}
 p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) + 
   geom_segment(aes(yend = lab), xend = -30, colour = "grey50") +
   geom_point(size = 2, aes(colour = domain)) + 
@@ -191,7 +191,7 @@ normal distribution with a mean equal to the $D$-score expected at the
 child's age, and with a standard deviation of 5, which about twice the
 normal variation in the $D$-score.
 
-```{r figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
+```{r figpriors, fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
 #example from the adp function in ggplot:
 qp <- -10:80
 
@@ -226,7 +226,7 @@ Suppose we measure two boys aged 15 months, David and Rob, by the DDI.
 David passes the first four milestones, but does not complete the test.
 Rob completes the test, but fails on two out of five milestones. 
 
-```{r datadavidandrob, echo = FALSE}
+```{r datadavidandrob}
 items <- c("ddifmd011", "ddifmm012", "ddicmm037", "ddigmm066", "ddigmm067")
 ib <- model$itembank %>%
   rename(item  = lex_gsed, delta = tau) %>%
@@ -248,7 +248,7 @@ at this age, with the most difficult being `ddicmm037`. David passed
 all milestones, but has no score on the last. Rob fails on `ddifmm012`
 and `ddigmm067`. How do we calculate the $D$-score for David and Rob?
 
-```{r davidplot, echo = FALSE, fig.height = 12, fig.cap = '(ref:davidplot)'}
+```{r davidplot, fig.height = 12, fig.cap = '(ref:davidplot)'}
 # full posterior 1e item
 qp <- -10:80
 

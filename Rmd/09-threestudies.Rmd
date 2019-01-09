@@ -14,7 +14,7 @@ focuses in comparing the $D$-scores calculated from the study data.
 
 ## SMOCC study
 
-```{r smoccfit9, echo = FALSE, warning = FALSE}
+```{r smoccfit9, warning = FALSE}
 library(gseddata)
 data <- get_data(cohort = 53)
 items <- get_itemnames(data)
@@ -24,7 +24,7 @@ varlist <- list(adm = c("cohort", "subjid", "agedays"),
 model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
-```{r plotddaz, echo = FALSE}
+```{r plotddaz}
 plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz", 
                       xlab = "Age (in months)", ylab = "D-score", zlab = "DAZ",
                       colour = "black") {
@@ -69,7 +69,7 @@ plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz",
 }
 ```
 
-```{r smoccda9, echo = FALSE, fig.cap = '(ref:smoccda9)', fig.height = 12, warning = FALSE}
+```{r smoccda9, fig.cap = '(ref:smoccda9)', fig.height = 12, warning = FALSE}
 model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
 model$dscore$daz    <- dscore::daz(model$dscore$b, 
                                    x = model$dscore$agedays, 
@@ -97,7 +97,7 @@ additional variation.
 
 ## POPS study
 
-```{r readpops, echo=FALSE}
+```{r readpops}
 # read data
 pops_orig <- haven::read_sav("data-raw/data/pops/POPS19groeiSDS2whoTranslatedExtrav2PLUS.sav")
 
@@ -128,7 +128,7 @@ pops_data <- pops_data %>%
     age_c1.00   = (agedays - 1.00 * (280 - gagebrth)) / 365.25)
 ```
 
-```{r pops2, echo = FALSE, eval = FALSE}
+```{r pops2, eval = FALSE}
 # count nuber of NA's in items
 nas <- apply(pops_data[, items], MARGIN = 1, function(x) sum(is.na(x)))
 
@@ -144,7 +144,7 @@ pops_pt <- pops_data %>%
 # [1] 258
 ```
 
-```{r popsd, echo = FALSE}
+```{r popsd}
 # determine dscore key
 dkey <- data.frame(item = model$itembank$lex_gsed,
                    delta = model$itembank$tau,
@@ -185,7 +185,7 @@ pops2 <- bind_cols(pops_data,
 pops2 <- pops2[!is.na(pops2$daz_0.75), ]
 ```
 
-```{r popsda9, echo = FALSE, fig.cap = '(ref:popsda9)', fig.height = 12, warning = FALSE}
+```{r popsda9, fig.cap = '(ref:popsda9)', fig.height = 12, warning = FALSE}
 pops2$cohort <- "POPS"
 pops2$agemos <- pops2$age_c0.75 * 12
 plot_ddaz(pops2, y = "d_0.75", z = "daz_0.75", 
@@ -258,7 +258,7 @@ We evaluate these two effects in turn.
 
 ### Effect of age-adjustment on the $D$-score
 
-```{r adjustd, echo = FALSE, fig.cap = '(ref:adjustd)'}
+```{r adjustd, fig.cap = '(ref:adjustd)'}
 g <- ggplot(subset(pops2, n > 0), 
             aes(x = d_0.00, y = d_1.00, 
                 colour = cut(f, breaks = c(-1, 0, 1, 35),
@@ -288,7 +288,7 @@ $D$-scores. Discrepancies are tiny for non-perfect scores.
 
 ### Effect of no age adjustment ($f = 0.00$) on the DAZ
 
-```{r popsda90, echo = FALSE, fig.cap = '(ref:popsda90)', fig.height = 12, warning = FALSE}
+```{r popsda90, fig.cap = '(ref:popsda90)', fig.height = 12, warning = FALSE}
 pops2$agemos <- pops2$age_c0.00 * 12
 plot_ddaz(pops2, y = "d_0.00", z = "daz_0.00", 
           xlab = "Calender age (in months)", 
@@ -307,7 +307,7 @@ development.
 
 ### Effect of full age adjustment ($f = 1.00$) on the DAZ
 
-```{r popsda91, echo = FALSE, fig.cap = '(ref:popsda91)', fig.height = 12, warning = FALSE}
+```{r popsda91, fig.cap = '(ref:popsda91)', fig.height = 12, warning = FALSE}
 pops2$agemos <- pops2$age_c1.00 * 12
 plot_ddaz(pops2, y = "d_1.00", z = "daz_1.00", 
           xlab = "Age (in months), fully corrected", 
@@ -328,7 +328,7 @@ try intermediate values for $f$ between 0 and 1.
 
 ### Partial age adjustment
 
-```{r tabz, echo = FALSE}
+```{r tabz}
 tabs <- pops2 %>% 
   mutate(gp = cut_number(agemos, n = 8)) %>% 
   group_by(gp) %>% 
@@ -372,7 +372,7 @@ chronological age was fully corrected.
 ## TOGO study
 
 
-```{r, echo = FALSE}
+```{r togodata}
 library(ddata)
 
 # read togo data
@@ -404,7 +404,7 @@ togo <- togo_orig %>%
                 items)
 ```
 
-```{r togod, echo = FALSE}
+```{r togod}
 # determine dscore key (do not estimate v-items 2-4 years)
 #
 dkey <- data.frame(item = model$itembank$lex_gsed,
@@ -424,7 +424,7 @@ togo2 <- bind_cols(togo,
                    daz = z)
 ```
 
-```{r togoda, echo = FALSE, fig.cap = '(ref:togoda)', fig.height = 12, warning = FALSE}
+```{r togoda, fig.cap = '(ref:togoda)', fig.height = 12, warning = FALSE}
 togo2$agemos <- togo2$age * 12
 
 togo2$cohort <- "TOGO"
@@ -491,7 +491,7 @@ All data were registered in paper dossiers. Data were digitized by
 four local data-assistants, and on a regular basis mailed to TNO, the
 Netherlands to check for completeness and consistency.
 
-```{r dataassistents, echo = FALSE, fig.cap = '(ref:dataassistents)', out.width='60%'}
+```{r dataassistents, fig.cap = '(ref:dataassistents)', out.width='60%'}
 include_graphics("fig/data_assistents.png")
 ```
 (ref:dataassistents) Three of the data-assistants who helped to digitize the paper files.
@@ -503,7 +503,7 @@ dataset of 2425 visits from 1567 children. The number of visits that
 parents of these children in the 0-4 age range paid to the health
 center varied from 1 – 9, but the majority of children were seen once.
 
-```{r echo = FALSE}
+```{r plotdafunc}
 plot_da <- function(data, x = "agemos", y = "d", z = "daz", 
                       v = "",
                       xlab = "Age (in months)", ylab = "D-score", zlab = "DAZ",
@@ -543,7 +543,7 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
 ### $D$-scores labelled by neurological problem
 
 
-```{r togoda1, echo = FALSE, fig.cap = '(ref:togoda1)', fig.height = 6, warning = FALSE}
+```{r togoda1, fig.cap = '(ref:togoda1)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by presence of neurological problem"
 plot_da(togo2, v = "neuro", colour = "#009E73B3")
 ```
@@ -562,7 +562,7 @@ adverse health conditions.
 
 ### $D$-scores labelled by Apgar score
 
-```{r togoda2, echo = FALSE, fig.cap = '(ref:togoda2)', fig.height = 6, warning = FALSE}
+```{r togoda2, fig.cap = '(ref:togoda2)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by Apgar (10 min) < 8"
 plot_da(togo2, v = "apgar", colour = "#009E73B3")
 ```
@@ -576,7 +576,7 @@ these children had a $D$-score below -2 SD curve.
 
 ### $D$-scores labelled by severe underweight
 
-```{r togoda3, echo = FALSE, fig.cap = '(ref:togoda3)', fig.height = 6, warning = FALSE}
+```{r togoda3, fig.cap = '(ref:togoda3)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by severe underweight (WAZ < -4)"
 plot_da(togo2, v = "underweight", colour = "#009E73B3")
 ```
@@ -592,7 +592,7 @@ these children also had a very low $D$-score.
 
 ### $D$-scores labelled by severe stunting
 
-```{r togoda4, echo = FALSE, fig.cap = '(ref:togoda4)', fig.height = 6, warning = FALSE}
+```{r togoda4, fig.cap = '(ref:togoda4)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by severe stunted growth (HAZ < -4)"
 plot_da(togo2, v = "stunted", colour = "#009E73B3")
 ```
@@ -610,7 +610,7 @@ show that children with very low $D$-scores often experience
 substantially delayed their development.
 
 
-```{r bind3, echo = FALSE, warning = FALSE}
+```{r bind3, warning = FALSE}
 smocc <- as.data.frame(data)
 smocc2 <- smocc %>% 
   left_join(model$dscore, by = c("subjid", "agedays")) %>% 
@@ -628,7 +628,7 @@ togo3 <- togo2 %>%
 combined <- bind_rows(smocc2, pops3, togo3)
 ```
 
-```{r plotcomb, echo = FALSE, warning=FALSE, results = 'hide', fig.keep = 'all'}
+```{r plotcomb, warning=FALSE, results = 'hide', fig.keep = 'all'}
 data_rug <- combined %>%
   select(subjid, agedays, agemos, cohort, items) %>% 
   gather(key = "item", value = "value", items) %>%
@@ -656,7 +656,7 @@ plots <- dmetric::plot_p_a_item(pass = pass, data_rug = data_rug,
 
 ### Gross motor development
 
-```{r grossmotor, echo = FALSE, fig.cap = '(ref:grossmotor)', fig.height = 12, warning = FALSE}
+```{r grossmotor, fig.cap = '(ref:grossmotor)', fig.height = 12, warning = FALSE}
 gridExtra::grid.arrange(plots[[53]], plots[[69]], plots[[64]], ncol = 1)
 #
 ```
@@ -680,7 +680,7 @@ craft that not many westerners can dream of.
 
 ### Fine motor development
 
-```{r finemotor, echo = FALSE, fig.cap = '(ref:finemotor)', fig.height = 12, warning = FALSE}
+```{r finemotor, fig.cap = '(ref:finemotor)', fig.height = 12, warning = FALSE}
 gridExtra::grid.arrange(plots[[27]], plots[[29]], plots[[33]], ncol = 1)
 ```
 
@@ -694,7 +694,7 @@ two Dutch cohorts.
 
 ### Communication and language
 
-```{r commun, echo = FALSE, fig.cap = '(ref:commun)', fig.height = 12, warning = FALSE}
+```{r commun, fig.cap = '(ref:commun)', fig.height = 12, warning = FALSE}
 gridExtra::grid.arrange(plots[[4]], plots[[11]], plots[[16]], ncol = 1)
 ```
 

@@ -22,7 +22,7 @@ The set of milestones used in the DDI varies per wave. The number of
 standard milestones varies between 2 and 7 at the various waves. The
 additional milestones are the standard milestones from the next wave.
 
-```{r smoccfit8, echo = FALSE, warning = FALSE}
+```{r smoccfit8, warning = FALSE}
 library(gseddata)
 
 data <- get_data(cohort = 53)
@@ -34,7 +34,7 @@ varlist <- list(adm = c("cohort", "subjid", "agedays"),
 model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
-```{r getddi, echo = FALSE}
+```{r getddi}
 meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
@@ -70,7 +70,7 @@ ddi <- df %>%
 #   dplyr::select(wave, visit, item)
 ```
 
-```{r tableSMOCC, echo=FALSE}
+```{r tableSMOCC}
 tableSMOCC <- data.frame(
   Age = names(table(ddi$debut)),
   Standard = as.vector(table(ddi$debut)),
@@ -86,7 +86,7 @@ Table \@ref(tab:tableSMOCC) summarizes the schedules age for each
 wave, the number of standard milestones and the number of additional
 milestones.
 
-```{r ageitemgrid, echo=FALSE, fig.height = 10, fig.cap='(ref:ageitemgrid)'}
+```{r ageitemgrid, fig.height = 10, fig.cap='(ref:ageitemgrid)'}
 # split response into standard/additional according to 
 # item-agedays combinations
 
@@ -156,7 +156,7 @@ uninformative for the majority of children.
 
 ### Milestone sets at month 2
 
-```{r d3, echo = FALSE}
+```{r d3}
 # calculate three versions of D-score
 
 # calculate std set of items
@@ -216,7 +216,7 @@ broad <- data$visit %>%
   left_join(data_add, by = c("subjid", "agedays"))
 ```
 
-```{r preparmonth2d, echo = FALSE, message=FALSE, warning=FALSE}
+```{r preparmonth2d, message=FALSE, warning=FALSE}
 long1 <- broad %>% 
   dplyr::select(subjid, agedays, d_all, d_std, d_add) %>% 
   tidyr::gather(d_all:d_add, key = "set", value = "d") %>% 
@@ -240,7 +240,7 @@ long4 <- broad %>%
 long <- bind_cols(long1, n = long2$n, pass = long3$s, fail = long4$f)
 ```
 
-```{r month2d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month2d)'}
+```{r month2d, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month2d)'}
 g <- ggplot(subset(long, 
                    subset = (set == "Standard" & visit == "2m" & n == 2) | 
                      (set == "Additional" & visit == "2m" & n == 5) |
@@ -305,7 +305,7 @@ level of milestones into account. The estimate of the $D$-score is
 
 ### Milestone sets at month 3
 
-```{r month3d, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
+```{r month3d, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
 g <- ggplot(subset(long, 
                    subset = (set == "Standard" & visit == "3m" & n == 5) | 
                      (set == "Additional" & visit == "3m" & n == 6) |
@@ -342,7 +342,7 @@ there is one child having five fails.
 
 ### Floor and ceiling effects
 
-```{r alld, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:alld)'}
+```{r alld, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:alld)'}
 g <- ggplot(drop_na(long, fail), 
             aes(x = agemos, y = d, col = as.factor(fail))) +
   geom_point(size = 0.6, shape = 16) + 
@@ -428,7 +428,7 @@ interval).
 
 ### Exploratory analysis
 
-```{r echo = FALSE}
+```{r iqscores}
 # Obtain IQ scores
 ids <- data$visit %>% 
   dplyr::select(subjid, subjido) %>% 
@@ -444,7 +444,7 @@ data_iq <- haven::read_sav("data-raw/data/smocc/SMOCC 5 years BMGF.sav") %>%
   drop_na(IQ)
 ```
 
-```{r histiq, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:histiq)'}
+```{r histiq, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:histiq)'}
 g <- ggplot(data_iq, aes(x = IQ)) + 
   geom_histogram(binwidth = 5, fill = "#006CC2B3", colour = "white") +
   scale_x_continuous(breaks = seq(50, 150, 10)) +
@@ -460,7 +460,7 @@ children. The mean IQ score is 108 and the standard deviation is 15,
 so the IQ-scores of children in the sample is about a half standard
 deviation above the 1978 reference sample. 
 
-```{r plotdiq, echo = FALSE, message=FALSE, warning=FALSE, fig.height = 16, fig.cap='(ref:plotdiq)'}
+```{r plotdiq, message=FALSE, warning=FALSE, fig.height = 16, fig.cap='(ref:plotdiq)'}
 long2 <- long %>%
   left_join(data_iq, by = "subjid") %>% 
   drop_na(IQ, visit)
@@ -477,7 +477,7 @@ g
 (ref:plotdiq) Relation between $D$-score at infancy and *IQ* at age 5
 according to three milestone sets and nine visit (SMOCC data, $n = 557$).
 
-```{r reg2, echo = FALSE, results = 'hide'}
+```{r reg2, results = 'hide'}
 summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "Standard"))
 summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "Additional"))
 summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "All"))
@@ -492,7 +492,7 @@ is equal to $\beta(D) = 1.4$ (SE: $0.21, p < 0.0001$), so on average
 an increase of 1.0 unit in the $D$-score at the age of 2 years
 corresponds to a 1.4 IQ-score points increase at the age 5 years.
 
-```{r cordiq, echo = FALSE}
+```{r cordiq}
 cors <- long2 %>% 
   group_by(set, visit) %>% 
   summarise(cr = cor(d, IQ, use = "pairwise")) %>% 

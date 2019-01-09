@@ -14,12 +14,12 @@ library(ddata)
 library(gseddata)
 ```
 
-```{r smoccdata5, echo = FALSE, warning = FALSE}
+```{r smoccdata5, warning = FALSE}
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
 ```
 
-```{r smoccfit5, echo = FALSE, warning = FALSE}
+```{r smoccfit5, warning = FALSE}
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
@@ -41,7 +41,7 @@ domains in a fair way. In the simplest case, we can assign each
 milestone uniquely to one domain, and evaluate coverage by splitting
 the cumulative item information over domains.
 
-```{r plotcontent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotcontent)'}
+```{r plotcontent, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotcontent)'}
 info_data <-
   dinstrument::info_d_item(
     itembank = model$itembank,
@@ -93,7 +93,7 @@ in a population form Togo (Chapter 8).  The D-score should be able to
 discriminate between these two types of respondents accurately.
 
 
-```{r plotdiscr, eval=FALSE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plotdiscr, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 plotdat <- left_join(model$dscore, data$visit) %>%
   mutate(agemos = agedays /365.25 * 12,
          edumocat = factor(edumocat, labels = c("none", "primary", "secondary", "above secondary")),
@@ -131,7 +131,7 @@ to measures that are currently used as a proxy for child development,
 such as stunting (height) (see section \@ref(sec:stunting)).
 
 
-```{r plotconcurrent, eval=TRUE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
+```{r plotconcurrent, eval=TRUE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 cor1dat <- left_join(model$dscore, data$visit) %>% 
   mutate(daz = dscore::daz(b, 
                            x = .data$agedays, x.unit = "day"))

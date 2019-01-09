@@ -52,7 +52,7 @@ language, cognitive and behavioral states.
 The *growth chart* is a widely used tool to monitor physical growth.
 The $D$-score can be used in a similar way to create the *$D$-chart*.
 
-```{r smoccfit10, echo = FALSE, warning = FALSE}
+```{r smoccfit10, warning = FALSE}
 library(gseddata)
 data <- get_data(cohort = 53)
 items <- get_itemnames(data)
@@ -62,7 +62,7 @@ varlist <- list(adm = c("cohort", "subjid", "agedays"),
 model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
-```{r dchart, echo = FALSE, warning = FALSE, fig.cap = '(ref:dchart)', fig.height = 6}
+```{r dchart, warning = FALSE, fig.cap = '(ref:dchart)', fig.height = 6}
 # set.seed(81104)
 set.seed(3)
 kids <- sample(unique(model$dscore$subjid), 5)
