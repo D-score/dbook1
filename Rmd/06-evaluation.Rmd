@@ -40,7 +40,6 @@ modeled probabilities at various levels of ability.
 
 ```{r smoccdata3, echo = FALSE, warning = FALSE}
 library(gseddata)
-library(dmetric)
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
 ```
@@ -49,13 +48,13 @@ items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
-model <- fit_dmodel(varlist, data, name = "57_0")
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ```{r ploticc, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:ploticc)'}
 theme_set(theme_light())
-p1 <- plot_p_d_item(data = data, model = model, items = "ddifmd005")[[1]]
-p2 <- plot_p_d_item(data = data, model = model, items = "ddigmm060")[[1]]
+p1 <- dmetric::plot_p_d_item(data = data, model = model, items = "ddifmd005")[[1]]
+p2 <- dmetric::plot_p_d_item(data = data, model = model, items = "ddigmm060")[[1]]
 gridExtra::grid.arrange(p1, p2)
 ```
 
@@ -92,16 +91,16 @@ data2 <- data2 %>%
          ) %>% 
   dplyr::select(-rand)
 b_fixed <- model$fit$b
-model2 <- fit_dmodel(varlist = varlist, data = data2, 
-                     name = "57_0_plus", b_fixed = b_fixed)
+model2 <- dmetric::fit_dmodel(varlist = varlist, data = data2, 
+                              name = "57_0_plus", b_fixed = b_fixed)
 ```
 
 
 ```{r plothyp1, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 11, warning = FALSE, fig.cap = '(ref:plothyp1)', message = FALSE}
 theme_set(theme_light())
-p1 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd001")[[1]]
-p2 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd002")[[1]]
-p3 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd003")[[1]]
+p1 <- dmetric::plot_p_d_item(data = data2, model = model2, items = "hypgmd001")[[1]]
+p2 <- dmetric::plot_p_d_item(data = data2, model = model2, items = "hypgmd002")[[1]]
+p3 <- dmetric::plot_p_d_item(data = data2, model = model2, items = "hypgmd003")[[1]]
 gridExtra::grid.arrange(p1, p2, p3)
 ```
 
@@ -122,8 +121,8 @@ Removing of items like these could substantially improve model fit.
 
 ```{r plothyp2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plothyp2)', message = FALSE}
 theme_set(theme_light())
-p1 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd004")[[1]]
-p2 <- plot_p_d_item(data = data2, model = model2, items = "hypgmd005")[[1]]
+p1 <- dmetric::plot_p_d_item(data = data2, model = model2, items = "hypgmd004")[[1]]
+p2 <- dmetric::plot_p_d_item(data = data2, model = model2, items = "hypgmd005")[[1]]
 gridExtra::grid.arrange(p1, p2)
 ```
 
@@ -338,8 +337,8 @@ the ability-group interaction in the logistic regression model.
 
 ```{r plotdif1, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif1)', message = FALSE}
 theme_set(theme_light())
-p1 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
-p2 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
+p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
+p2 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
 gridExtra::grid.arrange(p1, p2)
 ```
 
@@ -351,8 +350,8 @@ girls, so we see no evidence of DIF here.
 
 ```{r plotdif2, echo = FALSE, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif2)', message = FALSE}
 theme_set(theme_light())
-p1 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmm019")[[1]]
-p2 <- plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm064")[[1]]
+p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmm019")[[1]]
+p2 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm064")[[1]]
 gridExtra::grid.arrange(p1, p2)
 ```
 
@@ -444,8 +443,8 @@ provides the most information.
 
 ```{r iia, echo=FALSE, message=FALSE,  results = 'hide', fig.keep = 'all', warning=FALSE,  fig.height = 4, , fig.cap = '(ref:iia)'}
 # model in logit
-refs <- calculate_references(model = model, metric = "logit", 
-                             trace = FALSE)
+refs <- dmetric::calculate_references(model = model, metric = "logit", 
+                                      trace = FALSE)
 refs$month <- refs$age
 
 #item information curve

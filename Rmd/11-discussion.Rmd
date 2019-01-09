@@ -1,3 +1,11 @@
+---
+output: pdf_document
+---
+```{r init11, include=FALSE}
+source(file = file.path("/Users/buurensv/Websites/dbook/dbook1/R", "before_chapter_script.R"), 
+       local = TRUE)
+```
+
 # Discussion {#discussion}
 
 ## Usefulness of $D$-score for monitoring child health
@@ -126,6 +134,8 @@ is that it may help in improving decision making, ultimately lowering
 the number of children not reaching their developmental potential.
 
 ## $D$-score for international settings
+
+TEST TEST 
 
 ## $D$-score from existing instruments
 
