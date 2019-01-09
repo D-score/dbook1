@@ -19,7 +19,6 @@ visits.
 
 ```{r smoccdata2, echo = FALSE, warning = FALSE}
 library(gseddata)
-library(dmetric)
 data <- get_data(cohorts = 53)
 items <- get_itemnames(data)
 broad <- as.data.frame(data) %>% 
@@ -57,7 +56,7 @@ and person abilities into two steps.
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
-model <- fit_dmodel(varlist, data, name = "57_0")
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 There are many methods for estimating the difficulty parameters of the

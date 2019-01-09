@@ -9,7 +9,7 @@ description: "D-score I: Measurement"
 ---
 
 ```{r include=FALSE}
-knitr::opts_chunk$set(cache = TRUE)
+knitr::opts_chunk$set(cache = FALSE)
 ```
 
 # Preface {-}

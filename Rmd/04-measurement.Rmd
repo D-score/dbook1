@@ -53,8 +53,13 @@ percent.
 
 ### Codebook of DDI 0-30 months
 
-```{r smoccitems, echo = FALSE}
+```{r init04, include = FALSE}
+library(plotly)
 library(gseddata)
+```
+
+
+```{r smoccitems, echo = FALSE}
 meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 

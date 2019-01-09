@@ -11,7 +11,6 @@ validity:
 
 ```{r init07, include=FALSE}
 library(ddata)
-library(dmetric)
 library(dscore)
 library(dinstrument)
 library(gseddata)
@@ -29,7 +28,7 @@ items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
-model <- fit_dmodel(varlist, data, name = "57_0")
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ## Internal validity {#sec:internal}
@@ -145,7 +144,7 @@ cor1 <- round(cor(cor1dat[,c("b", "htcm")], use = "complete.obs")[1,2],2)
 cor2 <- round(cor(cor1dat[,c("daz", "haz")], use = "complete.obs")[1,2],2)
 
 
-plot_d_adm(data = data, model = model, metric = "dscore", adm_list = "htcm", show_legend = FALSE, show_cor = FALSE)[[1]]+
+dmetric::plot_d_adm(data = data, model = model, metric = "dscore", adm_list = "htcm", show_legend = FALSE, show_cor = FALSE)[[1]]+
   annotate("text", x = 60, y = 5, hjust = 0, label = paste("correlation =", cor1))+
   ylab("Height (cm)")
 

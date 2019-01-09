@@ -24,7 +24,6 @@ additional milestones are the standard milestones from the next wave.
 
 ```{r smoccfit8, echo = FALSE, warning = FALSE}
 library(gseddata)
-library(dmetric)
 library(dscore)
 
 data <- get_data(cohort = 53)
@@ -33,7 +32,7 @@ items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
-model <- fit_dmodel(varlist, data, name = "57_0")
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ```{r getddi, echo = FALSE}
