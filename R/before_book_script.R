@@ -1,8 +1,3 @@
-# packages loaded for all chapters
-pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr")
-loaded <- sapply(pkg, require, character.only = TRUE,
-                 warn.conflicts = FALSE, quietly = TRUE)
-
 # knitr options
 knit_theme$set(knit_theme$get("earendel"))
 opts_chunk$set(comment = NA, background = "#FBFBFB")
