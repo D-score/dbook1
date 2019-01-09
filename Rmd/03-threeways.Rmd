@@ -452,7 +452,7 @@ equally valid constructs. A latent variable ranges from low to high. A
 latent variable cannot be measured directly. It is a theoretical
 construct.
 
-```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)', out.width='80%', fig.align='center'}
+```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)'}
 knitr::include_graphics("fig/lineplot.png")
 ```
 (ref:lineplot) Placing milestones and children onto the same line reveals their positions.

@@ -8,14 +8,15 @@ link-citations: yes
 description: "D-score I: Measurement"
 ---
 
-```{r include=FALSE}
-knitr::opts_chunk$set(cache = TRUE)
+```{r initbook, include = FALSE}
+opts_chunk$set(comment = NA, background = "#FBFBFB",
+               fig.align = 'center', cache = TRUE)
 ```
 
 # Preface {-}
 
 This is an introductory booklet on the measurement of child
-development by means of the D-score. The D-score is a one-number
+development by means of the $D$-score. The $D$-score is a one-number
 summary that quantifies generic neurocognitive development for
 children with ages 0-2 years.
 

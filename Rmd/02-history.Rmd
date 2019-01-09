@@ -21,7 +21,7 @@ Shirley gave empirical definitions of each of these domains of
 development.
 
 
-```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)', out.width='80%', fig.align='center'}
+```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)'}
 include_graphics("fig/shirley-motor.png")
 ```
 (ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
@@ -119,11 +119,13 @@ will depend on the child's unique combination of personal and
 environmental circumstances, including cultural diversity in
 development.
 
-```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)', out.width='80%', fig.align='center'}
+```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)'}
 include_graphics("fig/dynamic.png")
 ```
 
-(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
+(ref:dynamic) A representation of the dynamic systems viewpoint on how
+different combinations of skills may lead to the same end point using
+different paths. Source: @berk2013.
 
 ### Nature or nurture?
 
