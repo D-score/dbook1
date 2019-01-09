@@ -38,17 +38,10 @@ modeled probabilities at various levels of ability.
 
 ### Well-fitting item response curves
 
-```{r smoccdata3, warning = FALSE}
-library(gseddata)
-data <- get_data(cohorts = 53)
-items <- get_itemnames(data)
-```
-
-```{r smoccfit3, warning = FALSE}
-varlist <- list(adm = c("cohort", "subjid", "agedays"), 
-                items = items,
-                cov = NULL)
-model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
+```{r smoccmodel6, dependson = "smoccmodel", cache = FALSE}
+data <- knitr::load_cache("smoccmodel", "data")
+items <- knitr::load_cache("smoccmodel", "items")
+model <- knitr::load_cache("smoccmodel", "model")
 ```
 
 ```{r ploticc, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:ploticc)'}

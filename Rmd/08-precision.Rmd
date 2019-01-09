@@ -22,16 +22,10 @@ The set of milestones used in the DDI varies per wave. The number of
 standard milestones varies between 2 and 7 at the various waves. The
 additional milestones are the standard milestones from the next wave.
 
-```{r smoccfit8, warning = FALSE}
-library(gseddata)
-
-data <- get_data(cohort = 53)
-items <- get_itemnames(data)
-
-varlist <- list(adm = c("cohort", "subjid", "agedays"), 
-                items = items,
-                cov = NULL)
-model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
+```{r smoccmodel8, dependson = "smoccmodel", cache = FALSE}
+data <- knitr::load_cache("smoccmodel", "data")
+items <- knitr::load_cache("smoccmodel", "items")
+model <- knitr::load_cache("smoccmodel", "model")
 ```
 
 ```{r getddi}

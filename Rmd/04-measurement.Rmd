@@ -53,10 +53,15 @@ percent.
 
 ### Codebook of DDI 0-30 months
 
-```{r init04, include = FALSE}
+```{r smoccmodel}
 library(gseddata)
+data <- get_data(cohort = 53)
+items <- get_itemnames(data)
+varlist <- list(adm = c("cohort", "subjid", "agedays"), 
+                items = items,
+                cov = NULL)
+model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
-
 
 ```{r smoccitems}
 meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
@@ -64,7 +69,6 @@ meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
-data <- get_data(cohort = 53)
 df <- data.frame(
   item = get_itemnames(data),
   debut = c(1, 2, 3, 5, 6, 6, 7, 8, 9, 10, 10,
@@ -113,14 +117,6 @@ re-measured on that milestone during the next visit. This process was
 continued until a PASS was recorded.
 
 ## Probability of passing a milestone given age
-
-```{r smoccfit, warning = FALSE}
-items <- get_itemnames(data)
-varlist <- list(adm = c("cohort", "subjid", "agedays"), 
-                items = items,
-                cov = NULL)
-model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
-```
 
 ```{r smoccpa, fig.cap = '(ref:smoccpa)', fig.height = 4}
 # define data for rug plot
