@@ -54,7 +54,6 @@ percent.
 ### Codebook of DDI 0-30 months
 
 ```{r init04, include = FALSE}
-library(plotly)
 library(gseddata)
 ```
 
@@ -302,24 +301,24 @@ tab <- grid %>%
   tidyr::drop_na("a") %>%
   group_by(item)
 
-py <- plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain) %>%
-  add_lines() %>%
-  layout(scene = list(xaxis = list(title = 'Age'),
-                      yaxis = list(title = 'D-score'),
-                      zaxis = list(title = 'Probability'),
-                      aspectratio = list(x = 1, y = 1, z = 0.5),
-                      camera = list(
-                        up = list(
-                          x = 1,
-                          y = 0,
-                          z = 0
-                        ),
-                        eye = list(
-                          x = 0,
-                          y = 0,
-                          z = 2
-                        )
-                      )
+py <- plotly::plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain) %>%
+  plotly::add_lines() %>%
+  plotly::layout(scene = list(xaxis = list(title = 'Age'),
+                              yaxis = list(title = 'D-score'),
+                              zaxis = list(title = 'Probability'),
+                              aspectratio = list(x = 1, y = 1, z = 0.5),
+                              camera = list(
+                                up = list(
+                                  x = 1,
+                                  y = 0,
+                                  z = 0
+                                ),
+                                eye = list(
+                                  x = 0,
+                                  y = 0,
+                                  z = 2
+                                )
+                              )
   ))
 py
 ```

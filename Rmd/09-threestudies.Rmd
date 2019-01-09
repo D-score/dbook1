@@ -16,8 +16,6 @@ focuses in comparing the $D$-scores calculated from the study data.
 
 ```{r smoccfit9, echo = FALSE, warning = FALSE}
 library(gseddata)
-library(dscore)
-library(gridExtra)
 data <- get_data(cohort = 53)
 items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
@@ -75,8 +73,9 @@ plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz",
 
 ```{r smoccda9, echo = FALSE, fig.cap = '(ref:smoccda9)', fig.height = 12, warning = FALSE}
 model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
-model$dscore$daz    <- daz(model$dscore$b, x = model$dscore$agedays, 
-                           x.unit = "day")
+model$dscore$daz    <- dscore::daz(model$dscore$b, 
+                                   x = model$dscore$agedays, 
+                                   x.unit = "day")
 model$dscore$cohort <- "SMOCC"
 
 plot_ddaz(model$dscore, x = "agemos", y = "b", z = "daz", 
@@ -157,20 +156,20 @@ dkey <- data.frame(item = model$itembank$lex_gsed,
 ref <- dscore::Dreference
 
 pops_data$age <- pops_data$age_c0.00
-d_0.00 <- ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_0.00 <- daz(d = d_0.00$b, x = pops_data$age, ref = ref)
+d_0.00 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
+z_0.00 <- dscore::daz(d = d_0.00$b, x = pops_data$age, ref = ref)
 
 pops_data$age <- pops_data$age_c0.50
-d_0.50 <- ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_0.50 <- daz(d = d_0.50$b, x = pops_data$age, ref = ref)
+d_0.50 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
+z_0.50 <- dscore::daz(d = d_0.50$b, x = pops_data$age, ref = ref)
 
 pops_data$age <- pops_data$age_c0.75
-d_0.75 <- ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_0.75 <- daz(d = d_0.75$b, x = pops_data$age, ref = ref)
+d_0.75 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
+z_0.75 <- dscore::daz(d = d_0.75$b, x = pops_data$age, ref = ref)
 
 pops_data$age <- pops_data$age_c1.00
-d_1.00 <- ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_1.00 <- daz(d = d_1.00$b, x = pops_data$age, ref = ref)
+d_1.00 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
+z_1.00 <- dscore::daz(d = d_1.00$b, x = pops_data$age, ref = ref)
 
 pops2 <- bind_cols(pops_data, 
                    cohort  = rep("POPS", nrow(pops_data)),
@@ -416,8 +415,8 @@ dkey <- data.frame(item = model$itembank$lex_gsed,
                    stringsAsFactors = FALSE)
 ref <- dscore::Dreference
 
-d <- ability(data = togo, items = items, key = dkey, qp = -10:80)
-z <- daz(d = d$b, x = togo$age, ref = ref)
+d <- dscore::ability(data = togo, items = items, key = dkey, qp = -10:80)
+z <- dscore::daz(d = d$b, x = togo$age, ref = ref)
 
 togo2 <- bind_cols(togo, 
                    cohort  = rep("KPALIME", nrow(togo)),

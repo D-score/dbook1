@@ -24,7 +24,6 @@ additional milestones are the standard milestones from the next wave.
 
 ```{r smoccfit8, echo = FALSE, warning = FALSE}
 library(gseddata)
-library(dscore)
 
 data <- get_data(cohort = 53)
 items <- get_itemnames(data)
@@ -58,7 +57,6 @@ ddi <- df %>%
   arrange(debut, itemorder) %>% 
   dplyr::select(item, debut, domain, label)
 
-# library(gseddata)
 # data <- get_data(cohort = 53)
 # ddi <- data$itm %>%
 #   group_by(item) %>% 
@@ -190,15 +188,15 @@ dkey <- data.frame(item = model$itembank[, paste("lex", "gsed", sep = "_")],
                    stringsAsFactors = FALSE)
 
 # calculate the ability for three versions
-beta_std <- ability(data = data_std, 
-                    items = intersect(items, names(data_std)), 
-                    key = dkey)
-beta_add <- ability(data = data_add, 
-                    items = intersect(items, names(data_add)), 
-                    key = dkey)
-beta_all <- ability(data = data_all, 
-                    items = items, 
-                    key = dkey)
+beta_std <- dscore::ability(data = data_std, 
+                            items = intersect(items, names(data_std)), 
+                            key = dkey)
+beta_add <- dscore::ability(data = data_add, 
+                            items = intersect(items, names(data_add)), 
+                            key = dkey)
+beta_all <- dscore::ability(data = data_all, 
+                            items = items, 
+                            key = dkey)
 
 # combine into one data set
 data_std <- cbind(data_std[, c("subjid", "agedays")], 
