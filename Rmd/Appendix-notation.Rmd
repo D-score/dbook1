@@ -1,12 +1,8 @@
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 # Appendix - notation {#ch:notation}
 
 The notation in this booklet is based on the notation used in the book of @wright1982.
 
-```{r, echo=FALSE}
+```{r appendix}
 
 tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", "item step", "", "", "item", "", "", "threshold", "", "",
                           "DATA", "", "", "", "", "", "", "", "", "", "", "", "",

@@ -25,7 +25,7 @@ example, in Shirley's motor data in Table \@ref(tab:shirley), we may
 summarize the ages at which each of the 21 children enters a given
 stage.
 
-```{r agebased, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebased)', warning = FALSE}
+```{r agebased, fig.height = 3, fig.cap = '(ref:agebased)', warning = FALSE}
 load(file = file.path("data/shirley.rda"))
 
 d <- shirley %>%
@@ -54,7 +54,7 @@ measurement, as follows:
 > The age equivalent of a particular stage is simply the average age 
 > at which children reach that particular stage. 
 
-```{r agebox, echo = FALSE, fig.height = 3, fig.cap = '(ref:agebox)', warning = FALSE}
+```{r agebox, fig.height = 3, fig.cap = '(ref:agebox)', warning = FALSE}
 means <- aggregate(age ~  stage, d, mean)
 ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
   geom_boxplot(col = "skyblue", fill = "transparent", width = 0.3) +
@@ -118,7 +118,7 @@ repeated for different domains, e.g. motor, cognitive, and so on.
 
 ### Example of score-based measurement
 
-```{r scoreplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:scoreplot)', warning = FALSE}
+```{r scoreplot, fig.asp = 0.6, fig.cap = '(ref:scoreplot)', warning = FALSE}
 levels(d$stage) <- as.character(0:3)
 ggplot(d, aes(age, stage, group = name, colour = name)) +
   geom_step() + 
@@ -208,7 +208,7 @@ suggest that such benefits are well within reach.
 
 ### Example of unit-based measurement {#sec:unitbasedexample}
 
-```{r weekly, echo = FALSE}
+```{r weekly}
 load(file = file.path("data/shirley.rda"))
 data <- expand.grid(age = c(12:52, seq(54, 76, 2)), 
                     name = shirley$name) %>%
@@ -241,7 +241,7 @@ measurements is coded as a PASS (1) or a FAIL (0).
 It is now straightforward to calculate the probability of passing each
 milestone at different ages.
 
-```{r fitdmodel, echo = FALSE}
+```{r fitdmodel}
 data2 <- data %>%
   mutate(country = "USA",
          study = "Shirley",
@@ -260,7 +260,7 @@ model <- dmetric::fit_dmodel(varlist = varlist, data = data2,
 ```
 
 
-```{r shirleypa, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE}
+```{r shirleypa, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE}
 # create long matrix
 itm <- data2 %>%
   dplyr::select(subjid, agedays, stepping, standing, walk_help, walk_alone) %>%
@@ -309,7 +309,7 @@ plot
 
 Figure \@ref(fig:shirleypa) plots the empirical probability curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
 
-```{r shirleypd, echo = FALSE, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
+```{r shirleypd, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
 items <- varlist$items
 modelb <- model$dscore
 colnames(modelb)[colnames(modelb) == "d"] <- "b"
@@ -452,7 +452,7 @@ equally valid constructs. A latent variable ranges from low to high. A
 latent variable cannot be measured directly. It is a theoretical
 construct.
 
-```{r lineplot, echo = FALSE, fig.cap = '(ref:lineplot)'}
+```{r lineplot, fig.cap = '(ref:lineplot)'}
 knitr::include_graphics("fig/lineplot.png")
 ```
 (ref:lineplot) Placing milestones and children onto the same line reveals their positions.

@@ -21,7 +21,7 @@ Shirley gave empirical definitions of each of these domains of
 development.
 
 
-```{r shirleyplot, echo = FALSE, fig.cap = '(ref:shirleyplot)'}
+```{r shirleyplot, fig.cap = '(ref:shirleyplot)'}
 include_graphics("fig/shirley-motor.png")
 ```
 (ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
@@ -119,7 +119,7 @@ will depend on the child's unique combination of personal and
 environmental circumstances, including cultural diversity in
 development.
 
-```{r dynamic, echo = FALSE, fig.cap = '(ref:dynamic)'}
+```{r dynamic, fig.cap = '(ref:dynamic)'}
 include_graphics("fig/dynamic.png")
 ```
 
@@ -164,7 +164,7 @@ need substantial assistance. Footprints left were later colored by
 graphite and measured. Measurements during the first year were
 repeated every week or bi-weekly.
 
-```{r shirley, echo = FALSE}
+```{r shirley}
 load(file = file.path("data/shirley.rda"))
 options(knitr.kable.NA = '?')
 kable(shirley, 
@@ -186,7 +186,7 @@ last column, because she died before she could walk alone.
 
 ### Individual trajectories of motor development
 
-```{r stepplot, echo = FALSE, fig.asp = 0.6, fig.cap = '(ref:stepplot)', warning = FALSE}
+```{r stepplot, fig.asp = 0.6, fig.cap = '(ref:stepplot)', warning = FALSE}
 d <- shirley %>%
   mutate(name = factor(name, as.character(name))) %>%
   gather(key = "stage", value = "age", -name, -sex) %>%
@@ -241,7 +241,7 @@ public health questions.
 
 Table: (\#tab:question) Questions whose answers require quantitative measurements of child development.
 
-```{r echo = FALSE}
+```{r questions}
 questions <- data.frame(
   Level = c(rep("Individual", 3), rep("Group", 2), rep("Population", 3)),
   Question = c(

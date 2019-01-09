@@ -58,7 +58,7 @@ library(gseddata)
 ```
 
 
-```{r smoccitems, echo = FALSE}
+```{r smoccitems}
 meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
@@ -114,7 +114,7 @@ continued until a PASS was recorded.
 
 ## Probability of passing a milestone given age
 
-```{r smoccfit, echo = FALSE, warning = FALSE}
+```{r smoccfit, warning = FALSE}
 items <- get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
@@ -122,7 +122,7 @@ varlist <- list(adm = c("cohort", "subjid", "agedays"),
 model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
-```{r smoccpa, echo = FALSE, fig.cap = '(ref:smoccpa)', fig.height = 4}
+```{r smoccpa, fig.cap = '(ref:smoccpa)', fig.height = 4}
 # define data for rug plot
 data_rug <- data$itm %>%
   mutate(agemos = round(12 * agedays / 365.25), 3) %>%
@@ -171,7 +171,7 @@ milestones from the same domain appear.
 
 ## Probability of passing a milestone given $D$-score
 
-```{r smoccpd, echo = FALSE, fig.cap = '(ref:smoccpd)', fig.height = 4}
+```{r smoccpd, fig.cap = '(ref:smoccpd)', fig.height = 4}
 modelb <- model$dscore
 delta <- dscore::gettau(model$items, model$itembank, lexicon = model$lexicon)
 data2 <- data$itm %>%
@@ -235,7 +235,7 @@ section provides the explanation.
 
 ## Relation between age and the $D$-score
 
-```{r smoccda, echo = FALSE, fig.cap = '(ref:smoccda)', fig.height = 6, warning = FALSE}
+```{r smoccda, fig.cap = '(ref:smoccda)', fig.height = 6, warning = FALSE}
 reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
   filter(month <= 30) %>%
   tidyr::gather(key = centile, value = d,-month)
@@ -281,7 +281,7 @@ year infants gain about 40$D$, whereas in the second year they gain
 about 20$D$. A similar change in growth rate occurs in length (first
 year: 23 cm, second year: 12 cm, for Dutch children).
 
-```{r smoccdap, echo = FALSE, fig.cap = '(ref:smoccdap)', warning = FALSE}
+```{r smoccdap, fig.cap = '(ref:smoccdap)', warning = FALSE}
 # model ICC curves D-score
 grid <- crossing(
   item = items,
@@ -427,11 +427,11 @@ A widely used method to map differences on the latent scale are
 calculate the probability by the inverse-logit (or *logistic*
 function) for a difference of 0 and 1 as
 
-```{r logit0}
+```{r logit0, echo = TRUE}
 plogis(c(0, 1))
 ```
 
-```{r logisticplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:logisticplot)', width = "80%"}
+```{r logisticplot, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:logisticplot)', width = "80%"}
 pkg <- c("ggplot2", "RColorBrewer")
 loaded <- sapply(pkg, require, character.only = TRUE, 
                  warn.conflicts = FALSE, quietly = TRUE)
@@ -480,7 +480,7 @@ passing an item. The logistic function is the dominant choice in IRT,
 but it is instructive to study some other mappings. The *item response
 function* maps success probability against ability.
 
-```{r irfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:irfplot)'}
+```{r irfplot, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:irfplot)'}
 ggplot(items, aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
   geom_line(lwd = 0.75) + 
   scale_x_continuous("Child ability (logits)", breaks = -5:5) + 
@@ -542,7 +542,7 @@ Let us continue with items A, C and D from Figure \@ref(fig:irfplot), and
 calculate the response function for three children, respectively with 
 abilities $\beta_1 = -2$, $\beta_2 = 0$ and $\beta_3 = 2$.
 
-```{r prfplot, echo = FALSE, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:prfplot)'}
+```{r prfplot, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:prfplot)'}
 x <- c(seq(-5.00, -2.25, 0.25), -2.001, -2, -1.999, 
        seq(-1.75, -0.25, 0.25), -0.001,  0,  0.001,
        seq( 0.25,  1.75, 0.25),  1.999,  2,  2.001,
