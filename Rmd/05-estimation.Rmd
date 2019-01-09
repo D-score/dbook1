@@ -17,10 +17,13 @@ The SMOCC dataset, introduced in Section \@ref(sec:smocc), contains
 scores on the DDI of Dutch children aged 0-2 years made during nine
 visits.
 
-```{r smoccdata2, warning = FALSE}
-library(gseddata)
-data <- get_data(cohorts = 53)
-items <- get_itemnames(data)
+```{r smoccmodel5, dependson = "smoccmodel", cache = FALSE}
+data <- knitr::load_cache("smoccmodel", "data")
+items <- knitr::load_cache("smoccmodel", "items")
+model <- knitr::load_cache("smoccmodel", "model")
+```
+
+```{r smocctable, warning = FALSE}
 broad <- as.data.frame(data) %>% 
   dplyr::select(subjid, agedays, items) %>% 
   dplyr::slice(1:26)
@@ -33,7 +36,7 @@ kable(broad,
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
-Table \@ref(tab:smoccdata2) contains data of three children, measured
+Table \@ref(tab:smocctable) contains data of three children, measured
 on nine visits between ages 0 - 2 years. The DDI scores are coded as 0
 (FAIL) or 1 (PASS). Since the selection of milestones depends on age,
 the dataset contains a large number of empty cells. Naive use of sum
@@ -51,13 +54,6 @@ persons in the analysis we separate estimation of item difficulties
 and person abilities into two steps.
 
 ## Item parameter estimation {#sec:itemestimation}
-
-```{r smoccfit2, warning = FALSE}
-varlist <- list(adm = c("cohort", "subjid", "agedays"), 
-                items = items,
-                cov = NULL)
-model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
-```
 
 There are many methods for estimating the difficulty parameters of the
 Rasch estimation. See @linacre2004 for an overview. We will use the
