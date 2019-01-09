@@ -1,3 +1,5 @@
+library(knitr)
+
 # knitr options
 knit_theme$set(knit_theme$get("earendel"))
 opts_chunk$set(comment = NA, background = "#FBFBFB")

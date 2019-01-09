@@ -238,7 +238,8 @@ Table \@ref(tab:weekly) reconstructs the weekly motor measurements
 made by Shirley from Table \@ref(tab:shirley). Each of the
 measurements is coded as a PASS (1) or a FAIL (0).
 
-It is now straightforward to calculate the probability of passing each milestone at different ages. 
+It is now straightforward to calculate the probability of passing each
+milestone at different ages.
 
 ```{r fitdmodel, echo = FALSE}
 data2 <- data %>%
@@ -253,8 +254,9 @@ varlist <- list(adm = c("country", "study", "subjid", "wave", "agedays"),
                 cov = NULL)
 anchors <- c(40, 60)
 names(anchors) <- c("standing", "walk_alone")
-model <- dmetric::fit_dmodel(varlist, data2, data_package = "", 
-                             anchors = anchors, model_name = "Motor")
+model <- dmetric::fit_dmodel(varlist = varlist, data = data2, 
+                             data_package = "", name = "Motor",
+                             anchors = anchors)
 ```
 
 

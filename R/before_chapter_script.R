@@ -1,7 +1,4 @@
-# automatically run before each new chapter
-
-# clean out current session objects
-rm(list = ls(all = TRUE))
+# automatically run before each chapter
 
 # load standard packages
 pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr")
