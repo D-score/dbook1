@@ -11,12 +11,7 @@ validity:
 
 ```{r init07, include=FALSE}
 library(ddata)
-library(dscore)
-library(dinstrument)
 library(gseddata)
-library(dplyr)
-library(tidyr)
-library(RColorBrewer)
 ```
 
 ```{r smoccdata5, echo = FALSE, warning = FALSE}
@@ -47,25 +42,25 @@ milestone uniquely to one domain, and evaluate coverage by splitting
 the cumulative item information over domains.
 
 ```{r plotcontent, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotcontent)'}
-    info_data <-
-      info_d_item(
-        itembank = model$itembank,
-        delta = "tau",
-        long = TRUE,
-        beta_range = 0:80
-      )
-    dom_data <- info_data %>% 
-          mutate(domain = gseddata::decompose_itemnames(lex_gsed)[, "domain"],
-                 domain = plyr::revalue(domain, c("cm" = "Communication", 
+info_data <-
+  dinstrument::info_d_item(
+    itembank = model$itembank,
+    delta = "tau",
+    long = TRUE,
+    beta_range = 0:80
+  )
+dom_data <- info_data %>% 
+  mutate(domain = gseddata::decompose_itemnames(lex_gsed)[, "domain"],
+         domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
-    ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
-      theme_light() +
-      geom_bar(stat = "identity") +
-      ylab("Item information") +
-      xlab("Ability (D-score)") + 
-      labs(fill = "DDI domain") +
-      theme(legend.position = c(0.15, 0.75))
+ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
+  theme_light() +
+  geom_bar(stat = "identity") +
+  ylab("Item information") +
+  xlab("Ability (D-score)") + 
+  labs(fill = "DDI domain") +
+  theme(legend.position = c(0.15, 0.75))
 ```
 
 (ref:plotcontent) Cumulative item information by DDI domain.
@@ -138,16 +133,17 @@ such as stunting (height) (see section \@ref(sec:stunting)).
 
 
 ```{r plotconcurrent, eval=TRUE, echo=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
-cor1dat <- left_join(model$dscore, data$visit)%>% mutate(daz = dscore::daz(b, 
-            x = .data$agedays, x.unit = "day"))
+cor1dat <- left_join(model$dscore, data$visit) %>% 
+  mutate(daz = dscore::daz(b, 
+                           x = .data$agedays, x.unit = "day"))
 cor1 <- round(cor(cor1dat[,c("b", "htcm")], use = "complete.obs")[1,2],2)
 cor2 <- round(cor(cor1dat[,c("daz", "haz")], use = "complete.obs")[1,2],2)
 
-
-dmetric::plot_d_adm(data = data, model = model, metric = "dscore", adm_list = "htcm", show_legend = FALSE, show_cor = FALSE)[[1]]+
-  annotate("text", x = 60, y = 5, hjust = 0, label = paste("correlation =", cor1))+
+dmetric::plot_d_adm(data = data, model = model, metric = "dscore", 
+                    adm_list = "htcm", show_legend = FALSE, 
+                    show_cor = FALSE)[[1]] +
+  annotate("text", x = 60, y = 5, hjust = 0, label = paste("correlation =", cor1)) +
   ylab("Height (cm)")
-
 
 #plot_d_adm(data = data, model = model, metric = "daz", adm_list = "haz", show_legend = FALSE, show_cor = FALSE)[[1]]+
 #  annotate("text", x = 2, y = -5.5, hjust = 0, label = paste("correlation =", cor2))+

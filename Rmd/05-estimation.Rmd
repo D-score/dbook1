@@ -194,14 +194,12 @@ child's age, and with a standard deviation of 5, which about twice the
 normal variation in the $D$-score.
 
 ```{r figpriors, echo = FALSE,  fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
-library(dscore)
-library(ggplot2)
 #example from the adp function in ggplot:
 qp <- -10:80
 
-p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = adp(1/12, qp))
-p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = adp(15/12, qp))
-p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = adp(24/12, qp))
+p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = dscore::adp(1/12, qp))
+p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = dscore::adp(15/12, qp))
+p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = dscore::adp(24/12, qp))
 
 dataprior <- rbind(p1m, p15m, p24m) %>%
   mutate(month = as.factor(month)) %>%
@@ -260,21 +258,21 @@ qp <- -10:80
 # David
 david <- matrix(NA, nrow = length(qp), ncol = 10, 
                 dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
-it1 <- dscore(c(1, NA, NA, NA, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it2 <- dscore(c(1,  1, NA, NA, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it3 <- dscore(c(1,  1,  1, NA, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it4 <- dscore(c(1,  1,  1,  1, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it5 <- dscore(c(1,  1,  1,  1,  NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
+it1 <- dscore::dscore(c(1, NA, NA, NA, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it2 <- dscore::dscore(c(1,  1, NA, NA, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it3 <- dscore::dscore(c(1,  1,  1, NA, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it4 <- dscore::dscore(c(1,  1,  1,  1, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it5 <- dscore::dscore(c(1,  1,  1,  1,  NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
 david[, "prior1"] <- it1$`1.25`$start
 david[, c("post1", "prior2")] <- it1$`1.25`$posterior
 david[, c("post2", "prior3")] <- it2$`1.25`$posterior
@@ -284,22 +282,22 @@ david[, "post5"] <- it5$`1.25`$posterior
 
 # Rob
 rob <- matrix(NA, nrow = length(qp), ncol = 10, 
-                dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
-it1 <- dscore(c(1, NA, NA, NA, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it2 <- dscore(c(1,  0, NA, NA, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it3 <- dscore(c(1,  0,  1, NA, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it4 <- dscore(c(1,  0,  1,  1, NA), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
-it5 <- dscore(c(1,  0,  1,  1,  0), 
-              items = items, age = rep(1.25, 5), full = TRUE, 
-              itembank = model$itembank, lexicon = "gsed", qp = qp)
+              dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
+it1 <- dscore::dscore(c(1, NA, NA, NA, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it2 <- dscore::dscore(c(1,  0, NA, NA, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it3 <- dscore::dscore(c(1,  0,  1, NA, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it4 <- dscore::dscore(c(1,  0,  1,  1, NA), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
+it5 <- dscore::dscore(c(1,  0,  1,  1,  0), 
+                      items = items, age = rep(1.25, 5), full = TRUE, 
+                      itembank = model$itembank, lexicon = "gsed", qp = qp)
 rob[, "prior1"] <- it1$`1.25`$start
 rob[, c("post1", "prior2")] <- it1$`1.25`$posterior
 rob[, c("post2", "prior3")] <- it2$`1.25`$posterior

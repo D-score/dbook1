@@ -537,11 +537,11 @@ model_psi <- function(model, data){
   sim_data[is.na(data3)] <- NA
 
   sim_data$age <- model$beta_l$agedays / 365.25
-  b_est <- ability(data = sim_data, items = names(model$fit$b), 
-                   key = data.frame(item = names(model$fit$b), 
-                                    delta = model$fit$b), 
-                   metric = "logit",
-                   qp = seq(-25, 25, 0.25))$b #estimate new abilities based on simulated data - b_est
+  b_est <- dscore::ability(data = sim_data, items = names(model$fit$b), 
+                           key = data.frame(item = names(model$fit$b), 
+                                            delta = model$fit$b), 
+                           metric = "logit",
+                           qp = seq(-25, 25, 0.25))$b #estimate new abilities based on simulated data - b_est
   
   #calculate parameters for PSI calculation
   var_b_est <- var(b_est, na.rm = TRUE)
