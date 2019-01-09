@@ -18,6 +18,7 @@ rmd_files: ["index.Rmd",
             "Rmd/Appendix-notation.Rmd",
             "Rmd/12-references.Rmd"]
 before_chapter_script: "R/before_chapter_script.R"
+after_chapter_script: "R/after_chapter_script.R"
 url: https://stefvanbuuren.github.io/dbook1/
 github-repo: "stefvanbuuren/dbook1"
 
