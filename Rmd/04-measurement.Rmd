@@ -149,7 +149,6 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
                      breaks = seq(0, 28, 4)) +
   scale_y_continuous("% pass", breaks = seq(0, 100, 20),
                      limits = c(0, 100)) + 
-  theme_light() +
   geom_line(size = 0.3) + 
   geom_point(size = 1.0)  +
   theme(legend.position = "none")
@@ -208,7 +207,6 @@ plot <- ggplot(pass, aes(b, p, group = item, colour = domain,
                      breaks = seq(0, 70, 10)) +
   scale_y_continuous("% pass", breaks = seq(0, 100, 10),
                      limits = c(0, 100)) +
-  theme_light() +
   geom_line(size = 0.3) + 
   geom_point(size = 1.0) +
   theme(legend.position = "none")
@@ -244,7 +242,6 @@ reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
 model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
 plot <-
   ggplot(reference, aes(x = month, y = d, group = centile)) +
-  theme_light() +
 #  coord_fixed(ratio = 60/80 * 688/818) +
   scale_colour_manual(values = dmetric::get_palette("study", package = model$data_package),
                       na.value = "grey") +
@@ -453,7 +450,6 @@ ggplot(subset(items, Items == "A"), aes(x = beta, y = 100 * pass, group = Items,
   scale_x_continuous("logits", breaks = -5:5) + 
   scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
   scale_colour_brewer(palette = "Set1", labels = c("A: Logistic", "B: Constant", "C: Step", "D: 2PL", "E: Monotone")) + 
-  theme_light() + 
   theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
 ```
 
@@ -490,7 +486,6 @@ ggplot(items, aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
   scale_x_continuous("Child ability (logits)", breaks = -5:5) + 
   scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
   scale_colour_brewer(palette = "Set1", labels = c("A: Logistic", "B: Constant", "C: Step", "D: 2PL", "E: Monotone")) + 
-  theme_light() + 
   theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
 ```
 
@@ -575,7 +570,6 @@ ggplot(data, aes(x = delta, y = 100 * pass, group = person, colour = person)) +
   scale_x_continuous("Item difficulty (logits)", breaks = -5:5) + 
   scale_y_continuous("% pass", breaks = seq(0, 100, 20), limits = c(0, 100)) +
   scale_colour_brewer(name = "Person ability", palette = "Set1", limits = c("-2", "0", "+2")) + 
-  theme_light() + 
   theme(legend.position = c(0.8, 0.6), legend.justification = c(0, 0)) +
   annotate("text", x = -4.5, y = 15, label = "Easy items", fontface = "bold") + 
   annotate("text", x =  4.5, y = 15, label = "Hard items", fontface = "bold")

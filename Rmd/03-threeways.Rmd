@@ -37,7 +37,6 @@ d <- shirley %>%
 ggplot(d, aes(age, stage, group = name, colour = name)) +
   geom_point(cex = 3, pch = 1) + 
   geom_point() + 
-  theme_light() + 
   guides(colour = FALSE) + 
   labs(x = "Age (weeks)", y = "Stage")
 ```
@@ -63,7 +62,6 @@ ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
   geom_point() + 
   stat_summary(fun.y = mean, colour = "black", geom = "point", 
                shape = 4, size = 3, show.legend = FALSE) +
-  theme_light() + 
   guides(colour = FALSE) + 
   labs(y = "Age (weeks)", x = "Stage") +
   coord_flip()
@@ -125,7 +123,6 @@ levels(d$stage) <- as.character(0:3)
 ggplot(d, aes(age, stage, group = name, colour = name)) +
   geom_step() + 
   geom_point() + 
-  theme_light() + 
   facet_wrap(~ name, nrow = 3) +
   guides(colour = FALSE) + 
   labs(x = "Age (weeks)", y = "Gross-motor score")
@@ -295,7 +292,6 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
                      limits = c(0, 100)) + 
   geom_line() + 
   geom_point() +
-  theme_light() +
   theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
         legend.key.size = unit(3.0, "mm"),
         legend.spacing.y = unit(0.5, "mm"),
@@ -374,7 +370,6 @@ plot <- ggplot(pass, aes(x = b, y = p, group = item, colour = item)) +
              pch = 4, cex = 2) +
   # geom_line() + 
   geom_point() +
-  theme_light() +
   theme(legend.position = c(0.99, 0.05), legend.justification = c(1, 0),
         legend.key.size = unit(3.0, "mm"),
         legend.spacing.y = unit(0.5, "mm"),

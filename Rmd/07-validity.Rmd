@@ -55,7 +55,6 @@ dom_data <- info_data %>%
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
 ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
-  theme_light() +
   geom_bar(stat = "identity") +
   ylab("Item information") +
   xlab("Ability (D-score)") + 

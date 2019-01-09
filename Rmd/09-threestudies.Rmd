@@ -39,7 +39,6 @@ plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz",
   
   g1 <-
     ggplot(data, aes_string(x = x, y = y)) +
-    theme_light() +
     scale_x_continuous(xlab,
                        limits = c(0, 30),
                        breaks = seq(0, 30, 6)) +
@@ -55,7 +54,6 @@ plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz",
     theme(legend.position = "none")
   g2 <-
     ggplot(data, aes_string(x = x, y = z)) +
-    theme_light() +
     scale_x_continuous(xlab,
                        limits = c(0, 30),
                        breaks = seq(0, 30, 6)) +
@@ -266,7 +264,6 @@ g <- ggplot(subset(pops2, n > 0),
                 colour = cut(f, breaks = c(-1, 0, 1, 35),
                              labels = c("0", "1", "2+")))) + 
   coord_fixed() +
-  theme_light() +
   geom_abline(slope = 1, intercept = 0, color = "grey") +
   geom_point(size = 1) +
   labs(colour = "Number of fails") +
@@ -523,7 +520,6 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
   
   g1 <-
     ggplot(data, aes_string(x = x, y = y)) +
-    theme_light() +
     scale_x_continuous(xlab,
                        limits = c(0, 30),
                        breaks = seq(0, 30, 6)) +
@@ -661,7 +657,6 @@ plots <- dmetric::plot_p_a_item(pass = pass, data_rug = data_rug,
 ### Gross motor development
 
 ```{r grossmotor, echo = FALSE, fig.cap = '(ref:grossmotor)', fig.height = 12, warning = FALSE}
-theme_set(theme_light())
 gridExtra::grid.arrange(plots[[53]], plots[[69]], plots[[64]], ncol = 1)
 #
 ```
@@ -686,7 +681,6 @@ craft that not many westerners can dream of.
 ### Fine motor development
 
 ```{r finemotor, echo = FALSE, fig.cap = '(ref:finemotor)', fig.height = 12, warning = FALSE}
-theme_set(theme_light())
 gridExtra::grid.arrange(plots[[27]], plots[[29]], plots[[33]], ncol = 1)
 ```
 
@@ -701,7 +695,6 @@ two Dutch cohorts.
 ### Communication and language
 
 ```{r commun, echo = FALSE, fig.cap = '(ref:commun)', fig.height = 12, warning = FALSE}
-theme_set(theme_light())
 gridExtra::grid.arrange(plots[[4]], plots[[11]], plots[[16]], ncol = 1)
 ```
 
