@@ -194,10 +194,10 @@ d <- shirley %>%
 ggplot(d, aes(age, stage, group = name, colour = name)) +
   geom_step() + 
   geom_point() + 
-  theme_light() + 
   facet_wrap(~ name, nrow = 3) +
   guides(colour = FALSE) + 
   labs(x = "Age (weeks)", y = "Stage")
+#
 ```
 
 (ref:stepplot) Staircase plot indicating the age at which each baby 

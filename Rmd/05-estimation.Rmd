@@ -81,7 +81,6 @@ ib <- model$itembank %>%
 p <- ggplot(ib, aes(x = delta, y = reorder(lab, -delta))) + 
   geom_segment(aes(yend = lab), xend = -30, colour = "grey50") +
   geom_point(size = 2, aes(colour = domain)) + 
-  theme_light() + 
   theme(panel.grid.major.y = element_blank()) +
   facet_grid(domain ~ ., scales = "free_y", space = "free_y") + 
   theme(legend.position = "none") + 
@@ -139,7 +138,6 @@ one-week interval.
 p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) + 
   geom_segment(aes(yend = lab), xend = -30, colour = "grey50") +
   geom_point(size = 2, aes(colour = domain)) + 
-  theme_light() + 
   theme(panel.grid.major.y = element_blank()) +
   facet_grid(domain ~ ., scales = "free_y", space = "free_y") + 
   theme(legend.position = "none") + 
@@ -206,7 +204,6 @@ dataprior <- rbind(p1m, p15m, p24m) %>%
   dplyr::filter(p > 0.00001)
 
 p <- ggplot(dataprior, aes(qp, p, group = month)) +
-  theme_light() + 
   theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1)) +
   geom_path(aes(colour = month)) +
   coord_cartesian(xlim = c(-10, 80)) +
@@ -314,7 +311,6 @@ plotdata <- plotdata %>%
   dplyr::filter(y > 0.00001)
 
 p <- ggplot(plotdata, aes(x = x, y = y)) +
-  theme_light() + 
   theme(legend.position = "bottom") + 
   geom_path(aes(colour = type)) +
   facet_grid(item ~ person) +

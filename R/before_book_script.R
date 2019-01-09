@@ -12,6 +12,3 @@ knit_hooks$set(document = function(x) {
 # R options
 options(na.action = na.fail, width = 64, digits = 3, scipen = 6,
         continue = "  ")
-
-# ggplot theme
-ggplot2::theme_set(theme_light())

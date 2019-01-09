@@ -81,7 +81,6 @@ polygon <- data.frame(
         rev(reference$d[reference$centile == "SDP2"])))
 
 g1 <- ggplot(data, aes_string(x = "agemos", y = "b", colour = "subjid")) +
-  theme_light() +
   scale_x_continuous("Age (in months)",
                      limits = c(0, 30),
                      breaks = seq(0, 30, 6)) +
