@@ -491,7 +491,7 @@ All data were registered in paper dossiers. Data were digitized by
 four local data-assistants, and on a regular basis mailed to TNO, the
 Netherlands to check for completeness and consistency.
 
-```{r dataassistents, echo = FALSE, fig.cap = '(ref:dataassistents)', out.width='60%', fig.align='center'}
+```{r dataassistents, echo = FALSE, fig.cap = '(ref:dataassistents)', out.width='60%'}
 include_graphics("fig/data_assistents.png")
 ```
 (ref:dataassistents) Three of the data-assistants who helped to digitize the paper files.

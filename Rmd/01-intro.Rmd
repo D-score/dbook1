@@ -24,7 +24,7 @@ brain architecture is basically shaped, but higher-order brain
 functions still continue to develop into adolescence and early
 adulthood [@kolb2017principles].
 
-```{r shonkoffplot, echo = FALSE, fig.cap = '(ref:shonkoffplot)', out.width='80%', fig.align='center'}
+```{r shonkoffplot, echo = FALSE, fig.cap = '(ref:shonkoffplot)'}
 include_graphics("fig/Shonkoff_Ch1.png")
 ```
 (ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: @skonkhoff2016best.
@@ -86,7 +86,7 @@ Stunting caused by chronic nutritional deprivation in early childhood
 can be considered as an indicator of (poor) child development
 [@perkins2017understanding].
 
-```{r shortkids, echo = FALSE, fig.cap = '(ref:shortkids)', out.width='80%', fig.align='center'}
+```{r shortkids, echo = FALSE, fig.cap = '(ref:shortkids)'}
 include_graphics("fig/stuntedchildren.jpg")
 ```
 
