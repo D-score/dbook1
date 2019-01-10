@@ -1,4 +1,4 @@
-# $D$-score {#ch:newmodel}
+# The $D$-score {#ch:newmodel}
 
 > Author: Stef van Buuren
 
@@ -6,7 +6,15 @@ Chapter \@ref(ch:history) provided historic background on the nature
 of child development. Chapter \@ref(ch:threeways) discussed three
 general quantification approaches. This chapter explains how to apply
 the unit-based approach to arrive at the $D$-score scale. The text
-illustrates the process using Dutch data.
+illustrates the process using Dutch data. 
+
+* Dutch Development Instrument (DDI) (\@ref(sec:ddi))
+* Milestone passing by age and by $D$-score (\@ref(sec:probage), \@ref(sec:probd))
+* How do age and $D$-score relate? (\@ref(sec:aged))
+* Role of the measurement model (\@ref(sec:measurementmodel))
+* Item and person response functions (\@ref(sec:itemresponsefunctions))
+* Engelhard invariance criteria (\@ref(sec:engelhard))
+* Why the Rasch model? (\@ref(sec:whyrasch))
 
 ## The Dutch Development Instrument (DDI) {#sec:ddi}
 
@@ -118,7 +126,7 @@ FAIL (0). Children who did not pass a milestone at the debut age were
 re-measured on that milestone during the next visit. This process was
 continued until a PASS was recorded.
 
-## Probability of passing a milestone given age
+## Probability of passing a milestone given age {#sec:probage}
 
 ```{r smoccpa, fig.cap = '(ref:smoccpa)', fig.height = 4}
 # define data for rug plot
@@ -167,7 +175,7 @@ The item are colored by domain. In general, domains are well mixed
 across age, though around some ages, e.g., at 4 months, multiple
 milestones from the same domain appear.
 
-## Probability of passing a milestone given $D$-score
+## Probability of passing a milestone given $D$-score {#sec:probd}
 
 ```{r smoccpd, fig.cap = '(ref:smoccpd)', fig.height = 4}
 modelb <- model$dscore
@@ -231,7 +239,7 @@ How can the relation between percent pass and age be so different
 from the relation between percent pass and the $D$-score? The next
 section provides the explanation.
 
-## Relation between age and the $D$-score
+## Relation between age and the $D$-score {#sec:aged}
 
 ```{r smoccda, fig.cap = '(ref:smoccda)', fig.height = 6, warning = FALSE}
 reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
@@ -655,5 +663,5 @@ measurement theory. The Rasch model can be derived from
 
 
 * *Fits child development data*: Last but not least, as we will see
-in Section \@ref(sec:fitddi), the Rasch model provides excellent fit to
+in Chapter \@ref(ch:evaluation), the Rasch model provides excellent fit to
 child development milestones.
