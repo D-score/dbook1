@@ -37,7 +37,7 @@ The $D$-score booklet series consists of the following titles:
 Booklet 1 is currently available as complete draft. Booklets 2 and 3
 are planned for 2019 and 2020.
 
-Writing these booklets is kindly supported by the *knowledge
-integration (ki)* program of the Bill & Melinda Gates Foundation.
+This work is kindly supported by the *knowledge integration (ki)*
+program of the *Bill & Melinda Gates Foundation*.
 
 If you have any suggestions or comments, please let me know.
