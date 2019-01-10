@@ -1,5 +1,7 @@
 # Computation {#ch:computation}
 
+> Author: Stef van Buuren
+
 This chapter explains the basic computations needed for fitting and
 evaluation the Rasch model. We distinguish the following steps:
 

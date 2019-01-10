@@ -1,10 +1,12 @@
-# $D$-score: A unit to quantify general child development {#ch:newmodel}
+# $D$-score {#ch:newmodel}
+
+> Author: Stef van Buuren
 
 Chapter \@ref(ch:history) provided historic background on the nature
 of child development. Chapter \@ref(ch:threeways) discussed three
-general quantification approaches. This chapter explains the concepts
-for the unit-based approach, and how to arrive at the $D$-score scale.
-The text uses Dutch data to illustration the process.
+general quantification approaches. This chapter explains how to apply
+the unit-based approach to arrive at the $D$-score scale. The text
+illustrates the process using Dutch data.
 
 ## The Dutch Development Instrument (DDI) {#sec:ddi}
 
@@ -398,7 +400,7 @@ difficult item, whereas a highly able person will almost surely pass
 an easy item.
 
 Let us now introduce a few symbols. We adopt the notation used in
-@wright1982. See Chapter \@ref(ch:notation) for a complete list.
+@wright1982. See Appendix \@ref(ap:notation) for a complete list.
 
 Symbol        | Term          | Description
 ------------- | ------------- | -----------

@@ -1,11 +1,18 @@
 --- 
-title: "D-score for measuring development of children 0-2 years"
+title: "Measuring development of children 0-2 years"
+author: "Editor: Stef van Buuren"
+description: "The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years."
 site: bookdown::bookdown_site
+url: https://stefvanbuuren.github.io/dbook1/
+github-repo: "stefvanbuuren/dbook1"
+cover-image: "fig/shirleypd-1.png"
+apple-touch-icon: "fig/D.png"
+apple-touch-icon-size: 72
+favicon: "favicon.ico"
 documentclass: book
 bibliography: [book.bib]
 biblio-style: apalike
 link-citations: yes
-description: "D-score I: Measurement"
 ---
 
 ```{r initbook, include = FALSE}
@@ -14,17 +21,19 @@ opts_chunk$set(comment = NA, background = "#FBFBFB",
                echo = FALSE)
 ```
 
-# Preface {-}
+# Welcome {-}
 
-This is an introductory booklet on the measurement of child
-development by means of the $D$-score. The $D$-score is a one-number
-summary that quantifies generic neurocognitive development for
-children with ages 0-2 years.
+The $D$-score is a one-number summary that quantifies generic
+development of children. Here you find introductory booklets on the
+$D$-score, each of which addresses a particular aspect of the general
+idea.
 
-This is the *first* in a series of three booklets. The series consists
-of the following titles:
+The $D$-score booklet series consists of the following titles:
 
-1. [D-score for measuring development of children 0-2 years](https://stefvanbuuren.github.io/dbook1/)
-2. [D-score for international comparisons](https://stefvanbuuren.github.io/dbook2/)
-3. D-score for creating better instruments
+1. [Measuring development of children 0-2 years](https://stefvanbuuren.github.io/dbook1/)
+2. [International comparisons](https://stefvanbuuren.github.io/dbook2/)
+3. [Creating better instruments](https://stefvanbuuren.github.io/dbook3/)
+
+Booklet 1 is currently available in an experimental form. Booklets 2
+and 3 are planned for 2019 and 2020.
 

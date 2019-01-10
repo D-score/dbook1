@@ -1,8 +1,10 @@
-# Appendix - notation {#ch:notation}
+# (APPENDIX) Appendices {-}
+
+# Notation {#ap:notation}
 
 The notation in this booklet is based on the notation used in the book of @wright1982.
 
-```{r appendix}
+```{r notation}
 
 tcomb <- data.frame(a = c("MODEL","probability", "" , "", "person", "", "", "", "item step", "", "", "item", "", "", "threshold", "", "",
                           "DATA", "", "", "", "", "", "", "", "", "", "", "", "",

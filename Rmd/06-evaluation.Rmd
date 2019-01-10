@@ -1,5 +1,7 @@
 # Evaluation {#ch:evaluation}
 
+> Author: Iris Eekhout
+
 The nice properties of the Rasch model (c.f. Section
 \@ref(sec:whyrasch)) only hold when the data and model agree. It is
 therefore important to study and remove discrepancies between model
