@@ -1,4 +1,6 @@
-# Three ways to quantify child development {#ch:threeways}
+# Quantifying child development {#ch:threeways}
+
+> Author: Stef van Buuren
 
 This section distinguishes three different principles that are being
 used to quantify child development: 

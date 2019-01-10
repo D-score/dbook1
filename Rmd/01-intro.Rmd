@@ -1,5 +1,7 @@
 # Introduction {#intro}
 
+> Author: Marianne de Wolff
+
 This introduction outlines the broader context in which the D-score can be applied. 
 This chapter 
 

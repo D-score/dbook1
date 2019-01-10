@@ -1,5 +1,7 @@
 # Precision {#ch:precision}
 
+> Authors: Manon Grevinga, Stef van Buuren
+
 The chapter shows the properties of the $D$-score when calculated from
 short tests. The study of short tests is useful because it reveals the
 behavior of the $D$-score when the measurement is inherently imprecise.

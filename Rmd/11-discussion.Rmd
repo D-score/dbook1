@@ -8,6 +8,8 @@ source(file = file.path("/Users/buurensv/Websites/dbook/dbook1/R", "before_chapt
 
 # Discussion {#discussion}
 
+> Author: Stef van Buuren
+
 ## Usefulness of $D$-score for monitoring child health
 
 ### A scale for child development

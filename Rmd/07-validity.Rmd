@@ -1,5 +1,7 @@
 # Validity {#ch:validity}
 
+> Author: Iris Eekhout
+
 Validity is a generic term that refers to the question how well an
 instrument measures what it claims to measure. There are many various
 aspect of validity. The chapter we briefly review the main types of

@@ -7,7 +7,5 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="./">D-score I: Measurement</a></li>
-      after: |
-        <li><a href="https://bookdown.org/yihui/bookdown/" target="blank">Published with bookdown</a></li>
+        <li><a href="https://stefvanbuuren.name/dbook1">D-score booklet I</a></li>
     download: no
