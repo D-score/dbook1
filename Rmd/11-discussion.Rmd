@@ -220,7 +220,7 @@ for creating instruments for particular settings. For example, if the
 interest is on finding the most advanced children, we may construct a
 difficult test that will separate the good and the best. Alternatively,
 we can use the item bank to create and administer *computerized
-adaptive tests* [@wainer2000], a sequential method that select the
+adaptive tests* [@wainer2000, @jacobusse2007], a sequential method that select the
 next milestone based on the previous test outcome.
 
 Booklet III will explore the conceptual and technical challenges, and

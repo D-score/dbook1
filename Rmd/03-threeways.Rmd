@@ -205,7 +205,7 @@ evaluate the development of a child in terms of $D$ points gained,
 create age-dependent charts for development (just like growth charts
 for height and weight), devise age-conditional measures for child
 development, and intelligent adaptive testing schemes. Promising
-studies on Dutch data (@jacobusse2006, @jacobusse2007, @vanbuuren2014)
+studies on Dutch data [@jacobusse2006, @jacobusse2007, @vanbuuren2014]
 suggest that such benefits are well within reach.
 
 ### Example of unit-based measurement {#sec:unitbasedexample}
