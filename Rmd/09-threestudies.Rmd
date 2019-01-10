@@ -5,16 +5,15 @@
 This chapter compares child development between samples from three
 different studies:
 
-* *SMOCC*, a representative sample of Dutch children;
+* *SMOCC*, a representative sample of Dutch children (\@ref(sec:smoccstudy))
+* *POPS*, a cohort of all Dutch preterms in 1983 (\@ref(sec:pops))
+* *TOGO*, a set of medical records from preventive health service in Togo (\@ref(sec:togo))
+* A summary of the main findings (\@ref(sec:threestudiesconclusions))
 
-* *POPS*, a cohort of all Dutch preterms in 1983;
+Each study used the same measurement instrument, the DDI (see Section
+\@ref(sec:ddi)). The chapter compares $D$-scores between studies.
 
-* *TOGO*, a set of medical records from preventive health service in Togo.
-
-Each study used the DDI (see Section \@ref(sec:ddi)). This chapter
-focuses in comparing the $D$-scores calculated from the study data.
-
-## SMOCC study
+## SMOCC study {#sec:smoccstudy}
 
 ```{r smoccmodel9, dependson = "smoccmodel", cache = FALSE}
 data <- knitr::load_cache("smoccmodel", "data")
@@ -93,7 +92,7 @@ effect. There are also less prominent ceiling effects at the earlier
 ages. Without these effect, the references would presumably show some
 additional variation.
 
-## POPS study
+## POPS study {#sec:pops}
 
 ```{r readpops}
 # read data
@@ -367,7 +366,7 @@ chronological age was fully corrected.
 
 * We recommend the $f = 0.75$ correction of chronological age.
 
-## TOGO study
+## TOGO study {#sec:togo}
 
 
 ```{r togodata}
@@ -714,7 +713,7 @@ It may be indeed be true that children from Togo develop more rapidly
 than Dutch children. It would be desirable if these results could be
 backed up from other sources.
 
-## Conclusions
+## Conclusions {#sec:threestudiesconclusions}
 
 This chapter compared the $D$-scores estimated from the DDI
 administered to three different groups of children.

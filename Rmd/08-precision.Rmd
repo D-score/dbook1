@@ -6,10 +6,10 @@ The chapter shows the properties of the $D$-score when calculated from
 short tests. The study of short tests is useful because it reveals the
 behavior of the $D$-score when the measurement is inherently imprecise.
 
-* SMOCC milestone subsets (\@ref(sec:smoccmilestones))
+This chapter covers:
 
-* Comparing two $D$-scores from milestone subsets (\@ref(sec:comparingd))
-
+* Structure of milestone subsets (\@ref(sec:smoccmilestones))
+* Impact of short tests on $D$-score (\@ref(sec:comparingd))
 * Impact of short tests on predicting IQ (\@ref(sec:predictiq))
 
 ## SMOCC design: Standard and additional milestones {#sec:smoccmilestones}
