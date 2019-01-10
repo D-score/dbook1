@@ -1,5 +1,5 @@
 --- 
-title: "Measuring development of children 0-2 years"
+title: "Introduction to the D-score"
 author: "Editor: Stef van Buuren (Netherlands Organization for Applied Scientific Research TNO, Leiden)"
 description: "The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years."
 site: bookdown::bookdown_site
@@ -30,12 +30,13 @@ idea.
 
 The $D$-score booklet series consists of the following titles:
 
-1. [Measuring development of children 0-2 years](https://stefvanbuuren.github.io/dbook1/)
+1. [Introduction to the $D$-score](https://stefvanbuuren.github.io/dbook1/)
 2. [International comparisons](https://stefvanbuuren.github.io/dbook2/)
 3. [Creating better instruments](https://stefvanbuuren.github.io/dbook3/)
 
-Booklet 1 is currently available as complete draft. Booklets 2 and 3
-are planned for 2019 and 2020.
+[Booklet I](https://stefvanbuuren.github.io/dbook1/) is currently
+available as complete draft. Booklets 2 and 3 are planned for 2019 and
+2020.
 
 This work is kindly supported by the *knowledge integration (ki)*
 program of the *Bill & Melinda Gates Foundation*.
