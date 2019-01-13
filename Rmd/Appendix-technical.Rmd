@@ -1,0 +1,5 @@
+# Technical information {#ap:technical}
+
+```{r}
+sessionInfo()
+```
