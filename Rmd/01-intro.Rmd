@@ -2,14 +2,15 @@
 
 > Author: Marianne de Wolff
 
-This introduction outlines the broader context in which the D-score can be applied. 
+This introduction outlines the broader context in which the $D$-score can be applied. 
 This chapter 
 
-* reviews some key discussions about the first 1000 days in a child's life (\@ref(sec:first1000))
+* reviews key discussions about the first 1000 days in a child's life (\@ref(sec:first1000))
 * highlights the relevance of early childhood development for later life  (\@ref(sec:relevance))
 * discusses the use of stunting as a proxy for development  (\@ref(sec:stunting))
 * points to existing instruments to quantify neurocognitive development (\@ref(sec:neurocognitive))
 * explains why we have written this booklet (\@ref(sec:why))
+* delineates the intended audience (\@ref(sec:audience))
 
 ## First 1000 days {#sec:first1000}
 
@@ -143,22 +144,88 @@ the measurement instruments are proprietary, and costly to use.
 Some of the most widely used tools include the Achenbach Child
 Behavior Checklist (CBCL), Bayley Scales of Infant Development (BSID),
 Wechsler Intelligence Scale for Children (WISC), Ages & Stages
-Questionnaires (ASQ), and  Strengths and Difficulties Questionnaire
-(SDQ). Each of these tools has its strengths and limitations. 
+Questionnaires (ASQ), Strengths and Difficulties Questionnaire
+(SDQ), and the Denver Developmental Screening Test (DEN). 
+
+Each of these tools has its strengths and limitations. For example,
+the Denver is a relatively easy and quick to administer, but not very
+precise. The Denver is therefore primarily applied as a screening tool
+to pick up children who may need further attention. By contrast, the
+BSID provides a clinical assessment at the individual level, and
+requires a skilled professional to administer. Some instruments
+collect observations through the caregiver (ASQ), whereas others
+emphasize traits and behavior over performance (SDQ, CBCL). Moreover,
+the age ranges to which the instruments are sensitive vary, as well as
+the representation of different domains of development.
 
 ## Why this booklet? {#sec:why}
 
 We believe that **there cannot be one instrument** for measuring child
 development that is suitable for all situations. In general, the
 instrument needs to be tailored to the setting. For example, in order
-to find individual children with delayed development, we need an
-instrument that is precise for the individual child. But in order to
-compare different countries on child development, we need an
-instrument that is culturally unbiased and for which measurements can
-be made rapidly in a large number of children. These two instruments
-need to be different.
+to establish whether an individual child is delayed in development, we
+need an instrument that is precise for that individual child, and that
+is sensitive to different domains of delay. In contrast, if we want to
+estimate the proportion of children that is *developmentally on track*
+in a country, we need one culturally unbiased, relatively imprecise
+low-cost measurement made on many children across many ages, which we
+then aggregate over all children in the country. The two instruments
+that are optimal for these settings will look quite different.
 
 We also believe that **there can be one scale** for measuring child
-development. It would be extremely useful if different instruments can
-produce numbers on the same scale. This booklet explores the theory
-for making that happen.
+development, and that this scale is useful for many of applications.
+Such a scale is similar to well-known scales for body height, body
+weight or body temperature. Each scale has a clearly defined unit
+(e.g., centimeters, kilograms, degrees Celcius). The measurements are
+expressed as the number of scale units (e.g. 92 cm). Note that there
+may be multiple instruments for measuring a child height (e.g. ruler,
+laser distance meter, echo location, ability to reach the door handle,
+and so on), but the result can always be expressed as the number of
+scale units.
+
+No measurement unit for child development yet exists. Currently, each
+instrument defines its own scale, which renders the measurements made
+by multiple instrument incomparable. It would certainly be an advance
+if we would be able to tailor the measurement instrument to the
+setting, while retaining the advantage that measurements from these
+different instruments are values on a scale with the same unit. We can
+then compare the data collected by different instruments. This booklet
+explores the theory and practice for making that happen.
+
+## Intended audience {#sec:audience}
+
+We aim for three broad audiences:
+
+* Professionals in the field of child growth and development;
+
+* Policy makers in international settings;
+
+* Statisticians, methodologists and data scientists.
+
+Professionals in child development will become familiar with a new
+approach to measure child development in early childhood. Our plan of
+attack is to separate the measurement instrument from the scale used
+to express the result. This formulation allows the user to **select the
+instrument most suited for a particular setting**. Since instruments
+differ widely in age coverage, length, administration mode, domain
+coverage, and so on  (see @boggs2019), the ability to choose the
+instrument, while not giving up comparability, represents a major
+advance over routines that marry the scale to the instrument.
+
+Policy makers in international settings wish to know the effect of
+different interventions on child development. Gaining insight into
+such effects is hampered by the fact that different studies use
+different instruments. The ability to place measurements made by
+different instruments onto the same scale allows for a **more accurate
+understanding of policy effects**. It also allows to set priorities and
+action levels that are less dependent on the way the data where
+collected.
+
+Statisticians, methodologists and data scientists generally prefer
+numeric values with an unambiguous unit (e.g. centimeters, kilograms)
+over a vector of dichotomous data points. This booklet shows how to
+convert a series of PASS/FAIL scores to a numeric value with interval
+scale properties. This opens up the way to the **application of
+precise analytic techniques**, similar to those applied to child
+height and body weight. The techniques have a solid psychometric
+backing, and also apply to other types of problems.
