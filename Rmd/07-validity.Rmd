@@ -14,6 +14,8 @@ validity:
 ```{r init07, include=FALSE}
 library(ddata)
 library(gseddata)
+library(dplyr)
+library(tidyr)
 ```
 
 ```{r smoccmodel7, dependson = "smoccmodel", cache = FALSE}
@@ -72,12 +74,43 @@ actually confirms that the $D$-score increases fastest in the first
 six months and keeps increasing, but slower, as children age. This is
 consistent with theories in growth and child development.
 
+Moreover, we assume that the development can be measured by one construct,
+the $D$-score. We can evaluate to what extend the fit of our model 
+confirms this assumption. 
+
+```{r plotdomainfit, fig.height=6, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotdomainfit)'}
+
+fitdomplot <- model$item_fit %>%
+  mutate(lex_gsed = item,
+         domain = gseddata::decompose_itemnames(item)[, "domain"],
+         domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor"))) %>%
+  left_join(model$itembank[,c("lex_gsed", "tau")], by = "lex_gsed") %>%
+  gather(key = "type", value = "fit", infit, outfit)
+
+
+ggplot(data = fitdomplot, aes( x = tau, y = fit, color = domain)) +
+  geom_point() +
+  facet_grid( type ~.)+
+  xlab("D-score") +
+  ylab("Item fit")
+
+```
+
+(ref:plotdomainfit) Item fit by D-score for the DDI domains.
+
+Figure \@ref(fig:plotdomainfit) shows that the item fit shows no domain
+clustering. This means that the item fit residuals of the model cannot be
+explained by differences between the DDI domains. 
+
+
 ## External validity {#sec:external}
 
 ### Discriminatory validity
 
 ---
-# >> achtergrondvariabelen gebruiken zoals opleidingsniveau ? Disclamer toevoegen dat de informatie ind e data summier is, maar dat we nog wel meer zouden willen toevoegen. 
+# >> achtergrondvariabelen gebruiken zoals opleidingsniveau ? Disclamer toevoegen dat de informatie in de data summier is, maar dat we nog wel meer zouden willen toevoegen. 
 ---
 
 With discriminatory validity, we indicate the extend to which the
