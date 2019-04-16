@@ -343,6 +343,21 @@ equal slopes;
 patterns can co-exist because of the curvature in the relation between
 $D$-score and age.
 
+<!-- ## Difference between instrument and scale -->
+
+<!-- Note that we make a sharp distinction between an *instrument* and a -->
+<!-- *scale*. An *instrument* is a device to collect raw observations. -->
+<!-- Instruments typically includes rules for transforming the raw -->
+<!-- observations into measurements, for example, "count the number of -->
+<!-- passes", which is then passed to the user as the measurement. -->
+
+<!-- By contrast, a *scale* is a latent variable with a constant unit. -->
+<!-- (Note: Technically, this type of scale is called an interval scale). If the -->
+<!-- instrument meets certain criteria, the measurements from the -->
+<!-- instrument can be placed on the interval scale. Once this is done, we  -->
+<!-- may  -->
+
+
 ## Measurement model for the $D$-score {#sec:measurementmodel}
 
 ### What are measurement models? 
