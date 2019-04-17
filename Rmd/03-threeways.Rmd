@@ -71,7 +71,7 @@ ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
 
 (ref:agebox) Boxplot and mean (symbol `x`) of the ages at which 21 children achieve four motor development milestones.
 
-Figure \@ref(fig:agebox) adds boxplot and the mean age at which the
+Figure \@ref(fig:agebox) adds the boxplot and the mean age at which the
 children enter the four stages. The difficulty of the stages can thus
 be expressed as age equivalents: 16.1 weeks for stepping, 27.2 weeks
 for standing, 43.3 weeks for walking with help and 63.3 weeks for
@@ -93,7 +93,7 @@ later for a given milestone. However, it does not tell us what
 behaviors are characteristic for a child of a given age.
 
 2. Age-based measurement cannot exists without an age norm. When there
-is no norms, we cannot quantify development. Age-based measurement
+are no norms, we cannot quantify development. Age-based measurement
 intertwines quantification of development with evaluation of
 development.
 
@@ -106,19 +106,23 @@ cumbersome to apply with multiple milestones.
 
 Score-based measurement takes the responses on multiple milestones and
 counts the total number of passed milestones as a measure of child's
-development. This approach takes multiple measurement into account,
+development. This approach takes multiple measurements into account,
 hence leading to a more stable measurement. 
 
-If milestones are ordered in difficulty, so one may skip milestones that are too
-easy, and stop when milestones become too difficult for the child, for
-example as age-forms. In such cases, we cannot simply interpret the
-sum score of a measure of development, and need to correct for the
-subset of milestones that was actually administered. The usual working
-assumption is that the child would have passed all easier milestones and
-failed on all more difficult milestones. This procedure is typically
-repeated for different domains, e.g. motor, cognitive, and so on.
+One may order milestones in difficulty, and skip milestones that are
+too easy, and stop administration when milestones become too
+difficult. In such cases we cannot simply interpret the sum score of a
+measure of development, and need to correct for the subset of
+milestones that was actually administered. The usual working
+assumption is that the child would have passed all easier milestones
+and failed on all more difficult milestones. This procedure is
+typically repeated for different domains, e.g. motor, cognitive, and
+so on.
 
 ### Example of score-based measurement
+
+Figure \@ref(fig:scoreplot) is a gross-motor score calculated as the
+number of milestones passed. It varies from 0 to 3.
 
 ```{r scoreplot, fig.asp = 0.6, fig.cap = '(ref:scoreplot)', warning = FALSE}
 levels(d$stage) <- as.character(0:3)
@@ -132,9 +136,6 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 
 (ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with 
 the vertical axis representing gross-motor score.
-
-Figure \@ref(fig:scoreplot) is a gross-motor score calculated as the
-number of milestones passed. It varies from 0 to 3. 
 
 The plot suggests that the difference in development between scores 0
 and 1 is the same as the difference in development between, say,
@@ -192,14 +193,14 @@ In the ideal situation, we would like to have a continuous (latent)
 variable $D$ (for development) that measures child development. The
 scale should allow us to quantify *ability* of persons, groups or
 populations from low to high. The scale should have a *constant unit*,
-so that a given difference in ability quantifies means the same across
-the entire scale, just like that a difference of 10 cm means the same
-irrespective of whether we compare the heights of books or houses.
-When are these conditions are met, we say that we measure on an
-*interval scale*.
+so that a given difference in ability refers to the same quantity
+across the entire scale, just like that a difference of 10 cm is the
+same irrespective of whether we compare the heights of books or the
+heights of houses. When are these conditions are met, we say that we
+measure on an *interval scale*.
 
 If we succeed in creating an interval scale for child development, an
-enormous arsenal of technique developed for quantitative variables
+enormous arsenal of techniques developed for quantitative variables
 opens up to measure, track and analyze child development. We may then
 evaluate the development of a child in terms of $D$ points gained,
 create age-dependent charts for development (just like growth charts
@@ -309,7 +310,7 @@ plot
 
 (ref:shirleypa) Probability of achieving four motor milestones against age. Data from Table \@ref(tab:weekly).
 
-Figure \@ref(fig:shirleypa) plots the empirical probability curves of passing each motor milestone. Observe there if a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
+Figure \@ref(fig:shirleypa) plots the percentage of children passing each motor milestone against age. Observe there is a gradual decline in the steepness as we move from `stepping` to `walk_alone`. This pattern of flattening is typical for child development, and is evidence that development is faster at earlier ages. Thus, it takes less time to go from 10 to 90 percent in `stepping` than it takes for `walk_alone`.
 
 ```{r shirleypd, fig.asp = 0.5, fig.cap = '(ref:shirleypd)', warning = FALSE, message = FALSE}
 items <- varlist$items
@@ -409,7 +410,7 @@ and correspond to the amount of development of each measurement.
 Also, the logistic curves are estimated from the data, and reflect
 the probability of passing each milestone at a given level of ability.
 
-The figure shows that the probability of passing an milestone
+The figure shows that the probability of passing a milestone
 increases with ability. Milestones are ordered in difficulty from left
 to right. Milestone `stepping` is the easiest and `walk_alone` is most
 difficult. The point at which a logistic curve crosses the 50 percent
@@ -448,11 +449,29 @@ sizes.
 Measurement is the process of locating milestones and children on a
 line. This line represents a latent variable, a continuous construct
 that defines the different poles of the concept that we want to
-measure. In our case, the concept is *child development*. Other
-constructs, like *height*, *temperature* or *happiness* would be
-equally valid constructs. A latent variable ranges from low to high. A
-latent variable cannot be measured directly. It is a theoretical
-construct.
+measure. A latent variable ranges from low to high. 
+
+One part of measurement is to determine where the milestones are
+located on the latent variable. In many cases, this part has already
+been done for us. For example, each length marker on a ruler
+corresponds to a milestone for measuring the latent variable length.
+The manufacturer of the ruler has already placed the marks at the
+appropriate places on the ruler, and we take for granted that each 
+marker has been calibrated correctly. A milestone for child development is
+similar to a length marker, but
+
+* we often do not know how much development the milestone measures, so
+its location on the line is unknown, or uncertain;
+
+* we often do not know whether the milestone measures child
+development at all, so it may have no location on the line.
+
+The other part of measurement is to find the location of each child on
+the line. For height this is easy. We place the horizontal head piece
+on top of the child's head, and read off the closest height marker.
+Since we lack physical ruler for development, we must deduce the
+child's location on the line from the responses on a series of
+well-chosen milestones.
 
 ```{r lineplot, fig.cap = '(ref:lineplot)'}
 knitr::include_graphics("fig/lineplot.png")
@@ -488,7 +507,7 @@ Comparable scores         |  YES      | NO          | YES
 Probability model         |   NO      | NO          | YES
 Defines measurement unit  |   NO      | NO          | YES
 
-: (\#tab:measurement) Evaluation of three measurement approaches on nine criteria.
+: (\#tab:measurement) Evaluation of three measurement approaches on seven criteria.
 
 This chapter distinguished three approaches to measure child
 development: *age-based*, *score-based* and *unit-based* measurement.
