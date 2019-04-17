@@ -7,7 +7,7 @@ This chapter
 
 * reviews definitions of child development (\@ref(sec:definitions))
 * discusses concepts in the nature of child development (\@ref(sec:theories))
-* shows an classic example of motor measurements (\@ref(sec:motorexample))
+* shows a classic example of motor measurements (\@ref(sec:motorexample))
 * summarizes typical questions whose answers need proper measurements (\@ref(sec:questions))
 
 ## What is child development? {#sec:definitions}
@@ -131,7 +131,7 @@ different paths. Source: @berk2013.
 
 ### Nature or nurture?
 
-Are genetic or environmental factor more important for influencing
+Are genetic or environmental factors more important for influencing
 development? Most theories generally acknowledge the role of both, but
 differ in emphasis. In practice, the debate centers on the question
 how to explain individual differences.
@@ -171,20 +171,20 @@ load(file = file.path("data/shirley.rda"))
 options(knitr.kable.NA = '?')
 kable(shirley, 
       col.names = c("Name", "Sex", "Stepping", "Standing", 
-                    "Walking with help", "Walking alone"))
+                    "Walking with help", "Walking alone"),
+      caption =  "Age at beginning stages of walking (in weeks) for 21 babies.",
+      booktabs = TRUE)
 ```
 
-: (\#tab:shirley) Age at beginning stages of walking (in weeks) for 21 babies [@shirley1931, Appendix 8].
-
-Table \@ref(tab:shirley) lists the age (in weeks) of the 21 babies
-when they started, respectively, stepping, standing, walking with
-help, and walking alone, as taken from Table 3 in @vanbuuren1992.
-Question marks indicate missing data. A question mark in the first
-column the babies were already stepping when the observation started
-(Virginia Ruth, Sibyl, Donovan and Doris). Max and Martin, who have a
-question mark in the second column, skipped standing and went directly
-from stepping to walking with help. Doris has a question mark in the
-last column, because she died before she could walk alone.
+Table \@ref(tab:shirley) from [@shirley1931, Appendix 8] lists the age
+(in weeks) of the 21 babies when they started, respectively, stepping,
+standing, walking with help, and walking alone. Question marks
+indicate missing data. A question mark in the first column occurs when
+the baby was already stepping when the observation started (Virginia
+Ruth, Sibyl, Donovan and Doris). Max and Martin, who have a question
+mark in the second column, skipped standing and went directly from
+stepping to walking with help. Doris has a question mark in the last
+column, because she passed away before she could walk alone.
 
 ### Individual trajectories of motor development
 
@@ -205,7 +205,7 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 ```
 
 (ref:stepplot) Staircase plot indicating the age at which each baby 
-achieve a new milestone of gross-motor functioning.
+achieves a new milestone of gross-motor functioning.
 
 Figure \@ref(fig:stepplot) is a visual representation of the
 information in Table \@ref(tab:shirley). Each data point is the age of
@@ -241,8 +241,6 @@ are much more efficient.
 Child development is very relevant for answering clinical, policy and
 public health questions.
 
-Table: (\#tab:question) Questions whose answers require quantitative measurements of child development.
-
 ```{r questions}
 questions <- data.frame(
   Level = c(rep("Individual", 3), rep("Group", 2), rep("Population", 3)),
@@ -257,12 +255,14 @@ questions <- data.frame(
     "How does this country compare to other countries in terms of child development?"
   ))
 
-kable(questions)
+kable(questions, 
+      caption = "Questions whose answers require quantitative measurements of child development.", 
+      booktabs = TRUE)
 ```
 
-Table \@ref(tab:question) lists typical questions whose answers
+Table \@ref(tab:questions) lists typical questions whose answers
 require measuring child development. Note that all questions compare
 the amount of child development between groups and/or time points. A
 few questions compare development for the same child, group or
 population at different ages. Some others compare development within
-the same age across different children, group or populations.
+the same age across different children, groups or populations.
