@@ -58,43 +58,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -321,9 +284,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <p>In the special case that <span class="math inline">\(\beta_n = \delta_i\)</span>, the person will have a probability of 0.5 of passing the item.</p>
 <div id="logistic-model" class="section level3">
 <h3><span class="header-section-number">4.6.1</span> Logistic model</h3>
-<p>A widely used method to map differences on the latent scale are <em>logistic units</em> (or <em>logits</em>) <span class="citation">(Berkson <a href="#ref-berkson1944">1944</a>)</span>. In <code>R</code> we can calculate the probability by the inverse-logit (or <em>logistic</em> function) for a difference of 0 and 1 as</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plogis</span>(<span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</code></pre></div>
-<pre><code>[1] 0.500 0.731</code></pre>
+<p>A widely used method to map differences on the latent scale are <em>logistic units</em> (or <em>logits</em>) <span class="citation">(Berkson <a href="#ref-berkson1944">1944</a>)</span>. The reason for using the logistic rather than linear units is that its output returns a probability value that is mapped to discrete events. In our case, we can describe the probability of passing an item (milestone) as a function of the difference between <span class="math inline">\(\beta_n\)</span> and <span class="math inline">\(\delta_i\)</span> expressed in logits.</p>
 <div class="figure" style="text-align: center"><span id="fig:logisticplot"></span>
 <img src="dbook1_files/figure-html/logisticplot-1.png" alt="Standard logistic curve. Percentage of children passing an item for a given ability-difficulty gap \(\beta_n - \delta_i\)." width="672" />
 <p class="caption">
@@ -331,11 +292,12 @@ Figure 4.5: Standard logistic curve. Percentage of children passing an item for 
 </p>
 </div>
 
-<p>Figure <a href="sec-itemresponsefunctions.html#fig:logisticplot">4.5</a> shows how the percentage that pass the item varies in terms of the ability-difficulty gap <span class="math inline">\(\beta_n - \delta_i\)</span>. The gap can vary either by <span class="math inline">\(\beta_n\)</span> or <span class="math inline">\(\delta_i\)</span>, so we may use the graph in two ways:</p>
+<p>Figure <a href="sec-itemresponsefunctions.html#fig:logisticplot">4.5</a> shows how the percentage of children that pass the item varies in terms of the ability-difficulty gap <span class="math inline">\(\beta_n - \delta_i\)</span>. The gap can vary either by <span class="math inline">\(\beta_n\)</span> or <span class="math inline">\(\delta_i\)</span>, so we may use the graph in two ways:</p>
 <ul>
-<li><p>To find the probability of passing various items for a child with ability <span class="math inline">\(\beta_n\)</span>. If <span class="math inline">\(\delta_i = \beta_n\)</span> then <span class="math inline">\(\pi_{ni} = 0.5\)</span>. If <span class="math inline">\(\delta_i &lt; \beta_n\)</span> then <span class="math inline">\(\pi_{ni} &lt; 0.5\)</span>, and if <span class="math inline">\(\delta_i &gt; \beta_n\)</span> then <span class="math inline">\(\pi_{ni} &gt; 0.5\)</span>.</p></li>
-<li><p>To find the probability of passing a given item <span class="math inline">\(\delta_i\)</span> for children that vary in ability. If <span class="math inline">\(\beta_n = \delta_i\)</span> then <span class="math inline">\(\pi_{ni} = 0.5\)</span>. If <span class="math inline">\(\beta_n &lt; \delta_i\)</span> then <span class="math inline">\(\pi_{ni} &lt; 0.5\)</span>, and if <span class="math inline">\(\beta_n &gt; \delta_i\)</span> then <span class="math inline">\(\pi_{ni} &gt; 0.5\)</span>.</p></li>
+<li><p>To find the probability of passing items with various difficulties for a child with ability <span class="math inline">\(\beta_n\)</span>. If <span class="math inline">\(\delta_i = \beta_n\)</span> then <span class="math inline">\(\pi_{ni} = 0.5\)</span>. If <span class="math inline">\(\delta_i &lt; \beta_n\)</span> then <span class="math inline">\(\pi_{ni} &gt; 0.5\)</span>, and if <span class="math inline">\(\delta_i &gt; \beta_n\)</span> then <span class="math inline">\(\pi_{ni} &lt; 0.5\)</span>. In words: If the difficulty of the item is equal to the child’s ability, then child has a 50/50 chance to pass. The child will have a higher than 50/50 chance of passing for items with lower difficulty, and have a lower than 50/50 chance of passing for items with difficulties that exceed the child’s ability.</p></li>
+<li><p>To find the probability of passing a given item <span class="math inline">\(\delta_i\)</span> for children that vary in ability. If <span class="math inline">\(\beta_n &lt; \delta_i\)</span> then <span class="math inline">\(\pi_{ni} &lt; 0.5\)</span>, and if <span class="math inline">\(\beta_n &gt; \delta_i\)</span> then <span class="math inline">\(\pi_{ni} &gt; 0.5\)</span>. In words: Children with abilities lower than the item’s difficulty will have lower than 50/50 chance of passing, whereas children with abilities that exceed the item’s difficulty will have a higher than 50/50 chance of passing.</p></li>
 </ul>
+<p>Note the symmetric roles for difficulties <span class="math inline">\(\delta_i\)</span> and abilities <span class="math inline">\(\beta_n\)</span>.</p>
 </div>
 <div id="types-of-item-response-functions" class="section level3">
 <h3><span class="header-section-number">4.6.2</span> Types of item response functions</h3>

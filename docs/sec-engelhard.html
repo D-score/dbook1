@@ -58,43 +58,6 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; background-color: #f8f8f8; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-pre, code { background-color: #f8f8f8; }
-code > span.kw { color: #204a87; font-weight: bold; } /* Keyword */
-code > span.dt { color: #204a87; } /* DataType */
-code > span.dv { color: #0000cf; } /* DecVal */
-code > span.bn { color: #0000cf; } /* BaseN */
-code > span.fl { color: #0000cf; } /* Float */
-code > span.ch { color: #4e9a06; } /* Char */
-code > span.st { color: #4e9a06; } /* String */
-code > span.co { color: #8f5902; font-style: italic; } /* Comment */
-code > span.ot { color: #8f5902; } /* Other */
-code > span.al { color: #ef2929; } /* Alert */
-code > span.fu { color: #000000; } /* Function */
-code > span.er { color: #a40000; font-weight: bold; } /* Error */
-code > span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #000000; } /* Constant */
-code > span.sc { color: #000000; } /* SpecialChar */
-code > span.vs { color: #4e9a06; } /* VerbatimString */
-code > span.ss { color: #4e9a06; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #000000; } /* Variable */
-code > span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #ce5c00; font-weight: bold; } /* Operator */
-code > span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
-code > span.ex { } /* Extension */
-code > span.at { color: #c4a000; } /* Attribute */
-code > span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
-code > span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -293,7 +256,7 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <li><p><em>Non-crossing persons response functions</em>: A more able person must always have a better chance of success on an item that a less able person.</p></li>
 <li><p><em>Person-invariant calibration of test items</em>: The calibration of the items must be independent of the particular persons used for calibration.</p></li>
 <li><p><em>Non-crossing item response functions</em>: Any person must have a better chance of success on an easy item than on a more difficult item.</p></li>
-<li><p><em>Unidimensionality</em>: Items and persons must be simultaneously located on a single underlying latent variable.</p></li>
+<li><p><em>Unidimensionality</em>: Items and persons must be simultaneously located on a <em>single</em> underlying latent variable. This means that the relations between the items are fully explainable by the scores on the latent scale. In practice, the requirement implies that items should measure the same construct. (<span class="citation">Hattie (<a href="#ref-hattie1985">1985</a>)</span>)</p></li>
 </ol>
 <p>Three families of IRT models actually support invariant measurement:</p>
 <ol style="list-style-type: decimal">
@@ -307,6 +270,9 @@ code > span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Inf
 <div id="refs" class="references">
 <div id="ref-engelhard2013">
 <p>Engelhard Jr., G. 2013. <em>Invariant Measurement</em>. New York: Routledge.</p>
+</div>
+<div id="ref-hattie1985">
+<p>Hattie, J. 1985. “Methodology Review: Assessing Unidimensionality of Tests and Items.” <em>Applied Psychological Measurement</em> 9 (2): 139–64.</p>
 </div>
 <div id="ref-guttman1950">
 <p>Guttman, L. 1950. “The Basis for Scalogram Snalysis.” In <em>Measurement and Prediction, Vol. Iv</em>, edited by S. A. Stouffer, L. Guttman, E. A. Suchman, P. F. Lazarsfeld, S. A. Star, and J. A. Clausen, 60–90. Princeton, NJ: Princeton University Press.</p>

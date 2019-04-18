@@ -176,6 +176,8 @@ kable(shirley,
       booktabs = TRUE)
 ```
 
+&nbsp;
+
 Table \@ref(tab:shirley) from [@shirley1931, Appendix 8] lists the age
 (in weeks) of the 21 babies when they started, respectively, stepping,
 standing, walking with help, and walking alone. Question marks
@@ -259,6 +261,8 @@ kable(questions,
       caption = "Questions whose answers require quantitative measurements of child development.", 
       booktabs = TRUE)
 ```
+
+&nbsp;
 
 Table \@ref(tab:questions) lists typical questions whose answers
 require measuring child development. Note that all questions compare
