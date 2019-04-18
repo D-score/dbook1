@@ -33,35 +33,56 @@ options(knitr.table.format = "html", knitr.kable.NA = "")
 kable(broad,
       caption = "SMOCC DDI milestones, first three children, 0-2 years.",
       row.names = FALSE, 
-      col.names = c("Child", "Age (days)", items)) %>%
-  kableExtra::kable_styling() %>%
-  kableExtra::scroll_box(width = "100%", height = "400px")
+      col.names = c("Child", "Age (days)", substr(items, 8, 9))) %>%
+  kableExtra::kable_styling(full_width = TRUE) %>%
+  kableExtra::column_spec(3:59, width_max = "3em") %>%
+  kableExtra::scroll_box(width = "100%", height = "300px")
 ```
+&nbsp;
 
 Table \@ref(tab:smocctable) contains data of three children, measured
 on nine visits between ages 0 - 2 years. The DDI scores are coded as 0
-(FAIL) or 1 (PASS). Since the selection of milestones depends on age,
-the dataset contains a large number of empty cells. Naive use of sum
-scores as a proxy to person ability is therefore problematic. An empty
-cell is not a FAIL, so it's an error to impute those cells by zeroes.
+(FAIL) or 1 (PASS). In order to save horizontal space, only the last
+two digits of the item names are given as column headers. 
 
-Note that some rows contain only 1's, e.g., in row 2 or row 10. Many
-computer program for Rasch analysis routinely remove such *perfect
-scores* before fitting. However, unless the number of perfect scores
-is very small, this is not recommended because doing so can severely
-affect the distribution of person abilities.
+Since the selection of milestones depends on age, the dataset contains
+a large number of empty cells. Naive use of sum scores as a proxy to
+person ability is therefore problematic. An empty cell is not a FAIL,
+so it's an error to impute those cells by zeroes.
+
+Note that some rows contain only 1's, e.g., in row 2. Many computer
+program for Rasch analysis routinely remove such *perfect scores*
+before fitting. However, unless the number of perfect scores is very
+small, this is not recommended because doing so can severely affect
+the distribution of person abilities.
 
 In order to effectively handle the missing data and to preserve all
 persons in the analysis we separate estimation of item difficulties
-and person abilities into two steps.
+(c.f. section \@ref(sec:itemestimation)) and person abilities (c.f. section
+\@ref(sec:dscoreestimation)).
 
 ## Item parameter estimation {#sec:itemestimation}
 
+### Pairwise estimation of item difficulties
+
 There are many methods for estimating the difficulty parameters of the
-Rasch estimation. See @linacre2004 for an overview. We will use the
-pairwise method estimation method (@zwinderman1995), as implemented in
-the function `rasch.pairwise.itemcluster()` of the `sirt` package
-(@robitzsch2016).
+Rasch estimation. See @linacre2004 for an overview. 
+
+We will use the pairwise method estimation method. This method writes
+the probability that child $n$ passes item $i$ but not item $j$ given
+that the child passed one of them as $\exp(\delta_i) / (\exp(\delta_i)
++ \exp(\delta_j))$. The method optimizes the pseudo-likelihood of all
+item pairs over the difficulty estimates by a simple iterative
+procedure.
+
+@zwinderman1995 has shown that this procedure provides consistent
+estimates with similar efficiency computationally more-intensive
+conditional and marginal maximum likelihood methods.
+
+The beauty of the method is that it is independent of the ability
+distribution, so there is no need to remove perfect scores. We use the
+function `rasch.pairwise.itemcluster()` as implemented in the `sirt`
+package (@robitzsch2016).
 
 ```{r itemdiflplot, fig.height = 10, fig.cap = '(ref:itemdiflplot)'}
 d1 <- data.frame(delta = model$fit$b, 
@@ -98,7 +119,7 @@ that not all domain are equally represented across the scale. For
 example, there are no communication milestones around the logit of
 $-10$.
 
-## Anchoring {#sec:anchoring}
+### Anchoring {#sec:anchoring}
 
 The Rasch model identifies the item difficulties up to a linear
 transformation. By default, the software produces estimates in the
@@ -118,19 +139,25 @@ specified sample, we transform the scale so that two items will always
 have the same value on the transformed scale. The choice of the two
 anchor items is essentially arbitrary, but they should correspond to
 milestones that are easy to measure with small error. In the sequel,
-we use the two milestones to anchor the scale:
+we use the two milestones to anchor the $D$-score scale:
 
-Value  | Item        | Label
------- | ----------- | ------------------------------------------
-20     | `ddigmd057` | Lifts head to 45 degrees on prone position
-40     | `ddigmd063` | Sits in stable position without support
+```{r anchor}
+df <- data.frame(
+  Item = c("ddigmd057", "ddigmd063"),
+  Label = c("Lifts head to 45 degrees on prone position", 
+            "Sits in stable position without support"),
+  Value = c(20, 40), 
+  stringsAsFactors = FALSE)
+kable(df, 
+      caption = "Anchoring values used to identify the $D$-score scale", 
+      booktabs = TRUE)
+```
+&nbsp;
 
-This is called the $D$-score scale. 
-
-With this choice, $D$-score values are approximately 0$D$ around
-birth. At the age of 1 year, the score will around 50$D$, so during
-the first year of life, one $D$ unit corresponds to approximately a
-one-week interval.
+With the choice of Table \@ref(tab:anchor), $D$-score values are
+approximately 0 $D$ around birth. At the age of 1 year, the score will
+around 50 $D$, so during the first year of life, one $D$ unit
+corresponds to approximately a one-week interval.
 
 ```{r itemdifdplot, fig.height = 10, fig.cap = '(ref:itemdifdplot)'}
 p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) + 
@@ -150,8 +177,12 @@ values of 20 and 40, respectively.
 
 ## Estimation of the $D$-score {#sec:dscoreestimation}
 
-The $D$-score quantifies development of a child. In order to calculate
-the $D$-score we need the following ingredients:
+The second part of the estimation process is to estimate a $D$-score.
+The $D$-score quantifies the development of a child at a given age.
+Whereas the estimation of item parameters is typically done by the
+instrument developer, $D$-score estimation is more of a task for the
+user. In order to calculate the $D$-score we need the following
+ingredients:
 
 * Child's PASS/FAIL scores on the milestones administered;
 
@@ -161,33 +192,42 @@ the $D$-score we need the following ingredients:
 before seeing any PASS/FAIL score.
 
 Using these inputs, we may use Bayes theorem to calculate the position
-of the person on the latent variable. The method is known as the
-Expected a posteriori (EAP) estimation, and was first described by
-@bock1982.
+of the person on the latent variable. 
 
-### EAP algorithm
+### Role of the starting prior {#sec:startingprior}
 
-Calculation of the $D$-score proceeds item by item. Suppose we have
-some vague and preliminary idea about the distribution of $D$. The
-procedure uses Bayes rule to update this prior knowledge with data
-from the first item (fail/pass score, item difficulty) to calculate
-the posterior. In the next step, this posterior is used as the prior
-for the next item, and so on. The procedure stops when all items have
-been used. The order in which items are entered does not matter for
-the end result. The $D$-score is equal to the mean of the last
-posterior.
+The first two inputs to the $D$-score will be obvious. The third
+component, the prior distribution, is needed in order to be able to
+deal with perfect responses. The prior distribution summarizes our
+knowledge about the $D$-score before we see any of the child's
+PASS/FAIL scores. It is essentially an arbitrary choice, but part of
+the modelling so it needs to be made only once.
 
-### Age-dependent starting prior {#sec:adp}
+Since we know that the $D$-score depends on age, a logical choice for
+the prior is to make it dependent on age. More in particular, we will
+define the prior as a normal distribution equal to the expected mean
+in Figure \@ref(fig:smoccda) at the child's age, and with a standard
+deviation that considerably larger than in Figure \@ref(fig:smoccda).
+Numerical example: the mean $D$-score at the age of 15 months is equal
+53.6 $D$. The standard deviation in Figure \@ref(fig:smoccda) varies
+between 2.6 $D$ and 3.0 $D$, with an average of 2.9 $D$. After some
+experimentation, we found that using a value of 5.0 $D$ for the prior
+yields a good compromise between, on the one hand, non-informativeness
+and, on the other hand, robustness of $D$-score estimates for perfect
+patterns. The resulting starting prior for a child aged 15 months is thus
+defined as $N(53.6, 5)$.
 
-In the first step, we need a starting distribution as prior. The
-starting prior should define the range of reasonable values for $D$.
-For example, an infant aged 1 months the $D$-score will have lower
-$D$-score than a child aged 15 months. The prior should be a bit
-informative but not too much, so it was decided to choose a broad
-distribution which was centered quite well. The prior was chosen as a
-normal distribution with a mean equal to the $D$-score expected at the
-child's age, and with a standard deviation of 5, which about twice the
-normal variation in the $D$-score.
+The reader now probably wonders about a chicken-and-egg problem: In
+order to calculate the $D$-score we need a prior, and in order to
+determine the prior we need the $D$-score. So how did we calculate the
+$D$-scores in Figure \@ref(fig:smoccda)? The answer is that we first
+took at rougher prior, and calculated two temporary solutions in
+succession using the $D$-scores obtained after solution 1 to inform
+the prior before solution 2, and so on. It turned out that $D$-scores
+in Figure \@ref(fig:smoccda) hardly changed after two steps, and so
+there we stopped.
+
+### Starting prior: Numerical example {#sec:adp}
 
 ```{r figpriors, fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
 #example from the adp function in ggplot:
@@ -213,12 +253,37 @@ p
 ```
 
 Figure \@ref(fig:figpriors) illustrates starting distributions
-(priors) for the ages of 1, 15 and 24 months. As expected, the assumed
-ability of an infant aged of 1 month is lower than that of a child
-aged 15 months, which in turn is lower than the ability of a toddler
-aged 24 months.
+(priors) chosen according to the principles set above for the ages of
+1, 15 and 24 months. As expected, the assumed ability of an infant
+aged of 1 month is much lower than that of a child aged 15 months,
+which in turn is lower than the ability of a toddler aged 24 months.
+The green distribution for 15 months corresponds to the normal
+distribution $N(53.6, 5)$.
 
-### Numerical example
+Another choice that we need to make is the grid of points on which we
+calculate the prior and posterior distributions. Figure
+\@ref(fig:figpriors) uses a grid from -10 $D$ to +80 $D$, with a step
+size of 1 $D$. These are fixed *quadrature points*, and there are 91
+of them. While these quadrature points are sufficient to estimate
+$D$-score for ages up to 2.5 years, it is wise to extend the range for
+older children with higher $D$-scores.
+
+### EAP algorithm {#sec:EAP}
+
+The method for estimating the $D$-score is known as the Expected a
+posteriori (EAP) method, first described by @bock1982. Calculation of
+the $D$-score proceeds item by item. Suppose we have some vague and
+preliminary idea about the distribution of $D$, the starting prior
+(c.f. section \@ref(sec:startingprior)), based on age. The procedure
+uses Bayes rule to update this prior knowledge with data from the
+first item (using the child's FAIL/PASS score and the estimated item
+difficulty) to calculate the posterior. The next step uses this
+posterior as the prior to process the next item, and so on. The
+procedure stops when all items have been used. The order in which
+items are entered does not matter for the end result. The $D$-score is
+equal to the mean of the posterior calculated after the last item.
+
+### EAP algorithm: Numerical example
 
 Suppose we measure two boys aged 15 months, David and Rob, by the DDI.
 David passes the first four milestones, but does not complete the test.
@@ -230,21 +295,24 @@ ib <- model$itembank %>%
   rename(item  = lex_gsed, delta = tau) %>%
   filter(item %in% items) %>%
   dplyr::select(item, label, delta)
+ib <- ib[c(2, 3, 1, 4, 5), ]
 dr <- data.frame(ib, 
                   David = c(1, 1, 1, 1, NA),
                   Rob = c(1, 0, 1, 1, 0))
-dr <- dr[c(2, 3, 1, 4, 5), ]
 kable(dr, caption = "Scores of David and Rob on five milestones from the DDI", 
       row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"))
 ```
+&nbsp;
 
-Table \@ref(tab:datadavidandrob) shows the difficulties of each
-milestone and the responses of David and Rob for the standard five DDI
-milestones for the age of 15 months. The mean $D$-score for Dutch
-children aged 15 months is 53.6$D$, so the milestones are easy to pass
-at this age, with the most difficult being `ddicmm037`. David passed
-all milestones, but has no score on the last. Rob fails on `ddifmm012`
-and `ddigmm067`. How do we calculate the $D$-score for David and Rob?
+Table \@ref(tab:datadavidandrob) shows the difficulty of each
+milestone (in the column labelled "Delta"), and the responses of David
+and Rob for the standard five DDI milestones for the age of 15 months.
+
+The mean $D$-score for Dutch children aged 15 months is 53.6 $D$, so
+the milestones are easy to pass at this age, with the most difficult
+being `ddicmm037`. David passed all milestones, but has no score on
+the last. Rob fails on `ddifmm012` and `ddigmm067`. How do we
+calculate the $D$-score for David and Rob?
 
 ```{r davidplot, fig.height = 12, fig.cap = '(ref:davidplot)'}
 # full posterior 1e item
@@ -332,7 +400,7 @@ same as in Figure \@ref(fig:figpriors). After a PASS, the posterior
 will be located more to the right, and will often be more peaked. Both
 happen here, but the change is small. The reason is that a PASS on
 this milestone is not very informative. For a child with a true
-$D$-score of 53$D$, the probability of passing `ddifmd011` is equal to
+$D$-score of 53 $D$, the probability of passing `ddifmd011` is equal to
 `r plogis((53 - 46) / model$transform[2])`. If passing is so common,
 there is not much information in the measurement.
 
@@ -340,8 +408,8 @@ there is not much information in the measurement.
 is identical to the posterior of `ddifmd011`. For David, the posterior
 is only slightly different from the prior, for the same reason as
 above. For Rob, we find a huge change to the left, both in terms of
-location (from 54.3$D$ to 47.1$D$) and in terms of peakedness. This one 
-FAIL lowers Rob's score by 7.2$D$.
+location (from 54.3 $D$ to 47.1 $D$) and in terms of peakedness. This one 
+FAIL lowers Rob's score by 7.2 $D$.
 
 3. Milestone `ddicmm037` is more difficult than the previous two
 milestones, so a pass on `ddicmm037` does have a clear effect on the
@@ -356,9 +424,9 @@ posterior are equivalent. For Rob, we observe a FAIL, which shifts his
 posterior to the left.
 
 The $D$-score is calculated as the mean of the posterior. David's
-$D$-score is equal to 55.7$D$. Note that the measurement error, as
+$D$-score is equal to 55.7 $D$. Note that the measurement error, as
 estimated from the variance of the posterior, is fairly large. Rob's
-$D$-score is equal to 47.7$D$, with a much smaller measurement error.
+$D$-score is equal to 47.7 $D$, with a much smaller measurement error.
 This result is consistent with the design principles of the DDI, which
 is meant to detect children with developmental delay.
 
@@ -373,11 +441,12 @@ of the child and the difficulty of the milestone.
 $D$-score could extend well beyond the ceiling. Depending on the goal
 of the measurement, this may or may not be a problem.
 
-* The specification of the prior and posterior distributions requires a
-set of quadrature points at which their densities are calculated. The
-set of quadrature is taken here as the static and evenly-spaced set of
-integers between -10 and +80. Using other quadrature points may have a
-slight effect on the estimate.
+* The specification of the prior and posterior distributions requires
+a set of quadrature points at which their densities are calculated.
+The set of quadrature is taken here as the static and evenly-spaced
+set of integers between -10 and +80. Using other quadrature points may
+have an effect on the estimate, especially if the range of the
+quadrature points is too short.
 
 * The actual calculations are here done item by item. A more efficient
 method is to handle all responses at once. The end result will be the
