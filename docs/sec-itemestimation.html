@@ -32,7 +32,7 @@
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 <link rel="prev" href="sec-datapreparation.html">
-<link rel="next" href="sec-anchoring.html">
+<link rel="next" href="sec-dscoreestimation.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -139,13 +139,16 @@
 </ul></li>
 <li class="chapter" data-level="5" data-path="ch-computation.html"><a href="ch-computation.html"><i class="fa fa-check"></i><b>5</b> Computation</a><ul>
 <li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Identify nature of the problem</a></li>
-<li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a></li>
-<li class="chapter" data-level="5.3" data-path="sec-anchoring.html"><a href="sec-anchoring.html"><i class="fa fa-check"></i><b>5.3</b> Anchoring</a></li>
-<li class="chapter" data-level="5.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.4</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#eap-algorithm"><i class="fa fa-check"></i><b>5.4.1</b> EAP algorithm</a></li>
-<li class="chapter" data-level="5.4.2" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:adp"><i class="fa fa-check"></i><b>5.4.2</b> Age-dependent starting prior</a></li>
-<li class="chapter" data-level="5.4.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#numerical-example"><i class="fa fa-check"></i><b>5.4.3</b> Numerical example</a></li>
-<li class="chapter" data-level="5.4.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#technical-observations-on-d-score-estimation"><i class="fa fa-check"></i><b>5.4.4</b> Technical observations on <span class="math inline">\(D\)</span>-score estimation</a></li>
+<li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html#pairwise-estimation-of-item-difficulties"><i class="fa fa-check"></i><b>5.2.1</b> Pairwise estimation of item difficulties</a></li>
+<li class="chapter" data-level="5.2.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html#sec:anchoring"><i class="fa fa-check"></i><b>5.2.2</b> Anchoring</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.3</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:startingprior"><i class="fa fa-check"></i><b>5.3.1</b> Role of the starting prior</a></li>
+<li class="chapter" data-level="5.3.2" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:adp"><i class="fa fa-check"></i><b>5.3.2</b> Starting prior: Numerical example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:EAP"><i class="fa fa-check"></i><b>5.3.3</b> EAP algorithm</a></li>
+<li class="chapter" data-level="5.3.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#eap-algorithm-numerical-example"><i class="fa fa-check"></i><b>5.3.4</b> EAP algorithm: Numerical example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#technical-observations-on-d-score-estimation"><i class="fa fa-check"></i><b>5.3.5</b> Technical observations on <span class="math inline">\(D\)</span>-score estimation</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="ch-evaluation.html"><a href="ch-evaluation.html"><i class="fa fa-check"></i><b>6</b> Evaluation</a><ul>
@@ -250,7 +253,12 @@
             <section class="normal" id="section-">
 <div id="sec:itemestimation" class="section level2">
 <h2><span class="header-section-number">5.2</span> Item parameter estimation</h2>
-<p>There are many methods for estimating the difficulty parameters of the Rasch estimation. See <span class="citation">Linacre (<a href="#ref-linacre2004">2004</a>)</span> for an overview. We will use the pairwise method estimation method (<span class="citation">Zwinderman (<a href="#ref-zwinderman1995">1995</a>)</span>), as implemented in the function <code>rasch.pairwise.itemcluster()</code> of the <code>sirt</code> package (<span class="citation">Robitzsch (<a href="#ref-robitzsch2016">2016</a>)</span>).</p>
+<div id="pairwise-estimation-of-item-difficulties" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Pairwise estimation of item difficulties</h3>
+<p>There are many methods for estimating the difficulty parameters of the Rasch estimation. See <span class="citation">Linacre (<a href="#ref-linacre2004">2004</a>)</span> for an overview.</p>
+<p>We will use the pairwise method estimation method. This method writes the probability that child <span class="math inline">\(n\)</span> passes item <span class="math inline">\(i\)</span> but not item <span class="math inline">\(j\)</span> given that the child passed one of them as <span class="math inline">\(\exp(\delta_i) / (\exp(\delta_i) + \exp(\delta_j))\)</span>. The method optimizes the pseudo-likelihood of all item pairs over the difficulty estimates by a simple iterative procedure.</p>
+<p><span class="citation">Zwinderman (<a href="#ref-zwinderman1995">1995</a>)</span> has shown that this procedure provides consistent estimates with similar efficiency computationally more-intensive conditional and marginal maximum likelihood methods.</p>
+<p>The beauty of the method is that it is independent of the ability distribution, so there is no need to remove perfect scores. We use the function <code>rasch.pairwise.itemcluster()</code> as implemented in the <code>sirt</code> package (<span class="citation">Robitzsch (<a href="#ref-robitzsch2016">2016</a>)</span>).</p>
 <div class="figure" style="text-align: center"><span id="fig:itemdiflplot"></span>
 <img src="dbook1_files/figure-html/itemdiflplot-1.png" alt="Estimated item difficulty parameters (\(d_i\)) for 57 milestones of the DDI (0 - 2 years)." width="672" />
 <p class="caption">
@@ -259,6 +267,67 @@ Figure 5.1: Estimated item difficulty parameters (<span class="math inline">\(d_
 </div>
 
 <p>Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a> summarizes the estimated item difficulty parameters. Although the model makes no distinction between domains, the results have been ordered to ease spotting of the natural progression of the milestones per domain. The figure also suggests that not all domain are equally represented across the scale. For example, there are no communication milestones around the logit of <span class="math inline">\(-10\)</span>.</p>
+</div>
+<div id="sec:anchoring" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Anchoring</h3>
+<p>The Rasch model identifies the item difficulties up to a linear transformation. By default, the software produces estimates in the logit scale (c.f. Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a>). The logit scale is inconvenient for two reasons:</p>
+<ul>
+<li><p>The logit scale has negative values. Negative values do not have a sensible interpretation in child development, and are likely to introduce errors in practice;</p></li>
+<li><p>Both the zero in the logit scale as well as its variance depend on the sample used to calibrate the item difficulties.</p></li>
+</ul>
+<p>The properties of the Rasch model are preserved under a rescaling of the derived scale. In order to make the scale independent of the specified sample, we transform the scale so that two items will always have the same value on the transformed scale. The choice of the two anchor items is essentially arbitrary, but they should correspond to milestones that are easy to measure with small error. In the sequel, we use the two milestones to anchor the <span class="math inline">\(D\)</span>-score scale:</p>
+<table>
+<caption>
+<span id="tab:anchor">Table 5.2: </span>Anchoring values used to identify the <span class="math inline">\(D\)</span>-score scale
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Item
+</th>
+<th style="text-align:left;">
+Label
+</th>
+<th style="text-align:right;">
+Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+ddigmd057
+</td>
+<td style="text-align:left;">
+Lifts head to 45 degrees on prone position
+</td>
+<td style="text-align:right;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ddigmd063
+</td>
+<td style="text-align:left;">
+Sits in stable position without support
+</td>
+<td style="text-align:right;">
+40
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<p>With the choice of Table <a href="sec-itemestimation.html#tab:anchor">5.2</a>, <span class="math inline">\(D\)</span>-score values are approximately 0 <span class="math inline">\(D\)</span> around birth. At the age of 1 year, the score will around 50 <span class="math inline">\(D\)</span>, so during the first year of life, one <span class="math inline">\(D\)</span> unit corresponds to approximately a one-week interval.</p>
+<div class="figure" style="text-align: center"><span id="fig:itemdifdplot"></span>
+<img src="dbook1_files/figure-html/itemdifdplot-1.png" alt="Estimated item difficulty parameters (\(d_i\)) for 57 milestones of the DDI (0 - 2 years). Milestones ddigmd057 and ddigmd063 are anchored at values of 20 and 40, respectively." width="672" />
+<p class="caption">
+Figure 5.2: Estimated item difficulty parameters (<span class="math inline">\(d_i\)</span>) for 57 milestones of the DDI (0 - 2 years). Milestones <code>ddigmd057</code> and <code>ddigmd063</code> are anchored at values of 20 and 40, respectively.
+</p>
+</div>
+
+</div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -278,7 +347,7 @@ Figure 5.1: Estimated item difficulty parameters (<span class="math inline">\(d_
         </div>
       </div>
 <a href="sec-datapreparation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sec-anchoring.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-dscoreestimation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

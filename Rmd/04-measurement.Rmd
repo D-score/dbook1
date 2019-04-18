@@ -286,11 +286,12 @@ plot
 cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9
 occasions).
 
-The relation between $D$-score and age is nonlinear. Development in
-the first year is more rapid than in the second year. During the first
-year infants gain about 40 $D$, whereas in the second year they gain
-about 20 $D$. A similar change in growth rate occurs in length (first
-year: 23 cm, second year: 12 cm, for Dutch children).
+Figure \@ref(fig:smoccda) shows that the relation between $D$-score
+and age is nonlinear. Development in the first year is more rapid than
+in the second year. During the first year infants gain about 40 $D$,
+whereas in the second year they gain about 20 $D$. A similar change in
+growth rate occurs in length (first year: 23 cm, second year: 12 cm,
+for Dutch children).
 
 ```{r smoccdap, fig.cap = '(ref:smoccdap)', warning = FALSE}
 # model ICC curves D-score
