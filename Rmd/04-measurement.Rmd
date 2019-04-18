@@ -38,14 +38,14 @@ The instrument assesses three developmental domains:
 The milestones are organized on two
 [forms](https://www.ggdghorkennisnet.nl/?file=656&m=1310474916&action=file.download),
 one for children aged 0-15 months, and another for children ages 15-54
-months. The YHC professionals administer an age-appropriate subset at
-each of the scheduled visits, thus building a 
+months. The YHC professionals administer an age-appropriate subset of
+milestones at each of the scheduled visits, thus building a
 *longitudinal developmental profile* for each child.
 
 ### Description of SMOCC study {#sec:smocc}
 
 The Social Medical Survey of Children Attending Child Health Clinics
-(SMOCC) study is a a nationally representative cohort of 2,151
+(SMOCC) study is a nationally representative cohort of 2,151
 children born in The Netherlands during the years 1988–1989
 [@herngreen1994]. The study monitored child development using
 observations made on the DDI during nine visits covering the first 24
@@ -54,7 +54,7 @@ two years on 57 (out of 75) milestones.
 
 The *standard* set in the DDI consists of relatively easy milestones
 that 90 percent of the children can pass at the scheduled age. This
-set of designed to have maximal sensitivity for picking up delays in
+set is designed to have maximal sensitivity for picking up delays in
 development. A special feature of the SMOCC study was the inclusion of
 additional, and more difficult, milestones beyond the standard set.
 The *additional* milestones are taken as the set for the next time
@@ -115,8 +115,10 @@ kable(meta,
       row.names = FALSE, 
       col.names = c("Item", "Debut", "Domain", "Label")) %>%
   kableExtra::kable_styling() %>%
-  kableExtra::scroll_box(width = "100%", height = "400px")
+  kableExtra::scroll_box(width = "100%", height = "300px")
 ```
+
+&nbsp;
 
 Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for
 ages 0 - 30 months as they were administered in the SMOCC study. Items
@@ -137,6 +139,7 @@ data_rug <- data$itm %>%
 # calculate summary statistics
 pass <- data_rug %>%
   mutate(agegp = cut(.data$agemos, breaks = seq(0, 60, 1))) %>%
+  tidyr::drop_na(agegp) %>% 
   group_by(item, agegp) %>%
   summarise(p = round(100 * mean(.data$value, na.rm = TRUE)),
             a = mean(.data$agemos, na.rm = TRUE),
@@ -171,9 +174,10 @@ increases with age for all milestones. Note that curves on the left
 have steeper slopes than those on the right, thus indicating that
 development is faster for younger children.
 
-The item are colored by domain. In general, domains are well mixed
-across age, though around some ages, e.g., at 4 months, multiple
-milestones from the same domain appear.
+The item are colored by domain (blue: gross motor, green: fine motor,
+red: communication). In general, domains are well mixed across age,
+though around some ages, e.g., at 4 months, multiple milestones from
+the same domain appear.
 
 ## Probability of passing a milestone given $D$-score {#sec:probd}
 
@@ -190,6 +194,7 @@ pass <- data2 %>%
   tidyr::drop_na("value", "b") %>%
   mutate(dgp = cut(.data$b, breaks = seq(0, 70, 1)),
          agemos = round(.data$agedays / 365.25 * 12, 3)) %>%
+  tidyr::drop_na(dgp) %>% 
   group_by(dgp, item) %>%
   summarise(
     p = round(100 * mean(.data$value, na.rm = TRUE)),
@@ -283,18 +288,21 @@ occasions).
 
 The relation between $D$-score and age is nonlinear. Development in
 the first year is more rapid than in the second year. During the first
-year infants gain about 40$D$, whereas in the second year they gain
-about 20$D$. A similar change in growth rate occurs in length (first
+year infants gain about 40 $D$, whereas in the second year they gain
+about 20 $D$. A similar change in growth rate occurs in length (first
 year: 23 cm, second year: 12 cm, for Dutch children).
 
 ```{r smoccdap, fig.cap = '(ref:smoccdap)', warning = FALSE}
 # model ICC curves D-score
-grid <- crossing(
+grid <- tidyr::crossing(
   item = items,
   b = seq(0, 70, 0.2))
 ib <- model$itembank %>%
   rename(item = lex_gsed) %>%
-  dplyr::select(item, domain, label, tau)
+  dplyr::select(item, domain, label, tau) %>% 
+  mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
+                                          "fm" = "Fine motor",
+                                          "gm" = "Gross motor")))
 tab <- grid %>%
   left_join(ib, by = "item") %>%
   mutate(p = 100 * plogis(b, location = tau, scale = model$transform[2])) %>%
@@ -304,11 +312,12 @@ tab <- grid %>%
   tidyr::drop_na("a") %>%
   group_by(item)
 
-py <- plotly::plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain) %>%
+py <- plotly::plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain, 
+                      colors = scales::hue_pal()(3)) %>%
   plotly::add_lines() %>%
   plotly::layout(scene = list(xaxis = list(title = 'Age'),
-                              yaxis = list(title = 'D-score'),
-                              zaxis = list(title = 'Probability'),
+                              yaxis = list(title = 'D'),
+                              zaxis = list(title = '% pass'),
                               aspectratio = list(x = 1, y = 1, z = 0.5),
                               camera = list(
                                 up = list(
@@ -329,34 +338,28 @@ py
 (ref:smoccdap) 3D-line graph illustrating how the patterns in Figures \@ref(fig:smoccpa) and \@ref(fig:smoccpd) induce the curvature in the relation between $D$-score and age.
 
 Figure \@ref(fig:smoccdap) shows the mutual relations between age,
-milestone success and the $D$-score.
+percentage of milestone passing and the $D$-score. In the online
+version of the booklet, the reader can actively manipulate the
+orientation of the graph by a click-hold-drag mouse operation.
 
-* Rotate the graph to the age - probability plane, and observe the
-commonality with the pattern in Figure \@ref(fig:smoccpa) with unequal
-slopes; 
+* In the default orientation (age on the horizontal axis, $D$-score on
+the vertical axis), we see a curvelinear relation between the age and
+item difficulty.
 
-* Rotate the graph to the $D$-score - probability plane, and observe
-the commonality with the pattern in Figure \@ref(fig:smoccpd) with
-equal slopes;
+* Rotate the graph (age on the horizontal axis, passing percentage on
+the vertical axis). Observe that this is the same pattern as in Figure
+\@ref(fig:smoccpa) (with *unequal slopes*). Curves are colored by
+domain.
 
-* Rotate the graph to the $D$-score - age plan, and observe that all
-patterns can co-exist because of the curvature in the relation between
-$D$-score and age.
+* Rotate the graph ($D$-score on the horizontal axis, passing
+percentage on the vertical axis). Observe that this pattern is the
+same as in Figure \@ref(fig:smoccpd) (with *equal slopes*).
 
-<!-- ## Difference between instrument and scale -->
-
-<!-- Note that we make a sharp distinction between an *instrument* and a -->
-<!-- *scale*. An *instrument* is a device to collect raw observations. -->
-<!-- Instruments typically includes rules for transforming the raw -->
-<!-- observations into measurements, for example, "count the number of -->
-<!-- passes", which is then passed to the user as the measurement. -->
-
-<!-- By contrast, a *scale* is a latent variable with a constant unit. -->
-<!-- (Note: Technically, this type of scale is called an interval scale). If the -->
-<!-- instrument meets certain criteria, the measurements from the -->
-<!-- instrument can be placed on the interval scale. Once this is done, we  -->
-<!-- may  -->
-
+All patterns can co-exist because of the curvature in the relation
+between $D$-score and age. The curvature is never explicitly modeled
+or defined, but a consequence of the equal-slopes assumption in the
+relation between the $D$-score and the passing percentage of a
+milestone.
 
 ## Measurement model for the $D$-score {#sec:measurementmodel}
 
@@ -444,13 +447,12 @@ probability of 0.5 of passing the item.
 ### Logistic model
 
 A widely used method to map differences on the latent scale are
-*logistic units* (or  *logits*) [@berkson1944]. In `R` we can
-calculate the probability by the inverse-logit (or *logistic*
-function) for a difference of 0 and 1 as
-
-```{r logit0, echo = TRUE}
-plogis(c(0, 1))
-```
+*logistic units* (or  *logits*) [@berkson1944]. The reason for using
+the logistic rather than linear units is that its output returns a
+probability value that is mapped to discrete events. In our case, we
+can describe the probability of passing an item (milestone) as a
+function of the difference between $\beta_n$ and $\delta_i$ expressed
+in logits.
 
 ```{r logisticplot, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:logisticplot)', width = "80%"}
 pkg <- c("ggplot2", "RColorBrewer")
@@ -478,20 +480,31 @@ ggplot(subset(items, Items == "A"), aes(x = beta, y = 100 * pass, group = Items,
 passing an item for a given ability-difficulty gap $\beta_n -
 \delta_i$.
 
-Figure \@ref(fig:logisticplot) shows how the percentage that pass the
-item varies in terms of the ability-difficulty gap $\beta_n -
-\delta_i$. The gap  can vary either by $\beta_n$ or $\delta_i$, so we
-may use the graph in two ways:
+Figure \@ref(fig:logisticplot) shows how the percentage of children
+that pass the item varies in terms of the ability-difficulty gap
+$\beta_n - \delta_i$. The gap  can vary either by $\beta_n$ or
+$\delta_i$, so we may use the graph in two ways:
 
-* To find the probability of passing various items for a child with
-ability $\beta_n$. If $\delta_i = \beta_n$ then $\pi_{ni} = 0.5$. If
-$\delta_i < \beta_n$ then $\pi_{ni} < 0.5$, and if $\delta_i >
-\beta_n$ then $\pi_{ni} > 0.5$.
+* To find the probability of passing items with various difficulties
+for a child with ability $\beta_n$. If $\delta_i = \beta_n$ then
+$\pi_{ni} = 0.5$. If $\delta_i < \beta_n$ then $\pi_{ni} > 0.5$, and
+if $\delta_i > \beta_n$ then $\pi_{ni} < 0.5$. In words: If the
+difficulty of the item is equal to the child's ability, then child has
+a 50/50 chance to pass. The child will have a higher than 50/50 chance
+of passing for items with lower difficulty, and have a lower than
+50/50 chance of passing for items with difficulties that exceed the
+child's ability.
 
 * To find the probability of passing a given item $\delta_i$ for
-children that vary in ability. If $\beta_n = \delta_i$ then $\pi_{ni} =
-0.5$. If $\beta_n < \delta_i$ then $\pi_{ni} < 0.5$, and if $\beta_n >
-\delta_i$ then $\pi_{ni} > 0.5$.
+children that vary in ability. If $\beta_n < \delta_i$ then $\pi_{ni}
+< 0.5$, and if $\beta_n > \delta_i$ then $\pi_{ni} > 0.5$. In words:
+Children with abilities lower than the item's difficulty will have
+lower than 50/50 chance of passing, whereas children with abilities
+that exceed the item's difficulty will have a higher than 50/50 chance
+of passing.
+
+Note the symmetric roles for difficulties $\delta_i$ and abilities
+$\beta_n$.
 
 ### Types of item response functions
 
@@ -632,7 +645,10 @@ better chance of success on an easy item than on a more difficult
 item.
 
 5. *Unidimensionality*: Items and persons must be simultaneously
-located on a single underlying latent variable.
+located on a *single* underlying latent variable. This means that the
+relations between the items are fully explainable by the scores on the
+latent scale. In practice, the requirement implies that items should
+measure the same construct. (@hattie1985)
 
 Three families of IRT models actually support invariant measurement:
 
@@ -664,7 +680,9 @@ mathematically separate entities in the Rasch model. In practice, this
 means that the estimated difference in ability between two persons
 does not depend on the difficulty of the test. Also, the estimated
 differences in difficulties between two items does not depend on the
-abilities in the calibration sample.
+abilities in the calibration sample. The property is especially
+important in the analysis of combined data, where abilities can vary
+widely between sources. See @rasch1977 for derivations and examples.
 
 * *Unified model*: The Rasch model unifies distinct traditions in
 measurement theory. The Rasch model can be derived from

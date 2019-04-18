@@ -23,7 +23,7 @@ formulates this goal as follows:
 
 There is a large literature that quantifies development in terms of
 ages at which the child is expected to show a specific behavior. For
-example, in Shirley's motor data in Table \@ref(tab:shirley), we may
+example, in Shirley's motor data in \@ref(tab:shirley), we may
 summarize the ages at which each of the 21 children enters a given
 stage.
 
@@ -236,6 +236,7 @@ kable(data,
   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
+&nbsp;
 
 Table \@ref(tab:weekly) reconstructs the weekly motor measurements
 made by Shirley from Table \@ref(tab:shirley). Each of the
@@ -508,6 +509,8 @@ Probability model         |   NO      | NO          | YES
 Defines measurement unit  |   NO      | NO          | YES
 
 : (\#tab:measurement) Evaluation of three measurement approaches on seven criteria.
+
+&nbsp;
 
 This chapter distinguished three approaches to measure child
 development: *age-based*, *score-based* and *unit-based* measurement.
