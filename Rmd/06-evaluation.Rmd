@@ -32,7 +32,7 @@ item to the fitted item response curve for endorsing the item.
 
 The fitted item response curve for each item $i$ is modeled as: 
 
-$$P_{ni}= \frac{exp( \beta_{n} - \delta_{i})}{1+exp(\beta_{n}-\delta_{i})}, $$ 
+$$P_{ni}= \frac{\exp( \beta_{n} - \delta_{i})}{1+\exp(\beta_{n}-\delta_{i})}, $$ 
 
 where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the
 difficulty of item $i$. It is thus natural to compare the observed and
@@ -64,8 +64,8 @@ well.
 
 ### Item response curves showing severe underfit
 
-These examples of item response curves fit the model nicely. There are
-however many cases where things are less bright. 
+These examples of item response curves fit the model nicely. There are,
+however, many cases where things are less bright. 
 
 ```{r smoccfit4, warning = FALSE}
 set.seed(12345)
@@ -99,16 +99,20 @@ gridExtra::grid.arrange(p1, p2, p3)
 
 (ref:plothyp1) Three simulated items that illustrate various forms of item misfit.
 
-Figure \@ref(fig:plothyp1) shows three forms of severe underfit. The
-probability to pass item `hypgmd001` is almost constant across
-ability, so retaining this item essentially only adds to the noise.
-Item `hypgmd002` converges to an asymptote around 80 percent and has a
-severe dip in the middle. The dip is caused by the strong relation to
-age. Item `hypgmd003` appears to have the wrong coding. In addition,
-the spike-like behavior in the middle is often seen when two or more
-different items are erroneously given the same code.
+Figure \@ref(fig:plothyp1) shows three forms of severe underfit from
+three hypothetical items. These items were simulated to have a low fit,
+added to the DDI, and their parameters were estimated by the methods
+of Chapter \@ref(ch:computation). For the first item, `hypgmd001`, the
+probability of passing is almost constant across ability, so retaining
+this item essentially only adds to the noise. Item `hypgmd002`
+converges to an asymptote around 80 percent and has a severe dip in
+the middle. The dip is caused by the strong relation to age. Item
+`hypgmd003` appears to have the wrong coding. In addition, the
+spike-like behavior in the middle is often seen when two or more
+different items are erroneously given identical item names.
 
-Removing of items like these could substantially improve model fit.
+Removal of items with a low fit can substantially improve overall
+model fit.
 
 ### Item response curves showing overfit
 
@@ -120,14 +124,15 @@ gridExtra::grid.arrange(p1, p2)
 
 (ref:plothyp2) Two simulated items that illustrate item overfit.
 
-Figure \@ref(fig:plothyp2) shows two forms of overfit. The curve of item
-`hypgmd004` is much steeper than the modeled curve. Thus, just this
-one item is exceptionally well-suited to distinguish children with a
-$D$-score below 50 from those with a $D$-score above 50. Note that the
-item isn't sensitive anywhere else on the scale. In general, having
-items like these is good news, because they allow us to increase the
-reliability of the instrument. One should make certain though, that
-FAIL and PASS scores are all measured (not imputed) values.
+Figure \@ref(fig:plothyp2) shows two hypothetical items with two forms
+of overfit. The curve of item `hypgmd004` is much steeper than the
+modeled curve. Thus, just this one item is exceptionally well-suited
+to distinguish children with a $D$-score below 50 from those with a
+$D$-score above 50. Note that the item isn't sensitive anywhere else
+on the scale. In general, having items like these is good news,
+because they allow us to increase the reliability of the instrument.
+One should make certain though, that FAIL and PASS scores are all
+measured (not imputed) values.
 
 Multiple perfect items could hint to a violation of the *local
 independence assumption* (c.f. Section \@ref(sec:measurementmodel)).
@@ -152,38 +157,41 @@ aggregates of the model residuals. The observed response $x_{ni}$ of
 person $n$ on item $i$ can be $0$ or $1$. The expected response
 $P_{ni}$ is modeled as
 
-$$P_{ni} = \frac{exp(\hat\beta_{n} - \hat\delta_{i})}{1 + exp(\hat\beta_{n} - \hat\delta_{i})}$$, 
+$$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1 + \exp(\hat\beta_{n} - \hat\delta_{i})},$$ 
 
 where $\hat\beta_{n}$ is the estimated ability of person $n$, and
-where $\hat\delta_{i}$ is the estimated difficulty of item $i$. The
-standardized residual $z_{ni}$ is the difference between the observed
-response $x_{ni}$ and the expected response $P_{ni}$, divided by the
-expected binomial standard deviation:
+where $\hat\delta_{i}$ is the estimated difficulty of item $i$.
+Chapter \@ref(ch:computation) describes process of parameter
+estimation in detail.
 
-$$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}}$$, 
+The standardized residual $z_{ni}$ is the difference between the observed
+response $x_{ni}$ and the expected response $P_{ni}$, divided by the
+expected binomial standard deviation,
+
+$$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}},$$
 
 where the expected response variance $W_{ni}$ is calculated as 
 
-$$W_{ni} = P_{ni}(1-P_{ni})$$. 
+$$W_{ni} = P_{ni}(1-P_{ni}).$$ 
 
 *Item infit* is the sum of the squared residuals divided by the sum of
-the expected response variances $W_{ni}$.
+the expected response variances $W_{ni}$
 
-$$\mathrm{Infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}$$
+$$\mathrm{Infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}.$$
 
 *Item outfit* is calculated as the average (over $N$ persons) of the
 squared standardized residual
 
-$$\mathrm{Outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}$$
+$$\mathrm{Outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.$$
 
 The expected value of both infit and outfit is equal to 1.0. The
 interpretation is as follows:
 
-* If infit and outfit are 1.0, then the item perfectly fit the Rasch
+* If infit and outfit are 1.0, then the item perfectly fits the Rasch
 model, as in Figure \@ref(fig:ploticc);
 
 * If infit and outfit > 1.0, then the item has underfit. The amount of
-under fit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
+underfit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
 
 * If infit and outfit < 1.0, then the item fits the model better than
 expected (overfit). The amount of over fit is quantified by infit and
@@ -316,7 +324,7 @@ separately.
 
 The are two forms of DIF: 
 
-* *Uniform DIF*: The item response curve differ between groups in
+* *Uniform DIF*: The item response curves differ between groups in
 location, but are parallel;
 
 * *Non-uniform DIF*: The item response curve differ between groups in
@@ -354,13 +362,17 @@ is easier for girls by about 0.86 logits (= the difference in ability
 at the intersection of 50 percent). Conversely, milestone `ddigmm064`
 ("Crawls forward, abdomen on the floor") is easier for boys by about
 0.84 logits. These are the largest differences found for sex in the
-DDI. Both are primarily uniform DIF.
+DDI. Both are uniform DIF.
 
 In practice, having milestones with opposite forms of DIF in the same
 instrument will cancel out one another, so one need not be overly
 concerned in that case. However, we should be careful when the
 instrument consists of milestones that all have DIF in the same
 direction.
+
+The DDI did not contain items for which the ability-group interaction
+was statistically significant, so we conclude that there is no
+non-uniform DIF in the DDI.
 
 ## Item information {#sec:iteminformation}
 
@@ -371,20 +383,35 @@ Item information is a psychometric measure that quantifies how
 informative the item is at different levels of ability. Item
 information can be plotted as a curve for each item.
 
+The formula to obtain the item information is the first derivative of
+the item response curve and can be written as follows:
+
+$$I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))$$ 
+where $P(\hat\delta_i)$ is the conditional probability of endorsing
+item $i$, and where $\hat\delta_i$ is the estimated item difficulty in
+the logit scale. For example for milestone `ddicmm039` ("Says three
+words") $\hat\delta_i$ equals $4.06$.
+
 ```{r iic, message=FALSE, warning=FALSE, fig.height = 4, fig.cap = '(ref:iic)'}
 items <- c("ddigmm060", "ddicmm039")
+# items <- c("ddigmd057", "ddigmd063")
+
 #item information curve
 ## bereken item info by difficulty
- info <- function(beta, delta) {(exp(beta-delta)/(1+exp(beta-delta)) * (1-exp(beta-delta)/(1+exp(beta-delta))))}
+ info <- function(beta, delta) {
+   d <- beta - delta
+   p <- exp(d) / (1 + exp(d)) 
+   p * (1 - p)
+   }
  delta <- model$fit$b[items[1]]
- betar <- c(-10,2)
+ betar <- c(-20, 2)
  beta = seq(betar[1], betar[2], length = 200)
- iteminfo1 <- data.frame(ability=beta,I=info(beta,delta))
+ iteminfo1 <- data.frame(ability = beta, I = info(beta, delta))
 
  delta <- model$fit$b[items[2]]
- betar <- c(-2,10)
+ betar <- c(-15,10)
  beta = seq(betar[1], betar[2], length = 200)
- iteminfo2 <- data.frame(ability=beta,I=info(beta,delta))
+ iteminfo2 <- data.frame(ability = beta, I = info(beta, delta))
 
  iteminfo1$item <- paste(items[1], get_labels(items[1]))
  iteminfo2$item <- paste(items[2], get_labels(items[2]))
@@ -395,7 +422,7 @@ items <- c("ddigmm060", "ddicmm039")
    xlab("Ability (logit)") +
    ylab("Item information") +
    theme(legend.position = "bottom") +
-   scale_x_continuous(breaks = seq(-10, 10, 2)) +
+   scale_x_continuous(limits = c(-12, 10), breaks = seq(-12, 10, 2)) +
    guides(color=guide_legend(title = NULL))
 ```
 
@@ -403,46 +430,45 @@ items <- c("ddigmm060", "ddicmm039")
 
 Figure \@ref(fig:iic) displays the item information curves for two
 milestones from the DDI. Note that the amount of information
-for the item is maximal around the item difficulty. In the Rasch
-model, the information curves of different items are just translations
-along the ability scale.
+for the item is maximal around the item difficulty.
 
-The formula to obtain the item information is the first derivative of
-the item response curve and can be written as follows:
+The probability of endorsing milestone `ddicmm039` for a child
+with an ability of $2$ logits is
 
-$$I(\delta)=P_i(\delta)(1-P_i(\delta))$$ 
-where $P_i(\delta)$ is the conditional probability of endorsing an
-item. For example for milestone `ddicmm039` ("Says three words") the $\delta_i$
-equals $4.06$. The probability of endorsing this item for a person
-with an ability level of $2$ standard deviation above the mean is
+$$P_{ni}= \frac{\exp(2 - 4.06)}{1+\exp(2-4.06)} = 0.113$$
 
-$$P_{ni}= \frac{\mathrm{exp}(2 - 4.06)}{1+\mathrm{exp}(2-4.06)} = 0.113$$
+At this ability level, milestone `ddicmm039` has information
 
-So for an ability level of $2$ standard deviations above the mean
-$\beta_n = 2$, milestone `ddicmm039` has an information of
-
-$$I(\delta)=0.113(1-0.113) = 0.1$$ 
+$$I(\hat\delta_i)=0.113 \times (1-0.113) = 0.10$$ 
 
 
 ### Item information at a given age
 
 In practice, it is often interesting to express the item information
-against age. By doing so, one can identify at what ages the item
+against age. By doing so, one can identify at what ages an item
 provides the most information.
 
 ```{r iia, message=FALSE,  results = 'hide', fig.keep = 'all', warning=FALSE,  fig.height = 4, , fig.cap = '(ref:iia)'}
 # model in logit
-refs <- dmetric::calculate_references(model = model, metric = "logit", 
+refs <- dmetric::fit_reference(model = model, metric = "logit", 
                                       trace = FALSE)
-refs$month <- refs$age
+
+refs$month <- refs$x * 12 / 365.25
 
 #item information curve
 ## bereken item info by difficulty
  info_age <- function(betas, p = 50, reference) {
- pd <- matrix(betas, nrow = length(betas), ncol = length(p)) +
-    matrix(1 * qlogis(p / 100),
-           nrow = length(betas), ncol = length(p), byrow = TRUE)
-  pa <- approx(x = reference$mu, y = reference$month, xout = as.vector(pd))$y
+   p1 <- matrix(1 * qlogis(p / 100), 
+                nrow = length(betas), 
+                ncol = length(p), 
+                byrow = TRUE)
+   p2 <- matrix(betas, 
+                nrow = length(betas), 
+                ncol = length(p))
+  pd <- p1 + p2
+  pa <- approx(x = reference$mu, 
+               y = reference$month, 
+               xout = as.vector(pd))$y
   pa <- matrix(pa, ncol = length(p))
   pda <- data.frame(round(pd, 2), round(pa, 2))
   names(pda) <- c("delta", paste0("A", p))
@@ -460,26 +486,30 @@ refs$month <- refs$age
    xlab("Age (months)") + 
    ylab("Item information") +
    theme(legend.position = "bottom") +
-   scale_x_continuous(breaks = seq(0, 60, 10)) +
+   scale_x_continuous(breaks = seq(0, 24, 3)) +
    guides(color=guide_legend(title = NULL))
 ```
 
 (ref:iia) Information information of Figure \@ref(fig:iic) plotted against age.
 
 Figure \@ref(fig:iia) shows that the sensitive age ranges differ
-considerably between items. Milestone `ddigmm060` is sensitive at
-between ages 10--20 months, where `ddicmm039` is sensitive between
-ages 27--47, a range that is twice as broad. Note also that the
-information curves are no longer symmetric.
+considerably between items. Using 0.05 as a criterion, milestone
+`ddigmm060` is sensitive between ages 4--8 months, whereas `ddicmm039`
+is sensitive between ages 10--19 months, a range that is about twice
+as broad. The symmetric nature of the curves in Figure \@ref(fig:iic)
+is not present Figure \@ref(fig:iia). In general, the relation between
+age and item sensitivity is more complex than the relation between
+ability and item sensitivity.
 
 The item information by age curve helps to determine at what ages the
-item can best be administered. The item will be most informative, when
+item can best be administered. The item will be most informative if
 administered at the age at which 50% of the children will pass the
-milestone. Administering the item closely around that age provide the
-most efficient measurement of ability. When space is at premium (e.g.
-as in population surveys) using a well-chosen set of age-sensitive
-milestones will help in reducing the total number of milestones that
-needs to be measured.
+milestone, which is the point where the item information is equal to
+0.5 * 0.5 = 0.25. Administering the item closely around that age
+provide the most efficient measurement of ability. When space is at
+premium (e.g. as in population surveys) using a well-chosen set of
+age-sensitive milestones will help in reducing the total number of
+milestones that needs to be measured.
 
 In other contexts, milestones may be used as a screening instrument to
 identify developmental delay. In that case, it is more efficient to
@@ -488,18 +518,22 @@ which, say, 90% of the children will pass.
 
 ## Reliability {#sec:reliability}
 
-Reliability is defined as the proportion of variance of the person
-estimates (i.e. abilities) relative to the total variance, including
-errors. More specifically, the reliability $R$ of a test is written as
+The reliability is a one-number summary of the accuracy of an
+instrument. Statisticians define reliability as the proportion of
+variance attributable to the variation between person (i.e.
+abilities) relative to the total variance, including errors. More
+specifically, the reliability $R$ of a test is written as
 
 $$R \equiv \frac{\sigma_{\beta}^2}{\sigma_{\beta}^2 + \sigma_{e}^2},$$ 
 
 where $\sigma_{\beta}^2$ is the variance of true ability and
 $\sigma_{e}^2$ is the error variance. 
 
-Cronbach's $\alpha$ is a popular estimate of the lower bound
-of the reliability of a test. In the Rasch model, we can estimate 
-reliability by the [ratio](http://www.rummlab.com.au/rmrelidx2030)
+In general, a high reliability is desirable, so the reliability of a
+test is often used to decide between instruments. Cronbach's $\alpha$
+is a popular estimate of the lower bound of the reliability of a test.
+In the Rasch model, we can estimate reliability by the
+[ratio](http://www.rummlab.com.au/rmrelidx2030)
 
 $$\hat{R} = \frac{\hat\sigma_{\hat\beta}^2 - \hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}.$$
 
@@ -562,6 +596,11 @@ measurement (sem)* is $\hat\sigma_{\hat e} = 1.32$ logits.
 
 The estimated reliability in the SMOCC data can now be calculated as
 $(76.6-1.74)/76.6 = 0.977$. This number can be interpreted in the same
-way as Cronbach's $\alpha$. The reliability is very high here because
-of the large variation in $D$-scores. In practice, the *sem* is perhaps
-a more relevant measure of precision.
+way as Cronbach's $\alpha$, for which typically any value beyond 0.9
+is classified as *excellent*. Note that the reliability is very high
+because of the large variation in $D$-scores. Newborns are very
+different from 2-year old toddlers, which helps to increase
+reliability. In practice, it is perhaps more useful to have use
+measure of accuracy that is less dependent of the variation within the
+sample. The *sem*, as explained above, seems to be a more relevant
+measure of precision.
