@@ -537,7 +537,7 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
   }
 ```
 
-### $D$-scores labelled by neurological problem
+### $D$-scores labelled by neurological problem {#sec:togoneuro}
 
 
 ```{r togoda1, fig.cap = '(ref:togoda1)', fig.height = 6, warning = FALSE}
