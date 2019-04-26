@@ -502,7 +502,7 @@ knitr::kable(reference,
 ```
 &nbsp;
 
-Table \ref{tab:reftable} defines age-conditional references for Dutch
+Table \@ref(tab:reftable) defines age-conditional references for Dutch
 children as the $M$-curve (median), $S$-curve (spread) and $L$-curve
 (skewness) by age. This table can be used to calculate centile lines
 and $Z$-scores.
