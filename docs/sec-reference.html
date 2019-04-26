@@ -1,0 +1,2845 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>5.4 Age-conditional references | Introduction to the D-score</title>
+  <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="5.4 Age-conditional references | Introduction to the D-score" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
+  <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
+  <meta property="og:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
+  <meta name="github-repo" content="stefvanbuuren/dbook1" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.4 Age-conditional references | Introduction to the D-score" />
+  
+  <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
+  <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
+
+<meta name="author" content="Editor: Stef van Buuren (Netherlands Organization for Applied Scientific Research TNO, Leiden)">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="prev" href="sec-dscoreestimation.html">
+<link rel="next" href="ch-evaluation.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/typedarray-0.1/typedarray.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="https://stefvanbuuren.name/dbook1">D-score booklet I</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
+<li class="chapter" data-level="1.1" data-path="sec-first1000.html"><a href="sec-first1000.html"><i class="fa fa-check"></i><b>1.1</b> First 1000 days</a></li>
+<li class="chapter" data-level="1.2" data-path="sec-relevance.html"><a href="sec-relevance.html"><i class="fa fa-check"></i><b>1.2</b> Relevance of child development</a></li>
+<li class="chapter" data-level="1.3" data-path="sec-stunting.html"><a href="sec-stunting.html"><i class="fa fa-check"></i><b>1.3</b> Stunting as proxy for child development</a></li>
+<li class="chapter" data-level="1.4" data-path="sec-neurocognitive.html"><a href="sec-neurocognitive.html"><i class="fa fa-check"></i><b>1.4</b> Measuring neurocognitive development</a></li>
+<li class="chapter" data-level="1.5" data-path="sec-why.html"><a href="sec-why.html"><i class="fa fa-check"></i><b>1.5</b> Why this booklet?</a></li>
+<li class="chapter" data-level="1.6" data-path="sec-audience.html"><a href="sec-audience.html"><i class="fa fa-check"></i><b>1.6</b> Intended audience</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="ch-history.html"><a href="ch-history.html"><i class="fa fa-check"></i><b>2</b> Short history</a><ul>
+<li class="chapter" data-level="2.1" data-path="sec-definitions.html"><a href="sec-definitions.html"><i class="fa fa-check"></i><b>2.1</b> What is child development?</a></li>
+<li class="chapter" data-level="2.2" data-path="sec-theories.html"><a href="sec-theories.html"><i class="fa fa-check"></i><b>2.2</b> Theories of child development</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="sec-theories.html"><a href="sec-theories.html#continuous-or-discontinuous"><i class="fa fa-check"></i><b>2.2.1</b> Continuous or discontinuous?</a></li>
+<li class="chapter" data-level="2.2.2" data-path="sec-theories.html"><a href="sec-theories.html#one-course-or-many"><i class="fa fa-check"></i><b>2.2.2</b> One course or many?</a></li>
+<li class="chapter" data-level="2.2.3" data-path="sec-theories.html"><a href="sec-theories.html#nature-or-nurture"><i class="fa fa-check"></i><b>2.2.3</b> Nature or nurture?</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="sec-motorexample.html"><a href="sec-motorexample.html"><i class="fa fa-check"></i><b>2.3</b> Example of motor development</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="sec-motorexample.html"><a href="sec-motorexample.html#shirleys-motor-data"><i class="fa fa-check"></i><b>2.3.1</b> Shirley’s motor data</a></li>
+<li class="chapter" data-level="2.3.2" data-path="sec-motorexample.html"><a href="sec-motorexample.html#individual-trajectories-of-motor-development"><i class="fa fa-check"></i><b>2.3.2</b> Individual trajectories of motor development</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="sec-questions.html"><a href="sec-questions.html"><i class="fa fa-check"></i><b>2.4</b> Typical questions asked in child development</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ch-threeways.html"><a href="ch-threeways.html"><i class="fa fa-check"></i><b>3</b> Quantifying child development</a><ul>
+<li class="chapter" data-level="3.1" data-path="sec-agebased.html"><a href="sec-agebased.html"><i class="fa fa-check"></i><b>3.1</b> Age-based measurement of development</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="sec-agebased.html"><a href="sec-agebased.html#motivation-for-age-based-measurement"><i class="fa fa-check"></i><b>3.1.1</b> Motivation for age-based measurement</a></li>
+<li class="chapter" data-level="3.1.2" data-path="sec-agebased.html"><a href="sec-agebased.html#sec:ageequivalent"><i class="fa fa-check"></i><b>3.1.2</b> Age equivalent as difficulty</a></li>
+<li class="chapter" data-level="3.1.3" data-path="sec-agebased.html"><a href="sec-agebased.html#limitations-of-age-based-measurement"><i class="fa fa-check"></i><b>3.1.3</b> Limitations of age-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="sec-scorebased.html"><a href="sec-scorebased.html"><i class="fa fa-check"></i><b>3.2</b> Score-based measurement of development</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-scorebased.html"><a href="sec-scorebased.html#motivation-for-score-based-measurement"><i class="fa fa-check"></i><b>3.2.1</b> Motivation for score-based measurement</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-scorebased.html"><a href="sec-scorebased.html#example-of-score-based-measurement"><i class="fa fa-check"></i><b>3.2.2</b> Example of score-based measurement</a></li>
+<li class="chapter" data-level="3.2.3" data-path="sec-scorebased.html"><a href="sec-scorebased.html#limitations-of-score-based-measurement"><i class="fa fa-check"></i><b>3.2.3</b> Limitations of score-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html"><i class="fa fa-check"></i><b>3.3</b> Unit-based measurement of development</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="sec-unitbased.html"><a href="sec-unitbased.html#sec:motivationunit"><i class="fa fa-check"></i><b>3.3.1</b> Motivation for unit-based measurement</a></li>
+<li class="chapter" data-level="3.3.2" data-path="sec-unitbased.html"><a href="sec-unitbased.html#sec:unitbasedexample"><i class="fa fa-check"></i><b>3.3.2</b> Example of unit-based measurement</a></li>
+<li class="chapter" data-level="3.3.3" data-path="sec-unitbased.html"><a href="sec-unitbased.html#limitations-of-unit-based-measurement"><i class="fa fa-check"></i><b>3.3.3</b> Limitations of unit-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="sec-whatismeasurement.html"><a href="sec-whatismeasurement.html"><i class="fa fa-check"></i><b>3.4</b> What is measurement?</a></li>
+<li class="chapter" data-level="3.5" data-path="sec-whyunit.html"><a href="sec-whyunit.html"><i class="fa fa-check"></i><b>3.5</b> Why unit-based measurement</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ch-newmodel.html"><a href="ch-newmodel.html"><i class="fa fa-check"></i><b>4</b> The <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="4.1" data-path="sec-ddi.html"><a href="sec-ddi.html"><i class="fa fa-check"></i><b>4.1</b> The Dutch Development Instrument (DDI)</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sec-ddi.html"><a href="sec-ddi.html#setting"><i class="fa fa-check"></i><b>4.1.1</b> Setting</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sec-ddi.html"><a href="sec-ddi.html#sec:smocc"><i class="fa fa-check"></i><b>4.1.2</b> Description of SMOCC study</a></li>
+<li class="chapter" data-level="4.1.3" data-path="sec-ddi.html"><a href="sec-ddi.html#codebook-of-ddi-0-30-months"><i class="fa fa-check"></i><b>4.1.3</b> Codebook of DDI 0-30 months</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="sec-probage.html"><a href="sec-probage.html"><i class="fa fa-check"></i><b>4.2</b> Probability of passing a milestone given age</a></li>
+<li class="chapter" data-level="4.3" data-path="sec-probd.html"><a href="sec-probd.html"><i class="fa fa-check"></i><b>4.3</b> Probability of passing a milestone given <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.4" data-path="sec-aged.html"><a href="sec-aged.html"><i class="fa fa-check"></i><b>4.4</b> Relation between age and the <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="4.5" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html"><i class="fa fa-check"></i><b>4.5</b> Measurement model for the <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html#what-are-measurement-models"><i class="fa fa-check"></i><b>4.5.1</b> What are measurement models?</a></li>
+<li class="chapter" data-level="4.5.2" data-path="sec-measurementmodel.html"><a href="sec-measurementmodel.html#sec:adaptmodel"><i class="fa fa-check"></i><b>4.5.2</b> Adapt the model? Or adapt the data?</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html"><i class="fa fa-check"></i><b>4.6</b> Item response functions</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#logistic-model"><i class="fa fa-check"></i><b>4.6.1</b> Logistic model</a></li>
+<li class="chapter" data-level="4.6.2" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#types-of-item-response-functions"><i class="fa fa-check"></i><b>4.6.2</b> Types of item response functions</a></li>
+<li class="chapter" data-level="4.6.3" data-path="sec-itemresponsefunctions.html"><a href="sec-itemresponsefunctions.html#person-response-functions"><i class="fa fa-check"></i><b>4.6.3</b> Person response functions</a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="sec-engelhard.html"><a href="sec-engelhard.html"><i class="fa fa-check"></i><b>4.7</b> Engelhard criteria for invariant measurement</a></li>
+<li class="chapter" data-level="4.8" data-path="sec-whyrasch.html"><a href="sec-whyrasch.html"><i class="fa fa-check"></i><b>4.8</b> Why take the Rasch model?</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ch-computation.html"><a href="ch-computation.html"><i class="fa fa-check"></i><b>5</b> Computation</a><ul>
+<li class="chapter" data-level="5.1" data-path="sec-datapreparation.html"><a href="sec-datapreparation.html"><i class="fa fa-check"></i><b>5.1</b> Identify nature of the problem</a></li>
+<li class="chapter" data-level="5.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html"><i class="fa fa-check"></i><b>5.2</b> Item parameter estimation</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html#pairwise-estimation-of-item-difficulties"><i class="fa fa-check"></i><b>5.2.1</b> Pairwise estimation of item difficulties</a></li>
+<li class="chapter" data-level="5.2.2" data-path="sec-itemestimation.html"><a href="sec-itemestimation.html#sec:anchoring"><i class="fa fa-check"></i><b>5.2.2</b> Anchoring</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html"><i class="fa fa-check"></i><b>5.3</b> Estimation of the <span class="math inline">\(D\)</span>-score</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:startingprior"><i class="fa fa-check"></i><b>5.3.1</b> Role of the starting prior</a></li>
+<li class="chapter" data-level="5.3.2" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:adp"><i class="fa fa-check"></i><b>5.3.2</b> Starting prior: Numerical example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#sec:EAP"><i class="fa fa-check"></i><b>5.3.3</b> EAP algorithm</a></li>
+<li class="chapter" data-level="5.3.4" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#eap-algorithm-numerical-example"><i class="fa fa-check"></i><b>5.3.4</b> EAP algorithm: Numerical example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="sec-dscoreestimation.html"><a href="sec-dscoreestimation.html#technical-observations-on-d-score-estimation"><i class="fa fa-check"></i><b>5.3.5</b> Technical observations on <span class="math inline">\(D\)</span>-score estimation</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="sec-reference.html"><a href="sec-reference.html"><i class="fa fa-check"></i><b>5.4</b> Age-conditional references</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="sec-reference.html"><a href="sec-reference.html#motivation"><i class="fa fa-check"></i><b>5.4.1</b> Motivation</a></li>
+<li class="chapter" data-level="5.4.2" data-path="sec-reference.html"><a href="sec-reference.html#estimation-of-the-reference-distribution"><i class="fa fa-check"></i><b>5.4.2</b> Estimation of the reference distribution</a></li>
+<li class="chapter" data-level="5.4.3" data-path="sec-reference.html"><a href="sec-reference.html#conversion-of-d-to-daz-and-vice-versa"><i class="fa fa-check"></i><b>5.4.3</b> Conversion of <span class="math inline">\(D\)</span> to DAZ, and vice versa</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ch-evaluation.html"><a href="ch-evaluation.html"><i class="fa fa-check"></i><b>6</b> Evaluation</a><ul>
+<li class="chapter" data-level="6.1" data-path="sec-itemfit.html"><a href="sec-itemfit.html"><i class="fa fa-check"></i><b>6.1</b> Item fit</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="sec-itemfit.html"><a href="sec-itemfit.html#well-fitting-item-response-curves"><i class="fa fa-check"></i><b>6.1.1</b> Well-fitting item response curves</a></li>
+<li class="chapter" data-level="6.1.2" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-severe-underfit"><i class="fa fa-check"></i><b>6.1.2</b> Item response curves showing severe underfit</a></li>
+<li class="chapter" data-level="6.1.3" data-path="sec-itemfit.html"><a href="sec-itemfit.html#item-response-curves-showing-overfit"><i class="fa fa-check"></i><b>6.1.3</b> Item response curves showing overfit</a></li>
+<li class="chapter" data-level="6.1.4" data-path="sec-itemfit.html"><a href="sec-itemfit.html#sec:infit"><i class="fa fa-check"></i><b>6.1.4</b> Item infit and outfit</a></li>
+<li class="chapter" data-level="6.1.5" data-path="sec-itemfit.html"><a href="sec-itemfit.html#sec:fitddi"><i class="fa fa-check"></i><b>6.1.5</b> Infit and outfit in the DDI</a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="sec-personfit.html"><a href="sec-personfit.html"><i class="fa fa-check"></i><b>6.2</b> Person fit</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="sec-personfit.html"><a href="sec-personfit.html#person-infit-and-outfit"><i class="fa fa-check"></i><b>6.2.1</b> Person infit and outfit</a></li>
+<li class="chapter" data-level="6.2.2" data-path="sec-personfit.html"><a href="sec-personfit.html#person-infit-and-outfit-in-the-ddi"><i class="fa fa-check"></i><b>6.2.2</b> Person infit and outfit in the DDI</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="sec-dif.html"><a href="sec-dif.html"><i class="fa fa-check"></i><b>6.3</b> Differential item functioning (DIF)</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="sec-dif.html"><a href="sec-dif.html#relevance-of-dif-for-cross-cultural-equivalence"><i class="fa fa-check"></i><b>6.3.1</b> Relevance of DIF for cross-cultural equivalence</a></li>
+<li class="chapter" data-level="6.3.2" data-path="sec-dif.html"><a href="sec-dif.html#how-to-detect-dif"><i class="fa fa-check"></i><b>6.3.2</b> How to detect DIF?</a></li>
+<li class="chapter" data-level="6.3.3" data-path="sec-dif.html"><a href="sec-dif.html#examples-of-dif"><i class="fa fa-check"></i><b>6.3.3</b> Examples of DIF</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html"><i class="fa fa-check"></i><b>6.4</b> Item information</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-ability"><i class="fa fa-check"></i><b>6.4.1</b> Item information at a given ability</a></li>
+<li class="chapter" data-level="6.4.2" data-path="sec-iteminformation.html"><a href="sec-iteminformation.html#item-information-at-a-given-age"><i class="fa fa-check"></i><b>6.4.2</b> Item information at a given age</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="sec-reliability.html"><a href="sec-reliability.html"><i class="fa fa-check"></i><b>6.5</b> Reliability</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="ch-validity.html"><a href="ch-validity.html"><i class="fa fa-check"></i><b>7</b> Validity</a><ul>
+<li class="chapter" data-level="7.1" data-path="sec-internal.html"><a href="sec-internal.html"><i class="fa fa-check"></i><b>7.1</b> Internal validity</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="sec-internal.html"><a href="sec-internal.html#content-validity"><i class="fa fa-check"></i><b>7.1.1</b> Content validity</a></li>
+<li class="chapter" data-level="7.1.2" data-path="sec-internal.html"><a href="sec-internal.html#construct-validity"><i class="fa fa-check"></i><b>7.1.2</b> Construct validity</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="sec-external.html"><a href="sec-external.html"><i class="fa fa-check"></i><b>7.2</b> External validity</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="sec-external.html"><a href="sec-external.html#discriminatory-validity"><i class="fa fa-check"></i><b>7.2.1</b> Discriminatory validity</a></li>
+<li class="chapter" data-level="7.2.2" data-path="sec-external.html"><a href="sec-external.html#convergent-and-divergent-validity"><i class="fa fa-check"></i><b>7.2.2</b> Convergent and divergent validity</a></li>
+<li class="chapter" data-level="7.2.3" data-path="sec-external.html"><a href="sec-external.html#predictive-validity"><i class="fa fa-check"></i><b>7.2.3</b> Predictive validity</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="ch-precision.html"><a href="ch-precision.html"><i class="fa fa-check"></i><b>8</b> Precision</a><ul>
+<li class="chapter" data-level="8.1" data-path="sec-smoccmilestones.html"><a href="sec-smoccmilestones.html"><i class="fa fa-check"></i><b>8.1</b> SMOCC design: Standard and additional milestones</a></li>
+<li class="chapter" data-level="8.2" data-path="sec-comparingd.html"><a href="sec-comparingd.html"><i class="fa fa-check"></i><b>8.2</b> <span class="math inline">\(D\)</span>-score from short tests</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="sec-comparingd.html"><a href="sec-comparingd.html#milestone-sets"><i class="fa fa-check"></i><b>8.2.1</b> Milestone sets</a></li>
+<li class="chapter" data-level="8.2.2" data-path="sec-comparingd.html"><a href="sec-comparingd.html#milestone-sets-at-month-2"><i class="fa fa-check"></i><b>8.2.2</b> Milestone sets at month 2</a></li>
+<li class="chapter" data-level="8.2.3" data-path="sec-comparingd.html"><a href="sec-comparingd.html#milestone-sets-at-month-3"><i class="fa fa-check"></i><b>8.2.3</b> Milestone sets at month 3</a></li>
+<li class="chapter" data-level="8.2.4" data-path="sec-comparingd.html"><a href="sec-comparingd.html#floor-and-ceiling-effects"><i class="fa fa-check"></i><b>8.2.4</b> Floor and ceiling effects</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="sec-predictiq.html"><a href="sec-predictiq.html"><i class="fa fa-check"></i><b>8.3</b> Impact of short tests on predicting IQ</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="sec-predictiq.html"><a href="sec-predictiq.html#measurement-and-prediction"><i class="fa fa-check"></i><b>8.3.1</b> Measurement and prediction</a></li>
+<li class="chapter" data-level="8.3.2" data-path="sec-predictiq.html"><a href="sec-predictiq.html#ukki"><i class="fa fa-check"></i><b>8.3.2</b> UKKI</a></li>
+<li class="chapter" data-level="8.3.3" data-path="sec-predictiq.html"><a href="sec-predictiq.html#exploratory-analysis"><i class="fa fa-check"></i><b>8.3.3</b> Exploratory analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="ch-threestudies.html"><a href="ch-threestudies.html"><i class="fa fa-check"></i><b>9</b> Three studies</a><ul>
+<li class="chapter" data-level="9.1" data-path="sec-smoccstudy.html"><a href="sec-smoccstudy.html"><i class="fa fa-check"></i><b>9.1</b> SMOCC study</a></li>
+<li class="chapter" data-level="9.2" data-path="sec-pops.html"><a href="sec-pops.html"><i class="fa fa-check"></i><b>9.2</b> POPS study</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="sec-pops.html"><a href="sec-pops.html#pops-design"><i class="fa fa-check"></i><b>9.2.1</b> POPS design</a></li>
+<li class="chapter" data-level="9.2.2" data-path="sec-pops.html"><a href="sec-pops.html#age-adjustment"><i class="fa fa-check"></i><b>9.2.2</b> Age-adjustment</a></li>
+<li class="chapter" data-level="9.2.3" data-path="sec-pops.html"><a href="sec-pops.html#effect-of-age-adjustment-on-the-d-score"><i class="fa fa-check"></i><b>9.2.3</b> Effect of age-adjustment on the <span class="math inline">\(D\)</span>-score</a></li>
+<li class="chapter" data-level="9.2.4" data-path="sec-pops.html"><a href="sec-pops.html#effect-of-no-age-adjustment-f-0.00-on-the-daz"><i class="fa fa-check"></i><b>9.2.4</b> Effect of no age adjustment (<span class="math inline">\(f = 0.00\)</span>) on the DAZ</a></li>
+<li class="chapter" data-level="9.2.5" data-path="sec-pops.html"><a href="sec-pops.html#effect-of-full-age-adjustment-f-1.00-on-the-daz"><i class="fa fa-check"></i><b>9.2.5</b> Effect of full age adjustment (<span class="math inline">\(f = 1.00\)</span>) on the DAZ</a></li>
+<li class="chapter" data-level="9.2.6" data-path="sec-pops.html"><a href="sec-pops.html#partial-age-adjustment"><i class="fa fa-check"></i><b>9.2.6</b> Partial age adjustment</a></li>
+<li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
+<li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
+<li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
+<li class="chapter" data-level="9.3.5" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-stunting"><i class="fa fa-check"></i><b>9.3.5</b> <span class="math inline">\(D\)</span>-score labelled by severe stunting</a></li>
+<li class="chapter" data-level="9.3.6" data-path="sec-togo.html"><a href="sec-togo.html#gross-motor-development"><i class="fa fa-check"></i><b>9.3.6</b> Gross motor development</a></li>
+<li class="chapter" data-level="9.3.7" data-path="sec-togo.html"><a href="sec-togo.html#fine-motor-development"><i class="fa fa-check"></i><b>9.3.7</b> Fine motor development</a></li>
+<li class="chapter" data-level="9.3.8" data-path="sec-togo.html"><a href="sec-togo.html#communication-and-language"><i class="fa fa-check"></i><b>9.3.8</b> Communication and language</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="sec-threestudiesconclusions.html"><a href="sec-threestudiesconclusions.html"><i class="fa fa-check"></i><b>9.4</b> Conclusions</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="ch-nextsteps.html"><a href="ch-nextsteps.html"><i class="fa fa-check"></i><b>10</b> Next steps</a><ul>
+<li class="chapter" data-level="10.1" data-path="usefulness-of-d-score-for-monitoring-child-health.html"><a href="usefulness-of-d-score-for-monitoring-child-health.html"><i class="fa fa-check"></i><b>10.1</b> Usefulness of <span class="math inline">\(D\)</span>-score for monitoring child health</a></li>
+<li class="chapter" data-level="10.2" data-path="d-chart-a-growth-chart-for-child-development.html"><a href="d-chart-a-growth-chart-for-child-development.html"><i class="fa fa-check"></i><b>10.2</b> <span class="math inline">\(D\)</span>-chart, a growth chart for child development</a></li>
+<li class="chapter" data-level="10.3" data-path="opportunities-for-early-intervention.html"><a href="opportunities-for-early-intervention.html"><i class="fa fa-check"></i><b>10.3</b> Opportunities for early intervention</a></li>
+<li class="chapter" data-level="10.4" data-path="d-score-for-international-settings.html"><a href="d-score-for-international-settings.html"><i class="fa fa-check"></i><b>10.4</b> <span class="math inline">\(D\)</span>-score for international settings</a></li>
+<li class="chapter" data-level="10.5" data-path="d-score-from-existing-instruments.html"><a href="d-score-from-existing-instruments.html"><i class="fa fa-check"></i><b>10.5</b> <span class="math inline">\(D\)</span>-score from existing instruments</a></li>
+<li class="chapter" data-level="10.6" data-path="creating-new-instruments-for-d-score.html"><a href="creating-new-instruments-for-d-score.html"><i class="fa fa-check"></i><b>10.6</b> Creating new instruments for <span class="math inline">\(D\)</span>-score</a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendices</b></span></li>
+<li class="chapter" data-level="A" data-path="ap-notation.html"><a href="ap-notation.html"><i class="fa fa-check"></i><b>A</b> Notation</a></li>
+<li class="chapter" data-level="B" data-path="ap-technical.html"><a href="ap-technical.html"><i class="fa fa-check"></i><b>B</b> Technical information</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="sec:reference" class="section level2">
+<h2><span class="header-section-number">5.4</span> Age-conditional references</h2>
+<div id="motivation" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Motivation</h3>
+<p>The last step involves estimation an age-conditional reference distribution for the <span class="math inline">\(D\)</span>-score. This distribution can be used to construct growth charts that portray the normal variation in development. In addition, the references can be used to calculate age-standarized <span class="math inline">\(D\)</span>-scores, called DAZ, that emphasize the location of the measurement in comparison to age peers.</p>
+<p>Estimation of reference centiles is fairly standard. Here we follow <span class="citation">van Buuren (<a href="#ref-vanbuuren2014">2014</a>)</span> to fit age-conditional references of the <span class="math inline">\(D\)</span>-score for boys and girls combined by the LMS method. The LMS method by <span class="citation">Cole and Green (<a href="#ref-cole1992">1992</a>)</span> assumes that the outcome has a normal distribution after a Box-Cox transformation. The reference distribution has three parameters, which model respectively the location (<span class="math inline">\(M\)</span>), the spread (<span class="math inline">\(S\)</span>), and the skewness (<span class="math inline">\(L\)</span>) of the distribution. Each of the three parameters can vary smoothly with age.</p>
+</div>
+<div id="estimation-of-the-reference-distribution" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Estimation of the reference distribution</h3>
+<p>The parameters are estimated using the BCCG distribution of <code>gamlss 5.1-3</code> (<span class="citation">Stasinopoulos and Rigby (<a href="#ref-stasinopoulos2007">2007</a>)</span>) using cubic splines smoothers. The final solution used a log-transformed age scale and fitted the model with smoothing parameters <span class="math inline">\(\mathrm{df}(M)=2\)</span>, <span class="math inline">\(\mathrm{df}(S)=2\)</span> and <span class="math inline">\(\mathrm{df}(L)=1\)</span>.</p>
+<p>Figure <a href="sec-aged.html#fig:smoccda">4.3</a> plots the <span class="math inline">\(D\)</span>-scores together with five grey lines, corresponding to the centiles -2SD (P2), -1SD (P16), 0SD (P50), +1SD (P84) and +2SD (P98). The area between the -2SD and +2SD lines delineates the <span class="math inline">\(D\)</span>-score expected if development is normal. Note that the shape of the reference is quite similar to that of weight and height, with rapid growth occurring in the first few months.</p>
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<caption>
+<span id="tab:reftable">Table 5.4: </span>Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).
+</caption>
+<thead>
+<tr>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+day
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+week
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+M
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+S
+</th>
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
+L
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+8.81
+</td>
+<td style="text-align:right;">
+0.3126
+</td>
+<td style="text-align:right;">
+1.3917
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+10.59
+</td>
+<td style="text-align:right;">
+0.2801
+</td>
+<td style="text-align:right;">
+1.4418
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+12.27
+</td>
+<td style="text-align:right;">
+0.2526
+</td>
+<td style="text-align:right;">
+1.4891
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+13.87
+</td>
+<td style="text-align:right;">
+0.2291
+</td>
+<td style="text-align:right;">
+1.5331
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+15.39
+</td>
+<td style="text-align:right;">
+0.2089
+</td>
+<td style="text-align:right;">
+1.5722
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+7
+</td>
+<td style="text-align:right;">
+16.83
+</td>
+<td style="text-align:right;">
+0.1916
+</td>
+<td style="text-align:right;">
+1.6049
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+8
+</td>
+<td style="text-align:right;">
+18.20
+</td>
+<td style="text-align:right;">
+0.1767
+</td>
+<td style="text-align:right;">
+1.6304
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+9
+</td>
+<td style="text-align:right;">
+19.50
+</td>
+<td style="text-align:right;">
+0.1640
+</td>
+<td style="text-align:right;">
+1.6487
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+10
+</td>
+<td style="text-align:right;">
+20.75
+</td>
+<td style="text-align:right;">
+0.1531
+</td>
+<td style="text-align:right;">
+1.6607
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+11
+</td>
+<td style="text-align:right;">
+21.94
+</td>
+<td style="text-align:right;">
+0.1436
+</td>
+<td style="text-align:right;">
+1.6676
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+23.07
+</td>
+<td style="text-align:right;">
+0.1354
+</td>
+<td style="text-align:right;">
+1.6706
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+13
+</td>
+<td style="text-align:right;">
+24.16
+</td>
+<td style="text-align:right;">
+0.1283
+</td>
+<td style="text-align:right;">
+1.6711
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+14
+</td>
+<td style="text-align:right;">
+25.21
+</td>
+<td style="text-align:right;">
+0.1220
+</td>
+<td style="text-align:right;">
+1.6698
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+15
+</td>
+<td style="text-align:right;">
+26.21
+</td>
+<td style="text-align:right;">
+0.1165
+</td>
+<td style="text-align:right;">
+1.6673
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+112
+</td>
+<td style="text-align:right;">
+16
+</td>
+<td style="text-align:right;">
+27.17
+</td>
+<td style="text-align:right;">
+0.1117
+</td>
+<td style="text-align:right;">
+1.6636
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+119
+</td>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:right;">
+28.10
+</td>
+<td style="text-align:right;">
+0.1074
+</td>
+<td style="text-align:right;">
+1.6589
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+18
+</td>
+<td style="text-align:right;">
+28.99
+</td>
+<td style="text-align:right;">
+0.1035
+</td>
+<td style="text-align:right;">
+1.6533
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:right;">
+19
+</td>
+<td style="text-align:right;">
+29.86
+</td>
+<td style="text-align:right;">
+0.1001
+</td>
+<td style="text-align:right;">
+1.6471
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+20
+</td>
+<td style="text-align:right;">
+30.70
+</td>
+<td style="text-align:right;">
+0.0970
+</td>
+<td style="text-align:right;">
+1.6403
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+147
+</td>
+<td style="text-align:right;">
+21
+</td>
+<td style="text-align:right;">
+31.50
+</td>
+<td style="text-align:right;">
+0.0942
+</td>
+<td style="text-align:right;">
+1.6330
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+154
+</td>
+<td style="text-align:right;">
+22
+</td>
+<td style="text-align:right;">
+32.29
+</td>
+<td style="text-align:right;">
+0.0917
+</td>
+<td style="text-align:right;">
+1.6255
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:right;">
+23
+</td>
+<td style="text-align:right;">
+33.05
+</td>
+<td style="text-align:right;">
+0.0894
+</td>
+<td style="text-align:right;">
+1.6178
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+168
+</td>
+<td style="text-align:right;">
+24
+</td>
+<td style="text-align:right;">
+33.79
+</td>
+<td style="text-align:right;">
+0.0873
+</td>
+<td style="text-align:right;">
+1.6100
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+175
+</td>
+<td style="text-align:right;">
+25
+</td>
+<td style="text-align:right;">
+34.51
+</td>
+<td style="text-align:right;">
+0.0854
+</td>
+<td style="text-align:right;">
+1.6022
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+182
+</td>
+<td style="text-align:right;">
+26
+</td>
+<td style="text-align:right;">
+35.21
+</td>
+<td style="text-align:right;">
+0.0837
+</td>
+<td style="text-align:right;">
+1.5946
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+189
+</td>
+<td style="text-align:right;">
+27
+</td>
+<td style="text-align:right;">
+35.89
+</td>
+<td style="text-align:right;">
+0.0821
+</td>
+<td style="text-align:right;">
+1.5870
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+196
+</td>
+<td style="text-align:right;">
+28
+</td>
+<td style="text-align:right;">
+36.55
+</td>
+<td style="text-align:right;">
+0.0807
+</td>
+<td style="text-align:right;">
+1.5797
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+203
+</td>
+<td style="text-align:right;">
+29
+</td>
+<td style="text-align:right;">
+37.20
+</td>
+<td style="text-align:right;">
+0.0793
+</td>
+<td style="text-align:right;">
+1.5725
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+210
+</td>
+<td style="text-align:right;">
+30
+</td>
+<td style="text-align:right;">
+37.83
+</td>
+<td style="text-align:right;">
+0.0781
+</td>
+<td style="text-align:right;">
+1.5656
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+217
+</td>
+<td style="text-align:right;">
+31
+</td>
+<td style="text-align:right;">
+38.44
+</td>
+<td style="text-align:right;">
+0.0770
+</td>
+<td style="text-align:right;">
+1.5588
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+224
+</td>
+<td style="text-align:right;">
+32
+</td>
+<td style="text-align:right;">
+39.04
+</td>
+<td style="text-align:right;">
+0.0759
+</td>
+<td style="text-align:right;">
+1.5523
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+231
+</td>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:right;">
+39.63
+</td>
+<td style="text-align:right;">
+0.0749
+</td>
+<td style="text-align:right;">
+1.5460
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+238
+</td>
+<td style="text-align:right;">
+34
+</td>
+<td style="text-align:right;">
+40.21
+</td>
+<td style="text-align:right;">
+0.0740
+</td>
+<td style="text-align:right;">
+1.5399
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+245
+</td>
+<td style="text-align:right;">
+35
+</td>
+<td style="text-align:right;">
+40.77
+</td>
+<td style="text-align:right;">
+0.0731
+</td>
+<td style="text-align:right;">
+1.5340
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+252
+</td>
+<td style="text-align:right;">
+36
+</td>
+<td style="text-align:right;">
+41.32
+</td>
+<td style="text-align:right;">
+0.0723
+</td>
+<td style="text-align:right;">
+1.5284
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+259
+</td>
+<td style="text-align:right;">
+37
+</td>
+<td style="text-align:right;">
+41.86
+</td>
+<td style="text-align:right;">
+0.0715
+</td>
+<td style="text-align:right;">
+1.5230
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+266
+</td>
+<td style="text-align:right;">
+38
+</td>
+<td style="text-align:right;">
+42.39
+</td>
+<td style="text-align:right;">
+0.0707
+</td>
+<td style="text-align:right;">
+1.5178
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+273
+</td>
+<td style="text-align:right;">
+39
+</td>
+<td style="text-align:right;">
+42.91
+</td>
+<td style="text-align:right;">
+0.0700
+</td>
+<td style="text-align:right;">
+1.5128
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+280
+</td>
+<td style="text-align:right;">
+40
+</td>
+<td style="text-align:right;">
+43.42
+</td>
+<td style="text-align:right;">
+0.0693
+</td>
+<td style="text-align:right;">
+1.5081
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+287
+</td>
+<td style="text-align:right;">
+41
+</td>
+<td style="text-align:right;">
+43.92
+</td>
+<td style="text-align:right;">
+0.0687
+</td>
+<td style="text-align:right;">
+1.5036
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+294
+</td>
+<td style="text-align:right;">
+42
+</td>
+<td style="text-align:right;">
+44.40
+</td>
+<td style="text-align:right;">
+0.0681
+</td>
+<td style="text-align:right;">
+1.4993
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+301
+</td>
+<td style="text-align:right;">
+43
+</td>
+<td style="text-align:right;">
+44.88
+</td>
+<td style="text-align:right;">
+0.0674
+</td>
+<td style="text-align:right;">
+1.4952
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+308
+</td>
+<td style="text-align:right;">
+44
+</td>
+<td style="text-align:right;">
+45.36
+</td>
+<td style="text-align:right;">
+0.0669
+</td>
+<td style="text-align:right;">
+1.4913
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+315
+</td>
+<td style="text-align:right;">
+45
+</td>
+<td style="text-align:right;">
+45.82
+</td>
+<td style="text-align:right;">
+0.0663
+</td>
+<td style="text-align:right;">
+1.4876
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+322
+</td>
+<td style="text-align:right;">
+46
+</td>
+<td style="text-align:right;">
+46.27
+</td>
+<td style="text-align:right;">
+0.0657
+</td>
+<td style="text-align:right;">
+1.4841
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+329
+</td>
+<td style="text-align:right;">
+47
+</td>
+<td style="text-align:right;">
+46.72
+</td>
+<td style="text-align:right;">
+0.0652
+</td>
+<td style="text-align:right;">
+1.4809
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+336
+</td>
+<td style="text-align:right;">
+48
+</td>
+<td style="text-align:right;">
+47.16
+</td>
+<td style="text-align:right;">
+0.0647
+</td>
+<td style="text-align:right;">
+1.4778
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+343
+</td>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:right;">
+47.59
+</td>
+<td style="text-align:right;">
+0.0642
+</td>
+<td style="text-align:right;">
+1.4749
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+350
+</td>
+<td style="text-align:right;">
+50
+</td>
+<td style="text-align:right;">
+48.01
+</td>
+<td style="text-align:right;">
+0.0637
+</td>
+<td style="text-align:right;">
+1.4723
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+357
+</td>
+<td style="text-align:right;">
+51
+</td>
+<td style="text-align:right;">
+48.43
+</td>
+<td style="text-align:right;">
+0.0632
+</td>
+<td style="text-align:right;">
+1.4698
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+364
+</td>
+<td style="text-align:right;">
+52
+</td>
+<td style="text-align:right;">
+48.84
+</td>
+<td style="text-align:right;">
+0.0627
+</td>
+<td style="text-align:right;">
+1.4676
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+371
+</td>
+<td style="text-align:right;">
+53
+</td>
+<td style="text-align:right;">
+49.24
+</td>
+<td style="text-align:right;">
+0.0622
+</td>
+<td style="text-align:right;">
+1.4655
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+378
+</td>
+<td style="text-align:right;">
+54
+</td>
+<td style="text-align:right;">
+49.64
+</td>
+<td style="text-align:right;">
+0.0618
+</td>
+<td style="text-align:right;">
+1.4637
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+385
+</td>
+<td style="text-align:right;">
+55
+</td>
+<td style="text-align:right;">
+50.03
+</td>
+<td style="text-align:right;">
+0.0613
+</td>
+<td style="text-align:right;">
+1.4620
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+392
+</td>
+<td style="text-align:right;">
+56
+</td>
+<td style="text-align:right;">
+50.41
+</td>
+<td style="text-align:right;">
+0.0608
+</td>
+<td style="text-align:right;">
+1.4605
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+399
+</td>
+<td style="text-align:right;">
+57
+</td>
+<td style="text-align:right;">
+50.79
+</td>
+<td style="text-align:right;">
+0.0604
+</td>
+<td style="text-align:right;">
+1.4592
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+406
+</td>
+<td style="text-align:right;">
+58
+</td>
+<td style="text-align:right;">
+51.16
+</td>
+<td style="text-align:right;">
+0.0600
+</td>
+<td style="text-align:right;">
+1.4580
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+413
+</td>
+<td style="text-align:right;">
+59
+</td>
+<td style="text-align:right;">
+51.53
+</td>
+<td style="text-align:right;">
+0.0595
+</td>
+<td style="text-align:right;">
+1.4570
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+420
+</td>
+<td style="text-align:right;">
+60
+</td>
+<td style="text-align:right;">
+51.89
+</td>
+<td style="text-align:right;">
+0.0591
+</td>
+<td style="text-align:right;">
+1.4561
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+427
+</td>
+<td style="text-align:right;">
+61
+</td>
+<td style="text-align:right;">
+52.24
+</td>
+<td style="text-align:right;">
+0.0587
+</td>
+<td style="text-align:right;">
+1.4553
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+434
+</td>
+<td style="text-align:right;">
+62
+</td>
+<td style="text-align:right;">
+52.59
+</td>
+<td style="text-align:right;">
+0.0583
+</td>
+<td style="text-align:right;">
+1.4547
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+441
+</td>
+<td style="text-align:right;">
+63
+</td>
+<td style="text-align:right;">
+52.94
+</td>
+<td style="text-align:right;">
+0.0578
+</td>
+<td style="text-align:right;">
+1.4542
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+448
+</td>
+<td style="text-align:right;">
+64
+</td>
+<td style="text-align:right;">
+53.27
+</td>
+<td style="text-align:right;">
+0.0574
+</td>
+<td style="text-align:right;">
+1.4538
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+455
+</td>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:right;">
+53.61
+</td>
+<td style="text-align:right;">
+0.0570
+</td>
+<td style="text-align:right;">
+1.4535
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+462
+</td>
+<td style="text-align:right;">
+66
+</td>
+<td style="text-align:right;">
+53.94
+</td>
+<td style="text-align:right;">
+0.0566
+</td>
+<td style="text-align:right;">
+1.4534
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+469
+</td>
+<td style="text-align:right;">
+67
+</td>
+<td style="text-align:right;">
+54.26
+</td>
+<td style="text-align:right;">
+0.0562
+</td>
+<td style="text-align:right;">
+1.4533
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+476
+</td>
+<td style="text-align:right;">
+68
+</td>
+<td style="text-align:right;">
+54.58
+</td>
+<td style="text-align:right;">
+0.0559
+</td>
+<td style="text-align:right;">
+1.4533
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+483
+</td>
+<td style="text-align:right;">
+69
+</td>
+<td style="text-align:right;">
+54.89
+</td>
+<td style="text-align:right;">
+0.0555
+</td>
+<td style="text-align:right;">
+1.4533
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+490
+</td>
+<td style="text-align:right;">
+70
+</td>
+<td style="text-align:right;">
+55.20
+</td>
+<td style="text-align:right;">
+0.0551
+</td>
+<td style="text-align:right;">
+1.4535
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+497
+</td>
+<td style="text-align:right;">
+71
+</td>
+<td style="text-align:right;">
+55.50
+</td>
+<td style="text-align:right;">
+0.0547
+</td>
+<td style="text-align:right;">
+1.4537
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+504
+</td>
+<td style="text-align:right;">
+72
+</td>
+<td style="text-align:right;">
+55.81
+</td>
+<td style="text-align:right;">
+0.0544
+</td>
+<td style="text-align:right;">
+1.4539
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+511
+</td>
+<td style="text-align:right;">
+73
+</td>
+<td style="text-align:right;">
+56.10
+</td>
+<td style="text-align:right;">
+0.0540
+</td>
+<td style="text-align:right;">
+1.4542
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+518
+</td>
+<td style="text-align:right;">
+74
+</td>
+<td style="text-align:right;">
+56.39
+</td>
+<td style="text-align:right;">
+0.0536
+</td>
+<td style="text-align:right;">
+1.4546
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+525
+</td>
+<td style="text-align:right;">
+75
+</td>
+<td style="text-align:right;">
+56.68
+</td>
+<td style="text-align:right;">
+0.0533
+</td>
+<td style="text-align:right;">
+1.4551
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+532
+</td>
+<td style="text-align:right;">
+76
+</td>
+<td style="text-align:right;">
+56.97
+</td>
+<td style="text-align:right;">
+0.0530
+</td>
+<td style="text-align:right;">
+1.4555
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+539
+</td>
+<td style="text-align:right;">
+77
+</td>
+<td style="text-align:right;">
+57.25
+</td>
+<td style="text-align:right;">
+0.0526
+</td>
+<td style="text-align:right;">
+1.4561
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+546
+</td>
+<td style="text-align:right;">
+78
+</td>
+<td style="text-align:right;">
+57.52
+</td>
+<td style="text-align:right;">
+0.0523
+</td>
+<td style="text-align:right;">
+1.4567
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+553
+</td>
+<td style="text-align:right;">
+79
+</td>
+<td style="text-align:right;">
+57.80
+</td>
+<td style="text-align:right;">
+0.0520
+</td>
+<td style="text-align:right;">
+1.4573
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+560
+</td>
+<td style="text-align:right;">
+80
+</td>
+<td style="text-align:right;">
+58.06
+</td>
+<td style="text-align:right;">
+0.0517
+</td>
+<td style="text-align:right;">
+1.4580
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+567
+</td>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:right;">
+58.33
+</td>
+<td style="text-align:right;">
+0.0514
+</td>
+<td style="text-align:right;">
+1.4587
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+574
+</td>
+<td style="text-align:right;">
+82
+</td>
+<td style="text-align:right;">
+58.59
+</td>
+<td style="text-align:right;">
+0.0510
+</td>
+<td style="text-align:right;">
+1.4595
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+581
+</td>
+<td style="text-align:right;">
+83
+</td>
+<td style="text-align:right;">
+58.85
+</td>
+<td style="text-align:right;">
+0.0508
+</td>
+<td style="text-align:right;">
+1.4603
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+588
+</td>
+<td style="text-align:right;">
+84
+</td>
+<td style="text-align:right;">
+59.11
+</td>
+<td style="text-align:right;">
+0.0505
+</td>
+<td style="text-align:right;">
+1.4612
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+595
+</td>
+<td style="text-align:right;">
+85
+</td>
+<td style="text-align:right;">
+59.36
+</td>
+<td style="text-align:right;">
+0.0502
+</td>
+<td style="text-align:right;">
+1.4620
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+602
+</td>
+<td style="text-align:right;">
+86
+</td>
+<td style="text-align:right;">
+59.61
+</td>
+<td style="text-align:right;">
+0.0499
+</td>
+<td style="text-align:right;">
+1.4630
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+609
+</td>
+<td style="text-align:right;">
+87
+</td>
+<td style="text-align:right;">
+59.86
+</td>
+<td style="text-align:right;">
+0.0496
+</td>
+<td style="text-align:right;">
+1.4639
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+616
+</td>
+<td style="text-align:right;">
+88
+</td>
+<td style="text-align:right;">
+60.11
+</td>
+<td style="text-align:right;">
+0.0494
+</td>
+<td style="text-align:right;">
+1.4649
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+623
+</td>
+<td style="text-align:right;">
+89
+</td>
+<td style="text-align:right;">
+60.35
+</td>
+<td style="text-align:right;">
+0.0491
+</td>
+<td style="text-align:right;">
+1.4660
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+630
+</td>
+<td style="text-align:right;">
+90
+</td>
+<td style="text-align:right;">
+60.59
+</td>
+<td style="text-align:right;">
+0.0488
+</td>
+<td style="text-align:right;">
+1.4670
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+637
+</td>
+<td style="text-align:right;">
+91
+</td>
+<td style="text-align:right;">
+60.82
+</td>
+<td style="text-align:right;">
+0.0486
+</td>
+<td style="text-align:right;">
+1.4681
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+644
+</td>
+<td style="text-align:right;">
+92
+</td>
+<td style="text-align:right;">
+61.06
+</td>
+<td style="text-align:right;">
+0.0483
+</td>
+<td style="text-align:right;">
+1.4692
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+651
+</td>
+<td style="text-align:right;">
+93
+</td>
+<td style="text-align:right;">
+61.29
+</td>
+<td style="text-align:right;">
+0.0481
+</td>
+<td style="text-align:right;">
+1.4704
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+658
+</td>
+<td style="text-align:right;">
+94
+</td>
+<td style="text-align:right;">
+61.52
+</td>
+<td style="text-align:right;">
+0.0478
+</td>
+<td style="text-align:right;">
+1.4716
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+665
+</td>
+<td style="text-align:right;">
+95
+</td>
+<td style="text-align:right;">
+61.75
+</td>
+<td style="text-align:right;">
+0.0476
+</td>
+<td style="text-align:right;">
+1.4728
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+672
+</td>
+<td style="text-align:right;">
+96
+</td>
+<td style="text-align:right;">
+61.97
+</td>
+<td style="text-align:right;">
+0.0474
+</td>
+<td style="text-align:right;">
+1.4740
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+679
+</td>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:right;">
+62.20
+</td>
+<td style="text-align:right;">
+0.0471
+</td>
+<td style="text-align:right;">
+1.4752
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+686
+</td>
+<td style="text-align:right;">
+98
+</td>
+<td style="text-align:right;">
+62.42
+</td>
+<td style="text-align:right;">
+0.0469
+</td>
+<td style="text-align:right;">
+1.4765
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+693
+</td>
+<td style="text-align:right;">
+99
+</td>
+<td style="text-align:right;">
+62.64
+</td>
+<td style="text-align:right;">
+0.0467
+</td>
+<td style="text-align:right;">
+1.4778
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+700
+</td>
+<td style="text-align:right;">
+100
+</td>
+<td style="text-align:right;">
+62.85
+</td>
+<td style="text-align:right;">
+0.0465
+</td>
+<td style="text-align:right;">
+1.4791
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+707
+</td>
+<td style="text-align:right;">
+101
+</td>
+<td style="text-align:right;">
+63.07
+</td>
+<td style="text-align:right;">
+0.0463
+</td>
+<td style="text-align:right;">
+1.4805
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+714
+</td>
+<td style="text-align:right;">
+102
+</td>
+<td style="text-align:right;">
+63.28
+</td>
+<td style="text-align:right;">
+0.0461
+</td>
+<td style="text-align:right;">
+1.4818
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+721
+</td>
+<td style="text-align:right;">
+103
+</td>
+<td style="text-align:right;">
+63.49
+</td>
+<td style="text-align:right;">
+0.0459
+</td>
+<td style="text-align:right;">
+1.4832
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+728
+</td>
+<td style="text-align:right;">
+104
+</td>
+<td style="text-align:right;">
+63.70
+</td>
+<td style="text-align:right;">
+0.0457
+</td>
+<td style="text-align:right;">
+1.4846
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+735
+</td>
+<td style="text-align:right;">
+105
+</td>
+<td style="text-align:right;">
+63.91
+</td>
+<td style="text-align:right;">
+0.0455
+</td>
+<td style="text-align:right;">
+1.4861
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+742
+</td>
+<td style="text-align:right;">
+106
+</td>
+<td style="text-align:right;">
+64.11
+</td>
+<td style="text-align:right;">
+0.0453
+</td>
+<td style="text-align:right;">
+1.4875
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+749
+</td>
+<td style="text-align:right;">
+107
+</td>
+<td style="text-align:right;">
+64.32
+</td>
+<td style="text-align:right;">
+0.0451
+</td>
+<td style="text-align:right;">
+1.4890
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+756
+</td>
+<td style="text-align:right;">
+108
+</td>
+<td style="text-align:right;">
+64.52
+</td>
+<td style="text-align:right;">
+0.0449
+</td>
+<td style="text-align:right;">
+1.4904
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+763
+</td>
+<td style="text-align:right;">
+109
+</td>
+<td style="text-align:right;">
+64.72
+</td>
+<td style="text-align:right;">
+0.0447
+</td>
+<td style="text-align:right;">
+1.4919
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+770
+</td>
+<td style="text-align:right;">
+110
+</td>
+<td style="text-align:right;">
+64.92
+</td>
+<td style="text-align:right;">
+0.0445
+</td>
+<td style="text-align:right;">
+1.4934
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+777
+</td>
+<td style="text-align:right;">
+111
+</td>
+<td style="text-align:right;">
+65.11
+</td>
+<td style="text-align:right;">
+0.0443
+</td>
+<td style="text-align:right;">
+1.4949
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+784
+</td>
+<td style="text-align:right;">
+112
+</td>
+<td style="text-align:right;">
+65.31
+</td>
+<td style="text-align:right;">
+0.0441
+</td>
+<td style="text-align:right;">
+1.4964
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+791
+</td>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:right;">
+65.50
+</td>
+<td style="text-align:right;">
+0.0440
+</td>
+<td style="text-align:right;">
+1.4979
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+798
+</td>
+<td style="text-align:right;">
+114
+</td>
+<td style="text-align:right;">
+65.70
+</td>
+<td style="text-align:right;">
+0.0438
+</td>
+<td style="text-align:right;">
+1.4994
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+805
+</td>
+<td style="text-align:right;">
+115
+</td>
+<td style="text-align:right;">
+65.89
+</td>
+<td style="text-align:right;">
+0.0436
+</td>
+<td style="text-align:right;">
+1.5009
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+812
+</td>
+<td style="text-align:right;">
+116
+</td>
+<td style="text-align:right;">
+66.08
+</td>
+<td style="text-align:right;">
+0.0434
+</td>
+<td style="text-align:right;">
+1.5024
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+819
+</td>
+<td style="text-align:right;">
+117
+</td>
+<td style="text-align:right;">
+66.26
+</td>
+<td style="text-align:right;">
+0.0433
+</td>
+<td style="text-align:right;">
+1.5039
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+826
+</td>
+<td style="text-align:right;">
+118
+</td>
+<td style="text-align:right;">
+66.45
+</td>
+<td style="text-align:right;">
+0.0431
+</td>
+<td style="text-align:right;">
+1.5054
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+833
+</td>
+<td style="text-align:right;">
+119
+</td>
+<td style="text-align:right;">
+66.64
+</td>
+<td style="text-align:right;">
+0.0429
+</td>
+<td style="text-align:right;">
+1.5069
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+840
+</td>
+<td style="text-align:right;">
+120
+</td>
+<td style="text-align:right;">
+66.82
+</td>
+<td style="text-align:right;">
+0.0428
+</td>
+<td style="text-align:right;">
+1.5084
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+847
+</td>
+<td style="text-align:right;">
+121
+</td>
+<td style="text-align:right;">
+67.00
+</td>
+<td style="text-align:right;">
+0.0426
+</td>
+<td style="text-align:right;">
+1.5098
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+854
+</td>
+<td style="text-align:right;">
+122
+</td>
+<td style="text-align:right;">
+67.18
+</td>
+<td style="text-align:right;">
+0.0425
+</td>
+<td style="text-align:right;">
+1.5113
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+861
+</td>
+<td style="text-align:right;">
+123
+</td>
+<td style="text-align:right;">
+67.36
+</td>
+<td style="text-align:right;">
+0.0423
+</td>
+<td style="text-align:right;">
+1.5127
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+868
+</td>
+<td style="text-align:right;">
+124
+</td>
+<td style="text-align:right;">
+67.54
+</td>
+<td style="text-align:right;">
+0.0421
+</td>
+<td style="text-align:right;">
+1.5142
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+875
+</td>
+<td style="text-align:right;">
+125
+</td>
+<td style="text-align:right;">
+67.72
+</td>
+<td style="text-align:right;">
+0.0420
+</td>
+<td style="text-align:right;">
+1.5156
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+882
+</td>
+<td style="text-align:right;">
+126
+</td>
+<td style="text-align:right;">
+67.89
+</td>
+<td style="text-align:right;">
+0.0418
+</td>
+<td style="text-align:right;">
+1.5170
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+889
+</td>
+<td style="text-align:right;">
+127
+</td>
+<td style="text-align:right;">
+68.07
+</td>
+<td style="text-align:right;">
+0.0417
+</td>
+<td style="text-align:right;">
+1.5185
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+896
+</td>
+<td style="text-align:right;">
+128
+</td>
+<td style="text-align:right;">
+68.24
+</td>
+<td style="text-align:right;">
+0.0415
+</td>
+<td style="text-align:right;">
+1.5199
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+903
+</td>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:right;">
+68.41
+</td>
+<td style="text-align:right;">
+0.0414
+</td>
+<td style="text-align:right;">
+1.5213
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+910
+</td>
+<td style="text-align:right;">
+130
+</td>
+<td style="text-align:right;">
+68.59
+</td>
+<td style="text-align:right;">
+0.0412
+</td>
+<td style="text-align:right;">
+1.5226
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+917
+</td>
+<td style="text-align:right;">
+131
+</td>
+<td style="text-align:right;">
+68.75
+</td>
+<td style="text-align:right;">
+0.0411
+</td>
+<td style="text-align:right;">
+1.5240
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+924
+</td>
+<td style="text-align:right;">
+132
+</td>
+<td style="text-align:right;">
+68.92
+</td>
+<td style="text-align:right;">
+0.0410
+</td>
+<td style="text-align:right;">
+1.5254
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+931
+</td>
+<td style="text-align:right;">
+133
+</td>
+<td style="text-align:right;">
+69.09
+</td>
+<td style="text-align:right;">
+0.0408
+</td>
+<td style="text-align:right;">
+1.5267
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+938
+</td>
+<td style="text-align:right;">
+134
+</td>
+<td style="text-align:right;">
+69.26
+</td>
+<td style="text-align:right;">
+0.0407
+</td>
+<td style="text-align:right;">
+1.5281
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+945
+</td>
+<td style="text-align:right;">
+135
+</td>
+<td style="text-align:right;">
+69.42
+</td>
+<td style="text-align:right;">
+0.0405
+</td>
+<td style="text-align:right;">
+1.5294
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+952
+</td>
+<td style="text-align:right;">
+136
+</td>
+<td style="text-align:right;">
+69.59
+</td>
+<td style="text-align:right;">
+0.0404
+</td>
+<td style="text-align:right;">
+1.5308
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+959
+</td>
+<td style="text-align:right;">
+137
+</td>
+<td style="text-align:right;">
+69.75
+</td>
+<td style="text-align:right;">
+0.0403
+</td>
+<td style="text-align:right;">
+1.5321
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+966
+</td>
+<td style="text-align:right;">
+138
+</td>
+<td style="text-align:right;">
+69.91
+</td>
+<td style="text-align:right;">
+0.0401
+</td>
+<td style="text-align:right;">
+1.5334
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+973
+</td>
+<td style="text-align:right;">
+139
+</td>
+<td style="text-align:right;">
+70.07
+</td>
+<td style="text-align:right;">
+0.0400
+</td>
+<td style="text-align:right;">
+1.5347
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+980
+</td>
+<td style="text-align:right;">
+140
+</td>
+<td style="text-align:right;">
+70.23
+</td>
+<td style="text-align:right;">
+0.0399
+</td>
+<td style="text-align:right;">
+1.5360
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+987
+</td>
+<td style="text-align:right;">
+141
+</td>
+<td style="text-align:right;">
+70.39
+</td>
+<td style="text-align:right;">
+0.0397
+</td>
+<td style="text-align:right;">
+1.5373
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+994
+</td>
+<td style="text-align:right;">
+142
+</td>
+<td style="text-align:right;">
+70.55
+</td>
+<td style="text-align:right;">
+0.0396
+</td>
+<td style="text-align:right;">
+1.5386
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1001
+</td>
+<td style="text-align:right;">
+143
+</td>
+<td style="text-align:right;">
+70.71
+</td>
+<td style="text-align:right;">
+0.0395
+</td>
+<td style="text-align:right;">
+1.5398
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1008
+</td>
+<td style="text-align:right;">
+144
+</td>
+<td style="text-align:right;">
+70.86
+</td>
+<td style="text-align:right;">
+0.0394
+</td>
+<td style="text-align:right;">
+1.5411
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+1015
+</td>
+<td style="text-align:right;">
+145
+</td>
+<td style="text-align:right;">
+71.02
+</td>
+<td style="text-align:right;">
+0.0392
+</td>
+<td style="text-align:right;">
+1.5423
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> </p>
+<p>Table  defines age-conditional references for Dutch children as the <span class="math inline">\(M\)</span>-curve (median), <span class="math inline">\(S\)</span>-curve (spread) and <span class="math inline">\(L\)</span>-curve (skewness) by age. This table can be used to calculate centile lines and <span class="math inline">\(Z\)</span>-scores.</p>
+<p>The references are purely cross-sectional. The correlation structure over time is not taken into account. For prediction purposes, it is useful to extend the modeling to include velocities and change scores.</p>
+</div>
+<div id="conversion-of-d-to-daz-and-vice-versa" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Conversion of <span class="math inline">\(D\)</span> to DAZ, and vice versa</h3>
+<p>Suppose that <span class="math inline">\(M_t\)</span>, <span class="math inline">\(S_t\)</span> and <span class="math inline">\(L_t\)</span> are the parameter values at age <span class="math inline">\(t\)</span>. <span class="citation">Cole (<a href="#ref-cole1988">1988</a>)</span> shows that the transformation</p>
+<p><span class="math display">\[Z=\frac{(D_t/M_t)^{L_t}-1}{L_t S_t}\]</span></p>
+<p>converts measurement <span class="math inline">\(D_t\)</span> into its normal equivalent deviate <span class="math inline">\(Z\)</span>. If <span class="math inline">\(L_t\)</span> is close to zero, we use</p>
+<p><span class="math display">\[Z=\frac{\ln(D_t/M_t)}{S_t}\]</span></p>
+<p>Any required centile curve can be derived from Table . First, choose <span class="math inline">\(Z_\alpha\)</span> as the <span class="math inline">\(Z\)</span>-score below which <span class="math inline">\(100\alpha\)</span> percent of the distribution is located, for example,  <span class="math inline">\(Z_{0.05}=-1.64\)</span>. The <span class="math inline">\(D\)</span>-score that defines the <span class="math inline">\(100\alpha\)</span> centile is equal to</p>
+<p><span class="math display">\[D_t(\alpha) = M_t (1+L_t S_t Z_\alpha)^{1/L_t}\]</span></p>
+<p>If <span class="math inline">\(L_t\)</span> is close to zero, we use</p>
+<p><span class="math display">\[D_t(\alpha)= M_t \exp(S_t Z_\alpha).\]</span></p>
+
+</div>
+</div>
+<!-- </div> -->
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-vanbuuren2014">
+<p>van Buuren, S. 2014. “Growth Charts of Human Development.” <em>Statistical Methods in Medical Research</em> 23 (4): 346–68. <a href="https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/" class="uri">https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/</a>.</p>
+</div>
+<div id="ref-cole1992">
+<p>Cole, T. J., and P. J. Green. 1992. “Smoothing Reference Centile Curves: The LMS Method and Penalized Likelihood.” <em>Statistics in Medicine</em> 11 (10): 1305–19.</p>
+</div>
+<div id="ref-stasinopoulos2007">
+<p>Stasinopoulos, D., and R. Rigby. 2007. “Generalized Additive Models for Location Scale and Shape (GAMLSS) in R.” <em>Journal of Statistical Software</em> 23 (7): 1–46. doi:<a href="https://doi.org/10.18637/jss.v023.i07">10.18637/jss.v023.i07</a>.</p>
+</div>
+<div id="ref-cole1988">
+<p>Cole, T. J. 1988. “Fitting Smoothed Centile Curves to Reference Data (with Discussion).” <em>J. Roy. Statist. Soc. Ser. A</em> 151: 385–418.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="sec-dscoreestimation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ch-evaluation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
