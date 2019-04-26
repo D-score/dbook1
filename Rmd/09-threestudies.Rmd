@@ -192,7 +192,7 @@ plot_ddaz(pops2, y = "d_0.75", z = "daz_0.75",
 
 (ref:popsda9) Distribution of $D$-score and DAZ by child age in a
 cohort of preterm aged 0-2 years. Ages are corrected for preterm birth
-by a factor of 0.75 (Source: POPS data, $n = 450$, 4 occasions).
+by a factor of 0.75 (Source: POPS data, 450 children, 4 occasions).
 
 Figure \@ref(fig:popsda9) presents the $D$-score and DAZ distributions
 for the POPS cohort of children born very preterm or with very low
@@ -244,7 +244,7 @@ $$
 $$
 
 where 280 is the average gestational age in days, and where we specify
-several alternative for $f$ as 1.00 (full correction), 0.75, 0.50
+several alternatives for $f$ as 1.00 (full correction), 0.75, 0.50
 (half) or 0.00 (no correction).
 
 Let's apply the same idea to child development. Using *corrected age*

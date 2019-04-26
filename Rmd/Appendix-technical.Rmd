@@ -1,5 +1,5 @@
 # Technical information {#ap:technical}
 
-```{r}
+```{r cache = FALSE}
 sessionInfo()
 ```

@@ -155,8 +155,8 @@ kable(df,
 &nbsp;
 
 With the choice of Table \@ref(tab:anchor), $D$-score values are
-approximately 0 $D$ around birth. At the age of 1 year, the score will
-around 50 $D$, so during the first year of life, one $D$ unit
+approximately 0$D$ around birth. At the age of 1 year, the score will
+around 50$D$, so during the first year of life, one $D$ unit
 corresponds to approximately a one-week interval.
 
 ```{r itemdifdplot, fig.height = 10, fig.cap = '(ref:itemdifdplot)'}
@@ -173,7 +173,7 @@ p
 
 (ref:itemdifdplot) Estimated item difficulty parameters ($d_i$) for 57 milestones
 of the DDI (0 - 2 years). Milestones `ddigmd057` and `ddigmd063` are anchored at 
-values of 20 and 40, respectively.
+values of 20$D$ and 40$D$, respectively.
 
 ## Estimation of the $D$-score {#sec:dscoreestimation}
 
@@ -209,9 +209,9 @@ define the prior as a normal distribution equal to the expected mean
 in Figure \@ref(fig:smoccda) at the child's age, and with a standard
 deviation that considerably larger than in Figure \@ref(fig:smoccda).
 Numerical example: the mean $D$-score at the age of 15 months is equal
-53.6 $D$. The standard deviation in Figure \@ref(fig:smoccda) varies
-between 2.6 $D$ and 3.0 $D$, with an average of 2.9 $D$. After some
-experimentation, we found that using a value of 5.0 $D$ for the prior
+53.6$D$. The standard deviation in Figure \@ref(fig:smoccda) varies
+between 2.6$D$ and 3.0$D$, with an average of 2.9$D$. After some
+experimentation, we found that using a value of 5.0$D$ for the prior
 yields a good compromise between, on the one hand, non-informativeness
 and, on the other hand, robustness of $D$-score estimates for perfect
 patterns. The resulting starting prior for a child aged 15 months is thus
@@ -262,8 +262,8 @@ distribution $N(53.6, 5)$.
 
 Another choice that we need to make is the grid of points on which we
 calculate the prior and posterior distributions. Figure
-\@ref(fig:figpriors) uses a grid from -10 $D$ to +80 $D$, with a step
-size of 1 $D$. These are fixed *quadrature points*, and there are 91
+\@ref(fig:figpriors) uses a grid from -10$D$ to +80$D$, with a step
+size of 1$D$. These are fixed *quadrature points*, and there are 91
 of them. While these quadrature points are sufficient to estimate
 $D$-score for ages up to 2.5 years, it is wise to extend the range for
 older children with higher $D$-scores.
@@ -308,7 +308,7 @@ Table \@ref(tab:datadavidandrob) shows the difficulty of each
 milestone (in the column labelled "Delta"), and the responses of David
 and Rob for the standard five DDI milestones for the age of 15 months.
 
-The mean $D$-score for Dutch children aged 15 months is 53.6 $D$, so
+The mean $D$-score for Dutch children aged 15 months is 53.6$D$, so
 the milestones are easy to pass at this age, with the most difficult
 being `ddicmm037`. David passed all milestones, but has no score on
 the last. Rob fails on `ddifmm012` and `ddigmm067`. How do we
@@ -400,7 +400,7 @@ same as in Figure \@ref(fig:figpriors). After a PASS, the posterior
 will be located more to the right, and will often be more peaked. Both
 happen here, but the change is small. The reason is that a PASS on
 this milestone is not very informative. For a child with a true
-$D$-score of 53 $D$, the probability of passing `ddifmd011` is equal to
+$D$-score of 53$D$, the probability of passing `ddifmd011` is equal to
 `r plogis((53 - 46) / model$transform[2])`. If passing is so common,
 there is not much information in the measurement.
 
@@ -408,8 +408,8 @@ there is not much information in the measurement.
 is identical to the posterior of `ddifmd011`. For David, the posterior
 is only slightly different from the prior, for the same reason as
 above. For Rob, we find a huge change to the left, both in terms of
-location (from 54.3 $D$ to 47.1 $D$) and in terms of peakedness. This one 
-FAIL lowers Rob's score by 7.2 $D$.
+location (from 54.3$D$ to 47.1$D$) and in terms of peakedness. This one 
+FAIL lowers Rob's score by 7.2$D$.
 
 3. Milestone `ddicmm037` is more difficult than the previous two
 milestones, so a pass on `ddicmm037` does have a clear effect on the
@@ -424,9 +424,9 @@ posterior are equivalent. For Rob, we observe a FAIL, which shifts his
 posterior to the left.
 
 The $D$-score is calculated as the mean of the posterior. David's
-$D$-score is equal to 55.7 $D$. Note that the measurement error, as
+$D$-score is equal to 55.7$D$. Note that the measurement error, as
 estimated from the variance of the posterior, is fairly large. Rob's
-$D$-score is equal to 47.7 $D$, with a much smaller measurement error.
+$D$-score is equal to 47.7$D$, with a much smaller measurement error.
 This result is consistent with the design principles of the DDI, which
 is meant to detect children with developmental delay.
 

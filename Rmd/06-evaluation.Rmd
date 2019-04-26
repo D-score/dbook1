@@ -32,11 +32,12 @@ item to the fitted item response curve for endorsing the item.
 
 The fitted item response curve for each item $i$ is modeled as: 
 
-$$P_{ni}= \frac{\exp( \beta_{n} - \delta_{i})}{1+\exp(\beta_{n}-\delta_{i})}, $$ 
+$$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},$$ 
 
-where $\beta_n$ is the ability of person $n$ and $\delta_i$ is the
-difficulty of item $i$. It is thus natural to compare the observed and
-modeled probabilities at various levels of ability.
+where $\hat\beta_n$ is the estimated ability of child $n$ (the child's
+$D$-score), and where  $\hat\delta_i$ is the estimated difficulty of
+item $i$. Chapter \@ref(ch:computation) describes process of parameter
+estimation in detail.
 
 ### Well-fitting item response curves
 
@@ -55,12 +56,13 @@ gridExtra::grid.arrange(p1, p2)
 (ref:ploticc) Empirical and fitted item response curves for two
 milestones from the DDI (SMOCC data).
 
-Figure \@ref(fig:ploticc) shows the item characteristics curves of two
-DDI milestones. The orange line represents the empirical probability
-at different ability levels. The dashed line represents the estimated
-item response curve according to the Rasch model. The empirical and
-estimated curves are close together, so both items fit the model very
-well.
+The study of *item fit* involves comparing the empirical and fitted
+probabilities at various levels of ability. Figure \@ref(fig:ploticc)
+shows the item characteristics curves of two DDI milestones. The
+orange line represents the empirical probability at different ability
+levels. The dashed line represents the estimated item response curve
+according to the Rasch model. The empirical and estimated curves are
+close together, so both items fit the model very well.
 
 ### Item response curves showing severe underfit
 
@@ -127,12 +129,12 @@ gridExtra::grid.arrange(p1, p2)
 Figure \@ref(fig:plothyp2) shows two hypothetical items with two forms
 of overfit. The curve of item `hypgmd004` is much steeper than the
 modeled curve. Thus, just this one item is exceptionally well-suited
-to distinguish children with a $D$-score below 50 from those with a
-$D$-score above 50. Note that the item isn't sensitive anywhere else
-on the scale. In general, having items like these is good news,
-because they allow us to increase the reliability of the instrument.
-One should make certain though, that FAIL and PASS scores are all
-measured (not imputed) values.
+to distinguish children with a $D$-score below 50$D$ from those with a
+score above 50$D$. Note that the item isn't sensitive anywhere else on
+the scale. In general, having items like these is good news, because
+they allow us to increase the reliability of the instrument. One
+should make certain though, that FAIL and PASS scores are all measured
+(not imputed) values.
 
 Multiple perfect items could hint to a violation of the *local
 independence assumption* (c.f. Section \@ref(sec:measurementmodel)).
@@ -150,21 +152,13 @@ curves around the middle of the probability scale. In general, such
 items could be removed if a sufficient number of better items are
 available.
 
-### Item infit and outfit
+### Item infit and outfit {#sec:infit}
 
 Item fit can quantified by item *infit* and *outfit*. Both are
 aggregates of the model residuals. The observed response $x_{ni}$ of
-person $n$ on item $i$ can be $0$ or $1$. The expected response
-$P_{ni}$ is modeled as
+person $n$ on item $i$ can be $0$ or $1$. 
 
-$$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1 + \exp(\hat\beta_{n} - \hat\delta_{i})},$$ 
-
-where $\hat\beta_{n}$ is the estimated ability of person $n$, and
-where $\hat\delta_{i}$ is the estimated difficulty of item $i$.
-Chapter \@ref(ch:computation) describes process of parameter
-estimation in detail.
-
-The standardized residual $z_{ni}$ is the difference between the observed
+The *standardized residual* $z_{ni}$ is the difference between the observed
 response $x_{ni}$ and the expected response $P_{ni}$, divided by the
 expected binomial standard deviation,
 
@@ -177,12 +171,12 @@ $$W_{ni} = P_{ni}(1-P_{ni}).$$
 *Item infit* is the sum of the squared residuals divided by the sum of
 the expected response variances $W_{ni}$
 
-$$\mathrm{Infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}.$$
+$$\mathrm{Item\ infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}.$$
 
-*Item outfit* is calculated as the average (over $N$ persons) of the
+*Item outfit* is calculated as the average (over $N$ measurements) of the
 squared standardized residual
 
-$$\mathrm{Outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.$$
+$$\mathrm{Item\ outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.$$
 
 The expected value of both infit and outfit is equal to 1.0. The
 interpretation is as follows:
@@ -240,10 +234,10 @@ indicate good fit.
 ## Person fit {#sec:personfit}
 
 The person fit quantifies the extent to which the responses of a given
-person conform to the Rasch model expectation. The Rasch model expects
-that a more able person has a greater probability to pass an item than
-a less able person. Fit analysis evaluates the extend to which this is
-true. 
+child conform to the Rasch model expectation. The Rasch model expects
+that a more able child has a greater probability to pass an item than
+a less developed child. Person fit analysis evaluates the extend to
+which this is true.
 
 ### Person infit and outfit
 
@@ -251,20 +245,20 @@ In parallel to item fit, we can calculate *person infit* and *person
 outfit*. Both statistics evaluate how well the responses of the
 persons are consistent with the model. The outfit statistic is heavily
 influenced by outlying responses that do not fit the expected pattern.
-Outfit is high, for example, when the person fails easy items but
+Outfit is high, for example, when the child fails easy items but
 passes difficult items. The infit is the information weighted fit and
 is more sensitive to inlaying, on-target, unexpected responses.
 
 Similar to item fit, person fit is also calculated from the residuals,
 but aggregated in a different way. Person infit is calculated as
 
-$$\mathrm{Infit} = \frac{\sum_{n}^L (x_{ni}-P_{ni})^2}{\sum_n^L W_{ni}}$$
+$$\mathrm{Person\ infit} = \frac{\sum_{i}^L (x_{ni}-P_{ni})^2}{\sum_i^L W_{ni}}$$
 
 and person outfit is
 
-$$\mathrm{Outfit} = \frac{\sum_{n}^L z_{ni}^2}{L}$$
+$$\mathrm{Person\ outfit} = \frac{\sum_{i}^L z_{ni}^2}{L}$$
 
-As a threshold for person fit < 3.0 can be used to clean out persons
+As a threshold for person fit < 3.0 can be used to clean out children
 with implausible response patterns.
 
 ### Person infit and outfit in the DDI
@@ -520,13 +514,13 @@ which, say, 90% of the children will pass.
 
 The reliability is a one-number summary of the accuracy of an
 instrument. Statisticians define reliability as the proportion of
-variance attributable to the variation between person (i.e.
-abilities) relative to the total variance, including errors. More
-specifically, the reliability $R$ of a test is written as
+variance attributable to the variation between children's abilities
+relative to the total variance. More specifically, the reliability $R$
+of a test is written as
 
 $$R \equiv \frac{\sigma_{\beta}^2}{\sigma_{\beta}^2 + \sigma_{e}^2},$$ 
 
-where $\sigma_{\beta}^2$ is the variance of true ability and
+where $\sigma_{\beta}^2$ is the variance of true scores and
 $\sigma_{e}^2$ is the error variance. 
 
 In general, a high reliability is desirable, so the reliability of a
