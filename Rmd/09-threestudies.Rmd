@@ -1,6 +1,6 @@
 # Three studies {#ch:threestudies}
 
-> Authors: Paula van Dommelen, Riette Olthof
+> Authors: Paula van Dommelen, Maria C. Olthof
 
 This chapter compares child development between samples from three
 different studies:
@@ -201,20 +201,22 @@ are similar to those found in the SMOCC study.
 
 Since the $D$-scores are calculated using the same milestones and
 difficulty estimates as used in the SMOCC data, the $D$-scores are
-comparable across the two studies. 
+comparable across the two studies. When the milestones differ between
+studies (e.g. when studies use different measurement instruments) it
+is still possible to calculate $D$-scores. This problem is a little
+more difficult, and will be addressed in booklet 2.
 
 The primary new complication here is the question whether it is fair
-compare *postnatal age* (or *calender age*) of children born a term
-with calender ages of very preterm children. This section focuses on
-this issue in some detail.
+compare *postnatal age* of children born a term with postnatal ages of
+very preterm children. This section focuses on this issue in some
+detail.
 
 ### POPS design
 
 In 1983, the Project On Preterm and Small for Gestational Age Infants
 (POPS study) collected data on all 1338 infants in the Netherlands who
 had very preterm birth (gestational age < 32 weeks) or very low birth
-weight (birth weight < 1500 grams). See @verloove-vanhorick1986 for
-details. 
+weight (birth weight < 1500 grams). See @verloove1986 for details.
 
 Gestational age was determined from the best obstetric estimate,
 including last menstrual period, results of pregnancy testing, and
@@ -241,8 +243,9 @@ $$
 \mathrm{corrected\ age} = \mathrm{postnatal\ age}\mathrm{\ (days)} - f \times [280 - \mathrm{gestational\ age\ (days)}],
 $$
 
-where we specify several alternative for $f$ as 1.00 (full
-correction), 0.75, 0.50 (half) or 0.00 (no correction).
+where 280 is the average gestational age in days, and where we specify
+several alternative for $f$ as 1.00 (full correction), 0.75, 0.50
+(half) or 0.00 (no correction).
 
 Let's apply the same idea to child development. Using *corrected age*
 instead of *postnatal age* has two consequences:
@@ -264,14 +267,14 @@ g <- ggplot(subset(pops2, n > 0),
   geom_abline(slope = 1, intercept = 0, color = "grey") +
   geom_point(size = 1) +
   labs(colour = "Number of fails") +
-  xlab("D-score (calender age)") +
+  xlab("D-score (postnatal age)") +
   ylab("D-score (full age adjustment)") +
   theme(legend.position = c(0.8, 0.15))
 g
 ```
 
 (ref:adjustd) Scatterplot of two versions of the $D$-score, one
-calculated using calender age ($f = 0.00$), the other calculated using full
+calculated using postnatal age ($f = 0.00$), the other calculated using full
 age-adjustment ($f = 1.00$).
 
 Figure \@ref(fig:adjustd) plots the fully age-adjusted $D$-score
@@ -279,16 +282,22 @@ against the unadjusted $D$-score. Any discrepancies result only from
 differences in the ages used in the age-dependent prior (c.f. Section
 \@ref(sec:adp)).
 
-The effect of age-adjustment on the $D$-score is always in the same
-direction, and only sizable for perfect scores, especially for lower
-$D$-scores. Discrepancies are tiny for non-perfect scores.
+All points are on or below the diagonal. Age-adjustment lowers the
+$D$-score because a preterm is "made younger" by subtracting the
+missed pregnancy duration, and hence the prior distribution starts off
+at the lower point. For example, the group of red points with
+$D$-scores between 30$D$ and 40$D$ (age not corrected) will have
+$D$-scores between 20$D$ and 30$D$ when fully corrected. Note that
+only the red points (with perfect scores) are affected. The impact of
+age-correction on the $D$-score is negligible when the child fails on
+one or more milestones.
 
 ### Effect of no age adjustment ($f = 0.00$) on the DAZ
 
 ```{r popsda90, fig.cap = '(ref:popsda90)', fig.height = 12, warning = FALSE}
 pops2$agemos <- pops2$age_c0.00 * 12
 plot_ddaz(pops2, y = "d_0.00", z = "daz_0.00", 
-          xlab = "Calender age (in months)", 
+          xlab = "Postnatal age (in months)", 
           colour = "#006CC2B3")
 ```
 
@@ -320,8 +329,8 @@ somewhat advanced over the reference children. This may reflect the
 effect of longer exposure to sound and vision ex-utero, so developed
 in preterms may actually be more advanced than that of term peers. 
 
-Full age correction overcorrects the $D$-score, so it is natural to
-try intermediate values for $f$ between 0 and 1.
+Full age correction seems to overcorrect the $D$-score, so it is
+natural to try intermediate values for $f$ between 0 and 1.
 
 ### Partial age adjustment
 
@@ -341,11 +350,13 @@ kable(tabs,
 Table \@ref(tab:tabz) compares mean DAZ under various specifications
 for $f$. Values $f = 0.00$ and $f = 0.50$ do not correct for preterm
 birth enough in the sense that all sign are negative. In contrast, $f
-= 1.00$ overcorrects as a value of 0.59 is implausibly high. Setting
-$f = 0.75$ seems a good compromise. The average DAZ is close to zero
-in the first age interval. The fact that average DAZ is negative at
-later ages under $f = 0.75$ may be reflect less than optimal growth
-and development of very preterm and low birth weight children.
+= 1.00$ overcorrects as a value of 0.734 is implausibly high,
+especially because this values is closest to birth. Setting $f = 0.75$
+seems a good compromise, in the sense that the average DAZ is close to
+zero in the first age interval. The average DAZ is negative at later
+ages. It is not known whether this genuinely reflects less than
+optimal development of very preterm and low birth weight children, so
+either $f = 1.00$ and $f = 0.75$ are suitable candidates.
 
 ### Conclusions 
 
@@ -359,12 +370,15 @@ was not corrected;
 * Fewer children reached the milestones when $f = 0.50$ correction was
 used;
 
-* Similar proportions were observed when $f = 0.75$ was used within the first 5 months after birth. 
+* Similar proportions were observed when $f = 0.75$ was used within
+the first 5 months after birth.
 
-* After chronological age 5 months, similar proportions were observed between very preterm and full term children when
-chronological age was fully corrected. 
+* After chronological age 5 months, similar proportions were observed
+between very preterm and full term children when chronological age was
+fully corrected.
 
-* We recommend the $f = 0.75$ correction of chronological age.
+* Somewhat depending on the goal of the analysis, we recommend an age
+correlation of $f = 0.75$ or $f = 1.00$.
 
 ## TOGO study {#sec:togo}
 
@@ -485,7 +499,7 @@ Parents paid a small amount of money per visiting child (about USD
 younger than 4 years).
 
 All data were registered in paper dossiers. Data were digitized by
-four local data-assistants, and on a regular basis mailed to TNO, the
+four local data-assistants, and on a regular basis mailed to TNO in the
 Netherlands to check for completeness and consistency.
 
 ```{r dataassistents, fig.cap = '(ref:dataassistents)', out.width='60%'}
@@ -537,7 +551,7 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
   }
 ```
 
-### $D$-scores labelled by neurological problem {#sec:togoneuro}
+### $D$-score labelled by neurological problem {#sec:togoneuro}
 
 
 ```{r togoda1, fig.cap = '(ref:togoda1)', fig.height = 6, warning = FALSE}
@@ -552,12 +566,12 @@ Figure \@ref(fig:togoda1) is the same scatter plot as in Figure
 \@ref(fig:togoda), but now marked by whether the physician registered
 signs of neuropathology in the form of tonus and reflex problems.
 
-Many children with low $D$-scores also tonus and/or reflex problems.
-This finding alone suggests that extreme $D$-score are not artifacts
-(e.g. caused by a wrongly coded age), but actually indicate major
-adverse health conditions.
+Many children with low $D$-scores also have tonus and/or reflex
+problems. This finding alone suggests that extreme $D$-score are not
+artifacts (e.g. caused by a wrongly coded age), but actually indicate
+major adverse health conditions.
 
-### $D$-scores labelled by Apgar score
+### $D$-score labelled by Apgar score
 
 ```{r togoda2, fig.cap = '(ref:togoda2)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by Apgar (10 min) < 8"
@@ -571,7 +585,7 @@ Figure \@ref(fig:togoda2) identifies the children who had an Apgar
 score at 10 minutes after birth that was lower than 8. About half of
 these children had a $D$-score below -2 SD curve.
 
-### $D$-scores labelled by severe underweight
+### $D$-score labelled by severe underweight
 
 ```{r togoda3, fig.cap = '(ref:togoda3)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by severe underweight (WAZ < -4)"
@@ -587,7 +601,7 @@ severely underweight children (WAZ < -4). A substantial proportion of
 these children also had a very low $D$-score.
 
 
-### $D$-scores labelled by severe stunting
+### $D$-score labelled by severe stunting
 
 ```{r togoda4, fig.cap = '(ref:togoda4)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by severe stunted growth (HAZ < -4)"
