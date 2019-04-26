@@ -226,7 +226,7 @@ py
 ```
 
 (ref:smoccpd) Empirical percentage of passing each milestone in the
-DDI against the $D$-score (Source: SMOCC data, $n$ = 2151, 9 occasions).
+DDI against the $D$-score (Source: SMOCC data, 2151 children, 9 occasions).
 
 Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but
 with the horizontal axis replaced by the $D$-score. The $D$-score
@@ -288,8 +288,8 @@ occasions).
 
 Figure \@ref(fig:smoccda) shows that the relation between $D$-score
 and age is nonlinear. Development in the first year is more rapid than
-in the second year. During the first year infants gain about 40 $D$,
-whereas in the second year they gain about 20 $D$. A similar change in
+in the second year. During the first year infants gain about 40$D$,
+whereas in the second year they gain about 20$D$. A similar change in
 growth rate occurs in length (first year: 23 cm, second year: 12 cm,
 for Dutch children).
 
