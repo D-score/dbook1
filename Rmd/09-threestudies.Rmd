@@ -204,7 +204,7 @@ difficulty estimates as used in the SMOCC data, the $D$-scores are
 comparable across the two studies. When the milestones differ between
 studies (e.g. when studies use different measurement instruments) it
 is still possible to calculate $D$-scores. This problem is a little
-more difficult, and will be addressed in booklet 2.
+more difficult, and will be addressed in booklet II.
 
 The primary new complication here is the question whether it is fair
 compare *postnatal age* of children born a term with postnatal ages of

@@ -35,9 +35,9 @@ This chapter briefly reviews some of these issues.
 
 The $D$-score is a new approach to measure child development. The
 $D$-score is a scale for quantifying generic child development by a
-single number. The $D$-score fits the Rasch model. The measurements
-can therefore be interpreted as scores on an interval scale, a
-requirement for answering questions like:
+single number. Milestones are selected to fit the Rasch model. The
+resulting measurements can be interpreted as scores on an interval
+scale, a requirement for answering questions like:
 
 * What is the difference in development over time for the same child,
 group or population?
@@ -212,8 +212,8 @@ Booklet II will explore this possibility in more detail.
 
 Extending the $D$-score to other instruments has the side-effect of
 extending the itembank with good items. Moreover, as more and more
-data feed into the itembank, the estimates of existing may become more
-precise. 
+data feed into the itembank, assessment of already present milestones
+may become more precise.
 
 The enlarged and improved itembank then may act as the basic resource
 for creating instruments for particular settings. For example, if the
