@@ -9,6 +9,7 @@ evaluation the Rasch model. We distinguish the following steps:
 * Estimation of item parameters (\@ref(sec:itemestimation))
 * Anchoring (\@ref(sec:anchoring))
 * Estimation of the $D$-score (\@ref(sec:dscoreestimation))
+* Estimation of age-conditional references (\@ref(sec:reference))
 
 Reader not interested in these details may continue to model
 evaluation in Chapter \@ref(ch:evaluation).
@@ -451,4 +452,85 @@ quadrature points is too short.
 * The actual calculations are here done item by item. A more efficient
 method is to handle all responses at once. The end result will be the
 same.
+
+## Age-conditional references {#sec:reference}
+
+### Motivation
+
+The last step involves estimation an age-conditional reference
+distribution for the $D$-score. This distribution can be used to
+construct growth charts that portray the normal variation in
+development. In addition, the references can be used to calculate
+age-standarized $D$-scores, called DAZ, that emphasize the location of
+the measurement in comparison to age peers.
+
+Estimation of reference centiles is fairly standard. Here we follow
+@vanbuuren2014 to fit age-conditional references of the $D$-score for
+boys and girls combined by the LMS method. The LMS method by @cole1992
+assumes that the outcome has a normal distribution after a Box-Cox
+transformation. The reference distribution has three parameters, which
+model respectively the location ($M$), the spread ($S$), and the
+skewness ($L$) of the distribution. Each of the three parameters can
+vary smoothly with age.
+
+### Estimation of the reference distribution
+
+The parameters are estimated using the BCCG distribution of `gamlss
+5.1-3` (@stasinopoulos2007) using cubic splines smoothers. The final
+solution used a log-transformed age scale and fitted the model with
+smoothing parameters $\mathrm{df}(M)=2$, $\mathrm{df}(S)=2$ and
+$\mathrm{df}(L)=1$. 
+
+Figure \@ref(fig:smoccda) plots the $D$-scores together with five grey
+lines, corresponding to the centiles -2SD (P2), -1SD (P16), 0SD (P50),
++1SD (P84) and +2SD (P98). The area between the -2SD and +2SD lines
+delineates the $D$-score expected if development is normal. Note that
+the shape of the reference is quite similar to that of weight and
+height, with rapid growth occurring in the first few months.
+
+```{r reftable}
+op <- options()
+options(digits = 7)
+reference <- dplyr::select(dscore::Dreference, day, week, mu, sigma, nu) %>%
+  rename(M = mu,
+         S = sigma, 
+         L = nu)
+knitr::kable(reference,
+             caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).") %>% 
+  kableExtra::kable_styling(full_width = TRUE) %>%
+  kableExtra::scroll_box(height = "300px")
+```
+&nbsp;
+
+Table \ref{tab:reftable} defines age-conditional references for Dutch
+children as the $M$-curve (median), $S$-curve (spread) and $L$-curve
+(skewness) by age. This table can be used to calculate centile lines
+and $Z$-scores.
+
+The references are purely cross-sectional. The correlation structure
+over time is not taken into account. For prediction purposes, it is
+useful to extend the modeling to include velocities and change scores.
+
+### Conversion of $D$ to DAZ, and vice versa
+
+Suppose that $M_t$, $S_t$ and $L_t$ are the parameter values at age
+$t$. @cole1988 shows that the transformation
+
+$$Z=\frac{(D_t/M_t)^{L_t}-1}{L_t S_t}$$
+
+converts measurement $D_t$ into its normal equivalent deviate $Z$. If $L_t$ is close to zero, we use
+
+$$Z=\frac{\ln(D_t/M_t)}{S_t}$$
+
+Any required centile curve can be derived from Table
+\ref{tab:reftable}. First, choose $Z_\alpha$ as the $Z$-score below
+which $100\alpha$ percent of the distribution is located, for example,
+\ $Z_{0.05}=-1.64$. The $D$-score that defines the $100\alpha$ centile
+is equal to
+
+$$D_t(\alpha) = M_t (1+L_t S_t Z_\alpha)^{1/L_t}$$
+
+If $L_t$ is close to zero, we use
+
+$$D_t(\alpha)= M_t \exp(S_t Z_\alpha).$$
 
