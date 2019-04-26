@@ -190,7 +190,8 @@ beta_add <- dscore::ability(data = data_add,
                             items = intersect(items, names(data_add)), 
                             key = dkey)
 beta_all <- dscore::ability(data = data_all, 
-                            items = items, 
+                            items = intersect(items, 
+                                              c(names(data_add), names(data_std))), 
                             key = dkey)
 
 # combine into one data set
@@ -299,6 +300,15 @@ both plots. This is because $D$-score estimation takes the difficulty
 level of milestones into account. The estimate of the $D$-score is
 *unbiased* for difficulty.
 
+The figure on the right hand side provides the $D$-score calculated
+from all available milestones. We can easily recognise the points
+coming from the standard and additional sets. In addition, there is a
+limited number of scores on easier milestones that belong to month 1.
+These milestones were rescored because the child failed these
+milestones at the previous visit. Rescoring effectively extends the
+range of possible $D$-scores to the lower end, so now we can find some
+children who have $D$-score lower than 10$D$.
+
 ### Milestone sets at month 3
 
 ```{r month3d, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:month3d)'}
@@ -329,7 +339,7 @@ correspond to the number of fails.
 
 Figure \@ref(fig:month3d) is the same plot as before, but now for
 month 3. Compared to Figure \@ref(fig:month2d) all points shifted
-upwards, as a consequence that the children are now one month older.
+upwards because the children are now one month older.
 
 The additional milestones from month 2 are the standard milestones of
 month 3. In Figure \@ref(fig:month2d) there were at least 11 children
@@ -338,7 +348,7 @@ there is one child having five fails.
 
 ### Floor and ceiling effects
 
-```{r alld, message=FALSE, warning=FALSE, fig.height = 4, fig.cap='(ref:alld)'}
+```{r alld, message=FALSE, warning=FALSE, fig.width = 10, fig.height = 4, fig.cap='(ref:alld)'}
 g <- ggplot(drop_na(long, fail), 
             aes(x = agemos, y = d, col = as.factor(fail))) +
   geom_point(size = 0.6, shape = 16) + 
@@ -357,7 +367,7 @@ g <- ggplot(drop_na(long, fail),
   scale_x_continuous(name = "Age (in months)", 
                      breaks = seq(0, 30, 6), 
                      limits = c(0, 30)) +
-  theme(legend.position = "bottom")
+  theme(legend.position = "none")
 g  
 ```
 
@@ -470,8 +480,8 @@ g <- ggplot(long2, aes(x = d, y = IQ)) +
 g  
 ```
 
-(ref:plotdiq) Relation between $D$-score at infancy and *IQ* at age 5
-according to three milestone sets and nine visit (SMOCC data, $n = 557$).
+(ref:plotdiq) Relation between $D$-score at infancy and *IQ* at age 5 years
+according to three milestone sets and nine visits (SMOCC data, $n = 557$).
 
 ```{r reg2, results = 'hide'}
 summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "Standard"))
@@ -503,7 +513,7 @@ Table \@ref(tab:cordiq) summarizes the Pearson correlations between
 the $D$-score and later IQ. The association between $D$-score and IQ
 is weak during the first year of life, but gets stronger during the
 second year. In general, having more (and more informative) milestones
-helps to increase the correlation, but the effect are relatively
+helps to increase the correlation, but the effects are relatively
 small. So even from the standard set of the seven easy milestones at
 24m we obtain a reasonable correlation of 0.245. 
 
