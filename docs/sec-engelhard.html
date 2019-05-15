@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,13 +258,27 @@
             <section class="normal" id="section-">
 <div id="sec:engelhard" class="section level2">
 <h2><span class="header-section-number">4.7</span> Engelhard criteria for invariant measurement</h2>
-<p>In this work, we strive to achieve <em>invariant measurement</em>, a very strict form of measurements that is subject to the following requirements (<span class="citation">Engelhard Jr. (<a href="#ref-engelhard2013">2013</a>)</span>, p. 14):</p>
+<p>In this work, we strive to achieve <em>invariant measurement</em>, a very
+strict form of measurements that is subject to the following
+requirements (<span class="citation">Engelhard Jr. (<a href="#ref-engelhard2013">2013</a>)</span>, p. 14):</p>
 <ol style="list-style-type: decimal">
-<li><p><em>Item-invariant measurement of persons</em>: The measurement of persons must be independent of the particular items that happen to be used for the measuring.</p></li>
-<li><p><em>Non-crossing persons response functions</em>: A more able person must always have a better chance of success on an item that a less able person.</p></li>
-<li><p><em>Person-invariant calibration of test items</em>: The calibration of the items must be independent of the particular persons used for calibration.</p></li>
-<li><p><em>Non-crossing item response functions</em>: Any person must have a better chance of success on an easy item than on a more difficult item.</p></li>
-<li><p><em>Unidimensionality</em>: Items and persons must be simultaneously located on a <em>single</em> underlying latent variable. This means that the relations between the items are fully explainable by the scores on the latent scale. In practice, the requirement implies that items should measure the same construct. (<span class="citation">Hattie (<a href="#ref-hattie1985">1985</a>)</span>)</p></li>
+<li><p><em>Item-invariant measurement of persons</em>: The measurement of persons
+must be independent of the particular items that happen to be used for
+the measuring.</p></li>
+<li><p><em>Non-crossing persons response functions</em>: A more able person must
+always have a better chance of success on an item that a less able
+person.</p></li>
+<li><p><em>Person-invariant calibration of test items</em>: The calibration of
+the items must be independent of the particular persons used for
+calibration.</p></li>
+<li><p><em>Non-crossing item response functions</em>: Any person must have a
+better chance of success on an easy item than on a more difficult
+item.</p></li>
+<li><p><em>Unidimensionality</em>: Items and persons must be simultaneously
+located on a <em>single</em> underlying latent variable. This means that the
+relations between the items are fully explainable by the scores on the
+latent scale. In practice, the requirement implies that items should
+measure the same construct. (<span class="citation">Hattie (<a href="#ref-hattie1985">1985</a>)</span>)</p></li>
 </ol>
 <p>Three families of IRT models actually support invariant measurement:</p>
 <ol style="list-style-type: decimal">
@@ -272,7 +286,8 @@
 <li><p>Rasch model (<span class="citation">Rasch (<a href="#ref-rasch1960">1960</a>)</span>, <span class="citation">Andrich (<a href="#ref-andrich1978">1978</a>)</span>, <span class="citation">Wright and Masters (<a href="#ref-wright1982">1982</a>)</span>)</p></li>
 <li><p>Mokken scaling model (<span class="citation">Mokken (<a href="#ref-mokken1971">1971</a>)</span>, <span class="citation">Molenaar (<a href="#ref-molenaar1997">1997</a>)</span>)</p></li>
 </ol>
-<p>The Guttman and Mokken model yield an ordinal latent scale, while the Rasch model yields an interval scale (with a constant unit).</p>
+<p>The Guttman and Mokken model yield an ordinal latent scale, while the
+Rasch model yields an interval scale (with a constant unit).</p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -283,7 +298,7 @@
 <p>Hattie, J. 1985. “Methodology Review: Assessing Unidimensionality of Tests and Items.” <em>Applied Psychological Measurement</em> 9 (2): 139–64.</p>
 </div>
 <div id="ref-guttman1950">
-<p>Guttman, L. 1950. “The Basis for Scalogram Snalysis.” In <em>Measurement and Prediction, Vol. Iv</em>, edited by S. A. Stouffer, L. Guttman, E. A. Suchman, P. F. Lazarsfeld, S. A. Star, and J. A. Clausen, 60–90. Princeton, NJ: Princeton University Press.</p>
+<p>Guttman, L. 1950. “The Basis for Scalogram Snalysis.” In <em>Measurement and Prediction, Vol. IV</em>, edited by S. A. Stouffer, L. Guttman, E. A. Suchman, P. F. Lazarsfeld, S. A. Star, and J. A. Clausen, 60–90. Princeton, NJ: Princeton University Press.</p>
 </div>
 <div id="ref-rasch1960">
 <p>Rasch, G. 1960. <em>Probabilistic Models for Some Intelligence and Attainment Tests</em>. Copenhagen: Danish Institute for Educational Research.</p>
@@ -357,7 +372,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

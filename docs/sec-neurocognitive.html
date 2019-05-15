@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,10 +258,37 @@
             <section class="normal" id="section-">
 <div id="sec:neurocognitive" class="section level2">
 <h2><span class="header-section-number">1.4</span> Measuring neurocognitive development</h2>
-<p>Assessment of early neurocognitive development in children is challenging for many reasons <span class="citation">(Ellingsen <a href="#ref-ellingsen2016standardized">2016</a>)</span>. During the first years of life developmental change occurs rapidly, and the manifestation of different skills and abilities varies considerably across children. Moreover, a child’s performance on a cognitive task is very susceptible to measurement setting.</p>
-<p>Recently, a toolkit was published that reviews 147 assessment tools that have been developed for children ages 0–8 years in low- and middle-income countries <span class="citation">(Fernald et al. <a href="#ref-fernald2017toolkit">2017</a>)</span>. The ideal child development assessment is easy to administer, has high reliability, validity, and cross-cultural appropriateness. It should also show appropriate sensitivity in scores at different ages and ability levels. It will be no surprise that no test can meet all of these criteria. Many tests are too long, difficult to administer, lack cross-cultural validity or have low reliability. In addition, many of the measurement instruments are proprietary, and costly to use.</p>
-<p>Some of the most widely used tools include the Achenbach Child Behavior Checklist (CBCL), Bayley Scales of Infant Development (BSID), Wechsler Intelligence Scale for Children (WISC), Ages &amp; Stages Questionnaires (ASQ), Strengths and Difficulties Questionnaire (SDQ), and the Denver Developmental Screening Test (DEN).</p>
-<p>Each of these tools has its strengths and limitations. For example, the Denver is a relatively easy and quick to administer, but not very precise. The Denver is therefore primarily applied as a screening tool to pick up children who may need further attention. By contrast, the BSID provides a clinical assessment at the individual level, and requires a skilled professional to administer. Some instruments collect observations through the caregiver (ASQ), whereas others emphasize traits and behavior over performance (SDQ, CBCL). Moreover, the age ranges to which the instruments are sensitive vary, as well as the representation of different domains of development.</p>
+<p>Assessment of early neurocognitive development in children is
+challenging for many reasons <span class="citation">(Ellingsen <a href="#ref-ellingsen2016standardized">2016</a>)</span>. During the
+first years of life developmental change occurs rapidly, and the
+manifestation of different skills and abilities varies considerably
+across children. Moreover, a child’s performance on a cognitive task
+is very susceptible to measurement setting.</p>
+<p>Recently, a toolkit was published that reviews 147 assessment tools
+that have been developed for children ages 0–8 years in low- and
+middle-income countries <span class="citation">(Fernald et al. <a href="#ref-fernald2017toolkit">2017</a>)</span>. The ideal child
+development assessment is easy to administer, has high reliability,
+validity, and cross-cultural appropriateness. It should also show
+appropriate sensitivity in scores at different ages and ability
+levels. It will be no surprise that no test can meet all of these
+criteria. Many tests are too long, difficult to administer, lack
+cross-cultural validity or have low reliability. In addition, many of
+the measurement instruments are proprietary, and costly to use.</p>
+<p>Some of the most widely used tools include the Achenbach Child
+Behavior Checklist (CBCL), Bayley Scales of Infant Development (BSID),
+Wechsler Intelligence Scale for Children (WISC), Ages &amp; Stages
+Questionnaires (ASQ), Strengths and Difficulties Questionnaire
+(SDQ), and the Denver Developmental Screening Test (DEN).</p>
+<p>Each of these tools has its strengths and limitations. For example,
+the Denver is a relatively easy and quick to administer, but not very
+precise. The Denver is therefore primarily applied as a screening tool
+to pick up children who may need further attention. By contrast, the
+BSID provides a clinical assessment at the individual level, and
+requires a skilled professional to administer. Some instruments
+collect observations through the caregiver (ASQ), whereas others
+emphasize traits and behavior over performance (SDQ, CBCL). Moreover,
+the age ranges to which the instruments are sensitive vary, as well as
+the representation of different domains of development.</p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -328,7 +355,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,44 +260,65 @@
 <h2><span class="header-section-number">3.3</span> Unit-based measurement of development</h2>
 <div id="sec:motivationunit" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Motivation for unit-based measurement</h3>
-<p>Unit-based measurement starts by defining the ideal properties of the measurement, and derives a procedure to aggregate the responses on milestones into an overall score that will meet the ideal.</p>
-<p>Section <a href="sec-questions.html#sec:questions">2.4</a> highlighted questions for individuals, groups and populations. There are basically three questions:</p>
+<p>Unit-based measurement starts by defining the ideal properties of the
+measurement, and derives a procedure to aggregate the responses on
+milestones into an overall score that will meet the ideal.</p>
+<p>Section <a href="sec-questions.html#sec:questions">2.4</a> highlighted questions for individuals,
+groups and populations. There are basically three questions:</p>
 <ul>
-<li><p>What is the difference in development over time for the same child, group or population?</p></li>
-<li><p>What is the difference in development between different children, groups or populations of the same age?</p></li>
+<li><p>What is the difference in development over time for the same child,
+group or population?</p></li>
+<li><p>What is the difference in development between different children,
+groups or populations of the same age?</p></li>
 <li><p>How does child development compare to a norm?</p></li>
 </ul>
-<p>In the ideal situation, we would like to have a continuous (latent) variable <span class="math inline">\(D\)</span> (for development) that measures child development. The scale should allow us to quantify <em>ability</em> of persons, groups or populations from low to high. The scale should have a <em>constant unit</em>, so that a given difference in ability refers to the same quantity across the entire scale, just like that a difference of 10 cm is the same irrespective of whether we compare the heights of books or the heights of houses. When are these conditions are met, we say that we measure on an <em>interval scale</em>.</p>
-<p>If we succeed in creating an interval scale for child development, an enormous arsenal of techniques developed for quantitative variables opens up to measure, track and analyze child development. We may then evaluate the development of a child in terms of <span class="math inline">\(D\)</span> points gained, create age-dependent charts for development (just like growth charts for height and weight), devise age-conditional measures for child development, and intelligent adaptive testing schemes. Promising studies on Dutch data <span class="citation">(G. Jacobusse, van Buuren, and Verkerk <a href="#ref-jacobusse2006">2006</a>, <span class="citation">G. Jacobusse and van Buuren (<a href="#ref-jacobusse2007">2007</a>)</span>, <span class="citation">van Buuren (<a href="#ref-vanbuuren2014">2014</a>)</span>)</span> suggest that such benefits are well within reach.</p>
+<p>In the ideal situation, we would like to have a continuous (latent)
+variable <span class="math inline">\(D\)</span> (for development) that measures child development. The
+scale should allow us to quantify <em>ability</em> of persons, groups or
+populations from low to high. The scale should have a <em>constant unit</em>,
+so that a given difference in ability refers to the same quantity
+across the entire scale, just like that a difference of 10 cm is the
+same irrespective of whether we compare the heights of books or the
+heights of houses. When are these conditions are met, we say that we
+measure on an <em>interval scale</em>.</p>
+<p>If we succeed in creating an interval scale for child development, an
+enormous arsenal of techniques developed for quantitative variables
+opens up to measure, track and analyze child development. We may then
+evaluate the development of a child in terms of <span class="math inline">\(D\)</span> points gained,
+create age-dependent charts for development (just like growth charts
+for height and weight), devise age-conditional measures for child
+development, and intelligent adaptive testing schemes. Promising
+studies on Dutch data <span class="citation">(Jacobusse, van Buuren, and Verkerk <a href="#ref-jacobusse2006">2006</a>, <span class="citation">@jacobusse2007</span>, <span class="citation">@vanbuuren2014</span>)</span>
+suggest that such benefits are well within reach.</p>
 </div>
 <div id="sec:unitbasedexample" class="section level3">
 <h3><span class="header-section-number">3.3.2</span> Example of unit-based measurement</h3>
-<div style="border: 1px solid #ddd; padding: 5px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
 <span id="tab:weekly">Table 3.1: </span>Hypothetical (bi-)weekly measurements as reconstructed from Table 2.1.
 </caption>
 <thead>
 <tr>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 name
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 age
 </th>
-<th style="text-align:left;">
+<th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;">
 sex
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 stepping
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 standing
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 walk_help
 </th>
-<th style="text-align:right;">
+<th style="text-align:right;position: sticky; top:0; background-color: #FFFFFF;">
 walk_alone
 </th>
 </tr>
@@ -25906,8 +25927,11 @@ girl
 </table>
 </div>
 <p> </p>
-<p>Table <a href="sec-unitbased.html#tab:weekly">3.1</a> reconstructs the weekly motor measurements made by Shirley from Table <a href="sec-motorexample.html#tab:shirley">2.1</a>. Each of the measurements is coded as a PASS (1) or a FAIL (0).</p>
-<p>It is now straightforward to calculate the probability of passing each milestone at different ages.</p>
+<p>Table <a href="sec-unitbased.html#tab:weekly">3.1</a> reconstructs the weekly motor measurements
+made by Shirley from Table <a href="sec-motorexample.html#tab:shirley">2.1</a>. Each of the
+measurements is coded as a PASS (1) or a FAIL (0).</p>
+<p>It is now straightforward to calculate the probability of passing each
+milestone at different ages.</p>
 <div class="figure" style="text-align: center"><span id="fig:shirleypa"></span>
 <img src="dbook1_files/figure-html/shirleypa-1.png" alt="Probability of achieving four motor milestones against age. Data from Table 3.1." width="672" />
 <p class="caption">
@@ -25923,31 +25947,50 @@ Figure 3.5: Modeled probability of achieving four motor milestones against the <
 </p>
 </div>
 
-<p>Figure <a href="sec-unitbased.html#fig:shirleypd">3.5</a> is similar to Figure <a href="sec-unitbased.html#fig:shirleypa">3.4</a>, but with <code>Age</code> is replaced by <code>Ability</code>, and with the empirical curves replaced by modeled curves.</p>
-<p>The ability values on the horizontal axis are estimated from the data and correspond to the amount of development of each measurement. Also, the logistic curves are estimated from the data, and reflect the probability of passing each milestone at a given level of ability.</p>
-<p>The figure shows that the probability of passing a milestone increases with ability. Milestones are ordered in difficulty from left to right. Milestone <code>stepping</code> is the easiest and <code>walk_alone</code> is most difficult. The point at which a logistic curve crosses the 50 percent line (marked by a cross) is customarily taken as the <em>difficulty of the milestone</em>.</p>
-<p>The increase in ability that is needed to go from 10 to 90 percent is about five units here. Since all curves are parallel, the interval is constant for all scale locations. Thus, the scale is an <em>interval scale</em> with a <em>constant unit of measurement</em>. This is the type of measurement scale needed for answering the basic questions identified in Section <a href="sec-unitbased.html#sec:motivationunit">3.3.1</a>.</p>
+<p>Figure <a href="sec-unitbased.html#fig:shirleypd">3.5</a> is similar to Figure <a href="sec-unitbased.html#fig:shirleypa">3.4</a>,
+but with <code>Age</code> is replaced by <code>Ability</code>, and with the empirical curves
+replaced by modeled curves.</p>
+<p>The ability values on the horizontal axis are estimated from the data
+and correspond to the amount of development of each measurement.
+Also, the logistic curves are estimated from the data, and reflect
+the probability of passing each milestone at a given level of ability.</p>
+<p>The figure shows that the probability of passing a milestone
+increases with ability. Milestones are ordered in difficulty from left
+to right. Milestone <code>stepping</code> is the easiest and <code>walk_alone</code> is most
+difficult. The point at which a logistic curve crosses the 50 percent
+line (marked by a cross) is customarily taken as the <em>difficulty of
+the milestone</em>.</p>
+<p>The increase in ability that is needed to go from 10 to 90 percent is
+about five units here. Since all curves are parallel, the interval is
+constant for all scale locations. Thus, the scale is an <em>interval scale</em>
+with a <em>constant unit of measurement</em>. This is the type of measurement
+scale needed for answering the basic questions identified in Section
+<a href="sec-unitbased.html#sec:motivationunit">3.3.1</a>.</p>
 </div>
 <div id="limitations-of-unit-based-measurement" class="section level3">
 <h3><span class="header-section-number">3.3.3</span> Limitations of unit-based measurement</h3>
-<p>While unit-based measurement has many advantages, it cannot perform miracles.</p>
+<p>While unit-based measurement has many advantages, it cannot perform
+miracles.</p>
 <ol style="list-style-type: decimal">
-<li><p>An important assumption is that the milestones “measure the same thing”, or put differently, are manifestations of an underlying continuous latent variable that can be measured by empirical observations. Unit-based measurement won’t work if there is no sensible latent scale.</p></li>
-<li><p>The portrayed advantages hold only if the discrepancies between the data and the model are relatively small. Since the simplest and most powerful measurement models are very strict, it is important to assess and increase the fit between data and model.</p></li>
-<li><p>The construction of unit-based measurement requires psychometric expertise, specialized computer software and considerable sample sizes.</p></li>
+<li><p>An important assumption is that the milestones “measure the same
+thing”, or put differently, are manifestations of an underlying
+continuous latent variable that can be measured by empirical
+observations. Unit-based measurement won’t work if there is no
+sensible latent scale.</p></li>
+<li><p>The portrayed advantages hold only if the discrepancies between the
+data and the model are relatively small. Since the simplest and most
+powerful measurement models are very strict, it is important to assess
+and increase the fit between data and model.</p></li>
+<li><p>The construction of unit-based measurement requires psychometric
+expertise, specialized computer software and considerable sample
+sizes.</p></li>
 </ol>
 </div>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-jacobusse2006">
-<p>Jacobusse, G., S. van Buuren, and P.H. Verkerk. 2006. “An Interval Scale for Development of Children Aged 0-2 Years.” <em>Statistics in Medicine</em> 25 (13): 2272–83. <a href="https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/" class="uri">https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/</a>.</p>
-</div>
-<div id="ref-jacobusse2007">
-<p>Jacobusse, G., and S. van Buuren. 2007. “Computerized Adaptive Testing for Measuring Development of Young Children.” <em>Statistics in Medicine</em> 26 (13): 2629–38. <a href="https://stefvanbuuren.name/publication/2007-01-01_jacobusse2007/" class="uri">https://stefvanbuuren.name/publication/2007-01-01_jacobusse2007/</a>.</p>
-</div>
-<div id="ref-vanbuuren2014">
-<p>van Buuren, S. 2014. “Growth Charts of Human Development.” <em>Statistical Methods in Medical Research</em> 23 (4): 346–68. <a href="https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/" class="uri">https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/</a>.</p>
+<p>Jacobusse, G., S. van Buuren, and P.H. Verkerk. 2006. “An Interval Scale for Development of Children Aged 0-2 Years.” <em>Statistics in Medicine</em> 25 (13): 2272–83. <a href="https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/">https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/</a>.</p>
 </div>
 </div>
             </section>
@@ -26006,7 +26049,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

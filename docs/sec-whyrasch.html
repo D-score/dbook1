@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -259,11 +259,25 @@
 <div id="sec:whyrasch" class="section level2">
 <h2><span class="header-section-number">4.8</span> Why take the Rasch model?</h2>
 <ul>
-<li><p><em>Invariant measurement</em>: The Rasch model meets the five Engelhard criteria (c.f. Section <a href="sec-engelhard.html#sec:engelhard">4.7</a>).</p></li>
-<li><p><em>Interval scale</em>: When it fits, the Rasch model provides an interval scale, the de-facto requirement for any numerical comparisons (c.f. Section <a href="sec-unitbased.html#sec:motivationunit">3.3.1</a>).</p></li>
-<li><p><em>Parsimonious</em>: The Rasch model has one parameter for each item and one parameter for each person. It’s one of the most parsimonious IRT models, and can easily be applied to thousands of items and millions of persons.</p></li>
-<li><p><em>Specific objectivity</em>: Person and item parameters are mathematically separate entities in the Rasch model. In practice, this means that the estimated difference in ability between two persons does not depend on the difficulty of the test. Also, the estimated differences in difficulties between two items does not depend on the abilities in the calibration sample. The property is especially important in the analysis of combined data, where abilities can vary widely between sources. See <span class="citation">Rasch (<a href="#ref-rasch1977">1977</a>)</span> for derivations and examples.</p></li>
-<li><em>Unified model</em>: The Rasch model unifies distinct traditions in measurement theory. The Rasch model can be derived from
+<li><p><em>Invariant measurement</em>: The Rasch model meets the five Engelhard
+criteria (c.f. Section <a href="sec-engelhard.html#sec:engelhard">4.7</a>).</p></li>
+<li><p><em>Interval scale</em>: When it fits, the Rasch model provides an interval
+scale, the de-facto requirement for any numerical comparisons (c.f.
+Section <a href="sec-unitbased.html#sec:motivationunit">3.3.1</a>).</p></li>
+<li><p><em>Parsimonious</em>: The Rasch model has one parameter for each item and
+one parameter for each person. It’s one of the most parsimonious IRT
+models, and can easily be applied to thousands of items and millions
+of persons.</p></li>
+<li><p><em>Specific objectivity</em>: Person and item parameters are
+mathematically separate entities in the Rasch model. In practice, this
+means that the estimated difference in ability between two persons
+does not depend on the difficulty of the test. Also, the estimated
+differences in difficulties between two items does not depend on the
+abilities in the calibration sample. The property is especially
+important in the analysis of combined data, where abilities can vary
+widely between sources. See <span class="citation">Rasch (<a href="#ref-rasch1977">1977</a>)</span> for derivations and examples.</p></li>
+<li><em>Unified model</em>: The Rasch model unifies distinct traditions in
+measurement theory. The Rasch model can be derived from
 <ul>
 <li><a href="https://www.rasch.org/rmt/rmt143g.htm">Thorndike’s 1904 criteria</a></li>
 <li><a href="https://www.rasch.org/rmt/rmt63e.htm">Guttman scalogram model</a></li>
@@ -273,7 +287,9 @@
 <li><a href="https://www.rasch.org/rmt/rmt21b.htm">Campbell concatenation</a></li>
 <li><a href="https://www.rasch.org/rmt/rmt11a.htm">Rasch’s specific objectivity</a></li>
 </ul></li>
-<li><p><em>Fits child development data</em>: Last but not least, as we will see in Chapter <a href="ch-evaluation.html#ch:evaluation">6</a>, the Rasch model provides excellent fit to child development milestones.</p></li>
+<li><p><em>Fits child development data</em>: Last but not least, as we will see
+in Chapter <a href="ch-evaluation.html#ch:evaluation">6</a>, the Rasch model provides excellent fit to
+child development milestones.</p></li>
 </ul>
 
 </div>
@@ -281,7 +297,7 @@
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-rasch1977">
-<p>Rasch, G. 1977. “On Specific Objectivity: An Attempt at Formalizing the Request for Generality and Validity of Scientific Statements.” <em>The Danish Yearbook of Philosophy</em> 14: 58–93. <a href="https://www.rasch.org/memo18.htm" class="uri">https://www.rasch.org/memo18.htm</a>.</p>
+<p>Rasch, G. 1977. “On Specific Objectivity: An Attempt at Formalizing the Request for Generality and Validity of Scientific Statements.” <em>The Danish Yearbook of Philosophy</em> 14: 58–93. <a href="https://www.rasch.org/memo18.htm">https://www.rasch.org/memo18.htm</a>.</p>
 </div>
 </div>
             </section>
@@ -340,7 +356,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

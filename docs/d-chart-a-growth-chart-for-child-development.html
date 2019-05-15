@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,12 +258,19 @@
             <section class="normal" id="section-">
 <div id="d-chart-a-growth-chart-for-child-development" class="section level2">
 <h2><span class="header-section-number">10.2</span> <span class="math inline">\(D\)</span>-chart, a growth chart for child development</h2>
-<p>The field of child growth and development roughly divides into two areas:</p>
+<p>The field of child growth and development roughly divides into two
+areas:</p>
 <ul>
-<li><p>The subfield <em>child growth</em> (or <em>auxology</em>) emphasizes body measures like height, weight, body mass index, and so on. It is a rigorous quantitative science with intimate ties to statistics since the days of Quetelet and Galton.</p></li>
-<li><p>The subfield <em>child development</em> is more recent and builds upon a wide-ranging set of domain-specific instruments for measuring motor, language, cognitive and behavioral states.</p></li>
+<li><p>The subfield <em>child growth</em> (or <em>auxology</em>) emphasizes body measures
+like height, weight, body mass index, and so on. It is a rigorous
+quantitative science with intimate ties to statistics since the days
+of Quetelet and Galton.</p></li>
+<li><p>The subfield <em>child development</em> is more recent and builds upon a
+wide-ranging set of domain-specific instruments for measuring motor,
+language, cognitive and behavioral states.</p></li>
 </ul>
-<p>The <em>growth chart</em> is a widely used tool to monitor physical growth. The <span class="math inline">\(D\)</span>-score can be used in a similar way to create the <em><span class="math inline">\(D\)</span>-chart</em>.</p>
+<p>The <em>growth chart</em> is a widely used tool to monitor physical growth.
+The <span class="math inline">\(D\)</span>-score can be used in a similar way to create the <em><span class="math inline">\(D\)</span>-chart</em>.</p>
 <div class="figure" style="text-align: center"><span id="fig:dchart"></span>
 <img src="dbook1_files/figure-html/dchart-1.png" alt="\(D\)-chart with five children from the SMOCC study." width="672" />
 <p class="caption">
@@ -271,8 +278,15 @@ Figure 10.1: <span class="math inline">\(D\)</span>-chart with five children fro
 </p>
 </div>
 
-<p>Figure <a href="d-chart-a-growth-chart-for-child-development.html#fig:dchart">10.1</a> shows developmental trajectories of five randomly chosen children from the SMOCC study. Note that the trajectory can be created even though the milestones are different at different ages. The trajectory may help to track development of a child on a periodic basis.</p>
-<p>The <span class="math inline">\(D\)</span>-chart shows that it is straightforward to apply quantitative techniques from child growth to child development. Our hope is that <span class="math inline">\(D\)</span>-score aids in bridging the somewhat disparate subfields of child growth and child development.</p>
+<p>Figure <a href="d-chart-a-growth-chart-for-child-development.html#fig:dchart">10.1</a> shows developmental trajectories of five
+randomly chosen children from the SMOCC study. Note that the
+trajectory can be created even though the milestones are different at
+different ages. The trajectory may help to track development of a
+child on a periodic basis.</p>
+<p>The <span class="math inline">\(D\)</span>-chart shows that it is straightforward to apply quantitative
+techniques from child growth to child development. Our hope is that
+<span class="math inline">\(D\)</span>-score aids in bridging the somewhat disparate subfields of child
+growth and child development.</p>
 </div>
             </section>
 
@@ -330,7 +344,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

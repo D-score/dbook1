@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -259,14 +259,23 @@
 <div id="sec:smoccstudy" class="section level2">
 <h2><span class="header-section-number">9.1</span> SMOCC study</h2>
 <div class="figure" style="text-align: center"><span id="fig:smoccda9"></span>
-<img src="dbook1_files/figure-html/smoccda9-1.png" alt="Distribution of \(D\)-score and DAZ by child age in a cohort of Dutch children aged 0-2 years (Source: SMOCC data, \(n\) = 2151, 9 occasions)." width="672" />
+<img src="dbook1_files/figure-html/smoccda9-1.png" alt="(ref:smoccda9)" width="672" />
 <p class="caption">
-Figure 9.1: Distribution of <span class="math inline">\(D\)</span>-score and DAZ by child age in a cohort of Dutch children aged 0-2 years (Source: SMOCC data, <span class="math inline">\(n\)</span> = 2151, 9 occasions).
+Figure 9.1: (ref:smoccda9)
 </p>
 </div>
-
-<p>Figure <a href="sec-smoccstudy.html#fig:smoccda9">9.1</a> shows the <span class="math inline">\(D\)</span>-score distribution by age in the SMOCC data. The grey curves represent references calculated from the SMOCC data. The top figure illustrates that rise of the <span class="math inline">\(D\)</span>-score with age, whereas the bottom figure shows that the DAZ distribution covers the references well.</p>
-<p>The undercoverage after the age of 24 months is caused by the ceiling effect. There are also less prominent ceiling effects at the earlier ages. Without these effect, the references would presumably show some additional variation.</p>
+<p>(ref:smoccda9) Distribution of <span class="math inline">\(D\)</span>-score and DAZ by child age in a
+cohort of Dutch children aged 0-2 years (Source: SMOCC data, <span class="math inline">\(n\)</span> =
+2151, 9 occasions).</p>
+<p>Figure <a href="sec-smoccstudy.html#fig:smoccda9">9.1</a> shows the <span class="math inline">\(D\)</span>-score distribution by age in
+the SMOCC data. The grey curves represent references calculated from
+the SMOCC data. The top figure illustrates that rise of the <span class="math inline">\(D\)</span>-score
+with age, whereas the bottom figure shows that the DAZ distribution
+covers the references well.</p>
+<p>The undercoverage after the age of 24 months is caused by the ceiling
+effect. There are also less prominent ceiling effects at the earlier
+ages. Without these effect, the references would presumably show some
+additional variation.</p>
 </div>
             </section>
 
@@ -324,7 +333,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

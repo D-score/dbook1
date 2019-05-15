@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,13 +260,33 @@
 <h2><span class="header-section-number">5.4</span> Age-conditional references</h2>
 <div id="motivation" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Motivation</h3>
-<p>The last step involves estimation an age-conditional reference distribution for the <span class="math inline">\(D\)</span>-score. This distribution can be used to construct growth charts that portray the normal variation in development. In addition, the references can be used to calculate age-standarized <span class="math inline">\(D\)</span>-scores, called DAZ, that emphasize the location of the measurement in comparison to age peers.</p>
-<p>Estimation of reference centiles is fairly standard. Here we follow <span class="citation">van Buuren (<a href="#ref-vanbuuren2014">2014</a>)</span> to fit age-conditional references of the <span class="math inline">\(D\)</span>-score for boys and girls combined by the LMS method. The LMS method by <span class="citation">Cole and Green (<a href="#ref-cole1992">1992</a>)</span> assumes that the outcome has a normal distribution after a Box-Cox transformation. The reference distribution has three parameters, which model respectively the location (<span class="math inline">\(M\)</span>), the spread (<span class="math inline">\(S\)</span>), and the skewness (<span class="math inline">\(L\)</span>) of the distribution. Each of the three parameters can vary smoothly with age.</p>
+<p>The last step involves estimation an age-conditional reference
+distribution for the <span class="math inline">\(D\)</span>-score. This distribution can be used to
+construct growth charts that portray the normal variation in
+development. In addition, the references can be used to calculate
+age-standarized <span class="math inline">\(D\)</span>-scores, called DAZ, that emphasize the location of
+the measurement in comparison to age peers.</p>
+<p>Estimation of reference centiles is fairly standard. Here we follow
+<span class="citation">van Buuren (<a href="#ref-vanbuuren2014">2014</a>)</span> to fit age-conditional references of the <span class="math inline">\(D\)</span>-score for
+boys and girls combined by the LMS method. The LMS method by <span class="citation">Cole and Green (<a href="#ref-cole1992">1992</a>)</span>
+assumes that the outcome has a normal distribution after a Box-Cox
+transformation. The reference distribution has three parameters, which
+model respectively the location (<span class="math inline">\(M\)</span>), the spread (<span class="math inline">\(S\)</span>), and the
+skewness (<span class="math inline">\(L\)</span>) of the distribution. Each of the three parameters can
+vary smoothly with age.</p>
 </div>
 <div id="estimation-of-the-reference-distribution" class="section level3">
 <h3><span class="header-section-number">5.4.2</span> Estimation of the reference distribution</h3>
-<p>The parameters are estimated using the BCCG distribution of <code>gamlss 5.1-3</code> (<span class="citation">Stasinopoulos and Rigby (<a href="#ref-stasinopoulos2007">2007</a>)</span>) using cubic splines smoothers. The final solution used a log-transformed age scale and fitted the model with smoothing parameters <span class="math inline">\(\mathrm{df}(M)=2\)</span>, <span class="math inline">\(\mathrm{df}(S)=2\)</span> and <span class="math inline">\(\mathrm{df}(L)=1\)</span>.</p>
-<p>Figure <a href="sec-aged.html#fig:smoccda">4.3</a> plots the <span class="math inline">\(D\)</span>-scores together with five grey lines, corresponding to the centiles -2SD (P2), -1SD (P16), 0SD (P50), +1SD (P84) and +2SD (P98). The area between the -2SD and +2SD lines delineates the <span class="math inline">\(D\)</span>-score expected if development is normal. Note that the shape of the reference is quite similar to that of weight and height, with rapid growth occurring in the first few months.</p>
+<p>The parameters are estimated using the BCCG distribution of <code>gamlss 5.1-3</code> (<span class="citation">Stasinopoulos and Rigby (<a href="#ref-stasinopoulos2007">2007</a>)</span>) using cubic splines smoothers. The final
+solution used a log-transformed age scale and fitted the model with
+smoothing parameters <span class="math inline">\(\mathrm{df}(M)=2\)</span>, <span class="math inline">\(\mathrm{df}(S)=2\)</span> and
+<span class="math inline">\(\mathrm{df}(L)=1\)</span>.</p>
+<p>Figure <a href="sec-aged.html#fig:smoccda">4.3</a> plots the <span class="math inline">\(D\)</span>-scores together with five grey
+lines, corresponding to the centiles -2SD (P2), -1SD (P16), 0SD (P50),
++1SD (P84) and +2SD (P98). The area between the -2SD and +2SD lines
+delineates the <span class="math inline">\(D\)</span>-score expected if development is normal. Note that
+the shape of the reference is quite similar to that of weight and
+height, with rapid growth occurring in the first few months.</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -2744,16 +2764,26 @@ L
 </table>
 </div>
 <p> </p>
-<p>Table <a href="sec-reference.html#tab:reftable">5.4</a> defines age-conditional references for Dutch children as the <span class="math inline">\(M\)</span>-curve (median), <span class="math inline">\(S\)</span>-curve (spread) and <span class="math inline">\(L\)</span>-curve (skewness) by age. This table can be used to calculate centile lines and <span class="math inline">\(Z\)</span>-scores.</p>
-<p>The references are purely cross-sectional. The correlation structure over time is not taken into account. For prediction purposes, it is useful to extend the modeling to include velocities and change scores.</p>
+<p>Table <a href="sec-reference.html#tab:reftable">5.4</a> defines age-conditional references for Dutch
+children as the <span class="math inline">\(M\)</span>-curve (median), <span class="math inline">\(S\)</span>-curve (spread) and <span class="math inline">\(L\)</span>-curve
+(skewness) by age. This table can be used to calculate centile lines
+and <span class="math inline">\(Z\)</span>-scores.</p>
+<p>The references are purely cross-sectional. The correlation structure
+over time is not taken into account. For prediction purposes, it is
+useful to extend the modeling to include velocities and change scores.</p>
 </div>
 <div id="conversion-of-d-to-daz-and-vice-versa" class="section level3">
 <h3><span class="header-section-number">5.4.3</span> Conversion of <span class="math inline">\(D\)</span> to DAZ, and vice versa</h3>
-<p>Suppose that <span class="math inline">\(M_t\)</span>, <span class="math inline">\(S_t\)</span> and <span class="math inline">\(L_t\)</span> are the parameter values at age <span class="math inline">\(t\)</span>. <span class="citation">Cole (<a href="#ref-cole1988">1988</a>)</span> shows that the transformation</p>
+<p>Suppose that <span class="math inline">\(M_t\)</span>, <span class="math inline">\(S_t\)</span> and <span class="math inline">\(L_t\)</span> are the parameter values at age
+<span class="math inline">\(t\)</span>. <span class="citation">Cole (<a href="#ref-cole1988">1988</a>)</span> shows that the transformation</p>
 <p><span class="math display">\[Z=\frac{(D_t/M_t)^{L_t}-1}{L_t S_t}\]</span></p>
 <p>converts measurement <span class="math inline">\(D_t\)</span> into its normal equivalent deviate <span class="math inline">\(Z\)</span>. If <span class="math inline">\(L_t\)</span> is close to zero, we use</p>
 <p><span class="math display">\[Z=\frac{\ln(D_t/M_t)}{S_t}\]</span></p>
-<p>Any required centile curve can be derived from Table . First, choose <span class="math inline">\(Z_\alpha\)</span> as the <span class="math inline">\(Z\)</span>-score below which <span class="math inline">\(100\alpha\)</span> percent of the distribution is located, for example,  <span class="math inline">\(Z_{0.05}=-1.64\)</span>. The <span class="math inline">\(D\)</span>-score that defines the <span class="math inline">\(100\alpha\)</span> centile is equal to</p>
+<p>Any required centile curve can be derived from Table
+. First, choose <span class="math inline">\(Z_\alpha\)</span> as the <span class="math inline">\(Z\)</span>-score below
+which <span class="math inline">\(100\alpha\)</span> percent of the distribution is located, for example,
+ <span class="math inline">\(Z_{0.05}=-1.64\)</span>. The <span class="math inline">\(D\)</span>-score that defines the <span class="math inline">\(100\alpha\)</span> centile
+is equal to</p>
 <p><span class="math display">\[D_t(\alpha) = M_t (1+L_t S_t Z_\alpha)^{1/L_t}\]</span></p>
 <p>If <span class="math inline">\(L_t\)</span> is close to zero, we use</p>
 <p><span class="math display">\[D_t(\alpha)= M_t \exp(S_t Z_\alpha).\]</span></p>
@@ -2764,13 +2794,13 @@ L
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-vanbuuren2014">
-<p>van Buuren, S. 2014. “Growth Charts of Human Development.” <em>Statistical Methods in Medical Research</em> 23 (4): 346–68. <a href="https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/" class="uri">https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/</a>.</p>
+<p>van Buuren, S. 2014. “Growth Charts of Human Development.” <em>Statistical Methods in Medical Research</em> 23 (4): 346–68. <a href="https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/">https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/</a>.</p>
 </div>
 <div id="ref-cole1992">
 <p>Cole, T. J., and P. J. Green. 1992. “Smoothing Reference Centile Curves: The LMS Method and Penalized Likelihood.” <em>Statistics in Medicine</em> 11 (10): 1305–19.</p>
 </div>
 <div id="ref-stasinopoulos2007">
-<p>Stasinopoulos, D., and R. Rigby. 2007. “Generalized Additive Models for Location Scale and Shape (GAMLSS) in R.” <em>Journal of Statistical Software</em> 23 (7): 1–46. doi:<a href="https://doi.org/10.18637/jss.v023.i07">10.18637/jss.v023.i07</a>.</p>
+<p>Stasinopoulos, D., and R. Rigby. 2007. “Generalized Additive Models for Location Scale and Shape (GAMLSS) in R.” <em>Journal of Statistical Software</em> 23 (7): 1–46. <a href="https://doi.org/10.18637/jss.v023.i07">https://doi.org/10.18637/jss.v023.i07</a>.</p>
 </div>
 <div id="ref-cole1988">
 <p>Cole, T. J. 1988. “Fitting Smoothed Centile Curves to Reference Data (with Discussion).” <em>J. Roy. Statist. Soc. Ser. A</em> 151: 385–418.</p>
@@ -2832,7 +2862,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

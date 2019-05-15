@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,38 +260,61 @@
 <h2><span class="header-section-number">8.3</span> Impact of short tests on predicting IQ</h2>
 <div id="measurement-and-prediction" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Measurement and prediction</h3>
-<p>In Section <a href="sec-comparingd.html#sec:comparingd">8.2</a> we saw that a short test can measure the middle or one tail of the distribution, but cannot be precise for both at the same time. If we want to identify children at risk for delayed development, we are interested in the lower tail of the distribution, so in that case the <em>standard</em> set is suitable. But what set should we use if we want to predict a later outcome?</p>
-<p>This section explores that effect of taking different milestone sets on the quality of prediction.</p>
+<p>In Section <a href="sec-comparingd.html#sec:comparingd">8.2</a> we saw that a short test can measure
+the middle or one tail of the distribution, but cannot be precise for
+both at the same time. If we want to identify children at risk for
+delayed development, we are interested in the lower tail of the
+distribution, so in that case the <em>standard</em> set is suitable. But what
+set should we use if we want to predict a later outcome?</p>
+<p>This section explores that effect of taking different milestone sets
+on the quality of prediction.</p>
 </div>
 <div id="ukki" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> UKKI</h3>
-<p><span class="citation">Hafkamp-de Groen et al. (<a href="#ref-hafkamp2009">2009</a>)</span> studied the effect of the <span class="math inline">\(D\)</span>-score on later intelligence, using a subset of 557 SMOCC children that were followed up at the age of five years.</p>
-<p>Intelligence was measured by the Utrechtse Korte Kleuter Intelligentietest (UKKI) <span class="citation">(Baarda <a href="#ref-baarda1978">1978</a>)</span>. The UKKI is a simple test with just three components:</p>
+<p><span class="citation">Hafkamp-de Groen et al. (<a href="#ref-hafkamp2009">2009</a>)</span> studied the effect of the <span class="math inline">\(D\)</span>-score on later intelligence,
+using a subset of 557 SMOCC children that were followed up at the age
+of five years.</p>
+<p>Intelligence was measured by the Utrechtse Korte Kleuter
+Intelligentietest (UKKI) <span class="citation">(Baarda <a href="#ref-baarda1978">1978</a>)</span>. The UKKI is a simple test with
+just three components:</p>
 <ul>
 <li><p>Redraw five figures (square, triangle, cross, trapezoid, rhomboid);</p></li>
 <li><p>Draw human figure, with 28 characteristics, like legs, eyes, and so on;</p></li>
 <li><p>Give meaning to 13 words like knife, banana, umbrella, and so on.</p></li>
 </ul>
-<p>Administration time is about 15-20 minutes. The UKKI has a reasonable test-retest reliability for group use (Pearson <span class="math inline">\(r = 0.74\)</span>, 3-month interval).</p>
+<p>Administration time is about 15-20 minutes. The UKKI has a reasonable
+test-retest reliability for group use (Pearson <span class="math inline">\(r = 0.74\)</span>, 3-month
+interval).</p>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3><span class="header-section-number">8.3.3</span> Exploratory analysis</h3>
 <div class="figure" style="text-align: center"><span id="fig:histiq"></span>
-<img src="dbook1_files/figure-html/histiq-1.png" alt="Histogram of UKKI IQ scores taken around the age of five years (SMOCC data, \(n = 557\))." width="672" />
+<img src="dbook1_files/figure-html/histiq-1.png" alt="(ref:histiq)" width="672" />
 <p class="caption">
-Figure 8.5: Histogram of UKKI <em>IQ</em> scores taken around the age of five years (SMOCC data, <span class="math inline">\(n = 557\)</span>).
+Figure 8.5: (ref:histiq)
 </p>
 </div>
-
-<p>Figure <a href="sec-predictiq.html#fig:histiq">8.5</a> shows the empirical IQ distribution of 557 children. The mean IQ score is 108 and the standard deviation is 15, so the IQ-scores of children in the sample is about a half standard deviation above the 1978 reference sample.</p>
+<p>(ref:histiq) Histogram of UKKI <em>IQ</em> scores taken around the age of
+five years (SMOCC data, <span class="math inline">\(n = 557\)</span>).</p>
+<p>Figure <a href="sec-predictiq.html#fig:histiq">8.5</a> shows the empirical IQ distribution of 557
+children. The mean IQ score is 108 and the standard deviation is 15,
+so the IQ-scores of children in the sample is about a half standard
+deviation above the 1978 reference sample.</p>
 <div class="figure" style="text-align: center"><span id="fig:plotdiq"></span>
-<img src="dbook1_files/figure-html/plotdiq-1.png" alt="Relation between \(D\)-score at infancy and IQ at age 5 years according to three milestone sets and nine visits (SMOCC data, \(n = 557\))." width="672" />
+<img src="dbook1_files/figure-html/plotdiq-1.png" alt="(ref:plotdiq)" width="672" />
 <p class="caption">
-Figure 8.6: Relation between <span class="math inline">\(D\)</span>-score at infancy and <em>IQ</em> at age 5 years according to three milestone sets and nine visits (SMOCC data, <span class="math inline">\(n = 557\)</span>).
+Figure 8.6: (ref:plotdiq)
 </p>
 </div>
-
-<p>Figure <a href="sec-predictiq.html#fig:plotdiq">8.6</a> shows that the relation between the <span class="math inline">\(D\)</span>-score 0-2 years and IQ at 5 years is positive for all milestone sets and for all ages. The strength of the relation increases with age. At the age of 2 years, the regression coefficient for <span class="math inline">\(D\)</span>-score is equal to <span class="math inline">\(\beta(D) = 1.4\)</span> (SE: <span class="math inline">\(0.21, p &lt; 0.0001\)</span>), so on average an increase of 1.0 unit in the <span class="math inline">\(D\)</span>-score at the age of 2 years corresponds to a 1.4 IQ-score points increase at the age 5 years.</p>
+<p>(ref:plotdiq) Relation between <span class="math inline">\(D\)</span>-score at infancy and <em>IQ</em> at age 5 years
+according to three milestone sets and nine visits (SMOCC data, <span class="math inline">\(n = 557\)</span>).</p>
+<p>Figure <a href="sec-predictiq.html#fig:plotdiq">8.6</a> shows that the relation between the
+<span class="math inline">\(D\)</span>-score 0-2 years and IQ at 5 years is positive for all milestone
+sets and for all ages. The strength of the relation increases with
+age. At the age of 2 years, the regression coefficient for <span class="math inline">\(D\)</span>-score
+is equal to <span class="math inline">\(\beta(D) = 1.4\)</span> (SE: <span class="math inline">\(0.21, p &lt; 0.0001\)</span>), so on average
+an increase of 1.0 unit in the <span class="math inline">\(D\)</span>-score at the age of 2 years
+corresponds to a 1.4 IQ-score points increase at the age 5 years.</p>
 <table>
 <caption>
 <span id="tab:cordiq">Table 8.2: </span>Pearson correlation between D-score (0-2 years) and IQ at 5 years
@@ -441,8 +464,16 @@ All milestones
 </tr>
 </tbody>
 </table>
-<p>Table <a href="sec-predictiq.html#tab:cordiq">8.2</a> summarizes the Pearson correlations between the <span class="math inline">\(D\)</span>-score and later IQ. The association between <span class="math inline">\(D\)</span>-score and IQ is weak during the first year of life, but gets stronger during the second year. In general, having more (and more informative) milestones helps to increase the correlation, but the effects are relatively small. So even from the standard set of the seven easy milestones at 24m we obtain a reasonable correlation of 0.245.</p>
-<p>All in all, these results suggest that neither the amount nor the difficulty level of the milestones are critical in determining the strength of the relation between the <span class="math inline">\(D\)</span>-score and IQ.</p>
+<p>Table <a href="sec-predictiq.html#tab:cordiq">8.2</a> summarizes the Pearson correlations between
+the <span class="math inline">\(D\)</span>-score and later IQ. The association between <span class="math inline">\(D\)</span>-score and IQ
+is weak during the first year of life, but gets stronger during the
+second year. In general, having more (and more informative) milestones
+helps to increase the correlation, but the effects are relatively
+small. So even from the standard set of the seven easy milestones at
+24m we obtain a reasonable correlation of 0.245.</p>
+<p>All in all, these results suggest that neither the amount nor the
+difficulty level of the milestones are critical in determining the
+strength of the relation between the <span class="math inline">\(D\)</span>-score and IQ.</p>
 
 </div>
 </div>
@@ -512,7 +543,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

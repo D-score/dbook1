@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,11 +260,19 @@
 <h2><span class="header-section-number">3.1</span> Age-based measurement of development</h2>
 <div id="motivation-for-age-based-measurement" class="section level3">
 <h3><span class="header-section-number">3.1.1</span> Motivation for age-based measurement</h3>
-<p>The motivation for measuring child development is to be able to describe the behavior expected at a selected age. <span class="citation">Gesell (<a href="#ref-gesell1943">1943</a>)</span> (p. 89) formulates this goal as follows:</p>
+<p>The motivation for measuring child development is to be able to
+describe the behavior expected at a selected age. <span class="citation">Gesell (<a href="#ref-gesell1943">1943</a>)</span> (p. 89)
+formulates this goal as follows:</p>
 <blockquote>
-<p>We think of behavior in terms of age, and we think of age in terms of behavior. For any selected age it is possible to sketch a portrait which delineates the behavior characteristics typical of the age.</p>
+<p>We think of behavior in terms of age, and we think of age in terms
+of behavior. For any selected age it is possible to sketch a portrait
+which delineates the behavior characteristics typical of the age.</p>
 </blockquote>
-<p>There is a large literature that quantifies development in terms of ages at which the child is expected to show a specific behavior. For example, in Shirley’s motor data in <a href="sec-motorexample.html#tab:shirley">2.1</a>, we may summarize the ages at which each of the 21 children enters a given stage.</p>
+<p>There is a large literature that quantifies development in terms of
+ages at which the child is expected to show a specific behavior. For
+example, in Shirley’s motor data in <a href="sec-motorexample.html#tab:shirley">2.1</a>, we may
+summarize the ages at which each of the 21 children enters a given
+stage.</p>
 <div class="figure" style="text-align: center"><span id="fig:agebased"></span>
 <img src="dbook1_files/figure-html/agebased-1.png" alt="Ages at which 21 children achieve four motor development milestones." width="672" />
 <p class="caption">
@@ -275,9 +283,14 @@ Figure 3.1: Ages at which 21 children achieve four motor development milestones.
 </div>
 <div id="sec:ageequivalent" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Age equivalent as difficulty</h3>
-<p>Since age and development are so intimately related, the <em>difficulty</em> of a given developmental milestone is traditionally expressed in terms of the age at which children achieve it. For example, <span class="citation">Stott (<a href="#ref-stott1967">1967</a>)</span> (p. 25) defines the <em>age equivalent</em> and its use for measurement, as follows:</p>
+<p>Since age and development are so intimately related, the <em>difficulty</em>
+of a given developmental milestone is traditionally expressed in terms
+of the age at which children achieve it. For example,
+<span class="citation">Stott (<a href="#ref-stott1967">1967</a>)</span> (p. 25) defines the <em>age equivalent</em> and its use for
+measurement, as follows:</p>
 <blockquote>
-<p>The age equivalent of a particular stage is simply the average age at which children reach that particular stage.</p>
+<p>The age equivalent of a particular stage is simply the average age
+at which children reach that particular stage.</p>
 </blockquote>
 <div class="figure" style="text-align: center"><span id="fig:agebox"></span>
 <img src="dbook1_files/figure-html/agebox-1.png" alt="Boxplot and mean (symbol x) of the ages at which 21 children achieve four motor development milestones." width="672" />
@@ -286,16 +299,31 @@ Figure 3.2: Boxplot and mean (symbol <code>x</code>) of the ages at which 21 chi
 </p>
 </div>
 
-<p>Figure <a href="sec-agebased.html#fig:agebox">3.2</a> adds the boxplot and the mean age at which the children enter the four stages. The difficulty of the stages can thus be expressed as age equivalents: 16.1 weeks for stepping, 27.2 weeks for standing, 43.3 weeks for walking with help and 63.3 weeks for walking alone.</p>
-<p>Alternatives to the mean age equivalent include the ages at which 10, 50 or 90 percent of the children achieve the milestone. This line of reasoning has led to the widely used concept of <em>developmental age</em> as a measure of a child’s development (in body size or motor skill or psychological function) expressed in terms of age norms.</p>
+<p>Figure <a href="sec-agebased.html#fig:agebox">3.2</a> adds the boxplot and the mean age at which the
+children enter the four stages. The difficulty of the stages can thus
+be expressed as age equivalents: 16.1 weeks for stepping, 27.2 weeks
+for standing, 43.3 weeks for walking with help and 63.3 weeks for
+walking alone.</p>
+<p>Alternatives to the mean age equivalent include the ages at which 10,
+50 or 90 percent of the children achieve the milestone. This line of
+reasoning has led to the widely used concept of <em>developmental age</em> as
+a measure of a child’s development (in body size or motor skill or
+psychological function) expressed in terms of age norms.</p>
 </div>
 <div id="limitations-of-age-based-measurement" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Limitations of age-based measurement</h3>
-<p>Age-based measurement is easy to understand, but is not without pitfalls:</p>
+<p>Age-based measurement is easy to understand, but is not without
+pitfalls:</p>
 <ol style="list-style-type: decimal">
-<li><p>Age-based measurement can inform us whether a child is earlier or later for a given milestone. However, it does not tell us what behaviors are characteristic for a child of a given age.</p></li>
-<li><p>Age-based measurement cannot exists without an age norm. When there are no norms, we cannot quantify development. Age-based measurement intertwines quantification of development with evaluation of development.</p></li>
-<li><p>Age-based measurement only works at the milestone level, and is cumbersome to apply with multiple milestones.</p></li>
+<li><p>Age-based measurement can inform us whether a child is earlier or
+later for a given milestone. However, it does not tell us what
+behaviors are characteristic for a child of a given age.</p></li>
+<li><p>Age-based measurement cannot exists without an age norm. When there
+are no norms, we cannot quantify development. Age-based measurement
+intertwines quantification of development with evaluation of
+development.</p></li>
+<li><p>Age-based measurement only works at the milestone level, and is
+cumbersome to apply with multiple milestones.</p></li>
 </ol>
 </div>
 </div>
@@ -305,7 +333,7 @@ Figure 3.2: Boxplot and mean (symbol <code>x</code>) of the ages at which 21 chi
 <p>Gesell, A. 1943. <em>Infant and Child in the Culture of Today</em>. Los Angeles, CA: Read Book Ltd.</p>
 </div>
 <div id="ref-stott1967">
-<p>Stott, L.H. 1967. <em>Child Development. an Individual Longitudinal Approach</em>. New York, NJ: Holt, Rinehart; Winston, Inc.</p>
+<p>Stott, L.H. 1967. <em>Child Development. An Individual Longitudinal Approach</em>. New York, NJ: Holt, Rinehart; Winston, Inc.</p>
 </div>
 </div>
             </section>
@@ -364,7 +392,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,9 +260,17 @@
 <h2><span class="header-section-number">6.4</span> Item information</h2>
 <div id="item-information-at-a-given-ability" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Item information at a given ability</h3>
-<p>Items are generally sensitive to only a part of the ability scale. Item information is a psychometric measure that quantifies how informative the item is at different levels of ability. Item information can be plotted as a curve for each item.</p>
-<p>The formula to obtain the item information is the first derivative of the item response curve and can be written as follows:</p>
-<p><span class="math display">\[I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))\]</span> where <span class="math inline">\(P(\hat\delta_i)\)</span> is the conditional probability of endorsing item <span class="math inline">\(i\)</span>, and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated item difficulty in the logit scale. For example for milestone <code>ddicmm039</code> (“Says three words”) <span class="math inline">\(\hat\delta_i\)</span> equals <span class="math inline">\(4.06\)</span>.</p>
+<p>Items are generally sensitive to only a part of the ability scale.
+Item information is a psychometric measure that quantifies how
+informative the item is at different levels of ability. Item
+information can be plotted as a curve for each item.</p>
+<p>The formula to obtain the item information is the first derivative of
+the item response curve and can be written as follows:</p>
+<p><span class="math display">\[I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))\]</span>
+where <span class="math inline">\(P(\hat\delta_i)\)</span> is the conditional probability of endorsing
+item <span class="math inline">\(i\)</span>, and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated item difficulty in
+the logit scale. For example for milestone <code>ddicmm039</code> (“Says three
+words”) <span class="math inline">\(\hat\delta_i\)</span> equals <span class="math inline">\(4.06\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:iic"></span>
 <img src="dbook1_files/figure-html/iic-1.png" alt="The item information curve for two milestones from the DDI." width="672" />
 <p class="caption">
@@ -270,15 +278,20 @@ Figure 6.8: The item information curve for two milestones from the DDI.
 </p>
 </div>
 
-<p>Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> displays the item information curves for two milestones from the DDI. Note that the amount of information for the item is maximal around the item difficulty.</p>
-<p>The probability of endorsing milestone <code>ddicmm039</code> for a child with an ability of <span class="math inline">\(2\)</span> logits is</p>
+<p>Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> displays the item information curves for two
+milestones from the DDI. Note that the amount of information
+for the item is maximal around the item difficulty.</p>
+<p>The probability of endorsing milestone <code>ddicmm039</code> for a child
+with an ability of <span class="math inline">\(2\)</span> logits is</p>
 <p><span class="math display">\[P_{ni}= \frac{\exp(2 - 4.06)}{1+\exp(2-4.06)} = 0.113\]</span></p>
 <p>At this ability level, milestone <code>ddicmm039</code> has information</p>
 <p><span class="math display">\[I(\hat\delta_i)=0.113 \times (1-0.113) = 0.10\]</span></p>
 </div>
 <div id="item-information-at-a-given-age" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Item information at a given age</h3>
-<p>In practice, it is often interesting to express the item information against age. By doing so, one can identify at what ages an item provides the most information.</p>
+<p>In practice, it is often interesting to express the item information
+against age. By doing so, one can identify at what ages an item
+provides the most information.</p>
 <div class="figure" style="text-align: center"><span id="fig:iia"></span>
 <img src="dbook1_files/figure-html/iia-1.png" alt="Information information of Figure 6.8 plotted against age." width="672" />
 <p class="caption">
@@ -286,9 +299,27 @@ Figure 6.9: Information information of Figure <a href="sec-iteminformation.html#
 </p>
 </div>
 
-<p>Figure <a href="sec-iteminformation.html#fig:iia">6.9</a> shows that the sensitive age ranges differ considerably between items. Using 0.05 as a criterion, milestone <code>ddigmm060</code> is sensitive between ages 4–8 months, whereas <code>ddicmm039</code> is sensitive between ages 10–19 months, a range that is about twice as broad. The symmetric nature of the curves in Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> is not present Figure <a href="sec-iteminformation.html#fig:iia">6.9</a>. In general, the relation between age and item sensitivity is more complex than the relation between ability and item sensitivity.</p>
-<p>The item information by age curve helps to determine at what ages the item can best be administered. The item will be most informative if administered at the age at which 50% of the children will pass the milestone, which is the point where the item information is equal to 0.5 * 0.5 = 0.25. Administering the item closely around that age provide the most efficient measurement of ability. When space is at premium (e.g. as in population surveys) using a well-chosen set of age-sensitive milestones will help in reducing the total number of milestones that needs to be measured.</p>
-<p>In other contexts, milestones may be used as a screening instrument to identify developmental delay. In that case, it is more efficient to administer items that are very easy for the age, e.g. milestones on which, say, 90% of the children will pass.</p>
+<p>Figure <a href="sec-iteminformation.html#fig:iia">6.9</a> shows that the sensitive age ranges differ
+considerably between items. Using 0.05 as a criterion, milestone
+<code>ddigmm060</code> is sensitive between ages 4–8 months, whereas <code>ddicmm039</code>
+is sensitive between ages 10–19 months, a range that is about twice
+as broad. The symmetric nature of the curves in Figure <a href="sec-iteminformation.html#fig:iic">6.8</a>
+is not present Figure <a href="sec-iteminformation.html#fig:iia">6.9</a>. In general, the relation between
+age and item sensitivity is more complex than the relation between
+ability and item sensitivity.</p>
+<p>The item information by age curve helps to determine at what ages the
+item can best be administered. The item will be most informative if
+administered at the age at which 50% of the children will pass the
+milestone, which is the point where the item information is equal to
+0.5 * 0.5 = 0.25. Administering the item closely around that age
+provide the most efficient measurement of ability. When space is at
+premium (e.g. as in population surveys) using a well-chosen set of
+age-sensitive milestones will help in reducing the total number of
+milestones that needs to be measured.</p>
+<p>In other contexts, milestones may be used as a screening instrument to
+identify developmental delay. In that case, it is more efficient to
+administer items that are very easy for the age, e.g. milestones on
+which, say, 90% of the children will pass.</p>
 </div>
 </div>
             </section>
@@ -347,7 +378,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
