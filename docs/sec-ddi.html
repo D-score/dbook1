@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,19 +260,44 @@
 <h2><span class="header-section-number">4.1</span> The Dutch Development Instrument (DDI)</h2>
 <div id="setting" class="section level3">
 <h3><span class="header-section-number">4.1.1</span> Setting</h3>
-<p>The Dutch Youth Health Care (YHC) routinely monitors development of almost all children living in The Netherlands. During the first four years, there are 13 scheduled visits. During these visits, the YHC professionals evaluate growth and development of the child.</p>
-<p>The <em>Dutch Development Instrument</em> (DDI; in Dutch: <em>Van Wiechenschema</em>) is the standard instrument used to measure development during the ages 0-4 years. The DDI consists of <a href="https://www.ncj.nl/van-wiechen/kenmerken/">75 milestones</a>. The instrument assesses three developmental domains:</p>
+<p>The Dutch Youth Health Care (YHC) routinely monitors development of
+almost all children living in The Netherlands. During the first four
+years, there are 13 scheduled visits. During these visits, the YHC
+professionals evaluate growth and development of the child.</p>
+<p>The <em>Dutch Development Instrument</em> (DDI; in Dutch: <em>Van Wiechenschema</em>)
+is the standard instrument used to measure development
+during the ages 0-4 years. The DDI consists of
+<a href="https://www.ncj.nl/van-wiechen/kenmerken/">75 milestones</a>.
+The instrument assesses three developmental domains:</p>
 <ol style="list-style-type: decimal">
 <li>Fine motor, adaptation, personality and social behavior;</li>
 <li>Communication</li>
 <li>Gross motor</li>
 </ol>
-<p>The milestones are organized on two <a href="https://www.ggdghorkennisnet.nl/?file=656&amp;m=1310474916&amp;action=file.download">forms</a>, one for children aged 0-15 months, and another for children ages 15-54 months. The YHC professionals administer an age-appropriate subset of milestones at each of the scheduled visits, thus building a <em>longitudinal developmental profile</em> for each child.</p>
+<p>The milestones are organized on two
+<a href="https://www.ggdghorkennisnet.nl/?file=656&amp;m=1310474916&amp;action=file.download">forms</a>,
+one for children aged 0-15 months, and another for children ages 15-54
+months. The YHC professionals administer an age-appropriate subset of
+milestones at each of the scheduled visits, thus building a
+<em>longitudinal developmental profile</em> for each child.</p>
 </div>
 <div id="sec:smocc" class="section level3">
 <h3><span class="header-section-number">4.1.2</span> Description of SMOCC study</h3>
-<p>The Social Medical Survey of Children Attending Child Health Clinics (SMOCC) study is a nationally representative cohort of 2,151 children born in The Netherlands during the years 1988–1989 <span class="citation">(Herngreen et al. <a href="#ref-herngreen1994">1994</a>)</span>. The study monitored child development using observations made on the DDI during nine visits covering the first 24 months of life. The SMOCC study collected information during the first two years on 57 (out of 75) milestones.</p>
-<p>The <em>standard</em> set in the DDI consists of relatively easy milestones that 90 percent of the children can pass at the scheduled age. This set is designed to have maximal sensitivity for picking up delays in development. A special feature of the SMOCC study was the inclusion of additional, and more difficult, milestones beyond the standard set. The <em>additional</em> milestones are taken as the set for the next time point. The success percentage on additional milestones is about 50 percent.</p>
+<p>The Social Medical Survey of Children Attending Child Health Clinics
+(SMOCC) study is a nationally representative cohort of 2,151
+children born in The Netherlands during the years 1988–1989
+<span class="citation">(Herngreen et al. <a href="#ref-herngreen1994">1994</a>)</span>. The study monitored child development using
+observations made on the DDI during nine visits covering the first 24
+months of life. The SMOCC study collected information during the first
+two years on 57 (out of 75) milestones.</p>
+<p>The <em>standard</em> set in the DDI consists of relatively easy milestones
+that 90 percent of the children can pass at the scheduled age. This
+set is designed to have maximal sensitivity for picking up delays in
+development. A special feature of the SMOCC study was the inclusion of
+additional, and more difficult, milestones beyond the standard set.
+The <em>additional</em> milestones are taken as the set for the next time
+point. The success percentage on additional milestones is about 50
+percent.</p>
 </div>
 <div id="codebook-of-ddi-0-30-months" class="section level3">
 <h3><span class="header-section-number">4.1.3</span> Codebook of DDI 0-30 months</h3>
@@ -1100,7 +1125,13 @@ Kicks ball
 </table>
 </div>
 <p> </p>
-<p>Table <a href="sec-ddi.html#tab:smoccitems">4.1</a> shows the 57 milestones from the DDI for ages 0 - 30 months as they were administered in the SMOCC study. Items are sorted according to <em>debut</em>, the age at which the item appears in the DDI. The response to each milestones is either a PASS (1) or a FAIL (0). Children who did not pass a milestone at the debut age were re-measured on that milestone during the next visit. This process was continued until a PASS was recorded.</p>
+<p>Table <a href="sec-ddi.html#tab:smoccitems">4.1</a> shows the 57 milestones from the DDI for
+ages 0 - 30 months as they were administered in the SMOCC study. Items
+are sorted according to <em>debut</em>, the age at which the item appears in
+the DDI. The response to each milestones is either a PASS (1) or a
+FAIL (0). Children who did not pass a milestone at the debut age were
+re-measured on that milestone during the next visit. This process was
+continued until a PASS was recorded.</p>
 </div>
 </div>
 <h3>References</h3>
@@ -1165,7 +1196,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -262,26 +262,50 @@
 <h3><span class="header-section-number">4.5.1</span> What are measurement models?</h3>
 <p>From section <a href="sec-whatismeasurement.html#sec:whatismeasurement">3.4</a> we quote:</p>
 <blockquote>
-<p>The measurement model specifies the relations between the data and the latent variable.</p>
+<p>The measurement model specifies the relations between the data
+and the latent variable.</p>
 </blockquote>
-<p>The scientific theory of measurement models is known under the name of <em>Item Response Theory</em> (IRT). Good introductory works include <span class="citation">Wright and Masters (<a href="#ref-wright1982">1982</a>)</span>, <span class="citation">Embretsen and Reise (<a href="#ref-embretsen2000">2000</a>)</span> and <span class="citation">Engelhard Jr. (<a href="#ref-engelhard2013">2013</a>)</span>.</p>
-<p>IRT models enables quantification of the locations of both <em>items</em> (milestones) and <em>persons</em> on the latent variable. We reserve the term <em>item</em> for generic properties, and <em>milestone</em> for child development. In general, items are part of the measurement instrument, persons are the objects to be measured.</p>
+<p>The scientific theory of measurement models is known under the name of
+<em>Item Response Theory</em> (IRT). Good introductory works include
+<span class="citation">Wright and Masters (<a href="#ref-wright1982">1982</a>)</span>, <span class="citation">Embretsen and Reise (<a href="#ref-embretsen2000">2000</a>)</span> and <span class="citation">Engelhard Jr. (<a href="#ref-engelhard2013">2013</a>)</span>.</p>
+<p>IRT models enables quantification of the locations of both <em>items</em>
+(milestones) and <em>persons</em> on the latent variable. We reserve the term
+<em>item</em> for generic properties, and <em>milestone</em> for child development.
+In general, items are part of the measurement instrument, persons are
+the objects to be measured.</p>
 <p>An IRT model has three major structural components:</p>
 <ul>
-<li><p>Specification of the underlying <em>latent variable(s)</em>. In this work, we restrict ourselves to models with just one latent variable. Multi-dimensional IRT models do have their uses, but they are complicated to fit and not widely used;</p></li>
-<li><p>For a given item, a specification of the <em>probability of success</em> given a value on the latent variables. This specification can take many forms. Section <a href="sec-itemresponsefunctions.html#sec:itemresponsefunctions">4.6</a> focuses on this in more detail;</p></li>
-<li><p>Specification how probability models for the different items should be combined. In this work, we will restrict to models that assume <em>local independence</em> of the probabilities. In that case, the probability that two items are passed can be found by multiplying each item’s success probability.</p></li>
+<li><p>Specification of the underlying <em>latent variable(s)</em>. In this
+work, we restrict ourselves to models with just one latent variable.
+Multi-dimensional IRT models do have their uses, but they are
+complicated to fit and not widely used;</p></li>
+<li><p>For a given item, a specification of the <em>probability of success</em>
+given a value on the latent variables. This specification can take
+many forms. Section <a href="sec-itemresponsefunctions.html#sec:itemresponsefunctions">4.6</a> focuses on this
+in more detail;</p></li>
+<li><p>Specification how probability models for the different items should
+be combined. In this work, we will restrict to models that assume
+<em>local independence</em> of the probabilities. In that case, the
+probability that two items are passed can be found by multiplying each
+item’s success probability.</p></li>
 </ul>
 </div>
 <div id="sec:adaptmodel" class="section level3">
 <h3><span class="header-section-number">4.5.2</span> Adapt the model? Or adapt the data?</h3>
-<p>The measurement model induces a predictable pattern in the observed items, and this pattern can be tested against the observed data. When there is misfit between the expected and observed data, we can follow two strategies:</p>
+<p>The measurement model induces a predictable pattern in the observed
+items, and this pattern can be tested against the observed data. When
+there is misfit between the expected and observed data, we can follow
+two strategies:</p>
 <ul>
 <li><p>Make the measurement model more general.</p></li>
 <li><p>Discard items (and sometimes persons) to make the model fit.</p></li>
 </ul>
-<p>These are very different strategies that have led to heated debates among psychometricians. See <span class="citation">Engelhard Jr. (<a href="#ref-engelhard2013">2013</a>)</span> for an overview.</p>
-<p>In this work, we opt for the - very strict - Rasch model (<span class="citation">Rasch (<a href="#ref-rasch1960">1960</a>)</span>), and will adapt the data to reduce discrepancies between model and data. Arguments for this choice are given later, in Section <a href="sec-whyrasch.html#sec:whyrasch">4.8</a>.</p>
+<p>These are very different strategies that have led to heated debates
+among psychometricians. See <span class="citation">Engelhard Jr. (<a href="#ref-engelhard2013">2013</a>)</span> for an overview.</p>
+<p>In this work, we opt for the - very strict - Rasch model (<span class="citation">Rasch (<a href="#ref-rasch1960">1960</a>)</span>),
+and will adapt the data to reduce discrepancies between model and
+data. Arguments for this choice are given later, in Section
+<a href="sec-whyrasch.html#sec:whyrasch">4.8</a>.</p>
 </div>
 </div>
 <h3>References</h3>
@@ -355,7 +379,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

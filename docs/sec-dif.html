@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,21 +260,42 @@
 <h2><span class="header-section-number">6.3</span> Differential item functioning (DIF)</h2>
 <div id="relevance-of-dif-for-cross-cultural-equivalence" class="section level3">
 <h3><span class="header-section-number">6.3.1</span> Relevance of DIF for cross-cultural equivalence</h3>
-<p>An important assumption in the Rasch model is that a given item has the same difficulty in different subgroups of respondents. Climbing stairs is an example where this assumption is suspect. The exposure to stairs, and hence the opportunity for a child to practice, varies across different cultures. It could thus be that two children with the same ability but from different cultures have different success probabilities for climbing stairs. When these probabilities systematically vary between subgroup, we say there is <em>Differential Item Functioning</em>, or <em>DIF</em> <span class="citation">(Holland and Wainer <a href="#ref-holland1983">1983</a>)</span>. DIF is undesirable since it can make the instrument culturally biased.</p>
+<p>An important assumption in the Rasch model is that a given item has
+the same difficulty in different subgroups of respondents. Climbing
+stairs is an example where this assumption is suspect. The exposure to
+stairs, and hence the opportunity for a child to practice, varies
+across different cultures. It could thus be that two children with the
+same ability but from different cultures have different success
+probabilities for climbing stairs. When these probabilities
+systematically vary between subgroup, we say there is <em>Differential
+Item Functioning</em>, or <em>DIF</em> <span class="citation">(Holland and Wainer <a href="#ref-holland1983">1983</a>)</span>. DIF is undesirable
+since it can make the instrument culturally biased.</p>
 </div>
 <div id="how-to-detect-dif" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> How to detect DIF?</h3>
 <p><span class="citation">Zumbo (<a href="#ref-zumbo1999">1999</a>)</span> provided a clear definition of DIF:</p>
 <blockquote>
-<p>DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.</p>
+<p>DIF occurs when examinees from different groups show differing
+probabilities of success on (or endorsing) the item after matching on
+the underlying ability that the item is intended to measure.</p>
 </blockquote>
-<p>There are various ways to detect DIF. Here we will model the probability of endorsing an item by logistic regression using the observed item responses as outcome, and with ability, the grouping variable, and the ability-grouping interaction as predictors. When the latter two terms explain the residual variance of the item scores after adjusting for ability, the item presents DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately.</p>
+<p>There are various ways to detect DIF. Here we will model the
+probability of endorsing an item by logistic regression using the
+observed item responses as outcome, and with ability, the grouping
+variable, and the ability-grouping interaction as predictors. When the
+latter two terms explain the residual variance of the item scores
+after adjusting for ability, the item presents DIF for that group. DIF
+can be visually inspected by plotting the curves for the subgroups
+separately.</p>
 <p>The are two forms of DIF:</p>
 <ul>
-<li><p><em>Uniform DIF</em>: The item response curves differ between groups in location, but are parallel;</p></li>
-<li><p><em>Non-uniform DIF</em>: The item response curve differ between groups in location, in slope and possibly in other characteristics.</p></li>
+<li><p><em>Uniform DIF</em>: The item response curves differ between groups in
+location, but are parallel;</p></li>
+<li><p><em>Non-uniform DIF</em>: The item response curve differ between groups in
+location, in slope and possibly in other characteristics.</p></li>
 </ul>
-<p>These forms correspond to, respectively, the main effect of group and the ability-group interaction in the logistic regression model.</p>
+<p>These forms correspond to, respectively, the main effect of group and
+the ability-group interaction in the logistic regression model.</p>
 </div>
 <div id="examples-of-dif" class="section level3">
 <h3><span class="header-section-number">6.3.3</span> Examples of DIF</h3>
@@ -285,17 +306,32 @@ Figure 6.6: Two milestones from the DDI with similar item response curves for bo
 </p>
 </div>
 
-<p>Figure <a href="sec-dif.html#fig:plotdif1">6.6</a> shows an example comparing boys and girls. For both milestones, the item response curves are similar for boys and girls, so we see no evidence of DIF here.</p>
+<p>Figure <a href="sec-dif.html#fig:plotdif1">6.6</a> shows an example comparing boys and girls.
+For both milestones, the item response curves are similar for boys and
+girls, so we see no evidence of DIF here.</p>
 <div class="figure" style="text-align: center"><span id="fig:plotdif2"></span>
-<img src="dbook1_files/figure-html/plotdif2-1.png" alt="Two milestones from the DDI with different item response curves for boys and girls. There is evidence for uniform DIF." width="672" />
+<img src="dbook1_files/figure-html/plotdif2-1.png" alt="(ref:plotdif2)" width="672" />
 <p class="caption">
-Figure 6.7: Two milestones from the DDI with different item response curves for boys and girls. There is evidence for uniform DIF.
+Figure 6.7: (ref:plotdif2)
 </p>
 </div>
-
-<p>Figure <a href="sec-dif.html#fig:plotdif2">6.7</a> displays two milestones with DIF between boys and girls. Milestone <code>ddifmm019</code> (“Takes off shoes and socks”) is easier for girls by about 0.86 logits (= the difference in ability at the intersection of 50 percent). Conversely, milestone <code>ddigmm064</code> (“Crawls forward, abdomen on the floor”) is easier for boys by about 0.84 logits. These are the largest differences found for sex in the DDI. Both are uniform DIF.</p>
-<p>In practice, having milestones with opposite forms of DIF in the same instrument will cancel out one another, so one need not be overly concerned in that case. However, we should be careful when the instrument consists of milestones that all have DIF in the same direction.</p>
-<p>The DDI did not contain items for which the ability-group interaction was statistically significant, so we conclude that there is no non-uniform DIF in the DDI.</p>
+<p>(ref:plotdif2) Two milestones from the DDI with different item
+response curves for boys and girls. There is evidence for uniform DIF.</p>
+<p>Figure <a href="sec-dif.html#fig:plotdif2">6.7</a> displays two milestones with DIF between
+boys and girls. Milestone <code>ddifmm019</code> (“Takes off shoes and socks”)
+is easier for girls by about 0.86 logits (= the difference in ability
+at the intersection of 50 percent). Conversely, milestone <code>ddigmm064</code>
+(“Crawls forward, abdomen on the floor”) is easier for boys by about
+0.84 logits. These are the largest differences found for sex in the
+DDI. Both are uniform DIF.</p>
+<p>In practice, having milestones with opposite forms of DIF in the same
+instrument will cancel out one another, so one need not be overly
+concerned in that case. However, we should be careful when the
+instrument consists of milestones that all have DIF in the same
+direction.</p>
+<p>The DDI did not contain items for which the ability-group interaction
+was statistically significant, so we conclude that there is no
+non-uniform DIF in the DDI.</p>
 </div>
 </div>
 <h3>References</h3>
@@ -304,7 +340,7 @@ Figure 6.7: Two milestones from the DDI with different item response curves for 
 <p>Holland, P. W., and H. Wainer. 1983. <em>Differential Item Functioning</em>. Hillsdale, NJ: Lawrence Erlbaum Associates.</p>
 </div>
 <div id="ref-zumbo1999">
-<p>Zumbo, B.D. 1999. “A Handbook on the Theory and Methods of Differential Item Functioning (DIF).” <em>Ottawa: National Defense Headquarters</em>. <a href="http://faculty.educ.ubc.ca/zumbo/DIF/" class="uri">http://faculty.educ.ubc.ca/zumbo/DIF/</a>.</p>
+<p>Zumbo, B.D. 1999. “A Handbook on the Theory and Methods of Differential Item Functioning (DIF).” <em>Ottawa: National Defense Headquarters</em>. <a href="http://faculty.educ.ubc.ca/zumbo/DIF/">http://faculty.educ.ubc.ca/zumbo/DIF/</a>.</p>
 </div>
 </div>
             </section>
@@ -363,7 +399,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

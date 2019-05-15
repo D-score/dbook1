@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,8 +258,17 @@
             <section class="normal" id="section-">
 <div id="sec:first1000" class="section level2">
 <h2><span class="header-section-number">1.1</span> First 1000 days</h2>
-<p>The <em>first 1000 days</em> refers to time needed for a child to grow from conception to the second birthday. It is a time of rapid change. During this period the architecture of the developing brain is very open to the influence of relationships and experiences <span class="citation">(Shonkhoff et al. <a href="#ref-skonkhoff2016best">2016</a>)</span>.</p>
-<p>Early experiences affect the nature and quality of the brain’s developing architecture by determining which synapses are reinforced, and which are pruned through lack of use. During the first 1000 days, brain architecture is basically shaped, but higher-order brain functions still continue to develop into adolescence and early adulthood <span class="citation">(Kolb, Harker, and Gibb <a href="#ref-kolb2017principles">2017</a>)</span>.</p>
+<p>The <em>first 1000 days</em> refers to time needed for a child to grow from
+conception to the second birthday. It is a time of rapid change.
+During this period the architecture of the developing brain is very
+open to the influence of relationships and experiences
+<span class="citation">(Shonkhoff et al. <a href="#ref-skonkhoff2016best">2016</a>)</span>.</p>
+<p>Early experiences affect the nature and quality of the brain’s
+developing architecture by determining which synapses are reinforced,
+and which are pruned through lack of use. During the first 1000 days,
+brain architecture is basically shaped, but higher-order brain
+functions still continue to develop into adolescence and early
+adulthood <span class="citation">(Kolb, Harker, and Gibb <a href="#ref-kolb2017principles">2017</a>)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:shonkoffplot"></span>
 <img src="fig/Shonkoff_Ch1.png" alt="Serve and return interactions shape brain architecture. Source: Shonkhoff et al. (2016)."  />
 <p class="caption">
@@ -267,9 +276,25 @@ Figure 1.1: Serve and return interactions shape brain architecture. Source: <spa
 </p>
 </div>
 
-<p>The classic <em>nature versus nurture debate</em> contrasts the viewpoints that variation in development is primarily due to either genetic or environmental differences. The current scientific consensus is that virtually all traits are influenced by both genetic predisposition and environmental differences <span class="citation">(Rutter <a href="#ref-rutter2007genes">2007</a>)</span>.</p>
-<p>The environment in which a child develops (before and soon after birth) provides experiences that can modify the expression of certain genes <span class="citation">(Caspi et al. <a href="#ref-caspi2010genetic">2010</a>)</span>. Negative influences, such as exposure to stressful life circumstances or environmental toxins, leave a <em>chemical signature</em> on the genes.</p>
-<p>During the first 1000 days, infants are highly dependent on their caregivers to protect them from adversities and to help them regulate their physiology and behavior. Caregivers can do this through responsive care, including routines for sleeping and feeding. To reach their developmental potential, children require nutrition, responsive care-giving, opportunities to explore and learn, and protection from environmental threats <span class="citation">(Black et al. <a href="#ref-black2017">2017</a>)</span>. Gradually, children build self-regulatory skills that enable them to manage stress as they interact with their caregivers <span class="citation">(S. Johnson et al. <a href="#ref-johnson2013science">2013</a>)</span>.</p>
+<p>The classic <em>nature versus nurture debate</em> contrasts the viewpoints
+that variation in development is primarily due to either genetic or
+environmental differences. The current scientific consensus is that
+virtually all traits are influenced by both genetic predisposition and
+environmental differences <span class="citation">(Rutter <a href="#ref-rutter2007genes">2007</a>)</span>.</p>
+<p>The environment in which a child develops (before and soon after
+birth) provides experiences that can modify the expression of certain
+genes <span class="citation">(Caspi et al. <a href="#ref-caspi2010genetic">2010</a>)</span>. Negative influences, such as exposure to
+stressful life circumstances or environmental toxins, leave a
+<em>chemical signature</em> on the genes.</p>
+<p>During the first 1000 days, infants are highly dependent on their
+caregivers to protect them from adversities and to help them regulate
+their physiology and behavior. Caregivers can do this through
+responsive care, including routines for sleeping and feeding. To reach
+their developmental potential, children require nutrition, responsive
+care-giving, opportunities to explore and learn, and protection from
+environmental threats <span class="citation">(Black et al. <a href="#ref-black2017">2017</a>)</span>. Gradually, children build
+self-regulatory skills that enable them to manage stress as they
+interact with their caregivers <span class="citation">(Johnson et al. <a href="#ref-johnson2013science">2013</a>)</span>.</p>
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
@@ -348,7 +373,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

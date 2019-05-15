@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -260,27 +260,56 @@
 <h2><span class="header-section-number">5.2</span> Item parameter estimation</h2>
 <div id="pairwise-estimation-of-item-difficulties" class="section level3">
 <h3><span class="header-section-number">5.2.1</span> Pairwise estimation of item difficulties</h3>
-<p>There are many methods for estimating the difficulty parameters of the Rasch estimation. See <span class="citation">Linacre (<a href="#ref-linacre2004">2004</a>)</span> for an overview.</p>
-<p>We will use the pairwise method estimation method. This method writes the probability that child <span class="math inline">\(n\)</span> passes item <span class="math inline">\(i\)</span> but not item <span class="math inline">\(j\)</span> given that the child passed one of them as <span class="math inline">\(\exp(\delta_i) / (\exp(\delta_i) + \exp(\delta_j))\)</span>. The method optimizes the pseudo-likelihood of all item pairs over the difficulty estimates by a simple iterative procedure.</p>
-<p><span class="citation">Zwinderman (<a href="#ref-zwinderman1995">1995</a>)</span> has shown that this procedure provides consistent estimates with similar efficiency computationally more-intensive conditional and marginal maximum likelihood methods.</p>
-<p>The beauty of the method is that it is independent of the ability distribution, so there is no need to remove perfect scores. We use the function <code>rasch.pairwise.itemcluster()</code> as implemented in the <code>sirt</code> package (<span class="citation">Robitzsch (<a href="#ref-robitzsch2016">2016</a>)</span>).</p>
+<p>There are many methods for estimating the difficulty parameters of the
+Rasch estimation. See <span class="citation">Linacre (<a href="#ref-linacre2004">2004</a>)</span> for an overview.</p>
+<p>We will use the pairwise method estimation method. This method writes
+the probability that child <span class="math inline">\(n\)</span> passes item <span class="math inline">\(i\)</span> but not item <span class="math inline">\(j\)</span> given
+that the child passed one of them as <span class="math inline">\(\exp(\delta_i) / (\exp(\delta_i) + \exp(\delta_j))\)</span>. The method optimizes the pseudo-likelihood of all
+item pairs over the difficulty estimates by a simple iterative
+procedure.</p>
+<p><span class="citation">Zwinderman (<a href="#ref-zwinderman1995">1995</a>)</span> has shown that this procedure provides consistent
+estimates with similar efficiency computationally more-intensive
+conditional and marginal maximum likelihood methods.</p>
+<p>The beauty of the method is that it is independent of the ability
+distribution, so there is no need to remove perfect scores. We use the
+function <code>rasch.pairwise.itemcluster()</code> as implemented in the <code>sirt</code>
+package (<span class="citation">Robitzsch (<a href="#ref-robitzsch2016">2016</a>)</span>).</p>
 <div class="figure" style="text-align: center"><span id="fig:itemdiflplot"></span>
-<img src="dbook1_files/figure-html/itemdiflplot-1.png" alt="Estimated item difficulty parameters (\(d_i\)) for 57 milestones of the DDI (0 - 2 years)." width="672" />
+<img src="dbook1_files/figure-html/itemdiflplot-1.png" alt="(ref:itemdiflplot)" width="672" />
 <p class="caption">
-Figure 5.1: Estimated item difficulty parameters (<span class="math inline">\(d_i\)</span>) for 57 milestones of the DDI (0 - 2 years).
+Figure 5.1: (ref:itemdiflplot)
 </p>
 </div>
-
-<p>Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a> summarizes the estimated item difficulty parameters. Although the model makes no distinction between domains, the results have been ordered to ease spotting of the natural progression of the milestones per domain. The figure also suggests that not all domain are equally represented across the scale. For example, there are no communication milestones around the logit of <span class="math inline">\(-10\)</span>.</p>
+<p>(ref:itemdiflplot) Estimated item difficulty parameters (<span class="math inline">\(d_i\)</span>) for 57 milestones
+of the DDI (0 - 2 years).</p>
+<p>Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a> summarizes the estimated item
+difficulty parameters. Although the model makes no distinction between
+domains, the results have been ordered to ease spotting of the natural
+progression of the milestones per domain. The figure also suggests
+that not all domain are equally represented across the scale. For
+example, there are no communication milestones around the logit of
+<span class="math inline">\(-10\)</span>.</p>
 </div>
 <div id="sec:anchoring" class="section level3">
 <h3><span class="header-section-number">5.2.2</span> Anchoring</h3>
-<p>The Rasch model identifies the item difficulties up to a linear transformation. By default, the software produces estimates in the logit scale (c.f. Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a>). The logit scale is inconvenient for two reasons:</p>
+<p>The Rasch model identifies the item difficulties up to a linear
+transformation. By default, the software produces estimates in the
+logit scale (c.f. Figure <a href="sec-itemestimation.html#fig:itemdiflplot">5.1</a>). The logit scale is
+inconvenient for two reasons:</p>
 <ul>
-<li><p>The logit scale has negative values. Negative values do not have a sensible interpretation in child development, and are likely to introduce errors in practice;</p></li>
-<li><p>Both the zero in the logit scale as well as its variance depend on the sample used to calibrate the item difficulties.</p></li>
+<li><p>The logit scale has negative values. Negative values do not have a
+sensible interpretation in child development, and are likely to
+introduce errors in practice;</p></li>
+<li><p>Both the zero in the logit scale as well as its variance depend on
+the sample used to calibrate the item difficulties.</p></li>
 </ul>
-<p>The properties of the Rasch model are preserved under a rescaling of the derived scale. In order to make the scale independent of the specified sample, we transform the scale so that two items will always have the same value on the transformed scale. The choice of the two anchor items is essentially arbitrary, but they should correspond to milestones that are easy to measure with small error. In the sequel, we use the two milestones to anchor the <span class="math inline">\(D\)</span>-score scale:</p>
+<p>The properties of the Rasch model are preserved under a rescaling of
+the derived scale. In order to make the scale independent of the
+specified sample, we transform the scale so that two items will always
+have the same value on the transformed scale. The choice of the two
+anchor items is essentially arbitrary, but they should correspond to
+milestones that are easy to measure with small error. In the sequel,
+we use the two milestones to anchor the <span class="math inline">\(D\)</span>-score scale:</p>
 <table>
 <caption>
 <span id="tab:anchor">Table 5.2: </span>Anchoring values used to identify the <span class="math inline">\(D\)</span>-score scale
@@ -324,14 +353,19 @@ Sits in stable position without support
 </tbody>
 </table>
 <p> </p>
-<p>With the choice of Table <a href="sec-itemestimation.html#tab:anchor">5.2</a>, <span class="math inline">\(D\)</span>-score values are approximately 0<span class="math inline">\(D\)</span> around birth. At the age of 1 year, the score will around 50<span class="math inline">\(D\)</span>, so during the first year of life, one <span class="math inline">\(D\)</span> unit corresponds to approximately a one-week interval.</p>
+<p>With the choice of Table <a href="sec-itemestimation.html#tab:anchor">5.2</a>, <span class="math inline">\(D\)</span>-score values are
+approximately 0<span class="math inline">\(D\)</span> around birth. At the age of 1 year, the score will
+around 50<span class="math inline">\(D\)</span>, so during the first year of life, one <span class="math inline">\(D\)</span> unit
+corresponds to approximately a one-week interval.</p>
 <div class="figure" style="text-align: center"><span id="fig:itemdifdplot"></span>
-<img src="dbook1_files/figure-html/itemdifdplot-1.png" alt="Estimated item difficulty parameters (\(d_i\)) for 57 milestones of the DDI (0 - 2 years). Milestones ddigmd057 and ddigmd063 are anchored at values of 20\(D\) and 40\(D\), respectively." width="672" />
+<img src="dbook1_files/figure-html/itemdifdplot-1.png" alt="(ref:itemdifdplot)" width="672" />
 <p class="caption">
-Figure 5.2: Estimated item difficulty parameters (<span class="math inline">\(d_i\)</span>) for 57 milestones of the DDI (0 - 2 years). Milestones <code>ddigmd057</code> and <code>ddigmd063</code> are anchored at values of 20<span class="math inline">\(D\)</span> and 40<span class="math inline">\(D\)</span>, respectively.
+Figure 5.2: (ref:itemdifdplot)
 </p>
 </div>
-
+<p>(ref:itemdifdplot) Estimated item difficulty parameters (<span class="math inline">\(d_i\)</span>) for 57 milestones
+of the DDI (0 - 2 years). Milestones <code>ddigmd057</code> and <code>ddigmd063</code> are anchored at
+values of 20<span class="math inline">\(D\)</span> and 40<span class="math inline">\(D\)</span>, respectively.</p>
 </div>
 </div>
 <h3>References</h3>
@@ -343,7 +377,7 @@ Figure 5.2: Estimated item difficulty parameters (<span class="math inline">\(d_
 <p>Zwinderman, A. H. 1995. “Pairwise Estimation in the Rasch Models.” <em>Applied Psychological Measurement</em> 19 (4): 369–75.</p>
 </div>
 <div id="ref-robitzsch2016">
-<p>Robitzsch, A. 2016. <em>Sirt: Supplementary Item Response Theory Models</em>. <a href="https://CRAN.R-project.org/package=sirt" class="uri">https://CRAN.R-project.org/package=sirt</a>.</p>
+<p>Robitzsch, A. 2016. <em>Sirt: Supplementary Item Response Theory Models</em>. <a href="https://CRAN.R-project.org/package=sirt">https://CRAN.R-project.org/package=sirt</a>.</p>
 </div>
 </div>
             </section>
@@ -402,7 +436,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,26 +258,44 @@
             <section class="normal" id="section-">
 <div id="sec:personfit" class="section level2">
 <h2><span class="header-section-number">6.2</span> Person fit</h2>
-<p>The person fit quantifies the extent to which the responses of a given child conform to the Rasch model expectation. The Rasch model expects that a more able child has a greater probability to pass an item than a less developed child. Person fit analysis evaluates the extend to which this is true.</p>
+<p>The person fit quantifies the extent to which the responses of a given
+child conform to the Rasch model expectation. The Rasch model expects
+that a more able child has a greater probability to pass an item than
+a less developed child. Person fit analysis evaluates the extend to
+which this is true.</p>
 <div id="person-infit-and-outfit" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Person infit and outfit</h3>
-<p>In parallel to item fit, we can calculate <em>person infit</em> and <em>person outfit</em>. Both statistics evaluate how well the responses of the persons are consistent with the model. The outfit statistic is heavily influenced by outlying responses that do not fit the expected pattern. Outfit is high, for example, when the child fails easy items but passes difficult items. The infit is the information weighted fit and is more sensitive to inlaying, on-target, unexpected responses.</p>
-<p>Similar to item fit, person fit is also calculated from the residuals, but aggregated in a different way. Person infit is calculated as</p>
+<p>In parallel to item fit, we can calculate <em>person infit</em> and <em>person
+outfit</em>. Both statistics evaluate how well the responses of the
+persons are consistent with the model. The outfit statistic is heavily
+influenced by outlying responses that do not fit the expected pattern.
+Outfit is high, for example, when the child fails easy items but
+passes difficult items. The infit is the information weighted fit and
+is more sensitive to inlaying, on-target, unexpected responses.</p>
+<p>Similar to item fit, person fit is also calculated from the residuals,
+but aggregated in a different way. Person infit is calculated as</p>
 <p><span class="math display">\[\mathrm{Person\ infit} = \frac{\sum_{i}^L (x_{ni}-P_{ni})^2}{\sum_i^L W_{ni}}\]</span></p>
 <p>and person outfit is</p>
 <p><span class="math display">\[\mathrm{Person\ outfit} = \frac{\sum_{i}^L z_{ni}^2}{L}\]</span></p>
-<p>As a threshold for person fit &lt; 3.0 can be used to clean out children with implausible response patterns.</p>
+<p>As a threshold for person fit &lt; 3.0 can be used to clean out children
+with implausible response patterns.</p>
 </div>
 <div id="person-infit-and-outfit-in-the-ddi" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Person infit and outfit in the DDI</h3>
 <div class="figure" style="text-align: center"><span id="fig:personfitplot"></span>
-<img src="dbook1_files/figure-html/personfitplot-1.png" alt="Frequency distribution of person infit (left) and person outfit (right) for 16538 measurements of the DDI (SMOCC data)." width="672" />
+<img src="dbook1_files/figure-html/personfitplot-1.png" alt="(ref:personfitplot)" width="672" />
 <p class="caption">
-Figure 6.5: Frequency distribution of person infit (left) and person outfit (right) for 16538 measurements of the DDI (SMOCC data).
+Figure 6.5: (ref:personfitplot)
 </p>
 </div>
-
-<p>Figure <a href="sec-personfit.html#fig:personfitplot">6.5</a> displays the frequency distribution of person infit and person outfit 16538 measurement of the DDI in the SMOCC data. The large majority of the values falls below 3.0. For infit, only 43 out of 16538 measurements (0.3 percent) is above 3.0. For outfit, there are 446 out of 16538 measurement (2.7 percent) above 3.0. Expect the solution to improve after deleting these measurements.</p>
+<p>(ref:personfitplot) Frequency distribution of person infit (left) and
+person outfit (right) for 16538 measurements of the DDI (SMOCC data).</p>
+<p>Figure <a href="sec-personfit.html#fig:personfitplot">6.5</a> displays the frequency distribution of
+person infit and person outfit 16538 measurement of the DDI in the
+SMOCC data. The large majority of the values falls below 3.0. For
+infit, only 43 out of 16538 measurements (0.3 percent) is above 3.0.
+For outfit, there are 446 out of 16538 measurement (2.7 percent) above
+3.0. Expect the solution to improve after deleting these measurements.</p>
 </div>
 </div>
             </section>
@@ -336,7 +354,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

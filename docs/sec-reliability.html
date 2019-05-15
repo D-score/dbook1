@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,14 +258,43 @@
             <section class="normal" id="section-">
 <div id="sec:reliability" class="section level2">
 <h2><span class="header-section-number">6.5</span> Reliability</h2>
-<p>The reliability is a one-number summary of the accuracy of an instrument. Statisticians define reliability as the proportion of variance attributable to the variation between children’s abilities relative to the total variance. More specifically, the reliability <span class="math inline">\(R\)</span> of a test is written as</p>
+<p>The reliability is a one-number summary of the accuracy of an
+instrument. Statisticians define reliability as the proportion of
+variance attributable to the variation between children’s abilities
+relative to the total variance. More specifically, the reliability <span class="math inline">\(R\)</span>
+of a test is written as</p>
 <p><span class="math display">\[R \equiv \frac{\sigma_{\beta}^2}{\sigma_{\beta}^2 + \sigma_{e}^2},\]</span></p>
-<p>where <span class="math inline">\(\sigma_{\beta}^2\)</span> is the variance of true scores and <span class="math inline">\(\sigma_{e}^2\)</span> is the error variance.</p>
-<p>In general, a high reliability is desirable, so the reliability of a test is often used to decide between instruments. Cronbach’s <span class="math inline">\(\alpha\)</span> is a popular estimate of the lower bound of the reliability of a test. In the Rasch model, we can estimate reliability by the <a href="http://www.rummlab.com.au/rmrelidx2030">ratio</a></p>
+<p>where <span class="math inline">\(\sigma_{\beta}^2\)</span> is the variance of true scores and
+<span class="math inline">\(\sigma_{e}^2\)</span> is the error variance.</p>
+<p>In general, a high reliability is desirable, so the reliability of a
+test is often used to decide between instruments. Cronbach’s <span class="math inline">\(\alpha\)</span>
+is a popular estimate of the lower bound of the reliability of a test.
+In the Rasch model, we can estimate reliability by the
+<a href="http://www.rummlab.com.au/rmrelidx2030">ratio</a></p>
 <p><span class="math display">\[\hat{R} = \frac{\hat\sigma_{\hat\beta}^2 - \hat\sigma_{\hat e}^2}{\hat\sigma_{\hat\beta}^2}.\]</span></p>
-<p>For a given model, we can calculate <span class="math inline">\(\hat\sigma_{\hat\beta}^2\)</span> directly as the sampling variance of the estimated abilities, but getting an estimate for <span class="math inline">\(\hat\sigma_{\hat e}^2\)</span> is more difficult. We use the modeled abilities and modeled difficulties to generate a hypothetical data set of the same size and same missing data pattern, and re-estimate the abilities from the simulated data. Then <span class="math inline">\(\hat\sigma_{\hat e}^2\)</span> is computable as variance of the difference between the modeled abilities and the re-estimated abilities.</p>
-<p>The estimated variance of the modeled abilities is <span class="math inline">\(\hat\sigma_{\hat\beta}^2 = 76.6\)</span>, and the variance of the difference between modeled and re-estimated abilities is equal to <span class="math inline">\(\hat\sigma_{\hat e}^2 = 1.74\)</span>. The corresponding <em>standard error of measurement (sem)</em> is <span class="math inline">\(\hat\sigma_{\hat e} = 1.32\)</span> logits.</p>
-<p>The estimated reliability in the SMOCC data can now be calculated as <span class="math inline">\((76.6-1.74)/76.6 = 0.977\)</span>. This number can be interpreted in the same way as Cronbach’s <span class="math inline">\(\alpha\)</span>, for which typically any value beyond 0.9 is classified as <em>excellent</em>. Note that the reliability is very high because of the large variation in <span class="math inline">\(D\)</span>-scores. Newborns are very different from 2-year old toddlers, which helps to increase reliability. In practice, it is perhaps more useful to have use measure of accuracy that is less dependent of the variation within the sample. The <em>sem</em>, as explained above, seems to be a more relevant measure of precision.</p>
+<p>For a given model, we can calculate <span class="math inline">\(\hat\sigma_{\hat\beta}^2\)</span>
+directly as the sampling variance of the estimated abilities, but
+getting an estimate for <span class="math inline">\(\hat\sigma_{\hat e}^2\)</span> is more difficult. We
+use the modeled abilities and modeled difficulties to generate a
+hypothetical data set of the same size and same missing data pattern,
+and re-estimate the abilities from the simulated data. Then
+<span class="math inline">\(\hat\sigma_{\hat e}^2\)</span> is computable as variance of the difference
+between the modeled abilities and the re-estimated abilities.</p>
+<p>The estimated variance of the modeled abilities is
+<span class="math inline">\(\hat\sigma_{\hat\beta}^2 = 76.6\)</span>, and the variance of the difference
+between modeled and re-estimated abilities is equal to
+<span class="math inline">\(\hat\sigma_{\hat e}^2 = 1.74\)</span>. The corresponding <em>standard error of
+measurement (sem)</em> is <span class="math inline">\(\hat\sigma_{\hat e} = 1.32\)</span> logits.</p>
+<p>The estimated reliability in the SMOCC data can now be calculated as
+<span class="math inline">\((76.6-1.74)/76.6 = 0.977\)</span>. This number can be interpreted in the same
+way as Cronbach’s <span class="math inline">\(\alpha\)</span>, for which typically any value beyond 0.9
+is classified as <em>excellent</em>. Note that the reliability is very high
+because of the large variation in <span class="math inline">\(D\)</span>-scores. Newborns are very
+different from 2-year old toddlers, which helps to increase
+reliability. In practice, it is perhaps more useful to have use
+measure of accuracy that is less dependent of the variation within the
+sample. The <em>sem</em>, as explained above, seems to be a more relevant
+measure of precision.</p>
 
 </div>
 <!-- </div> -->
@@ -325,7 +354,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,25 +258,43 @@
             <section class="normal" id="section-">
 <div id="sec:itemfit" class="section level2">
 <h2><span class="header-section-number">6.1</span> Item fit</h2>
-<p>The philosophy of the Rasch model is different from conventional statistical modeling. It is not the task of the Rasch model to account for the data. Rather it is the task of the data to fit the Rasch model. We saw this distinction before in Section <a href="sec-measurementmodel.html#sec:adaptmodel">4.5.2</a>.</p>
-<p>The goal of model fit assessment is to explore and quantify how well empirical data meet the requirements of the Rasch model. One way to gauge model fit is to compare the observed probability of passing an item to the fitted item response curve for endorsing the item.</p>
+<p>The philosophy of the Rasch model is different from conventional
+statistical modeling. It is not the task of the Rasch model to account
+for the data. Rather it is the task of the data to fit the Rasch
+model. We saw this distinction before in Section
+<a href="sec-measurementmodel.html#sec:adaptmodel">4.5.2</a>.</p>
+<p>The goal of model fit assessment is to explore and quantify how well
+empirical data meet the requirements of the Rasch model. One way to
+gauge model fit is to compare the observed probability of passing an
+item to the fitted item response curve for endorsing the item.</p>
 <p>The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as:</p>
 <p><span class="math display">\[P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},\]</span></p>
-<p>where <span class="math inline">\(\hat\beta_n\)</span> is the estimated ability of child <span class="math inline">\(n\)</span> (the child’s <span class="math inline">\(D\)</span>-score), and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated difficulty of item <span class="math inline">\(i\)</span>. Chapter <a href="ch-computation.html#ch:computation">5</a> describes process of parameter estimation in detail.</p>
+<p>where <span class="math inline">\(\hat\beta_n\)</span> is the estimated ability of child <span class="math inline">\(n\)</span> (the child’s
+<span class="math inline">\(D\)</span>-score), and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated difficulty of
+item <span class="math inline">\(i\)</span>. Chapter <a href="ch-computation.html#ch:computation">5</a> describes process of parameter
+estimation in detail.</p>
 <div id="well-fitting-item-response-curves" class="section level3">
 <h3><span class="header-section-number">6.1.1</span> Well-fitting item response curves</h3>
 <div class="figure" style="text-align: center"><span id="fig:ploticc"></span>
-<img src="dbook1_files/figure-html/ploticc-1.png" alt="Empirical and fitted item response curves for two milestones from the DDI (SMOCC data)." width="672" />
+<img src="dbook1_files/figure-html/ploticc-1.png" alt="(ref:ploticc)" width="672" />
 <p class="caption">
-Figure 6.1: Empirical and fitted item response curves for two milestones from the DDI (SMOCC data).
+Figure 6.1: (ref:ploticc)
 </p>
 </div>
-
-<p>The study of <em>item fit</em> involves comparing the empirical and fitted probabilities at various levels of ability. Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a> shows the item characteristics curves of two DDI milestones. The orange line represents the empirical probability at different ability levels. The dashed line represents the estimated item response curve according to the Rasch model. The empirical and estimated curves are close together, so both items fit the model very well.</p>
+<p>(ref:ploticc) Empirical and fitted item response curves for two
+milestones from the DDI (SMOCC data).</p>
+<p>The study of <em>item fit</em> involves comparing the empirical and fitted
+probabilities at various levels of ability. Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a>
+shows the item characteristics curves of two DDI milestones. The
+orange line represents the empirical probability at different ability
+levels. The dashed line represents the estimated item response curve
+according to the Rasch model. The empirical and estimated curves are
+close together, so both items fit the model very well.</p>
 </div>
 <div id="item-response-curves-showing-severe-underfit" class="section level3">
 <h3><span class="header-section-number">6.1.2</span> Item response curves showing severe underfit</h3>
-<p>These examples of item response curves fit the model nicely. There are, however, many cases where things are less bright.</p>
+<p>These examples of item response curves fit the model nicely. There are,
+however, many cases where things are less bright.</p>
 <div class="figure" style="text-align: center"><span id="fig:plothyp1"></span>
 <img src="dbook1_files/figure-html/plothyp1-1.png" alt="Three simulated items that illustrate various forms of item misfit." width="672" />
 <p class="caption">
@@ -284,8 +302,19 @@ Figure 6.2: Three simulated items that illustrate various forms of item misfit.
 </p>
 </div>
 
-<p>Figure <a href="sec-itemfit.html#fig:plothyp1">6.2</a> shows three forms of severe underfit from three hypothetical items. These items were simulated to have a low fit, added to the DDI, and their parameters were estimated by the methods of Chapter <a href="ch-computation.html#ch:computation">5</a>. For the first item, <code>hypgmd001</code>, the probability of passing is almost constant across ability, so retaining this item essentially only adds to the noise. Item <code>hypgmd002</code> converges to an asymptote around 80 percent and has a severe dip in the middle. The dip is caused by the strong relation to age. Item <code>hypgmd003</code> appears to have the wrong coding. In addition, the spike-like behavior in the middle is often seen when two or more different items are erroneously given identical item names.</p>
-<p>Removal of items with a low fit can substantially improve overall model fit.</p>
+<p>Figure <a href="sec-itemfit.html#fig:plothyp1">6.2</a> shows three forms of severe underfit from
+three hypothetical items. These items were simulated to have a low fit,
+added to the DDI, and their parameters were estimated by the methods
+of Chapter <a href="ch-computation.html#ch:computation">5</a>. For the first item, <code>hypgmd001</code>, the
+probability of passing is almost constant across ability, so retaining
+this item essentially only adds to the noise. Item <code>hypgmd002</code>
+converges to an asymptote around 80 percent and has a severe dip in
+the middle. The dip is caused by the strong relation to age. Item
+<code>hypgmd003</code> appears to have the wrong coding. In addition, the
+spike-like behavior in the middle is often seen when two or more
+different items are erroneously given identical item names.</p>
+<p>Removal of items with a low fit can substantially improve overall
+model fit.</p>
 </div>
 <div id="item-response-curves-showing-overfit" class="section level3">
 <h3><span class="header-section-number">6.1.3</span> Item response curves showing overfit</h3>
@@ -296,40 +325,90 @@ Figure 6.3: Two simulated items that illustrate item overfit.
 </p>
 </div>
 
-<p>Figure <a href="sec-itemfit.html#fig:plothyp2">6.3</a> shows two hypothetical items with two forms of overfit. The curve of item <code>hypgmd004</code> is much steeper than the modeled curve. Thus, just this one item is exceptionally well-suited to distinguish children with a <span class="math inline">\(D\)</span>-score below 50<span class="math inline">\(D\)</span> from those with a score above 50<span class="math inline">\(D\)</span>. Note that the item isn’t sensitive anywhere else on the scale. In general, having items like these is good news, because they allow us to increase the reliability of the instrument. One should make certain though, that FAIL and PASS scores are all measured (not imputed) values.</p>
-<p>Multiple perfect items could hint to a violation of the <em>local independence assumption</em> (c.f. Section <a href="sec-measurementmodel.html#sec:measurementmodel">4.5</a>). Developmental milestones sometimes have combinations of responses that are impossible. For example, one cannot walk without being able to stand, so the inconsistent combination (stand: FAIL, walk: PASS) will not be observed. This leads to more consistent responses that would be expected by chance alone. In principle, one could combine the two such items into one three-category items, which effectively set the probability of inconsistent combinations to zero.</p>
-<p>Item <code>hypgmd005</code> is also steep, but has an asymptote around 80 percent. This causes discrepancies between the empirical and modeled curves around the middle of the probability scale. In general, such items could be removed if a sufficient number of better items are available.</p>
+<p>Figure <a href="sec-itemfit.html#fig:plothyp2">6.3</a> shows two hypothetical items with two forms
+of overfit. The curve of item <code>hypgmd004</code> is much steeper than the
+modeled curve. Thus, just this one item is exceptionally well-suited
+to distinguish children with a <span class="math inline">\(D\)</span>-score below 50<span class="math inline">\(D\)</span> from those with a
+score above 50<span class="math inline">\(D\)</span>. Note that the item isn’t sensitive anywhere else on
+the scale. In general, having items like these is good news, because
+they allow us to increase the reliability of the instrument. One
+should make certain though, that FAIL and PASS scores are all measured
+(not imputed) values.</p>
+<p>Multiple perfect items could hint to a violation of the <em>local
+independence assumption</em> (c.f. Section <a href="sec-measurementmodel.html#sec:measurementmodel">4.5</a>).
+Developmental milestones sometimes have combinations of responses that
+are impossible. For example, one cannot walk without being able to
+stand, so the inconsistent combination (stand: FAIL, walk: PASS) will
+not be observed. This leads to more consistent responses that would be
+expected by chance alone. In principle, one could combine the two such
+items into one three-category items, which effectively set the
+probability of inconsistent combinations to zero.</p>
+<p>Item <code>hypgmd005</code> is also steep, but has an asymptote around 80
+percent. This causes discrepancies between the empirical and modeled
+curves around the middle of the probability scale. In general, such
+items could be removed if a sufficient number of better items are
+available.</p>
 </div>
 <div id="sec:infit" class="section level3">
 <h3><span class="header-section-number">6.1.4</span> Item infit and outfit</h3>
-<p>Item fit can quantified by item <em>infit</em> and <em>outfit</em>. Both are aggregates of the model residuals. The observed response <span class="math inline">\(x_{ni}\)</span> of person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
-<p>The <em>standardized residual</em> <span class="math inline">\(z_{ni}\)</span> is the difference between the observed response <span class="math inline">\(x_{ni}\)</span> and the expected response <span class="math inline">\(P_{ni}\)</span>, divided by the expected binomial standard deviation,</p>
+<p>Item fit can quantified by item <em>infit</em> and <em>outfit</em>. Both are
+aggregates of the model residuals. The observed response <span class="math inline">\(x_{ni}\)</span> of
+person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
+<p>The <em>standardized residual</em> <span class="math inline">\(z_{ni}\)</span> is the difference between the observed
+response <span class="math inline">\(x_{ni}\)</span> and the expected response <span class="math inline">\(P_{ni}\)</span>, divided by the
+expected binomial standard deviation,</p>
 <p><span class="math display">\[z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}},\]</span></p>
 <p>where the expected response variance <span class="math inline">\(W_{ni}\)</span> is calculated as</p>
 <p><span class="math display">\[W_{ni} = P_{ni}(1-P_{ni}).\]</span></p>
-<p><em>Item infit</em> is the sum of the squared residuals divided by the sum of the expected response variances <span class="math inline">\(W_{ni}\)</span></p>
+<p><em>Item infit</em> is the sum of the squared residuals divided by the sum of
+the expected response variances <span class="math inline">\(W_{ni}\)</span></p>
 <p><span class="math display">\[\mathrm{Item\ infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}.\]</span></p>
-<p><em>Item outfit</em> is calculated as the average (over <span class="math inline">\(N\)</span> measurements) of the squared standardized residual</p>
+<p><em>Item outfit</em> is calculated as the average (over <span class="math inline">\(N\)</span> measurements) of the
+squared standardized residual</p>
 <p><span class="math display">\[\mathrm{Item\ outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.\]</span></p>
-<p>The expected value of both infit and outfit is equal to 1.0. The interpretation is as follows:</p>
+<p>The expected value of both infit and outfit is equal to 1.0. The
+interpretation is as follows:</p>
 <ul>
-<li><p>If infit and outfit are 1.0, then the item perfectly fits the Rasch model, as in Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a>;</p></li>
-<li><p>If infit and outfit &gt; 1.0, then the item has underfit. The amount of underfit is quantified by infit and outfit, as in <a href="sec-itemfit.html#fig:plothyp1">6.2</a>;</p></li>
-<li><p>If infit and outfit &lt; 1.0, then the item fits the model better than expected (overfit). The amount of over fit is quantified by infit and outfit, as in <a href="sec-itemfit.html#fig:plothyp2">6.3</a>.</p></li>
+<li><p>If infit and outfit are 1.0, then the item perfectly fits the Rasch
+model, as in Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a>;</p></li>
+<li><p>If infit and outfit &gt; 1.0, then the item has underfit. The amount of
+underfit is quantified by infit and outfit, as in <a href="sec-itemfit.html#fig:plothyp1">6.2</a>;</p></li>
+<li><p>If infit and outfit &lt; 1.0, then the item fits the model better than
+expected (overfit). The amount of over fit is quantified by infit and
+outfit, as in <a href="sec-itemfit.html#fig:plothyp2">6.3</a>.</p></li>
 </ul>
-<p>Infit is more sensitive to discrepancies in the middle of the probability scale, whereas outfit is the better measure for discrepancies at probabilities close to 0 or 1. Lack of fit is generally easier to spot at the extremes. The two measures are highly correlated. Infit is generally considered more important.</p>
-<p>Values near 1.0 are desirable. There are no cut-and-dried <a href="https://www.rasch.org/rmt/rmt83b.htm">cutoff values</a> for infit and outfit. In general, we want to remove underfitting items, e.g., item with infits or outfits higher than, say, 1.3. Overfitting items with values lower than 1.0 are not harmful. Preserving these items may actually help to increase reliability of the scale. The cut-off chosen also depends on the number of available items. When there are many items to choose from, we could use a stricter criterion, say infit and outfit &lt; 1.0 to select only the absolutely best items.</p>
+<p>Infit is more sensitive to discrepancies in the middle of the
+probability scale, whereas outfit is the better measure for
+discrepancies at probabilities close to 0 or 1. Lack of fit is
+generally easier to spot at the extremes. The two measures are highly
+correlated. Infit is generally considered more important.</p>
+<p>Values near 1.0 are desirable. There are no cut-and-dried <a href="https://www.rasch.org/rmt/rmt83b.htm">cutoff
+values</a> for infit and outfit. In
+general, we want to remove underfitting items, e.g., item with infits
+or outfits higher than, say, 1.3. Overfitting items with values lower
+than 1.0 are not harmful. Preserving these items may actually help to
+increase reliability of the scale. The cut-off chosen also depends on
+the number of available items. When there are many items to choose
+from, we could use a stricter criterion, say infit and outfit &lt; 1.0 to
+select only the absolutely best items.</p>
 </div>
 <div id="sec:fitddi" class="section level3">
 <h3><span class="header-section-number">6.1.5</span> Infit and outfit in the DDI</h3>
 <div class="figure" style="text-align: center"><span id="fig:fitplot"></span>
-<img src="dbook1_files/figure-html/fitplot-1.png" alt="Frequency distribution of infit (left) and outfit (right) of 57 milestones from the DDI (SMOCC data)." width="672" />
+<img src="dbook1_files/figure-html/fitplot-1.png" alt="(ref:fitplot)" width="672" />
 <p class="caption">
-Figure 6.4: Frequency distribution of infit (left) and outfit (right) of 57 milestones from the DDI (SMOCC data).
+Figure 6.4: (ref:fitplot)
 </p>
 </div>
-
-<p>Figure <a href="sec-itemfit.html#fig:fitplot">6.4</a> displays the histogram of the 57 milestones from the DDI (c.f. Section <a href="sec-ddi.html#sec:ddi">4.1</a>). Most infits are within the the range 0.6 - 1.1, thus indicating excellent fit. The two milestones with extremely low infits are <code>ddigmd052</code> and <code>ddigmd053</code>. These two items actually screen for paralysis for newborns, so the data contain hardly any fails on these milestones. The outfit statistics also indicate good fit.</p>
+<p>(ref:fitplot) Frequency distribution of infit (left) and outfit
+(right) of 57 milestones from the DDI (SMOCC data).</p>
+<p>Figure <a href="sec-itemfit.html#fig:fitplot">6.4</a> displays the histogram of the 57 milestones
+from the DDI (c.f. Section <a href="sec-ddi.html#sec:ddi">4.1</a>). Most infits are within the
+the range 0.6 - 1.1, thus indicating excellent fit. The two milestones
+with extremely low infits are <code>ddigmd052</code> and <code>ddigmd053</code>. These two
+items actually screen for paralysis for newborns, so the data contain
+hardly any fails on these milestones. The outfit statistics also
+indicate good fit.</p>
 </div>
 </div>
             </section>
@@ -388,7 +467,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

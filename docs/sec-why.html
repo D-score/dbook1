@@ -49,12 +49,12 @@
 
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.8.0/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -258,9 +258,39 @@
             <section class="normal" id="section-">
 <div id="sec:why" class="section level2">
 <h2><span class="header-section-number">1.5</span> Why this booklet?</h2>
-<p>We believe that <strong>there cannot be one instrument</strong> for measuring child development that is suitable for all situations. In general, the instrument needs to be tailored to the setting. For example, in order to establish whether an individual child is delayed in development, we need an instrument that is precise for that individual child, and that is sensitive to different domains of delay. In contrast, if we want to estimate the proportion of children that is <em>developmentally on track</em> in a country, we need one culturally unbiased, relatively imprecise low-cost measurement made on many children across many ages, which we then aggregate over all children in the sample. The optimal instrument under each setting will look quite different.</p>
-<p>We also believe that <strong>there can be one scale</strong> for measuring child development, and that this scale is useful for many applications. Such a scale is similar to well-known scales for body height, body weight or body temperature. These scales have a clearly defined unit (i.e., centimeter, kilogram, degree Celcius), which moreover is assumed to be constant across all scale locations. Measurements are expressed as the number of scale units (e.g. 92 cm). Note that there may be multiple instruments for measuring a child height (e.g. ruler, laser distance meter, echo location, ability to reach the door handle, and so on), but their result can all be expressed as the number of scale units (cm here). The opposite is also true, and perhaps more familiar. We may have one instrument and express the result in multiple units (e.g. cm, inches, light years). Instruments and scales differ.</p>
-<p>Currently, instruments for measuring child development define their own scales, which renders the measurements made by different instrument incomparable. No measurement unit for child development yet exists. It would certainly be an advance if we would be able to tailor the measurement instrument to the setting, while retaining the advantage that measurements from these different instruments are values on a scale with the same unit. We can then compare the data collected by different instruments. This booklet explores the theory and practice for making that happen.</p>
+<p>We believe that <strong>there cannot be one instrument</strong> for measuring child
+development that is suitable for all situations. In general, the
+instrument needs to be tailored to the setting. For example, in order
+to establish whether an individual child is delayed in development, we
+need an instrument that is precise for that individual child, and that
+is sensitive to different domains of delay. In contrast, if we want to
+estimate the proportion of children that is <em>developmentally on track</em>
+in a country, we need one culturally unbiased, relatively imprecise
+low-cost measurement made on many children across many ages, which we
+then aggregate over all children in the sample. The optimal instrument
+under each setting will look quite different.</p>
+<p>We also believe that <strong>there can be one scale</strong> for measuring child
+development, and that this scale is useful for many applications. Such
+a scale is similar to well-known scales for body height, body weight
+or body temperature. These scales have a clearly defined unit (i.e.,
+centimeter, kilogram, degree Celcius), which moreover is assumed to be
+constant across all scale locations. Measurements are expressed as the
+number of scale units (e.g. 92 cm). Note that there may be multiple
+instruments for measuring a child height (e.g. ruler, laser distance
+meter, echo location, ability to reach the door handle, and so on),
+but their result can all be expressed as the number of scale units (cm
+here). The opposite is also true, and perhaps more familiar. We may
+have one instrument and express the result in multiple units (e.g. cm,
+inches, light years). Instruments and scales differ.</p>
+<p>Currently, instruments for measuring child development define their
+own scales, which renders the measurements made by different
+instrument incomparable. No measurement unit for child development yet
+exists. It would certainly be an advance if we would be able to tailor
+the measurement instrument to the setting, while retaining the
+advantage that measurements from these different instruments are
+values on a scale with the same unit. We can then compare the data
+collected by different instruments. This booklet explores the theory
+and practice for making that happen.</p>
 </div>
             </section>
 
@@ -318,7 +348,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
