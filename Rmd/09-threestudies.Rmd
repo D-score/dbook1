@@ -168,9 +168,9 @@ z_1.00 <- dscore::daz(d = d_1.00$b, x = pops_data$age, ref = ref)
 
 pops2 <- bind_cols(pops_data, 
                    cohort  = rep("POPS", nrow(pops_data)),
-                   n = d_0.00$n, 
-                   p = d_0.00$p,
-                   f = d_0.00$n - d_0.00$p,
+                   n = rowSums(!is.na(pops_data[, items])),  # number of items 
+                   p = rowSums(pops_data[, items], na.rm = TRUE),  # sum score
+                   f = rowSums(!is.na(pops_data[, items])) - rowSums(pops_data[, items], na.rm = TRUE),  # number of failed items
                    d_0.00 = d_0.00$b,
                    d_0.50 = d_0.50$b,
                    d_0.75 = d_0.75$b,
@@ -429,8 +429,6 @@ z <- dscore::daz(d = d$b, x = togo$age, ref = ref)
 togo2 <- bind_cols(togo, 
                    cohort  = rep("KPALIME", nrow(togo)),
                    n = d$n, 
-                   p = d$p,
-                   f = d$n - d$p,
                    d = d$b,
                    daz = z)
 ```
@@ -621,12 +619,14 @@ show that children with very low $D$-scores often experience
 substantially delayed their development.
 
 
-```{r bind3, warning = FALSE}
+```{r bind3}
 smocc <- as.data.frame(data)
+```
+
+```{r bind3a} 
 smocc2 <- smocc %>% 
   left_join(model$dscore, by = c("subjid", "agedays")) %>% 
-  mutate(f = n - p, 
-         agemos = agedays / 365.25 * 12) %>% 
+  mutate(agemos = agedays / 365.25 * 12) %>% 
   rename(d = b, 
          cohort = cohort.y) 
 pops3 <- pops2 %>% 

@@ -18,7 +18,7 @@ link-citations: yes
 ```{r initbook, include = FALSE}
 opts_chunk$set(comment = NA, background = "#FBFBFB",
                fig.align = 'center', cache = TRUE, 
-               echo = FALSE)
+               echo = FALSE, dev = 'png')
 ```
 
 # Welcome {-}
