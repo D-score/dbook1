@@ -30,7 +30,7 @@ include_graphics("fig/shirley-motor.png")
 
 Certain domains advance through a fixed sequence. Figure
 \@ref(fig:shirleyplot) illustrates the various stages needed for going
-from a *fetal posture* to *walking alone*. The ages are indicative
+from a *fetal posture* to *walking alone*. The ages are indicative of
 when these events happen, but there is a large variation in timing
 between infants.
 
@@ -88,17 +88,16 @@ Does development evolve gradually as a continuous process
 or are there qualitatively distinct stages, with jumps occurring 
 from one stage to another?
 
-Many stage-based theories of human development have
-been proposed over the years: social and emotional development by
-psycho-sexual stages of development proposed by Freud and furthered by
-Erikson [@erikson1963], Kohlberg's six stages of moral development
-[@kohlberg1984] and Piaget's cognitive development theory
-[@piaget1969]. Piaget distinguishes four main periods throughout
-childhood. The first period, the *sensimotor period* (approximately
-0-2 years), is subdivided into six stages. When taken together these
-six stages describe "the road to conceptual thought". Piaget's stages
-are qualitatively different, and aim to unravel the mechanism in
-intellectual development.
+Many stage-based theories of human development have been proposed over
+the years: social and emotional development by psycho-sexual stages
+proposed by Freud and furthered by Erikson [@erikson1963], Kohlberg's
+six stages of moral development [@kohlberg1984] and Piaget's cognitive
+development theory [@piaget1969]. Piaget distinguishes four main
+periods throughout childhood. The first period, the *sensimotor
+period* (approximately 0-2 years), is subdivided into six stages. When
+taken together these six stages describe "the road to conceptual
+thought". Piaget's stages are qualitatively different, and aim to
+unravel the mechanism involved in intellectual development.
 
 On the other hand, Gesell and others emphasize development as a 
 continuous process. @gesell1943 (p. 88) says:
@@ -107,7 +106,7 @@ continuous process. @gesell1943 (p. 88) says:
 > of development. A stage is simply a passing moment, while 
 > development, like time, keeps marching on.
 
-### One course or many?
+### One course or multiple parallel tracks?
 
 Stage theorists assume that children progress sequentially through 
 the same set of stages. This assumption is also explicit in the 
@@ -115,9 +114,9 @@ work of Gesell.
 
 The ecological and dynamic systems theories view development as
 continuous, though not necessarily progressing in an orderly fashion,
-so there may be multiple ways to reach the same point. Figure
-\@ref(fig:dynamic) illustrates that the path taken by a given child
-will depend on the child's unique combination of personal and
+so there may be multiple, parallel ways to reach the same point.
+Figure \@ref(fig:dynamic) illustrates that the path taken by a given
+child will depend on the child's unique combination of personal and
 environmental circumstances, including cultural diversity in
 development.
 
@@ -136,20 +135,23 @@ development? Most theories generally acknowledge the role of both, but
 differ in emphasis. In practice, the debate centers on the question
 how to explain individual differences.
 
-Maturation usually defined as the genetically determined, naturally
-unfolding course of growth, much like a flower. Some theorists
-emphasize that differences in development are innate and stable over
-time, but that there may be differences in speed. Others argue that
-individual differences are primarily driven by environmental factors,
-and changing these factors could very well impact child development.
+Maturation is the process of becoming completely developed, much like
+the natural unfolding of a flower. The process depends on both genetic
+factors (species, breed) as well as environmental influences
+(sunlight, water, nutrition). Some theorists emphasize that
+differences in child development are innate and stable over time,
+although there may be differences in unfolding speed due to different
+environments. Others argue that differences in development between
+children are primarily driven by environmental factors, and changing
+these factors could very well impact child development.
 
-The answer --- if there is one --- in this stability-versus-plasticity
-debate has important practical consequences. If we believe that
-differences are natural and stable, then it may not make sense trying
-to change the environment, as the impact on development is likely to
-be small. On the other hand, if we view development as plastic, then
-improving the environment may have substantial pay-offs in terms of
-improved development.
+Our position in this debate has important practical consequences. If
+we believe that differences are natural and stable, then it may not
+make much sense trying to change the environment, as the impact on
+development is likely to be small. On the other hand, if we think of
+developmental potential as evenly distributed, with its expression
+governed by the environment, then improving life circumstances may
+have substantial pay-offs in terms of better development.
 
 ## Example of motor development {#sec:motorexample}
 
@@ -223,9 +225,9 @@ or who jump over stages (Martin, Max).
 For ease of plotting, the categories on the vertical axis are equally
 spaced. The height of the jump from one stage to the next has no
 sensible interpretation. We might be inclined to think that the
-vertical distance portrays to how difficult it is to achieve the
-next stage, but this is inaccurate. Instead, difficulty of passing from
-one stage to the next corresponds to the *length of the line in the
+vertical distance portrays to how difficult it is to achieve the next
+stage, but this is inaccurate. Instead, difficulty of passing from one
+stage to the next corresponds to the *length of the line in the
 horizontal direction* between stages. For example, on average the line
 for `stepping` is rather short in all plots, so going from `stepping`
 to `standing` is relatively easy.
@@ -240,16 +242,18 @@ are much more efficient.
 
 ## Typical questions asked in child development {#sec:questions}
 
-Child development is very relevant for answering clinical, policy and
-public health questions.
+The emotional, social and physical development of the young child has
+a direct effect on the adult he or she will become. We may be
+interested in measuring child development for answering clinical,
+policy or public health questions.
 
 ```{r questions}
 questions <- data.frame(
   Level = c(rep("Individual", 3), rep("Group", 2), rep("Population", 3)),
   Question = c(
-    "What is your gain in development since your last visit?",
-    "What is the difference in development between you and your friend of the same age?",
-    "How does your development compare to a norm?",
+    "What is the child's gain in development since the last visit?",
+    "What is the difference in development between the child and peers of the same age?",
+    "How does the child's development compare to a norm?",
     "What is the effect of this intervention on child development?",
     "What is the difference in child development between these two groups?",
     "What is the change in average child development since the last measurement?",
