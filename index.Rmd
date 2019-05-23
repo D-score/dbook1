@@ -23,10 +23,10 @@ opts_chunk$set(comment = NA, background = "#FBFBFB",
 
 # Welcome {-}
 
-The $D$-score is a one-number summary that quantifies generic
-development of children. Here you find introductory booklets on the
-$D$-score, each of which addresses a particular aspect of the general
-idea.
+The $D$-score is a one-number summary score that quantifies the
+general development of children. Here you find introductory booklets
+on the $D$-score, each of which addresses a particular aspect of the
+$D$-score concept.
 
 The $D$-score booklet series consists of the following titles:
 
