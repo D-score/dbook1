@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>6.1 Item fit | Introduction to the D-score</title>
+  <title>3.2 Probability-based measurement | Introduction to the D-score</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="6.1 Item fit | Introduction to the D-score" />
+  <meta property="og:title" content="3.2 Probability-based measurement | Introduction to the D-score" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.1 Item fit | Introduction to the D-score" />
+  <meta name="twitter:title" content="3.2 Probability-based measurement | Introduction to the D-score" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png">
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-<link rel="prev" href="ch-evaluation.html">
-<link rel="next" href="sec-personfit.html">
+<link rel="prev" href="sec-agebased.html">
+<link rel="next" href="sec-scorebased.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -103,9 +103,9 @@
 <li class="chapter" data-level="3.1.2" data-path="sec-agebased.html"><a href="sec-agebased.html#sec:ageequivalent"><i class="fa fa-check"></i><b>3.1.2</b> Age equivalent and developmental age</a></li>
 <li class="chapter" data-level="3.1.3" data-path="sec-agebased.html"><a href="sec-agebased.html#limitations-of-age-based-measurement"><i class="fa fa-check"></i><b>3.1.3</b> Limitations of age-based measurement</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="sec-probbased.html"><a href="sec-probbased.html"><i class="fa fa-check"></i><b>3.2</b> Probability-based measurement</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="sec-probbased.html"><a href="sec-probbased.html#example-of-probability-based-measurement"><i class="fa fa-check"></i><b>3.2.1</b> Example of probability-based measurement</a></li>
-<li class="chapter" data-level="3.2.2" data-path="sec-probbased.html"><a href="sec-probbased.html#limitations-of-probability-based-measurement"><i class="fa fa-check"></i><b>3.2.2</b> Limitations of probability-based measurement</a></li>
+<li class="chapter" data-level="3.2" data-path="sec-passprob.html"><a href="sec-passprob.html"><i class="fa fa-check"></i><b>3.2</b> Probability-based measurement</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="sec-passprob.html"><a href="sec-passprob.html#example-of-probability-based-measurement"><i class="fa fa-check"></i><b>3.2.1</b> Example of probability-based measurement</a></li>
+<li class="chapter" data-level="3.2.2" data-path="sec-passprob.html"><a href="sec-passprob.html#limitations-of-probability-based-measurement"><i class="fa fa-check"></i><b>3.2.2</b> Limitations of probability-based measurement</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="sec-scorebased.html"><a href="sec-scorebased.html"><i class="fa fa-check"></i><b>3.3</b> Score-based measurement of development</a><ul>
 <li class="chapter" data-level="3.3.1" data-path="sec-scorebased.html"><a href="sec-scorebased.html#motivation-for-score-based-measurement-secmotivscorebased"><i class="fa fa-check"></i><b>3.3.1</b> Motivation for score-based measurement {sec:motivscorebased}</a></li>
@@ -260,159 +260,68 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="sec:itemfit" class="section level2">
-<h2><span class="header-section-number">6.1</span> Item fit</h2>
-<p>The philosophy of the Rasch model is different from conventional
-statistical modeling. It is not the task of the Rasch model to account
-for the data. Rather it is the task of the data to fit the Rasch
-model. We saw this distinction before in Section
-<a href="sec-measurementmodel.html#sec:adaptmodel">4.5.2</a>.</p>
-<p>The goal of model fit assessment is to explore and quantify how well
-empirical data meet the requirements of the Rasch model. One way to
-gauge model fit is to compare the observed probability of passing an
-item to the fitted item response curve for endorsing the item.</p>
-<p>The fitted item response curve for each item <span class="math inline">\(i\)</span> is modeled as:</p>
-<p><span class="math display">\[P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},\]</span></p>
-<p>where <span class="math inline">\(\hat\beta_n\)</span> is the estimated ability of child <span class="math inline">\(n\)</span> (the child’s
-<span class="math inline">\(D\)</span>-score), and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated difficulty of
-item <span class="math inline">\(i\)</span>. Chapter <a href="ch-computation.html#ch:computation">5</a> describes process of parameter
-estimation in detail.</p>
-<div id="well-fitting-item-response-curves" class="section level3">
-<h3><span class="header-section-number">6.1.1</span> Well-fitting item response curves</h3>
-<div class="figure" style="text-align: center"><span id="fig:ploticc"></span>
-<img src="dbook1_files/figure-html/ploticc-1.png" alt="(ref:ploticc)" width="672" />
+<div id="sec:passprob" class="section level2">
+<h2><span class="header-section-number">3.2</span> Probability-based measurement</h2>
+<p>An alternative is to calculate the <em>probability</em> of achieving a
+milestone given the child’s age, and compare the child’s response to
+that probability.</p>
+<p>The passing probability is an easy to interpret and relevant measure.
+An operational advantage of the approach is that the necessary
+calculations places less demands on the available data, and can be
+done even for cross-sectional studies.</p>
+<div id="example-of-probability-based-measurement" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Example of probability-based measurement</h3>
+<!-- &nbsp; -->
+<!-- Table \@ref(tab:weekly) reconstructs the weekly motor measurements -->
+<!-- made by Shirley from Table \@ref(tab:shirley). Each of the -->
+<!-- measurements is coded as a PASS (1) or a FAIL (0). -->
+<div class="figure" style="text-align: center"><span id="fig:shirleypa"></span>
+<img src="dbook1_files/figure-html/shirleypa-1.png" alt="Probability of achieving four motor milestones against age." width="672" />
 <p class="caption">
-Figure 6.1: (ref:ploticc)
-</p>
-</div>
-<p>(ref:ploticc) Empirical and fitted item response curves for two
-milestones from the DDI (SMOCC data).</p>
-<p>The study of <em>item fit</em> involves comparing the empirical and fitted
-probabilities at various levels of ability. Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a>
-shows the item characteristics curves of two DDI milestones. The
-orange line represents the empirical probability at different ability
-levels. The dashed line represents the estimated item response curve
-according to the Rasch model. The empirical and estimated curves are
-close together, so both items fit the model very well.</p>
-</div>
-<div id="item-response-curves-showing-severe-underfit" class="section level3">
-<h3><span class="header-section-number">6.1.2</span> Item response curves showing severe underfit</h3>
-<p>These examples of item response curves fit the model nicely. There are,
-however, many cases where things are less bright.</p>
-<div class="figure" style="text-align: center"><span id="fig:plothyp1"></span>
-<img src="dbook1_files/figure-html/plothyp1-1.png" alt="Three simulated items that illustrate various forms of item misfit." width="672" />
-<p class="caption">
-Figure 6.2: Three simulated items that illustrate various forms of item misfit.
+Figure 3.3: Probability of achieving four motor milestones against age.
 </p>
 </div>
 
-<p>Figure <a href="sec-itemfit.html#fig:plothyp1">6.2</a> shows three forms of severe underfit from
-three hypothetical items. These items were simulated to have a low fit,
-added to the DDI, and their parameters were estimated by the methods
-of Chapter <a href="ch-computation.html#ch:computation">5</a>. For the first item, <code>hypgmd001</code>, the
-probability of passing is almost constant across ability, so retaining
-this item essentially only adds to the noise. Item <code>hypgmd002</code>
-converges to an asymptote around 80 percent and has a severe dip in
-the middle. The dip is caused by the strong relation to age. Item
-<code>hypgmd003</code> appears to have the wrong coding. In addition, the
-spike-like behavior in the middle is often seen when two or more
-different items are erroneously given identical item names.</p>
-<p>Removal of items with a low fit can substantially improve overall
-model fit.</p>
+<p>Figure <a href="sec-passprob.html#fig:shirleypa">3.3</a> plots the percentage of children passing
+each of Shirley’s motor milestones against age. There are four
+cumulative curves, one of each milestone, that indicate the number of
+children that pass the milestone.</p>
+<p>In analogy to the age equivalent introduced in Section
+<a href="sec-agebased.html#sec:ageequivalent">3.1.2</a> we can define the <em>difficulty</em> of the
+milestone as the age at which 50 percent of the children pass. In the
+Figure we see that the difficulties are approximately 14.2 weeks
+(<code>stepping</code>), 27.0 weeks (<code>standing</code>), 43.8 weeks (<code>walking with help</code>) and 64.0 weeks (<code>walking alone</code>). In addition, we may easily
+find the ages at which 10 percent or 90 percent of the children pass
+each milestone.</p>
+<p>Observe there is a gradual decline in the steepness as we move from
+<code>stepping</code> to <code>walk_alone</code>. For example, we need an age interval of 13
+weeks (33 - 20) to go from 10 to 90 percent in <code>standing</code>, but need 19
+weeks (71 - 52) to go from 10 to 90 percent in <code>walking alone</code>. Thus,
+one step on the age axis corresponds to different steps in
+probability. The flattening pattern is typical for child development,
+and represents clear evidence that development is faster at earlier
+ages.</p>
 </div>
-<div id="item-response-curves-showing-overfit" class="section level3">
-<h3><span class="header-section-number">6.1.3</span> Item response curves showing overfit</h3>
-<div class="figure" style="text-align: center"><span id="fig:plothyp2"></span>
-<img src="dbook1_files/figure-html/plothyp2-1.png" alt="Two simulated items that illustrate item overfit." width="672" />
-<p class="caption">
-Figure 6.3: Two simulated items that illustrate item overfit.
-</p>
+<div id="limitations-of-probability-based-measurement" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Limitations of probability-based measurement</h3>
+<p>Probability-based measurement is a popular way to create instruments
+for screening on developmental delay. For example, each milestone in
+the Denver II <span class="citation">(Frankenburg et al. <a href="#ref-frankenburg1992">1992</a>)</span> has markers for the 25th, 50th, 75th
+and 90th age percentile.</p>
+<ol style="list-style-type: decimal">
+<li><p>The same age step corresponds to different probabilities.</p></li>
+<li><p>The measurement cannot exists without a norm population. When norms
+differ, we cannot compare the measurements.</p></li>
+<li><p>Interpretation is typically done at the milestone level, sometimes
+supplemented by procedures for counting the number of delays. There is
+no aggregate that takes all responses into account.</p></li>
+</ol>
 </div>
-
-<p>Figure <a href="sec-itemfit.html#fig:plothyp2">6.3</a> shows two hypothetical items with two forms
-of overfit. The curve of item <code>hypgmd004</code> is much steeper than the
-modeled curve. Thus, just this one item is exceptionally well-suited
-to distinguish children with a <span class="math inline">\(D\)</span>-score below 50<span class="math inline">\(D\)</span> from those with a
-score above 50<span class="math inline">\(D\)</span>. Note that the item isn’t sensitive anywhere else on
-the scale. In general, having items like these is good news, because
-they allow us to increase the reliability of the instrument. One
-should make certain though, that FAIL and PASS scores are all measured
-(not imputed) values.</p>
-<p>Multiple perfect items could hint to a violation of the <em>local
-independence assumption</em> (c.f. Section <a href="sec-measurementmodel.html#sec:measurementmodel">4.5</a>).
-Developmental milestones sometimes have combinations of responses that
-are impossible. For example, one cannot walk without being able to
-stand, so the inconsistent combination (stand: FAIL, walk: PASS) will
-not be observed. This leads to more consistent responses that would be
-expected by chance alone. In principle, one could combine the two such
-items into one three-category items, which effectively set the
-probability of inconsistent combinations to zero.</p>
-<p>Item <code>hypgmd005</code> is also steep, but has an asymptote around 80
-percent. This causes discrepancies between the empirical and modeled
-curves around the middle of the probability scale. In general, such
-items could be removed if a sufficient number of better items are
-available.</p>
 </div>
-<div id="sec:infit" class="section level3">
-<h3><span class="header-section-number">6.1.4</span> Item infit and outfit</h3>
-<p>Item fit can quantified by item <em>infit</em> and <em>outfit</em>. Both are
-aggregates of the model residuals. The observed response <span class="math inline">\(x_{ni}\)</span> of
-person <span class="math inline">\(n\)</span> on item <span class="math inline">\(i\)</span> can be <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.</p>
-<p>The <em>standardized residual</em> <span class="math inline">\(z_{ni}\)</span> is the difference between the observed
-response <span class="math inline">\(x_{ni}\)</span> and the expected response <span class="math inline">\(P_{ni}\)</span>, divided by the
-expected binomial standard deviation,</p>
-<p><span class="math display">\[z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}},\]</span></p>
-<p>where the expected response variance <span class="math inline">\(W_{ni}\)</span> is calculated as</p>
-<p><span class="math display">\[W_{ni} = P_{ni}(1-P_{ni}).\]</span></p>
-<p><em>Item infit</em> is the sum of the squared residuals divided by the sum of
-the expected response variances <span class="math inline">\(W_{ni}\)</span></p>
-<p><span class="math display">\[\mathrm{Item\ infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}.\]</span></p>
-<p><em>Item outfit</em> is calculated as the average (over <span class="math inline">\(N\)</span> measurements) of the
-squared standardized residual</p>
-<p><span class="math display">\[\mathrm{Item\ outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.\]</span></p>
-<p>The expected value of both infit and outfit is equal to 1.0. The
-interpretation is as follows:</p>
-<ul>
-<li><p>If infit and outfit are 1.0, then the item perfectly fits the Rasch
-model, as in Figure <a href="sec-itemfit.html#fig:ploticc">6.1</a>;</p></li>
-<li><p>If infit and outfit &gt; 1.0, then the item has underfit. The amount of
-underfit is quantified by infit and outfit, as in <a href="sec-itemfit.html#fig:plothyp1">6.2</a>;</p></li>
-<li><p>If infit and outfit &lt; 1.0, then the item fits the model better than
-expected (overfit). The amount of over fit is quantified by infit and
-outfit, as in <a href="sec-itemfit.html#fig:plothyp2">6.3</a>.</p></li>
-</ul>
-<p>Infit is more sensitive to discrepancies in the middle of the
-probability scale, whereas outfit is the better measure for
-discrepancies at probabilities close to 0 or 1. Lack of fit is
-generally easier to spot at the extremes. The two measures are highly
-correlated. Infit is generally considered more important.</p>
-<p>Values near 1.0 are desirable. There are no cut-and-dried <a href="https://www.rasch.org/rmt/rmt83b.htm">cutoff
-values</a> for infit and outfit. In
-general, we want to remove underfitting items, e.g., item with infits
-or outfits higher than, say, 1.3. Overfitting items with values lower
-than 1.0 are not harmful. Preserving these items may actually help to
-increase reliability of the scale. The cut-off chosen also depends on
-the number of available items. When there are many items to choose
-from, we could use a stricter criterion, say infit and outfit &lt; 1.0 to
-select only the absolutely best items.</p>
-</div>
-<div id="sec:fitddi" class="section level3">
-<h3><span class="header-section-number">6.1.5</span> Infit and outfit in the DDI</h3>
-<div class="figure" style="text-align: center"><span id="fig:fitplot"></span>
-<img src="dbook1_files/figure-html/fitplot-1.png" alt="(ref:fitplot)" width="672" />
-<p class="caption">
-Figure 6.4: (ref:fitplot)
-</p>
-</div>
-<p>(ref:fitplot) Frequency distribution of infit (left) and outfit
-(right) of 57 milestones from the DDI (SMOCC data).</p>
-<p>Figure <a href="sec-itemfit.html#fig:fitplot">6.4</a> displays the histogram of the 57 milestones
-from the DDI (c.f. Section <a href="sec-ddi.html#sec:ddi">4.1</a>). Most infits are within the
-the range 0.6 - 1.1, thus indicating excellent fit. The two milestones
-with extremely low infits are <code>ddigmd052</code> and <code>ddigmd053</code>. These two
-items actually screen for paralysis for newborns, so the data contain
-hardly any fails on these milestones. The outfit statistics also
-indicate good fit.</p>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-frankenburg1992">
+<p>Frankenburg, W.K., J. Dodds, P. Archer, H. Shapiro, and B. Bresnick. 1992. “The Denver Ii: A Major Revision and Restandardization of the Denver Developmental Screening Test.” <em>Pediatrics</em> 89 (1): 91–97.</p>
 </div>
 </div>
             </section>
@@ -420,8 +329,8 @@ indicate good fit.</p>
           </div>
         </div>
       </div>
-<a href="ch-evaluation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="sec-personfit.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sec-agebased.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sec-scorebased.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
