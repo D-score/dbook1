@@ -606,7 +606,7 @@ substantially delayed their development.
 smocc <- as.data.frame(data)
 ```
 
-```{r bind3a} 
+```{r bind3a, warning=FALSE} 
 smocc2 <- smocc %>% 
   left_join(model$dscore, by = c("subjid", "agedays")) %>% 
   mutate(agemos = agedays / 365.25 * 12) %>% 
