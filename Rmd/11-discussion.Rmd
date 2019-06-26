@@ -113,7 +113,6 @@ g1 <- ggplot(data, aes_string(x = "agemos", y = "b", colour = "subjid")) +
   theme(legend.position = c(0.8, 0.2))
 g1
 ```
-
 (ref:dchart) $D$-chart with five children from the SMOCC study.
 
 Figure \@ref(fig:dchart) shows developmental trajectories of five
@@ -138,7 +137,8 @@ Interventions aimed at improving child development should be delivered
 at the sensitive periods for maximum effect. Programs are to be
 comprehensive, incorporating a combination of health, nutrition,
 security and safety, responsive care-giving and early learning. See
-@engle2011 and @grantham2014 for recent overviews.
+@engle2011, @grantham2014 and @britto2017 for recent overviews and 
+initiatives.
 
 Both estimation of intervention effects as well as comparison across
 different treatments is hampered by the absence of universal measure
@@ -206,7 +206,11 @@ can act as *bridges* between instruments, so - with the appropriate
 item-level data - we may attempt calculating $D$-scores from other
 instruments as well.
 
-Booklet II will explore this possibility in more detail. 
+The work that needs to be done is to identify milestones that overlap
+between both instruments, and filter out milestones that do not fit
+the $D$-score model, and estimate the item difficulties of the
+milestones that remain. Booklet II will explore this possibility in
+more detail.
 
 ## Creating new instruments for $D$-score
 
@@ -220,7 +224,7 @@ for creating instruments for particular settings. For example, if the
 interest is on finding the most advanced children, we may construct a
 difficult test that will separate the good and the best. Alternatively,
 we can use the item bank to create and administer *computerized
-adaptive tests* [@wainer2000, @jacobusse2007], a sequential method that select the
+adaptive tests* [@wainer2000; @jacobusse2007], a sequential method that select the
 next milestone based on the previous test outcome.
 
 Booklet III will explore the conceptual and technical challenges, and
