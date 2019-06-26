@@ -46,7 +46,6 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
   guides(colour = FALSE) + 
   labs(x = "Age (weeks)", y = "Stage")
 ```
-
 (ref:milestonebased) Ages at which 21 children achieve four motor development milestones. 
 
 Figure \@ref(fig:milestonebased) graphs the ages at which each of the
@@ -76,7 +75,6 @@ ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
   labs(y = "Age (weeks)", x = "Stage") +
   coord_flip()
 ```
-
 (ref:agebox) Mean (symbol `x`) and spread of the ages at which 21 children achieve four motor development milestones.
 
 Figure \@ref(fig:agebox) adds the mean age and the boxplot at which
@@ -223,7 +221,6 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
   guides(col = guide_legend(ncol = 1))
 plot
 ```
-
 (ref:shirleypa) Probability of achieving four motor milestones against age.
 
 Figure \@ref(fig:shirleypa) plots the percentage of children passing
@@ -267,7 +264,7 @@ no aggregate that takes all responses into account.
 
 ## Score-based measurement of development {#sec:scorebased}
 
-### Motivation for score-based measurement {sec:motivscorebased}
+### Motivation for score-based measurement {#sec:motivscorebased}
 
 Score-based measurement takes the responses on multiple milestones and
 counts the total number of passed milestones as a measure of child's
@@ -298,9 +295,7 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
   guides(colour = FALSE) + 
   labs(x = "Age (weeks)", y = "Gross-motor score")
 ```
-
-(ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with 
-the vertical axis representing gross-motor score.
+(ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with the vertical axis representing gross-motor score.
 
 The plot suggests that the difference in development between scores 0
 and 1 is the same as the difference in development between, say,
@@ -465,7 +460,6 @@ plot <- dmetric:::draw_logistic(plot, location = delta[3], size = 0.5, linetype 
 plot <- dmetric:::draw_logistic(plot, location = delta[4], size = 0.5, linetype = "dashed", scale = scale)
 plot
 ```
-
 (ref:shirleypd) Modeled probability of achieving four motor milestones against the $D$-score.
 
 Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
