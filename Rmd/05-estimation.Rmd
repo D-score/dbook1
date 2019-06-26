@@ -69,10 +69,10 @@ persons in the analysis we separate estimation of item difficulties
 There are many methods for estimating the difficulty parameters of the
 Rasch estimation. See @linacre2004 for an overview. 
 
-We will use the pairwise method estimation method. This method writes
-the probability that child $n$ passes item $i$ but not item $j$ given
-that the child passed one of them as $\exp(\delta_i) / (\exp(\delta_i)
-+ \exp(\delta_j))$. The method optimizes the pseudo-likelihood of all
+We will use the pairwise estimation method. This method writes the
+probability that child $n$ passes item $i$ but not item $j$ given that
+the child passed one of them as $\exp(\delta_i) / (\exp(\delta_i) +
+\exp(\delta_j))$. The method optimizes the pseudo-likelihood of all
 item pairs over the difficulty estimates by a simple iterative
 procedure.
 
@@ -108,9 +108,7 @@ p <- ggplot(ib, aes(x = delta, y = reorder(lab, -delta))) +
   theme(axis.title.y = element_blank())
 p
 ```
-
-(ref:itemdiflplot) Estimated item difficulty parameters ($d_i$) for 57 milestones
-of the DDI (0 - 2 years).
+(ref:itemdiflplot) Estimated item difficulty parameters ($d_i$) for 57 milestones of the DDI (0 - 2 years).
 
 Figure \@ref(fig:itemdiflplot) summarizes the estimated item
 difficulty parameters. Although the model makes no distinction between
@@ -171,10 +169,7 @@ p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) +
   theme(axis.title.y = element_blank())
 p
 ```
-
-(ref:itemdifdplot) Estimated item difficulty parameters ($d_i$) for 57 milestones
-of the DDI (0 - 2 years). Milestones `ddigmd057` and `ddigmd063` are anchored at 
-values of 20$D$ and 40$D$, respectively.
+(ref:itemdifdplot) Estimated item difficulty parameters ($d_i$) for 57 milestones of the DDI (0 - 2 years). Milestones `ddigmd057` and `ddigmd063` are anchored at values of 20$D$ and 40$D$, respectively.
 
 ## Estimation of the $D$-score {#sec:dscoreestimation}
 
@@ -201,8 +196,14 @@ The first two inputs to the $D$-score will be obvious. The third
 component, the prior distribution, is needed in order to be able to
 deal with perfect responses. The prior distribution summarizes our
 knowledge about the $D$-score before we see any of the child's
-PASS/FAIL scores. It is essentially an arbitrary choice, but part of
-the modelling so it needs to be made only once.
+PASS/FAIL scores. In general, we like to prior to be non-informative,
+so that the value of the $D$-score is entirely determined by the
+observed responses and the item difficulties. In practice, we cannot
+use truly non-informative prior because that would leave the $D$-score
+for perfect responses (i.e., all PASS or all FAIL) undefined. The
+choice of the prior is essentially arbitrary, but we can make it in
+such a way that its impact on the value $D$-score is negligible,
+especially for tests where we have more than, say, four items.
 
 Since we know that the $D$-score depends on age, a logical choice for
 the prior is to make it dependent on age. More in particular, we will
@@ -388,9 +389,7 @@ p <- ggplot(plotdata, aes(x = x, y = y)) +
   scale_colour_manual(values = brewer.pal(12, "Paired")[c(3, 4)])
 p
 ```
-
-(ref:davidplot) $D$-score distribution for David and Rob before
-(prior) and after (posterior) a milestone is taken into account.
+(ref:davidplot) $D$-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
 
 Figure \@ref(fig:davidplot) shows how the prior transforms into the
 posterior after the measurement outcomes is fed into the calculation. There 
@@ -476,7 +475,7 @@ vary smoothly with age.
 ### Estimation of the reference distribution
 
 The parameters are estimated using the BCCG distribution of `gamlss
-5.1-3` (@stasinopoulos2007) using cubic splines smoothers. The final
+5.1-3` [@stasinopoulos2007] using cubic splines smoothers. The final
 solution used a log-transformed age scale and fitted the model with
 smoothing parameters $\mathrm{df}(M)=2$, $\mathrm{df}(S)=2$ and
 $\mathrm{df}(L)=1$. 
@@ -523,7 +522,7 @@ converts measurement $D_t$ into its normal equivalent deviate $Z$. If $L_t$ is c
 $$Z=\frac{\ln(D_t/M_t)}{S_t}$$
 
 Any required centile curve can be derived from Table
-\ref{tab:reftable}. First, choose $Z_\alpha$ as the $Z$-score below
+\@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score below
 which $100\alpha$ percent of the distribution is located, for example,
 \ $Z_{0.05}=-1.64$. The $D$-score that defines the $100\alpha$ centile
 is equal to
