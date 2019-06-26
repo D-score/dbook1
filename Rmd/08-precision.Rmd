@@ -110,10 +110,7 @@ g <- ggplot(data2, aes(y = agemos, x = reorder(item, ord), color = debut)) +
         legend.position = c(0.85, 0.75))
 g
 ```
-
-(ref:ageitemgrid) Age-item grid of the SMOCC study, illustrating how
-the 57 DDI items are distributed over nine visits during the first 24
-months.
+(ref:ageitemgrid) Age-item grid of the SMOCC study, illustrating how the 57 DDI items are distributed over nine visits during the first 24 months.
 
 Figure \@ref(fig:ageitemgrid) shows which subset of DDI items is
 administered at each age. For example, at the 1-month visit the five
@@ -257,10 +254,7 @@ g <- ggplot(subset(long,
   theme(legend.position = "bottom")
 g  
 ```
-
-(ref:month2d) Distribution of the $D$-scores calculated from the
-standard, additional and all available milestones at month 2. Colors
-correspond to the number of fails.
+(ref:month2d) Distribution of the $D$-scores calculated from the standard, additional and all available milestones at month 2. Colors correspond to the number of fails.
 
 The vertical axis of Figure \@ref(fig:month2d) shows the $D$-score,
 separately calculated from the standard, additional and all available
@@ -332,10 +326,7 @@ g <- ggplot(subset(long,
   theme(legend.position = "bottom")
 g  
 ```
-
-(ref:month3d) Distribution of the $D$-scores calculated from the
-standard, additional and all available milestones at month 3. Colors
-correspond to the number of fails.
+(ref:month3d) Distribution of the $D$-scores calculated from the standard, additional and all available milestones at month 3. Colors correspond to the number of fails.
 
 Figure \@ref(fig:month3d) is the same plot as before, but now for
 month 3. Compared to Figure \@ref(fig:month2d) all points shifted
@@ -370,9 +361,7 @@ g <- ggplot(drop_na(long, fail),
   theme(legend.position = "none")
 g  
 ```
-
-(ref:alld) $D$-score by age 0-30 months for standard, additional and
-all available milestones at each measurement occasion.
+(ref:alld) $D$-score by age 0-30 months for standard, additional and all available milestones at each measurement occasion.
 
 Figure \@ref(fig:alld) plot the $D$-score distribution for all
 occasions. Some observations:
@@ -385,8 +374,8 @@ would need to include more difficult milestones.
 
 * *Floor effect*: There are almost no floor effects in the *standard*
 and *all* sets. These sets discriminate well among children with
-delayed development, which was the design purpose of the DDI. Floor
-effects visible in the *additional* set.
+delayed development, which was the designed purpose of the DDI. 
+Note that floor effects are visible in the *additional* set.
 
 * *Average level*: All three sets capture the overall relation between
 age and development. The *additional* set is quite efficient for
@@ -457,9 +446,7 @@ g <- ggplot(data_iq, aes(x = IQ)) +
   ylab("Frequency")
 g
 ```
-
-(ref:histiq) Histogram of UKKI *IQ* scores taken around the age of
-five years (SMOCC data, $n = 557$).
+(ref:histiq) Histogram of UKKI *IQ* scores taken around the age of five years (SMOCC data, $n = 557$).
 
 Figure \@ref(fig:histiq) shows the empirical IQ distribution of 557
 children. The mean IQ score is 108 and the standard deviation is 15,
@@ -479,9 +466,7 @@ g <- ggplot(long2, aes(x = d, y = IQ)) +
   theme(legend.position = "none")
 g  
 ```
-
-(ref:plotdiq) Relation between $D$-score at infancy and *IQ* at age 5 years
-according to three milestone sets and nine visits (SMOCC data, $n = 557$).
+(ref:plotdiq) Relation between $D$-score at infancy and *IQ* at age 5 years according to three milestone sets and nine visits (SMOCC data, $n = 557$).
 
 ```{r reg2, results = 'hide'}
 summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "Standard"))
