@@ -83,7 +83,7 @@ conditional and marginal maximum likelihood methods.
 The beauty of the method is that it is independent of the ability
 distribution, so there is no need to remove perfect scores. We use the
 function `rasch.pairwise.itemcluster()` as implemented in the `sirt`
-package (@robitzsch2016).
+package [@robitzsch2016].
 
 ```{r itemdiflplot, fig.height = 10, fig.cap = '(ref:itemdiflplot)'}
 d1 <- data.frame(delta = model$fit$b, 

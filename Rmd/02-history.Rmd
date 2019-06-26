@@ -123,10 +123,7 @@ development.
 ```{r dynamic, fig.cap = '(ref:dynamic)'}
 include_graphics("fig/dynamic.png")
 ```
-
-(ref:dynamic) A representation of the dynamic systems viewpoint on how
-different combinations of skills may lead to the same end point using
-different paths. Source: @berk2013.
+(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
 
 ### Nature or nurture?
 
@@ -177,7 +174,6 @@ kable(shirley,
       caption =  "Age at beginning stages of walking (in weeks) for 21 babies.",
       booktabs = TRUE)
 ```
-
 &nbsp;
 
 Table \@ref(tab:shirley) from [@shirley1931, Appendix 8] lists the age
@@ -207,9 +203,7 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
   labs(x = "Age (weeks)", y = "Stage")
 #
 ```
-
-(ref:stepplot) Staircase plot indicating the age at which each baby 
-achieves a new milestone of gross-motor functioning.
+(ref:stepplot) Staircase plot indicating the age at which each baby achieves a new milestone of gross-motor functioning.
 
 Figure \@ref(fig:stepplot) is a visual representation of the
 information in Table \@ref(tab:shirley). Each data point is the age of
@@ -265,7 +259,6 @@ kable(questions,
       caption = "Questions whose answers require quantitative measurements of child development.", 
       booktabs = TRUE)
 ```
-
 &nbsp;
 
 Table \@ref(tab:questions) lists typical questions whose answers
