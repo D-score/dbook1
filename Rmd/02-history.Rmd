@@ -74,9 +74,9 @@ here just illustrate the main points of view in the field.
 The field of child development is huge and spans multiple academic
 disciplines. This short overview therefore cannot do justice to
 the enormous richness. Readers new to the field might orient
-themselves by browsing through an introductory academic title (e.g.
-@santrock2010, @berk2013), or by searching for the topic of interest
-in an encyclopedia (e.g. @salkind2002).
+themselves by browsing through an introductory academic titles 
+[@santrock2010; @berk2013], or by searching for the topic of interest
+in an encyclopedia, e.g., @salkind2002.
 
 The introductions by @santrock2010 and @berk2013 both distinguish
 major theories in child development according to how each answers
