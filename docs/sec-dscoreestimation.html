@@ -107,7 +107,7 @@
 <li class="chapter" data-level="3.2.2" data-path="sec-probbased.html"><a href="sec-probbased.html#limitations-of-probability-based-measurement"><i class="fa fa-check"></i><b>3.2.2</b> Limitations of probability-based measurement</a></li>
 </ul></li>
 <li class="chapter" data-level="3.3" data-path="sec-scorebased.html"><a href="sec-scorebased.html"><i class="fa fa-check"></i><b>3.3</b> Score-based measurement of development</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="sec-scorebased.html"><a href="sec-scorebased.html#motivation-for-score-based-measurement-secmotivscorebased"><i class="fa fa-check"></i><b>3.3.1</b> Motivation for score-based measurement {sec:motivscorebased}</a></li>
+<li class="chapter" data-level="3.3.1" data-path="sec-scorebased.html"><a href="sec-scorebased.html#sec:motivscorebased"><i class="fa fa-check"></i><b>3.3.1</b> Motivation for score-based measurement</a></li>
 <li class="chapter" data-level="3.3.2" data-path="sec-scorebased.html"><a href="sec-scorebased.html#example-of-score-based-measurement"><i class="fa fa-check"></i><b>3.3.2</b> Example of score-based measurement</a></li>
 <li class="chapter" data-level="3.3.3" data-path="sec-scorebased.html"><a href="sec-scorebased.html#limitations-of-score-based-measurement"><i class="fa fa-check"></i><b>3.3.3</b> Limitations of score-based measurement</a></li>
 </ul></li>
@@ -281,8 +281,14 @@ of the person on the latent variable.</p>
 component, the prior distribution, is needed in order to be able to
 deal with perfect responses. The prior distribution summarizes our
 knowledge about the <span class="math inline">\(D\)</span>-score before we see any of the child’s
-PASS/FAIL scores. It is essentially an arbitrary choice, but part of
-the modelling so it needs to be made only once.</p>
+PASS/FAIL scores. In general, we like to prior to be non-informative,
+so that the value of the <span class="math inline">\(D\)</span>-score is entirely determined by the
+observed responses and the item difficulties. In practice, we cannot
+use truly non-informative prior because that would leave the <span class="math inline">\(D\)</span>-score
+for perfect responses (i.e., all PASS or all FAIL) undefined. The
+choice of the prior is essentially arbitrary, but we can make it in
+such a way that its impact on the value <span class="math inline">\(D\)</span>-score is negligible,
+especially for tests where we have more than, say, four items.</p>
 <p>Since we know that the <span class="math inline">\(D\)</span>-score depends on age, a logical choice for
 the prior is to make it dependent on age. More in particular, we will
 define the prior as a normal distribution equal to the expected mean
@@ -469,13 +475,12 @@ being <code>ddicmm037</code>. David passed all milestones, but has no score on
 the last. Rob fails on <code>ddifmm012</code> and <code>ddigmm067</code>. How do we
 calculate the <span class="math inline">\(D\)</span>-score for David and Rob?</p>
 <div class="figure" style="text-align: center"><span id="fig:davidplot"></span>
-<img src="dbook1_files/figure-html/davidplot-1.png" alt="(ref:davidplot)" width="672" />
+<img src="dbook1_files/figure-html/davidplot-1.png" alt="\(D\)-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account." width="672" />
 <p class="caption">
-Figure 5.4: (ref:davidplot)
+Figure 5.4: <span class="math inline">\(D\)</span>-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
 </p>
 </div>
-<p>(ref:davidplot) <span class="math inline">\(D\)</span>-score distribution for David and Rob before
-(prior) and after (posterior) a milestone is taken into account.</p>
+
 <p>Figure <a href="sec-dscoreestimation.html#fig:davidplot">5.4</a> shows how the prior transforms into the
 posterior after the measurement outcomes is fed into the calculation. There
 are five milestones, and so calculation is done in five steps:</p>
