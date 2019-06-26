@@ -94,7 +94,7 @@ decisions about programmes that support children’s greatest needs
 
 Stunting is the impaired physical growth and development that children
 experience from poor nutrition, repeated infection, and inadequate
-psycho social stimulation. Linear growth in children is commonly
+psychosocial stimulation. Linear growth in children is commonly
 expressed as length-for-age or height-for-age in comparison to
 normative growth standards [@wit2017practical]. According to the World
 Health Organization (WHO) children are defined as stunted if their
@@ -108,9 +108,9 @@ include_graphics("fig/stuntedchildren.jpg")
 ```
 (ref:shortkids) Seven eight-year old children standing in front of a wall with the line depicting the average height according to the WHO Child Growth Standards.
 
-There is consistent evidence for the association between stunting and
-poor child development, despite heterogeneity in the magnitude of
-associations [@miller2016consistent; @sudfeld2015linear]. Considering
+There is consistent evidence for an association between stunting and
+poor child development, despite heterogeneity in the estimation of its 
+magnitude [@miller2016consistent; @sudfeld2015linear]. Considering
 impaired linear growth as a proxy measure for child development is
 easy to do, and in fact quite common. Yet, using impaired height
 growth as measure for child development is not without limitations:
@@ -137,37 +137,36 @@ susceptible to measurement setting, timing and the health of the child
 that day.
 
 Recently, a toolkit was published that reviews 147 assessment tools
-that have been developed for children ages 0--8 years in low- and
-middle-income countries [@fernald2017toolkit]. The ideal child
-development assessment is easy to administer and has high reliability,
-validity, and cross-cultural appropriateness. It should also show
-appropriate sensitivity in scores at different ages and ability
-levels. It is no surprise that no test can meet all of these
-criteria. Many tests are too long, difficult to administer, lack
-cross-cultural validity or have low reliability. In addition, many of
-the measurement instruments are proprietary, and costly to use.
-
-Some of the most widely used tools include the Ages & Stages
-Questionnaires (ASQ), Achenbach Child Behavior Checklist (CBCL),
-Bayley Scales of Infant Development (BSID), Denver Developmental
-Screening Test (DEN), Strengths and Difficulties Questionnaire (SDQ),
-Wechsler Intelligence Scale for Children (WISC), and its younger age
-counterpart Wechsler Preschool and Primary Scale of Intelligence
-(WPPSI).
+developed for children ages 0--8 years in low- and middle-income
+countries [@fernald2017toolkit]. Some of the most widely used tools
+include the Ages & Stages Questionnaires (ASQ), Achenbach Child
+Behavior Checklist (CBCL), Bayley Scales of Infant Development (BSID),
+Denver Developmental Screening Test (DEN), Griffiths Scales of Child
+Development (GRF), Mullen Scale of Early Learning (MSEL),
+Strengths and Difficulties Questionnaire (SDQ), Wechsler Intelligence
+Scale for Children (WISC), and its younger age counterpart Wechsler
+Preschool and Primary Scale of Intelligence (WPPSI).
 
 Each of these tools has its strengths and limitations. For example,
 the ASQ and DEN are screeners for general child development. The CBCL
 and SDQ are screeners for behavioral and mental health, not cognition
-or general development. The Denver is a relatively easy and quick to
-administer, but not very precise. The Denver is therefore primarily
-applied as a screening tool to pick up children who may need further
-attention. By contrast, the BSID provides a clinical assessment at the
-individual level, and requires a skilled professional to administer.
-Some instruments collect observations through the caregiver (ASQ),
-whereas others emphasize traits and behavior over performance (SDQ,
-CBCL). Moreover, the age ranges to which the instruments are sensitive
-vary, as well as the representation of different domains of
-development.
+or general development. DEN is relatively easy and quick to
+administer, but not very precise. It is out of production, not being
+sold or re-normed. The BSID, MSEL and GRF provide a clinical
+assessment at the individual level, and requires a skilled
+professional to administer. Some instruments collect observations
+through the caregiver (ASQ), whereas others emphasize traits and
+behavior over performance (SDQ, CBCL). Moreover, the age ranges to
+which the instruments are sensitive vary, as well as the
+representation of different domains of development.
+
+The ideal child development assessment would be easy to administer and
+has high reliability, validity, and cross-cultural appropriateness. It
+should also show appropriate sensitivity in scores at different ages
+and ability levels. It is no surprise that no test can meet all of
+these criteria. Many tests are too long, difficult to administer, lack
+cross-cultural validity or have low reliability. In addition, many
+instruments are proprietary and costly to use.
 
 ## Why this booklet? {#sec:why}
 
@@ -197,16 +196,15 @@ here). The opposite is also true, and perhaps more familiar. We may
 have one instrument and express the result in multiple units (e.g. cm,
 inches, light years). 
 
-**Instruments and scales are different things**. Currently,
-instruments for measuring child development define their own scales,
-which renders the measurements made by different instrument
-incomparable. No measurement unit for child development yet exists. It
-would certainly be an advance if we would be able to tailor the
-measurement instrument to the setting, while retaining the advantage
-that measurements from these different instruments are values on a
-scale with the same unit. We can then compare the data collected by
-different instruments. This booklet explores the theory and practice
-for making that happen.
+Instruments and scales are different things. Currently, instruments
+for measuring child development define their own scales, which renders
+the measurements made by different instrument incomparable. No
+measurement unit for child development yet exists. It would certainly
+be an advance if we could tailor the measurement instrument to the
+setting, while retaining the advantage of a scale with a clearly
+defined unit across different instruments. We can then compare the
+data collected by different instruments. This booklet explores the
+theory and practice for making that happen.
 
 ## Intended audience {#sec:audience}
 
@@ -219,29 +217,29 @@ We aim for three broad audiences:
 * Statisticians, methodologists and data scientists.
 
 Professionals in child development will become familiar with a new
-approach to measure child development in early childhood. Our plan of
-attack is to separate the measurement instrument from the scale used
-to express the result. This formulation allows the user to **select the
+approach to measuring child development in early childhood. Our plan
+is to separate the measurement instrument from the scale used to
+express the result. This formulation allows the user to **select the
 instrument most suited for a particular setting**. Since instruments
 differ widely in age coverage, length, administration mode, domain
-coverage, and so on  (see @boggs2019), the ability to choose the
+coverage, and so on [@boggs2019], the ability to choose the
 instrument, while not giving up comparability, represents a major
 advance over routines that marry the scale to the instrument.
 
 Policy makers in international settings wish to know the effect of
-different interventions on child development. Gaining insight into
-such effects is hampered by the fact that different studies use
-different instruments. The ability to place measurements made by
-different instruments onto the same scale allows for a **more accurate
-understanding of policy effects**. It also allows to set priorities and
-action levels that are less dependent on the way the data where
-collected.
+different interventions on child development. Insight into such
+effects is hampered by the fact that different studies use different
+instruments. The ability to place measurements made by different
+instruments onto the same scale will allow for a **more accurate
+understanding of policy effects**. It also enables setting of
+priorities and action levels that are less dependent on the way the
+data were collected.
 
 Statisticians, methodologists and data scientists generally prefer
 numeric values with an unambiguous unit (e.g. centimeters, kilograms)
 over a vector of dichotomous data points. This booklet shows how to
 convert a series of PASS/FAIL scores to a numeric value with interval
-scale properties. This opens up the way to the **application of
+scale properties. This opens the way for the **application of
 precise analytic techniques**, similar to those applied to child
 height and body weight. The techniques have a solid psychometric
 backing, and also apply to other types of problems.
