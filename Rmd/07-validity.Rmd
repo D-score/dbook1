@@ -59,7 +59,6 @@ ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
   labs(fill = "DDI domain") +
   theme(legend.position = c(0.15, 0.75))
 ```
-
 (ref:plotcontent) Cumulative item information by DDI domain.
 
 Figure \@ref(fig:plotcontent) shows the coverage of the three domains
@@ -96,7 +95,6 @@ ggplot(data = fitdomplot, aes( x = tau, y = fit, color = domain)) +
   ylab("Item fit")
 
 ```
-
 (ref:plotdomainfit) Item fit by $D$-score for the DDI domains.
 
 In Chapter \@ref(ch:newmodel) we assumed that child development can be
@@ -111,10 +109,6 @@ item fit residuals of the model.
 ## External validity {#sec:external}
 
 ### Discriminatory validity
-
----
-# >> achtergrondvariabelen gebruiken zoals opleidingsniveau ? Disclamer toevoegen dat de informatie in de data summier is, maar dat we nog wel meer zouden willen toevoegen. 
----
 
 Discriminatory validity indicates the extent to which the $D$-score
 can distinguish children with non-normal development from children
@@ -147,17 +141,16 @@ ggplot(plotdat, aes(x = agemos, y = b, group = residence, colour = residence))+
 ### Convergent and divergent validity
 
 Convergent validity is the extent to which the $D$-score relates to
-similar constructs. It can be measured by the correlation with other
-instrument that measure development. Examples include the total score
-for Bayley-III or the Denver.
+similar constructs. It can be measured by the correlation between the 
+$D$-score and the total score on Bayley-III or Denver.
 
-For a good convergent validity the correlation with other construct
+For a good convergent validity the correlation with the other construct
 should be 0.6, or higher. Unfortunately, at present only limited data
-is for the DDI, so we cannot assess convergent validity for the
+is available for the DDI, so we cannot assess convergent validity for the
 $D$-score at this point.
 
 Divergent validity is the extent to the $D$-score is uncorrelated 
-with measures that are different construct. 
+with measures of a different construct. 
 
 ```{r plotconcurrent, eval=TRUE, fig.height=6, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotconcurrent)'}
 cor1dat <- left_join(model$dscore, data$visit) %>% 
@@ -178,12 +171,14 @@ dmetric::plot_d_adm(data = data, model = model, metric = "dscore",
 #  ylab("z-score for height")+
 #  xlab("z-score for D")
 ```
+(ref:plotconcurrent) Relation between body height and the $D$-score in the SMOCC data.
 
-(ref:plotconcurrent) Relation between body height and the $D$-score in the 
-SMOCC data.
-
-Figure \@ref(fig:plotconcurrent) shows both convergent and divergent validity at work. 
-The figure shows that, as expected, there is a strong and almost linear relation between body height and the $D$-score. However, after correction for child's age, the relation between height and $D$-score almost disappears. This indicates that, given age, growth and development are quite different concepts.
+Figure \@ref(fig:plotconcurrent) shows both convergent and divergent
+validity at work. The figure shows that, as expected, there is a
+strong and almost linear relation between body height and the
+$D$-score. However, after correction for child's age, the relation
+between height and $D$-score almost disappears. This indicates that,
+given age, growth and development are quite different concepts.
 
 We can also evaluate the strength of the relation between the
 $D$-score and measures that are currently used as a proxy for child
@@ -194,11 +189,12 @@ that stunting is a bad proxy for child development.
 ### Predictive validity
 
 Predictive validity refers to the degree to which the $D$-score predicts
-score on a criterion that is measured late in time. For the $D$-score
-we have measures for IQ at the age of 5 as a possible criterion.
+the score on a criterion that is measured later in time. For the $D$-score
+we may compare to measures for IQ at the school age as a possible criterion.
 
 @vlasblom2019 found strong evidence that individual milestones of the
   DDI measured during the first years of life are predictive of later
-  attendance of special education at ages 5--10 years. It is to be
-  expected that the $D$-score, which is built upon these items, will
-  also predict limited intellectual functioning.
+  intellectual functioning at ages 5--10 years. It is to be expected
+  that the $D$-score, which is built upon these individual items, will
+  also predict limited intellectual functioning, perhaps even better.
+
