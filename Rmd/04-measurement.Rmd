@@ -408,7 +408,7 @@ probability of 0.5 of passing the item.
 
 ### Logistic model
 
-A widely used method to map differences on the latent scale are *logistic units* (or  *logits*) [@berkson1944]. The reason preferring the logistic over the linear unit is that its output returns a probability value that maps to discrete events. In our case, we can describe the probability of passing an item (milestone) as a function of the difference between $\beta_n$ and $\delta_i$ expressed in logits.
+A widely used method is to express differences on the latent scale in terms of *logistic units* (or  *logits*) [@berkson1944]. The reason preferring the logistic over the linear unit is that its output returns a probability value that maps to discrete events. In our case, we can describe the probability of passing an item (milestone) as a function of the difference between $\beta_n$ and $\delta_i$ expressed in logits.
 
 ```{r logisticplot, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:logisticplot)', width = "80%"}
 pkg <- c("ggplot2", "RColorBrewer")
