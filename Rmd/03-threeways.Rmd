@@ -2,8 +2,7 @@
 
 > Author: Stef van Buuren
 
-This section distinguishes three different principles that are being
-used to quantify child development: 
+This chapter discusses four principles to quantify child development: 
 
 * Age-based measurement (\@ref(sec:agebased))
 * Probability-based measurement (\@ref(sec:probbased))
@@ -15,16 +14,16 @@ used to quantify child development:
 ### Motivation for age-based measurement
 
 Milestones form the based building blocks for instruments to measure
-child development. Methods to quantify development using separate
-milestones typically relate the milestone behavior to the child's age.
+child development. Methods to quantify growth using separate
+milestones relate the milestone behaviour to the child's age.
 @gesell1943 (p. 89) formulated this goal as follows:
 
-> We think of behavior in terms of age, and we think of age in terms
-> of behavior. For any selected age it is possible to sketch a portrait
-> which delineates the behavior characteristics typical of the age.
+> We think of behaviour in terms of age, and we think of age in terms
+> of behaviour. For any selected age it is possible to sketch a portrait
+> which delineates the behaviour characteristics typical of the age.
 
-There is a large literature that quantifies development in terms of
-the ages at which the child is expected to show a specific behavior.
+There is an extensive literature that quantifies development in terms of
+the ages at which the child is expected to show a specific behaviour.
 The oldest methods for quantifying child development calculate an *age
 equivalent* for achieving a milestone, and compare the child's age to
 this age equivalent.
@@ -49,16 +48,10 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 (ref:milestonebased) Ages at which 21 children achieve four motor development milestones. 
 
 Figure \@ref(fig:milestonebased) graphs the ages at which each of the
-21 children enters a given stage in Shirley's motor data of Table
-\@ref(tab:shirley). Since `stepping` is followed by `standing`
-children who can stand are older than the children who are stepping,
-and hence more the ages for standing are plotted more to the right.
+21 children enter a given stage in Shirley's motor data of Table
+\@ref(tab:shirley). Since `standing` follows `stepping`, children who can stand are older than the children who are stepping. Hence the ages for standing are located more to the right.
 
-Since age and development are so intimately related, the *difficulty*
-of a given developmental milestone is traditionally expressed in terms
-of the *mean age* at which children achieve it. For example,
-@stott1967 (p. 25) defines the *age equivalent* and its use for
-measurement, as follows:
+Since age and development are so intimately related, we can express the *difficulty* of a milestone as the *mean age* at which children achieve it. For example, @stott1967 (p. 25) defines the *age equivalent* and its use for measurement, as follows:
 
 > The age equivalent of a particular stage is simply the average age 
 > at which children reach that particular stage. 
@@ -77,19 +70,16 @@ ggplot(d, aes(y = age, x = stage, group = stage, colour = name)) +
 ```
 (ref:agebox) Mean (symbol `x`) and spread of the ages at which 21 children achieve four motor development milestones.
 
-Figure \@ref(fig:agebox) adds the mean age and the boxplot at which
-the children enter the four stages. The difficulty of the stages can
+Figure \@ref(fig:agebox) adds the mean age and the boxplot at which the children enter the four stages. The difficulty of these milestones can
 thus be expressed as age equivalents: 16.1 weeks for `stepping`, 27.2
 weeks for `standing`, 43.3 weeks for `walking with help` and 63.3
 weeks for `walking alone`.
 
 Thus, a child that is stepping beyond the age of 16.1 weeks is
 considered later than average, whereas a child already stepping before
-27.2 weeks is considered earlier than average. We may also calculate
+27.2 weeks earlier than average. We may also calculate
 age delta as the difference between the child's age and the norm age,
-and express it as "two weeks late" or "three weeks ahead". Summarizing
-age delta's over different milestones has led to concepts like
-*developmental age* as a measure of a child's development.
+and express it as "two weeks late" or "three weeks ahead". Summarizing age delta's over different milestones has led to concepts like *developmental age* as a measure of a child's development.
 
 ### Limitations of age-based measurement 
 
@@ -101,25 +91,21 @@ child entered a new stage. The mean age can be a biased estimate of
 item difficulty if visits are widely apart, irregular or missing.
 
 2. Age-based measurement can inform us whether a child is achieving a
-given milestone early of late. However, it does not tell is what
-behaviors are characteristic for children of a given age.
+given milestone early of late. However, it does not tell us what
+behaviours are characteristic for children of a given age.
 
-3. Age-based measurement cannot exists without an age norm. When there
-are no norms, we cannot quantify development.
+3. Age-based measurement cannot exist without an age norm. When there are no norms, we cannot quantify development.
 
-4. Age-based measurement works only at the milestone level. Although
-we may average age delta's over milestones, the selection of
-milestones is arbitrary.
+4. Age-based measurement works only at the item level. Although
+we may average age delta's over milestones, the choice of milestones is arbitrary.
 
 ## Probability-based measurement {#sec:probbased}
 
-An alternative is to calculate the *probability* of achieving a
-milestone given the child's age, and compare the child's response to
-that probability.
+An alternative is to calculate the *probability* of achieving a milestone at a given age and compare the child's response to that probability.
 
-The passing probability is an easy to interpret and relevant measure.
+The passing probability is an interpretable and relevant measure.
 An operational advantage of the approach is that the necessary
-calculations places less demands on the available data, and can be
+calculations place fewer demands on the available data and can be
 done even for cross-sectional studies.
 
 ### Example of probability-based measurement
@@ -223,27 +209,23 @@ plot
 ```
 (ref:shirleypa) Probability of achieving four motor milestones against age.
 
-Figure \@ref(fig:shirleypa) plots the percentage of children passing
-each of Shirley's motor milestones against age. There are four
-cumulative curves, one of each milestone, that indicate the number of
-children that pass the milestone. 
+Figure \@ref(fig:shirleypa) plots the percentage of children achieving
+each of Shirley's motor stages against age. There are four
+cumulative curves, one for each milestone, that indicate the percentage of children that pass. 
 
 In analogy to the age equivalent introduced in Section
 \@ref(sec:ageequivalent) we can define the *difficulty* of the
-milestone as the age at which 50 percent of the children pass. In the
-Figure we see that the difficulties are approximately 14.2 weeks
+milestone as the age at which 50 per cent of the children pass. In the
+Figure we see that the levels of difficulty are approximately 14.2 weeks
 (`stepping`), 27.0 weeks (`standing`), 43.8 weeks (`walking with
-help`) and 64.0 weeks (`walking alone`). In addition, we may easily
-find the ages at which 10 percent or 90 percent of the children pass
+help`) and 64.0 weeks (`walking alone`). Also, we may easily
+find the ages at which 10 per cent or 90 per cent of the children pass
 each milestone.
 
 Observe there is a gradual decline in the steepness as we move from
-`stepping` to `walk_alone`. For example, we need an age interval of 13
-weeks (33 - 20) to go from 10 to 90 percent in `standing`, but need 19
-weeks (71 - 52) to go from 10 to 90 percent in `walking alone`. Thus,
-one step on the age axis corresponds to different steps in
-probability. The flattening pattern is typical for child development,
-and represents clear evidence that development is faster at earlier
+`stepping` to `walk_alone`. For example, we need an age interval of 13 weeks (33 - 20) to go from 10 to 90 per cent in `standing`, but need 19 weeks (71 - 52) to go from 10 to 90 per cent in `walking alone`. Thus,
+one step on the age axis corresponds to different increments in
+probability. The flattening pattern is typical for child development and represents evidence that evolution is faster at earlier
 ages.
 
 ### Limitations of probability-based measurement
@@ -255,31 +237,21 @@ and 90th age percentile.
 
 1. The same age step corresponds to different probabilities.
 
-2. The measurement cannot exists without a norm population. When norms
-differ, we cannot compare the measurements.
+2. The measurement cannot exist without some norm population. When norms differ, we cannot compare the measurements.
 
-3. Interpretation is typically done at the milestone level, sometimes
-supplemented by procedures for counting the number of delays. There is
-no aggregate that takes all responses into account.
+3. Interpretation is at the milestone level, sometimes supplemented by procedures for counting the number of delays. No aggregate takes all responses into account.
 
 ## Score-based measurement of development {#sec:scorebased}
 
 ### Motivation for score-based measurement {#sec:motivscorebased}
 
-Score-based measurement takes the responses on multiple milestones and
-counts the total number of passed milestones as a measure of child's
-development. This approach takes multiple measurements into account,
-hence leading to a more stable measurement. 
+Score-based measurement takes the responses on multiple milestones and counts the total number of items passed as a measure of development. This approach takes all answers into account, hence leading to a more stable result.
 
-One may order milestones in difficulty, and skip milestones that are
-too easy, and stop administration when milestones become too
-difficult. In such cases we cannot simply interpret the sum score of a
-measure of development, and need to correct for the subset of
-milestones that was actually administered. The usual working
-assumption is that the child would have passed all easier milestones
-and failed on all more difficult milestones. This procedure is
-typically repeated for different domains, e.g. motor, cognitive, and
-so on.
+One may order milestones in difficulty, and skip those that are
+too easy, and stop administration for those that are too
+difficult. In such cases, we cannot merely interpret the sum score of a
+measure of development. Instead, we need to correct for the subset of
+administered milestones. The usual working assumption is that the child would have passed all easier milestones and failed on all more difficult ones. We may repeat this procedure for different domains, e.g. motor, cognitive, and so on.
 
 ### Example of score-based measurement
 
@@ -298,37 +270,25 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 (ref:scoreplot) Same data as in Figure \@ref(fig:stepplot), but now with the vertical axis representing gross-motor score.
 
 The plot suggests that the difference in development between scores 0
-and 1 is the same as the difference in development between, say,
-scores 2 and 3. *This is not true*. For example, suppose that we
-express difficulty of the milestone as an age-equivalent. From section
-\@ref(sec:ageequivalent) we see that the difference in difficulty
-between stepping and standing is 27.2 - 16.1 = 11.1 weeks, whereas the
-difference between walking alone and walking with help is 63.3 - 43.3
-= 20 weeks. Thus, according to age equivalents scores 0 and 1 should be 
-closer to each other, and scores 2 and 3 should be drawn wider apart.
+and 1 is the same as the difference between, say, scores 2 and 3. *This is not correct*. For example, suppose that we express the difficulty of the milestone as an age-equivalent. From section
+\@ref(sec:ageequivalent) we see that the difference between stepping and standing is 27.2 - 16.1 = 11.1 weeks, whereas the difference between walking alone and walking with help is 63.3 - 43.3
+= 20 weeks. Thus, according to age equivalents scores 0 and 1 should be closer to each other, and ratings 2 and 3 should be drawn more apart.
 
 ### Limitations of score-based measurement
 
 Score-based measurement is today's dominant approach, but is not
 without conceptual and logistical issues.
 
-1. The total score depends not only on the (true) developmental status
-of the child, but also on the set of milestones actually administered.
+1. The total score depends not only on the actual developmental status
+of the child, but also on the set of milestones administered.
 If a milestone is skipped or added, the sum score cannot be
-interpreted anymore as a measure of the child's developmental status.
+interpreted anymore as a measure of developmental status.
 It might be possible to correct for starting and stopping rules under
-the assumptions described in Section \@(sec:motivscorebased), but such
-will be complicated if intermediate milestones are missing.
+the assumptions described in Section \@(sec:motivscorebased), but such will be involved if intermediate milestones are missing.
 
-2. It is not possible to compare scores made by different instruments.
-Some instruments allow conversion to age-conditional scores. However,
-the sample used to derive such conversions are typically restricted to
-one instrument, and does not extend to measurements made by other
-instruments.
+2. It is not possible to compare the scores made by different instruments. Some instruments allow conversion to age-conditional scores. However, the sample used to derive such transformations pertain to that tool and does not generalise to others.
 
-3. Domains are hard to separate. For example, some cognitive milestones tap
-into fine motor capabilities, and vice versa. There are different ways
-to define domains, so domain interpretation varies by instrument.
+3. Domains are hard to separate. For example, some cognitive milestones tap into fine motor capabilities, and vice versa. There are different ways to define domains, so domain interpretation varies by instrument.
 
 4. Administration of a full test may take substantial time. The
 materials are often proprietary and costly.
@@ -337,40 +297,22 @@ materials are often proprietary and costly.
 
 ### Motivation for unit-based measurement {#sec:motivationunit}
 
-Unit-based measurement starts by defining the ideal properties of the
-measurement, and derives a procedure to aggregate the responses on
-milestones into an overall score that will meet the ideal.
+Unit-based measurement starts by defining ideal properties and derives a procedure to aggregate the responses on milestones into an overall score that will meet this ideal.
 
 Section \@ref(sec:questions) highlighted questions for individuals,
-groups and populations. There are basically three questions:
+groups and populations. There are three questions:
 
 * What is the difference in development over time for the same child,
-group or population?
+group or community?
 
 * What is the difference in development between different children,
 groups or populations of the same age?
 
 * How does child development compare to a norm?
 
-In the ideal situation, we would like to have a continuous (latent)
-variable $D$ (for development) that measures child development. The
-scale should allow us to quantify *ability* of persons, groups or
-populations from low to high. The scale should have a *constant unit*,
-so that a given difference in ability refers to the same quantity
-across the entire scale, just like that a difference of 10 cm is the
-same irrespective of whether we compare the heights of books or the
-heights of houses. When are these conditions are met, we say that we
-measure on an *interval scale*.
+In the ideal situation, we would like to have a continuous (latent) variable $D$ (for development) that measures child development. The scale should allow us to quantify *ability* of persons, groups or populations from low to high. It should have a *constant unit* so that a given difference in ability refers to the same quantity across the entire scale. We find the same property in height, where a distance of 10 cm represents the same amount for molecules, people or galaxies. When are these conditions are met, we say that we measure on an *interval scale*.
 
-If we succeed in creating an interval scale for child development, an
-enormous arsenal of techniques developed for quantitative variables
-opens up to measure, track and analyze child development. We may then
-evaluate the development of a child in terms of $D$ points gained,
-create age-dependent charts for development (just like growth charts
-for height and weight), devise age-conditional measures for child
-development, and intelligent adaptive testing schemes. Promising
-studies on Dutch data [@jacobusse2006, @jacobusse2007, @vanbuuren2014]
-suggest that such benefits are well within reach.
+If we succeed in creating an interval scale for child development, an enormous arsenal of techniques developed for quantitative variables opens up to measure, track and analyze child development. We may then evaluate the status of a child in terms of $D$ points gained, create age-dependent diagrams (just like growth charts for height and weight), devise age-conditional measures for child development, and intelligent adaptive testing schemes. Promising studies on Dutch data [@jacobusse2006, @jacobusse2007, @vanbuuren2014] suggest that such benefits are well within reach.
 
 ### Example of unit-based measurement {#sec:unitbasedexample}
 
@@ -463,27 +405,15 @@ plot
 (ref:shirleypd) Modeled probability of achieving four motor milestones against the $D$-score.
 
 Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa),
-but with `Age` replaced by `Ability`. Also, the empirical curves have
-been replaced by modeled curves, but this is not essential.
+but with `Age` replaced by `Ability`. Also, modelled curves have
+replaced empirical ones, but this is not essential.
 
-The ability values on the horizontal axis are estimated from the data
-and correspond to the amount of development of each measurement.
-Also, the logistic curves are estimated from the data, and reflect
-the probability of passing each milestone at a given level of ability.
+We estimated the ability values on the horizontal axis from the data. The values correspond to the amount of development of each visit. Likewise, we calculated the logistic curves from the data. These reflect the probability of passing each milestone *at a given level of ability*.
 
-The figure shows that the probability of passing a milestone
-increases with ability. Milestones are ordered in difficulty from left
-to right. Milestone `stepping` is the easiest and `walk_alone` is most
-difficult. The point at which a logistic curve crosses the 50 percent
-line (marked by a cross) is customarily taken as the *difficulty of
-the milestone*.
+Figure \@ref(fig:shirleypd) shows that the probability of passing a milestone increases with ability. Items are sorted according to difficulty from left to right. Milestone `stepping` is the easiest and `walk_alone` is the most difficult. The point at which a logistic curve crosses the 50 per cent line (marked by a cross) is the *difficulty of the milestone*.
 
-The increase in ability that is needed to go from 10 to 90 percent is
-about five units here. Since all curves are parallel, the interval is
-constant for all scale locations. Thus, the scale is an *interval scale*
-with a *constant unit of measurement*. This is the type of measurement
-scale needed for answering the basic questions identified in Section
-\@ref(sec:motivationunit).
+The increase in ability that is needed to go from 10 to 90 per cent is about five units here. Since all curves are parallel, the interval is
+constant for all scale locations. Thus, the scale is an *interval scale* with a *constant unit of measurement*, the type of measurement needed for answering the basic questions identified in Section @ref(sec:motivationunit).
 
 ### Limitations of unit-based measurement
 
@@ -491,16 +421,10 @@ While unit-based measurement has many advantages, it cannot perform
 miracles.
 
 1. An important assumption is that the milestones "measure the same
-thing", or put differently, are manifestations of an underlying
-continuous latent variable that can be measured by empirical
-observations. Unit-based measurement won't work if there is no
-sensible latent scale.
+thing", or put differently, are manifestations of a continuous latent variable that can be measured by empirical observations. Unit-based measurement won't work if there is no sensible latent scale.
 
-2. The portrayed advantages hold only if the discrepancies between the
-data and the model are relatively small. Since the simplest and most
-powerful measurement models are very strict, it is important to assess
-and increase the fit between data and model, for example by removing 
-milestones that do not measure the underlying trait.
+2. The portrayed advantages hold only if the discrepancies between the data and the model are relatively small. Since the simplest and most
+powerful measurement models are strict, it is essential to obtain a good fit between the data and the model.
 
 3. The construction of unit-based measurement requires psychometric
 expertise, specialized computer software and considerable sample
@@ -508,8 +432,7 @@ sizes.
 
 ## A unified framework {#sec:whatismeasurement}
 
-This section brings together the four approaches outlined in this 
-chapter into a unified framework.
+This section brings together the four approaches outlined in this chapter into a unified framework.
 
 ```{r lineplot, fig.cap = '(ref:lineplot)'}
 knitr::include_graphics("fig/lineplot.png")
@@ -528,33 +451,23 @@ children on a line. This line represents a *latent variable*, a
 continuous construct that defines the different poles of the concept
 that we want to measure. A latent variable ranges from low to high.
 
-The first part of measurement is to determine where the milestones are
-located on the latent variable. In many cases, this part has already
-been done for us. For example, each length marker on a ruler
-corresponds to a milestone for measuring length. The manufacturer of
-the ruler has already placed the marks at the appropriate places on
-the ruler, and we take for granted that each marker has been
+The first part of measurement is to determine the location of the milestones on the latent variable. In many cases, the instrument maker has already done that. For example, each length marker on a ruler corresponds to a milestone for measuring length. The manufacturer of
+the ruler has already placed the marks at the appropriate places on the tool, and we take for granted that each marker has been
 calibrated correctly.
 
 A milestone for child development is similar to a length marker, but
 
-* we often do not know how much development the milestone measures, so
-its location on the line is unknown, or uncertain;
+* we may not know how much development the milestone measures, so its location on the line is unknown, or uncertain;
 
-* we often do not know whether the milestone measures child
-development at all, so it may have no location on the line.
+* we may not know whether the milestone measures child development at all so that it may have no location on the line.
 
 The second part of measurement is to find the location of each child
-on the line. For height this is easy. We place the horizontal head
-piece on top of the child's head, and read off the closest height
-marker. Since we lack physical ruler for development, we must deduce
+on the line. For child height, this is easy: We place the horizontal headpiece on top of the child's head and read off the closest height
+marker. Since we lack a physical ruler for development, we must deduce
 the child's location on the line from the responses on a series of
 well-chosen milestones.
 
-By definition, a latent variable cannot be measured directly. However,
-we may be able to actually measure variables (milestones) that are
-related to the latent variable. For example, we may have the child's
-scores on tasks like *standing* or *walking with help*.
+By definition, we cannot observe the values of a latent variable directly. However, we may be able to measure variables (milestones) that are related to the latent variable. For example, we may have scores on tasks like *standing* or *walking with help*.
 
 The *measurement model* specifies the relations between the actual
 measurements and the latent variable. Under a given measurement model,
@@ -585,20 +498,15 @@ the approaches evaluate on nine criteria.
 
 *Age-based measurement* expresses development in age equivalents,
 whose precise definition depends on the reference population.
-Age-based measurement does not support multiple milestones, and does not
+Age-based measurement does not support multiple milestones and does not
 use the concept of a latent variable.
 
 *Probability-based measurement* expresses development as age
-percentiles with respect to a reference population. This type of
-measurement is useful for individual milestones, but does not support
-multiple milestones or a latent variable interpretation.
+percentiles for a reference population. It is useful for individual milestones but does not support multiple items or a latent variable interpretation.
 
 *Score-based measurement* quantifies development by summing the number
 of passes. Different instruments make different selections of milestones,
-so the measurements taken are unique to the instruments, so comparing
-the measurement obtained by different instruments is difficult.
-Corrections are needed if milestones are skipped or added.
+so the scores taken are unique to the tool. Thus comparing
+the measurement obtained by different devices is difficult. Skipping or adding items require corrections.
 
-*Unit-based measurement* defines a unit of measurement by a
-theoretical model. When the data fit the model, we are able to
-construct instruments that produce measurement in a common metric.
+*Unit-based measurement* defines a unit by a theoretical model. When the data fit the model, we are able to construct instruments that produce values in a standard metric.
