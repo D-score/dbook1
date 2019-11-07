@@ -10,29 +10,19 @@ The properties cut-off Rasch model (c.f. Section \@ref(sec:whyrasch)) only hold 
 * Item information (\@ref(sec:iteminformation))
 * Reliability (\@ref(sec:reliability))
 
-These topics address different aspects of the solution. In practice, we
-have found that item fit is the most critical concern.
+These topics address different aspects of the solution. In practice, we have found that item fit is the most critical concern.
 
 ## Item fit {#sec:itemfit}
 
-The philosophy of the Rasch model is different from conventional
-statistical modelling. It is not the task of the Rasch model to account
-for the data. Rather it is the task of the data to fit the Rasch
-model. We saw this distinction before in Section
-\@ref(sec:adaptmodel).
+The philosophy of the Rasch model is different from conventional statistical modelling. It is not the task of the Rasch model to account for the data. Rather it is the task of the data to fit the Rasch model. We saw this distinction before in Section \@ref(sec:adaptmodel).
 
-The goal of model-fit assessment is to explore and quantify how well
-empirical data meet the requirements of the Rasch model. One way to gauge model-fit is to compare the observed probability of passing an
-item to the fitted item response curve for endorsing the item.
+The goal of model-fit assessment is to explore and quantify how well empirical data meet the requirements of the Rasch model. One way to gauge model-fit is to compare the observed probability of passing an item to the fitted item response curve for endorsing the item.
 
-The fitted item response curve for each item $i$ is modeled as: 
+The fitted item response curve for each item $i$ is modeled as:
 
 $$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},$$ 
 
-where $\hat\beta_n$ is the estimated ability of child $n$ (the child's
-$D$-score), and where  $\hat\delta_i$ is the estimated difficulty of
-item $i$. Chapter \@ref(ch:computation) describes process of parameter
-estimation in detail.
+where $\hat\beta_n$ is the estimated ability of child $n$ (the child's $D$-score), and where  $\hat\delta_i$ is the estimated difficulty of item $i$. Chapter \@ref(ch:computation) describes process of parameter estimation in detail.
 
 ### Well-fitting item response curves
 
@@ -49,16 +39,11 @@ gridExtra::grid.arrange(p1, p2)
 ```
 (ref:ploticc) Empirical and fitted item response curves for two milestones from the DDI (SMOCC data).
 
-The study of *item fit* involves comparing the empirical and fitted
-probabilities at various levels of ability. Figure \@ref(fig:ploticc) shows the item characteristics curves of two DDI milestones. The
-orange line represents the empirical probability at different ability
-levels. The dashed line represents the estimated item response curve
-according to the Rasch model. The observed and estimated curves are
-close together, so both items fit the model very well.
+The study of *item fit* involves comparing the empirical and fitted probabilities at various levels of ability. Figure \@ref(fig:ploticc) shows the item characteristics curves of two DDI milestones. The orange line represents the empirical probability at different ability levels. The dashed line represents the estimated item response curve according to the Rasch model. The observed and estimated curves are close together, so both items fit the model very well.
 
 ### Item response curves showing severe underfit
 
-There are many cases where things are less bright. 
+There are many cases where things are less bright.
 
 ```{r smoccfit4, warning = FALSE}
 set.seed(12345)
@@ -91,18 +76,9 @@ gridExtra::grid.arrange(p1, p2, p3)
 ```
 (ref:plothyp1) Three simulated items that illustrate various forms of item misfit.
 
-Figure \@ref(fig:plothyp1) shows three forms of severe underfit from
-three artificial items. These items were simulated to have a low fit,
-added to the DDI, and we estimated their parameters by the methods
-of Chapter \@ref(ch:computation). For the first item, `hypgmd001`, the
-probability of passing is almost constant across ability, so retaining
-this item essentially only adds to the noise. Item `hypgmd002` converges to an asymptote around 80 per cent and has a severe dip in
-the middle. The strong relation to age causes the drop. Item
-`hypgmd003` appears to have the wrong coding. Also, we often see the
-spike-like behaviour in the middle when two or more different items erroneously share identical names.
+Figure \@ref(fig:plothyp1) shows three forms of severe underfit from three artificial items. These items were simulated to have a low fit, added to the DDI, and we estimated their parameters by the methods of Chapter \@ref(ch:computation). For the first item, `hypgmd001`, the probability of passing is almost constant across ability, so retaining this item essentially only adds to the noise. Item `hypgmd002` converges to an asymptote around 80 per cent and has a severe dip in the middle. The strong relation to age causes the drop. Item `hypgmd003` appears to have the wrong coding. Also, we often see the spike-like behaviour in the middle when two or more different items erroneously share identical names.
 
-Removal of items with a low fit can substantially improve overall
-model fit.
+Removal of items with a low fit can substantially improve overall model fit.
 
 ### Item response curves showing overfit
 
@@ -113,13 +89,7 @@ gridExtra::grid.arrange(p1, p2)
 ```
 (ref:plothyp2) Two simulated items that illustrate item overfit.
 
-Figure \@ref(fig:plothyp2) shows two artificial items with two forms
-of overfitting. The curve of item `hypgmd004` is much steeper than the modelled curve. Thus, just this one item is exceptionally well-suited to distinguish children with a $D$-score below 50$D$ from those with a
-score above 50$D$. Note that the item isn't sensitive anywhere else on
-the scale. In general, having items like these is good news, because
-they allow us to increase the reliability of the instrument. One
-should make sure, though, that FAIL and PASS scores are all measured
-(not imputed) values.
+Figure \@ref(fig:plothyp2) shows two artificial items with two forms of overfitting. The curve of item `hypgmd004` is much steeper than the modelled curve. Thus, just this one item is exceptionally well-suited to distinguish children with a $D$-score below 50$D$ from those with a score above 50$D$. Note that the item isn't sensitive anywhere else on the scale. In general, having items like these is good news, because they allow us to increase the reliability of the instrument. One should make sure, though, that FAIL and PASS scores are all measured (not imputed) values.
 
 Multiple perfect items could hint to a violation of the *local independence assumption* (c.f. Section \@ref(sec:measurementmodel)). Developmental milestones sometimes have combinations of responses that are impossible. For example, one cannot walk without being able to stand, so we will not observe the inconsistent combination (stand: FAIL, walk: PASS). This impossibility leads to more consistent responses that would be expected by chance alone. In principle, one could combine the two such items into one three-category item, which effectively set the probability of inconsistent combinations to zero.
 
@@ -129,9 +99,7 @@ Item `hypgmd005` is also steep, but has an asymptote around 80 per cent. This ta
 
 We quantify item fit by item *infit* and *outfit*. Both are aggregates of the model residuals. The observed response $x_{ni}$ of person $n$ on item $i$ can be $0$ or $1$.
 
-The *standardized residual* $z_{ni}$ is the difference between the observed
-response $x_{ni}$ and the expected response $P_{ni}$, divided by the
-expected binomial standard deviation,
+The *standardized residual* $z_{ni}$ is the difference between the observed response $x_{ni}$ and the expected response $P_{ni}$, divided by the expected binomial standard deviation,
 
 $$z_{ni} = \frac{x_{ni}-P_{ni}}{\sqrt{W_{ni}}},$$
 
@@ -139,18 +107,15 @@ where the expected response variance $W_{ni}$ is calculated as
 
 $$W_{ni} = P_{ni}(1-P_{ni}).$$ 
 
-*Item infit* is the total of the squared residuals divided by the sum of
-the expected response variances $W_{ni}$
+*Item infit* is the total of the squared residuals divided by the sum of the expected response variances $W_{ni}$
 
 $$\mathrm{Item\ infit} = \frac{\sum_{n}^N (x_{ni}-P_{ni})^2}{\sum_n^N W_{ni}}.$$
 
-*Item outfit* is calculated as the average (over $N$ measurements) of the
-squared standardized residual
+*Item outfit* is calculated as the average (over $N$ measurements) of the squared standardized residual
 
 $$\mathrm{Item\ outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.$$
 
-The expected value of both infit and outfit is equal to 1.0. The
-interpretation is as follows:
+The expected value of both infit and outfit is equal to 1.0. The interpretation is as follows:
 
 * If infit and outfit are 1.0, then the item perfectly fits the Rasch
 model, as in Figure \@ref(fig:ploticc);
@@ -182,15 +147,13 @@ Figure \@ref(fig:fitplot) displays the histogram of the 57 milestones from the D
 
 ## Person fit {#sec:personfit}
 
-Person fit quantifies the extent to which the responses of a given
-child conform to the Rasch model expectation. The Rasch model expects that a more able child has a higher probability of passing an item than a less developed child. Person fit analysis evaluates the extent to which this is true.
+Person fit quantifies the extent to which the responses of a given child conform to the Rasch model expectation. The Rasch model expects that a more able child has a higher probability of passing an item than a less developed child. Person fit analysis evaluates the extent to which this is true.
 
 ### Person infit and outfit
 
 In parallel to item fit, we can calculate *person infit* and *person outfit*. Both statistics evaluate how well the responses of the persons are consistent with the model. Outlying answers that do not fit the expected pattern increase the outfit statistic. The outfit is high, for example, when the child fails easy items but passes difficult ones. The infit is the information weighted fit and is more sensitive to inlaying, on-target, unexpected responses.
 
-Similar to item fit, person fit is also calculated from the residuals,
-but aggregated differently. We calculate person infit as
+Similar to item fit, person fit is also calculated from the residuals, but aggregated differently. We calculate person infit as
 
 $$\mathrm{Person\ infit} = \frac{\sum_{i}^L (x_{ni}-P_{ni})^2}{\sum_i^L W_{ni}}$$
 
@@ -214,53 +177,29 @@ par(oldpar)
 ```
 (ref:personfitplot) Frequency distribution of person infit (left) and person outfit (right) for 16538 measurements of the DDI (SMOCC data).
 
-Figure \@ref(fig:personfitplot) displays the frequency distribution of
-person infit and person outfit 16538 measurements of the DDI in the
-SMOCC data. The majority of the values falls below 3.0. For
-infit, only 43 out of 16538 fit values (0.3 per cent) is above 3.0.
-There are 446 out of 16538 outfit value (2.7 per cent) above 3.0. Expect the solution to improve after deleting these measurements.
+Figure \@ref(fig:personfitplot) displays the frequency distribution of person infit and person outfit 16538 measurements of the DDI in the SMOCC data. The majority of the values falls below 3.0. For infit, only 43 out of 16538 fit values (0.3 per cent) is above 3.0. There are 446 out of 16538 outfit value (2.7 per cent) above 3.0. Expect the solution to improve after deleting these measurements.
 
 ## Differential item functioning (DIF) {#sec:dif}
 
 ### Relevance of DIF for cross-cultural equivalence
 
-An essential assumption in the Rasch model is that a given item has
-the same difficulty in different subgroups of respondents. Climbing
-stairs is an example where this assumption is suspect. The exposure to
-stairs, and hence the opportunity for a child to practice, varies
-across different cultures. It could thus be that two children with the
-same ability but from different cultures have different success
-probabilities for climbing stairs. When these probabilities
-systematically vary between subgroup, we say there is *Differential
-Item Functioning*, or *DIF* [@holland1983]. DIF is undesirable
-since it can make the instrument culturally biased.
+An essential assumption in the Rasch model is that a given item has the same difficulty in different subgroups of respondents. Climbing stairs is an example where this assumption is suspect. The exposure to stairs, and hence the opportunity for a child to practice, varies across different cultures. It could thus be that two children with the same ability but from different cultures have different success probabilities for climbing stairs. When these probabilities systematically vary between subgroup, we say there is *Differential Item Functioning*, or *DIF* [@holland1983]. DIF is undesirable since it can make the instrument culturally biased.
 
 ### How to detect DIF?
 
 @zumbo1999 provided a clear definition of DIF:
 
-> DIF occurs when examinees from different groups show differing
-> probabilities of success on (or endorsing) the item after matching on
-> the underlying ability that the item is intended to measure.
+> DIF occurs when examinees from different groups show differing probabilities of success on (or endorsing) the item after matching on the underlying ability that the item is intended to measure.
 
-There are various ways to detect DIF. Here we will model the
-probability of endorsing an item by logistic regression using the
-observed item responses as the outcome. Predictors include the ability, the grouping variable, and the ability-grouping interaction. If the
-latter two terms explain the residual variance of the item scores
-after adjusting for ability, the item shows DIF for that group. DIF
-can be visually inspected by plotting the curves for the subgroups
-separately.
+There are various ways to detect DIF. Here we will model the probability of endorsing an item by logistic regression using the observed item responses as the outcome. Predictors include the ability, the grouping variable, and the ability-grouping interaction. If the latter two terms explain the residual variance of the item scores after adjusting for ability, the item shows DIF for that group. DIF can be visually inspected by plotting the curves for the subgroups separately.
 
-There are two forms of DIF: 
+There are two forms of DIF:
 
-* *Uniform DIF*: The item response curves differ between groups in
-location, but are parallel;
+* *Uniform DIF*: The item response curves differ between groups in location, but are parallel;
 
-* *Non-uniform DIF*: The item response curve differ between groups in
-location, in slope and possibly in other characteristics.
+* *Non-uniform DIF*: The item response curve differ between groups in location, in slope and possibly in other characteristics.
 
-These forms correspond to, respectively, the main effect of group and
-the ability-group interaction in the logistic regression model.
+These forms correspond to, respectively, the main effect of group and the ability-group interaction in the logistic regression model.
 
 ### Examples of DIF
 
@@ -271,9 +210,7 @@ gridExtra::grid.arrange(p1, p2)
 ```
 (ref:plotdif1) Two milestones from the DDI with similar item response curves for boys and girls. There is no DIF for sex.
 
-Figure \@ref(fig:plotdif1) shows an example comparing boys and girls.
-For both milestones, the item response curves are similar for boys and
-girls, so we see no evidence of DIF here.
+Figure \@ref(fig:plotdif1) shows an example comparing boys and girls. For both milestones, the item response curves are similar for boys and girls, so we see no evidence of DIF here.
 
 ```{r plotdif2, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif2)', message = FALSE}
 p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmm019")[[1]]
@@ -282,35 +219,23 @@ gridExtra::grid.arrange(p1, p2)
 ```
 (ref:plotdif2) Two milestones from the DDI with different item response curves for boys and girls. There is evidence for uniform DIF.
 
-Figure \@ref(fig:plotdif2) displays two milestones with DIF between
-boys and girls. Provided that the ability estimate (as estimated from
-all items in the model) is fair for both boys and girls, we see
-that milestone `ddifmm019` ("Takes off shoes and socks") is easier for
-girls by about 0.86 logits (= the difference in ability at the
-intersection of 50 per cent). Conversely, milestone `ddigmm064` ("Crawls forward, abdomen on the floor") is easier for boys by about
-0.84 logits. These are the most substantial differences found for sex in the DDI. Both are uniform DIF.
+Figure \@ref(fig:plotdif2) displays two milestones with DIF between boys and girls. Provided that the ability estimate (as estimated from all items in the model) is fair for both boys and girls, we see that milestone `ddifmm019` ("Takes off shoes and socks") is easier for girls by about 0.86 logits (= the difference in ability at the intersection of 50 per cent). Conversely, milestone `ddigmm064` ("Crawls forward, abdomen on the floor") is easier for boys by about 0.84 logits. These are the most substantial differences found for sex in the DDI. Both are uniform DIF.
 
 In practice, having milestones with opposite directions of DIF in the same instrument will cancel out one another, so one need not be overly concerned in that case. However, we should be careful when the tool consists of milestones that all have DIF in the same direction.
 
-The DDI did not contain items for which the ability-group interaction was statistically significant, so we conclude that there is no
-non-uniform DIF in the DDI.
+The DDI did not contain items for which the ability-group interaction was statistically significant, so we conclude that there is no non-uniform DIF in the DDI.
 
 ## Item information {#sec:iteminformation}
 
 ### Item information at a given ability
 
-Items are generally sensitive to only a part of the ability scale.
-Item information is a psychometric measure that quantifies how
-illuminating the item is at different levels of ability. We may visualize item information as a curve per item.
+Items are generally sensitive to only a part of the ability scale. Item information is a psychometric measure that quantifies how illuminating the item is at different levels of ability. We may visualize item information as a curve per item.
 
-The formula to obtain the item information is the first derivative of
-the item response curve and can be written as follows:
+The formula to obtain the item information is the first derivative of the item response curve and can be written as follows:
 
-$$I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))$$ 
-where $P(\hat\delta_i)$ is the conditional probability of endorsing
-item $i$, and where $\hat\delta_i$ is the estimated item difficulty in
-the logit scale. For example for milestone `ddicmm039` ("Says three
-words") $\hat\delta_i$ equals $4.06$.
+$$I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))$$, 
+
+where $P(\hat\delta_i)$ is the conditional probability of endorsing item $i$, and where $\hat\delta_i$ is the estimated item difficulty in the logit scale. For example for milestone `ddicmm039` ("Says three words") $\hat\delta_i$ equals $4.06$.
 
 ```{r iic, message=FALSE, warning=FALSE, fig.height = 4, fig.cap = '(ref:iic)'}
 items <- c("ddigmm060", "ddicmm039")
@@ -347,25 +272,20 @@ items <- c("ddigmm060", "ddicmm039")
 ```
 (ref:iic) The item information curve for two milestones from the DDI. 
 
-Figure \@ref(fig:iic) displays the item information curves for two
-milestones from the DDI. Note that the amount of information
-for the item is maximal around the item difficulty.
+Figure \@ref(fig:iic) displays the item information curves for two milestones from the DDI. Note that the amount of information for the item is maximal around the item difficulty.
 
-The probability of endorsing milestone `ddicmm039` for a child
-with an ability of $2$ logits is
+The probability of endorsing milestone `ddicmm039` for a child with an ability of $2$ logits is
 
 $$P_{ni}= \frac{\exp(2 - 4.06)}{1+\exp(2-4.06)} = 0.113$$
 
 At this ability level, milestone `ddicmm039` has information
 
-$$I(\hat\delta_i)=0.113 \times (1-0.113) = 0.10$$ 
+$$I(\hat\delta_i)=0.113 \times (1-0.113) = 0.10$$
 
 
 ### Item information at a given age
 
-In practice, it is often interesting to express the item information
-against age. By doing so, one can identify at what ages an item
-provides the most information.
+In practice, it is often interesting to express the item information against age. By doing so, one can identify at what ages an item provides the most information.
 
 ```{r iia, message=FALSE,  results = 'hide', fig.keep = 'all', warning=FALSE,  fig.height = 4, , fig.cap = '(ref:iia)'}
 # model in logit
@@ -412,31 +332,17 @@ refs$month <- refs$x * 12 / 365.25
 
 Figure \@ref(fig:iia) shows that the sensitive age ranges differ considerably between items. Suppose we use 0.05 as a criterion. Then  `ddigmm060` is susceptible between ages 4--8 months, a period of four months. Item `ddicmm039` is receptive in the period 10--19 months, a range that is about twice as broad. The symmetric nature of the curves in Figure \@ref(fig:iic) is not present in Figure \@ref(fig:iia). In general, the relation between age and item sensitivity is more complicated than the relationship between ability and item sensitivity.
 
-The item information by age curve helps to determine at what ages we should administer the item. The item will be most informative if
-delivered at the age at which 50% of the children will pass the
-milestone. This age corresponds to an item information is equal to 0.5 * 0.5 = 0.25. Administering the item closely around that age
-provide the most efficient measurement of ability. When space is at
-a premium (e.g. as in population surveys) using a well-chosen set of
-age-sensitive milestones will help in reducing the total number of
-milestones.
+The item information by age curve helps to determine at what ages we should administer the item. The item will be most informative if delivered at the age at which 50% of the children will pass the milestone. This age corresponds to an item information is equal to 0.5 * 0.5 = 0.25. Administering the item closely around that age provide the most efficient measurement of ability. When space is at a premium (e.g. as in population surveys) using a well-chosen set of age-sensitive milestones will help in reducing the total number of milestones.
 
-In other contexts, milestones may be used as a screening instrument to
-identify developmental delay. In that case, it is more efficient to
-administer items that are very easy for the age, e.g. milestones on
-which, say, 90% of the children will pass.
+In other contexts, milestones may be used as a screening instrument to identify developmental delay. In that case, it is more efficient to administer items that are very easy for the age, e.g. milestones on which, say, 90% of the children will pass.
 
 ## Reliability {#sec:reliability}
 
-The reliability is a one-number summary of the accuracy of an
-instrument. Statisticians define reliability as the proportion of
-variance attributable to the variation between children's abilities
-relative to the total variance. More specifically, the reliability $R$
-of a test is written as
+The reliability is a one-number summary of the accuracy of an instrument. Statisticians define reliability as the proportion of variance attributable to the variation between children's abilities relative to the total variance. More specifically, the reliability $R$ of a test is written as
 
-$$R \equiv \frac{\sigma_{\beta}^2}{\sigma_{\beta}^2 + \sigma_{e}^2},$$ 
+$$R \equiv \frac{\sigma_{\beta}^2}{\sigma_{\beta}^2 + \sigma_{e}^2},$$
 
-where $\sigma_{\beta}^2$ is the variance of true scores and
-$\sigma_{e}^2$ is the error variance. 
+where $\sigma_{\beta}^2$ is the variance of true scores and $\sigma_{e}^2$ is the error variance.
 
 In general, high reliability is desirable. We often use reliability to decide between instruments. Cronbach's $\alpha$ is a widely used estimate of the lower bound of the reliability of a test. In the Rasch model, we can estimate reliability by the [ratio](http://www.rummlab.com.au/rmrelidx2030)
 
@@ -486,18 +392,6 @@ hist(result$resid, breaks = seq(-12, 2, 0.25),
      xlab = "Ability (estimated) - Ability (`true`) (logit)")
 ```
 
-The estimated variance of the modeled abilities is
-$\hat\sigma_{\hat\beta}^2 = 76.6$, and the variance of the difference
-between modeled and re-estimated abilities is equal to
-$\hat\sigma_{\hat e}^2 = 1.74$. The corresponding *standard error of
-measurement (sem)* is $\hat\sigma_{\hat e} = 1.32$ logits.
+The estimated variance of the modeled abilities is $\hat\sigma_{\hat\beta}^2 = 76.6$, and the variance of the difference between modeled and re-estimated abilities is equal to $\hat\sigma_{\hat e}^2 = 1.74$. The corresponding *standard error of measurement (sem)* is $\hat\sigma_{\hat e} = 1.32$ logits.
 
-The estimated reliability in the SMOCC data is equal to
-$(76.6-1.74)/76.6 = 0.977$. We may interpret this estimate in the same
-way as Cronbach's $\alpha$, for which typically any value beyond 0.9 is classified as *excellent*. Note that the reliability is very high
-because of the large variation in $D$-scores. Newborns are very
-different from 2-year old toddlers, which helps to increase
-reliability. In practice, it is perhaps more useful to use a
-measure of accuracy that is less dependent on the variation within the
-sample. The *sem*, as explained above, seems to be a more relevant
-measure of precision.
+The estimated reliability in the SMOCC data is equal to $(76.6-1.74)/76.6 = 0.977$. We may interpret this estimate in the same way as Cronbach's $\alpha$, for which typically any value beyond 0.9 is classified as *excellent*. Note that the reliability is very high because of the large variation in $D$-scores. Newborns are very different from 2-year old toddlers, which helps to increase reliability. In practice, it is perhaps more useful to use a measure of accuracy that is less dependent on the variation within the sample. The *sem*, as explained above, seems to be a more relevant measure of precision.
