@@ -3,7 +3,7 @@
 > Author: Stef van Buuren
 
 This chapter explains the basic computations needed for fitting and
-evaluation the Rasch model. We distinguish the following steps:
+evaluating the Rasch model. We distinguish the following steps:
 
 * Identify nature of the problem (\@ref(sec:datapreparation))
 * Estimation of item parameters (\@ref(sec:itemestimation))
@@ -11,7 +11,7 @@ evaluation the Rasch model. We distinguish the following steps:
 * Estimation of the $D$-score (\@ref(sec:dscoreestimation))
 * Estimation of age-conditional references (\@ref(sec:reference))
 
-Reader not interested in these details may continue to model
+Readers not interested in these details may continue to model
 evaluation in Chapter \@ref(ch:evaluation).
 
 ## Identify nature of the problem {#sec:datapreparation}
@@ -42,24 +42,18 @@ kable(broad,
 &nbsp;
 
 Table \@ref(tab:smocctable) contains data of three children, measured
-on nine visits between ages 0 - 2 years. The DDI scores are coded as 0
-(FAIL) or 1 (PASS). In order to save horizontal space, only the last
-two digits of the item names are given as column headers. 
+on nine visits between ages 0 - 2 years. The DDI scores take values 0 (FAIL) and 1 (PASS). In order to save horizontal space, we truncated the column headers to the last two digits of the item names. 
 
 Since the selection of milestones depends on age, the dataset contains
-a large number of empty cells. Naive use of sum scores as a proxy to
-person ability is therefore problematic. An empty cell is not a FAIL,
-so it's an error to impute those cells by zeroes.
+a large number of empty cells. Naive use of sum scores as a proxy to ability is therefore problematic. An empty cell is not a FAIL,
+so it is incorrect to impute those cells by zeroes.
 
-Note that some rows contain only 1's, e.g., in row 2. Many computer
-program for Rasch analysis routinely remove such *perfect scores*
-before fitting. However, unless the number of perfect scores is very
+Note that some rows contain only 1's, e.g., in row 2. Many computer programs for Rasch analysis routinely remove such *perfect scores* before fitting. However, unless the number of perfect scores is very
 small, this is not recommended because doing so can severely affect
-the distribution of person abilities.
+the ability distribution.
 
 In order to effectively handle the missing data and to preserve all
-persons in the analysis we separate estimation of item difficulties
-(c.f. section \@ref(sec:itemestimation)) and person abilities (c.f. section
+persons in the analysis we separate estimation of item difficulties (c.f. section \@ref(sec:itemestimation)) and person abilities (c.f. section
 \@ref(sec:dscoreestimation)).
 
 ## Item parameter estimation {#sec:itemestimation}
@@ -114,7 +108,7 @@ Figure \@ref(fig:itemdiflplot) summarizes the estimated item
 difficulty parameters. Although the model makes no distinction between
 domains, the results have been ordered to ease spotting of the natural
 progression of the milestones per domain. The figure also suggests
-that not all domain are equally represented across the scale. For
+that not all domain have equal representation across the scale. For
 example, there are no communication milestones around the logit of
 $-10$.
 
@@ -129,16 +123,10 @@ inconvenient for two reasons:
 sensible interpretation in child development, and are likely to
 introduce errors in practice;
 
-* Both the zero in the logit scale as well as its variance depend on
+* Both the zero in the logit scale, as well as its variance, depend on
 the sample used to calibrate the item difficulties.
 
-The properties of the Rasch model are preserved under a rescaling of
-the derived scale. In order to make the scale independent of the
-specified sample, we transform the scale so that two items will always
-have the same value on the transformed scale. The choice of the two
-anchor items is essentially arbitrary, but they should correspond to
-milestones that are easy to measure with small error. In the sequel,
-we use the two milestones to anchor the $D$-score scale:
+Rescaling preserves the properties of the Rasch model. To make the scale independent of the specified sample, we transform the scale so that two items will always have the same value on the transformed scale. The choice of the two anchor items is essentially arbitrary, but they should correspond to milestones that are easy to measure with small error. In the sequel, we use the two milestones to anchor the $D$-score scale:
 
 ```{r anchor}
 df <- data.frame(
@@ -175,10 +163,7 @@ p
 
 The second part of the estimation process is to estimate a $D$-score.
 The $D$-score quantifies the development of a child at a given age.
-Whereas the estimation of item parameters is typically done by the
-instrument developer, $D$-score estimation is more of a task for the
-user. In order to calculate the $D$-score we need the following
-ingredients:
+Whereas the instrument developer is responsible for the estimation of item parameters, $D$-score estimation is more of a task for the user. To calculate the $D$-score, we need the following ingredients:
 
 * Child's PASS/FAIL scores on the milestones administered;
 
@@ -192,42 +177,22 @@ of the person on the latent variable.
 
 ### Role of the starting prior {#sec:startingprior}
 
-The first two inputs to the $D$-score will be obvious. The third
-component, the prior distribution, is needed in order to be able to
+The first two inputs to the $D$-score will be self-evident. The third
+component, the prior distribution, is needed to be able to
 deal with perfect responses. The prior distribution summarizes our
 knowledge about the $D$-score before we see any of the child's
-PASS/FAIL scores. In general, we like to prior to be non-informative,
-so that the value of the $D$-score is entirely determined by the
-observed responses and the item difficulties. In practice, we cannot
-use truly non-informative prior because that would leave the $D$-score
-for perfect responses (i.e., all PASS or all FAIL) undefined. The
+PASS/FAIL scores. In general, we like the prior to be non-informative,
+so that the observed responses and item difficulties entirely determine the value of the $D$-score. In practice, we cannot use truly non-informative prior because that would leave the $D$-score for perfect responses (i.e., all PASS or all FAIL) undefined. The
 choice of the prior is essentially arbitrary, but we can make it in
 such a way that its impact on the value $D$-score is negligible,
 especially for tests where we have more than, say, four items.
 
-Since we know that the $D$-score depends on age, a logical choice for
-the prior is to make it dependent on age. More in particular, we will
+Since we know that the $D$-score depends on age, a logical choice for the prior is to make it dependent on age. In particular, we will
 define the prior as a normal distribution equal to the expected mean
-in Figure \@ref(fig:smoccda) at the child's age, and with a standard
-deviation that considerably larger than in Figure \@ref(fig:smoccda).
-Numerical example: the mean $D$-score at the age of 15 months is equal
-53.6$D$. The standard deviation in Figure \@ref(fig:smoccda) varies
-between 2.6$D$ and 3.0$D$, with an average of 2.9$D$. After some
-experimentation, we found that using a value of 5.0$D$ for the prior
-yields a good compromise between, on the one hand, non-informativeness
-and, on the other hand, robustness of $D$-score estimates for perfect
-patterns. The resulting starting prior for a child aged 15 months is thus
-defined as $N(53.6, 5)$.
+in Figure \@ref(fig:smoccda) at the child's age, and with a standard deviation that considerably higher than in Figure \@ref(fig:smoccda).
+Numerical example: the mean $D$-score at the age of 15 months is equal to 53.6$D$. The standard deviation in Figure \@ref(fig:smoccda) varies between 2.6$D$ and 3.0$D$, with an average of 2.9$D$. After some experimentation, we found that using a value of 5.0$D$ for the prior yields a good compromise between non-informativeness and robustness of $D$-score estimates for perfect patterns. The resulting starting prior for a child aged 15 months is thus $N(53.6, 5)$.
 
-The reader now probably wonders about a chicken-and-egg problem: In
-order to calculate the $D$-score we need a prior, and in order to
-determine the prior we need the $D$-score. So how did we calculate the
-$D$-scores in Figure \@ref(fig:smoccda)? The answer is that we first
-took at rougher prior, and calculated two temporary solutions in
-succession using the $D$-scores obtained after solution 1 to inform
-the prior before solution 2, and so on. It turned out that $D$-scores
-in Figure \@ref(fig:smoccda) hardly changed after two steps, and so
-there we stopped.
+The reader now probably wonders about a chicken-and-egg problem: To calculate the $D$-score, we need a prior, and to determine the prior we need the $D$-score. So how did we calculate the $D$-scores in Figure \@ref(fig:smoccda)? The answer is that we first took at rougher prior, and calculated two temporary models in succession using the $D$-scores obtained after solution 1 to inform the prior before solution 2, and so on. It turned out that $D$-scores in Figure \@ref(fig:smoccda) hardly changed after two steps, and so there we stopped.
 
 ### Starting prior: Numerical example {#sec:adp}
 
@@ -257,7 +222,7 @@ p
 Figure \@ref(fig:figpriors) illustrates starting distributions
 (priors) chosen according to the principles set above for the ages of
 1, 15 and 24 months. As expected, the assumed ability of an infant
-aged of 1 month is much lower than that of a child aged 15 months,
+aged one month is much lower than that of a child aged 15 months,
 which in turn is lower than the ability of a toddler aged 24 months.
 The green distribution for 15 months corresponds to the normal
 distribution $N(53.6, 5)$.
@@ -265,14 +230,13 @@ distribution $N(53.6, 5)$.
 Another choice that we need to make is the grid of points on which we
 calculate the prior and posterior distributions. Figure
 \@ref(fig:figpriors) uses a grid from -10$D$ to +80$D$, with a step
-size of 1$D$. These are fixed *quadrature points*, and there are 91
-of them. While these quadrature points are sufficient to estimate
+size of 1$D$. These are fixed *quadrature points*, and there are 91 of them. While these quadrature points are sufficient to estimate
 $D$-score for ages up to 2.5 years, it is wise to extend the range for
 older children with higher $D$-scores.
 
 ### EAP algorithm {#sec:EAP}
 
-The method for estimating the $D$-score is known as the Expected a
+The algorithm for estimating the $D$-score is known as the Expected a
 posteriori (EAP) method, first described by @bock1982. Calculation of
 the $D$-score proceeds item by item. Suppose we have some vague and
 preliminary idea about the distribution of $D$, the starting prior
@@ -280,16 +244,13 @@ preliminary idea about the distribution of $D$, the starting prior
 uses Bayes rule to update this prior knowledge with data from the
 first item (using the child's FAIL/PASS score and the estimated item
 difficulty) to calculate the posterior. The next step uses this
-posterior as the prior to process the next item, and so on. The
-procedure stops when all items have been used. The order in which
-items are entered does not matter for the end result. The $D$-score is
-equal to the mean of the posterior calculated after the last item.
+posterior as prior before processing the next item, and so on. The
+procedure stops when the item pool is exhausted. The order in which items enter does not matter for the result. The $D$-score is
+equal to the mean of the posterior calculated after the last question.
 
 ### EAP algorithm: Numerical example
 
-Suppose we measure two boys aged 15 months, David and Rob, by the DDI.
-David passes the first four milestones, but does not complete the test.
-Rob completes the test, but fails on two out of five milestones. 
+Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David passes the first four milestones but does not complete the test. Rob completes the test but fails on two out of five items. 
 
 ```{r datadavidandrob}
 items <- c("ddifmd011", "ddifmm012", "ddicmm037", "ddigmm066", "ddigmm067")
@@ -311,8 +272,7 @@ milestone (in the column labelled "Delta"), and the responses of David
 and Rob for the standard five DDI milestones for the age of 15 months.
 
 The mean $D$-score for Dutch children aged 15 months is 53.6$D$, so
-the milestones are easy to pass at this age, with the most difficult
-being `ddicmm037`. David passed all milestones, but has no score on
+the milestones are easy to pass at this age, with the most difficult is `ddicmm037`. David passed all milestones but has no score on
 the last. Rob fails on `ddifmm012` and `ddigmm067`. How do we
 calculate the $D$-score for David and Rob?
 
@@ -392,8 +352,7 @@ p
 (ref:davidplot) $D$-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
 
 Figure \@ref(fig:davidplot) shows how the prior transforms into the
-posterior after the measurement outcomes is fed into the calculation. There 
-are five milestones, and so calculation is done in five steps:
+posterior after we successively feed the measurements into the calculation. There are five milestones, so the calculation comprises five steps:
 
 1. Both David and Rob pass `ddifmd011`. The prior (light green) is the
 same as in Figure \@ref(fig:figpriors). After a PASS, the posterior
@@ -404,52 +363,41 @@ $D$-score of 53$D$, the probability of passing `ddifmd011` is equal to
 `r plogis((53 - 46) / model$transform[2])`. If passing is so common,
 there is not much information in the measurement.
 
-2. David passes `ddifmm012` but Rob does not. Observe that the prior
+2. David passes `ddifmm012`, but Rob does not. Observe that the prior
 is identical to the posterior of `ddifmd011`. For David, the posterior
 is only slightly different from the prior, for the same reason as
-above. For Rob, we find a huge change to the left, both in terms of
-location (from 54.3$D$ to 47.1$D$) and in terms of peakedness. This one 
-FAIL lowers Rob's score by 7.2$D$.
+above. For Rob, we find a considerable change to the left, both for location (from 54.3$D$ to 47.1$D$) and peakedness. This one FAIL lowers Rob's score by 7.2$D$.
 
 3. Milestone `ddicmm037` is more difficult than the previous two
-milestones, so a pass on `ddicmm037` does have a clear effect on the
+milestones, so a pass on `ddicmm037` does have a definite effect on the
 posterior for both David and Rob.
 
 4. David's PASS on `ddigmm066` does not bring any additional
-information, so his prior and posterior are virtually
-indistinguishable. For Rob, we find a slight effect to the right.
+information, so his prior and posterior are virtually indistinguishable. For Rob, we find a slight shift to the right.
 
-5. There is no measurement for David on `ddigmm067`, so the prior and 
-posterior are equivalent. For Rob, we observe a FAIL, which shifts his 
+5. There is no measurement for David on `ddigmm067`, so the prior and posterior are equivalent. For Rob, we observe a FAIL, which shifts his 
 posterior to the left.
 
-The $D$-score is calculated as the mean of the posterior. David's
+We calculate the $D$-score as the mean of the posterior. David's
 $D$-score is equal to 55.7$D$. Note that the measurement error, as
-estimated from the variance of the posterior, is fairly large. Rob's
+estimated from the variance of the posterior, is relatively large. Rob's
 $D$-score is equal to 47.7$D$, with a much smaller measurement error.
 This result is consistent with the design principles of the DDI, which
 is meant to detect children with developmental delay.
 
-The example illustrates that the effects of the measurement on the
-$D$-score depend on the match between the true (but unknown) $D$-score
-of the child and the difficulty of the milestone.
+The example illustrates that the quality of the $D$-score depends on two factors, the match between the true (but unknown) $D$-score of the child and the difficulty of the milestone.
 
 ### Technical observations on $D$-score estimation
 
-* Administration of a very easy set of milestones introduces a
+* Administration of a too easy set of milestones introduces a
 *ceiling* with children that pass all milestones, but whose true
-$D$-score could extend well beyond the ceiling. Depending on the goal
-of the measurement, this may or may not be a problem.
+$D$-score could extend well beyond the maximum. Depending on the goal of the measurement, this may or may not be a problem.
 
 * The specification of the prior and posterior distributions requires
-a set of quadrature points at which their densities are calculated.
-The set of quadrature is taken here as the static and evenly-spaced
-set of integers between -10 and +80. Using other quadrature points may
-have an effect on the estimate, especially if the range of the
-quadrature points is too short.
+a set of quadrature points. The quadrature points are taken here as the static and evenly-spaced set of integers between -10 and +80. Using other quadrature points may affect the estimate, especially if the range of the quadrature points does not cover the entire $D$-score range.
 
 * The actual calculations are here done item by item. A more efficient
-method is to handle all responses at once. The end result will be the
+method is to handle all responses at once. The result will be the
 same.
 
 ## Age-conditional references {#sec:reference}
@@ -459,18 +407,11 @@ same.
 The last step involves estimation an age-conditional reference
 distribution for the $D$-score. This distribution can be used to
 construct growth charts that portray the normal variation in
-development. In addition, the references can be used to calculate
-age-standarized $D$-scores, called DAZ, that emphasize the location of
-the measurement in comparison to age peers.
+development. Also, the references can be used to calculate
+age-standardized $D$-scores, called DAZ, that emphasize the location of the measurement in comparison to age peers.
 
-Estimation of reference centiles is fairly standard. Here we follow
-@vanbuuren2014 to fit age-conditional references of the $D$-score for
-boys and girls combined by the LMS method. The LMS method by @cole1992
-assumes that the outcome has a normal distribution after a Box-Cox
-transformation. The reference distribution has three parameters, which
-model respectively the location ($M$), the spread ($S$), and the
-skewness ($L$) of the distribution. Each of the three parameters can
-vary smoothly with age.
+Estimation of reference centiles is reasonably standard. Here we follow
+@vanbuuren2014 to fit age-conditional references of the $D$-score for boys and girls combined by the LMS method. The LMS method by @cole1992 assumes that the outcome has a normal distribution after a Box-Cox transformation. The reference distribution has three parameters, which model respectively the location ($M$), the spread ($S$), and the skewness ($L$) of the distribution. Each of the three parameters can vary smoothly with age.
 
 ### Estimation of the reference distribution
 
@@ -483,7 +424,7 @@ $\mathrm{df}(L)=1$.
 Figure \@ref(fig:smoccda) plots the $D$-scores together with five grey
 lines, corresponding to the centiles -2SD (P2), -1SD (P16), 0SD (P50),
 +1SD (P84) and +2SD (P98). The area between the -2SD and +2SD lines
-delineates the $D$-score expected if development is normal. Note that
+delineates the $D$-score expected if development is healthy. Note that
 the shape of the reference is quite similar to that of weight and
 height, with rapid growth occurring in the first few months.
 
@@ -501,14 +442,10 @@ knitr::kable(reference,
 ```
 &nbsp;
 
-Table \@ref(tab:reftable) defines age-conditional references for Dutch
-children as the $M$-curve (median), $S$-curve (spread) and $L$-curve
-(skewness) by age. This table can be used to calculate centile lines
-and $Z$-scores.
+Table \@ref(tab:reftable) defines age-conditional references for Dutch children as the $M$-curve (median), $S$-curve (spread) and $L$-curve (skewness) by age. This table can be used to calculate centile lines and $Z$-scores.
 
-The references are purely cross-sectional. The correlation structure
-over time is not taken into account. For prediction purposes, it is
-useful to extend the modeling to include velocities and change scores.
+The references are purely cross-sectional and do not account for the correlation structure between ages. For prediction purposes, it is
+useful to extend the modelling to include velocities and change scores.
 
 ### Conversion of $D$ to DAZ, and vice versa
 
@@ -521,9 +458,8 @@ converts measurement $D_t$ into its normal equivalent deviate $Z$. If $L_t$ is c
 
 $$Z=\frac{\ln(D_t/M_t)}{S_t}$$
 
-Any required centile curve can be derived from Table
-\@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score below
-which $100\alpha$ percent of the distribution is located, for example,
+We may derive any required centile curve from Table
+\@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score that delineates $100\alpha$ per cent of the distribution, for example,
 \ $Z_{0.05}=-1.64$. The $D$-score that defines the $100\alpha$ centile
 is equal to
 
