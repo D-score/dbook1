@@ -495,7 +495,7 @@ pass <- data_rug %>%
             a = mean(agemos, na.rm = TRUE),
             n = n()) %>%
   ungroup() %>%
-  left_join(gseddata::get_itemtable(), by = "item") %>% 
+  left_join(dscore::get_itemtable(), by = "item") %>% 
   arrange(domain, number)
 
 colors <- c("#006CC2B3", "#FF7F00B3", "#009E73B3")

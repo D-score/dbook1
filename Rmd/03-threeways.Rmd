@@ -157,7 +157,7 @@ pass <- data_rug %>%
             a = mean(ageweeks, na.rm = TRUE),
             n = n()) %>%
   ungroup %>%
-  left_join(dmetric::get_itemtable(items = varlist$items, package = ""), by = "item")
+  left_join(dscore::get_itemtable(items = varlist$items), by = "item")
 
 plot <- ggplot(pass, aes(a, p, group = item, colour = item)) +
   scale_x_continuous("Age (in weeks)", limits = c(0, 76),
@@ -258,7 +258,7 @@ If we succeed in creating an interval scale for child development, an enormous a
 items <- varlist$items
 modelb <- model$dscore
 colnames(modelb)[colnames(modelb) == "d"] <- "b"
-delta <- dscore::gettau(items, model$itembank, lexicon = model$lexicon)
+delta <- dscore::get_tau(items, key = "", itembank = model$itembank)
 beta_breaks <- seq(20, 70, 1)
 xlim <- c(20, 70)
 scale <- model$transform[2]
@@ -282,7 +282,7 @@ pass <- data3 %>%
             b = mean(b, na.rm = TRUE),
             n = n()) %>%
   ungroup() %>%
-  left_join(dmetric::get_itemtable(items = items, package = ""), by = "item") %>%
+  left_join(dscore::get_itemtable(items = items), by = "item") %>%
   mutate(seq = 0,
          seq = ifelse(item == "stepping", 1, seq),
          seq = ifelse(item == "standing", 2, seq),

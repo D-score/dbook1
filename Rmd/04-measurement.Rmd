@@ -37,7 +37,7 @@ The *standard* set in the DDI consists of relatively easy milestones that 90 per
 ```{r smoccmodel}
 library(gseddata)
 data <- get_data(cohort = 53)
-items <- get_itemnames(data)
+items <- dscore::get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
@@ -45,13 +45,13 @@ model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ```{r smoccitems}
-meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
+meta <- dscore::get_itemtable(dscore::get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
 df <- data.frame(
-  item = get_itemnames(data),
+  item = dscore::get_itemnames(data),
   debut = c(1, 2, 3, 5, 6, 6, 7, 8, 9, 10, 10,
                  4, 7, 8, 9,
                  1, 2, 3, 3, 4, 5, 5, 5, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 10, 
@@ -60,7 +60,7 @@ df <- data.frame(
 meta <- df %>%  
   left_join(meta, by = "item") %>% 
   mutate(
-    itemorder = order_itemnames(item, order = "idnm"), 
+    itemorder = dscore::order_itemnames(item, order = "idnm"), 
     debut = factor(debut, 
                    labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m", "30m"))
     ) %>% 
@@ -110,7 +110,7 @@ pass <- data_rug %>%
             a = mean(.data$agemos, na.rm = TRUE),
             n = n()) %>%
   ungroup() %>%
-  left_join(dmetric::get_itemtable(items = items, package = "gseddata"), by = "item") %>% 
+  left_join(dscore::get_itemtable(items = items), by = "item") %>% 
   filter(n >= 5) %>%
   arrange(.data$item, a) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
@@ -139,35 +139,35 @@ The domain determines the coloured (blue: gross motor, green: fine motor, red: c
 
 ```{r smoccpd, fig.cap = '(ref:smoccpd)', fig.height = 4}
 modelb <- model$dscore
-delta <- dscore::gettau(model$items, model$itembank, lexicon = model$lexicon)
+delta <- dscore::get_tau(model$items, key = "", itembank = model$itembank)
 data2 <- data$itm %>%
   filter(item %in% items) %>%
   left_join(data$visit, by = c("subjid", "agedays")) %>%
   left_join(modelb, by = c("subjid", "agedays")) %>%
-  dplyr::select(subjid, agedays, item, value, b)
+  dplyr::select(subjid, agedays, item, value, d)
 
 pass <- data2 %>% 
-  tidyr::drop_na("value", "b") %>%
-  mutate(dgp = cut(.data$b, breaks = seq(0, 70, 1)),
+  tidyr::drop_na("value", "d") %>%
+  mutate(dgp = cut(.data$d, breaks = seq(0, 70, 1)),
          agemos = round(.data$agedays / 365.25 * 12, 3)) %>%
   tidyr::drop_na(dgp) %>% 
   group_by(dgp, item) %>%
   summarise(
     p = round(100 * mean(.data$value, na.rm = TRUE)),
     a = mean(.data$agemos, na.rm = TRUE),
-    b = mean(.data$b, na.rm = TRUE),
+    d = mean(.data$d, na.rm = TRUE),
     n = n())
 pass <- pass %>%
   group_by() %>%
   left_join(model$itemtable, by = "item") %>%
   arrange(.data$item, dgp) %>%
-  dplyr::select(item, dgp, a, b, p, n, domain, label) %>%
+  dplyr::select(item, dgp, a, d, p, n, domain, label) %>%
   filter(n >= 10 & p > 0 & p < 100) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
 
-plot <- ggplot(pass, aes(b, p, group = item, colour = domain, 
+plot <- ggplot(pass, aes(d, p, group = item, colour = domain, 
                          label = label)) +
   scale_x_continuous(paste0("D-score (", model$name,")"),
                      limits = c(0, 70),
@@ -191,9 +191,10 @@ How can the relation between per cent pass and age be so different from the rela
 ## Relation between age and the $D$-score {#sec:aged}
 
 ```{r smoccda, fig.cap = '(ref:smoccda)', fig.height = 6, warning = FALSE}
-reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+reference <- dplyr::select(dscore::get_reference(population = "dutch"), age, SDM2:SDP2) %>%
+  mutate(month = age * 12) %>% 
   filter(month <= 30) %>%
-  tidyr::gather(key = centile, value = d,-month)
+  tidyr::gather(key = centile, value = d, -month, -age)
 model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
 plot <-
   ggplot(reference, aes(x = month, y = d, group = centile)) +
@@ -213,7 +214,7 @@ plot <-
   geom_point(
     mapping = aes(
       x = agemos,
-      y = b,
+      y = d,
       group = cohort,
       colour = cohort
     ),
@@ -233,23 +234,25 @@ Figure \@ref(fig:smoccda) shows that the relation between $D$-score and age is n
 # model ICC curves D-score
 grid <- tidyr::crossing(
   item = items,
-  b = seq(0, 70, 0.2))
+  d = seq(0, 70, 0.2))
 ib <- model$itembank %>%
-  rename(item = lex_gsed) %>%
   dplyr::select(item, domain, label, tau) %>% 
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
+lms <- dscore::get_reference("dutch") %>% 
+  mutate(month = age * 12) %>% 
+  select(month, mu, sigma, nu, month)
 tab <- grid %>%
   left_join(ib, by = "item") %>%
-  mutate(p = 100 * plogis(b, location = tau, scale = model$transform[2])) %>%
+  mutate(p = 100 * plogis(d, location = tau, scale = model$transform[2])) %>%
   filter(p > 1 & p < 99) %>%
-  mutate(a = approx(x = dscore::Dreference$mu, 
-                    y = dscore::Dreference$month, xout = b)$y) %>%
+  mutate(a = approx(x = lms$mu, 
+                    y = lms$month, xout = d)$y) %>%
   tidyr::drop_na("a") %>%
   group_by(item)
 
-py <- plotly::plot_ly(tab, x = ~a, y = ~b, z = ~p, color = ~domain, 
+py <- plotly::plot_ly(tab, x = ~a, y = ~d, z = ~p, color = ~domain, 
                       colors = scales::hue_pal()(3)) %>%
   plotly::add_lines() %>%
   plotly::layout(scene = list(xaxis = list(title = 'Age'),
