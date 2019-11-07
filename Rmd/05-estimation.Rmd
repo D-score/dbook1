@@ -63,7 +63,6 @@ d1 <- data.frame(delta = model$fit$b,
                  stringsAsFactors = FALSE, 
                  row.names = NULL)
 ib <- model$itembank %>% 
-  rename(item = lex_gsed) %>% 
   left_join(d1, by = "item") %>% 
   mutate(lab = substr(label, 1L, 30)) %>% 
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
@@ -146,11 +145,14 @@ The reader now probably wonders about a chicken-and-egg problem: To calculate th
 
 ```{r figpriors, fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
 #example from the adp function in ggplot:
-qp <- -10:80
+adp_dutch <- function(t, qp = -10:80) {
+  mu <- dscore:::count_mu_dutch(t)
+  dnorm(qp, mean = mu, sd = 5)
+}
 
-p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = dscore::adp(1/12, qp))
-p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = dscore::adp(15/12, qp))
-p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = dscore::adp(24/12, qp))
+p1m <- data.frame(qp = qp, month = rep(1, length(qp)), p = adp_dutch(1/12, qp))
+p15m <- data.frame(qp = qp, month = rep(15, length(qp)), p = adp_dutch(15/12, qp))
+p24m <- data.frame(qp = qp, month = rep(24, length(qp)), p = adp_dutch(24/12, qp))
 
 dataprior <- rbind(p1m, p15m, p24m) %>%
   mutate(month = as.factor(month)) %>%
@@ -182,7 +184,7 @@ Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David pas
 ```{r datadavidandrob}
 items <- c("ddifmd011", "ddifmm012", "ddicmm037", "ddigmm066", "ddigmm067")
 ib <- model$itembank %>%
-  rename(item  = lex_gsed, delta = tau) %>%
+  rename(delta = tau) %>%
   filter(item %in% items) %>%
   dplyr::select(item, label, delta)
 ib <- ib[c(2, 3, 1, 4, 5), ]
@@ -199,58 +201,51 @@ Table \@ref(tab:datadavidandrob) shows the difficulty of each milestone (in the 
 The mean $D$-score for Dutch children aged 15 months is 53.6$D$, so the milestones are easy to pass at this age, with the most difficult is `ddicmm037`. David passed all milestones but has no score on the last. Rob fails on `ddifmm012` and `ddigmm067`. How do we calculate the $D$-score for David and Rob?
 
 ```{r davidplot, fig.height = 12, fig.cap = '(ref:davidplot)'}
-# full posterior 1e item
 qp <- -10:80
 
 # David
 david <- matrix(NA, nrow = length(qp), ncol = 10, 
                 dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
-it1 <- dscore::dscore(c(1, NA, NA, NA, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it2 <- dscore::dscore(c(1,  1, NA, NA, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it3 <- dscore::dscore(c(1,  1,  1, NA, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it4 <- dscore::dscore(c(1,  1,  1,  1, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it5 <- dscore::dscore(c(1,  1,  1,  1,  NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-david[, "prior1"] <- it1$`1.25`$start
-david[, c("post1", "prior2")] <- it1$`1.25`$posterior
-david[, c("post2", "prior3")] <- it2$`1.25`$posterior
-david[, c("post3", "prior4")] <- it3$`1.25`$posterior
-david[, c("post4", "prior5")] <- it4$`1.25`$posterior
-david[, "post5"] <- it5$`1.25`$posterior
+data_david <- data.frame(
+  age = rep(15/12, 6),
+  ddifmd001 = c(NA,  1,  1,  1,  1,  1),
+  ddifmm012 = c(NA, NA,  1,  1,  1,  1),
+  ddicmm037 = c(NA, NA, NA,  1,  1, 1),
+  ddigmm066 = c(NA, NA, NA, NA,  1,  1),
+  ddigmm067 = c(NA, NA, NA, NA, NA, NA)
+)
+
+post <- dscore_posterior(data = data_david, qp = -10:80, prior_mean = ".dutch")
+
+david[, "prior1"] <- adp_dutch(t = 15/12)
+david[, "prior1"] <- post[1, ]
+david[, c("post1", "prior2")] <- post[2, ]
+david[, c("post2", "prior3")] <- post[3, ]
+david[, c("post3", "prior4")] <- post[4, ]
+david[, c("post4", "prior5")] <- post[5, ]
+david[, "post5"] <- post[6, ]
 
 # Rob
 rob <- matrix(NA, nrow = length(qp), ncol = 10, 
               dimnames = list(NULL, c(paste0("prior", 1:5), paste0("post", 1:5))))
-it1 <- dscore::dscore(c(1, NA, NA, NA, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it2 <- dscore::dscore(c(1,  0, NA, NA, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it3 <- dscore::dscore(c(1,  0,  1, NA, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it4 <- dscore::dscore(c(1,  0,  1,  1, NA), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-it5 <- dscore::dscore(c(1,  0,  1,  1,  0), 
-                      items = items, age = rep(1.25, 5), full = TRUE, 
-                      itembank = model$itembank, lexicon = "gsed", qp = qp)
-rob[, "prior1"] <- it1$`1.25`$start
-rob[, c("post1", "prior2")] <- it1$`1.25`$posterior
-rob[, c("post2", "prior3")] <- it2$`1.25`$posterior
-rob[, c("post3", "prior4")] <- it3$`1.25`$posterior
-rob[, c("post4", "prior5")] <- it4$`1.25`$posterior
-rob[, "post5"] <- it5$`1.25`$posterior
+data_rob <- data.frame(
+  age = rep(15/12, 6),
+  ddifmd001 = c(NA,  1,  1,  1,  1, 1),
+  ddifmm012 = c(NA, NA,  0,  0,  0, 0),
+  ddicmm037 = c(NA, NA, NA,  1,  1, 1),
+  ddigmm066 = c(NA, NA, NA, NA,  1, 1),
+  ddigmm067 = c(NA, NA, NA, NA, NA, 0)
+)
+
+post <- dscore_posterior(data = data_rob, qp = -10:80, prior_mean = ".dutch")
+
+rob[, "prior1"] <- adp_dutch(t = 15/12)
+rob[, "prior1"] <- post[1, ]
+rob[, c("post1", "prior2")] <- post[2, ]
+rob[, c("post2", "prior3")] <- post[3, ]
+rob[, c("post3", "prior4")] <- post[4, ]
+rob[, c("post4", "prior5")] <- post[5, ]
+rob[, "post5"] <- post[6, ]
 
 # create plotting data
 plotdata <- expand.grid(x = qp, item = items, 

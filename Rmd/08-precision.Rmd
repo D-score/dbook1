@@ -23,13 +23,13 @@ model <- knitr::load_cache("smoccmodel", "model")
 ```
 
 ```{r getddi}
-meta <- dmetric::get_itemtable(get_itemnames(instrument = "ddi")) %>%
+meta <- dscore::get_itemtable(dscore::get_itemnames(instrument = "ddi")) %>%
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
 df <- data.frame(
-  item = get_itemnames(data),
+  item = dscore::get_itemnames(data),
   debut = c(1, 2, 3, 5, 6, 6, 7, 8, 9, 10, 10,
                  4, 7, 8, 9,
                  1, 2, 3, 3, 4, 5, 5, 5, 6, 7, 7, 8, 8, 9, 9, 10, 10, 10, 10, 
@@ -38,7 +38,7 @@ df <- data.frame(
 ddi <- df %>%  
   left_join(meta, by = "item") %>% 
   mutate(
-    itemorder = order_itemnames(item, order = "idnm"), 
+    itemorder = dscore::order_itemnames(item, order = "idnm"), 
     debut = factor(debut, 
                    labels = c("1m", "2m", "3m", "6m", "9m", "12m", "15m", "18m", "24m", "30m"))
     ) %>% 
@@ -80,7 +80,7 @@ milestones.
 
 data2 <- left_join(data$itm, ddi, by = "item") %>%
   tidyr::drop_na(agedays) %>% 
-  mutate(itemorder = order_itemnames(item, order = "idnm")) %>% 
+  mutate(itemorder = dscore::order_itemnames(item, order = "idnm")) %>% 
   arrange(desc(debut), desc(itemorder)) %>% 
   mutate(ord = 1:n(), 
          agemos = agedays / 365.25 * 12, 
