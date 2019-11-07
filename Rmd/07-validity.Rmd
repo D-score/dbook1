@@ -2,10 +2,7 @@
 
 > Author: Iris Eekhout
 
-Validity is a generic term that refers to the question of how well an
-instrument measures what it claims to measure. There are various
-aspects of validity. This chapter briefly reviews the main types of
-validity:
+Validity is a generic term that refers to the question of how well an instrument measures what it claims to measure. There are various aspects of validity. This chapter briefly reviews the main types of validity:
 
 * Internal validity (\@ref(sec:internal))
 * External validity (\@ref(sec:external))
@@ -28,15 +25,9 @@ model <- knitr::load_cache("smoccmodel", "model")
 
 ### Content validity
 
-Content validity is the extent to which the $D$-score represents all
-facets of development. In contrast to "face validity", which assesses
-whether the test appears valid to respondents, content validity is
-about what is measured. 
+Content validity is the extent to which the $D$-score represents all facets of development. In contrast to "face validity", which assesses whether the test appears valid to respondents, content validity is about what is measured.
 
-One important form of content validity is that we wish to make sure
-that the measurement scale represents the various developmental domains in a fair way. In the simplest case, we can assign each
-milestone uniquely to one domain and evaluate coverage by splitting
-the cumulative item information.
+One important form of content validity is that we wish to make sure that the measurement scale represents the various developmental domains in a fair way. In the simplest case, we can assign each milestone uniquely to one domain and evaluate coverage by splitting the cumulative item information.
 
 ```{r plotcontent, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotcontent)'}
 info_data <-
@@ -60,18 +51,11 @@ ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
 ```
 (ref:plotcontent) Cumulative item information by DDI domain.
 
-Figure \@ref(fig:plotcontent) shows the coverage of the three domains
-of the DDI at various levels of the $D$-score. The three domains of
-the DDI are relevant at most ability levels. The DDI contains no
-communication milestones between 20 $D$ and 30 $D$, so at these levels, the DDI measures primarily motor performance.
+Figure \@ref(fig:plotcontent) shows the coverage of the three domains of the DDI at various levels of the $D$-score. The three domains of the DDI are relevant at most ability levels. The DDI contains no communication milestones between 20 $D$ and 30 $D$, so at these levels, the DDI measures primarily motor performance.
 
 ### Construct validity
 
-Construct validity is the extent to which the $D$-score behaves like
-the theory says the construct should behave. For example, we expect
-that child development advances with age. Figure \@ref(fig:smoccda) provides convincing evidence that the $D$-score increases fastest in
-the first six months and keeps rising at a slower rate as children
-age. This phenomenon is consistent with theories in growth and child development.
+Construct validity is the extent to which the $D$-score behaves like the theory says the construct should behave. For example, we expect that child development advances with age. Figure \@ref(fig:smoccda) provides convincing evidence that the $D$-score increases fastest in the first six months and keeps rising at a slower rate as children age. This phenomenon is consistent with theories in growth and child development.
 
 ```{r plotdomainfit, fig.height=6, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotdomainfit)'}
 
@@ -100,10 +84,7 @@ In Chapter \@ref(ch:newmodel), we assumed that child development is a latent var
 
 ### Discriminatory validity
 
-Discriminatory validity indicates the extent to which the $D$-score can distinguish children with non-normal development from children
-that are developing normally. We may evaluate this by identifying
-children with lagging development, for example, indicated by reflex or tonus problems, and study whether the $D$-score can discriminate those children from the general population. Section
-\@ref(sec:togo) presents some examples.
+Discriminatory validity indicates the extent to which the $D$-score can distinguish children with non-normal development from children that are developing normally. We may evaluate this by identifying children with lagging development, for example, indicated by reflex or tonus problems, and study whether the $D$-score can discriminate those children from the general population. Section \@ref(sec:togo) presents some examples.
 
 ```{r plotdiscr, eval=FALSE, fig.height=3, fig.show='hold', message=FALSE, warning=FALSE}
 plotdat <- left_join(model$dscore, data$visit) %>%
@@ -127,8 +108,7 @@ ggplot(plotdat, aes(x = agemos, y = b, group = residence, colour = residence))+
 
 ### Convergent and divergent validity
 
-Convergent validity is the extent to which the $D$-score relates to
-similar constructs. We measure it by the correlation between the $D$-score and the total score on Bayley-III or Denver.
+Convergent validity is the extent to which the $D$-score relates to similar constructs. We measure it by the correlation between the $D$-score and the total score on Bayley-III or Denver.
 
 The correlation with the other construct should be 0.6, or higher for good convergent validity. Unfortunately, at present, only limited data is available for the DDI, so we cannot assess convergent validity for the $D$-score at this point.
 
@@ -155,19 +135,12 @@ dmetric::plot_d_adm(data = data, model = model, metric = "dscore",
 ```
 (ref:plotconcurrent) Relation between body height and the $D$-score in the SMOCC data.
 
-Figure \@ref(fig:plotconcurrent) shows both convergent and divergent
-validity at work. The figure shows that, as expected, there is a
-strong and almost linear relation between body height and the
-$D$-score. However, after correction for the child's age, the relationship
-between height and $D$-score almost disappears. Thus, growth and development are entirely different concepts.
+Figure \@ref(fig:plotconcurrent) shows both convergent and divergent validity at work. The figure shows that, as expected, there is a strong and almost linear relation between body height and the $D$-score. However, after correction for the child's age, the relationship between height and $D$-score almost disappears. Thus, growth and development are entirely different concepts.
 
-We can also evaluate the strength of the relations between the
-$D$-score and proxy measures of child development, such as stunted height growth (see section \@ref(sec:stunting)). The low correlation between DAZ and HAZ suggests that stunting is a poor proxy for child development.
+We can also evaluate the strength of the relations between the $D$-score and proxy measures of child development, such as stunted height growth (see section \@ref(sec:stunting)). The low correlation between DAZ and HAZ suggests that stunting is a poor proxy for child development.
 
 ### Predictive validity
 
-Predictive validity refers to the degree to which the $D$-score predicts
-the score on a criterion that is measured later. For the $D$-score, we may compare to measures for IQ at the school-age as a possible criterion.
+Predictive validity refers to the degree to which the $D$-score predicts the score on a criterion that is measured later. For the $D$-score, we may compare to measures for IQ at the school-age as a possible criterion.
 
 @vlasblom2019 found strong evidence that individual milestones of the DDI measured during the first years of life predict later intellectual functioning at ages 5--10 years. It is to be expected that the $D$-score, which builds upon these individual items, will also predict limited intellectual functioning, perhaps even better.
-

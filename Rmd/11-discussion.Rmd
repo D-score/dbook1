@@ -10,9 +10,7 @@ source(file = file.path("/Users/buurensv/Websites/dbook/dbook1/R", "before_chapt
 
 > Author: Stef van Buuren
 
-This booklet provides a quick overview of the relevance, concepts and
-techniques of the $D$-score. While the results obtained thus far
-are encouraging, some questions will certainly remain when we put the method to practice.
+This booklet provides a quick overview of the relevance, concepts and techniques of the $D$-score. While the results obtained thus far are encouraging, some questions will certainly remain when we put the method to practice.
 
 A rough selection of such questions includes:
 
@@ -32,14 +30,11 @@ This chapter briefly reviews some of these issues.
 
 ## Usefulness of $D$-score for monitoring child health
 
-The $D$-score is a new approach to measure child development. The
-$D$-score is a scale for quantifying generic child development by a single number. Milestones are selected to fit the Rasch model. We can interpret the resulting measurements as scores on an interval scale, a requirement for answering questions like:
+The $D$-score is a new approach to measure child development. The $D$-score is a scale for quantifying generic child development by a single number. Milestones are selected to fit the Rasch model. We can interpret the resulting measurements as scores on an interval scale, a requirement for answering questions like:
 
-* What is the difference in development over time for the same child,
-group or population?
+* What is the difference in development over time for the same child, group or population?
 
-* What is the difference in development between different children,
-groups or populations of the same age?
+* What is the difference in development between different children, groups or populations of the same age?
 
 * How does child development compare to a norm?
 
@@ -49,17 +44,13 @@ The precision of the measurement depends on the number of milestones and the mat
 
 ## $D$-chart, a growth chart for child development
 
-The field of child growth and development roughly divides into two
-areas:
+The field of child growth and development roughly divides into two areas:
 
 * The subfield *child growth* (or *auxology*) emphasizes body measures like height, weight, body mass index, and so on. It is a rigorous quantitative science with intimate ties to statistics since the days of Quetelet and Galton.
 
-* The subfield *child development* is more recent and builds upon a
-wide-ranging set of domain-specific instruments for measuring motor,
-language, cognitive and behavioural states. 
+* The subfield *child development* is more recent and builds upon a wide-ranging set of domain-specific instruments for measuring motor, language, cognitive and behavioural states.
 
-The *growth chart* is a widely used tool to monitor physical growth.
-The $D$-score can be used in a similar way to create the *$D$-chart*.
+The *growth chart* is a widely used tool to monitor physical growth. The $D$-score can be used in a similar way to create the *$D$-chart*.
 
 ```{r smoccmodel10, dependson = "smoccmodel", cache = FALSE}
 data <- knitr::load_cache("smoccmodel", "data")
@@ -103,49 +94,33 @@ g1
 ```
 (ref:dchart) $D$-chart with five children from the SMOCC study.
 
-Figure \@ref(fig:dchart) shows the developmental paths of five
-randomly chosen children from the SMOCC study. Although the milestones differ across age, there is only one vertical axis. These trajectories will help to track the progress of a child over time.
+Figure \@ref(fig:dchart) shows the developmental paths of five randomly chosen children from the SMOCC study. Although the milestones differ across age, there is only one vertical axis. These trajectories will help to track the progress of a child over time.
 
-The $D$-chart shows that it is straightforward to apply quantitative
-techniques from child growth to child development. Our hope is that
-$D$-score aids in bridging the disparate subfields of child growth and child development.
+The $D$-chart shows that it is straightforward to apply quantitative techniques from child growth to child development. Our hope is that $D$-score aids in bridging the disparate subfields of child growth and child development.
 
 ## Opportunities for early intervention
 
 @black2017 estimated that about 250 million children worldwide fail to reach their developmental potential. Developmental delays become evident in the first year and worsen during early childhood. The burden of children not reaching their developmental potential is high.
 
-Interventions aimed at improving child development work best when delivered at the sensitive periods. Programs are to be
-comprehensive, incorporating a combination of health, nutrition, security and safety, responsive caregiving and early learning. See
-@engle2011, @grantham2014 and @britto2017 for recent overviews and initiatives.
+Interventions aimed at improving child development work best when delivered at the sensitive periods. Programs are to be comprehensive, incorporating a combination of health, nutrition, security and safety, responsive caregiving and early learning. See @engle2011, @grantham2014 and @britto2017 for recent overviews and initiatives.
 
 The lack of a universal measure for child development has long hampered the ability to estimate intervention effects or to compare populations. The $D$-score can be generalized to other instruments. We expect that the availability of a common yardstick will stimulate informed policy and priority setting. We hope a universal measure improves decision making, ultimately lowering the number of children not reaching their developmental potential.
 
 ## $D$-score for international settings
 
-Chapter \@ref(ch:threestudies) compared $D$-scores between three study samples. We restricted the analysis to studies that used the same instrument (the DDI, in Togo, translated to French) to measure child development. 
+Chapter \@ref(ch:threestudies) compared $D$-scores between three study samples. We restricted the analysis to studies that used the same instrument (the DDI, in Togo, translated to French) to measure child development.
 
-It is difficult to compare levels of child development worldwide.
-Existing estimates on children not reaching their developmental
-potential rely on proxies, such as stunting and poverty. While these
-proxies have been found to correlate with child development, they are
-only weak indicators of actual child performance. Arguably, the
-performance of a child on a set of well-chosen milestones is more
-informative for his or her future health and productivity than body
-height or parental income.
+It is difficult to compare levels of child development worldwide. Existing estimates on children not reaching their developmental potential rely on proxies, such as stunting and poverty. While these proxies have been found to correlate with child development, they are only weak indicators of actual child performance. Arguably, the performance of a child on a set of well-chosen milestones is more informative for his or her future health and productivity than body height or parental income.
 
 There are more than 150 instruments are available that quantify child development. Many of these tools produce not just one but many scores. Such an overwhelming choice may seem a luxury until we realize that we cannot compare their ratings. Of course, we could settle on just one instrument ...., but that's never going to happen. While simple in theory, pre-harmonization is complicated in practice. It requires significant and continued investments by a central agency. It does not address historical data, so it will be challenging to see secular trends. Also, pre-harmonization impedes the adoption of innovative techniques, e.g., using smartphone-assisted evaluations.
 
-The $D$-score opens up an exciting alternative: *agree on the
-scale*, and leave some liberty to the data-collector in the exact choice of the instrument. We could build upon the expertise of the data collector about the local population. Also, it will equip is to keep up with innovations in measurement.
+The $D$-score opens up an exciting alternative: *agree on the scale*, and leave some liberty to the data-collector in the exact choice of the instrument. We could build upon the expertise of the data collector about the local population. Also, it will equip is to keep up with innovations in measurement.
 
 Booklet II will address some of the conceptual and technical issues that arise when we attempt to apply the $D$-score to other populations.
 
 ## $D$-score from existing instruments
 
-There is a vast base of historic child developmental data using existing instruments. The problem is that each device defines its own summaries, so we cannot compare scores across tools. Different instruments have different domains, various age forms,
-different stopping rules, diverse age norms, and so on. Yet, the
-milestones in these instruments are often very similar. Most
-tools collect data on milestones like:
+There is a vast base of historic child developmental data using existing instruments. The problem is that each device defines its own summaries, so we cannot compare scores across tools. Different instruments have different domains, various age forms, different stopping rules, diverse age norms, and so on. Yet, the milestones in these instruments are often very similar. Most tools collect data on milestones like:
 
 * Can the child stack two blocks?
 * Can the child rollover?
@@ -153,20 +128,14 @@ tools collect data on milestones like:
 * Can the child stand?
 * Can the child say "baba"?
 
-With the $D$-score methodology in hand, we are ready to exploit the overlap in milestones shared by different instruments. Common items
-can act as *bridges*, so - with the appropriate item-level data - we may attempt calculating $D$-scores from other tools as well.
+With the $D$-score methodology in hand, we are ready to exploit the overlap in milestones shared by different instruments. Common items can act as *bridges*, so - with the appropriate item-level data - we may attempt calculating $D$-scores from other tools as well.
 
 The task is to identify milestones that overlap between both instruments, filter out milestones that do not fit a joint model, and estimate the item difficulties of items that remain. Booklet II will explore this possibility in more detail.
 
 ## Creating new instruments for $D$-score
 
-Extending the $D$-score to other instruments has the side-effect of enlarging the item bank with useful items. As more and more data feed into the item bank, assessment of already present milestones
-may become more precise.
+Extending the $D$-score to other instruments has the side-effect of enlarging the item bank with useful items. As more and more data feed into the item bank, assessment of already present milestones may become more precise.
 
-The enlarged and improved item bank then may act as the fundamental resource for creating instruments for particular settings. For example, if the interest is on finding the most advanced children, we may construct a difficult test that will separate the good and the best. Alternatively,
-we can use the item bank to create and administer *computerized
-adaptive tests* [@wainer2000; @jacobusse2007], a sequential method that selects the next milestone based on the previous test outcome.
+The enlarged and improved item bank then may act as the fundamental resource for creating instruments for particular settings. For example, if the interest is on finding the most advanced children, we may construct a difficult test that will separate the good and the best. Alternatively, we can use the item bank to create and administer *computerized adaptive tests* [@wainer2000; @jacobusse2007], a sequential method that selects the next milestone based on the previous test outcome.
 
-Booklet III will explore the conceptual and technical challenges, and
-propose an integrated approach to support instrument construction and 
-validation.
+Booklet III will explore the conceptual and technical challenges, and propose an integrated approach to support instrument construction and validation.
