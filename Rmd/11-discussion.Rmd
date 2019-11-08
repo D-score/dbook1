@@ -67,16 +67,17 @@ data <- model$dscore %>%
   mutate(subjid = as.factor(subjid), 
          agemos = agedays / 365.25 * 12)
 
-reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+reference <- dplyr::select(dscore::get_reference("dutch"), age, SDM2:SDP2) %>%
+  mutate(month = age * 12) %>% 
   filter(month <= 30) %>%
-  tidyr::gather(key = centile, value = d,-month)
+  tidyr::gather(key = centile, value = d, -month, -age)
 polygon <- data.frame(
   x = c(reference$month[reference$centile == "SDM2"],
         rev(reference$month[reference$centile == "SDP2"])),
   y = c(reference$d[reference$centile == "SDM2"],
         rev(reference$d[reference$centile == "SDP2"])))
 
-g1 <- ggplot(data, aes_string(x = "agemos", y = "b", colour = "subjid")) +
+g1 <- ggplot(data, aes_string(x = "agemos", y = "d", colour = "subjid")) +
   scale_x_continuous("Age (in months)",
                      limits = c(0, 30),
                      breaks = seq(0, 30, 6)) +

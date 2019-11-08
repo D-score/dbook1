@@ -58,8 +58,8 @@ data2 <- data2 %>%
          hypgmd002 = ifelse(agedays  > 65 & rand > 0.2, 1, 0), # flat2
          hypgmd002 = ifelse(agedays <= 65 & rand < 0.2, 1, hypgmd002), # flat2
          hypgmd003 = ifelse(agedays > 65, 0, 1), # gutman age
-         hypgmd004 = ifelse(model$beta_l$b < 2, 0, 1), # gutman d
-         hypgmd005 = ifelse(model$beta_l$b > 2 & runif(nrow(data2), 0, 1) > 0.1, 1, 0) # gutman d_error
+         hypgmd004 = ifelse(model$beta_l$d < 2, 0, 1), # gutman d
+         hypgmd005 = ifelse(model$beta_l$d > 2 & runif(nrow(data2), 0, 1) > 0.1, 1, 0) # gutman d_error
          ) %>% 
   dplyr::select(-rand)
 b_fixed <- model$fit$b
@@ -204,18 +204,20 @@ These forms correspond to, respectively, the main effect of group and the abilit
 ### Examples of DIF
 
 ```{r plotdif1, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif1)', message = FALSE}
-p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
-p2 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
-gridExtra::grid.arrange(p1, p2)
+cat("There should be plot_dif here.")
+#p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmd063")[[1]]
+#p2 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmd011")[[1]]
+#gridExtra::grid.arrange(p1, p2)
 ```
 (ref:plotdif1) Two milestones from the DDI with similar item response curves for boys and girls. There is no DIF for sex.
 
 Figure \@ref(fig:plotdif1) shows an example comparing boys and girls. For both milestones, the item response curves are similar for boys and girls, so we see no evidence of DIF here.
 
 ```{r plotdif2, results = 'hide', fig.keep = 'all', fig.height = 7, warning = FALSE, fig.cap = '(ref:plotdif2)', message = FALSE}
-p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmm019")[[1]]
-p2 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm064")[[1]]
-gridExtra::grid.arrange(p1, p2)
+cat("There should be plot_dif here.")
+#p1 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddifmm019")[[1]]
+#p2 <- dmetric::plot_dif(data = data, model = model, dif = "sex", metric = "logit", item = "ddigmm064")[[1]]
+#gridExtra::grid.arrange(p1, p2)
 ```
 (ref:plotdif2) Two milestones from the DDI with different item response curves for boys and girls. There is evidence for uniform DIF.
 
@@ -258,8 +260,8 @@ items <- c("ddigmm060", "ddicmm039")
  beta = seq(betar[1], betar[2], length = 200)
  iteminfo2 <- data.frame(ability = beta, I = info(beta, delta))
 
- iteminfo1$item <- paste(items[1], get_labels(items[1]))
- iteminfo2$item <- paste(items[2], get_labels(items[2]))
+ iteminfo1$item <- paste(items[1], dscore::get_labels(items[1]))
+ iteminfo2$item <- paste(items[2], dscore::get_labels(items[2]))
  df <- rbind(iteminfo1,iteminfo2)
 
  ggplot(df, aes(ability, I, group = item, color = item)) +
@@ -353,34 +355,37 @@ For a given model, we can calculate $\hat\sigma_{\hat\beta}^2$ directly as the s
 ```{r psi, message=FALSE, warning=FALSE}
 
 model_psi <- function(model, data){
-  b_true <- model$beta_l$b #abilities uit dmodel object - b_true
-  sim_data <- sirt::sim.raschtype(theta = b_true, b = model$fit$b) #simulate item data based on abilities from model and delta's
+  d_true <- model$beta_l$d #abilities uit dmodel object - d_true
+  sim_data <- sirt::sim.raschtype(theta = d_true, b = model$fit$b) #simulate item data based on abilities from model and delta's
   items <- names(model$fit$b)
   colnames(sim_data) <- items
   
   # apply same missing data as real data
   data3 <- data[, items]
   sim_data[is.na(data3)] <- NA
-
   sim_data$age <- model$beta_l$agedays / 365.25
-  b_est <- dscore::ability(data = sim_data, items = names(model$fit$b), 
-                           key = data.frame(item = names(model$fit$b), 
-                                            delta = model$fit$b), 
-                           metric = "logit",
-                           qp = seq(-25, 25, 0.25))$b #estimate new abilities based on simulated data - b_est
   
+  #estimate new abilities based on simulated data - d_est
+  d_est <- dscore::dscore(data = sim_data, items = names(model$fit$b), 
+                          key = "",
+                          itembank = data.frame(item = names(model$fit$b), 
+                                                tau = model$fit$b),
+                          population = "dutch",
+                          metric = "logit",
+                          qp = seq(-25, 25, 0.25))$d
+    
   #calculate parameters for PSI calculation
-  var_b_est <- var(b_est, na.rm = TRUE)
-  var_b_true <- var(b_true, na.rm = TRUE)
-  var_error_est <- var(b_true - b_est , na.rm = TRUE)
+  var_d_est <- var(d_est, na.rm = TRUE)
+  var_d_true <- var(d_true, na.rm = TRUE)
+  var_error_est <- var(d_true - d_est , na.rm = TRUE)
 
   # psi calculation
-  r1 <- (var_b_est - var_error_est) / var_b_est
-  var_error_true = (var_b_true / r1) - var_b_true
-  r2 <- var_b_true / (var_b_true + var_error_true)
+  r1 <- (var_d_est - var_error_est) / var_d_est
+  var_error_true = (var_d_true / r1) - var_d_true
+  r2 <- var_d_true / (var_d_true + var_error_true)
 
    sem <- sqrt(var_error_est)
-   return(round(c(r = r1, sem = sem, resid = b_true - b_est), 3))
+   return(round(c(r = r1, sem = sem, resid = d_true - d_est), 3))
 }
 
 results <- model_psi(model, data2)

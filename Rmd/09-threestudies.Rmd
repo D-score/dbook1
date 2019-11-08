@@ -23,9 +23,10 @@ model <- knitr::load_cache("smoccmodel", "model")
 plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz", 
                       xlab = "Age (in months)", ylab = "D-score", zlab = "DAZ",
                       colour = "black") {
-  reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+  reference <- dplyr::select(dscore::get_reference("dutch"), age, SDM2:SDP2) %>%
+    mutate(month = age * 12) %>% 
     filter(month <= 30) %>%
-    tidyr::gather(key = centile, value = d,-month)
+    tidyr::gather(key = centile, value = d, -month, -age)
   polygon <- data.frame(
     x = c(reference$month[reference$centile == "SDM2"],
           rev(reference$month[reference$centile == "SDP2"])),
@@ -66,12 +67,12 @@ plot_ddaz <- function(data, x = "agemos", y = "d", z = "daz",
 
 ```{r smoccda9, fig.cap = '(ref:smoccda9)', fig.height = 12, warning = FALSE}
 model$dscore$agemos <- round(model$dscore$agedays / 365.25 * 12, 3)
-model$dscore$daz    <- dscore::daz(model$dscore$b, 
-                                   x = model$dscore$agedays, 
-                                   x.unit = "day")
+# model$dscore$daz    <- dscore::daz(model$dscore$d, 
+#                                    x = model$dscore$agedays, 
+#                                    x.unit = "day")
 model$dscore$cohort <- "SMOCC"
 
-plot_ddaz(model$dscore, x = "agemos", y = "b", z = "daz", 
+plot_ddaz(model$dscore, x = "agemos", y = "d", z = "daz", 
           colour = "#FF7F00B3")
 ```
 (ref:smoccda9) Distribution of $D$-score and DAZ by child age in a cohort of Dutch children aged 0-2 years (Source: SMOCC data, $n$ = 2151, 9 occasions).
@@ -87,7 +88,7 @@ The ceiling effect causes low coverage after the age of 24 months. There are als
 pops_orig <- haven::read_sav("data-raw/data/pops/POPS19groeiSDS2whoTranslatedExtrav2PLUS.sav")
 
 # translate DDI itemnames to lex_gsed
-items <- gseddata::rename_gcdg_gsed(paste0("n", 1:57))
+items <- dscore::rename_gcdg_gsed(paste0("n", 1:57))
 names(pops_orig)[44:100] <- items
 
 # adopt gseddata conventions
@@ -96,7 +97,7 @@ pops_data <- pops_orig %>%
     subjid    = as.integer(patid),
     agedays   = as.integer(Age),
     gagebrth  = as.integer(gestationalage * 7)
-    ) %>% 
+  ) %>% 
   mutate_at(vars(items), function(x) as.integer(1 - x)) %>% 
   dplyr::select(subjid, agedays,
                 gagebrth, 
@@ -130,43 +131,47 @@ pops_pt <- pops_data %>%
 ```
 
 ```{r popsd}
-# determine dscore key
-dkey <- data.frame(item = model$itembank$lex_gsed,
-                   delta = model$itembank$tau,
-                   stringsAsFactors = FALSE)
-
-# calculate D-score under four age-corrections
-ref <- dscore::Dreference
-
 pops_data$age <- pops_data$age_c0.00
-d_0.00 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_0.00 <- dscore::daz(d = d_0.00$b, x = pops_data$age, ref = ref)
+d_0.00 <- dscore::dscore(data = pops_data, items = items, 
+                         itembank = model$itembank, 
+                         key = "", qp = -10:80, 
+                         population = "dutch")
+# z_0.00 <- dscore::daz(d = d_0.00$b, x = pops_data$age, ref = ref)
 
 pops_data$age <- pops_data$age_c0.50
-d_0.50 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_0.50 <- dscore::daz(d = d_0.50$b, x = pops_data$age, ref = ref)
+d_0.50 <- dscore::dscore(data = pops_data, items = items, 
+                         itembank = model$itembank, 
+                         key = "", qp = -10:80,
+                         population = "dutch")
+# z_0.50 <- dscore::daz(d = d_0.50$b, x = pops_data$age, ref = ref)
 
 pops_data$age <- pops_data$age_c0.75
-d_0.75 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_0.75 <- dscore::daz(d = d_0.75$b, x = pops_data$age, ref = ref)
+d_0.75 <- dscore::dscore(data = pops_data, items = items, 
+                         itembank = model$itembank, 
+                         key = "", qp = -10:80,
+                         population = "dutch")
+# z_0.75 <- dscore::daz(d = d_0.75$b, x = pops_data$age, ref = ref)
 
 pops_data$age <- pops_data$age_c1.00
-d_1.00 <- dscore::ability(data = pops_data, items = items, key = dkey, qp = -10:80)
-z_1.00 <- dscore::daz(d = d_1.00$b, x = pops_data$age, ref = ref)
+d_1.00 <- dscore::dscore(data = pops_data, items = items, 
+                         itembank = model$itembank, 
+                         key = "", qp = -10:80,
+                         population = "dutch")
+# z_1.00 <- dscore::daz(d = d_1.00$b, x = pops_data$age, ref = ref)
 
 pops2 <- bind_cols(pops_data, 
                    cohort  = rep("POPS", nrow(pops_data)),
                    n = rowSums(!is.na(pops_data[, items])),  # number of items 
                    p = rowSums(pops_data[, items], na.rm = TRUE),  # sum score
                    f = rowSums(!is.na(pops_data[, items])) - rowSums(pops_data[, items], na.rm = TRUE),  # number of failed items
-                   d_0.00 = d_0.00$b,
-                   d_0.50 = d_0.50$b,
-                   d_0.75 = d_0.75$b,
-                   d_1.00 = d_1.00$b,
-                   daz_0.00 = z_0.00,
-                   daz_0.50 = z_0.50,
-                   daz_0.75 = z_0.75,
-                   daz_1.00 = z_1.00)
+                   d_0.00 = d_0.00$d,
+                   d_0.50 = d_0.50$d,
+                   d_0.75 = d_0.75$d,
+                   d_1.00 = d_1.00$d,
+                   daz_0.00 = d_0.00$daz,
+                   daz_0.50 = d_0.50$daz,
+                   daz_0.75 = d_0.75$daz,
+                   daz_1.00 = d_1.00$daz)
 pops2 <- pops2[!is.na(pops2$daz_0.75), ]
 ```
 
@@ -302,7 +307,7 @@ togo_orig <- ddata::TGO
 
 # translate DDI itemnames to lex_gsed
 gcdg_names <- names(togo_orig)[13:86]
-items <- gseddata::rename_gcdg_gsed(gcdg_names)
+items <- dscore::rename_gcdg_gsed(gcdg_names)
 names(togo_orig)[13:86] <- items
 
 # remove rows without valid agedays
@@ -328,19 +333,18 @@ togo <- togo_orig %>%
 ```{r togod}
 # determine dscore key (do not estimate v-items 2-4 years)
 #
-dkey <- data.frame(item = model$itembank$lex_gsed,
-                   delta = model$itembank$tau,
-                   stringsAsFactors = FALSE)
-ref <- dscore::Dreference
 
-d <- dscore::ability(data = togo, items = items, key = dkey, qp = -10:80)
-z <- dscore::daz(d = d$b, x = togo$age, ref = ref)
+d <- dscore::dscore(data = togo, items = items, 
+                    itembank = model$itembank,
+                    key = "", qp = -10:80, 
+                    population = "dutch")
+# z <- dscore::daz(d = d$b, x = togo$age, ref = ref)
 
 togo2 <- bind_cols(togo, 
                    cohort  = rep("KPALIME", nrow(togo)),
                    n = d$n, 
-                   d = d$b,
-                   daz = z)
+                   d = d$d,
+                   daz = d$daz)
 ```
 
 ```{r togoda, fig.cap = '(ref:togoda)', fig.height = 12, warning = FALSE}
@@ -380,12 +384,13 @@ Here we use a subset of 2674 visits from 1644 unique children who scored on the 
 
 ```{r plotdafunc}
 plot_da <- function(data, x = "agemos", y = "d", z = "daz", 
-                      v = "",
-                      xlab = "Age (in months)", ylab = "D-score", zlab = "DAZ",
-                      colour = "black") {
-  reference <- dplyr::select(dscore::Dreference, month, SDM2:SDP2) %>%
+                    v = "",
+                    xlab = "Age (in months)", ylab = "D-score", zlab = "DAZ",
+                    colour = "black") {
+  reference <- dplyr::select(dscore::get_reference("dutch"), age, SDM2:SDP2) %>%
+    mutate(month = age * 12) %>% 
     filter(month <= 30) %>%
-    tidyr::gather(key = centile, value = d,-month)
+    tidyr::gather(key = centile, value = d, -month, -age)
   polygon <- data.frame(
     x = c(reference$month[reference$centile == "SDM2"],
           rev(reference$month[reference$centile == "SDP2"])),
@@ -412,7 +417,7 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
     facet_wrap( ~ cohort, ncol = 1) +
     theme(legend.position = "none")
   g1
-  }
+}
 ```
 
 ### $D$-score labelled by neurological problem {#sec:togoneuro}
@@ -468,8 +473,7 @@ smocc <- as.data.frame(data)
 smocc2 <- smocc %>% 
   left_join(model$dscore, by = c("subjid", "agedays")) %>% 
   mutate(agemos = agedays / 365.25 * 12) %>% 
-  rename(d = b, 
-         cohort = cohort.y) 
+  rename(cohort = cohort.y) 
 pops3 <- pops2 %>% 
   mutate(agemos = age_c0.75 * 12) %>% 
   rename(d = d_0.75, 
