@@ -34,7 +34,7 @@ The *standard* set in the DDI consists of relatively easy milestones that 90 per
 
 ### Codebook of DDI 0-30 months
 
-```{r smoccmodel}
+```{r smoccmodel, cache=TRUE}
 library(gseddata)
 data <- get_data(cohort = 53)
 items <- dscore::get_itemnames(data)

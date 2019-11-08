@@ -48,7 +48,7 @@ newnames <- paste0("n", 1:57)
 names(file1)[8:64] <-  newnames
 
 # recode
-z <- get_labels(file1)
+z <- dscore::get_labels(file1)
 items <- paste0("n", 1:57)
 tab <- function(x) table(x, useNA = "always")
 raw1 <- t(sapply(file1[, items], tab))
@@ -56,7 +56,7 @@ to_0_1 <- function(x) recode(x, "0" = 0, "1" = 1, .default = NaN)
 file1[, items] <- lapply(file1[, items], to_0_1)
 
 # file2
-z <- get_labels(file2)
+z <- dscore::get_labels(file2)
 ## find birth wgt, birth hgt and birth hdc in broad data
 file2$id <- file2$pnr
 file2$birthweight <- file2$k061417

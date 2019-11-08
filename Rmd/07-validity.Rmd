@@ -38,7 +38,7 @@ info_data <-
     beta_range = 0:80
   )
 dom_data <- info_data %>% 
-  mutate(domain = gseddata::decompose_itemnames(lex_gsed)[, "domain"],
+  mutate(domain = dscore::decompose_itemnames(item)[, "domain"],
          domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor")))
@@ -60,14 +60,12 @@ Construct validity is the extent to which the $D$-score behaves like the theory 
 ```{r plotdomainfit, fig.height=6, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotdomainfit)'}
 
 fitdomplot <- model$item_fit %>%
-  mutate(lex_gsed = item,
-         domain = gseddata::decompose_itemnames(item)[, "domain"],
+  mutate(domain = dscore::decompose_itemnames(item)[, "domain"],
          domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
                                           "gm" = "Gross motor"))) %>%
-  left_join(model$itembank[,c("lex_gsed", "tau")], by = "lex_gsed") %>%
+  left_join(model$itembank[,c("item", "tau")], by = "item") %>%
   gather(key = "type", value = "fit", infit, outfit)
-
 
 ggplot(data = fitdomplot, aes( x = tau, y = fit, color = domain)) +
   geom_point() +
@@ -115,10 +113,12 @@ The correlation with the other construct should be 0.6, or higher for good conve
 Divergent validity is the extent to the $D$-score is uncorrelated with measures of a different construct.
 
 ```{r plotconcurrent, eval=TRUE, fig.height=6, fig.show='hold', message=FALSE, warning=FALSE, fig.cap = '(ref:plotconcurrent)'}
+# note: overwrites daz with daz for dutch reference 
 cor1dat <- left_join(model$dscore, data$visit) %>% 
-  mutate(daz = dscore::daz(b, 
-                           x = .data$agedays, x.unit = "day"))
-cor1 <- round(cor(cor1dat[,c("b", "htcm")], use = "complete.obs")[1,2],2)
+  mutate(daz = dscore::daz(d = d, 
+                           x = a,
+                           reference = dscore::get_reference("dutch")))
+cor1 <- round(cor(cor1dat[,c("d", "htcm")], use = "complete.obs")[1,2],2)
 cor2 <- round(cor(cor1dat[,c("daz", "haz")], use = "complete.obs")[1,2],2)
 
 dmetric::plot_d_adm(data = data, model = model, metric = "dscore", 

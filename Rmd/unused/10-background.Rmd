@@ -353,9 +353,9 @@ togo <- cbind(togo, output_dscore)
 colnames(togo)[grep("^b$", colnames(togo))] <- "d"
 
 # calculate daz
-ref_NL <- dscore::Dreference # reference group
+ref_NL <- dscore::get_reference("dutch") # reference group
 # with 'x.unit' as 'year' as 'age' is in years
-togo$daz <- daz(togo$d, togo$age, x.unit = "year", ref = ref_NL)
+togo$daz <- daz(togo$d, togo$age, ref = ref_NL)
 
 # select subset: only visits with d-scores (use in plots to prevent warnings about missing values)
 togo_d <- togo[is.na(togo$d)==FALSE,]
@@ -680,7 +680,7 @@ Neither sex nor father's schooling did significantly contribute to variance in a
 ```{r, echo=FALSE}
 
 # base reference lines on:
-ref_NL <- dscore::Dreference # dutch reference group
+ref_NL <- dscore::get_reference("dutch") # dutch reference group
 
 # togo, whole group, all visits (can be more per child)
 ggplot() +
