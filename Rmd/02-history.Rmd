@@ -9,9 +9,9 @@ The measurement of child development has quite an extensive history. This chapte
 * shows a classic example of motor measurements (\@ref(sec:motorexample))
 * summarizes typical questions whose answers need proper measurements (\@ref(sec:questions))
 
-What is child development? {#sec:definitions}
+## What is child development? {#sec:definitions}
 
-In contrast to concepts like height or temperature, it is unclear what exactly constitutes child development. @Shirley1931 executed one of the first rigorous studies in the field with the explicit aim
+In contrast to concepts like height or temperature, it is unclear what exactly constitutes child development. @shirley1931 executed one of the first rigorous studies in the field with the explicit aim
 
 > that the many aspects of development, anatomical, physical, motor, intellectual, and emotional, be studied simultaneously.
 
