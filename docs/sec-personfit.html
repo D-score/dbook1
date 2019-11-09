@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.2 Person fit | Introduction to the D-score</title>
+  <title>6.2 Person fit | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.2 Person fit | Introduction to the D-score" />
+  <meta property="og:title" content="6.2 Person fit | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.2 Person fit | Introduction to the D-score" />
+  <meta name="twitter:title" content="6.2 Person fit | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="sec-itemfit.html">
-<link rel="next" href="sec-dif.html">
+<link rel="prev" href="sec-itemfit.html"/>
+<link rel="next" href="sec-dif.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -261,27 +264,15 @@
             <section class="normal" id="section-">
 <div id="sec:personfit" class="section level2">
 <h2><span class="header-section-number">6.2</span> Person fit</h2>
-<p>The person fit quantifies the extent to which the responses of a given
-child conform to the Rasch model expectation. The Rasch model expects
-that a more able child has a greater probability to pass an item than
-a less developed child. Person fit analysis evaluates the extent to
-which this is true.</p>
+<p>Person fit quantifies the extent to which the responses of a given child conform to the Rasch model expectation. The Rasch model expects that a more able child has a higher probability of passing an item than a less developed child. Person fit analysis evaluates the extent to which this is true.</p>
 <div id="person-infit-and-outfit" class="section level3">
 <h3><span class="header-section-number">6.2.1</span> Person infit and outfit</h3>
-<p>In parallel to item fit, we can calculate <em>person infit</em> and <em>person
-outfit</em>. Both statistics evaluate how well the responses of the
-persons are consistent with the model. The outfit statistic is heavily
-influenced by outlying responses that do not fit the expected pattern.
-Outfit is high, for example, when the child fails easy items but
-passes difficult items. The infit is the information weighted fit and
-is more sensitive to inlaying, on-target, unexpected responses.</p>
-<p>Similar to item fit, person fit is also calculated from the residuals,
-but aggregated in a different way. Person infit is calculated as</p>
+<p>In parallel to item fit, we can calculate <em>person infit</em> and <em>person outfit</em>. Both statistics evaluate how well the responses of the persons are consistent with the model. Outlying answers that do not fit the expected pattern increase the outfit statistic. The outfit is high, for example, when the child fails easy items but passes difficult ones. The infit is the information weighted fit and is more sensitive to inlaying, on-target, unexpected responses.</p>
+<p>Similar to item fit, person fit is also calculated from the residuals, but aggregated differently. We calculate person infit as</p>
 <p><span class="math display">\[\mathrm{Person\ infit} = \frac{\sum_{i}^L (x_{ni}-P_{ni})^2}{\sum_i^L W_{ni}}\]</span></p>
-<p>and person outfit is</p>
+<p>and person outfit as</p>
 <p><span class="math display">\[\mathrm{Person\ outfit} = \frac{\sum_{i}^L z_{ni}^2}{L}\]</span></p>
-<p>As a threshold for person fit &lt; 3.0 can be used to clean out children
-with implausible response patterns.</p>
+<p>A threshold for person fit &gt; 3.0 is customary to clean out children with implausible response patterns.</p>
 </div>
 <div id="person-infit-and-outfit-in-the-ddi" class="section level3">
 <h3><span class="header-section-number">6.2.2</span> Person infit and outfit in the DDI</h3>
@@ -292,12 +283,7 @@ Figure 6.5: Frequency distribution of person infit (left) and person outfit (rig
 </p>
 </div>
 
-<p>Figure <a href="sec-personfit.html#fig:personfitplot">6.5</a> displays the frequency distribution of
-person infit and person outfit 16538 measurement of the DDI in the
-SMOCC data. The large majority of the values falls below 3.0. For
-infit, only 43 out of 16538 measurements (0.3 percent) is above 3.0.
-For outfit, there are 446 out of 16538 measurement (2.7 percent) above
-3.0. Expect the solution to improve after deleting these measurements.</p>
+<p>Figure <a href="sec-personfit.html#fig:personfitplot">6.5</a> displays the frequency distribution of person infit and person outfit 16538 measurements of the DDI in the SMOCC data. The majority of the values falls below 3.0. For infit, only 43 out of 16538 fit values (0.3 per cent) is above 3.0. There are 446 out of 16538 outfit value (2.7 per cent) above 3.0. Expect the solution to improve after deleting these measurements.</p>
 </div>
 </div>
             </section>
@@ -311,11 +297,13 @@ For outfit, there are 446 out of 16538 measurement (2.7 percent) above
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -358,8 +346,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

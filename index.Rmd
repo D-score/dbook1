@@ -1,5 +1,5 @@
 --- 
-title: "Introduction to the D-score"
+title: "D-score: Turning milestones into measurement"
 author: "Editor: Stef van Buuren (Netherlands Organization for Applied Scientific Research TNO, Leiden)"
 description: "The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years."
 site: bookdown::bookdown_site
@@ -30,15 +30,14 @@ $D$-score concept.
 
 The $D$-score booklet series consists of the following titles:
 
-1. [Introduction to the $D$-score](https://stefvanbuuren.github.io/dbook1/)
-2. [International comparisons](https://stefvanbuuren.github.io/dbook2/)
-3. [Creating better instruments](https://stefvanbuuren.github.io/dbook3/)
+1. [Turning milestones in measurement](https://stefvanbuuren.github.io/dbook1/)
+2. [Tuning instruments to unity](https://stefvanbuuren.github.io/dbook2/)
+3. [Tailoring tests to fit the occasion](https://stefvanbuuren.github.io/dbook3/)
 
 [Booklet I](https://stefvanbuuren.github.io/dbook1/) is currently
-available as complete draft. Booklets 2 and 3 are planned for 2019 and
+available as a complete draft. We plan to write booklets 2 and 3 in 2019 and
 2020.
 
-This work is kindly supported by the *knowledge integration (ki)*
-program of the *Bill & Melinda Gates Foundation*.
+The *Health Birth Growth and Development knowledge integration (ki)* program of the *Bill & Melinda Gates Foundation* kindly supports the work.
 
 If you have any suggestions or comments, please let me know.

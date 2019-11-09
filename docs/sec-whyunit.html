@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.6 Why unit-based measurement | Introduction to the D-score</title>
+  <title>3.6 Why unit-based measurement | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.6 Why unit-based measurement | Introduction to the D-score" />
+  <meta property="og:title" content="3.6 Why unit-based measurement | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.6 Why unit-based measurement | Introduction to the D-score" />
+  <meta name="twitter:title" content="3.6 Why unit-based measurement | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="sec-whatismeasurement.html">
-<link rel="next" href="ch-newmodel.html">
+<link rel="prev" href="sec-whatismeasurement.html"/>
+<link rel="next" href="ch-newmodel.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -325,26 +328,11 @@
 </tbody>
 </table>
 <p> </p>
-<p>This chapter distinguished four approaches to measure child
-development: <em>age-based</em>, <em>probability-based</em>, <em>score-based</em> and
-<em>unit-based</em> measurement. Table <a href="sec-whyunit.html#tab:measurement">3.1</a> summarizes how
-the approaches evaluate on nine criteria.</p>
-<p><em>Age-based measurement</em> expresses development in age equivalents,
-whose precise definition depends on the reference population.
-Age-based measurement does not support multiple milestones, and does not
-use the concept of a latent variable.</p>
-<p><em>Probability-based measurement</em> expresses development as age
-percentiles with respect to a reference population. This type of
-measurement is useful for individual milestones, but does not support
-multiple milestones or a latent variable interpretation.</p>
-<p><em>Score-based measurement</em> quantifies development by summing the number
-of passes. Different instruments make different selections of milestones,
-so the measurements taken are unique to the instruments, so comparing
-the measurement obtained by different instruments is difficult.
-Corrections are needed if milestones are skipped or added.</p>
-<p><em>Unit-based measurement</em> defines a unit of measurement by a
-theoretical model. When the data fit the model, we are able to
-construct instruments that produce measurement in a common metric.</p>
+<p>This chapter distinguished four approaches to measure child development: <em>age-based</em>, <em>probability-based</em>, <em>score-based</em> and <em>unit-based</em> measurement. Table <a href="sec-whyunit.html#tab:measurement">3.1</a> summarizes how the approaches evaluate on nine criteria.</p>
+<p><em>Age-based measurement</em> expresses development in age equivalents, whose precise definition depends on the reference population. Age-based measurement does not support multiple milestones and does not use the concept of a latent variable.</p>
+<p><em>Probability-based measurement</em> expresses development as age percentiles for a reference population. It is useful for individual milestones but does not support multiple items or a latent variable interpretation.</p>
+<p><em>Score-based measurement</em> quantifies development by summing the number of passes. Different instruments make different selections of milestones, so the scores taken are unique to the tool. Thus comparing the measurement obtained by different devices is difficult. Skipping or adding items require corrections.</p>
+<p><em>Unit-based measurement</em> defines a unit by a theoretical model. When the data fit the model, we are able to construct instruments that produce values in a standard metric.</p>
 
 </div>
 <!-- </div> -->
@@ -359,11 +347,13 @@ construct instruments that produce measurement in a common metric.</p>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -406,8 +396,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

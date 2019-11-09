@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>3.2 Probability-based measurement | Introduction to the D-score</title>
+  <title>3.2 Probability-based measurement | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="3.2 Probability-based measurement | Introduction to the D-score" />
+  <meta property="og:title" content="3.2 Probability-based measurement | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="3.2 Probability-based measurement | Introduction to the D-score" />
+  <meta name="twitter:title" content="3.2 Probability-based measurement | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="sec-agebased.html">
-<link rel="next" href="sec-scorebased.html">
+<link rel="prev" href="sec-agebased.html"/>
+<link rel="next" href="sec-scorebased.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -261,13 +264,8 @@
             <section class="normal" id="section-">
 <div id="sec:probbased" class="section level2">
 <h2><span class="header-section-number">3.2</span> Probability-based measurement</h2>
-<p>An alternative is to calculate the <em>probability</em> of achieving a
-milestone given the child’s age, and compare the child’s response to
-that probability.</p>
-<p>The passing probability is an easy to interpret and relevant measure.
-An operational advantage of the approach is that the necessary
-calculations places less demands on the available data, and can be
-done even for cross-sectional studies.</p>
+<p>An alternative is to calculate the <em>probability</em> of achieving a milestone at a given age and compare the child’s response to that probability.</p>
+<p>The passing probability is an interpretable and relevant measure. An operational advantage of the approach is that the necessary calculations place fewer demands on the available data and can be done even for cross-sectional studies.</p>
 <div id="example-of-probability-based-measurement" class="section level3">
 <h3><span class="header-section-number">3.2.1</span> Example of probability-based measurement</h3>
 <!-- &nbsp; -->
@@ -281,39 +279,17 @@ Figure 3.3: Probability of achieving four motor milestones against age.
 </p>
 </div>
 
-<p>Figure <a href="sec-probbased.html#fig:shirleypa">3.3</a> plots the percentage of children passing
-each of Shirley’s motor milestones against age. There are four
-cumulative curves, one of each milestone, that indicate the number of
-children that pass the milestone.</p>
-<p>In analogy to the age equivalent introduced in Section
-<a href="sec-agebased.html#sec:ageequivalent">3.1.2</a> we can define the <em>difficulty</em> of the
-milestone as the age at which 50 percent of the children pass. In the
-Figure we see that the difficulties are approximately 14.2 weeks
-(<code>stepping</code>), 27.0 weeks (<code>standing</code>), 43.8 weeks (<code>walking with help</code>) and 64.0 weeks (<code>walking alone</code>). In addition, we may easily
-find the ages at which 10 percent or 90 percent of the children pass
-each milestone.</p>
-<p>Observe there is a gradual decline in the steepness as we move from
-<code>stepping</code> to <code>walk_alone</code>. For example, we need an age interval of 13
-weeks (33 - 20) to go from 10 to 90 percent in <code>standing</code>, but need 19
-weeks (71 - 52) to go from 10 to 90 percent in <code>walking alone</code>. Thus,
-one step on the age axis corresponds to different steps in
-probability. The flattening pattern is typical for child development,
-and represents clear evidence that development is faster at earlier
-ages.</p>
+<p>Figure <a href="sec-probbased.html#fig:shirleypa">3.3</a> plots the percentage of children achieving each of Shirley’s motor stages against age. There are four cumulative curves, one for each milestone, that indicate the percentage of children that pass.</p>
+<p>In analogy to the age equivalent introduced in Section <a href="sec-agebased.html#sec:ageequivalent">3.1.2</a> we can define the <em>difficulty</em> of the milestone as the age at which 50 per cent of the children pass. In the Figure we see that the levels of difficulty are approximately 14.2 weeks (<code>stepping</code>), 27.0 weeks (<code>standing</code>), 43.8 weeks (<code>walking with help</code>) and 64.0 weeks (<code>walking alone</code>). Also, we may easily find the ages at which 10 per cent or 90 per cent of the children pass each milestone.</p>
+<p>Observe there is a gradual decline in the steepness as we move from <code>stepping</code> to <code>walk_alone</code>. For example, we need an age interval of 13 weeks (33 - 20) to go from 10 to 90 per cent in <code>standing</code>, but need 19 weeks (71 - 52) to go from 10 to 90 per cent in <code>walking alone</code>. Thus, one step on the age axis corresponds to different increments in probability. The flattening pattern is typical for child development and represents evidence that evolution is faster at earlier ages.</p>
 </div>
 <div id="limitations-of-probability-based-measurement" class="section level3">
 <h3><span class="header-section-number">3.2.2</span> Limitations of probability-based measurement</h3>
-<p>Probability-based measurement is a popular way to create instruments
-for screening on developmental delay. For example, each milestone in
-the Denver II <span class="citation">(Frankenburg et al. <a href="#ref-frankenburg1992">1992</a>)</span> has markers for the 25th, 50th, 75th
-and 90th age percentile.</p>
+<p>Probability-based measurement is a popular way to create instruments for screening on developmental delay. For example, each milestone in the Denver II <span class="citation">(Frankenburg et al. <a href="#ref-frankenburg1992">1992</a>)</span> has markers for the 25th, 50th, 75th and 90th age percentile.</p>
 <ol style="list-style-type: decimal">
 <li><p>The same age step corresponds to different probabilities.</p></li>
-<li><p>The measurement cannot exists without a norm population. When norms
-differ, we cannot compare the measurements.</p></li>
-<li><p>Interpretation is typically done at the milestone level, sometimes
-supplemented by procedures for counting the number of delays. There is
-no aggregate that takes all responses into account.</p></li>
+<li><p>The measurement cannot exist without some norm population. When norms differ, we cannot compare the measurements.</p></li>
+<li><p>Interpretation is at the milestone level, sometimes supplemented by procedures for counting the number of delays. No aggregate takes all responses into account.</p></li>
 </ol>
 </div>
 </div>
@@ -334,11 +310,13 @@ no aggregate that takes all responses into account.</p></li>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -381,8 +359,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
