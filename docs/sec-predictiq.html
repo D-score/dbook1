@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8.3 Impact of short tests on predicting IQ | Introduction to the D-score</title>
+  <title>8.3 Impact of short tests on predicting IQ | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8.3 Impact of short tests on predicting IQ | Introduction to the D-score" />
+  <meta property="og:title" content="8.3 Impact of short tests on predicting IQ | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8.3 Impact of short tests on predicting IQ | Introduction to the D-score" />
+  <meta name="twitter:title" content="8.3 Impact of short tests on predicting IQ | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="sec-comparingd.html">
-<link rel="next" href="ch-threestudies.html">
+<link rel="prev" href="sec-comparingd.html"/>
+<link rel="next" href="ch-threestudies.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -263,31 +266,19 @@
 <h2><span class="header-section-number">8.3</span> Impact of short tests on predicting IQ</h2>
 <div id="measurement-and-prediction" class="section level3">
 <h3><span class="header-section-number">8.3.1</span> Measurement and prediction</h3>
-<p>In Section <a href="sec-comparingd.html#sec:comparingd">8.2</a> we saw that a short test can measure
-the middle or one tail of the distribution, but cannot be precise for
-both at the same time. If we want to identify children at risk for
-delayed development, we are interested in the lower tail of the
-distribution, so in that case the <em>standard</em> set is suitable. But what
-set should we use if we want to predict a later outcome?</p>
-<p>This section explores that effect of taking different milestone sets
-on the quality of prediction.</p>
+<p>In Section <a href="sec-comparingd.html#sec:comparingd">8.2</a>, we saw that a short test can measure the middle or one tail of the distribution, but cannot be precise for both at the same time. If we want to identify children at risk for delayed development, we are interested in the lower tail of the distribution, so in that case, the <em>standard</em> set is suitable. But what set should we use if we want to predict a later outcome?</p>
+<p>This section explores that effect of taking different milestone sets on the quality of prediction.</p>
 </div>
 <div id="ukki" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> UKKI</h3>
-<p><span class="citation">Hafkamp-de Groen et al. (<a href="#ref-hafkamp2009">2009</a>)</span> studied the effect of the <span class="math inline">\(D\)</span>-score on later intelligence,
-using a subset of 557 SMOCC children that were followed up at the age
-of five years.</p>
-<p>Intelligence was measured by the Utrechtse Korte Kleuter
-Intelligentietest (UKKI) <span class="citation">(Baarda <a href="#ref-baarda1978">1978</a>)</span>. The UKKI is a simple test with
-just three components:</p>
+<p><span class="citation">Hafkamp-de Groen et al. (<a href="#ref-hafkamp2009">2009</a>)</span> studied the effect of the <span class="math inline">\(D\)</span>-score on later intelligence, using a subset of 557 SMOCC children that were followed up at the age of five years.</p>
+<p>The Utrechtse Korte Kleuter Intelligentietest (UKKI) <span class="citation">(Baarda <a href="#ref-baarda1978">1978</a>)</span> is a short test to measure intelligence. The UKKI is a simple test with just three components:</p>
 <ul>
 <li><p>Redraw five figures (square, triangle, cross, trapezoid, rhomboid);</p></li>
 <li><p>Draw human figure, with 28 characteristics, like legs, eyes, and so on;</p></li>
 <li><p>Give meaning to 13 words like knife, banana, umbrella, and so on.</p></li>
 </ul>
-<p>Administration time is about 15-20 minutes. The UKKI has a reasonable
-test-retest reliability for group use (Pearson <span class="math inline">\(r = 0.74\)</span>, 3-month
-interval).</p>
+<p>Administration time is about 15-20 minutes. The UKKI has a reasonable test-retest reliability for group use (Pearson <span class="math inline">\(r = 0.74\)</span>, 3-month interval).</p>
 </div>
 <div id="exploratory-analysis" class="section level3">
 <h3><span class="header-section-number">8.3.3</span> Exploratory analysis</h3>
@@ -298,10 +289,7 @@ Figure 8.5: Histogram of UKKI <em>IQ</em> scores taken around the age of five ye
 </p>
 </div>
 
-<p>Figure <a href="sec-predictiq.html#fig:histiq">8.5</a> shows the empirical IQ distribution of 557
-children. The mean IQ score is 108 and the standard deviation is 15,
-so the IQ-scores of children in the sample is about a half standard
-deviation above the 1978 reference sample.</p>
+<p>Figure <a href="sec-predictiq.html#fig:histiq">8.5</a> shows the empirical IQ distribution of 557 children. The mean IQ score is 108, and the standard deviation is 15, so the IQ-scores of children in the sample is about a half standard deviation above the 1978 reference sample.</p>
 <div class="figure" style="text-align: center"><span id="fig:plotdiq"></span>
 <img src="dbook1_files/figure-html/plotdiq-1.png" alt="Relation between \(D\)-score at infancy and IQ at age 5 years according to three milestone sets and nine visits (SMOCC data, \(n = 557\))." width="672" />
 <p class="caption">
@@ -309,13 +297,7 @@ Figure 8.6: Relation between <span class="math inline">\(D\)</span>-score at inf
 </p>
 </div>
 
-<p>Figure <a href="sec-predictiq.html#fig:plotdiq">8.6</a> shows that the relation between the
-<span class="math inline">\(D\)</span>-score 0-2 years and IQ at 5 years is positive for all milestone
-sets and for all ages. The strength of the relation increases with
-age. At the age of 2 years, the regression coefficient for <span class="math inline">\(D\)</span>-score
-is equal to <span class="math inline">\(\beta(D) = 1.4\)</span> (SE: <span class="math inline">\(0.21, p &lt; 0.0001\)</span>), so on average
-an increase of 1.0 unit in the <span class="math inline">\(D\)</span>-score at the age of 2 years
-corresponds to a 1.4 IQ-score points increase at the age 5 years.</p>
+<p>Figure <a href="sec-predictiq.html#fig:plotdiq">8.6</a> shows that the relation between the <span class="math inline">\(D\)</span>-score 0-2 years and IQ at five years is positive for all milestone sets and all ages. The strength of the association increases with age. At the age of 2 years, the regression coefficient for <span class="math inline">\(D\)</span>-score is equal to <span class="math inline">\(\beta(D) = 1.4\)</span> (SE: <span class="math inline">\(0.21, p &lt; 0.0001\)</span>), so on average an increase of 1.0 unit in the <span class="math inline">\(D\)</span>-score at the age of 2 years corresponds to a 1.4 IQ-score points increase at the age five years.</p>
 <table>
 <caption>
 <span id="tab:cordiq">Table 8.2: </span>Pearson correlation between D-score (0-2 years) and IQ at 5 years
@@ -356,7 +338,7 @@ All milestones
 2m
 </td>
 <td style="text-align:right;">
-0.043
+0.044
 </td>
 <td style="text-align:right;">
 0.054
@@ -457,7 +439,7 @@ All milestones
 0.245
 </td>
 <td style="text-align:right;">
-0.254
+0.255
 </td>
 <td style="text-align:right;">
 0.272
@@ -465,16 +447,8 @@ All milestones
 </tr>
 </tbody>
 </table>
-<p>Table <a href="sec-predictiq.html#tab:cordiq">8.2</a> summarizes the Pearson correlations between
-the <span class="math inline">\(D\)</span>-score and later IQ. The association between <span class="math inline">\(D\)</span>-score and IQ
-is weak during the first year of life, but gets stronger during the
-second year. In general, having more (and more informative) milestones
-helps to increase the correlation, but the effects are relatively
-small. So even from the standard set of the seven easy milestones at
-24m we obtain a reasonable correlation of 0.245.</p>
-<p>All in all, these results suggest that neither the amount nor the
-difficulty level of the milestones are critical in determining the
-strength of the relation between the <span class="math inline">\(D\)</span>-score and IQ.</p>
+<p>Table <a href="sec-predictiq.html#tab:cordiq">8.2</a> summarizes the Pearson correlations between the <span class="math inline">\(D\)</span>-score and later IQ. The association between <span class="math inline">\(D\)</span>-score and IQ is weak during the first year of life but gets stronger during the second year. In general, having more (and more informative) milestones helps to increase the correlation, but the effects are relatively small. So even from the standard set of the seven easy milestones at 24m, we obtain a reasonable correlation of 0.245.</p>
+<p>All in all, these results suggest that neither the amount nor the difficulty level of the milestones is critical in determining the strength of the relation between the <span class="math inline">\(D\)</span>-score and IQ.</p>
 
 </div>
 </div>
@@ -499,11 +473,13 @@ strength of the relation between the <span class="math inline">\(D\)</span>-scor
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -546,8 +522,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

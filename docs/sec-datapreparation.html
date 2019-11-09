@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5.1 Identify nature of the problem | Introduction to the D-score</title>
+  <title>5.1 Identify nature of the problem | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5.1 Identify nature of the problem | Introduction to the D-score" />
+  <meta property="og:title" content="5.1 Identify nature of the problem | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5.1 Identify nature of the problem | Introduction to the D-score" />
+  <meta name="twitter:title" content="5.1 Identify nature of the problem | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="ch-computation.html">
-<link rel="next" href="sec-itemestimation.html">
+<link rel="prev" href="ch-computation.html"/>
+<link rel="next" href="sec-itemestimation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -261,9 +264,7 @@
             <section class="normal" id="section-">
 <div id="sec:datapreparation" class="section level2">
 <h2><span class="header-section-number">5.1</span> Identify nature of the problem</h2>
-<p>The SMOCC dataset, introduced in Section <a href="sec-ddi.html#sec:smocc">4.1.2</a>, contains
-scores on the DDI of Dutch children aged 0-2 years made during nine
-visits.</p>
+<p>The SMOCC dataset, introduced in Section <a href="sec-ddi.html#sec:smocc">4.1.2</a>, contains scores on the DDI of Dutch children aged 0-2 years made during nine visits.</p>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -3832,23 +3833,10 @@ Age (days)
 </table>
 </div>
 <p> </p>
-<p>Table <a href="sec-datapreparation.html#tab:smocctable">5.1</a> contains data of three children, measured
-on nine visits between ages 0 - 2 years. The DDI scores are coded as 0
-(FAIL) or 1 (PASS). In order to save horizontal space, only the last
-two digits of the item names are given as column headers.</p>
-<p>Since the selection of milestones depends on age, the dataset contains
-a large number of empty cells. Naive use of sum scores as a proxy to
-person ability is therefore problematic. An empty cell is not a FAIL,
-so it’s an error to impute those cells by zeroes.</p>
-<p>Note that some rows contain only 1’s, e.g., in row 2. Many computer
-program for Rasch analysis routinely remove such <em>perfect scores</em>
-before fitting. However, unless the number of perfect scores is very
-small, this is not recommended because doing so can severely affect
-the distribution of person abilities.</p>
-<p>In order to effectively handle the missing data and to preserve all
-persons in the analysis we separate estimation of item difficulties
-(c.f. section <a href="sec-itemestimation.html#sec:itemestimation">5.2</a>) and person abilities (c.f. section
-<a href="sec-dscoreestimation.html#sec:dscoreestimation">5.3</a>).</p>
+<p>Table <a href="sec-datapreparation.html#tab:smocctable">5.1</a> contains data of three children, measured on nine visits between ages 0 - 2 years. The DDI scores take values 0 (FAIL) and 1 (PASS). In order to save horizontal space, we truncated the column headers to the last two digits of the item names.</p>
+<p>Since the selection of milestones depends on age, the dataset contains a large number of empty cells. Naive use of sum scores as a proxy to ability is therefore problematic. An empty cell is not a FAIL, so it is incorrect to impute those cells by zeroes.</p>
+<p>Note that some rows contain only 1’s, e.g., in row 2. Many computer programs for Rasch analysis routinely remove such <em>perfect scores</em> before fitting. However, unless the number of perfect scores is very small, this is not recommended because doing so can severely affect the ability distribution.</p>
+<p>In order to effectively handle the missing data and to preserve all persons in the analysis we separate estimation of item difficulties (c.f. section <a href="sec-itemestimation.html#sec:itemestimation">5.2</a>) and person abilities (c.f. section <a href="sec-dscoreestimation.html#sec:dscoreestimation">5.3</a>).</p>
 </div>
             </section>
 
@@ -3861,11 +3849,13 @@ persons in the analysis we separate estimation of item difficulties
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -3908,8 +3898,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

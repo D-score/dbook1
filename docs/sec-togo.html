@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>9.3 TOGO study | Introduction to the D-score</title>
+  <title>9.3 TOGO study | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="9.3 TOGO study | Introduction to the D-score" />
+  <meta property="og:title" content="9.3 TOGO study | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="9.3 TOGO study | Introduction to the D-score" />
+  <meta name="twitter:title" content="9.3 TOGO study | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="sec-pops.html">
-<link rel="next" href="sec-threestudiesconclusions.html">
+<link rel="prev" href="sec-pops.html"/>
+<link rel="next" href="sec-threestudiesconclusions.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -268,54 +271,18 @@ Figure 9.6: Distribution of <span class="math inline">\(D\)</span>-score and DAZ
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:togoda">9.6</a> presents the <span class="math inline">\(D\)</span>-score and DAZ distributions
-of a sample of children living near Kpalimé, Togo. While the main
-trend with age conforms to the previous data, the distributions differ
-from those in Figures <a href="sec-smoccstudy.html#fig:smoccda9">9.1</a> and <a href="sec-pops.html#fig:popsda9">9.2</a> in
-two respects:</p>
+<p>Figure <a href="sec-togo.html#fig:togoda">9.6</a> presents the <span class="math inline">\(D\)</span>-score and DAZ distributions of a sample of children living near Kpalimé, Togo. While the primary trend with age conforms to the previous data, the distributions differ from those in Figures <a href="sec-smoccstudy.html#fig:smoccda9">9.1</a> and <a href="sec-pops.html#fig:popsda9">9.2</a> in two respects:</p>
 <ul>
-<li><p><em>Compression at upper end</em>: Most of the <span class="math inline">\(D\)</span>-scores are above the
-median curve, which suggests that, at these ages, children living in
-Togo <em>develop faster</em> than children living in the Netherlands;</p></li>
-<li><p><em>Expansion at lower end</em>: There is a huge variation in <span class="math inline">\(D\)</span>-scores on
-the lower end, with many <span class="math inline">\(D\)</span>-scores below the -2 SD curve, suggesting
-that some children are <em>significantly more delayed</em> than would be
-expected in both Dutch samples.</p></li>
+<li><p><em>Compression at the upper end</em>: Most of the <span class="math inline">\(D\)</span>-scores are above the median curve, which suggests that, at these ages, children living in Togo <em>develop faster</em> than children living in the Netherlands;</p></li>
+<li><p><em>Expansion at the lower end</em>: There is a considerable variation in <span class="math inline">\(D\)</span>-scores on the lower end, with many <span class="math inline">\(D\)</span>-scores below the -2 SD curve, suggesting that some children are <em>significantly more delayed</em> than would be expected in both Dutch samples.</p></li>
 </ul>
-<p>The <span class="math inline">\(D\)</span>-scores are calculated using the same 57 milestones and
-difficulty estimates as before. The resulting <span class="math inline">\(D\)</span>-score distribution
-is quite unusual. The main question here is what could explain the
-pattern found in the <span class="math inline">\(D\)</span>-scores. This section explores this question
-in some detail.</p>
-<div id="togo-kpalime-study-design" class="section level3">
+<p>The <span class="math inline">\(D\)</span>-scores are calculated using the same 57 milestones and difficulty estimates as before. The resulting <span class="math inline">\(D\)</span>-score distribution is quite unusual. The main question here is what could explain the pattern found in the <span class="math inline">\(D\)</span>-scores. This section explores this question in some detail.</p>
+<div id="togo-kpalimé-study-design" class="section level3">
 <h3><span class="header-section-number">9.3.1</span> Togo Kpalimé study, design</h3>
-<p>If the <span class="math inline">\(D\)</span>-score is to be a universal measure, then it should be
-informative in <em>low and middle income countries</em> (LMIC) as well. Not
-much is yet known about the usability and validity of the <span class="math inline">\(D\)</span>-score in
-LMIC’s. The western African country of Togo definitely qualifies as a
-low income country, with a 2017 GNI per capita of USD 610, compared to
-USD 46,180 in the Netherlands, and USD 744 for low income countries
-in general (data.worldbank.org).</p>
-<p>The data were collected by Cécile Schat-Savy, who initiated a youth
-health care center modeled after the Dutch youth health care system in
-Kpalimé, Togo. See <a href="https://www.kinderhulp-togo.nl" class="uri">https://www.kinderhulp-togo.nl</a> for background. Data
-monitoring included a french translation the DDI for measuring child
-development. Data were gathered from about 9747 individuals in the
-0-18 age range.</p>
-<p>Participants include children and their parents who visited the
-Kpalimé health center at least one time. Kpalimé is the fourth biggest
-town in Togo, but the health center also attracted parents and
-children from a wide surrounding rural area. Parents visited the
-health center for several reasons, including for a preventive health
-check or because of their child’s apparent health problems.</p>
-<p>The possibility of visiting the health center was advertised to
-parents through information sessions for parents at primary schools.
-Parents paid a small amount of money per visiting child (about USD
-4.00 for children of 4 years or older, and USD 0.80 for children
-younger than 4 years).</p>
-<p>All data were registered in paper dossiers. Data were digitized by
-four local data-assistants, and on a regular basis mailed to TNO in the
-Netherlands to check for completeness and consistency.</p>
+<p>If the <span class="math inline">\(D\)</span>-score is to be a universal measure, then it should be informative in <em>low and middle-income countries</em> (LMIC) as well. We do not yet know much about the usability and validity of the <span class="math inline">\(D\)</span>-score in LMIC’s. The western African country of Togo qualifies as a low-income country, with a 2017 GNI per capita of USD 610, compared to USD 46,180 in the Netherlands, and USD 744 for low-income countries in general (data.worldbank.org).</p>
+<p>The data were collected by Cécile Schat-Savy, who initiated a youth health care centre modelled after the Dutch youth health care system in Kpalimé, Togo. See <a href="https://www.kinderhulp-togo.nl" class="uri">https://www.kinderhulp-togo.nl</a> for more background. Data monitoring included a french translation the DDI for measuring child development. The investigators gathered data from 9747 individuals in the 0-18 age range.</p>
+<p>Participants include children and their parents who visited the Kpalimé health centre at least one time. Kpalimé is the fourth largest town in Togo, but the health centre also attracted parents and children from a wide surrounding rural area. Parents visited the health centre for several reasons, including for a preventive health check or because of their child’s apparent health problems.</p>
+<p>The health centre targeted parents through information sessions for parents at primary schools. Parents paid a small amount of money per child (about USD 4.00 for children of 4 years or older, and USD 0.80 for children younger than four years). Four local data-assistants digitized the data from paper archives. TNO Child Health in The Netherlands monitored the process and checked the data for completeness and consistency.</p>
 <div class="figure" style="text-align: center"><span id="fig:dataassistents"></span>
 <img src="fig/data_assistents.png" alt="Three of the data-assistants who helped to digitize the paper files." width="60%" />
 <p class="caption">
@@ -323,12 +290,7 @@ Figure 9.7: Three of the data-assistants who helped to digitize the paper files.
 </p>
 </div>
 
-<p>Here we use a subset of 2674 visits from 1644 unique children who were
-scored on the 57 milestones of the DDI 0-2 years. <span class="math inline">\(D\)</span>-scores could not
-be calculated when either age or DDI data were missing, which leaves a
-dataset of 2425 visits from 1567 children. The number of visits that
-parents of these children in the 0-4 age range paid to the health
-center varied from 1 – 9, but the majority of children were seen once.</p>
+<p>Here we use a subset of 2674 visits from 1644 unique children who scored on the 57 milestones of the DDI 0-2 years. We did not calculate <span class="math inline">\(D\)</span>-scores when age or DDI milestones were missing, which left a dataset of 2425 visits from unique 1567 children. The number of visits varied from 1 – 9. The majority of children visited the centre once.</p>
 </div>
 <div id="sec:togoneuro" class="section level3">
 <h3><span class="header-section-number">9.3.2</span> <span class="math inline">\(D\)</span>-score labelled by neurological problem</h3>
@@ -339,13 +301,8 @@ Figure 9.8: Distribution of <span class="math inline">\(D\)</span>-score by age 
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:togoda1">9.8</a> is the same scatter plot as in Figure
-<a href="sec-togo.html#fig:togoda">9.6</a>, but now marked by whether the physician registered
-signs of neuropathology in the form of tonus and reflex problems.</p>
-<p>Many children with low <span class="math inline">\(D\)</span>-scores also have tonus and/or reflex
-problems. This finding alone suggests that extreme <span class="math inline">\(D\)</span>-score are not
-artifacts (e.g. caused by a wrongly coded age), but actually indicate
-major adverse health conditions.</p>
+<p>Figure <a href="sec-togo.html#fig:togoda1">9.8</a> is the same scatter plot as in Figure <a href="sec-togo.html#fig:togoda">9.6</a>, but now marked by whether the physician registered signs of neuropathology in the form of tonus and reflex problems.</p>
+<p>Many children with low <span class="math inline">\(D\)</span>-scores also have tonus or reflex problems. This finding alone suggests that extreme <span class="math inline">\(D\)</span>-score are not artefacts (e.g. caused by a wrongly coded age), but indicate main adverse health conditions.</p>
 </div>
 <div id="d-score-labelled-by-apgar-score" class="section level3">
 <h3><span class="header-section-number">9.3.3</span> <span class="math inline">\(D\)</span>-score labelled by Apgar score</h3>
@@ -356,9 +313,7 @@ Figure 9.9: Distribution of <span class="math inline">\(D\)</span>-score by age 
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:togoda2">9.9</a> identifies the children who had an Apgar
-score at 10 minutes after birth that was lower than 8. About half of
-these children had a <span class="math inline">\(D\)</span>-score below -2 SD curve.</p>
+<p>Figure <a href="sec-togo.html#fig:togoda2">9.9</a> identifies the children who had an Apgar score at 10 minutes after birth that was lower than 8. About half of these children had a <span class="math inline">\(D\)</span>-score below -2 SD curve.</p>
 </div>
 <div id="d-score-labelled-by-severe-underweight" class="section level3">
 <h3><span class="header-section-number">9.3.4</span> <span class="math inline">\(D\)</span>-score labelled by severe underweight</h3>
@@ -369,10 +324,7 @@ Figure 9.10: Distribution of <span class="math inline">\(D\)</span>-score by age
 </p>
 </div>
 
-<p>Many children who visited the Kpalimé health center had a low body
-weight for their age. Figure <a href="sec-togo.html#fig:togoda3">9.10</a> marks the subset of
-severely underweight children (WAZ &lt; -4). A substantial proportion of
-these children also had a very low <span class="math inline">\(D\)</span>-score.</p>
+<p>Many children who visited the Kpalimé health centre had a low body weight for their age. Figure <a href="sec-togo.html#fig:togoda3">9.10</a> marks the subset of severely underweight children (WAZ &lt; -4). A substantial proportion of these children also had a very low <span class="math inline">\(D\)</span>-score.</p>
 </div>
 <div id="d-score-labelled-by-severe-stunting" class="section level3">
 <h3><span class="header-section-number">9.3.5</span> <span class="math inline">\(D\)</span>-score labelled by severe stunting</h3>
@@ -383,13 +335,8 @@ Figure 9.11: Distribution of <span class="math inline">\(D\)</span>-score by age
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:togoda4">9.11</a> is similar to <a href="sec-togo.html#fig:togoda3">9.10</a>, but now
-marked by the subset of severely stunted children (HAZ &lt; -4). Also,
-here a sizable proportion has a low <span class="math inline">\(D\)</span>-score.</p>
-<p>When taken together, Figures <a href="sec-togo.html#fig:togoda1">9.8</a>-<a href="sec-togo.html#fig:togoda4">9.11</a>
-show that children with very low <span class="math inline">\(D\)</span>-scores often experience
-(multiple) harsh health problems. Those health problems may have
-substantially delayed their development.</p>
+<p>Figure <a href="sec-togo.html#fig:togoda4">9.11</a> is similar to <a href="sec-togo.html#fig:togoda3">9.10</a>, but now marked by the subset of severely stunted children (HAZ &lt; -4). Also here, a sizable proportion has a low <span class="math inline">\(D\)</span>-score.</p>
+<p>When taken together, Figures <a href="sec-togo.html#fig:togoda1">9.8</a>-<a href="sec-togo.html#fig:togoda4">9.11</a> show that children with very low <span class="math inline">\(D\)</span>-scores often experience (multiple) harsh health problems. Those health problems may have substantially delayed their development.</p>
 </div>
 <div id="gross-motor-development" class="section level3">
 <h3><span class="header-section-number">9.3.6</span> Gross motor development</h3>
@@ -400,18 +347,8 @@ Figure 9.12: Gross motor milestones. Probability by age for SMOCC, POPS (correct
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:grossmotor">9.12</a> shows large differences in gross motor
-development between children from Togo and from the Netherlands. For
-example, at the age of three months, about 30 percent of the Dutch
-infants succeed in controlling their head when pulled to sitting.
-However, infants from Togo are already capable to control their head
-when they are just one month old!</p>
-<p>Moreover, the advantage persists at least until up to the age of two
-years: children in Togo can roll over and sit much earlier, or kick a
-ball without falling. As the documentary
-<a href="https://www.youtube.com/watch?v=vB36k0hGxDM">Babies</a> shows, African
-children even manage to learn to walk with a tin can on their head, a
-craft that not many westerners can dream of.</p>
+<p>Figure <a href="sec-togo.html#fig:grossmotor">9.12</a> shows substantial differences in gross motor development between children from Togo and the Netherlands. For example, at the age of three months, about 30 per cent of the Dutch infants succeed in controlling their head when pulled to sitting. However, infants from Togo seem already capable of head control when they are just one month old.</p>
+<p>Moreover, the advantage persists at least until up to the age of two years: children in Togo can roll over and sit much earlier, or kick a ball without falling. As the documentary <a href="https://www.youtube.com/watch?v=vB36k0hGxDM">Babies</a> shows, African children even manage to learn to walk with a tin can on their head, a craft that children in the west never achieve.</p>
 </div>
 <div id="fine-motor-development" class="section level3">
 <h3><span class="header-section-number">9.3.7</span> Fine motor development</h3>
@@ -422,10 +359,7 @@ Figure 9.13: Fine motor milestones. Probability by age for SMOCC, POPS (correcte
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:finemotor">9.13</a> shows a less pronounced but similar
-phenomenon for fine motor skills. These data suggest that children in
-Togo have generally better fine motor skills than the children from
-two Dutch cohorts.</p>
+<p>Figure <a href="sec-togo.html#fig:finemotor">9.13</a> shows a less pronounced but similar phenomenon for fine motor skills. These data suggest that children in Togo may have better fine motor skills than the children from the two Dutch cohorts.</p>
 </div>
 <div id="communication-and-language" class="section level3">
 <h3><span class="header-section-number">9.3.8</span> Communication and language</h3>
@@ -436,21 +370,9 @@ Figure 9.14: Communication and language milestones. Probability by age for SMOCC
 </p>
 </div>
 
-<p>Figure <a href="sec-togo.html#fig:commun">9.14</a> summarizes the data for three milestones on
-communication and language. In general, the success probability is
-similar in the three studies.</p>
-<p>One curious finding is that the high proportion of milestones passes in
-<code>ddicmm041</code> for the Togo children around the age of 18 months. Note
-that several of the green lines in Figures
-<a href="sec-togo.html#fig:grossmotor">9.12</a>-<a href="sec-togo.html#fig:commun">9.14</a> start off close to perfect
-scores, which makes is impossible to show the rising patterns found in
-the Dutch data.</p>
-<p>It may be indeed be true that children from Togo develop more rapidly
-than Dutch children. But we may also wonder: Could there just be
-reporting bias on the part of the parents who either do not really
-understand the items or have the expectation to say “yes” even if the
-child can’t do it? It would be desirable if these results could be
-backed up from other sources.</p>
+<p>Figure <a href="sec-togo.html#fig:commun">9.14</a> summarizes the data for three milestones on communication and language. In general, the success probability is similar in the three studies.</p>
+<p>One curious finding is that the high proportion of milestones passes in <code>ddicmm041</code> for the Togo children around the age of 18 months. Note that several of the green lines in Figures <a href="sec-togo.html#fig:grossmotor">9.12</a>-<a href="sec-togo.html#fig:commun">9.14</a> start close to perfect scores, which makes it impossible to show the rising patterns found in the Dutch data.</p>
+<p>It may indeed be true that children from Togo develop more rapidly than Dutch children. But we may also wonder: Could there just be reporting bias on the part of the parents who either do not understand the items or have the expectation to say “yes” even if the child can’t do it? It would be desirable if these results could be backed up from other sources.</p>
 </div>
 </div>
             </section>
@@ -464,11 +386,13 @@ backed up from other sources.</p>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -511,8 +435,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

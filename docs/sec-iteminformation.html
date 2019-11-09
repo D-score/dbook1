@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>6.4 Item information | Introduction to the D-score</title>
+  <title>6.4 Item information | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="6.4 Item information | Introduction to the D-score" />
+  <meta property="og:title" content="6.4 Item information | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://stefvanbuuren.github.io/dbook1/" />
   <meta property="og:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="stefvanbuuren/dbook1" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="6.4 Item information | Introduction to the D-score" />
+  <meta name="twitter:title" content="6.4 Item information | D-score: Turning milestones into measurement" />
   
   <meta name="twitter:description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
   <meta name="twitter:image" content="https://stefvanbuuren.github.io/dbook1/fig/shirleypd-1.png" />
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   <link rel="apple-touch-icon-precomposed" sizes="72x72" href="fig/D.png" />
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-<link rel="prev" href="sec-dif.html">
-<link rel="next" href="sec-reliability.html">
+<link rel="prev" href="sec-dif.html"/>
+<link rel="next" href="sec-reliability.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -39,6 +39,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -219,7 +222,7 @@
 <li class="chapter" data-level="9.2.7" data-path="sec-pops.html"><a href="sec-pops.html#conclusions"><i class="fa fa-check"></i><b>9.2.7</b> Conclusions</a></li>
 </ul></li>
 <li class="chapter" data-level="9.3" data-path="sec-togo.html"><a href="sec-togo.html"><i class="fa fa-check"></i><b>9.3</b> TOGO study</a><ul>
-<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalime-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
+<li class="chapter" data-level="9.3.1" data-path="sec-togo.html"><a href="sec-togo.html#togo-kpalimé-study-design"><i class="fa fa-check"></i><b>9.3.1</b> Togo Kpalimé study, design</a></li>
 <li class="chapter" data-level="9.3.2" data-path="sec-togo.html"><a href="sec-togo.html#sec:togoneuro"><i class="fa fa-check"></i><b>9.3.2</b> <span class="math inline">\(D\)</span>-score labelled by neurological problem</a></li>
 <li class="chapter" data-level="9.3.3" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-apgar-score"><i class="fa fa-check"></i><b>9.3.3</b> <span class="math inline">\(D\)</span>-score labelled by Apgar score</a></li>
 <li class="chapter" data-level="9.3.4" data-path="sec-togo.html"><a href="sec-togo.html#d-score-labelled-by-severe-underweight"><i class="fa fa-check"></i><b>9.3.4</b> <span class="math inline">\(D\)</span>-score labelled by severe underweight</a></li>
@@ -251,7 +254,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction to the D-score</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">D-score: Turning milestones into measurement</a>
           </h1>
         </div>
 
@@ -263,17 +266,10 @@
 <h2><span class="header-section-number">6.4</span> Item information</h2>
 <div id="item-information-at-a-given-ability" class="section level3">
 <h3><span class="header-section-number">6.4.1</span> Item information at a given ability</h3>
-<p>Items are generally sensitive to only a part of the ability scale.
-Item information is a psychometric measure that quantifies how
-informative the item is at different levels of ability. Item
-information can be plotted as a curve for each item.</p>
-<p>The formula to obtain the item information is the first derivative of
-the item response curve and can be written as follows:</p>
-<p><span class="math display">\[I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))\]</span>
-where <span class="math inline">\(P(\hat\delta_i)\)</span> is the conditional probability of endorsing
-item <span class="math inline">\(i\)</span>, and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated item difficulty in
-the logit scale. For example for milestone <code>ddicmm039</code> (“Says three
-words”) <span class="math inline">\(\hat\delta_i\)</span> equals <span class="math inline">\(4.06\)</span>.</p>
+<p>Items are generally sensitive to only a part of the ability scale. Item information is a psychometric measure that quantifies how illuminating the item is at different levels of ability. We may visualize item information as a curve per item.</p>
+<p>The formula to obtain the item information is the first derivative of the item response curve and can be written as follows:</p>
+<p><span class="math display">\[I(\hat\delta_i)=P(\hat\delta_i)(1-P(\hat\delta_i))\]</span>,</p>
+<p>where <span class="math inline">\(P(\hat\delta_i)\)</span> is the conditional probability of endorsing item <span class="math inline">\(i\)</span>, and where <span class="math inline">\(\hat\delta_i\)</span> is the estimated item difficulty in the logit scale. For example for milestone <code>ddicmm039</code> (“Says three words”) <span class="math inline">\(\hat\delta_i\)</span> equals <span class="math inline">\(4.06\)</span>.</p>
 <div class="figure" style="text-align: center"><span id="fig:iic"></span>
 <img src="dbook1_files/figure-html/iic-1.png" alt="The item information curve for two milestones from the DDI." width="672" />
 <p class="caption">
@@ -281,20 +277,15 @@ Figure 6.8: The item information curve for two milestones from the DDI.
 </p>
 </div>
 
-<p>Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> displays the item information curves for two
-milestones from the DDI. Note that the amount of information
-for the item is maximal around the item difficulty.</p>
-<p>The probability of endorsing milestone <code>ddicmm039</code> for a child
-with an ability of <span class="math inline">\(2\)</span> logits is</p>
+<p>Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> displays the item information curves for two milestones from the DDI. Note that the amount of information for the item is maximal around the item difficulty.</p>
+<p>The probability of endorsing milestone <code>ddicmm039</code> for a child with an ability of <span class="math inline">\(2\)</span> logits is</p>
 <p><span class="math display">\[P_{ni}= \frac{\exp(2 - 4.06)}{1+\exp(2-4.06)} = 0.113\]</span></p>
 <p>At this ability level, milestone <code>ddicmm039</code> has information</p>
 <p><span class="math display">\[I(\hat\delta_i)=0.113 \times (1-0.113) = 0.10\]</span></p>
 </div>
 <div id="item-information-at-a-given-age" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Item information at a given age</h3>
-<p>In practice, it is often interesting to express the item information
-against age. By doing so, one can identify at what ages an item
-provides the most information.</p>
+<p>In practice, it is often interesting to express the item information against age. By doing so, one can identify at what ages an item provides the most information.</p>
 <div class="figure" style="text-align: center"><span id="fig:iia"></span>
 <img src="dbook1_files/figure-html/iia-1.png" alt="Information information of Figure 6.8 plotted against age." width="672" />
 <p class="caption">
@@ -302,27 +293,9 @@ Figure 6.9: Information information of Figure <a href="sec-iteminformation.html#
 </p>
 </div>
 
-<p>Figure <a href="sec-iteminformation.html#fig:iia">6.9</a> shows that the sensitive age ranges differ
-considerably between items. Using 0.05 as a criterion, milestone
-<code>ddigmm060</code> is sensitive between ages 4–8 months, whereas <code>ddicmm039</code>
-is sensitive between ages 10–19 months, a range that is about twice
-as broad. The symmetric nature of the curves in Figure <a href="sec-iteminformation.html#fig:iic">6.8</a>
-is not present Figure <a href="sec-iteminformation.html#fig:iia">6.9</a>. In general, the relation between
-age and item sensitivity is more complex than the relation between
-ability and item sensitivity.</p>
-<p>The item information by age curve helps to determine at what ages the
-item can best be administered. The item will be most informative if
-administered at the age at which 50% of the children will pass the
-milestone, which is the point where the item information is equal to
-0.5 * 0.5 = 0.25. Administering the item closely around that age
-provide the most efficient measurement of ability. When space is at
-premium (e.g. as in population surveys) using a well-chosen set of
-age-sensitive milestones will help in reducing the total number of
-milestones that needs to be measured.</p>
-<p>In other contexts, milestones may be used as a screening instrument to
-identify developmental delay. In that case, it is more efficient to
-administer items that are very easy for the age, e.g. milestones on
-which, say, 90% of the children will pass.</p>
+<p>Figure <a href="sec-iteminformation.html#fig:iia">6.9</a> shows that the sensitive age ranges differ considerably between items. Suppose we use 0.05 as a criterion. Then <code>ddigmm060</code> is susceptible between ages 4–8 months, a period of four months. Item <code>ddicmm039</code> is receptive in the period 10–19 months, a range that is about twice as broad. The symmetric nature of the curves in Figure <a href="sec-iteminformation.html#fig:iic">6.8</a> is not present in Figure <a href="sec-iteminformation.html#fig:iia">6.9</a>. In general, the relation between age and item sensitivity is more complicated than the relationship between ability and item sensitivity.</p>
+<p>The item information by age curve helps to determine at what ages we should administer the item. The item will be most informative if delivered at the age at which 50% of the children will pass the milestone. This age corresponds to an item information is equal to 0.5 * 0.5 = 0.25. Administering the item closely around that age provide the most efficient measurement of ability. When space is at a premium (e.g. as in population surveys) using a well-chosen set of age-sensitive milestones will help in reducing the total number of milestones.</p>
+<p>In other contexts, milestones may be used as a screening instrument to identify developmental delay. In that case, it is more efficient to administer items that are very easy for the age, e.g. milestones on which, say, 90% of the children will pass.</p>
 </div>
 </div>
             </section>
@@ -336,11 +309,13 @@ which, say, 90% of the children will pass.</p>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -383,8 +358,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -2,8 +2,7 @@
 
 > Author: Stef van Buuren
 
-The measurement of child development has quite an extensive history. 
-This chapter 
+The measurement of child development has quite an extensive history. This chapter 
 
 * reviews definitions of child development (\@ref(sec:definitions))
 * discusses concepts in the nature of child development (\@ref(sec:theories))
@@ -12,15 +11,11 @@ This chapter
 
 ## What is child development? {#sec:definitions}
 
-In contrast to concepts like height or temperature, it is unclear what
-exactly constitutes child development. One of the first rigorous studies
-in the field [@shirley1931] was executed under the explicit aim 
+In contrast to concepts like height or temperature, it is unclear what exactly constitutes child development. @shirley1931 executed one of the first rigorous studies in the field with the explicit aim
 
-> ... that the many aspects of development, anatomical, physical, 
-> motor, intellectual, and emotional, be studied simultaneously.
+> that the many aspects of development, anatomical, physical, motor, intellectual, and emotional, be studied simultaneously.
 
-Shirley gave empirical definitions of each of these domains of
-development.
+Shirley gave empirical definitions of each of these domains of development.
 
 
 ```{r shirleyplot, fig.cap = '(ref:shirleyplot)'}
@@ -28,97 +23,49 @@ include_graphics("fig/shirley-motor.png")
 ```
 (ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
 
-Certain domains advance through a fixed sequence. Figure
-\@ref(fig:shirleyplot) illustrates the various stages needed for going
-from a *fetal posture* to *walking alone*. The ages are indicative of
-when these events happen, but there is a large variation in timing
-between infants.
+Certain domains advance through a fixed sequence. Figure \@ref(fig:shirleyplot) illustrates the various stages needed for going from a *fetal posture* to *walking alone*. The ages are indicative of when these events happen, but there is a considerable variation in timing between infants.
 
 @gesell1943 (p. 88) formulated the following definition of development:
 
-> Development is a continuous process that proceeds stage by stage in
-> an orderly sequence. 
+> Development is a continuous process that proceeds stage by stage in an orderly sequence.
 
-Gesell's definition emphasizes that development is a continuous
-process. The stages are useful as indicators to infer the level of
-maturity, but are of limited interest by themselves.
+Gesell's definition emphasizes that development is a continuous process. The stages are useful as indicators to infer the level of maturity but are of limited interest by themselves.
 
-@liebert1974 (p. 5) emphasized that development is not a phenomenon
-that unfolds in isolation.
+@liebert1974 (p. 5) emphasized that development is not a phenomenon that unfolds in isolation.
 
-> Development refers to a process in growth and capability over 
-> time, as a function of both maturation and interaction with 
-> the environment.
+> Development refers to a process in growth and capability over time, as a function of both maturation and interaction with the environment.
 
-@cameron2012 (p. 11) defined an end-point of development, as follows:
+@cameron2012 (p. 11) defined an endpoint of development, as follows:
 
-> "Growth" is defined as an increase in size, while "maturity" or 
-> "development" is an increase in functional ability...The endpoint
-> of maturity is when a human is functionally able to procreate 
-> successfully ... not just biological maturity but also behavioral
-> and perhaps social maturity.
+> "Growth" is defined as an increase in size, while "maturity" or "development" is an increase in functional ability...The endpoint of maturity is when a human is functionally able to procreate successfully ... not just biological maturity but also behavioural and perhaps social maturity.
 
-@berk2013 (p. 30) presented a dynamic systems perspective on
-child development as follows:
+@berk2013 (p. 30) presented a dynamic systems perspective on child development as follows:
 
-> Development cannot be characterized as a single line of change, 
-> and is more like a web of fibers branching out in many directions,
-> each representing a different skill area that may undergo both
-> continuous and stagewise transformation.
+> Development cannot be characterized as a single line of change, and is more like a web of fibres branching out in many directions, each representing a different skill area that may undergo both continuous and stagewise transformation.
 
-There are many more definitions of child development. The ones given
-here just illustrate the main points of view in the field.
+There are many more definitions of child development. The ones described here illustrate the main points of view in the field.
 
 ## Theories of child development {#sec:theories}
 
-The field of child development is huge and spans multiple academic
-disciplines. This short overview therefore cannot do justice to
-the enormous richness. Readers new to the field might orient
-themselves by browsing through an introductory academic titles 
-[@santrock2010; @berk2013], or by searching for the topic of interest
-in an encyclopedia, e.g., @salkind2002.
+The field of child development is vast and spans multiple academic disciplines. This short overview, therefore, cannot do justice to the enormous richness. Readers new to the field might orient themselves by browsing through an introductory academic titles [@santrock2010; @berk2013], or by searching for the topic of interest in an encyclopedia, e.g., @salkind2002.
 
-The introductions by @santrock2010 and @berk2013 both distinguish
-major theories in child development according to how each answers
-to following three questions:
+The introductions by @santrock2010 and @berk2013 both distinguish major theories in child development according to how each answer to following three questions:
 
 ### Continuous or discontinuous?
 
-Does development evolve gradually as a continuous process 
-or are there qualitatively distinct stages, with jumps occurring 
-from one stage to another?
+Does development evolve gradually as a continuous process or are there qualitatively distinct stages, with jumps occurring from one step to another?
 
-Many stage-based theories of human development have been proposed over
-the years: social and emotional development by psycho-sexual stages
-proposed by Freud and furthered by Erikson [@erikson1963], Kohlberg's
-six stages of moral development [@kohlberg1984] and Piaget's cognitive
-development theory [@piaget1969]. Piaget distinguishes four main
-periods throughout childhood. The first period, the *sensimotor
-period* (approximately 0-2 years), is subdivided into six stages. When
-taken together these six stages describe "the road to conceptual
-thought". Piaget's stages are qualitatively different, and aim to
-unravel the mechanism involved in intellectual development.
+Many stage-based theories of human development have been proposed over the years: social and emotional development by psycho-sexual stages introduced by Freud and furthered by Erikson [@erikson1963], Kohlberg's six stages of moral development [@kohlberg1984] and Piaget's cognitive development theory [@piaget1969]. Piaget distinguishes four main periods throughout childhood. The first period, the *sensorimotor period* (approximately 0-2 years), is subdivided into six stages. When taken together, these six stages describe "the road to conceptual thought". Piaget's stages are qualitatively different and aim to unravel the mechanism involved in intellectual development.
 
-On the other hand, Gesell and others emphasize development as a 
-continuous process. @gesell1943 (p. 88) says:
+On the other hand, Gesell and others emphasize development as a continuous process. @gesell1943 (p. 88) says:
 
-> A stage represents a degree or level of maturity in the cycle 
-> of development. A stage is simply a passing moment, while 
-> development, like time, keeps marching on.
+> A stage represents a degree or level of maturity in the cycle of development. A stage is simply a passing moment, while development, like time, keeps marching on.
 
 ### One course or multiple parallel tracks?
 
-Stage theorists assume that children progress sequentially through 
-the same set of stages. This assumption is also explicit in the 
-work of Gesell.
+Stage theorists assume that children progress sequentially through the same set of stages. This assumption is also explicit in the work of Gesell.
 
-The ecological and dynamic systems theories view development as
-continuous, though not necessarily progressing in an orderly fashion,
-so there may be multiple, parallel ways to reach the same point.
-Figure \@ref(fig:dynamic) illustrates that the path taken by a given
-child will depend on the child's unique combination of personal and
-environmental circumstances, including cultural diversity in
-development.
+The ecological and dynamic systems theories view development as continuous, though not necessarily progressing in an orderly fashion, so there may be multiple, parallel ways to reach the same point. Figure \@ref(fig:dynamic) illustrates that the path taken by a given child will depend on the child's unique combination of personal and environmental circumstances, including cultural diversity in development.
 
 ```{r dynamic, fig.cap = '(ref:dynamic)'}
 include_graphics("fig/dynamic.png")
@@ -127,43 +74,17 @@ include_graphics("fig/dynamic.png")
 
 ### Nature or nurture?
 
-Are genetic or environmental factors more important for influencing
-development? Most theories generally acknowledge the role of both, but
-differ in emphasis. In practice, the debate centers on the question
-how to explain individual differences.
+Are genetic or environmental factors more important for influencing development? Most theories generally acknowledge the role of both but differ in emphasis. In practice, the debate centres on the question of how to explain individual differences.
 
-Maturation is the process of becoming completely developed, much like
-the natural unfolding of a flower. The process depends on both genetic
-factors (species, breed) as well as environmental influences
-(sunlight, water, nutrition). Some theorists emphasize that
-differences in child development are innate and stable over time,
-although there may be differences in unfolding speed due to different
-environments. Others argue that differences in development between
-children are primarily driven by environmental factors, and changing
-these factors could very well impact child development.
+Maturation is the process of becoming fully developed, much like the natural unfolding of a flower. The process depends on both genetic factors (species, breed) as well as environmental influences (sunlight, water, nutrition). Some theorists emphasize that differences in child development are innate and stable over time, although there may be differences in unfolding speed due to different environments. Others argue that environmental factors drive differences in development between children, and changing these factors could very well impact child development.
 
-Our position in this debate has important practical consequences. If
-we believe that differences are natural and stable, then it may not
-make much sense trying to change the environment, as the impact on
-development is likely to be small. On the other hand, if we think of
-developmental potential as evenly distributed, with its expression
-governed by the environment, then improving life circumstances may
-have substantial pay-offs in terms of better development.
+Our position in this debate has practical implications. If we believe that differences are natural and stable, then it may not make much sense trying to change the environment, as the impact on development is likely to be small. On the other hand, we may consider developmental potential as evenly distributed, with its expression governed by the environment. In the latter case, improving life circumstances may have substantial pay-offs in terms of better development.
 
 ## Example of motor development {#sec:motorexample}
 
 ### Shirley's motor data
 
-For illustration, we use data on loco-motor development collected in
-the classic study on child development among 25 babies by
-@shirley1931. Starting at ages around 13 weeks, a graphic record of
-the baby's walking was obtained as follows. The investigator lays out
-a white paper of twelve inches wide on the floor of the living room,
-and lightly greases the soles of the baby's feet with olive oil. The
-baby was invited to "walk" on the sheet. Of course, very young infants
-need substantial assistance. Footprints left were later colored by
-graphite and measured. Measurements during the first year were
-repeated every week or bi-weekly.
+For illustration, we use data on loco-motor development from a classic study on child development among 25 babies. @shirley1931 collected measurements of the baby's walking ability, starting at ages around 13 weeks, in an ingenious way. The investigator lays out a white paper of twelve inches wide on the floor of the living room, and lightly greases the soles of the baby's feet with olive oil. The baby was invited to "walk" on the sheet. Of course, very young infants need substantial assistance. Footprints left were later coloured by graphite and measured. Measurements during the first year were repeated every week or bi-weekly.
 
 ```{r shirley}
 load(file = file.path("data/shirley.rda"))
@@ -176,15 +97,7 @@ kable(shirley,
 ```
 &nbsp;
 
-Table \@ref(tab:shirley) from [@shirley1931, Appendix 8] lists the age
-(in weeks) of the 21 babies when they started, respectively, stepping,
-standing, walking with help, and walking alone. Question marks
-indicate missing data. A question mark in the first column occurs when
-the baby was already stepping when the observation started (Virginia
-Ruth, Sibyl, Donovan and Doris). Max and Martin, who have a question
-mark in the second column, skipped standing and went directly from
-stepping to walking with help. Doris has a question mark in the last
-column, because she passed away before she could walk alone.
+Table \@ref(tab:shirley) from [@shirley1931, Appendix 8] lists the age (in weeks) of the 21 babies when they started, respectively, stepping, standing, walking with help, and walking alone. Question marks indicate missing data. A question mark in the first column means that the baby was already stepping when the observation started (Virginia Ruth, Sibyl, Donovan and Doris). Max and Martin, who have question marks in the second column, skipped standing and went directly from stepping to walking with help. Doris has a question mark in the last column because she passed away before she could walk alone.
 
 ### Individual trajectories of motor development
 
@@ -205,41 +118,17 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
 ```
 (ref:stepplot) Staircase plot indicating the age at which each baby achieves a new milestone of gross-motor functioning.
 
-Figure \@ref(fig:stepplot) is a visual representation of the
-information in Table \@ref(tab:shirley). Each data point is the age of
-first occurrence of the next stage. Before that age, the baby is
-supposed to be in the previous stage, so once the next stage occurs,
-there is a jump to the next level.
+Figure \@ref(fig:stepplot) is a visual representation of the information in Table \@ref(tab:shirley). Each data point is the age of the first occurrence of the next stage. Before that age, we assume the baby is in the previous stage.
 
-The figure makes it easy to spot the quick walkers (Martin, Carol) and
-slow walkers (Patricia, Torey, Larry). Furthermore, we may also spot 
-children who remain a long time in a particular stage (Torey, Larry)
-or who jump over stages (Martin, Max).
+Figure \@ref(fig:stepplot) makes it easy to spot the quick walkers (Martin, Carol) and slow walkers (Patricia, Torey, Larry). Furthermore, we may also locate children who remain a long time in a particular stage (Torey, Larry) or who jump over stages (Martin, Max).
 
-For ease of plotting, the categories on the vertical axis are equally
-spaced. The height of the jump from one stage to the next has no
-sensible interpretation. We might be inclined to think that the
-vertical distance portrays to how difficult it is to achieve the next
-stage, but this is inaccurate. Instead, difficulty of passing from one
-stage to the next corresponds to the *length of the line in the
-horizontal direction* between stages. For example, on average the line
-for `stepping` is rather short in all plots, so going from `stepping`
-to `standing` is relatively easy.
+For ease of plotting, the categories on the vertical axis are equally spaced. The height of the jump from one stage to the next has no sensible interpretation. We might be inclined to think that the vertical distance portrays to how difficult it is to achieve the next stage, but this is inaccurate. Instead, the ability needed to set the next step corresponds to the *horizontal line length* between stages. For example, on average, the line for `stepping` is rather short in all plots, so going from `stepping` to `standing` is relatively easy.
 
-The figure presents data from only those visits where a jump occurred.
-The number of house visits made during ages 0-2 years was far higher.
-@shirley1931 actually collected data from 1370 visits, whereas Figure
-\@ref(fig:stepplot) plot only the 76 visits that showed a jump.
-In order to obtain individual curves like these, the data collection 
-needs to be intense and costly. Fortunately, there are alternatives that
-are much more efficient.
+Figure \@ref(fig:stepplot) presents data from only those visits where a jump occurred. The number of house visits made during the ages of 0-2 years was far higher. @shirley1931 collected data from 1370 visits, whereas Figure \@ref(fig:stepplot) plot only the 76 occasions that showed a jump. Thus the data collection needs to be intense and costly to obtain individual curves. Fortunately, there are alternatives that are much more efficient.
 
 ## Typical questions asked in child development {#sec:questions}
 
-The emotional, social and physical development of the young child has
-a direct effect on the adult he or she will become. We may be
-interested in measuring child development for answering clinical,
-policy or public health questions.
+The emotional, social and physical development of the young child has a direct effect on the adult he or she will become. We may be interested in measuring child development for answering clinical, policy or public health questions.
 
 ```{r questions}
 questions <- data.frame(
@@ -261,9 +150,4 @@ kable(questions,
 ```
 &nbsp;
 
-Table \@ref(tab:questions) lists typical questions whose answers
-require measuring child development. Note that all questions compare
-the amount of child development between groups and/or time points. A
-few questions compare development for the same child, group or
-population at different ages. Some others compare development within
-the same age across different children, groups or populations.
+Table \@ref(tab:questions) lists typical questions whose answers require measuring child development. Note that all questions compare the amount of child development between groups or time points. A few questions compare development for the same child, group or population at different ages. Others compare development at the same age across different children, groups or populations.
