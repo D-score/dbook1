@@ -218,6 +218,7 @@ data_david <- data.frame(
 
 post <- dscore::dscore_posterior(data = data_david, qp = -10:80, prior_mean = ".dutch")
 
+david[, "prior1"] <- post[1, ]
 david[, c("post1", "prior2")] <- post[2, ]
 david[, c("post2", "prior3")] <- post[3, ]
 david[, c("post3", "prior4")] <- post[4, ]
