@@ -43,7 +43,10 @@ Monitoring child development provides caregivers and parents with reliable infor
 
 Stunting is the impaired physical growth and development that children experience from poor nutrition, repeated infection, and inadequate psychosocial stimulation. Linear growth in children is commonly expressed as length-for-age or height-for-age in comparison to normative growth standards [@wit2017practical]. According to the World Health Organization (WHO), children are stunted if their height-for-age is more than two standard deviations below the Child Growth Standards median. Stunting caused by chronic nutritional deprivation in early childhood is as an indicator of child development [@perkins2017understanding].
 
-```{r shortkids, fig.cap = '(ref:shortkids)'} include_graphics("fig/stuntedchildren.jpg") ``` (ref:shortkids) Seven eight-year-old children are standing in front of a wall with the line depicting the average height according to the WHO Child Growth Standards.
+```{r shortkids, fig.cap = '(ref:shortkids)'} 
+include_graphics("fig/stuntedchildren.jpg") 
+``` 
+(ref:shortkids) Seven eight-year-old children are standing in front of a wall with the line depicting the average height according to the WHO Child Growth Standards.
 
 There is consistent evidence for an association between stunting and poor child development, despite heterogeneity in the estimation of its magnitude [@miller2016consistent; @sudfeld2015linear]. Considering impaired linear growth as a proxy measure for child development is easy to do, and quite common. Yet, using impaired height growth as a measure for child development is not without limitations:
 
