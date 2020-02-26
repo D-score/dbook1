@@ -1,3 +1,12 @@
+```{r init3}
+pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr", 
+         "dscore", "dmetric", "reshape2")
+loaded <- sapply(pkg, require, character.only = TRUE,
+                 warn.conflicts = FALSE, quietly = TRUE)
+ggplot2::theme_set(theme_light())
+```
+
+
 # Quantifying child development {#ch:threeways}
 
 > Author: Stef van Buuren
@@ -266,7 +275,7 @@ scale <- model$transform[2]
 # create long matrix
 data3 <- left_join(data2, modelb)
 data3 <- data3 %>%
-      gather(key = "item", value = "value", items) %>%
+      gather(key = "item", value = "value", all_of(items)) %>%
       drop_na("value")
 
 # proportion pass per dscore group

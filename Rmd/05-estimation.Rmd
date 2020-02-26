@@ -24,7 +24,7 @@ model <- knitr::load_cache("smoccmodel", "model")
 
 ```{r smocctable, warning = FALSE}
 broad <- as.data.frame(data) %>% 
-  dplyr::select(subjid, agedays, items) %>% 
+  dplyr::select(subjid, agedays, all_of(items)) %>% 
   dplyr::slice(1:26)
 options(knitr.table.format = "html", knitr.kable.NA = "") 
 kable(broad,

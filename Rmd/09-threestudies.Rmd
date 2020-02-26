@@ -98,11 +98,11 @@ pops_data <- pops_orig %>%
     agedays   = as.integer(Age),
     gagebrth  = as.integer(gestationalage * 7)
   ) %>% 
-  mutate_at(vars(items), function(x) as.integer(1 - x)) %>% 
+  mutate_at(vars(all_of(items)), function(x) as.integer(1 - x)) %>% 
   dplyr::select(subjid, agedays,
                 gagebrth, 
                 dead, handicap,
-                items)
+                all_of(items))
 
 # add useful variables
 pops_data <- pops_data %>% 
@@ -268,18 +268,18 @@ Full age correction seems to overcorrect the $D$-score, so it is natural to try 
 
 ```{r tabz}
 tabs <- pops2 %>% 
-  mutate(gp = cut_number(agemos, n = 8)) %>% 
+  mutate(gp = cut_number(agemos, n = 8, dig.lab = 2)) %>% 
   group_by(gp) %>% 
-  summarise(z0.00 = mean(daz_0.00, na.rm = TRUE),
-            z0.50 = mean(daz_0.50, na.rm = TRUE),
-            z0.75 = mean(daz_0.75, na.rm = TRUE),
-            z1.00 = mean(daz_1.00, na.rm = TRUE))
+  summarise(z0.00 = round(mean(daz_0.00, na.rm = TRUE), 2),
+            z0.50 = round(mean(daz_0.50, na.rm = TRUE), 2),
+            z0.75 = round(mean(daz_0.75, na.rm = TRUE), 2),
+            z1.00 = round(mean(daz_1.00, na.rm = TRUE), 2))
 kable(tabs, 
       caption = "Average DAZ at various ages under four correction factors.",
       col.names = c("Month", "0.00", "0.50", "0.75", "1.00"))
 ```
 
-Table \@ref(tab:tabz) compares mean DAZ under various specifications for $f$. Values $f = 0.00$ and $f = 0.50$ do not correct for preterm birth enough in the sense that all sign are negative. In contrast, $f = 1.00$ overcorrects. The value of 0.734 is implausibly high, especially because this value is close to birth. Setting $f = 0.75$ seems a good compromise, in the sense that the average DAZ is close to zero in the first age interval. The average DAZ is negative at later ages. We do not know whether this genuinely reflects less than optimal development of very preterm and low birth weight children, so either $f = 1.00$ and $f = 0.75$ are suitable candidates.
+Table \@ref(tab:tabz) compares mean DAZ under various specifications for $f$. Values $f = 0.00$ and $f = 0.50$ do not correct for preterm birth enough in the sense that all sign are negative. In contrast, $f = 1.00$ overcorrects. The value of 0.73 is implausibly high, especially because this value is close to birth. Setting $f = 0.75$ seems a good compromise, in the sense that the average DAZ is close to zero in the first age interval. The average DAZ is negative at later ages. We do not know whether this genuinely reflects less than optimal development of very preterm and low birth weight children, so either $f = 1.00$ and $f = 0.75$ are suitable candidates.
 
 ### Conclusions
 
@@ -327,7 +327,7 @@ togo <- togo_orig %>%
                 cohort, cohortn,
                 neuro, apgar,
                 underweight, stunted,
-                items)
+                all_of(items))
 ```
 
 ```{r togod}
@@ -484,15 +484,15 @@ togo3 <- togo2 %>%
 combined <- bind_rows(smocc2, pops3, togo3)
 ```
 
-```{r plotcomb, warning=FALSE, results = 'hide', fig.keep = 'all'}
+```{r plotcomb, results = 'hide', fig.keep = 'all'}
 data_rug <- combined %>%
-  select(subjid, agedays, agemos, cohort, items) %>% 
-  gather(key = "item", value = "value", items) %>%
+  select(subjid, agedays, agemos, cohort, all_of(items)) %>% 
+  gather(key = "item", value = "value", all_of(items)) %>%
   drop_na("value")
 
 # calculate summary statistics
 pass <- data_rug %>%
-  mutate(agegp = cut(agemos, breaks = seq(0, 60, 1)),
+  mutate(agegp = forcats::fct_explicit_na(cut(agemos, breaks = seq(0, 60, 1))),
          cohort = as.factor(cohort)) %>%
   group_by(item, cohort, agegp) %>%
   summarise(p = round(100 * mean(value, na.rm = TRUE)),
