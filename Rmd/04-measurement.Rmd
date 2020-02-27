@@ -371,7 +371,13 @@ Figure \@ref(fig:logisticplot) shows how the percentage of children that pass th
 
 * To find the probability of passing a given item $\delta_i$ for children that vary in ability. If $\beta_n < \delta_i$ then $\pi_{ni} < 0.5$, and if $\beta_n > \delta_i$ then $\pi_{ni} > 0.5$. In words: Children with abilities lower than the item's difficulty will have lower than 50/50 chance of passing, whereas children with abilities that exceed the item's difficulty will have a higher than 50/50 chance of passing.
 
-Note the symmetric roles for difficulties $\delta_i$ and abilities $\beta_n$.
+Formula \@ref(eq:logistic) defines the standard logistic curve:
+
+\begin{equation}
+\pi_{ni} = \frac{\exp(\beta_n - \delta_i)}{1+\exp(\beta_n -\delta_i)} (\#eq:logistic)
+\end{equation}
+
+One way to interpret the formula is as follows. The logarithm of the odds that a person with ability $\beta_n$ passes an item of difficulty $\delta_i$ is equal to the difference $\beta_n-\delta_i$ [@wright1982]. For example, suppose that the probability that person $n$ passes milestone $i$ is $\pi_{ni} = 0.5$. In that case, the odds of passing is equal to $0.5 / (1-0.5) = 1$, so $\log(1) = 0$ and thus $\beta_n = \delta_i$. If $\beta_n - \delta_i = \log(2) = 0.693$ person $n$ is *two* times more likely to pass than to fail. Likewise, if the difference is $\beta_n - \delta_i = \log(3) = 1.1$, then person $n$ is *three* more likely to pass. And so on.
 
 ### Types of item response functions
 

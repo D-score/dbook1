@@ -22,7 +22,7 @@ The fitted item response curve for each item $i$ is modeled as:
 
 $$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},$$ 
 
-where $\hat\beta_n$ is the estimated ability of child $n$ (the child's $D$-score), and where  $\hat\delta_i$ is the estimated difficulty of item $i$. Chapter \@ref(ch:computation) describes process of parameter estimation in detail.
+where $\hat\beta_n$ is the estimated ability of child $n$ (the child's $D$-score), and where  $\hat\delta_i$ is the estimated difficulty of item $i$. This is equivalent to formula \@ref(eq:logistic) with the parameters replaced by estimates. Chapter \@ref(ch:computation) described process of parameter estimation in some detail.
 
 ### Well-fitting item response curves
 
