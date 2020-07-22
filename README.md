@@ -4,13 +4,12 @@ Children learn to walk, speak, and think at an astonishing pace. The D-score cap
 
 We are preparing four D-score booklets under the following titles:
 
-I.	[Turning milestones into measurement](https://stefvanbuuren.name/dbook1)
-
-II.	[Tuning instruments to unity](https://stefvanbuuren.name/dbook2)
-
-III.	[Tailoring tests to fit the occasion](https://stefvanbuuren.name/dbook3)
-
-IV.	[Taking off the hood](https://stefvanbuuren.name/dbook4)
+|     |                                      |
+|:--- |:------------------------------------ |
+I.    |	[Turning milestones into measurement](https://stefvanbuuren.name/dbook1) |
+II.	  | [Tuning instruments to unity](https://stefvanbuuren.name/dbook2) |
+III.	| [Tailoring tests to fit the occasion](https://stefvanbuuren.name/dbook3) |
+IV.	  | [Taking off the hood](https://stefvanbuuren.name/dbook4) |
 
 Editors: [Stef van Buuren](https://stefvanbuuren.name), [Iris Eekhout](https://www.iriseekhout.com)
 
