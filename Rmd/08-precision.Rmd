@@ -24,6 +24,7 @@ model <- knitr::load_cache("smoccmodel", "model")
 
 ```{r getddi}
 meta <- dscore::get_itemtable(dscore::get_itemnames(instrument = "ddi")) %>%
+  bind_cols(decompose_itemnames(.$item)) %>% 
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",

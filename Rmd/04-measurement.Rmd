@@ -46,6 +46,7 @@ model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 
 ```{r smoccitems}
 meta <- dscore::get_itemtable(dscore::get_itemnames(instrument = "ddi")) %>%
+  bind_cols(decompose_itemnames(.$item)) %>%   
   dplyr::select(item, domain, label) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
@@ -111,6 +112,7 @@ pass <- data_rug %>%
             n = n()) %>%
   ungroup() %>%
   left_join(dscore::get_itemtable(items = items), by = "item") %>% 
+  bind_cols(decompose_itemnames(.$item)) %>% 
   filter(n >= 5) %>%
   arrange(.data$item, a) %>%
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
@@ -160,6 +162,7 @@ pass <- data2 %>%
 pass <- pass %>%
   group_by() %>%
   left_join(model$itemtable, by = "item") %>%
+  bind_cols(decompose_itemnames(.$item)) %>% 
   arrange(.data$item, dgp) %>%
   dplyr::select(item, dgp, a, d, p, n, domain, label) %>%
   filter(n >= 10 & p > 0 & p < 100) %>%
@@ -236,6 +239,7 @@ grid <- tidyr::crossing(
   item = items,
   d = seq(0, 70, 0.2))
 ib <- model$itembank %>%
+  bind_cols(decompose_itemnames(.$item)) %>% 
   dplyr::select(item, domain, label, tau) %>% 
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",

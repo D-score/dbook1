@@ -500,6 +500,7 @@ pass <- data_rug %>%
             n = n()) %>%
   ungroup() %>%
   left_join(dscore::get_itemtable(), by = "item") %>% 
+  bind_cols(decompose_itemnames(.$item)) %>% 
   arrange(domain, number)
 
 colors <- c("#006CC2B3", "#FF7F00B3", "#009E73B3")

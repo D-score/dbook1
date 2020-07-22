@@ -64,6 +64,7 @@ d1 <- data.frame(delta = model$fit$b,
                  row.names = NULL)
 ib <- model$itembank %>% 
   left_join(d1, by = "item") %>% 
+  bind_cols(decompose_itemnames(.$item)) %>% 
   mutate(lab = substr(label, 1L, 30)) %>% 
   mutate(domain = plyr::revalue(domain, c("cm" = "Communication", 
                                           "fm" = "Fine motor",
