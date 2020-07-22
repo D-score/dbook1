@@ -19,6 +19,7 @@ link-citations: yes
 opts_chunk$set(comment = NA, background = "#FBFBFB",
                fig.align = 'center', cache = TRUE, 
                echo = FALSE, dev = 'svglite')
+## try svglite instead of png
 ```
 
 # $D$-score booklets {-}
