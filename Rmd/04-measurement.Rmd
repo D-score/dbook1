@@ -1,12 +1,12 @@
-# The $D$-score {#ch:newmodel}
+# The D-score {#ch:newmodel}
 
 > Author: Stef van Buuren
 
-Chapter \@ref(ch:history) provided historical background on the nature of child development. Chapter \@ref(ch:threeways) discussed three general quantification approaches. This chapter explains how to apply the unit-based approach to arrive at the $D$-score scale. The text illustrates the process with real data.
+Chapter \@ref(ch:history) provided historical background on the nature of child development. Chapter \@ref(ch:threeways) discussed three general quantification approaches. This chapter explains how to apply the unit-based approach to arrive at the D-score scale. The text illustrates the process with real data.
 
 * Dutch Development Instrument (DDI) (\@ref(sec:ddi))
-* Milestone passing by age and by $D$-score (\@ref(sec:probage), \@ref(sec:probd))
-* How do age and $D$-score relate? (\@ref(sec:aged))
+* Milestone passing by age and by D-score (\@ref(sec:probage), \@ref(sec:probd))
+* How do age and D-score relate? (\@ref(sec:aged))
 * Role of the measurement model (\@ref(sec:measurementmodel))
 * Item and person response functions (\@ref(sec:itemresponsefunctions))
 * Engelhard invariance criteria (\@ref(sec:engelhard))
@@ -137,7 +137,7 @@ Figure \@ref(fig:smoccpa) summarizes the response obtained on each milestone as 
 
 The domain determines the coloured (blue: gross motor, green: fine motor, red: communication). In general, domains are well mixed across age, though around some ages, e.g., at four months, multiple milestones from the same domain appear.
 
-## Probability of passing a milestone given $D$-score {#sec:probd}
+## Probability of passing a milestone given D-score {#sec:probd}
 
 ```{r smoccpd, fig.cap = '(ref:smoccpd)', fig.height = 4}
 modelb <- model$dscore
@@ -183,15 +183,15 @@ plot <- ggplot(pass, aes(d, p, group = item, colour = domain,
 py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
 py
 ```
-(ref:smoccpd) Empirical percentage of passing each milestone in the DDI against the $D$-score (Source: SMOCC data, 2151 children, 9 occasions).
+(ref:smoccpd) Empirical percentage of passing each milestone in the DDI against the D-score (Source: SMOCC data, 2151 children, 9 occasions).
 
-Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but with the horizontal axis replaced by the $D$-score. The $D$-score summarizes development into one number. See \@ref(sec:dscoreestimation) for a detailed explanation on how to calculate the $D$-score. The vertical axis with per cent pass is unchanged.
+Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but with the horizontal axis replaced by the D-score. The D-score summarizes development into one number. See \@ref(sec:dscoreestimation) for a detailed explanation on how to calculate the D-score. The vertical axis with per cent pass is unchanged.
 
-The percentage of successes increases with $D$-score for all milestones. In contrast to Figure \@ref(fig:smoccpa) all curves have a similar slope, a desirable property needed for an interval scale with a constant unit of measurement (c.f. Section \@ref(sec:unitbased)).
+The percentage of successes increases with D-score for all milestones. In contrast to Figure \@ref(fig:smoccpa) all curves have a similar slope, a desirable property needed for an interval scale with a constant unit of measurement (c.f. Section \@ref(sec:unitbased)).
 
-How can the relation between per cent pass and age be so different from the relation between per cent pass and the $D$-score? The next section explains the reason.
+How can the relation between per cent pass and age be so different from the relation between per cent pass and the D-score? The next section explains the reason.
 
-## Relation between age and the $D$-score {#sec:aged}
+## Relation between age and the D-score {#sec:aged}
 
 ```{r smoccda, fig.cap = '(ref:smoccda)', fig.height = 6, warning = FALSE}
 reference <- dplyr::select(dscore::get_reference(population = "dutch"), age, SDM2:SDP2) %>%
@@ -229,9 +229,9 @@ plot <-
   theme(legend.position = "none")
 plot
 ```
-(ref:smoccda) Relation between child $D$-score and child age in a cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9 occasions).
+(ref:smoccda) Relation between child D-score and child age in a cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
-Figure \@ref(fig:smoccda) shows that the relation between $D$-score and age is nonlinear. Development in the first year is more rapid than in the second year. During the first year, infants gain about 40$D$, whereas in the second year they gain about 20$D$. A similar change in growth rate occurs in length (first year: 23 cm, second year: 12 cm, for Dutch children).
+Figure \@ref(fig:smoccda) shows that the relation between D-score and age is nonlinear. Development in the first year is more rapid than in the second year. During the first year, infants gain about 40$D$, whereas in the second year they gain about 20$D$. A similar change in growth rate occurs in length (first year: 23 cm, second year: 12 cm, for Dutch children).
 
 ```{r smoccdap, fig.cap = '(ref:smoccdap)', warning = FALSE}
 # model ICC curves D-score
@@ -278,19 +278,19 @@ py <- plotly::plot_ly(tab, x = ~a, y = ~d, z = ~p, color = ~domain,
   ))
 py
 ```
-(ref:smoccdap) 3D-line graph illustrating how the patterns in Figures \@ref(fig:smoccpa) and \@ref(fig:smoccpd) induce the curvature in the relation between $D$-score and age.
+(ref:smoccdap) 3D-line graph illustrating how the patterns in Figures \@ref(fig:smoccpa) and \@ref(fig:smoccpd) induce the curvature in the relation between D-score and age.
 
-Figure \@ref(fig:smoccdap) shows the mutual relations between age, percentage of milestone passing and the $D$-score. In the online version of the booklet, the reader can actively manipulate the orientation of the graph by a click-hold-drag mouse operation.
+Figure \@ref(fig:smoccdap) shows the mutual relations between age, percentage of milestone passing and the D-score. In the online version of the booklet, the reader can actively manipulate the orientation of the graph by a click-hold-drag mouse operation.
 
-* In the default orientation (age on the horizontal axis, $D$-score on the vertical axis), we see a curvilinear relation between the age and item difficulty.
+* In the default orientation (age on the horizontal axis, D-score on the vertical axis), we see a curvilinear relation between the age and item difficulty.
 
 * Rotate the graph (age on the horizontal axis, passing percentage on the vertical axis). Observe that this is the same pattern as in Figure \@ref(fig:smoccpa) (with *unequal slopes*). Curves are coloured by domain.
 
-* Rotate the graph ($D$-score on the horizontal axis, passing percentage on the vertical axis). Observe that this pattern is the same as in Figure \@ref(fig:smoccpd) (with *equal slopes*).
+* Rotate the graph (D-score on the horizontal axis, passing percentage on the vertical axis). Observe that this pattern is the same as in Figure \@ref(fig:smoccpd) (with *equal slopes*).
 
-All patterns can co-exist because of the curvature in the relation between $D$-score and age. The curvature is never explicitly modelled or defined, but a consequence of the equal-slopes assumption in the relation between the $D$-score and the passing percentage of a milestone.
+All patterns can co-exist because of the curvature in the relation between D-score and age. The curvature is never explicitly modelled or defined, but a consequence of the equal-slopes assumption in the relation between the D-score and the passing percentage of a milestone.
 
-## Measurement model for the $D$-score {#sec:measurementmodel}
+## Measurement model for the D-score {#sec:measurementmodel}
 
 ### What are measurement models?
 

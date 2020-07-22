@@ -15,7 +15,7 @@ is therefore also constant for all populations.
 * That distance defines a *unit of development*. Note that we can
 define a unit for any pair of milestones.
 
-The $D$-score unit is just one choice for a unit. This choice is no
+The D-score unit is just one choice for a unit. This choice is no
 less, and no more, arbitrary than the choice of some standard physical
 rod for the unit of length. The real crucial assumption that the
 difficulties, i.e., the begin and end points of the rod, are identical

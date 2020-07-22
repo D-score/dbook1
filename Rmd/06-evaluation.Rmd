@@ -22,7 +22,7 @@ The fitted item response curve for each item $i$ is modeled as:
 
 $$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},$$ 
 
-where $\hat\beta_n$ is the estimated ability of child $n$ (the child's $D$-score), and where  $\hat\delta_i$ is the estimated difficulty of item $i$. This is equivalent to formula \@ref(eq:logistic) with the parameters replaced by estimates. Chapter \@ref(ch:computation) described process of parameter estimation in some detail.
+where $\hat\beta_n$ is the estimated ability of child $n$ (the child's D-score), and where  $\hat\delta_i$ is the estimated difficulty of item $i$. This is equivalent to formula \@ref(eq:logistic) with the parameters replaced by estimates. Chapter \@ref(ch:computation) described process of parameter estimation in some detail.
 
 ### Well-fitting item response curves
 
@@ -89,7 +89,7 @@ gridExtra::grid.arrange(p1, p2)
 ```
 (ref:plothyp2) Two simulated items that illustrate item overfit.
 
-Figure \@ref(fig:plothyp2) shows two artificial items with two forms of overfitting. The curve of item `hypgmd004` is much steeper than the modelled curve. Thus, just this one item is exceptionally well-suited to distinguish children with a $D$-score below 50$D$ from those with a score above 50$D$. Note that the item isn't sensitive anywhere else on the scale. In general, having items like these is good news, because they allow us to increase the reliability of the instrument. One should make sure, though, that FAIL and PASS scores are all measured (not imputed) values.
+Figure \@ref(fig:plothyp2) shows two artificial items with two forms of overfitting. The curve of item `hypgmd004` is much steeper than the modelled curve. Thus, just this one item is exceptionally well-suited to distinguish children with a D-score below 50$D$ from those with a score above 50$D$. Note that the item isn't sensitive anywhere else on the scale. In general, having items like these is good news, because they allow us to increase the reliability of the instrument. One should make sure, though, that FAIL and PASS scores are all measured (not imputed) values.
 
 Multiple perfect items could hint to a violation of the *local independence assumption* (c.f. Section \@ref(sec:measurementmodel)). Developmental milestones sometimes have combinations of responses that are impossible. For example, one cannot walk without being able to stand, so we will not observe the inconsistent combination (stand: FAIL, walk: PASS). This impossibility leads to more consistent responses that would be expected by chance alone. In principle, one could combine the two such items into one three-category item, which effectively set the probability of inconsistent combinations to zero.
 
@@ -397,4 +397,4 @@ hist(result$resid, breaks = seq(-12, 2, 0.25),
 
 The estimated variance of the modeled abilities is $\hat\sigma_{\hat\beta}^2 = 76.6$, and the variance of the difference between modeled and re-estimated abilities is equal to $\hat\sigma_{\hat e}^2 = 1.74$. The corresponding *standard error of measurement (sem)* is $\hat\sigma_{\hat e} = 1.32$ logits.
 
-The estimated reliability in the SMOCC data is equal to $(76.6-1.74)/76.6 = 0.977$. We may interpret this estimate in the same way as Cronbach's $\alpha$, for which typically any value beyond 0.9 is classified as *excellent*. Note that the reliability is very high because of the large variation in $D$-scores. Newborns are very different from 2-year old toddlers, which helps to increase reliability. In practice, it is perhaps more useful to use a measure of accuracy that is less dependent on the variation within the sample. The *sem*, as explained above, seems to be a more relevant measure of precision.
+The estimated reliability in the SMOCC data is equal to $(76.6-1.74)/76.6 = 0.977$. We may interpret this estimate in the same way as Cronbach's $\alpha$, for which typically any value beyond 0.9 is classified as *excellent*. Note that the reliability is very high because of the large variation in D-scores. Newborns are very different from 2-year old toddlers, which helps to increase reliability. In practice, it is perhaps more useful to use a measure of accuracy that is less dependent on the variation within the sample. The *sem*, as explained above, seems to be a more relevant measure of precision.

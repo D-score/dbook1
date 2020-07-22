@@ -2,7 +2,7 @@
 
 > Author: Marianne de Wolff
 
-This introduction outlines why we utilize the $D$-score. This chapter 
+This introduction outlines why we utilize the D-score. This chapter 
 
 * reviews key discussions about the first 1000 days in a child's life (\@ref(sec:first1000))
 * highlights the relevance of early childhood development for later life  (\@ref(sec:relevance))

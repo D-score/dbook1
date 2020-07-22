@@ -21,11 +21,11 @@ opts_chunk$set(comment = NA, background = "#FBFBFB",
                echo = FALSE)
 ```
 
-# $D$-score booklets {-}
+# D-score booklets {-}
 
-Children learn to walk, speak, and think at an astonishing pace. The $D$-score captures this process as a one-number summary. The $D$-score booklets explain why we need the D-score, how we construct it, and how we calculate it. Application of the D-score enables comparisons in child development across populations, groups and individuals.
+Children learn to walk, speak, and think at an astonishing pace. The D-score captures this process as a one-number summary. The D-score booklets explain why we need the D-score, how we construct it, and how we calculate it. Application of the D-score enables comparisons in child development across populations, groups and individuals.
 
-We are preparing four $D$-score booklets under the following titles:
+We are preparing four D-score booklets under the following titles:
 
 1.	[D-score: Turning milestones into measurement](https://stefvanbuuren.name/dbook1)
 2.	[D-score: Tuning instruments to unity](https://stefvanbuuren.name/dbook2)
@@ -34,7 +34,7 @@ We are preparing four $D$-score booklets under the following titles:
 
 Editors: [Stef van Buuren](https://stefvanbuuren.name), [Iris Eekhout](https://www.iriseekhout.com)
 
-[Booklet 1](https://stefvanbuuren.name/dbook1/) is currently available as a complete draft. The text of [Booklet 2]((https://stefvanbuuren.name/dbook2/) is about 90 percent complete. Booklets 3 and 4 are in preparation. The series addresses conceptual aspects of the $D$-score, discusses practical issues, and introduces a dedicated set of `R` packages.
+[Booklet 1](https://stefvanbuuren.name/dbook1/) is currently available as a complete draft. The text of [Booklet 2]((https://stefvanbuuren.name/dbook2/) is about 90 percent complete. Booklets 3 and 4 are in preparation. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
 
 The *Health Birth Growth and Development knowledge integration (ki)* program of the *Bill & Melinda Gates Foundation* kindly supports the work.
 

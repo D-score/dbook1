@@ -349,7 +349,7 @@ plot <- dmetric:::draw_logistic(plot, location = delta[3], size = 0.5, linetype 
 plot <- dmetric:::draw_logistic(plot, location = delta[4], size = 0.5, linetype = "dashed", scale = scale)
 plot
 ```
-(ref:shirleypd) Modeled probability of achieving four motor milestones against the $D$-score.
+(ref:shirleypd) Modeled probability of achieving four motor milestones against the D-score.
 
 Figure \@ref(fig:shirleypd) is similar to Figure \@ref(fig:shirleypa), but with `Age` replaced by `Ability`. Also, modelled curves have replaced empirical ones, but this is not essential.
 

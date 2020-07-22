@@ -2,12 +2,12 @@
 
 > Authors: Manon Grevinga, Stef van Buuren
 
-The chapter shows the properties of the $D$-score when calculated from short tests. The study of quick tests is useful because it reveals the behaviour of the $D$-score when the measurement is inherently imprecise.
+The chapter shows the properties of the D-score when calculated from short tests. The study of quick tests is useful because it reveals the behaviour of the D-score when the measurement is inherently imprecise.
 
 This chapter covers:
 
 * Structure of milestone subsets (\@ref(sec:smoccmilestones))
-* Impact of short tests on $D$-score (\@ref(sec:comparingd))
+* Impact of short tests on D-score (\@ref(sec:comparingd))
 * Impact of short tests on predicting IQ (\@ref(sec:predictiq))
 
 ## SMOCC design: Standard and additional milestones {#sec:smoccmilestones}
@@ -107,19 +107,19 @@ g
 
 Figure \@ref(fig:ageitemgrid) shows the subsets of DDI items administered at each age. For example, at the 1-month visit, the five standard milestones are `ddicmm029 - ddigm056`, and the two additional ones are `ddicmm030` and `ddifmd002`. At the 2-month visit, the standard milestones are `ddicmm030` and `ddifmd002`, and the five additional ones are `ddicmm031 - ddigmd057`. And so on.
 
-## $D$-score from short tests {#sec:comparingd}
+## D-score from short tests {#sec:comparingd}
 
 ### Milestone sets
 
-In the analyses done thus far, we have calculated $D$-scores from responses on the combined (standard plus additional) milestones. Thus, at the 2-month visit, the $D$-score was calculated from 2 (standard) + 5 (additional) = 7 milestones.
+In the analyses done thus far, we have calculated D-scores from responses on the combined (standard plus additional) milestones. Thus, at the 2-month visit, the D-score was calculated from 2 (standard) + 5 (additional) = 7 milestones.
 
 In daily practice, the set of additional milestones is often lacking. This chapter explores the impact of using the (smaller) subset of standard milestones on measurement error and prediction.
 
-This section reports and compares three $D$-scores:
+This section reports and compares three D-scores:
 
-1. $D$-score from standard milestones;
-2. $D$-score from additional milestones.
-3. $D$-score from all available milestones;
+1. D-score from standard milestones;
+2. D-score from additional milestones.
+3. D-score from all available milestones;
 
 Estimation of 1 is more complicated than for 2 and 3, for the following reasons:
 
@@ -240,19 +240,19 @@ g <- ggplot(subset(long,
   theme(legend.position = "bottom")
 g  
 ```
-(ref:month2d) Distribution of the $D$-scores calculated from the standard, additional and all available milestones at month 2. Colors correspond to the number of fails.
+(ref:month2d) Distribution of the D-scores calculated from the standard, additional and all available milestones at month 2. Colors correspond to the number of fails.
 
-The vertical axis of Figure \@ref(fig:month2d) shows the $D$-score, separately calculated from the standard, additional and all milestones for children aged two months. The colour of the dots represents the number of FAIL ratings within each set of milestones.
+The vertical axis of Figure \@ref(fig:month2d) shows the D-score, separately calculated from the standard, additional and all milestones for children aged two months. The colour of the dots represents the number of FAIL ratings within each set of milestones.
 
-At month two there are just two standard milestones: `ddicmm030` and `ddifmd002`. About 90 per cent of the infants will pass these. The green dots in the left-hand side figure represent the estimated $D$-scores corresponding to two passes. As explained in Section \@ref(sec:adp), we calculate the $D$-score with an age-dependent prior. If the ages vary (and they do), then the $D$-score for infants having the same total score will also vary.
+At month two there are just two standard milestones: `ddicmm030` and `ddifmd002`. About 90 per cent of the infants will pass these. The green dots in the left-hand side figure represent the estimated D-scores corresponding to two passes. As explained in Section \@ref(sec:adp), we calculate the D-score with an age-dependent prior. If the ages vary (and they do), then the D-score for infants having the same total score will also vary.
 
-If a child fails either `ddicmm030` or `ddifmd002`, then the $D$-score is substantially lower. The left-hand figure shows a *gap* between the green dots (perfect score) and the yellow dots (one FAIL). The impact of a FAIL on the $D$-score is substantial. For example, the $D$-score of an infant with one FAIL on a standard milestone drops from about 20$D$ to 14$D$. Thus, with these two milestones, there cannot be a $D$-score in the range 15$D$ - 18$D$. It depends on the purposes of the measurement if this is acceptable. We can prevent gaps by measuring more milestones, e.g., milestones taken from the additional set. Another gap occurs between 14$D$ and 11$D$. These gaps illustrate that precision is constrained if we administer only two milestones.
+If a child fails either `ddicmm030` or `ddifmd002`, then the D-score is substantially lower. The left-hand figure shows a *gap* between the green dots (perfect score) and the yellow dots (one FAIL). The impact of a FAIL on the D-score is substantial. For example, the D-score of an infant with one FAIL on a standard milestone drops from about 20$D$ to 14$D$. Thus, with these two milestones, there cannot be a D-score in the range 15$D$ - 18$D$. It depends on the purposes of the measurement if this is acceptable. We can prevent gaps by measuring more milestones, e.g., milestones taken from the additional set. Another gap occurs between 14$D$ and 11$D$. These gaps illustrate that precision is constrained if we administer only two milestones.
 
-The middle figure shows the estimated $D$-score at the same visit but now calculated from the five additional milestones (i.e., the standard milestones from month 3). Infant aged two months have approximately a 50 per cent chance of passing each. Note that administration of the additional milestones will cover the range 14$D$-20$D$ quite well. Note the ceiling is also higher with these milestones.
+The middle figure shows the estimated D-score at the same visit but now calculated from the five additional milestones (i.e., the standard milestones from month 3). Infant aged two months have approximately a 50 per cent chance of passing each. Note that administration of the additional milestones will cover the range 14D-20$D$ quite well. Note the ceiling is also higher with these milestones.
 
-Note that the range of the estimated $D$-scores is quite similar in both plots. This similarity is a result of accounting for the difficulty level of milestones. The estimate of the $D$-score is *unbiased* for difficulty.
+Note that the range of the estimated D-scores is quite similar in both plots. This similarity is a result of accounting for the difficulty level of milestones. The estimate of the D-score is *unbiased* for difficulty.
 
-The figure on the right-hand side provides the $D$-score calculated from all milestones. We can easily recognise the points coming from the standard and additional sets. Also, there is a limited number of ratings on easier items that belong to month 1. We rescored these because the child failed these milestones at the previous visit. Rescoring effectively extends the range of possible $D$-scores to the lower end, so now we can find some children who have $D$-score lower than 10$D$.
+The figure on the right-hand side provides the D-score calculated from all milestones. We can easily recognise the points coming from the standard and additional sets. Also, there is a limited number of ratings on easier items that belong to month 1. We rescored these because the child failed these milestones at the previous visit. Rescoring effectively extends the range of possible D-scores to the lower end, so now we can find some children who have D-score lower than 10$D$.
 
 ### Milestone sets at month 3
 
@@ -277,7 +277,7 @@ g <- ggplot(subset(long,
   theme(legend.position = "bottom")
 g  
 ```
-(ref:month3d) Distribution of the $D$-scores calculated from the standard, additional and all available milestones at month 3. Colors correspond to the number of fails.
+(ref:month3d) Distribution of the D-scores calculated from the standard, additional and all available milestones at month 3. Colors correspond to the number of fails.
 
 Figure \@ref(fig:month3d) is the same plot as before, but now for
 month 3. Compared to Figure \@ref(fig:month2d), all points shifted
@@ -311,9 +311,9 @@ g <- ggplot(drop_na(long, fail),
   theme(legend.position = "none")
 g  
 ```
-(ref:alld) $D$-score by age 0-30 months for standard, additional and all available milestones at each measurement occasion.
+(ref:alld) D-score by age 0-30 months for standard, additional and all available milestones at each measurement occasion.
 
-Figure \@ref(fig:alld) plot the $D$-score distribution for all occasions. Some observations:
+Figure \@ref(fig:alld) plot the D-score distribution for all occasions. Some observations:
 
 * *Ceiling effect*: The ceiling effect (green) is most prominent in the *standard* set, but is also present in the other two sets. None of the three sets can filter out children with really advanced development. To achieve more precision at the upper end, we would need to include more difficult milestones.
 
@@ -321,7 +321,7 @@ Figure \@ref(fig:alld) plot the $D$-score distribution for all occasions. Some o
 
 * *Average level*: All three sets capture the overall relation between age and development. The *additional* set is quite efficient for measuring average levels development but lacks detail on the extremes.
 
-Figure \@ref(fig:alld) shows that a short test (5-6 milestones) can precisely measure the lower tail of the $D$-score distribution (*standard* set) or the middle of the $D$-score distribution (*additional* set), but cannot do both at the same time.
+Figure \@ref(fig:alld) shows that a short test (5-6 milestones) can precisely measure the lower tail of the D-score distribution (*standard* set) or the middle of the D-score distribution (*additional* set), but cannot do both at the same time.
 
 ## Impact of short tests on predicting IQ {#sec:predictiq}
 
@@ -333,7 +333,7 @@ This section explores that effect of taking different milestone sets on the qual
 
 ### UKKI
 
-@hafkamp2009 studied the effect of the $D$-score on later intelligence, using a subset of 557 SMOCC children that were followed up at the age of five years.
+@hafkamp2009 studied the effect of the D-score on later intelligence, using a subset of 557 SMOCC children that were followed up at the age of five years.
 
 The Utrechtse Korte Kleuter Intelligentietest (UKKI) [@baarda1978] is a short test to measure intelligence. The UKKI is a simple test with just three components:
 
@@ -387,7 +387,7 @@ g <- ggplot(long2, aes(x = d, y = IQ)) +
   theme(legend.position = "none")
 g  
 ```
-(ref:plotdiq) Relation between $D$-score at infancy and *IQ* at age 5 years according to three milestone sets and nine visits (SMOCC data, $n = 557$).
+(ref:plotdiq) Relation between D-score at infancy and *IQ* at age 5 years according to three milestone sets and nine visits (SMOCC data, $n = 557$).
 
 ```{r reg2, results = 'hide'}
 summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "Standard"))
@@ -396,7 +396,7 @@ summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "All"))
 ```
 
 
-Figure \@ref(fig:plotdiq) shows that the relation between the $D$-score 0-2 years and IQ at five years is positive for all milestone sets and all ages. The strength of the association increases with age. At the age of 2 years, the regression coefficient for $D$-score is equal to $\beta(D) = 1.4$ (SE: $0.21, p < 0.0001$), so on average an increase of 1.0 unit in the $D$-score at the age of 2 years corresponds to a 1.4 IQ-score points increase at the age five years.
+Figure \@ref(fig:plotdiq) shows that the relation between the D-score 0-2 years and IQ at five years is positive for all milestone sets and all ages. The strength of the association increases with age. At the age of 2 years, the regression coefficient for D-score is equal to $\beta(D) = 1.4$ (SE: $0.21, p < 0.0001$), so on average an increase of 1.0 unit in the D-score at the age of 2 years corresponds to a 1.4 IQ-score points increase at the age five years.
 
 ```{r cordiq}
 cors <- long2 %>% 
@@ -409,6 +409,6 @@ kable(cors,
       booktabs = TRUE, digits = 3)
 ```
 
-Table \@ref(tab:cordiq) summarizes the Pearson correlations between the $D$-score and later IQ. The association between $D$-score and IQ is weak during the first year of life but gets stronger during the second year. In general, having more (and more informative) milestones helps to increase the correlation, but the effects are relatively small. So even from the standard set of the seven easy milestones at 24m, we obtain a reasonable correlation of 0.245.
+Table \@ref(tab:cordiq) summarizes the Pearson correlations between the D-score and later IQ. The association between D-score and IQ is weak during the first year of life but gets stronger during the second year. In general, having more (and more informative) milestones helps to increase the correlation, but the effects are relatively small. So even from the standard set of the seven easy milestones at 24m, we obtain a reasonable correlation of 0.245.
 
-All in all, these results suggest that neither the amount nor the difficulty level of the milestones is critical in determining the strength of the relation between the $D$-score and IQ.
+All in all, these results suggest that neither the amount nor the difficulty level of the milestones is critical in determining the strength of the relation between the D-score and IQ.
