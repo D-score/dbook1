@@ -36,7 +36,7 @@ The *standard* set in the DDI consists of relatively easy milestones that 90 per
 
 ```{r smoccmodel, cache=TRUE}
 library(gseddata)
-data <- get_data(cohort = 53)
+data <- get_data(cohorts = 53)
 items <- dscore::get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
@@ -45,6 +45,7 @@ model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
 ```
 
 ```{r smoccitems}
+library(dscore)
 meta <- dscore::get_itemtable(dscore::get_itemnames(instrument = "ddi")) %>%
   bind_cols(decompose_itemnames(.$item)) %>%   
   dplyr::select(item, domain, label) %>%
@@ -128,7 +129,8 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
   geom_line(size = 0.3) + 
   geom_point(size = 1.0)  +
   theme(legend.position = "none")
-py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
+# suppress the group_by_() deprecation warning
+py <- suppressWarnings(plotly::ggplotly(plot, tooltip = c("item", "label")))
 py
 ```
 (ref:smoccpa) Empirical percentage of passing each milestone in the DDI against age (Source: SMOCC data, $n$ = 2151, 9 occasions).
@@ -180,7 +182,8 @@ plot <- ggplot(pass, aes(d, p, group = item, colour = domain,
   geom_line(size = 0.3) + 
   geom_point(size = 1.0) +
   theme(legend.position = "none")
-py <- plotly::ggplotly(plot, tooltip = c("item", "label"))
+# suppress the group_by_() deprecation warning
+py <- suppressWarnings(plotly::ggplotly(plot, tooltip = c("item", "label")))
 py
 ```
 (ref:smoccpd) Empirical percentage of passing each milestone in the DDI against the D-score (Source: SMOCC data, 2151 children, 9 occasions).

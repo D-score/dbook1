@@ -341,7 +341,6 @@ d <- dscore::dscore(data = togo, items = items,
 # z <- dscore::daz(d = d$b, x = togo$age, ref = ref)
 
 togo2 <- bind_cols(togo, 
-                   cohort  = rep("KPALIME", nrow(togo)),
                    n = d$n, 
                    d = d$d,
                    daz = d$daz)
@@ -491,6 +490,8 @@ data_rug <- combined %>%
   drop_na("value")
 
 # calculate summary statistics
+it <- dscore::get_itemtable() %>% 
+  bind_cols(dscore::decompose_itemnames(.$item))
 pass <- data_rug %>%
   mutate(agegp = forcats::fct_explicit_na(cut(agemos, breaks = seq(0, 60, 1))),
          cohort = as.factor(cohort)) %>%
@@ -499,8 +500,7 @@ pass <- data_rug %>%
             a = mean(agemos, na.rm = TRUE),
             n = n()) %>%
   ungroup() %>%
-  left_join(dscore::get_itemtable(), by = "item") %>% 
-  bind_cols(decompose_itemnames(.$item)) %>% 
+  left_join(it, by = "item") %>%
   arrange(domain, number)
 
 colors <- c("#006CC2B3", "#FF7F00B3", "#009E73B3")
