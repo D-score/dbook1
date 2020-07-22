@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>8.3 Impact of short tests on predicting IQ | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="8.3 Impact of short tests on predicting IQ | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
@@ -49,14 +49,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -77,7 +78,7 @@
 <li><a href="https://stefvanbuuren.name/dbook1">D-score booklet I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li><a href="index.html#d-score-booklets"><span class="math inline">\(D\)</span>-score booklets</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="sec-first1000.html"><a href="sec-first1000.html"><i class="fa fa-check"></i><b>1.1</b> First 1000 days</a></li>
 <li class="chapter" data-level="1.2" data-path="sec-relevance.html"><a href="sec-relevance.html"><i class="fa fa-check"></i><b>1.2</b> Relevance of child development</a></li>
@@ -271,8 +272,8 @@
 </div>
 <div id="ukki" class="section level3">
 <h3><span class="header-section-number">8.3.2</span> UKKI</h3>
-<p><span class="citation">Hafkamp-de Groen et al. (<a href="#ref-hafkamp2009">2009</a>)</span> studied the effect of the <span class="math inline">\(D\)</span>-score on later intelligence, using a subset of 557 SMOCC children that were followed up at the age of five years.</p>
-<p>The Utrechtse Korte Kleuter Intelligentietest (UKKI) <span class="citation">(Baarda <a href="#ref-baarda1978">1978</a>)</span> is a short test to measure intelligence. The UKKI is a simple test with just three components:</p>
+<p><span class="citation">Hafkamp-de Groen et al. (<a href="#ref-hafkamp2009" role="doc-biblioref">2009</a>)</span> studied the effect of the <span class="math inline">\(D\)</span>-score on later intelligence, using a subset of 557 SMOCC children that were followed up at the age of five years.</p>
+<p>The Utrechtse Korte Kleuter Intelligentietest (UKKI) <span class="citation">(Baarda <a href="#ref-baarda1978" role="doc-biblioref">1978</a>)</span> is a short test to measure intelligence. The UKKI is a simple test with just three components:</p>
 <ul>
 <li><p>Redraw five figures (square, triangle, cross, trapezoid, rhomboid);</p></li>
 <li><p>Draw human figure, with 28 characteristics, like legs, eyes, and so on;</p></li>
@@ -283,7 +284,7 @@
 <div id="exploratory-analysis" class="section level3">
 <h3><span class="header-section-number">8.3.3</span> Exploratory analysis</h3>
 <div class="figure" style="text-align: center"><span id="fig:histiq"></span>
-<img src="dbook1_files/figure-html/histiq-1.png" alt="Histogram of UKKI IQ scores taken around the age of five years (SMOCC data, \(n = 557\))." width="672" />
+<img src="dbook1_files/figure-html/histiq-1.svg" alt="Histogram of UKKI IQ scores taken around the age of five years (SMOCC data, \(n = 557\))." width="672" />
 <p class="caption">
 Figure 8.5: Histogram of UKKI <em>IQ</em> scores taken around the age of five years (SMOCC data, <span class="math inline">\(n = 557\)</span>).
 </p>
@@ -291,13 +292,14 @@ Figure 8.5: Histogram of UKKI <em>IQ</em> scores taken around the age of five ye
 
 <p>Figure <a href="sec-predictiq.html#fig:histiq">8.5</a> shows the empirical IQ distribution of 557 children. The mean IQ score is 108, and the standard deviation is 15, so the IQ-scores of children in the sample is about a half standard deviation above the 1978 reference sample.</p>
 <div class="figure" style="text-align: center"><span id="fig:plotdiq"></span>
-<img src="dbook1_files/figure-html/plotdiq-1.png" alt="Relation between \(D\)-score at infancy and IQ at age 5 years according to three milestone sets and nine visits (SMOCC data, \(n = 557\))." width="672" />
+<img src="dbook1_files/figure-html/plotdiq-1.svg" alt="Relation between \(D\)-score at infancy and IQ at age 5 years according to three milestone sets and nine visits (SMOCC data, \(n = 557\))." width="672" />
 <p class="caption">
 Figure 8.6: Relation between <span class="math inline">\(D\)</span>-score at infancy and <em>IQ</em> at age 5 years according to three milestone sets and nine visits (SMOCC data, <span class="math inline">\(n = 557\)</span>).
 </p>
 </div>
 
 <p>Figure <a href="sec-predictiq.html#fig:plotdiq">8.6</a> shows that the relation between the <span class="math inline">\(D\)</span>-score 0-2 years and IQ at five years is positive for all milestone sets and all ages. The strength of the association increases with age. At the age of 2 years, the regression coefficient for <span class="math inline">\(D\)</span>-score is equal to <span class="math inline">\(\beta(D) = 1.4\)</span> (SE: <span class="math inline">\(0.21, p &lt; 0.0001\)</span>), so on average an increase of 1.0 unit in the <span class="math inline">\(D\)</span>-score at the age of 2 years corresponds to a 1.4 IQ-score points increase at the age five years.</p>
+<pre><code>`summarise()` regrouping output by &#39;set&#39; (override with `.groups` argument)</code></pre>
 <table>
 <caption>
 <span id="tab:cordiq">Table 8.2: </span>Pearson correlation between D-score (0-2 years) and IQ at 5 years
@@ -324,13 +326,13 @@ All milestones
 1m
 </td>
 <td style="text-align:right;">
-0.058
+0.059
 </td>
 <td style="text-align:right;">
-0.010
+0.005
 </td>
 <td style="text-align:right;">
-0.033
+0.027
 </td>
 </tr>
 <tr>
@@ -338,13 +340,13 @@ All milestones
 2m
 </td>
 <td style="text-align:right;">
-0.043
+0.051
 </td>
 <td style="text-align:right;">
-0.054
+0.056
 </td>
 <td style="text-align:right;">
-0.043
+0.048
 </td>
 </tr>
 <tr>
@@ -352,13 +354,13 @@ All milestones
 3m
 </td>
 <td style="text-align:right;">
-0.034
+0.036
 </td>
 <td style="text-align:right;">
 0.100
 </td>
 <td style="text-align:right;">
-0.101
+0.102
 </td>
 </tr>
 <tr>
@@ -366,7 +368,7 @@ All milestones
 6m
 </td>
 <td style="text-align:right;">
-0.041
+0.040
 </td>
 <td style="text-align:right;">
 0.038
@@ -380,7 +382,7 @@ All milestones
 9m
 </td>
 <td style="text-align:right;">
-0.095
+0.094
 </td>
 <td style="text-align:right;">
 0.143
@@ -394,13 +396,13 @@ All milestones
 12m
 </td>
 <td style="text-align:right;">
-0.049
+0.046
 </td>
 <td style="text-align:right;">
-0.159
+0.162
 </td>
 <td style="text-align:right;">
-0.135
+0.137
 </td>
 </tr>
 <tr>
@@ -408,13 +410,13 @@ All milestones
 15m
 </td>
 <td style="text-align:right;">
-0.193
+0.180
 </td>
 <td style="text-align:right;">
-0.155
+0.153
 </td>
 <td style="text-align:right;">
-0.197
+0.187
 </td>
 </tr>
 <tr>
@@ -422,13 +424,13 @@ All milestones
 18m
 </td>
 <td style="text-align:right;">
-0.137
-</td>
-<td style="text-align:right;">
-0.150
+0.129
 </td>
 <td style="text-align:right;">
 0.153
+</td>
+<td style="text-align:right;">
+0.146
 </td>
 </tr>
 <tr>
@@ -439,10 +441,10 @@ All milestones
 0.245
 </td>
 <td style="text-align:right;">
-0.254
+0.255
 </td>
 <td style="text-align:right;">
-0.272
+0.267
 </td>
 </tr>
 </tbody>
@@ -456,10 +458,10 @@ All milestones
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-baarda1978">
-<p>Baarda, D.B. 1978. <em>UKKI: Utrechtse Korte Kleuter Intelligentietest: Handleiding</em>. Lisse: Swets en Zeitlinger.</p>
+<p>Baarda, D. B. 1978. <em>UKKI: Utrechtse Korte Kleuter Intelligentietest: Handleiding</em>. Lisse: Swets en Zeitlinger.</p>
 </div>
 <div id="ref-hafkamp2009">
-<p>Hafkamp-de Groen, E., E. Dusseldorp, M.M. Boere-Boonekamp, G.W. Jacobusse, A.M. Oudesluijs-Murphy, and P.H. Verkerk. 2009. “Relatie Tussen Het van Wiechenonderzoek (d-Score) Op 2 Jaar En Het Intelligentieniveau Op 5 Jaar [Relation Between the Dutch Development Instrument at the Age of 2 Years and Intelligence at the Age of 5 Years].” <em>Tijdschrift Voor Jeugdgezondheidszorg</em> 41 (1): 10–14.</p>
+<p>Hafkamp-de Groen, E., E. Dusseldorp, M. M. Boere-Boonekamp, G. W. Jacobusse, A. M. Oudesluijs-Murphy, and P. H. Verkerk. 2009. “Relatie Tussen Het van Wiechenonderzoek (d-Score) Op 2 Jaar En Het Intelligentieniveau Op 5 Jaar [Relation Between the Dutch Development Instrument at the Age of 2 Years and Intelligence at the Age of 5 Years].” <em>Tijdschrift Voor Jeugdgezondheidszorg</em> 41 (1): 10–14.</p>
 </div>
 </div>
             </section>

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3.4 Unit-based measurement of development | D-score: Turning milestones into measurement</title>
   <meta name="description" content="The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3.4 Unit-based measurement of development | D-score: Turning milestones into measurement" />
   <meta property="og:type" content="book" />
@@ -49,14 +49,15 @@
 
 
 
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <script src="libs/kePrint-0.0.1/kePrint.js"></script>
 <script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
-<script src="libs/plotly-binding-4.9.1/plotly.js"></script>
+<script src="libs/plotly-binding-4.9.2.1/plotly.js"></script>
 <script src="libs/typedarray-0.1/typedarray.min.js"></script>
-<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="libs/plotly-htmlwidgets-css-1.49.4/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="libs/plotly-main-1.49.4/plotly-latest.min.js"></script>
+<link href="libs/crosstalk-1.1.0.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.0.1/js/crosstalk.min.js"></script>
+<link href="libs/plotly-htmlwidgets-css-1.52.2/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="libs/plotly-main-1.52.2/plotly-latest.min.js"></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/latest.js?config=TeX-MML-AM_CHTML' async></script>
 
 
@@ -77,7 +78,7 @@
 <li><a href="https://stefvanbuuren.name/dbook1">D-score booklet I</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a></li>
+<li><a href="index.html#d-score-booklets"><span class="math inline">\(D\)</span>-score booklets</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a><ul>
 <li class="chapter" data-level="1.1" data-path="sec-first1000.html"><a href="sec-first1000.html"><i class="fa fa-check"></i><b>1.1</b> First 1000 days</a></li>
 <li class="chapter" data-level="1.2" data-path="sec-relevance.html"><a href="sec-relevance.html"><i class="fa fa-check"></i><b>1.2</b> Relevance of child development</a></li>
@@ -274,12 +275,12 @@
 <li><p>How does child development compare to a norm?</p></li>
 </ul>
 <p>In the ideal situation, we would like to have a continuous (latent) variable <span class="math inline">\(D\)</span> (for development) that measures child development. The scale should allow us to quantify <em>ability</em> of persons, groups or populations from low to high. It should have a <em>constant unit</em> so that a given difference in ability refers to the same quantity across the entire scale. We find the same property in height, where a distance of 10 cm represents the same amount for molecules, people or galaxies. When are these conditions are met, we say that we measure on an <em>interval scale</em>.</p>
-<p>If we succeed in creating an interval scale for child development, an enormous arsenal of techniques developed for quantitative variables opens up to measure, track and analyze child development. We may then evaluate the status of a child in terms of <span class="math inline">\(D\)</span> points gained, create age-dependent diagrams (just like growth charts for height and weight), devise age-conditional measures for child development, and intelligent adaptive testing schemes. Promising studies on Dutch data <span class="citation">(Jacobusse, van Buuren, and Verkerk <a href="#ref-jacobusse2006">2006</a>, <span class="citation">@jacobusse2007</span>, <span class="citation">@vanbuuren2014</span>)</span> suggest that such benefits are well within reach.</p>
+<p>If we succeed in creating an interval scale for child development, an enormous arsenal of techniques developed for quantitative variables opens up to measure, track and analyze child development. We may then evaluate the status of a child in terms of <span class="math inline">\(D\)</span> points gained, create age-dependent diagrams (just like growth charts for height and weight), devise age-conditional measures for child development, and intelligent adaptive testing schemes. Promising studies on Dutch data <span class="citation">(Jacobusse, van Buuren, and Verkerk <a href="#ref-jacobusse2006" role="doc-biblioref">2006</a>, @jacobusse2007, @vanbuuren2014)</span> suggest that such benefits are well within reach.</p>
 </div>
 <div id="sec:unitbasedexample" class="section level3">
 <h3><span class="header-section-number">3.4.2</span> Example of unit-based measurement</h3>
 <div class="figure" style="text-align: center"><span id="fig:shirleypd"></span>
-<img src="dbook1_files/figure-html/shirleypd-1.png" alt="Modeled probability of achieving four motor milestones against the \(D\)-score." width="672" />
+<img src="dbook1_files/figure-html/shirleypd-1.svg" alt="Modeled probability of achieving four motor milestones against the \(D\)-score." width="672" />
 <p class="caption">
 Figure 3.5: Modeled probability of achieving four motor milestones against the <span class="math inline">\(D\)</span>-score.
 </p>
@@ -303,7 +304,7 @@ Figure 3.5: Modeled probability of achieving four motor milestones against the <
 <h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-jacobusse2006">
-<p>Jacobusse, G., S. van Buuren, and P.H. Verkerk. 2006. “An Interval Scale for Development of Children Aged 0-2 Years.” <em>Statistics in Medicine</em> 25 (13): 2272–83. <a href="https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/">https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/</a>.</p>
+<p>Jacobusse, G., S. van Buuren, and P. H. Verkerk. 2006. “An Interval Scale for Development of Children Aged 0-2 Years.” <em>Statistics in Medicine</em> 25 (13): 2272–83. <a href="https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/">https://stefvanbuuren.name/publication/2006-01-01_jacobusse2006/</a>.</p>
 </div>
 </div>
             </section>
