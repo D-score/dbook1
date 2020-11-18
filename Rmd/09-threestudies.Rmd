@@ -4,10 +4,10 @@
 
 This chapter compares child development between samples from three different studies:
 
-* *SMOCC*, a representative sample of Dutch children (\@ref(sec:smoccstudy))
-* *POPS*, a cohort of all Dutch preterms in 1983 (\@ref(sec:pops))
-* *TOGO*, a set of medical records from preventive health service in Togo (\@ref(sec:togo))
-* A summary of the main findings (\@ref(sec:threestudiesconclusions))
+-   *SMOCC*, a representative sample of Dutch children (\@ref(sec:smoccstudy))
+-   *POPS*, a cohort of all Dutch preterms in 1983 (\@ref(sec:pops))
+-   *TOGO*, a set of medical records from preventive health service in Togo (\@ref(sec:togo))
+-   A summary of the main findings (\@ref(sec:threestudiesconclusions))
 
 Each study used the same measurement instrument, the DDI (see Section \@ref(sec:ddi)). The chapter compares D-scores between studies.
 
@@ -75,6 +75,7 @@ model$dscore$cohort <- "SMOCC"
 plot_ddaz(model$dscore, x = "agemos", y = "d", z = "daz", 
           colour = "#FF7F00B3")
 ```
+
 (ref:smoccda9) Distribution of D-score and DAZ by child age in a cohort of Dutch children aged 0-2 years (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
 Figure \@ref(fig:smoccda9) shows the D-score distribution by age in the SMOCC data. The grey curves represent references calculated from the SMOCC data. The top figure illustrates that rise of the D-score with age, whereas the bottom chart shows that the DAZ distribution covers the references well.
@@ -182,6 +183,7 @@ plot_ddaz(pops2, y = "d_0.75", z = "daz_0.75",
           xlab = "Age (in months) corrected", 
           colour = "#006CC2B3")
 ```
+
 (ref:popsda9) Distribution of D-score and DAZ by child age in a cohort of preterm aged 0-2 years. Ages are corrected for preterm birth by a factor of 0.75 (Source: POPS data, 450 children, four occasions).
 
 Figure \@ref(fig:popsda9) presents the D-score and DAZ distributions for the POPS cohort of children born very preterm or with very low birth weight. The distributions of the D-score and DAZ are similar to those found in the SMOCC study.
@@ -192,7 +194,7 @@ The primary new complication here is the question whether it is fair to compare 
 
 ### POPS design
 
-In 1983, the Project On Preterm and Small for Gestational Age Infants (POPS study) collected data on all 1338 infants in the Netherlands who had very preterm birth (gestational age < 32 weeks) or very low birth weight (birth weight < 1500 grams). See @verloove1986 for details.
+In 1983, the Project On Preterm and Small for Gestational Age Infants (POPS study) collected data on all 1338 infants in the Netherlands who had very preterm birth (gestational age \< 32 weeks) or very low birth weight (birth weight \< 1500 grams). See @verloove1986 for details.
 
 The POPS study determined gestational age from the best obstetric estimate, including the last menstrual period, results of pregnancy testing, and ultrasonography findings. The POPS study collected measurements on 450 children using the DDI at four visits at corrected postnatal ages of 3, 6, 12 and 24 months.
 
@@ -210,9 +212,9 @@ where 280 is the average gestational age in days, and where we specify several a
 
 Let's apply the same idea to child development. Using *corrected age* instead of *postnatal age* has two consequences:
 
-* It will affect the prior distribution for calculating the D-score;
+-   It will affect the prior distribution for calculating the D-score;
 
-* It will affect DAZ calculation.
+-   It will affect DAZ calculation.
 
 We evaluate these two effects in turn.
 
@@ -232,6 +234,7 @@ g <- ggplot(subset(pops2, n > 0),
   theme(legend.position = c(0.8, 0.15))
 g
 ```
+
 (ref:adjustd) Scatterplot of two versions of the D-score, one calculated using postnatal age ($f = 0.00$), the other calculated using full age-adjustment ($f = 1.00$).
 
 Figure \@ref(fig:adjustd) plots the fully age-adjusted D-score against the unadjusted D-score. Any discrepancies result only from differences in the ages used in the age-dependent prior (c.f. Section \@ref(sec:adp)).
@@ -246,6 +249,7 @@ plot_ddaz(pops2, y = "d_0.00", z = "daz_0.00",
           xlab = "Postnatal age (in months)", 
           colour = "#006CC2B3")
 ```
+
 (ref:popsda90) Distribution of D-score and DAZ without age correction for preterm birth ($f = 0.00$).
 
 Figure \@ref(fig:popsda90) illustrates that a considerable number of D-scores fall below the minus -2 SD line of the reference when age is not adjusted, especially during the first year of life. The pattern suggests that the apparent slowness in development is primarily the result of being born early, and does not necessarily reflect delayed development.
@@ -258,6 +262,7 @@ plot_ddaz(pops2, y = "d_1.00", z = "daz_1.00",
           xlab = "Age (in months), fully corrected", 
           colour = "#006CC2B3")
 ```
+
 (ref:popsda91) Distribution of D-score and DAZ under full age correction for preterm birth ($f = 1.00$).
 
 Full age correction has a notable effect on the DAZ. Figure \@ref(fig:popsda91) illustrates that the POPS children are now somewhat advanced over the reference children. We ascribe this seemingly odd finding to more prolonged exposure to sound and vision in air. Thus after age correction, development in preterms during early infancy is advanced compared to just-born babies.
@@ -283,20 +288,19 @@ Table \@ref(tab:tabz) compares mean DAZ under various specifications for $f$. Va
 
 ### Conclusions
 
-* Compared with the general population, more very preterm children reached developmental milestones within chronological age five months when chronological age was fully corrected;
+-   Compared with the general population, more very preterm children reached developmental milestones within chronological age five months when chronological age was fully corrected;
 
-* Fewer preterm children reached the milestones when chronological age was not corrected;
+-   Fewer preterm children reached the milestones when chronological age was not corrected;
 
-* Fewer children reached the milestones when we used a correction of $f = 0.50$;
+-   Fewer children reached the milestones when we used a correction of $f = 0.50$;
 
-* Similar proportions were observed when we used $f = 0.75$ within the first five months after birth.
+-   Similar proportions were observed when we used $f = 0.75$ within the first five months after birth.
 
-* After chronological age five months, we observed similar proportions for very preterm and full-term children when chronological age was fully corrected.
+-   After chronological age five months, we observed similar proportions for very preterm and full-term children when chronological age was fully corrected.
 
-* We recommend using full age correction ($f = 1.00$). This advice corresponds to current practice for growth and development. As we have shown, preterms may look better in the first few months under full age-correction. If the focus of the scientific study is on the first few months, we recommend an age correction of $f = 0.75$.
+-   We recommend using full age correction ($f = 1.00$). This advice corresponds to current practice for growth and development. As we have shown, preterms may look better in the first few months under full age-correction. If the focus of the scientific study is on the first few months, we recommend an age correction of $f = 0.75$.
 
 ## TOGO study {#sec:togo}
-
 
 ```{r togodata}
 library(ddata)
@@ -354,13 +358,14 @@ togo2$cohort <- "TOGO"
 plot_ddaz(togo2, y = "d", z = "daz", 
           colour = "#009E73B3")
 ```
+
 (ref:togoda) Distribution of D-score and DAZ by child age of children living near Kpalimé, Togo (Source: TOGO data, $n = 1567$).
 
 Figure \@ref(fig:togoda) presents the D-score and DAZ distributions of a sample of children living near Kpalimé, Togo. While the primary trend with age conforms to the previous data, the distributions differ from those in Figures \@ref(fig:smoccda9) and \@ref(fig:popsda9) in two respects:
 
-* *Compression at the upper end*: Most of the D-scores are above the median curve, which suggests that, at these ages, children living in Togo *develop faster* than children living in the Netherlands;
+-   *Compression at the upper end*: Most of the D-scores are above the median curve, which suggests that, at these ages, children living in Togo *develop faster* than children living in the Netherlands;
 
-* *Expansion at the lower end*: There is a considerable variation in D-scores on the lower end, with many D-scores below the -2 SD curve, suggesting that some children are *significantly more delayed* than would be expected in both Dutch samples.
+-   *Expansion at the lower end*: There is a considerable variation in D-scores on the lower end, with many D-scores below the -2 SD curve, suggesting that some children are *significantly more delayed* than would be expected in both Dutch samples.
 
 The D-scores are calculated using the same 57 milestones and difficulty estimates as before. The resulting D-score distribution is quite unusual. The main question here is what could explain the pattern found in the D-scores. This section explores this question in some detail.
 
@@ -368,18 +373,19 @@ The D-scores are calculated using the same 57 milestones and difficulty estimate
 
 If the D-score is to be a universal measure, then it should be informative in *low and middle-income countries* (LMIC) as well. We do not yet know much about the usability and validity of the D-score in LMIC's. The western African country of Togo qualifies as a low-income country, with a 2017 GNI per capita of USD 610, compared to USD 46,180 in the Netherlands, and USD 744 for low-income countries in general (data.worldbank.org).
 
-The data were collected by Cécile Schat-Savy, who initiated a youth health care centre modelled after the Dutch youth health care system in Kpalimé, Togo. See https://www.kinderhulp-togo.nl for more background. Data monitoring included a french translation the DDI for measuring child development. The investigators gathered data from 9747 individuals in the 0-18 age range.
+The data were collected by Cécile Schat-Savy, who initiated a youth health care centre modelled after the Dutch youth health care system in Kpalimé, Togo. See <https://www.kinderhulp-togo.nl> for more background. Data monitoring included a french translation the DDI for measuring child development. The investigators gathered data from 9747 individuals in the 0-18 age range.
 
-Participants include children and their parents who visited the Kpalimé health centre at least one time. Kpalimé is the fourth largest town in Togo, but the health centre also attracted parents and children from a wide surrounding rural area. Parents visited the health centre for several reasons, including for a preventive health check or because of their child’s apparent health problems.
+Participants include children and their parents who visited the Kpalimé health centre at least one time. Kpalimé is the fourth largest town in Togo, but the health centre also attracted parents and children from a wide surrounding rural area. Parents visited the health centre for several reasons, including for a preventive health check or because of their child's apparent health problems.
 
 The health centre targeted parents through information sessions for parents at primary schools. Parents paid a small amount of money per child (about USD 4.00 for children of 4 years or older, and USD 0.80 for children younger than four years). Four local data-assistants digitized the data from paper archives. TNO Child Health in The Netherlands monitored the process and checked the data for completeness and consistency.
 
 ```{r dataassistents, fig.cap = '(ref:dataassistents)', out.width='60%'}
 include_graphics("fig/data_assistents.png")
 ```
+
 (ref:dataassistents) Three of the data-assistants who helped to digitize the paper files.
 
-Here we use a subset of 2674 visits from 1644 unique children who scored on the 57 milestones of the DDI 0-2 years. We did not calculate D-scores when age or DDI milestones were missing, which left a dataset of 2425 visits from unique 1567 children. The number of visits varied from 1 – 9. The majority of children visited the centre once.
+Here we use a subset of 2674 visits from 1644 unique children who scored on the 57 milestones of the DDI 0-2 years. We did not calculate D-scores when age or DDI milestones were missing, which left a dataset of 2425 visits from unique 1567 children. The number of visits varied from 1 -- 9. The majority of children visited the centre once.
 
 ```{r plotdafunc}
 plot_da <- function(data, x = "agemos", y = "d", z = "daz", 
@@ -421,11 +427,11 @@ plot_da <- function(data, x = "agemos", y = "d", z = "daz",
 
 ### D-score labelled by neurological problem {#sec:togoneuro}
 
-
 ```{r togoda1, fig.cap = '(ref:togoda1)', fig.height = 6, warning = FALSE}
 togo2$cohort <- "TOGO: Marked by presence of neurological problem"
 plot_da(togo2, v = "neuro", colour = "#009E73B3")
 ```
+
 (ref:togoda1) Distribution of D-score by age labelled by neurological (tonus and/or reflex) problems. (Source: TOGO data).
 
 Figure \@ref(fig:togoda1) is the same scatter plot as in Figure \@ref(fig:togoda), but now marked by whether the physician registered signs of neuropathology in the form of tonus and reflex problems.
@@ -438,6 +444,7 @@ Many children with low D-scores also have tonus or reflex problems. This finding
 togo2$cohort <- "TOGO: Marked by Apgar (10 min) < 8"
 plot_da(togo2, v = "apgar", colour = "#009E73B3")
 ```
+
 (ref:togoda2) Distribution of D-score by age labelled by Apgar score (10 minutes) lower than 8. (Source: TOGO data).
 
 Figure \@ref(fig:togoda2) identifies the children who had an Apgar score at 10 minutes after birth that was lower than 8. About half of these children had a D-score below -2 SD curve.
@@ -448,9 +455,10 @@ Figure \@ref(fig:togoda2) identifies the children who had an Apgar score at 10 m
 togo2$cohort <- "TOGO: Marked by severe underweight (WAZ < -4)"
 plot_da(togo2, v = "underweight", colour = "#009E73B3")
 ```
-(ref:togoda3) Distribution of D-score by age labelled by severe underweight (WAZ < -4) (Source: TOGO data).
 
-Many children who visited the Kpalimé health centre had a low body weight for their age. Figure \@ref(fig:togoda3) marks the subset of severely underweight children (WAZ < -4). A substantial proportion of these children also had a very low D-score.
+(ref:togoda3) Distribution of D-score by age labelled by severe underweight (WAZ \< -4) (Source: TOGO data).
+
+Many children who visited the Kpalimé health centre had a low body weight for their age. Figure \@ref(fig:togoda3) marks the subset of severely underweight children (WAZ \< -4). A substantial proportion of these children also had a very low D-score.
 
 ### D-score labelled by severe stunting
 
@@ -458,9 +466,10 @@ Many children who visited the Kpalimé health centre had a low body weight for t
 togo2$cohort <- "TOGO: Marked by severe stunted growth (HAZ < -4)"
 plot_da(togo2, v = "stunted", colour = "#009E73B3")
 ```
-(ref:togoda4) Distribution of D-score by age labelled by severe stunting (HAZ < -4) (Source: TOGO data).
 
-Figure \@ref(fig:togoda4) is similar to \@ref(fig:togoda3), but now marked by the subset of severely stunted children (HAZ < -4). Also here, a sizable proportion has a low D-score.
+(ref:togoda4) Distribution of D-score by age labelled by severe stunting (HAZ \< -4) (Source: TOGO data).
+
+Figure \@ref(fig:togoda4) is similar to \@ref(fig:togoda3), but now marked by the subset of severely stunted children (HAZ \< -4). Also here, a sizable proportion has a low D-score.
 
 When taken together, Figures \@ref(fig:togoda1)-\@ref(fig:togoda4) show that children with very low D-scores often experience (multiple) harsh health problems. Those health problems may have substantially delayed their development.
 
@@ -468,7 +477,7 @@ When taken together, Figures \@ref(fig:togoda1)-\@ref(fig:togoda4) show that chi
 smocc <- as.data.frame(data)
 ```
 
-```{r bind3a, warning=FALSE} 
+```{r bind3a, warning=FALSE}
 smocc2 <- smocc %>% 
   left_join(model$dscore, by = c("subjid", "agedays")) %>% 
   mutate(agemos = agedays / 365.25 * 12) %>% 
@@ -517,6 +526,7 @@ plots <- dmetric::plot_p_a_item(pass = pass, data_rug = data_rug,
 gridExtra::grid.arrange(plots[[53]], plots[[69]], plots[[64]], ncol = 1)
 #
 ```
+
 (ref:grossmotor) Gross motor milestones. Probability by age for SMOCC, POPS (corrected age) and TOGO studies for three milestones.
 
 Figure \@ref(fig:grossmotor) shows substantial differences in gross motor development between children from Togo and the Netherlands. For example, at the age of three months, about 30 per cent of the Dutch infants succeed in controlling their head when pulled to sitting. However, infants from Togo seem already capable of head control when they are just one month old.
@@ -528,6 +538,7 @@ Moreover, the advantage persists at least until up to the age of two years: chil
 ```{r finemotor, fig.cap = '(ref:finemotor)', fig.height = 12, warning = FALSE}
 gridExtra::grid.arrange(plots[[27]], plots[[29]], plots[[33]], ncol = 1)
 ```
+
 (ref:finemotor) Fine motor milestones. Probability by age for SMOCC, POPS (corrected age) and TOGO studies for three milestones.
 
 Figure \@ref(fig:finemotor) shows a less pronounced but similar phenomenon for fine motor skills. These data suggest that children in Togo may have better fine motor skills than the children from the two Dutch cohorts.
@@ -537,6 +548,7 @@ Figure \@ref(fig:finemotor) shows a less pronounced but similar phenomenon for f
 ```{r commun, fig.cap = '(ref:commun)', fig.height = 12, warning = FALSE}
 gridExtra::grid.arrange(plots[[4]], plots[[11]], plots[[16]], ncol = 1)
 ```
+
 (ref:commun) Communication and language milestones. Probability by age for SMOCC, POPS (corrected age) and TOGO studies for three milestones.
 
 Figure \@ref(fig:commun) summarizes the data for three milestones on communication and language. In general, the success probability is similar in the three studies.
@@ -551,12 +563,12 @@ This chapter compared the D-scores estimated from the DDI administered to three 
 
 We found that
 
-* The D-score by age plot showed a positive, curved relationship with age in all three studies;
+-   The D-score by age plot showed a positive, curved relationship with age in all three studies;
 
-* Children born very preterm or with very low birth weight had similar development to reference children when their age was corrected for early birth;
+-   Children born very preterm or with very low birth weight had similar development to reference children when their age was corrected for early birth;
 
-* A relatively small subset of children born in Togo had extremely low D-scores, not found in the Netherlands, likely the result of underlying neuropathology, severe underweight or severe stunting;
+-   A relatively small subset of children born in Togo had extremely low D-scores, not found in the Netherlands, likely the result of underlying neuropathology, severe underweight or severe stunting;
 
-* On average, children from Togo seemed to have faster development during the first two years, especially in motor development, though there may be issues with reporting bias.
+-   On average, children from Togo seemed to have faster development during the first two years, especially in motor development, though there may be issues with reporting bias.
 
 All in all, these findings support the usefulness and validity of the D-score as an informative summary of child development during their first two years of life.

@@ -2,24 +2,25 @@
 
 > Author: Marianne de Wolff
 
-This introduction outlines why we utilize the D-score. This chapter 
+This introduction outlines why we utilize the D-score. This chapter
 
-* reviews key discussions about the first 1000 days in a child's life (\@ref(sec:first1000))
-* highlights the relevance of early childhood development for later life  (\@ref(sec:relevance))
-* discusses the use of stunting as a proxy for development  (\@ref(sec:stunting))
-* points to existing instruments to quantify neurocognitive development (\@ref(sec:neurocognitive))
-* explains why we have written this booklet (\@ref(sec:why))
-* delineates the intended audience (\@ref(sec:audience))
+-   reviews key discussions about the first 1000 days in a child's life (\@ref(sec:first1000))
+-   highlights the relevance of early childhood development for later life (\@ref(sec:relevance))
+-   discusses the use of stunting as a proxy for development (\@ref(sec:stunting))
+-   points to existing instruments to quantify neurocognitive development (\@ref(sec:neurocognitive))
+-   explains why we have written this booklet (\@ref(sec:why))
+-   delineates the intended audience (\@ref(sec:audience))
 
 ## First 1000 days {#sec:first1000}
 
 The *first 1000 days* refers to the time needed for a child to grow from conception to the second birthday. It is a time of rapid change. During this period the architecture of the developing brain is very open to the influence of relationships and experiences [@skonkhoff2016best].
 
-Early experiences affect the nature and quality of the brain’s developing architecture by reinforcing some synapses and pruning others through lack of use. The first 1000 days shape the brain’s architecture, but higher-order brain functions continue to develop into adolescence and early adulthood [@kolb2017principles].
+Early experiences affect the nature and quality of the brain's developing architecture by reinforcing some synapses and pruning others through lack of use. The first 1000 days shape the brain's architecture, but higher-order brain functions continue to develop into adolescence and early adulthood [@kolb2017principles].
 
 ```{r shonkoffplot, fig.cap = '(ref:shonkoffplot)'}
 include_graphics("fig/Shonkoff_Ch1.png")
 ```
+
 (ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: @skonkhoff2016best.
 
 The classic *nature versus nurture debate* contrasts the viewpoints that variation in development is primarily due to either genetic or environmental differences. The current scientific consensus is that both genetic predisposition and ecological differences influence all traits [@rutter2007genes].
@@ -28,39 +29,39 @@ The environment in which a child develops (before and soon after birth) provides
 
 During the first 1000 days, infants are highly dependent on their caregivers to protect them from adversities and to help them regulate their physiology and behavior. Caregivers can do this through responsive care, including routines for sleeping and feeding. To reach their developmental potential, children require nutrition, responsive caregiving, opportunities to explore and learn, and protection from environmental threats [@black2017]. Gradually, children build self-regulatory skills that enable them to manage stress as they interact with the world around them [@johnson2013science].
 
-
 ## Relevance of child development {#sec:relevance}
 
 The first 1000 days is a time of rapid change. Early experiences affect brain development and influence lifelong learning and health [@skonkhoff2016best]. Healthy development is associated with future school achievement, well-being, and success in life [@bellman2013].
 
-Professionals and parents consider it important to monitor children’s development. Tracking child development enables professionals to identify children with signs of potential delay. Timely identification can help children and their parents to benefit from early intervention. In a normal population, developmental delay affects about 1--3\% of children. A delay in development may indicate underlying disorders. About 1\% of children have an autism spectrum disorder [@baird2006], 1--2\% a mild learning disability, and 5--10\% have a specific learning disability in a single domain [@horridge2011].
+Professionals and parents consider it important to monitor children's development. Tracking child development enables professionals to identify children with signs of potential delay. Timely identification can help children and their parents to benefit from early intervention. In a normal population, developmental delay affects about 1--3% of children. A delay in development may indicate underlying disorders. About 1% of children have an autism spectrum disorder [@baird2006], 1--2% a mild learning disability, and 5--10% have a specific learning disability in a single domain [@horridge2011].
 
-Children develop at different rates, and it is vital to distinguish those who are within the “normal” range from those who are following a more pathological course [@bellman2013]. There is good evidence that early identification and early intervention improve the outcomes of children [@britto2017]. Early intervention is crucial for children with developmental disabilities because barriers to healthy development early in life impede progress at each subsequent stage.
+Children develop at different rates, and it is vital to distinguish those who are within the "normal" range from those who are following a more pathological course [@bellman2013]. There is good evidence that early identification and early intervention improve the outcomes of children [@britto2017]. Early intervention is crucial for children with developmental disabilities because barriers to healthy development early in life impede progress at each subsequent stage.
 
-Monitoring child development provides caregivers and parents with reliable information about the child and an opportunity to intervene at an early age. Understanding the developmental health of populations of children allows organisations and policymakers to make informed decisions about programmes that support children’s greatest needs [@bellman2013].
+Monitoring child development provides caregivers and parents with reliable information about the child and an opportunity to intervene at an early age. Understanding the developmental health of populations of children allows organisations and policymakers to make informed decisions about programmes that support children's greatest needs [@bellman2013].
 
 ## Stunting as proxy for child development {#sec:stunting}
 
 Stunting is the impaired physical growth and development that children experience from poor nutrition, repeated infection, and inadequate psychosocial stimulation. Linear growth in children is commonly expressed as length-for-age or height-for-age in comparison to normative growth standards [@wit2017practical]. According to the World Health Organization (WHO), children are stunted if their height-for-age is more than two standard deviations below the Child Growth Standards median. Stunting caused by chronic nutritional deprivation in early childhood is as an indicator of child development [@perkins2017understanding].
 
-```{r shortkids, fig.cap = '(ref:shortkids)'} 
+```{r shortkids, fig.cap = '(ref:shortkids)'}
 include_graphics("fig/stuntedchildren.jpg") 
-``` 
+```
+
 (ref:shortkids) Seven eight-year-old children are standing in front of a wall with the line depicting the average height according to the WHO Child Growth Standards.
 
 There is consistent evidence for an association between stunting and poor child development, despite heterogeneity in the estimation of its magnitude [@miller2016consistent; @sudfeld2015linear]. Considering impaired linear growth as a proxy measure for child development is easy to do, and quite common. Yet, using impaired height growth as a measure for child development is not without limitations:
 
-* The relation between height and child development is weak after adjustment for age;
+-   The relation between height and child development is weak after adjustment for age;
 
-* Height is a physical indicator that does not take into account a direct evaluation of a child's cognitive or mental performance;
+-   Height is a physical indicator that does not take into account a direct evaluation of a child's cognitive or mental performance;
 
-* There is considerable heterogeneity in heights of children all over the world;
+-   There is considerable heterogeneity in heights of children all over the world;
 
-* Height is not sensitive to rapid changes in child development.
+-   Height is not sensitive to rapid changes in child development.
 
 ## Measuring neurocognitive development {#sec:neurocognitive}
 
-Assessment of early neurocognitive development in children is challenging for many reasons [@ellingsen2016]. During the first years of life, developmental change occurs rapidly, and the manifestation of different skills and abilities varies considerably across children. Moreover, a child’s performance on a cognitive task is very susceptible to measurement setting, timing and the health of the child that day.
+Assessment of early neurocognitive development in children is challenging for many reasons [@ellingsen2016]. During the first years of life, developmental change occurs rapidly, and the manifestation of different skills and abilities varies considerably across children. Moreover, a child's performance on a cognitive task is very susceptible to measurement setting, timing and the health of the child that day.
 
 Recently, a toolkit was published that reviews 147 assessment tools developed for children ages 0--8 years in low- and middle-income countries [@fernald2017toolkit]. Some of the most widely used tools include the Ages & Stages Questionnaires (ASQ), Achenbach Child Behavior Checklist (CBCL), Bayley Scales of Infant Development (BSID), Denver Developmental Screening Test (DEN), Griffiths Scales of Child Development (GRF), Mullen Scale of Early Learning (MSEL), Strengths and Difficulties Questionnaire (SDQ), Wechsler Intelligence Scale for Children (WISC), and its younger age counterpart Wechsler Preschool and Primary Scale of Intelligence (WPPSI).
 
@@ -80,9 +81,9 @@ Instruments and scales are different things. Currently, instruments for measurin
 
 We aim for three broad audiences:
 
-* Professionals in the field of child growth and development;
-* Policymakers in international settings;
-* Statisticians, methodologists, and data scientists.
+-   Professionals in the field of child growth and development;
+-   Policymakers in international settings;
+-   Statisticians, methodologists, and data scientists.
 
 Professionals in child development will become familiar with a new approach to measuring child development in early childhood. We plan to separate the measurement instrument from the scale used to express the result. This formulation allows the user **to select the instrument most suited for a particular setting**. Since instruments differ widely in age coverage, length, administration mode, and domain coverage [@boggs2019], the ability to choose the instrument, while not giving up comparability, represents a significant advance over routines that marry the scale to the instrument.
 

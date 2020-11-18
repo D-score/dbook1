@@ -4,9 +4,8 @@
 
 Validity is a generic term that refers to the question of how well an instrument measures what it claims to measure. There are various aspects of validity. This chapter briefly reviews the main types of validity:
 
-* Internal validity (\@ref(sec:internal))
-* External validity (\@ref(sec:external))
-
+-   Internal validity (\@ref(sec:internal))
+-   External validity (\@ref(sec:external))
 
 ```{r init07, include=FALSE}
 library(ddata)
@@ -49,6 +48,7 @@ ggplot(data = dom_data, aes(x = ability, y = info, fill = domain)) +
   labs(fill = "DDI domain") +
   theme(legend.position = c(0.15, 0.75))
 ```
+
 (ref:plotcontent) Cumulative item information by DDI domain.
 
 Figure \@ref(fig:plotcontent) shows the coverage of the three domains of the DDI at various levels of the D-score. The three domains of the DDI are relevant at most ability levels. The DDI contains no communication milestones between 20 $D$ and 30 $D$, so at these levels, the DDI measures primarily motor performance.
@@ -74,6 +74,7 @@ ggplot(data = fitdomplot, aes( x = tau, y = fit, color = domain)) +
   ylab("Item fit")
 
 ```
+
 (ref:plotdomainfit) Item fit by D-score for the DDI domains.
 
 In Chapter \@ref(ch:newmodel), we assumed that child development is a latent variable. Figure \@ref(fig:plotdomainfit) provides one way to evaluate the validity of this assumption. The figure plots the item fit for each milestone coloured by domain. Items from different domains fit equally well, so there is no evidence that the D-score favours a particular area. Put in more technical terms; the DDI domains do not explain differences in the item fit residuals of the model.
@@ -102,7 +103,6 @@ ggplot(plotdat, aes(x = agemos, y = b, group = residence, colour = residence))+
   xlab("Age (months)")+
   ylab("D-score")
 ```
-
 
 ### Convergent and divergent validity
 
@@ -133,6 +133,7 @@ dmetric::plot_d_adm(data = data, model = model, metric = "dscore",
 #  ylab("z-score for height")+
 #  xlab("z-score for D")
 ```
+
 (ref:plotconcurrent) Relation between body height and the D-score in the SMOCC data.
 
 Figure \@ref(fig:plotconcurrent) shows both convergent and divergent validity at work. The figure shows that, as expected, there is a strong and almost linear relation between body height and the D-score. However, after correction for the child's age, the relationship between height and D-score almost disappears. Thus, growth and development are entirely different concepts.

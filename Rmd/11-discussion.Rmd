@@ -1,6 +1,7 @@
 ---
 output: pdf_document
 ---
+
 ```{r init11, include=FALSE}
 source(file = file.path("/Users/buurensv/Websites/dbook/dbook1/R", "before_chapter_script.R"), 
        local = TRUE)
@@ -14,17 +15,17 @@ This booklet provides a quick overview of the relevance, concepts and techniques
 
 A rough selection of such questions includes:
 
-* What is the added value of the D-score in practice? 
-* Does the D-score extend to higher ages?
-* Is the assumption of uni-dimensionality reasonable for other ages and populations?
-* Can we calculate the D-score from instruments other than the DDI?
-* Is it reasonable to assume that milestone difficulty is identical in other populations?
-* Does the method apply to caregiver-reported milestones?
-* Would a dedicated D-score instrument be more efficient? 
-* How many milestones are "enough"?
-* Can the same scale be used for measurement at individual, group and population levels?
-* Can the D-score detect delayed development?
-* Would the D-score help to target early interventions?
+-   What is the added value of the D-score in practice?
+-   Does the D-score extend to higher ages?
+-   Is the assumption of uni-dimensionality reasonable for other ages and populations?
+-   Can we calculate the D-score from instruments other than the DDI?
+-   Is it reasonable to assume that milestone difficulty is identical in other populations?
+-   Does the method apply to caregiver-reported milestones?
+-   Would a dedicated D-score instrument be more efficient?
+-   How many milestones are "enough"?
+-   Can the same scale be used for measurement at individual, group and population levels?
+-   Can the D-score detect delayed development?
+-   Would the D-score help to target early interventions?
 
 This chapter briefly reviews some of these issues.
 
@@ -32,11 +33,11 @@ This chapter briefly reviews some of these issues.
 
 The D-score is a new approach to measure child development. The D-score is a scale for quantifying generic child development by a single number. Milestones are selected to fit the Rasch model. We can interpret the resulting measurements as scores on an interval scale, a requirement for answering questions like:
 
-* What is the difference in development over time for the same child, group or population?
+-   What is the difference in development over time for the same child, group or population?
 
-* What is the difference in development between different children, groups or populations of the same age?
+-   What is the difference in development between different children, groups or populations of the same age?
 
-* How does child development compare to a norm?
+-   How does child development compare to a norm?
 
 The concept of the D-score is broader than a score calculated from the DDI. Any instrument that fits the model underlying the D-score can be used to measure the child's D-score.
 
@@ -46,9 +47,9 @@ The precision of the measurement depends on the number of milestones and the mat
 
 The field of child growth and development roughly divides into two areas:
 
-* The subfield *child growth* (or *auxology*) emphasizes body measures like height, weight, body mass index, and so on. It is a rigorous quantitative science with intimate ties to statistics since the days of Quetelet and Galton.
+-   The subfield *child growth* (or *auxology*) emphasizes body measures like height, weight, body mass index, and so on. It is a rigorous quantitative science with intimate ties to statistics since the days of Quetelet and Galton.
 
-* The subfield *child development* is more recent and builds upon a wide-ranging set of domain-specific instruments for measuring motor, language, cognitive and behavioural states.
+-   The subfield *child development* is more recent and builds upon a wide-ranging set of domain-specific instruments for measuring motor, language, cognitive and behavioural states.
 
 The *growth chart* is a widely used tool to monitor physical growth. The D-score can be used in a similar way to create the *D-chart*.
 
@@ -93,6 +94,7 @@ g1 <- ggplot(data, aes_string(x = "agemos", y = "d", colour = "subjid")) +
   theme(legend.position = c(0.8, 0.2))
 g1
 ```
+
 (ref:dchart) D-chart with five children from the SMOCC study.
 
 Figure \@ref(fig:dchart) shows the developmental paths of five randomly chosen children from the SMOCC study. Although the milestones differ across age, there is only one vertical axis. These trajectories will help to track the progress of a child over time.
@@ -123,11 +125,11 @@ Booklet II will address some of the conceptual and technical issues that arise w
 
 There is a vast base of historic child developmental data using existing instruments. The problem is that each device defines its own summaries, so we cannot compare scores across tools. Different instruments have different domains, various age forms, different stopping rules, diverse age norms, and so on. Yet, the milestones in these instruments are often very similar. Most tools collect data on milestones like:
 
-* Can the child stack two blocks?
-* Can the child rollover?
-* Can the child draw a cross?
-* Can the child stand?
-* Can the child say "baba"?
+-   Can the child stack two blocks?
+-   Can the child rollover?
+-   Can the child draw a cross?
+-   Can the child stand?
+-   Can the child say "baba"?
 
 With the D-score methodology in hand, we are ready to exploit the overlap in milestones shared by different instruments. Common items can act as *bridges*, so - with the appropriate item-level data - we may attempt calculating D-scores from other tools as well.
 

@@ -4,11 +4,11 @@
 
 This chapter explains the basic computations needed for fitting and evaluating the Rasch model. We distinguish the following steps:
 
-* Identify nature of the problem (\@ref(sec:datapreparation))
-* Estimation of item parameters (\@ref(sec:itemestimation))
-* Anchoring (\@ref(sec:anchoring))
-* Estimation of the D-score (\@ref(sec:dscoreestimation))
-* Estimation of age-conditional references (\@ref(sec:reference))
+-   Identify nature of the problem (\@ref(sec:datapreparation))
+-   Estimation of item parameters (\@ref(sec:itemestimation))
+-   Anchoring (\@ref(sec:anchoring))
+-   Estimation of the D-score (\@ref(sec:dscoreestimation))
+-   Estimation of age-conditional references (\@ref(sec:reference))
 
 Readers not interested in these details may continue to model evaluation in Chapter \@ref(ch:evaluation).
 
@@ -35,7 +35,8 @@ kable(broad,
   kableExtra::column_spec(3:59, width_max = "3em") %>%
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
-&nbsp;
+
+ 
 
 Table \@ref(tab:smocctable) contains data of three children, measured on nine visits between ages 0 - 2 years. The DDI scores take values 0 (FAIL) and 1 (PASS). In order to save horizontal space, we truncated the column headers to the last two digits of the item names.
 
@@ -80,6 +81,7 @@ p <- ggplot(ib, aes(x = delta, y = reorder(lab, -delta))) +
   theme(axis.title.y = element_blank())
 p
 ```
+
 (ref:itemdiflplot) Estimated item difficulty parameters ($d_i$) for 57 milestones of the DDI (0 - 2 years).
 
 Figure \@ref(fig:itemdiflplot) summarizes the estimated item difficulty parameters. Although the model makes no distinction between domains, the results have been ordered to ease spotting of the natural progression of the milestones per domain. The figure also suggests that not all domain have equal representation across the scale. For example, there are no communication milestones around the logit of $-10$.
@@ -88,9 +90,9 @@ Figure \@ref(fig:itemdiflplot) summarizes the estimated item difficulty paramete
 
 The Rasch model identifies the item difficulties up to a linear transformation. By default, the software produces estimates in the logit scale (c.f. Figure \@ref(fig:itemdiflplot)). The logit scale is inconvenient for two reasons:
 
-* The logit scale has negative values. Negative values do not have a sensible interpretation in child development, and are likely to introduce errors in practice;
+-   The logit scale has negative values. Negative values do not have a sensible interpretation in child development, and are likely to introduce errors in practice;
 
-* Both the zero in the logit scale, as well as its variance, depend on the sample used to calibrate the item difficulties.
+-   Both the zero in the logit scale, as well as its variance, depend on the sample used to calibrate the item difficulties.
 
 Rescaling preserves the properties of the Rasch model. To make the scale independent of the specified sample, we transform the scale so that two items will always have the same value on the transformed scale. The choice of the two anchor items is essentially arbitrary, but they should correspond to milestones that are easy to measure with small error. In the sequel, we use the two milestones to anchor the D-score scale:
 
@@ -105,7 +107,8 @@ kable(df,
       caption = "Anchoring values used to identify the D-score scale", 
       booktabs = TRUE)
 ```
-&nbsp;
+
+ 
 
 With the choice of Table \@ref(tab:anchor), D-score values are approximately 0$D$ around birth. At the age of 1 year, the score will around 50$D$, so during the first year of life, one $D$ unit corresponds to approximately a one-week interval.
 
@@ -120,17 +123,18 @@ p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) +
   theme(axis.title.y = element_blank())
 p
 ```
+
 (ref:itemdifdplot) Estimated item difficulty parameters ($d_i$) for 57 milestones of the DDI (0 - 2 years). Milestones `ddigmd057` and `ddigmd063` are anchored at values of 20$D$ and 40$D$, respectively.
 
 ## Estimation of the D-score {#sec:dscoreestimation}
 
 The second part of the estimation process is to estimate a D-score. The D-score quantifies the development of a child at a given age. Whereas the instrument developer is responsible for the estimation of item parameters, D-score estimation is more of a task for the user. To calculate the D-score, we need the following ingredients:
 
-* Child's PASS/FAIL scores on the milestones administered;
+-   Child's PASS/FAIL scores on the milestones administered;
 
-* The difficulty estimates of each milestone administered;
+-   The difficulty estimates of each milestone administered;
 
-* A prior distribution, an estimate of the D-score distribution before seeing any PASS/FAIL score.
+-   A prior distribution, an estimate of the D-score distribution before seeing any PASS/FAIL score.
 
 Using these inputs, we may use Bayes theorem to calculate the position of the person on the latent variable.
 
@@ -196,7 +200,8 @@ dr <- data.frame(ib,
 kable(dr, caption = "Scores of David and Rob on five milestones from the DDI", 
       row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"))
 ```
-&nbsp;
+
+ 
 
 Table \@ref(tab:datadavidandrob) shows the difficulty of each milestone (in the column labelled "Delta"), and the responses of David and Rob for the standard five DDI milestones for the age of 15 months.
 
@@ -266,19 +271,20 @@ p <- ggplot(plotdata, aes(x = x, y = y)) +
   scale_colour_manual(values = brewer.pal(12, "Paired")[c(3, 4)])
 p
 ```
+
 (ref:davidplot) D-score distribution for David and Rob before (prior) and after (posterior) a milestone is taken into account.
 
 Figure \@ref(fig:davidplot) shows how the prior transforms into the posterior after we successively feed the measurements into the calculation. There are five milestones, so the calculation comprises five steps:
 
-1. Both David and Rob pass `ddifmd011`. The prior (light green) is the same as in Figure \@ref(fig:figpriors). After a PASS, the posterior will be located more to the right, and will often be more peaked. Both happen here, but the change is small. The reason is that a PASS on this milestone is not very informative. For a child with a true D-score of 53$D$, the probability of passing `ddifmd011` is equal to `r plogis((53 - 46) / model$transform[2])`. If passing is so common, there is not much information in the measurement.
+1.  Both David and Rob pass `ddifmd011`. The prior (light green) is the same as in Figure \@ref(fig:figpriors). After a PASS, the posterior will be located more to the right, and will often be more peaked. Both happen here, but the change is small. The reason is that a PASS on this milestone is not very informative. For a child with a true D-score of 53$D$, the probability of passing `ddifmd011` is equal to `r plogis((53 - 46) / model$transform[2])`. If passing is so common, there is not much information in the measurement.
 
-2. David passes `ddifmm012`, but Rob does not. Observe that the prior is identical to the posterior of `ddifmd011`. For David, the posterior is only slightly different from the prior, for the same reason as above. For Rob, we find a considerable change to the left, both for location (from 54.3$D$ to 47.1$D$) and peakedness. This one FAIL lowers Rob's score by 7.2$D$.
+2.  David passes `ddifmm012`, but Rob does not. Observe that the prior is identical to the posterior of `ddifmd011`. For David, the posterior is only slightly different from the prior, for the same reason as above. For Rob, we find a considerable change to the left, both for location (from 54.3$D$ to 47.1$D$) and peakedness. This one FAIL lowers Rob's score by 7.2$D$.
 
-3. Milestone `ddicmm037` is more difficult than the previous two milestones, so a pass on `ddicmm037` does have a definite effect on the posterior for both David and Rob.
+3.  Milestone `ddicmm037` is more difficult than the previous two milestones, so a pass on `ddicmm037` does have a definite effect on the posterior for both David and Rob.
 
-4. David's PASS on `ddigmm066` does not bring any additional information, so his prior and posterior are virtually indistinguishable. For Rob, we find a slight shift to the right.
+4.  David's PASS on `ddigmm066` does not bring any additional information, so his prior and posterior are virtually indistinguishable. For Rob, we find a slight shift to the right.
 
-5. There is no measurement for David on `ddigmm067`, so the prior and posterior are equivalent. For Rob, we observe a FAIL, which shifts his posterior to the left.
+5.  There is no measurement for David on `ddigmm067`, so the prior and posterior are equivalent. For Rob, we observe a FAIL, which shifts his posterior to the left.
 
 We calculate the D-score as the mean of the posterior. David's D-score is equal to 55.7$D$. Note that the measurement error, as estimated from the variance of the posterior, is relatively large. Rob's D-score is equal to 47.7$D$, with a much smaller measurement error. This result is consistent with the design principles of the DDI, which is meant to detect children with developmental delay.
 
@@ -286,11 +292,11 @@ The example illustrates that the quality of the D-score depends on two factors, 
 
 ### Technical observations on D-score estimation
 
-* Administration of a too easy set of milestones introduces a *ceiling* with children that pass all milestones, but whose true D-score could extend well beyond the maximum. Depending on the goal of the measurement, this may or may not be a problem.
+-   Administration of a too easy set of milestones introduces a *ceiling* with children that pass all milestones, but whose true D-score could extend well beyond the maximum. Depending on the goal of the measurement, this may or may not be a problem.
 
-* The specification of the prior and posterior distributions requires a set of quadrature points. The quadrature points are taken here as the static and evenly-spaced set of integers between -10 and +80. Using other quadrature points may affect the estimate, especially if the range of the quadrature points does not cover the entire D-score range.
+-   The specification of the prior and posterior distributions requires a set of quadrature points. The quadrature points are taken here as the static and evenly-spaced set of integers between -10 and +80. Using other quadrature points may affect the estimate, especially if the range of the quadrature points does not cover the entire D-score range.
 
-* The actual calculations are here done item by item. A more efficient method is to handle all responses at once. The result will be the same.
+-   The actual calculations are here done item by item. A more efficient method is to handle all responses at once. The result will be the same.
 
 ## Age-conditional references {#sec:reference}
 
@@ -318,7 +324,8 @@ knitr::kable(reference,
   kableExtra::kable_styling(full_width = TRUE) %>%
   kableExtra::scroll_box(height = "300px")
 ```
-&nbsp;
+
+ 
 
 Table \@ref(tab:reftable) defines age-conditional references for Dutch children as the $M$-curve (median), $S$-curve (spread) and $L$-curve (skewness) by age. This table can be used to calculate centile lines and $Z$-scores.
 
@@ -334,7 +341,7 @@ converts measurement $D_t$ into its normal equivalent deviate $Z$. If $L_t$ is c
 
 $$Z=\frac{\ln(D_t/M_t)}{S_t}$$
 
-We may derive any required centile curve from Table \@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score that delineates $100\alpha$ per cent of the distribution, for example, \ $Z_{0.05}=-1.64$. The D-score that defines the $100\alpha$ centile is equal to
+We may derive any required centile curve from Table \@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score that delineates $100\alpha$ per cent of the distribution, for example,  $Z_{0.05}=-1.64$. The D-score that defines the $100\alpha$ centile is equal to
 
 $$D_t(\alpha) = M_t (1+L_t S_t Z_\alpha)^{1/L_t}$$
 

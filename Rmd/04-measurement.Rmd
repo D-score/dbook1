@@ -4,13 +4,13 @@
 
 Chapter \@ref(ch:history) provided historical background on the nature of child development. Chapter \@ref(ch:threeways) discussed three general quantification approaches. This chapter explains how to apply the unit-based approach to arrive at the D-score scale. The text illustrates the process with real data.
 
-* Dutch Development Instrument (DDI) (\@ref(sec:ddi))
-* Milestone passing by age and by D-score (\@ref(sec:probage), \@ref(sec:probd))
-* How do age and D-score relate? (\@ref(sec:aged))
-* Role of the measurement model (\@ref(sec:measurementmodel))
-* Item and person response functions (\@ref(sec:itemresponsefunctions))
-* Engelhard invariance criteria (\@ref(sec:engelhard))
-* Why the Rasch model? (\@ref(sec:whyrasch))
+-   Dutch Development Instrument (DDI) (\@ref(sec:ddi))
+-   Milestone passing by age and by D-score (\@ref(sec:probage), \@ref(sec:probd))
+-   How do age and D-score relate? (\@ref(sec:aged))
+-   Role of the measurement model (\@ref(sec:measurementmodel))
+-   Item and person response functions (\@ref(sec:itemresponsefunctions))
+-   Engelhard invariance criteria (\@ref(sec:engelhard))
+-   Why the Rasch model? (\@ref(sec:whyrasch))
 
 ## The Dutch Development Instrument (DDI) {#sec:ddi}
 
@@ -20,15 +20,15 @@ The Dutch Youth Health Care (YHC) routinely monitors the development of almost a
 
 The *Dutch Development Instrument* (DDI; in Dutch: *Van Wiechenschema*) is the standard instrument used to measure development during the ages 0-4 years. The DDI consists of [75 milestones](https://www.ncj.nl/van-wiechen/kenmerken/). The instrument assesses three developmental domains:
 
-1. Fine motor, adaptation, personality and social behaviour;
-2. Communication
-3. Gross motor
+1.  Fine motor, adaptation, personality and social behaviour;
+2.  Communication
+3.  Gross motor
 
 The milestones form two [sets](https://www.ggdghorkennisnet.nl/?file=656&m=1310474916&action=file.download), one for children aged 0-15 months, and another for children aged 15-54 months. The YHC professionals administer an age-appropriate subset of milestones at each of the scheduled visits, thus building a *longitudinal developmental profile* for each child.
 
 ### Description of SMOCC study {#sec:smocc}
 
-The Social Medical Survey of Children Attending Child Health Clinics (SMOCC) study is a nationally representative cohort of 2,151 children born in The Netherlands during the years 1988–1989 [@herngreen1994]. The study monitored child development using observations made on the DDI during nine visits covering the first 24 months of life. The SMOCC study collected information during the first two years on 57 (out of 75) milestones.
+The Social Medical Survey of Children Attending Child Health Clinics (SMOCC) study is a nationally representative cohort of 2,151 children born in The Netherlands during the years 1988--1989 [@herngreen1994]. The study monitored child development using observations made on the DDI during nine visits covering the first 24 months of life. The SMOCC study collected information during the first two years on 57 (out of 75) milestones.
 
 The *standard* set in the DDI consists of relatively easy milestones that 90 per cent of the children can pass at the scheduled age. This set is designed to have maximal sensitivity for picking up delays in development. A distinctive feature of the SMOCC study was the inclusion of more difficult milestones beyond the standard set. The *additional* set originates from the next time point. The success rate on these milestones is about 50 per cent.
 
@@ -91,7 +91,7 @@ kable(meta,
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
 
-&nbsp;
+ 
 
 Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for ages 0 - 30 months as administered in the SMOCC study. Items are sorted according to *debut*, the age at which the item appears in the DDI. The response to each milestone is either a PASS (1) or a FAIL (0). Children who did not pass a milestone at the debut age were re-measured on that milestone during the next visit. The process continued until the child passed the milestone.
 
@@ -133,6 +133,7 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
 py <- suppressWarnings(plotly::ggplotly(plot, tooltip = c("item", "label")))
 py
 ```
+
 (ref:smoccpa) Empirical percentage of passing each milestone in the DDI against age (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
 Figure \@ref(fig:smoccpa) summarizes the response obtained on each milestone as a curve against age. The percentage of pass scores increases with age for all milestones. Note that curves on the left have steeper slopes than those on the right, thus indicating that development is faster for younger children.
@@ -186,6 +187,7 @@ plot <- ggplot(pass, aes(d, p, group = item, colour = domain,
 py <- suppressWarnings(plotly::ggplotly(plot, tooltip = c("item", "label")))
 py
 ```
+
 (ref:smoccpd) Empirical percentage of passing each milestone in the DDI against the D-score (Source: SMOCC data, 2151 children, 9 occasions).
 
 Figure \@ref(fig:smoccpd) is similar to Figure \@ref(fig:smoccpa), but with the horizontal axis replaced by the D-score. The D-score summarizes development into one number. See \@ref(sec:dscoreestimation) for a detailed explanation on how to calculate the D-score. The vertical axis with per cent pass is unchanged.
@@ -232,6 +234,7 @@ plot <-
   theme(legend.position = "none")
 plot
 ```
+
 (ref:smoccda) Relation between child D-score and child age in a cohort of Dutch children (Source: SMOCC data, $n$ = 2151, 9 occasions).
 
 Figure \@ref(fig:smoccda) shows that the relation between D-score and age is nonlinear. Development in the first year is more rapid than in the second year. During the first year, infants gain about 40$D$, whereas in the second year they gain about 20$D$. A similar change in growth rate occurs in length (first year: 23 cm, second year: 12 cm, for Dutch children).
@@ -281,15 +284,16 @@ py <- plotly::plot_ly(tab, x = ~a, y = ~d, z = ~p, color = ~domain,
   ))
 py
 ```
+
 (ref:smoccdap) 3D-line graph illustrating how the patterns in Figures \@ref(fig:smoccpa) and \@ref(fig:smoccpd) induce the curvature in the relation between D-score and age.
 
 Figure \@ref(fig:smoccdap) shows the mutual relations between age, percentage of milestone passing and the D-score. In the online version of the booklet, the reader can actively manipulate the orientation of the graph by a click-hold-drag mouse operation.
 
-* In the default orientation (age on the horizontal axis, D-score on the vertical axis), we see a curvilinear relation between the age and item difficulty.
+-   In the default orientation (age on the horizontal axis, D-score on the vertical axis), we see a curvilinear relation between the age and item difficulty.
 
-* Rotate the graph (age on the horizontal axis, passing percentage on the vertical axis). Observe that this is the same pattern as in Figure \@ref(fig:smoccpa) (with *unequal slopes*). Curves are coloured by domain.
+-   Rotate the graph (age on the horizontal axis, passing percentage on the vertical axis). Observe that this is the same pattern as in Figure \@ref(fig:smoccpa) (with *unequal slopes*). Curves are coloured by domain.
 
-* Rotate the graph (D-score on the horizontal axis, passing percentage on the vertical axis). Observe that this pattern is the same as in Figure \@ref(fig:smoccpd) (with *equal slopes*).
+-   Rotate the graph (D-score on the horizontal axis, passing percentage on the vertical axis). Observe that this pattern is the same as in Figure \@ref(fig:smoccpd) (with *equal slopes*).
 
 All patterns can co-exist because of the curvature in the relation between D-score and age. The curvature is never explicitly modelled or defined, but a consequence of the equal-slopes assumption in the relation between the D-score and the passing percentage of a milestone.
 
@@ -303,23 +307,23 @@ From section \@ref(sec:whatismeasurement) we quote:
 
 The term *Item Response Theory* (IRT) refers to the scientific theory of measurement models. Good introductory works include @wright1982, @embretsen2000 and @engelhard2013.
 
-IRT models enable quantification of the locations of both *items (milestones) and *persons* on the latent variable. We reserve the term *item* for generic properties, and *milestone* for child development. In general, items are part of the measurement instrument, persons are the objects to be measured.
+IRT models enable quantification of the locations of both *items (milestones) and* persons\* on the latent variable. We reserve the term *item* for generic properties, and *milestone* for child development. In general, items are part of the measurement instrument, persons are the objects to be measured.
 
 An IRT model has three major structural components:
 
-* Specification of the underlying *latent variable(s)*. In this work, we restrict ourselves to models with just one latent variable. Multi-dimensional IRT models do have their uses, but they are complicated to fit and not widely used;
+-   Specification of the underlying *latent variable(s)*. In this work, we restrict ourselves to models with just one latent variable. Multi-dimensional IRT models do have their uses, but they are complicated to fit and not widely used;
 
-* For a given item, a specification of the *probability of success* given a value on the latent variables. This specification can take many forms. Section \@ref(sec:itemresponsefunctions) focuses on this in more detail;
+-   For a given item, a specification of the *probability of success* given a value on the latent variables. This specification can take many forms. Section \@ref(sec:itemresponsefunctions) focuses on this in more detail;
 
-* Specification how probability models for the different items should be combined. In this work, we will restrict to models that assume *local independence* of the probabilities. In that case, the probability of passing two items is equal to the product of success probabilities.
+-   Specification how probability models for the different items should be combined. In this work, we will restrict to models that assume *local independence* of the probabilities. In that case, the probability of passing two items is equal to the product of success probabilities.
 
 ### Adapt the model? Or adapt the data? {#sec:adaptmodel}
 
 The measurement model induces a predictable pattern in the observed items. We can test this pattern against the observed data. When there is misfit between the expected and observed data, we can follow two strategies:
 
-* Make the measurement model more general.
+-   Make the measurement model more general.
 
-* Discard items (and sometimes persons) to make the model fit.
+-   Discard items (and sometimes persons) to make the model fit.
 
 These are very different strategies that have led to heated debates among psychometricians. See @engelhard2013 for an overview.
 
@@ -331,11 +335,11 @@ Most measurement models describe the probability of passing an item as a functio
 
 Let us now introduce a few symbols. We adopt the notation used in @wright1982. See Appendix \@ref(ap:notation) for a complete list.
 
-Symbol        | Term          | Description
-------------- | ------------- | -----------
-$\beta_n$     | Ability       | True (but unknown) developmental score of child $n$
-$\delta_i$    | Difficulty    | True (but unknown) difficulty of an item $i$
-$\pi_{ni}$    | Probability   | Probability that child $n$ passes item $i$
+| Symbol     | Term        | Description                                         |
+|------------|-------------|-----------------------------------------------------|
+| $\beta_n$  | Ability     | True (but unknown) developmental score of child $n$ |
+| $\delta_i$ | Difficulty  | True (but unknown) difficulty of an item $i$        |
+| $\pi_{ni}$ | Probability | Probability that child $n$ passes item $i$          |
 
 Thus, Figure \@ref(fig:lineplot) shows three $\beta_n$'s and four $\delta_i$'s.
 
@@ -343,11 +347,11 @@ The difference between the ability of child $n$ and difficulty of item $i$ is
 
 $$\beta_n - \delta_i$$
 
-In the special case that $\beta_n = \delta_i$, the person will have a probability of 0.5 of passing the item. 
+In the special case that $\beta_n = \delta_i$, the person will have a probability of 0.5 of passing the item.
 
 ### Logistic model
 
-A widely used method is to express differences on the latent scale in terms of *logistic units* (or  *logits*) [@berkson1944]. The reason preferring the logistic over the linear unit is that its output returns a probability value that maps to discrete events. In our case, we can describe the probability of passing an item (milestone) as a function of the difference between $\beta_n$ and $\delta_i$ expressed in logits.
+A widely used method is to express differences on the latent scale in terms of *logistic units* (or *logits*) [@berkson1944]. The reason preferring the logistic over the linear unit is that its output returns a probability value that maps to discrete events. In our case, we can describe the probability of passing an item (milestone) as a function of the difference between $\beta_n$ and $\delta_i$ expressed in logits.
 
 ```{r logisticplot, warning = FALSE, fig.asp = 0.5, fig.cap = '(ref:logisticplot)', width = "80%"}
 pkg <- c("ggplot2", "RColorBrewer")
@@ -370,20 +374,22 @@ ggplot(subset(items, Items == "A"), aes(x = beta, y = 100 * pass, group = Items,
   scale_colour_brewer(palette = "Set1", labels = c("A: Logistic", "B: Constant", "C: Step", "D: 2PL", "E: Monotone")) + 
   theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
 ```
+
 (ref:logisticplot) Standard logistic curve. Percentage of children passing an item for a given ability-difficulty gap $\beta_n - \delta_i$.
 
-Figure \@ref(fig:logisticplot) shows how the percentage of children that pass the item varies in terms of the ability-difficulty gap $\beta_n - \delta_i$. The gap  can vary either by $\beta_n$ or $\delta_i$ so that we may use the graph in two ways:
+Figure \@ref(fig:logisticplot) shows how the percentage of children that pass the item varies in terms of the ability-difficulty gap $\beta_n - \delta_i$. The gap can vary either by $\beta_n$ or $\delta_i$ so that we may use the graph in two ways:
 
-* To find the probability of passing items with various difficulties for a child with ability $\beta_n$. If $\delta_i = \beta_n$ then $\pi_{ni} = 0.5$. If $\delta_i < \beta_n$ then $\pi_{ni} > 0.5$, and if $\delta_i > \beta_n$ then $\pi_{ni} < 0.5$. In words: If the difficulty of the item is equal to the child's ability, then the child has a 50/50 chance to pass. The child will have a higher than 50/50 chance of passing for items with lower difficulty and have a lower than 50/50 chance of passing for items with difficulties that exceed the child's ability.
+-   To find the probability of passing items with various difficulties for a child with ability $\beta_n$. If $\delta_i = \beta_n$ then $\pi_{ni} = 0.5$. If $\delta_i < \beta_n$ then $\pi_{ni} > 0.5$, and if $\delta_i > \beta_n$ then $\pi_{ni} < 0.5$. In words: If the difficulty of the item is equal to the child's ability, then the child has a 50/50 chance to pass. The child will have a higher than 50/50 chance of passing for items with lower difficulty and have a lower than 50/50 chance of passing for items with difficulties that exceed the child's ability.
 
-* To find the probability of passing a given item $\delta_i$ for children that vary in ability. If $\beta_n < \delta_i$ then $\pi_{ni} < 0.5$, and if $\beta_n > \delta_i$ then $\pi_{ni} > 0.5$. In words: Children with abilities lower than the item's difficulty will have lower than 50/50 chance of passing, whereas children with abilities that exceed the item's difficulty will have a higher than 50/50 chance of passing.
+-   To find the probability of passing a given item $\delta_i$ for children that vary in ability. If $\beta_n < \delta_i$ then $\pi_{ni} < 0.5$, and if $\beta_n > \delta_i$ then $\pi_{ni} > 0.5$. In words: Children with abilities lower than the item's difficulty will have lower than 50/50 chance of passing, whereas children with abilities that exceed the item's difficulty will have a higher than 50/50 chance of passing.
 
 Formula \@ref(eq:logistic) defines the standard logistic curve:
 
+```{=tex}
 \begin{equation}
 \pi_{ni} = \frac{\exp(\beta_n - \delta_i)}{1+\exp(\beta_n -\delta_i)} (\#eq:logistic)
 \end{equation}
-
+```
 One way to interpret the formula is as follows. The logarithm of the odds that a person with ability $\beta_n$ passes an item of difficulty $\delta_i$ is equal to the difference $\beta_n-\delta_i$ [@wright1982]. For example, suppose that the probability that person $n$ passes milestone $i$ is $\pi_{ni} = 0.5$. In that case, the odds of passing is equal to $0.5 / (1-0.5) = 1$, so $\log(1) = 0$ and thus $\beta_n = \delta_i$. If $\beta_n - \delta_i = \log(2) = 0.693$ person $n$ is *two* times more likely to pass than to fail. Likewise, if the difference is $\beta_n - \delta_i = \log(3) = 1.1$, then person $n$ is *three* more likely to pass. And so on.
 
 ### Types of item response functions
@@ -398,19 +404,20 @@ ggplot(items, aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
   scale_colour_brewer(palette = "Set1", labels = c("A: Logistic", "B: Constant", "C: Step", "D: 2PL", "E: Monotone")) + 
   theme(legend.position = c(0.05, 0.95), legend.justification = c(0, 1))
 ```
+
 (ref:irfplot) Item response functions for five hypothetical items, each demonstrating a positive relation between ability and probability to pass.
 
 Figure \@ref(fig:irfplot) illustrates several other possibilities. Let us consider five hypothetical items, A-E. Note that the horizontal axis now refers to the ability, instead of the ability-item gap in \@ref(fig:logisticplot).
 
-- A: Item A is the logistic function discussed in Section \@ref(sec:itemresponsefunctions).
+-   A: Item A is the logistic function discussed in Section \@ref(sec:itemresponsefunctions).
 
-- B: For item B, the probability of passing is constant at 30 per cent. This 30 per cent is not related to ability. Item B does not measure ability, only adds to the noise, and is of low quality.
+-   B: For item B, the probability of passing is constant at 30 per cent. This 30 per cent is not related to ability. Item B does not measure ability, only adds to the noise, and is of low quality.
 
-- C: Item C is a step function centred at an ability level of 1, so *all* children with an ability below 1 logit fail and *all* children with ability above 1 logit pass. Item C is the ideal item for discriminating children with abilities above and below 1. The item is not sensitive to differences at other ability levels, and often not so realistic in practice.
+-   C: Item C is a step function centred at an ability level of 1, so *all* children with an ability below 1 logit fail and *all* children with ability above 1 logit pass. Item C is the ideal item for discriminating children with abilities above and below 1. The item is not sensitive to differences at other ability levels, and often not so realistic in practice.
 
-- D: Like A, item D is a smoothly increasing logistic function, but it has an extra parameter that allows it to vary its slope (or discrimination). The extra parameter can make the curve steeper (more discriminatory) than the red curve, in the limit approaching a step curve. It can also become shallower (less discriminatory) than the red curve (as plotted here), in the limit approaching a constant curve (item B). Thus, item D generalizes items A, B or C.
+-   D: Like A, item D is a smoothly increasing logistic function, but it has an extra parameter that allows it to vary its slope (or discrimination). The extra parameter can make the curve steeper (more discriminatory) than the red curve, in the limit approaching a step curve. It can also become shallower (less discriminatory) than the red curve (as plotted here), in the limit approaching a constant curve (item B). Thus, item D generalizes items A, B or C.
 
-- E: Item E is even more general in the sense that it need not be logistic, but a general monotonically increasing function. As plotted, the item is insensitive to abilities between -1 and 0 logits, and more sensitive to abilities between 0 to 2 logits.
+-   E: Item E is even more general in the sense that it need not be logistic, but a general monotonically increasing function. As plotted, the item is insensitive to abilities between -1 and 0 logits, and more sensitive to abilities between 0 to 2 logits.
 
 These are just some examples of how the relationship between the child's ability and passing probability could look. In practice, the curves need not start at 0 per cent or end at 100 per cent. They could also be U-shaped, or have other non-monotonic forms. See @coombs1964 for a thorough overview of such models. In practice, most models are restricted to shapes A-D.
 
@@ -452,52 +459,53 @@ ggplot(data, aes(x = delta, y = 100 * pass, group = person, colour = person)) +
   annotate("text", x = -4.5, y = 15, label = "Easy items", fontface = "bold") + 
   annotate("text", x =  4.5, y = 15, label = "Hard items", fontface = "bold")
 ```
+
 (ref:prfplot) Person response functions for three children with abilities -2, 0 and +2, using a small test of items A, C and D.
 
-Figure \@ref(fig:prfplot) presents the person response functions from three persons with abilities of -2, 0 and +2 logits. We calculate the  functions as the average of response probabilities on items A, C and D. Thus, on average, we expect that child 1 logit will pass an easy item of difficulty -3 in about 60 per cent of the time, whereas for an intermediate item of difficulty of -1 the passing probability would be 10 per cent. For child 3, with higher ability, these probabilities are quite different: 97% and 90%. The substantial drop in the middle of the curve is due to the step function of item A.
-
+Figure \@ref(fig:prfplot) presents the person response functions from three persons with abilities of -2, 0 and +2 logits. We calculate the functions as the average of response probabilities on items A, C and D. Thus, on average, we expect that child 1 logit will pass an easy item of difficulty -3 in about 60 per cent of the time, whereas for an intermediate item of difficulty of -1 the passing probability would be 10 per cent. For child 3, with higher ability, these probabilities are quite different: 97% and 90%. The substantial drop in the middle of the curve is due to the step function of item A.
 
 ## Engelhard criteria for invariant measurement {#sec:engelhard}
 
 In this work, we strive to achieve *invariant measurement*, a strict form of measurements that is subject to the following requirements [@engelhard2013, p. 14]:
 
-1. *Item-invariant measurement of persons*: The measurement of persons must be independent of the particular items used for the measuring.
+1.  *Item-invariant measurement of persons*: The measurement of persons must be independent of the particular items used for the measuring.
 
-2. *Non-crossing person response functions*: A more able person must always have a better chance of success on an item that a less able person.
+2.  *Non-crossing person response functions*: A more able person must always have a better chance of success on an item that a less able person.
 
-3. *Person-invariant calibration of test items*: The calibration of the items must be independent of the particular persons used for calibration.
+3.  *Person-invariant calibration of test items*: The calibration of the items must be independent of the particular persons used for calibration.
 
-4. *Non-crossing item response functions*: Any person must have a better chance of success on an easy item than on a more difficult item.
+4.  *Non-crossing item response functions*: Any person must have a better chance of success on an easy item than on a more difficult item.
 
-5. *Unidimensionality*: Items and persons take on values on a *single* latent variable. Under this assumption, the relations between the items are fully explainable by the scores on the latent scale. In practice, the requirement implies that items should measure the same construct. [@hattie1985]
+5.  *Unidimensionality*: Items and persons take on values on a *single* latent variable. Under this assumption, the relations between the items are fully explainable by the scores on the latent scale. In practice, the requirement implies that items should measure the same construct. [@hattie1985]
 
 Three families of IRT models support invariant measurement:
 
-1. Scalogram model [@guttman1950]
+1.  Scalogram model [@guttman1950]
 
-2. Rasch model [@rasch1960; @andrich1978; @wright1982]
+2.  Rasch model [@rasch1960; @andrich1978; @wright1982]
 
-3. Mokken scaling model [@mokken1971; @molenaar1997]
+3.  Mokken scaling model [@mokken1971; @molenaar1997]
 
 The Guttman and Mokken models yield an ordinal latent scale, while the Rasch model yields an interval scale (with a constant unit).
 
 ## Why take the Rasch model? {#sec:whyrasch}
 
-* *Invariant measurement*: The Rasch model meets the five Engelhard criteria (c.f. Section \@ref(sec:engelhard)).
+-   *Invariant measurement*: The Rasch model meets the five Engelhard criteria (c.f. Section \@ref(sec:engelhard)).
 
-* *Interval scale*: When it fits, the Rasch model provides an interval scale, the de-facto requirement for any numerical comparisons (c.f. Section \@ref(sec:motivationunit)).
+-   *Interval scale*: When it fits, the Rasch model provides an interval scale, the de-facto requirement for any numerical comparisons (c.f. Section \@ref(sec:motivationunit)).
 
-* *Parsimonious*: The Rasch model has one parameter for each item and one parameter for each person. The Rash model one of the most parsimonious IRT models, and can easily be applied to thousands of items and millions of persons.
+-   *Parsimonious*: The Rasch model has one parameter for each item and one parameter for each person. The Rash model one of the most parsimonious IRT models, and can easily be applied to thousands of items and millions of persons.
 
-* *Specific objectivity*: Person and item parameters are mathematically separate entities in the Rasch model. In practice, this means that the estimated difference in ability between two persons does not depend on the difficulty of the test. Also, the estimated differences in difficulties between two items do not depend on the abilities in the calibration sample. The property is especially important in the analysis of combined data, where abilities can vary widely between sources. See @rasch1977 for derivations and examples.
+-   *Specific objectivity*: Person and item parameters are mathematically separate entities in the Rasch model. In practice, this means that the estimated difference in ability between two persons does not depend on the difficulty of the test. Also, the estimated differences in difficulties between two items do not depend on the abilities in the calibration sample. The property is especially important in the analysis of combined data, where abilities can vary widely between sources. See @rasch1977 for derivations and examples.
 
-* *Unified model*: The Rasch model unifies distinct traditions in measurement theory. One may derive the Rasch model from
-    + [Thorndike's 1904 criteria](https://www.rasch.org/rmt/rmt143g.htm) 
-    + [Guttman scalogram model](https://www.rasch.org/rmt/rmt63e.htm)
-    + [Ratio-scale counts](https://www.rasch.org/rmt/rmt62c.htm)
-    + [Raw scores as sufficient statistics](https://www.rasch.org/rmt/rmt32e.htm)
-    + [Thurstone's scaling requirements](https://www.rasch.org/rmt/rmt21a.htm)
-    + [Campbell concatenation](https://www.rasch.org/rmt/rmt21b.htm)
-    + [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
+-   *Unified model*: The Rasch model unifies distinct traditions in measurement theory. One may derive the Rasch model from
 
-* *Fits child development data*: Last but not least, as we will see in Chapter \@ref(ch:evaluation), the Rasch model provides an excellent fit to child development milestones.
+    -   [Thorndike's 1904 criteria](https://www.rasch.org/rmt/rmt143g.htm)
+    -   [Guttman scalogram model](https://www.rasch.org/rmt/rmt63e.htm)
+    -   [Ratio-scale counts](https://www.rasch.org/rmt/rmt62c.htm)
+    -   [Raw scores as sufficient statistics](https://www.rasch.org/rmt/rmt32e.htm)
+    -   [Thurstone's scaling requirements](https://www.rasch.org/rmt/rmt21a.htm)
+    -   [Campbell concatenation](https://www.rasch.org/rmt/rmt21b.htm)
+    -   [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
+
+-   *Fits child development data*: Last but not least, as we will see in Chapter \@ref(ch:evaluation), the Rasch model provides an excellent fit to child development milestones.
