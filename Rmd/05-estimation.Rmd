@@ -36,7 +36,7 @@ kable(broad,
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
 
- 
+&nbsp;
 
 Table \@ref(tab:smocctable) contains data of three children, measured on nine visits between ages 0 - 2 years. The DDI scores take values 0 (FAIL) and 1 (PASS). In order to save horizontal space, we truncated the column headers to the last two digits of the item names.
 
@@ -108,7 +108,7 @@ kable(df,
       booktabs = TRUE)
 ```
 
- 
+&nbsp;
 
 With the choice of Table \@ref(tab:anchor), D-score values are approximately 0$D$ around birth. At the age of 1 year, the score will around 50$D$, so during the first year of life, one $D$ unit corresponds to approximately a one-week interval.
 
@@ -203,7 +203,7 @@ kable(dr, caption = "Scores of David and Rob on five milestones from the DDI",
       row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"))
 ```
 
- 
+&nbsp;
 
 Table \@ref(tab:datadavidandrob) shows the difficulty of each milestone (in the column labelled "Delta"), and the responses of David and Rob for the standard five DDI milestones for the age of 15 months.
 
@@ -327,7 +327,7 @@ knitr::kable(reference,
   kableExtra::scroll_box(height = "300px")
 ```
 
- 
+&nbsp;
 
 Table \@ref(tab:reftable) defines age-conditional references for Dutch children as the $M$-curve (median), $S$-curve (spread) and $L$-curve (skewness) by age. This table can be used to calculate centile lines and $Z$-scores.
 
@@ -343,7 +343,7 @@ converts measurement $D_t$ into its normal equivalent deviate $Z$. If $L_t$ is c
 
 $$Z=\frac{\ln(D_t/M_t)}{S_t}$$
 
-We may derive any required centile curve from Table \@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score that delineates $100\alpha$ per cent of the distribution, for example,  $Z_{0.05}=-1.64$. The D-score that defines the $100\alpha$ centile is equal to
+We may derive any required centile curve from Table \@ref(tab:reftable). First, choose $Z_\alpha$ as the $Z$-score that delineates $100\alpha$ per cent of the distribution, for example, &nbsp;$Z_{0.05}=-1.64$. The D-score that defines the $100\alpha$ centile is equal to
 
 $$D_t(\alpha) = M_t (1+L_t S_t Z_\alpha)^{1/L_t}$$
 

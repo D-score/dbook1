@@ -409,7 +409,7 @@ The *measurement model* specifies the relations between the actual measurements 
 
 : (\#tab:measurement) Evaluation of four measurement approaches on seven criteria.
 
- 
+&nbsp;
 
 This chapter distinguished four approaches to measure child development: *age-based*, *probability-based*, *score-based* and *unit-based* measurement. Table \@ref(tab:measurement) summarizes how the approaches evaluate on nine criteria.
 

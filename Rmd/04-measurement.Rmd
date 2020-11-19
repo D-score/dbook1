@@ -91,7 +91,7 @@ kable(meta,
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
 
- 
+&nbsp;
 
 Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for ages 0 - 30 months as administered in the SMOCC study. Items are sorted according to *debut*, the age at which the item appears in the DDI. The response to each milestone is either a PASS (1) or a FAIL (0). Children who did not pass a milestone at the debut age were re-measured on that milestone during the next visit. The process continued until the child passed the milestone.
 
