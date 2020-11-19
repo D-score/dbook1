@@ -148,7 +148,7 @@ The reader now probably wonders about a chicken-and-egg problem: To calculate th
 
 ### Starting prior: Numerical example {#sec:adp}
 
-```{r figpriors, fig.cap="\\label{fig:figpriors} Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months", fig.height = 4}
+```{r figpriors, fig.cap = '(ref:figpriors)', fig.height = 4}
 #example from the adp function in ggplot:
 qp <- -10:80
 adp_dutch <- function(t, qp = -10:80) {
@@ -174,6 +174,8 @@ p <- ggplot(dataprior, aes(qp, p, group = month)) +
   scale_colour_manual(values = brewer.pal(12, "Paired")[c(1, 3, 5)])
 p
 ```
+
+(ref:figpriors) Age-dependent starting priors for the D-score at the ages of 1, 15 and 24 months.
 
 Figure \@ref(fig:figpriors) illustrates starting distributions (priors) chosen according to the principles set above for the ages of 1, 15 and 24 months. As expected, the assumed ability of an infant aged one month is much lower than that of a child aged 15 months, which in turn is lower than the ability of a toddler aged 24 months. The green distribution for 15 months corresponds to the normal distribution $N(53.6, 5)$.
 
