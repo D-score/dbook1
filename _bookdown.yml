@@ -20,4 +20,3 @@ rmd_files: ["index.Rmd",
             "Rmd/Appendix-references.Rmd"]
 before_chapter_script: "R/before_chapter_script.R"
 after_chapter_script: "R/after_chapter_script.R"
-

@@ -91,10 +91,11 @@ For illustration, we use data on loco-motor development from a classic study on 
 load(file = file.path("data/shirley.rda"))
 options(knitr.kable.NA = '?')
 kbl(shirley, 
-      col.names = c("Name", "Sex", "Stepping", "Standing", 
-                    "Walking with help", "Walking alone"),
-      caption =  "Age at beginning stages of walking (in weeks) for 21 babies.",
-      booktabs = TRUE)
+    col.names = c("Name", "Sex", "Stepping", "Standing", 
+                  "Walking with help", "Walking alone"),
+    caption =  "Age at beginning stages of walking (in weeks) for 21 babies.",
+    booktabs = TRUE) %>%
+  kable_styling(latex_options = "scale_down")
 ```
 
 &nbsp;
@@ -148,8 +149,9 @@ questions <- data.frame(
   ))
 
 kbl(questions, 
-      caption = "Questions whose answers require quantitative measurements of child development.", 
-      booktabs = TRUE)
+    caption = "Questions whose answers require quantitative measurements of child development.", 
+    booktabs = TRUE) %>%
+  kable_styling(latex_options = "scale_down")
 ```
 
 &nbsp;

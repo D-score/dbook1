@@ -19,7 +19,7 @@ always_allow_html: true
 ```{r initbook, include = FALSE}
 opts_chunk$set(comment = NA, background = "#FBFBFB",
                fig.align = 'center', cache = TRUE, 
-               echo = FALSE)
+               echo = FALSE, out.width = "100%")
 
 # silence dplyr grouping warning
 # https://stackoverflow.com/questions/62140483/how-to-interpret-dplyr-message-summarise-regrouping-output-by-x-override

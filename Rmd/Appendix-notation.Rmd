@@ -4,8 +4,8 @@
 
 The notation in this booklet follows @wright1982.
 
-| Section                          | Symbol                  | Term        | Description                                                   |
-|----------------------------------|:------------------------|:------------|:--------------------------------------------------------------|
+| Section  | Symbol  | Term        | Description                                                   |
+|----------|:--------|:------------|:--------------------------------------------------------------|
 | \@ref(sec:itemresponsefunctions) | $\beta_n$               | Ability     | True (but unknown) developmental score of child $n$           |
 | \@ref(sec:itemresponsefunctions) | $\delta_i$              | Difficulty  | True (but unknown) difficulty of item $i$                     |
 | \@ref(sec:itemresponsefunctions) | $\pi_{ni}$              | Probability | True (but unknown) probability that child $n$ passes item $i$ |

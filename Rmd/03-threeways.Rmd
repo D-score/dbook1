@@ -397,15 +397,15 @@ The *measurement model* specifies the relations between the actual measurements 
 
 ## Why unit-based measurement {#sec:whyunit}
 
-| Criterion                    | Age-based | Probability-based | Score-based | Unit-based |
-|------------------------------|-----------|-------------------|-------------|------------|
-| Independent of age norm      | NO        | NO                | YES         | YES        |
-| Supports multiple milestones | NO        | NO                | YES         | YES        |
-| Latent variable              | NO        | NO                | YES         | YES        |
-| Robust to milestone skipping | YES       | YES               | NO          | YES        |
-| Comparable scores            | YES       | YES               | NO          | YES        |
-| Probability model            | NO        | YES               | NO          | YES        |
-| Defines measurement unit     | NO        | NO                | NO          | YES        |
+| Criterion                    | Age | Probability | Score | Unit |
+|------------------------------|-----|-------------|-------|------|
+| Independent of age norm      | NO  | NO          | YES   | YES  |
+| Supports multiple milestones | NO  | NO          | YES   | YES  |
+| Latent variable              | NO  | NO          | YES   | YES  |
+| Robust to milestone skipping | YES | YES         | NO    | YES  |
+| Comparable scores            | YES | YES         | NO    | YES  |
+| Probability model            | NO  | YES         | NO    | YES  |
+| Defines measurement unit     | NO  | NO          | NO    | YES  |
 
 : (\#tab:measurement) Evaluation of four measurement approaches on seven criteria.
 

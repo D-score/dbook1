@@ -279,9 +279,11 @@ tabs <- pops2 %>%
             z0.50 = round(mean(daz_0.50, na.rm = TRUE), 2),
             z0.75 = round(mean(daz_0.75, na.rm = TRUE), 2),
             z1.00 = round(mean(daz_1.00, na.rm = TRUE), 2))
+tabs$gp <- c("0-3", "3-4", "5-6","7-8","9-11","12-14","15-23", "24+")
 kbl(tabs, 
-      caption = "Average DAZ at various ages under four correction factors.",
-      col.names = c("Month", "0.00", "0.50", "0.75", "1.00"))
+    caption = "Average DAZ at various ages under four correction factors.",
+    col.names = c("Age (months)", "0.00", "0.50", "0.75", "1.00"), 
+    booktabs = TRUE)
 ```
 
 Table \@ref(tab:tabz) compares mean DAZ under various specifications for $f$. Values $f = 0.00$ and $f = 0.50$ do not correct for preterm birth enough in the sense that all sign are negative. In contrast, $f = 1.00$ overcorrects. The value of 0.73 is implausibly high, especially because this value is close to birth. Setting $f = 0.75$ seems a good compromise, in the sense that the average DAZ is close to zero in the first age interval. The average DAZ is negative at later ages. We do not know whether this genuinely reflects less than optimal development of very preterm and low birth weight children, so either $f = 1.00$ and $f = 0.75$ are suitable candidates.

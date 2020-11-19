@@ -31,12 +31,12 @@ kbl(broad,
     caption = "SMOCC DDI milestones, first three children, 0-2 years.",
     row.names = FALSE, 
     col.names = c(substr(items, 8, 9)),
-) %>%
+    booktabs = TRUE) %>% 
   kable_styling(full_width = TRUE, 
-                latex_options = c("scale_down", "basic")) %>%
+                latex_options = c("scale_down")) %>%
   column_spec(1:57, width_max = "3em") %>%
-  scroll_box(width = "100%", height = "300px") %>% 
-  landscape()
+  landscape() %>% 
+  scroll_box(width = "100%", height = "300px")
 ```
 
 &nbsp;
@@ -108,7 +108,8 @@ df <- data.frame(
   stringsAsFactors = FALSE)
 kbl(df, 
     caption = "Anchoring values used to identify the D-score scale", 
-    booktabs = TRUE)
+    booktabs = TRUE) %>%
+  column_spec(1, monospace = TRUE)
 ```
 
 &nbsp;
@@ -205,7 +206,9 @@ dr <- data.frame(ib,
 kbl(dr, 
     caption = "Scores of David and Rob on five milestones from the DDI", 
     row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"),
-    booktabs = TRUE)
+    booktabs = TRUE) %>%
+  column_spec(1, monospace = TRUE) %>% 
+  kable_styling(latex_options = "scale_down")
 ```
 
 &nbsp;
@@ -327,8 +330,10 @@ reference <- dplyr::select(dscore::get_reference("dutch"), age, mu, sigma, nu) %
          S = sigma, 
          L = nu)
 kbl(reference,
-    caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).") %>% 
-  kable_styling(full_width = TRUE) %>%
+    caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).",
+    booktabs = TRUE) %>% 
+  kable_styling(full_width = TRUE, latex_options = "repeat_header") %>%
+  column_spec(1, monospace = TRUE) %>% 
   scroll_box(height = "300px")
 ```
 
