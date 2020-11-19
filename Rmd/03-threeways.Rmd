@@ -29,7 +29,7 @@ There is an extensive literature that quantifies development in terms of the age
 
 ### Age equivalent and developmental age {#sec:ageequivalent}
 
-```{r milestonebased, fig.height = 3, fig.cap = '(ref:agebased)', warning = FALSE}
+```{r milestonebased, fig.height = 3, fig.cap = '(ref:milestonebased)', warning = FALSE}
 load(file = file.path("data/shirley.rda"))
 
 d <- shirley %>%
@@ -117,13 +117,6 @@ data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <-
 #   kableExtra::scroll_box(width = "100%", height = "400px")
 ```
 
-<!-- &nbsp; -->
-
-<!-- Table @ref(tab:weekly) reconstructs the weekly motor measurements -->
-
-<!-- made by Shirley from Table @ref(tab:shirley). Each of the -->
-
-<!-- measurements is coded as a PASS (1) or a FAIL (0). -->
 
 ```{r fitdmodel}
 data2 <- data %>%
