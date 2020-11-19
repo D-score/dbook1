@@ -82,12 +82,14 @@ meta <- df %>%
 #   dplyr::select(item, visit) %>% 
 #   left_join(meta, by = "item")
 
-options(knitr.table.format = "html") 
+# options(knitr.table.format = "html") 
 kable(meta, 
       caption = "Codebook of DDI as used in the SMOCC study",
       row.names = FALSE, 
-      col.names = c("Item", "Debut", "Domain", "Label")) %>%
-  kableExtra::kable_styling() %>%
+      col.names = c("Item", "Debut", "Domain", "Label"),
+      align = c("l", "r", "l", "l")) %>%
+  kableExtra::kable_styling(latex_options = "scale_down") %>%
+  kableExtra::column_spec(column = 1, monospace = TRUE) %>% 
   kableExtra::scroll_box(width = "100%", height = "300px")
 ```
 
@@ -97,7 +99,7 @@ Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for ages 0 - 30
 
 ## Probability of passing a milestone given age {#sec:probage}
 
-```{r smoccpa, fig.cap = '(ref:smoccpa)', fig.height = 4}
+```{r smoccpa, fig.cap = '(ref:smoccpa)', fig.width = 7, fig.height = 4}
 # define data for rug plot
 data_rug <- data$itm %>%
   mutate(agemos = round(12 * agedays / 365.25), 3) %>%
@@ -142,7 +144,7 @@ The domain determines the coloured (blue: gross motor, green: fine motor, red: c
 
 ## Probability of passing a milestone given D-score {#sec:probd}
 
-```{r smoccpd, fig.cap = '(ref:smoccpd)', fig.height = 4}
+```{r smoccpd, fig.cap = '(ref:smoccpd)', fig.width = 7, fig.height = 4}
 modelb <- model$dscore
 delta <- dscore::get_tau(model$items, key = "", itembank = model$itembank)
 data2 <- data$itm %>%
@@ -178,7 +180,7 @@ plot <- ggplot(pass, aes(d, p, group = item, colour = domain,
   scale_x_continuous(paste0("D-score (", model$name,")"),
                      limits = c(0, 70),
                      breaks = seq(0, 70, 10)) +
-  scale_y_continuous("% pass", breaks = seq(0, 100, 10),
+  scale_y_continuous("% pass", breaks = seq(0, 100, 20),
                      limits = c(0, 100)) +
   geom_line(size = 0.3) + 
   geom_point(size = 1.0) +

@@ -11,3 +11,11 @@ bookdown::gitbook:
     download: no
 bookdown::pdf_document2:
   number_sections: TRUE
+  fig_width: 7
+  fig_height: 5
+  dev: pdf
+  keep_tex: true
+bookdown::word_document2:
+  number_sections: TRUE
+  fig_width: 7
+  fig_height: 5

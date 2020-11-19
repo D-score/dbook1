@@ -26,7 +26,7 @@ model <- knitr::load_cache("smoccmodel", "model")
 broad <- as.data.frame(data) %>% 
   dplyr::select(subjid, agedays, all_of(items)) %>% 
   dplyr::slice(1:26)
-options(knitr.table.format = "html", knitr.kable.NA = "") 
+# options(knitr.table.format = "html", knitr.kable.NA = "") 
 kable(broad,
       caption = "SMOCC DDI milestones, first three children, 0-2 years.",
       row.names = FALSE, 
