@@ -24,16 +24,19 @@ model <- knitr::load_cache("smoccmodel", "model")
 
 ```{r smocctable, warning = FALSE}
 broad <- as.data.frame(data) %>% 
-  dplyr::select(subjid, agedays, all_of(items)) %>% 
+  dplyr::select(all_of(items)) %>% 
   dplyr::slice(1:26)
-# options(knitr.table.format = "html", knitr.kable.NA = "") 
-kable(broad,
-      caption = "SMOCC DDI milestones, first three children, 0-2 years.",
-      row.names = FALSE, 
-      col.names = c("Child", "Age (days)", substr(items, 8, 9))) %>%
-  kableExtra::kable_styling(full_width = TRUE) %>%
-  kableExtra::column_spec(3:59, width_max = "3em") %>%
-  kableExtra::scroll_box(width = "100%", height = "300px")
+options(knitr.kable.NA = "")
+kbl(broad,
+    caption = "SMOCC DDI milestones, first three children, 0-2 years.",
+    row.names = FALSE, 
+    col.names = c(substr(items, 8, 9)),
+) %>%
+  kable_styling(full_width = TRUE, 
+                latex_options = c("scale_down", "basic")) %>%
+  column_spec(1:57, width_max = "3em") %>%
+  scroll_box(width = "100%", height = "300px") %>% 
+  landscape()
 ```
 
 &nbsp;
@@ -103,9 +106,9 @@ df <- data.frame(
             "Sits in stable position without support"),
   Value = c(20, 40), 
   stringsAsFactors = FALSE)
-kable(df, 
-      caption = "Anchoring values used to identify the D-score scale", 
-      booktabs = TRUE)
+kbl(df, 
+    caption = "Anchoring values used to identify the D-score scale", 
+    booktabs = TRUE)
 ```
 
 &nbsp;
@@ -197,10 +200,12 @@ ib <- model$itembank %>%
   dplyr::select(item, label, delta)
 ib <- ib[c(2, 3, 1, 4, 5), ]
 dr <- data.frame(ib, 
-                  David = c(1, 1, 1, 1, NA),
-                  Rob = c(1, 0, 1, 1, 0))
-kable(dr, caption = "Scores of David and Rob on five milestones from the DDI", 
-      row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"))
+                 David = c(1, 1, 1, 1, NA),
+                 Rob = c(1, 0, 1, 1, 0))
+kbl(dr, 
+    caption = "Scores of David and Rob on five milestones from the DDI", 
+    row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"),
+    booktabs = TRUE)
 ```
 
 &nbsp;
@@ -321,10 +326,10 @@ reference <- dplyr::select(dscore::get_reference("dutch"), age, mu, sigma, nu) %
   rename(M = mu,
          S = sigma, 
          L = nu)
-knitr::kable(reference,
-             caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).") %>% 
-  kableExtra::kable_styling(full_width = TRUE) %>%
-  kableExtra::scroll_box(height = "300px")
+kbl(reference,
+    caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).") %>% 
+  kable_styling(full_width = TRUE) %>%
+  scroll_box(height = "300px")
 ```
 
 &nbsp;

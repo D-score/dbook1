@@ -1,4 +1,5 @@
 library(knitr)
+library(kableExtra)
 
 # knitr options
 knit_theme$set(knit_theme$get("earendel"))

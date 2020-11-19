@@ -64,7 +64,7 @@ resultsSMOCC <- data.frame(
   e = c(" ","$1.15$", " " , "$1.17$", " ", "$7.83$", "$5.83$", "$0.10$", "$5.20$", " ", " ", "$-3.45$", "$-3.03$", " ", "$-6.15$", " ", "$2.87$"," ", " ", "$-2.33$", "$-2.84$", "$1.70$", " ", "$0.3$", " ", " ", "$0.62$", " "),
   f = c(" ","$0.25$", " " , "$0.24$", " ", "$<.001$", "$<.001$", "$0.92$", "$<.001$", " ", " ", "$<.001$", "$0.002$", " ", "$<.001$", " ", "$0.0041$"," ", " ", "$0.0202$", "$0.0046$", "$0.089$", " ", "$0.76$", " ", " ", "$0.54$", " "))
 
-knitr::kable(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
+kbl(resultsSMOCC, caption = "Results SMOCC", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
 ```
 
 
@@ -279,7 +279,7 @@ resultsPOPS<- data.frame(a = c("Area of Residence","rural", "semi-urban" , "urba
                 e = c(" "," "," " , "$-0.939$", " ", "$1.903$", "$2.470$", "$0.808$", "$0.352$", " ", " ", " ", " "," ", " ","$0.623$","$1.862$"," "," ","$0.886$"," ","$0.631$", " ", "$-0.693$"," "," ","$1.977$", " "),
                f = c(" "," "," ","$0.349$" , " ","0.0589","$0.0146$","$0.420$","$0.725$", " ", " ", " ", " ", " ", " ", "$0.534$", "$0.0641$", " ", " ","$0.377$", " ", "$0.529$", " ","$0.4890$", " ", " ", "$0.0496$", " "))
 
-knitr::kable(resultsPOPS, caption = "Results POPS", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
+kbl(resultsPOPS, caption = "Results POPS", booktabs = TRUE, digits = 4, col.names = c("Indicators","n","$%$ or mean(SD)", "Model DAZ Coefficient (SE)","Model DAZ t-statistics","Model DAZ p-value"))
 ```
 
 **Conclusions**
@@ -428,7 +428,7 @@ descr <- as.data.frame(cbind(v_n, v_mean, v_sd, v_median)) # , v_min, v_max)
 descr <- format(descr, digits=2, nsmall=2)
 row.names(descr) <- c("age (years)", "D-score","DAZ","weight (kg)", "weight z-score (age-corrected, WHO-reference data)")
 
-knitr::kable(descr, 
+kbl(descr, 
              caption="Descriptives (last visit, for which daz could be calculated, per child)",
              col.names=c("N", "mean", "SD", "median"))
 ```
@@ -442,7 +442,7 @@ descr2 <- as.data.frame(cbind(v2_n, v2_perc))
 descr2 <- format(descr2, digits=1, nsmall=1)
 row.names(descr2) <- c("gender (% boys)", "fathers' schooling (% schooled)","muscle tension and/or reflex problems (% with problems, as observed by physician)","APGAR 10 min. (% with score <10)")
 
-knitr::kable(descr2, 
+kbl(descr2, 
              # caption="Descriptives", 
              col.names=c("N", "%"))
 

@@ -90,7 +90,7 @@ For illustration, we use data on loco-motor development from a classic study on 
 ```{r shirley}
 load(file = file.path("data/shirley.rda"))
 options(knitr.kable.NA = '?')
-kable(shirley, 
+kbl(shirley, 
       col.names = c("Name", "Sex", "Stepping", "Standing", 
                     "Walking with help", "Walking alone"),
       caption =  "Age at beginning stages of walking (in weeks) for 21 babies.",
@@ -147,7 +147,7 @@ questions <- data.frame(
     "How does this country compare to other countries in terms of child development?"
   ))
 
-kable(questions, 
+kbl(questions, 
       caption = "Questions whose answers require quantitative measurements of child development.", 
       booktabs = TRUE)
 ```

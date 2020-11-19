@@ -279,7 +279,7 @@ tabs <- pops2 %>%
             z0.50 = round(mean(daz_0.50, na.rm = TRUE), 2),
             z0.75 = round(mean(daz_0.75, na.rm = TRUE), 2),
             z1.00 = round(mean(daz_1.00, na.rm = TRUE), 2))
-kable(tabs, 
+kbl(tabs, 
       caption = "Average DAZ at various ages under four correction factors.",
       col.names = c("Month", "0.00", "0.50", "0.75", "1.00"))
 ```
