@@ -1054,16 +1054,16 @@ Figure \ref{fig:smoccda} shows that the relation between D-score and age is nonl
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{dbook1_files/figure-latex/smoccdap-1} 
+{\centering \includegraphics[width=1\linewidth]{fig/scenes} 
 
 }
 
-\caption{3D-line graph illustrating how the patterns in Figures \ref{fig:smoccpa} and \ref{fig:smoccpd} induce the curvature in the relation between D-score and age.}\label{fig:smoccdap}
+\caption{3D-line graph illustrating how the patterns in Figures \ref{fig:smoccpa} and \ref{fig:smoccpd} induce the curvature in the relation between D-score and age. The printed version shows three orientations of the relation between age, percent pass and D-score. The online version holds an interactive 3D graph that the reader can actively manipulate the orientation of the graph by click-hold-drag mouse operations.}\label{fig:smoccdap}
 \end{figure}
 
 
 
-Figure \ref{fig:smoccdap} shows the mutual relations between age, percentage of milestone passing and the D-score. In the online version of the booklet, the reader can actively manipulate the orientation of the graph by a click-hold-drag mouse operation.
+Figure \ref{fig:smoccdap} shows the mutual relations between age, percentage of milestone passing and the D-score. There are three main orientations.
 
 \begin{itemize}
 \item
@@ -1278,24 +1278,20 @@ The Guttman and Mokken models yield an ordinal latent scale, while the Rasch mod
   \emph{Specific objectivity}: Person and item parameters are mathematically separate entities in the Rasch model. In practice, this means that the estimated difference in ability between two persons does not depend on the difficulty of the test. Also, the estimated differences in difficulties between two items do not depend on the abilities in the calibration sample. The property is especially important in the analysis of combined data, where abilities can vary widely between sources. See \protect\hyperlink{ref-rasch1977}{Rasch} (\protect\hyperlink{ref-rasch1977}{1977}) for derivations and examples.
 \item
   \emph{Unified model}: The Rasch model unifies distinct traditions in measurement theory. One may derive the Rasch model from
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \href{https://www.rasch.org/rmt/rmt143g.htm}{Thorndike's 1904 criteria}
-  \item
-    \href{https://www.rasch.org/rmt/rmt63e.htm}{Guttman scalogram model}
-  \item
-    \href{https://www.rasch.org/rmt/rmt62c.htm}{Ratio-scale counts}
-  \item
-    \href{https://www.rasch.org/rmt/rmt32e.htm}{Raw scores as sufficient statistics}
-  \item
-    \href{https://www.rasch.org/rmt/rmt21a.htm}{Thurstone's scaling requirements}
-  \item
-    \href{https://www.rasch.org/rmt/rmt21b.htm}{Campbell concatenation}
-  \item
-    \href{https://www.rasch.org/rmt/rmt11a.htm}{Rasch's specific objectivity}
-  \end{itemize}
+\item
+  \href{https://www.rasch.org/rmt/rmt143g.htm}{Thorndike's 1904 criteria}
+\item
+  \href{https://www.rasch.org/rmt/rmt63e.htm}{Guttman scalogram model}
+\item
+  \href{https://www.rasch.org/rmt/rmt62c.htm}{Ratio-scale counts}
+\item
+  \href{https://www.rasch.org/rmt/rmt32e.htm}{Raw scores as sufficient statistics}
+\item
+  \href{https://www.rasch.org/rmt/rmt21a.htm}{Thurstone's scaling requirements}
+\item
+  \href{https://www.rasch.org/rmt/rmt21b.htm}{Campbell concatenation}
+\item
+  \href{https://www.rasch.org/rmt/rmt11a.htm}{Rasch's specific objectivity}
 \item
   \emph{Fits child development data}: Last but not least, as we will see in Chapter \ref{ch:evaluation}, the Rasch model provides an excellent fit to child development milestones.
 \end{itemize}
@@ -3204,25 +3200,20 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] gdtools_0.2.2      ddata_0.52.0       gseddata_1.5.1     reshape2_1.4.4    
- [5] dmetric_0.52.0     dscore_1.3.2       RColorBrewer_1.1-2 dplyr_1.0.2       
- [9] tidyr_1.1.2        ggplot2_3.3.2      kableExtra_1.3.1   knitr_1.30        
+[1] RColorBrewer_1.1-2 dplyr_1.0.2        tidyr_1.1.2        ggplot2_3.3.2     
+[5] kableExtra_1.3.1   knitr_1.30        
 
 loaded via a namespace (and not attached):
- [1] gtools_3.8.2      tidyselect_1.1.0  xfun_0.19         purrr_0.3.4      
- [5] splines_4.0.3     lattice_0.20-41   colorspace_2.0-0  vctrs_0.3.5      
- [9] generics_0.1.0    htmltools_0.5.0   viridisLite_0.3.0 yaml_2.2.1       
-[13] survival_3.2-7    rlang_0.4.8       pillar_1.4.6      glue_1.4.2       
-[17] withr_2.3.0       plyr_1.8.6        lifecycle_0.2.0   stringr_1.4.0    
-[21] munsell_0.5.0     gtable_0.3.0      rvest_0.3.6       codetools_0.2-16 
-[25] evaluate_0.14     forcats_0.5.0     gamlss.dist_5.1-7 gamlss_5.2-0     
-[29] gamlss.data_5.1-4 parallel_4.0.3    Rcpp_1.0.5        scales_1.1.1     
-[33] webshot_0.5.2     systemfonts_0.3.2 digest_0.6.27     stringi_1.5.3    
-[37] bookdown_0.21     grid_4.0.3        tools_4.0.3       magrittr_2.0.1   
-[41] lazyeval_0.2.2    tibble_3.0.4      crayon_1.3.4.9000 pkgconfig_2.0.3  
-[45] ellipsis_0.3.1    MASS_7.3-53       Matrix_1.2-18     xml2_1.3.2       
-[49] rmarkdown_2.5     httr_1.4.2        rstudioapi_0.13   R6_2.5.0         
-[53] nlme_3.1-150      compiler_4.0.3   
+ [1] compiler_4.0.3    pillar_1.4.6      tools_4.0.3       digest_0.6.27    
+ [5] evaluate_0.14     lifecycle_0.2.0   tibble_3.0.4      gtable_0.3.0     
+ [9] viridisLite_0.3.0 pkgconfig_2.0.3   rlang_0.4.8       rstudioapi_0.13  
+[13] yaml_2.2.1        xfun_0.19         withr_2.3.0       httr_1.4.2       
+[17] stringr_1.4.0     xml2_1.3.2        generics_0.1.0    vctrs_0.3.5      
+[21] webshot_0.5.2     grid_4.0.3        tidyselect_1.1.0  glue_1.4.2       
+[25] R6_2.5.0          rmarkdown_2.5     bookdown_0.21     purrr_0.3.4      
+[29] magrittr_2.0.1    scales_1.1.1      htmltools_0.5.0   ellipsis_0.3.1   
+[33] rvest_0.3.6       colorspace_2.0-0  stringi_1.5.3     munsell_0.5.0    
+[37] crayon_1.3.4.9000
 \end{verbatim}
 
 \hypertarget{references}{%
