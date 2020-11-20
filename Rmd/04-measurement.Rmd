@@ -87,7 +87,8 @@ kbl(meta,
     caption = "Codebook of DDI as used in the SMOCC study",
     row.names = FALSE, 
     col.names = c("Item", "Debut", "Domain", "Label"),
-    align = c("l", "r", "l", "l")) %>%
+    align = c("l", "r", "l", "l"),
+    booktabs = TRUE) %>%
   kable_styling(latex_options = "scale_down") %>%
   column_spec(column = 1, monospace = TRUE) %>% 
   scroll_box(width = "100%", height = "300px")
