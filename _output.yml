@@ -7,7 +7,7 @@ bookdown::gitbook:
   config:
     toc:
       before: |
-        <li><a href="https://stefvanbuuren.name/dbook1">D-score booklet I</a></li>
+        <li><a href="https://d-score.org/dbook1">D-score booklet I</a></li>
     download: no
 bookdown::pdf_document2:
   number_sections: TRUE
