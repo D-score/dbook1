@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.8)  20 NOV 2020 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.8)  20 NOV 2020 15:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1465,129 +1465,93 @@ Overfull \hbox (18.0pt too wide) in alignment at lines 2969--3142
 ]
 Appendix B.
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 3182--3182
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 3177--3177
 []\T1/lmtt/m/n/10 BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRblas.dylib[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 3182--3182
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 3177--3177
 []\T1/lmtt/m/n/10 LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRlapack.dylib[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 3182--3182
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3177--3177
 []\T1/lmtt/m/n/10 [1] stats     graphics  grDevices utils     datasets  methods
    base[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 3182--3182
-[] \T1/lmtt/m/n/10 [1] gdtools_0.2.2      ddata_0.52.0       gseddata_1.5.1    
- reshape2_1.4.4[] 
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [1] RColorBrewer_1.1-2 dplyr_1.0.2        tidyr_1.1.2        
+ggplot2_3.3.2[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3182--3182
-[] \T1/lmtt/m/n/10 [5] dmetric_0.52.0     dscore_1.3.2       RColorBrewer_1.1-2
- dplyr_1.0.2[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3177--3177
+[] \T1/lmtt/m/n/10 [1] compiler_4.0.3    pillar_1.4.6      tools_4.0.3       di
+gest_0.6.27[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3182--3182
-[] \T1/lmtt/m/n/10 [9] tidyr_1.1.2        ggplot2_3.3.2      kableExtra_1.3.1  
- knitr_1.30[] 
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3177--3177
+[] \T1/lmtt/m/n/10 [5] evaluate_0.14     lifecycle_0.2.0   tibble_3.0.4      gt
+able_0.3.0[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3182--3182
-[] \T1/lmtt/m/n/10 [1] gtools_3.8.2      tidyselect_1.1.0  xfun_0.19         pu
-rrr_0.3.4[] 
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 3177--3177
+[] \T1/lmtt/m/n/10 [9] viridisLite_0.3.0 pkgconfig_2.0.3   rlang_0.4.8       rs
+tudioapi_0.13[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3182--3182
-[] \T1/lmtt/m/n/10 [5] splines_4.0.3     lattice_0.20-41   colorspace_2.0-0  vc
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [13] yaml_2.2.1        xfun_0.19         withr_2.3.0       ht
+tr_1.4.2[] 
+ []
+
+
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [17] stringr_1.4.0     xml2_1.3.2        generics_0.1.0    vc
 trs_0.3.5[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3182--3182
-[] \T1/lmtt/m/n/10 [9] generics_0.1.0    htmltools_0.5.0   viridisLite_0.3.0 ya
-ml_2.2.1[] 
- []
-
-
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [13] survival_3.2-7    rlang_0.4.8       pillar_1.4.6      gl
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [21] webshot_0.5.2     grid_4.0.3        tidyselect_1.1.0  gl
 ue_1.4.2[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [17] withr_2.3.0       plyr_1.8.6        lifecycle_0.2.0   st
-ringr_1.4.0[] 
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [25] R6_2.5.0          rmarkdown_2.5     bookdown_0.21     pu
+rrr_0.3.4[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [21] munsell_0.5.0     gtable_0.3.0      rvest_0.3.6       co
-detools_0.2-16[] 
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [29] magrittr_2.0.1    scales_1.1.1      htmltools_0.5.0   el
+lipsis_0.3.1[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [25] evaluate_0.14     forcats_0.5.0     gamlss.dist_5.1-7 ga
-mlss_5.2-0[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3177--3177
+[]\T1/lmtt/m/n/10 [33] rvest_0.3.6       colorspace_2.0-0  stringi_1.5.3     mu
+nsell_0.5.0[] 
  []
 
+[127] [128
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [29] gamlss.data_5.1-4 parallel_4.0.3    Rcpp_1.0.5        sc
-ales_1.1.1[] 
- []
-
-
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [33] webshot_0.5.2     systemfonts_0.3.2 digest_0.6.27     st
-ringi_1.5.3[] 
- []
-
-
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [37] bookdown_0.21     grid_4.0.3        tools_4.0.3       ma
-grittr_2.0.1[] 
- []
-
-
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [41] lazyeval_0.2.2    tibble_3.0.4      crayon_1.3.4.9000 pk
-gconfig_2.0.3[] 
- []
-
-[127]
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [45] ellipsis_0.3.1    MASS_7.3-53       Matrix_1.2-18     xm
-l2_1.3.2[] 
- []
-
-
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 3182--3182
-[]\T1/lmtt/m/n/10 [49] rmarkdown_2.5     httr_1.4.2        rstudioapi_0.13   R6
-_2.5.0[] 
- []
-
-[128] [129
-
-] [130]
-Underfull \hbox (badness 2837) in paragraph at lines 3280--3282
+] [129] [130]
+Underfull \hbox (badness 2837) in paragraph at lines 3275--3277
 \T1/lmr/m/n/10 26 (13): 2629--38. []$https : / / stefvanbuuren . name / publica
 tion / 2007 -[] 01 -[]
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 3283--3285
+Underfull \hbox (badness 2837) in paragraph at lines 3278--3280
 \T1/lmr/m/n/10 25 (13): 2272--83. []$https : / / stefvanbuuren . name / publica
 tion / 2006 -[] 01 -[]
  []
@@ -1628,7 +1592,7 @@ type1/public/lm/lmri10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmro10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on dbook1.pdf (133 pages, 27210593 bytes).
+Output written on dbook1.pdf (133 pages, 27210113 bytes).
 PDF statistics:
  2334 PDF objects out of 2487 (max. 8388607)
  2000 compressed objects within 20 object streams
