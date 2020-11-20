@@ -67,8 +67,9 @@ tableSMOCC <- data.frame(
   stringsAsFactors = FALSE)
 tableSMOCC <- tableSMOCC[-nrow(tableSMOCC), ]
 kbl(tableSMOCC, 
-      caption = "Overview of the nine waves of the SMOCC data", 
-      booktabs = TRUE)
+    caption = "Overview of the nine waves of the SMOCC data", 
+    align = c("r", "c", "c"),
+    booktabs = TRUE)
 ```
 
 Table \@ref(tab:tableSMOCC) summarizes the schedules age for each wave, the number of standard milestones and the number of additional milestones.
@@ -403,9 +404,10 @@ cors <- long2 %>%
   summarise(cr = cor(d, IQ, use = "pairwise")) %>% 
   spread(set, cr)
 kbl(cors, 
-      col.names = c("Visit", "Standard set", "Additional set", "All milestones"),
-      caption = "Pearson correlation between D-score (0-2 years) and IQ at 5 years", 
-      booktabs = TRUE, digits = 3)
+    col.names = c("Visit", "Standard set", "Additional set", "All milestones"),
+    caption = "Pearson correlation between D-score (0-2 years) and IQ at 5 years", 
+    align = c("r", "r", "r", "r"),
+    booktabs = TRUE, digits = 3)
 ```
 
 Table \@ref(tab:cordiq) summarizes the Pearson correlations between the D-score and later IQ. The association between D-score and IQ is weak during the first year of life but gets stronger during the second year. In general, having more (and more informative) milestones helps to increase the correlation, but the effects are relatively small. So even from the standard set of the seven easy milestones at 24m, we obtain a reasonable correlation of 0.245.

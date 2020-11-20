@@ -331,6 +331,7 @@ reference <- dplyr::select(dscore::get_reference("dutch"), age, mu, sigma, nu) %
          L = nu)
 kbl(reference,
     caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).",
+    longtable = TRUE,
     booktabs = TRUE) %>% 
   kable_styling(full_width = TRUE, latex_options = "repeat_header") %>%
   column_spec(1, monospace = TRUE) %>% 
