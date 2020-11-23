@@ -305,8 +305,6 @@ Table \@ref(tab:tabz) compares mean DAZ under various specifications for $f$. Va
 ## TOGO study {#sec:togo}
 
 ```{r togodata}
-library(ddata)
-
 # read togo data
 togo_orig <- ddata::TGO
 

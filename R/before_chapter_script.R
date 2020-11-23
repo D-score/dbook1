@@ -2,7 +2,9 @@
 
 # load standard packages
 pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr", "RColorBrewer",
-         "dscore", "dmetric", "reshape2")
+         "reshape2", "plyr", "gridExtra", "sirt", "plotly", "scales", "magick",
+         "haven", "forcats",
+         "dscore", "dmetric", "gseddata", "ddata", "dinstrument")
 loaded <- sapply(pkg, require, character.only = TRUE,
                  warn.conflicts = FALSE, quietly = TRUE)
 

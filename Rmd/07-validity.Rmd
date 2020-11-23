@@ -7,13 +7,6 @@ Validity is a generic term that refers to the question of how well an instrument
 -   Internal validity (\@ref(sec:internal))
 -   External validity (\@ref(sec:external))
 
-```{r init07, include=FALSE}
-library(ddata)
-library(gseddata)
-library(dplyr)
-library(tidyr)
-```
-
 ```{r smoccmodel7, dependson = "smoccmodel", cache = FALSE}
 data <- knitr::load_cache("smoccmodel", "data")
 items <- knitr::load_cache("smoccmodel", "items")
