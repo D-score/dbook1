@@ -1,12 +1,3 @@
----
-output: pdf_document
----
-
-```{r init11, include=FALSE}
-source(file = file.path("/Users/buurensv/Websites/dbook/dbook1/R", "before_chapter_script.R"), 
-       local = TRUE)
-```
-
 # Next steps {#ch:nextsteps}
 
 > Author: Stef van Buuren

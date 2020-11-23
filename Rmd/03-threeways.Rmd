@@ -1,11 +1,3 @@
-```{r init3}
-pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr", 
-         "dscore", "dmetric", "reshape2")
-loaded <- sapply(pkg, require, character.only = TRUE,
-                 warn.conflicts = FALSE, quietly = TRUE)
-ggplot2::theme_set(theme_light())
-```
-
 # Quantifying child development {#ch:threeways}
 
 > Author: Stef van Buuren
