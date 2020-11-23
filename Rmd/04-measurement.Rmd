@@ -292,7 +292,9 @@ if (opts_knit$get("rmarkdown.pandoc.to") == "html") {
                                     z = 2
                                   )
                                 )
-    ))
+    )) %>% 
+    plotly::layout(plot_bgcolor = 'transparent') %>% 
+    plotly::layout(paper_bgcolor = 'transparent')
 }
 
 if (opts_knit$get("rmarkdown.pandoc.to") == "latex") {
