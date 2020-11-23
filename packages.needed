@@ -1,11 +1,8 @@
 packages needed:
 
-dmetric
-kableExtra
-dmetric - gtools
-dscore
-ddata
-formatR
-plotly
-gridExtra
-dinstrument
+bookdown
+
+pkg <- c("knitr", "kableExtra", "ggplot2", "tidyr", "dplyr", "RColorBrewer",
+         "reshape2", "plyr", "gridExtra", "sirt", "plotly", "scales", "magick",
+         "haven", "forcats",
+         "dscore", "dmetric", "gseddata", "ddata", "dinstrument")
