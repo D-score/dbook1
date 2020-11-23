@@ -32,3 +32,8 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+pre.sourceCode  {
+  color: inherit;
+  background-color: transparent;
+}
