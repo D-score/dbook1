@@ -1,10 +1,10 @@
 --- 
-title: "D-score booklet I"
+title: "D-score booklet I: Turning milestones into measurement"
 author: "Editor: Stef van Buuren"
 description: "The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years."
 site: bookdown::bookdown_site
 url: https://d-score.org/dbook1
-github-repo: "d-score/dbook1"
+github-repo: "D-score/dbook1"
 cover-image: "fig/shirleypd-1.png"
 apple-touch-icon: "fig/D.png"
 apple-touch-icon-size: 72
@@ -33,13 +33,13 @@ Children learn to walk, speak, and think at an astonishing pace. The D-score cap
 We are preparing four D-score booklets under the following titles:
 
 I.	[Turning milestones into measurement](https://d-score.org/dbook1)
-II.	[Tuning instruments to unity](https://stefvanbuuren.name/dbook2)
+II.	[Tuning instruments to unity](https://d-score.org/dbook2)
 III.	[Tailoring tests to fit the occasion](https://stefvanbuuren.name/dbook3)
 IV.	[Taking off the hood](https://stefvanbuuren.name/dbook4)
 
 Editors: [Stef van Buuren](https://stefvanbuuren.name), [Iris Eekhout](https://www.iriseekhout.com)
 
-[Booklet I](https://d-score.org/dbook1) is currently available as a complete draft. The text of [Booklet II](https://stefvanbuuren.name/dbook2) is almost complete, whereas much of the text of booklets III and IV still needs to be written. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
+[Booklet I](https://d-score.org/dbook1) is currently available as a complete draft. The text of [Booklet II](https://d-score.org/dbook2) is almost complete, whereas much of the text of booklets III and IV still needs to be written. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
 
 The *Health Birth Growth and Development knowledge integration (ki)* program of the *Bill & Melinda Gates Foundation* kindly supports the work.
 
