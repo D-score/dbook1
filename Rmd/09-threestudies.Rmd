@@ -383,7 +383,7 @@ The health centre targeted parents through information sessions for parents at p
 include_graphics("fig/data_assistents.png")
 ```
 
-(ref:dataassistents) Three of the data-assistants who helped to digitize the paper files.
+(ref:dataassistents) Three of the data-assistants who helped to digitize the paper files. Reproduced with permission from Stichting Kinderhulp Togo <https://www.kinderhulp-togo.nl>.
 
 Here we use a subset of 2674 visits from 1644 unique children who scored on the 57 milestones of the DDI 0-2 years. We did not calculate D-scores when age or DDI milestones were missing, which left a dataset of 2425 visits from unique 1567 children. The number of visits varied from 1 -- 9. The majority of children visited the centre once.
 
