@@ -39,7 +39,7 @@ IV.	[Taking off the hood](https://stefvanbuuren.name/dbook4)
 
 Editors: [Stef van Buuren](https://stefvanbuuren.name), [Iris Eekhout](https://www.iriseekhout.com)
 
-[Booklet I](https://d-score.org/dbook1) is currently available as a complete draft. The text of [Booklet II](https://d-score.org/dbook2) is almost complete, whereas much of the text of booklets III and IV still needs to be written. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
+[Booklet I](https://d-score.org/dbook1) and [Booklet II](https://d-score.org/dbook2) are currently available as a complete draft. We still need to write most of booklets III and IV. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
 
 The *Health Birth Growth and Development knowledge integration (ki)* program of the *Bill & Melinda Gates Foundation* kindly supports the work.
 

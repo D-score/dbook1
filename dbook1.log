@@ -1,25 +1,25 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.8)  20 NOV 2020 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.15)  15 DEC 2020 21:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **dbook1.tex
 (./dbook1.tex
 LaTeX2e <2020-10-01> patch level 2
-L3 programming layer <2020-10-27> xparse <2020-03-03> (/Users/buurensv/Library/
+L3 programming layer <2020-12-07> xparse <2020-03-03> (/Users/buurensv/Library/
 TinyTeX/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count175
-\c@chapter=\count176
-\c@section=\count177
-\c@subsection=\count178
-\c@subsubsection=\count179
-\c@paragraph=\count180
-\c@subparagraph=\count181
-\c@figure=\count182
-\c@table=\count183
+\c@part=\count177
+\c@chapter=\count178
+\c@section=\count179
+\c@subsection=\count180
+\c@subsubsection=\count181
+\c@paragraph=\count182
+\c@subparagraph=\count183
+\c@figure=\count184
+\c@table=\count185
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -73,13 +73,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count184
+\inf@bad=\count186
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count185
-\leftroot@=\count186
+\uproot@=\count187
+\leftroot@=\count188
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count187
-\DOTSCASE@=\count188
+\classnum@=\count189
+\DOTSCASE@=\count190
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -88,15 +88,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count189
-\c@MaxMatrixCols=\count190
+\macc@depth=\count191
+\c@MaxMatrixCols=\count192
 \dotsspace@=\muskip16
-\c@parentequation=\count191
-\dspbrk@lvl=\count192
+\c@parentequation=\count193
+\dspbrk@lvl=\count194
 \tag@help=\toks16
-\row@=\count193
-\column@=\count194
-\maxfields@=\count195
+\row@=\count195
+\column@=\count196
+\maxfields@=\count197
 \andhelp@=\toks17
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
@@ -196,8 +196,8 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen148
-\Hy@linkcounter=\count196
-\Hy@pagecounter=\count197
+\Hy@linkcounter=\count198
+\Hy@pagecounter=\count199
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -207,7 +207,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count198
+\Hy@SavedSpaceFactor=\count266
 Package hyperref Info: Option `unicode' set `true' on input line 4338.
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
@@ -221,7 +221,7 @@ Package hyperref Info: Plain pages OFF on input line 4479.
 Package hyperref Info: Backreferencing OFF on input line 4484.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count199
+\c@Hy@tempcnt=\count267
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -236,7 +236,7 @@ ty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count266
+\Fld@menulength=\count268
 \Field@Width=\dimen150
 \Fld@charsize=\dimen151
 Package hyperref Info: Hyper figures OFF on input line 6347.
@@ -253,9 +253,9 @@ Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count267
-\c@Item=\count268
-\c@Hfootnote=\count269
+\Hy@abspage=\count269
+\c@Item=\count270
+\c@Hfootnote=\count271
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -265,8 +265,8 @@ Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count270
-\c@bookmark@seq@number=\count271
+\Fld@listcount=\count272
+\c@bookmark@seq@number=\count273
 
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilec
 heck.sty
@@ -286,16 +286,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count272
+\LTchunksize=\count274
 \LTcapwidth=\dimen152
 \LT@head=\box49
 \LT@firsthead=\box50
 \LT@foot=\box51
 \LT@lastfoot=\box52
-\LT@cols=\count273
-\LT@rows=\count274
-\c@LT@tables=\count275
-\c@LT@chunks=\count276
+\LT@cols=\count275
+\LT@rows=\count276
+\c@LT@tables=\count277
+\c@LT@chunks=\count278
 \LT@p@ftn=\toks23
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -309,28 +309,28 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen160
 \cmidrulekern=\dimen161
 \defaultaddspace=\dimen162
-\@cmidla=\count277
-\@cmidlb=\count278
+\@cmidla=\count279
+\@cmidlb=\count280
 \@aboverulesep=\dimen163
 \@belowrulesep=\dimen164
-\@thisruleclass=\count279
-\@lastruleclass=\count280
+\@thisruleclass=\count281
+\@lastruleclass=\count282
 \@thisrulewidth=\dimen165
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count281
-\calc@Bcount=\count282
+\calc@Acount=\count283
+\calc@Bcount=\count284
 \calc@Adimen=\dimen166
 \calc@Bdimen=\dimen167
 \calc@Askip=\skip57
 \calc@Bskip=\skip58
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count283
+\calc@Ccount=\count285
 \calc@Cskip=\skip59
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count284
+\etb@tempcnta=\count286
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box53
@@ -361,19 +361,19 @@ Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip62
-\multirow@cntb=\count285
+\multirow@cntb=\count287
 \multirow@dima=\skip63
 \bigstrutjot=\dimen173
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen174
 \WF@size=\dimen175
-\c@WF@wrappedlines=\count286
+\c@WF@wrappedlines=\count288
 \WF@box=\box56
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count287
+\c@float@type=\count289
 \float@exts=\toks26
 \float@box=\box57
 \@float@everytoks=\toks27
@@ -393,16 +393,16 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box59
-\sift@deathcycles=\count288
+\sift@deathcycles=\count290
 \@vwid@loff=\dimen176
 \@vwid@roff=\dimen177
 )
-\c@taburow=\count289
-\tabu@nbcols=\count290
-\tabu@cnt=\count291
-\tabu@Xcol=\count292
-\tabu@alloc=\count293
-\tabu@nested=\count294
+\c@taburow=\count291
+\tabu@nbcols=\count292
+\tabu@cnt=\count293
+\tabu@Xcol=\count294
+\tabu@alloc=\count295
+\tabu@nested=\count296
 \tabu@target=\dimen178
 \tabu@spreadtarget=\dimen179
 \tabu@naturalX=\dimen180
@@ -441,7 +441,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \UL@skip=\skip67
 \UL@hook=\toks31
 \UL@height=\dimen187
-\UL@pe=\count295
+\UL@pe=\count297
 \UL@pixel=\dimen188
 \ULC@box=\box67
 Package: ulem 2019/11/18
@@ -449,7 +449,7 @@ Package: ulem 2019/11/18
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen190
-\c@nlinenum=\count296
+\c@nlinenum=\count298
 \TeXr@lab=\toks32
 )
 \cslhangindent=\skip68
@@ -458,7 +458,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfte
 x.def
 File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count297
+\l__kernel_color_stack_int=\count299
 \l__pdf_internal_box=\box68
 ) (./dbook1.aux
 
@@ -516,7 +516,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 string.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count298
+\c@section@level=\count300
 )
 LaTeX Info: Redefining \ref on input line 114.
 LaTeX Info: Redefining \pageref on input line 114.
@@ -730,11 +730,11 @@ ut line 707.
 l.720 F
        igure \ref{fig:shirleypd} shows that the probability of passing a mil...
  <./dbook1_files/figure-latex/shirleypd-1.pdf>]
-<fig/lineplot.png, id=729, 797.98125pt x 139.52126pt>
+<fig/lineplot.png, id=729, 413.3844pt x 73.2336pt>
 File: fig/lineplot.png Graphic file (type png)
 <use fig/lineplot.png>
 Package pdftex.def Info: fig/lineplot.png  used on input line 746.
-(pdftex.def)             Requested size: 345.00038pt x 60.32082pt.
+(pdftex.def)             Requested size: 345.00127pt x 61.11908pt.
 [30] [31pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
@@ -753,7 +753,7 @@ lth Clin-ics
 
 LaTeX Warning: Float too large for page by 73.1372pt on input line 950.
 
-<dbook1_files/figure-latex/smoccpa-1.pdf, id=778, 499.8675pt x 280.04625pt>
+<dbook1_files/figure-latex/smoccpa-1.pdf, id=779, 499.8675pt x 280.04625pt>
 File: dbook1_files/figure-latex/smoccpa-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccpa-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccpa-1.pdf  used on input
@@ -765,13 +765,13 @@ Package pdftex.def Info: dbook1_files/figure-latex/smoccpa-1.pdf  used on input
                                                   
 l.973 
       ]
-<dbook1_files/figure-latex/smoccpd-1.pdf, id=799, 499.8675pt x 280.04625pt>
+<dbook1_files/figure-latex/smoccpd-1.pdf, id=800, 499.8675pt x 280.04625pt>
 File: dbook1_files/figure-latex/smoccpd-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccpd-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccpd-1.pdf  used on input
  line 979.
 (pdftex.def)             Requested size: 345.0081pt x 193.28766pt.
-<dbook1_files/figure-latex/smoccda-1.pdf, id=805, 499.8675pt x 424.58624pt>
+<dbook1_files/figure-latex/smoccda-1.pdf, id=806, 499.8675pt x 424.58624pt>
 File: dbook1_files/figure-latex/smoccda-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccda-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccda-1.pdf  used on input
@@ -789,7 +789,7 @@ l.1009
 
 pdfTeX warning: pdflatex (file ./fig/scenes.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<fig/scenes.pdf, id=821, 2306.6175pt x 632.3625pt>
+<fig/scenes.pdf, id=822, 2306.6175pt x 632.3625pt>
 File: fig/scenes.pdf Graphic file (type pdf)
 <use fig/scenes.pdf>
 Package pdftex.def Info: fig/scenes.pdf  used on input line 1012.
@@ -812,7 +812,7 @@ l.1042 \begin{quote}
 l.1042 \begin{quote}
                      <./dbook1_files/figure-latex/smoccda-1.pdf> <./fig/scenes.
 pdf>] [39]
-<dbook1_files/figure-latex/logisticplot-1.pdf, id=893, 499.8675pt x 242.9075pt>
+<dbook1_files/figure-latex/logisticplot-1.pdf, id=894, 499.8675pt x 242.9075pt>
 
 File: dbook1_files/figure-latex/logisticplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/logisticplot-1.pdf>
@@ -825,7 +825,7 @@ e.4.5}) has been already used, duplicate ignored
                                                   
 l.1140 
         <./dbook1_files/figure-latex/logisticplot-1.pdf>]
-<dbook1_files/figure-latex/irfplot-1.pdf, id=925, 499.8675pt x 243.91125pt>
+<dbook1_files/figure-latex/irfplot-1.pdf, id=926, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/irfplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/irfplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/irfplot-1.pdf  used on input
@@ -838,7 +838,7 @@ Package pdftex.def Info: dbook1_files/figure-latex/irfplot-1.pdf  used on input
 l.1164   E
           : Item E is even more general in the sense that it need not be log...
  <./dbook1_files/figure-latex/irfplot-1.pdf>]
-<dbook1_files/figure-latex/prfplot-1.pdf, id=945, 499.8675pt x 243.91125pt>
+<dbook1_files/figure-latex/prfplot-1.pdf, id=946, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/prfplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/prfplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/prfplot-1.pdf  used on input
@@ -864,7 +864,7 @@ Underfull \hbox (badness 4492) in paragraph at lines 1351--1352
  the \T1/lmtt/m/n/10 sirt \T1/lmr/m/n/10 pack-age
  []
 
-<dbook1_files/figure-latex/itemdiflplot-1.pdf, id=1042, 494.84875pt x 713.66624
+<dbook1_files/figure-latex/itemdiflplot-1.pdf, id=1043, 494.84875pt x 713.66624
 pt>
 File: dbook1_files/figure-latex/itemdiflplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/itemdiflplot-1.pdf>
@@ -880,7 +880,7 @@ input line 1355.
                                                   
 l.1370 
         <./dbook1_files/figure-latex/itemdiflplot-1.pdf>]
-<dbook1_files/figure-latex/itemdifdplot-1.pdf, id=1070, 494.84875pt x 713.66624
+<dbook1_files/figure-latex/itemdifdplot-1.pdf, id=1071, 494.84875pt x 713.66624
 pt>
 File: dbook1_files/figure-latex/itemdifdplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/itemdifdplot-1.pdf>
@@ -898,7 +898,7 @@ ifier (name{figure.5.2}) has been already used, duplicate ignored
                                                   
 l.1421 \end{itemize}
                      <./dbook1_files/figure-latex/itemdifdplot-1.pdf>]
-<dbook1_files/figure-latex/figpriors-1.pdf, id=1095, 495.8525pt x 277.035pt>
+<dbook1_files/figure-latex/figpriors-1.pdf, id=1096, 495.8525pt x 277.035pt>
 File: dbook1_files/figure-latex/figpriors-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/figpriors-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/figpriors-1.pdf  used on inp
@@ -910,7 +910,7 @@ e.5.3}) has been already used, duplicate ignored
                                                   
 l.1461 
         <./dbook1_files/figure-latex/figpriors-1.pdf>]
-<dbook1_files/figure-latex/davidplot-1.pdf, id=1126, 495.8525pt x 850.17625pt>
+<dbook1_files/figure-latex/davidplot-1.pdf, id=1127, 495.8525pt x 850.17625pt>
 File: dbook1_files/figure-latex/davidplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/davidplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/davidplot-1.pdf  used on inp
@@ -937,7 +937,7 @@ l.1510   T
 ]
 Chapter 6.
 [65]
-<dbook1_files/figure-latex/ploticc-1.pdf, id=1228, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/ploticc-1.pdf, id=1229, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/ploticc-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/ploticc-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/ploticc-1.pdf  used on input
@@ -949,7 +949,7 @@ Package pdftex.def Info: dbook1_files/figure-latex/ploticc-1.pdf  used on input
                                                   
 l.1813 
         <./dbook1_files/figure-latex/ploticc-1.pdf>]
-<dbook1_files/figure-latex/plothyp1-1.pdf, id=1245, 499.8675pt x 785.93625pt>
+<dbook1_files/figure-latex/plothyp1-1.pdf, id=1246, 499.8675pt x 785.93625pt>
 File: dbook1_files/figure-latex/plothyp1-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plothyp1-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plothyp1-1.pdf  used on inpu
@@ -958,7 +958,7 @@ t line 1821.
 
 LaTeX Warning: Float too large for page by 16.39693pt on input line 1826.
 
-<dbook1_files/figure-latex/plothyp2-1.pdf, id=1248, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/plothyp2-1.pdf, id=1249, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/plothyp2-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plothyp2-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plothyp2-1.pdf  used on inpu
@@ -978,7 +978,7 @@ ate ignored
 l.1859 T
         he \emph{standardized residual} \(z_{ni}\) is the difference between...
  <./dbook1_files/figure-latex/plothyp2-1.pdf>] [70]
-<dbook1_files/figure-latex/fitplot-1.pdf, id=1297, 477.785pt x 215.80624pt>
+<dbook1_files/figure-latex/fitplot-1.pdf, id=1298, 477.785pt x 215.80624pt>
 File: dbook1_files/figure-latex/fitplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/fitplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/fitplot-1.pdf  used on input
@@ -993,7 +993,7 @@ Underfull \vbox (badness 1331) has occurred while \output is active []
                                                   
 l.1915 
         <./dbook1_files/figure-latex/fitplot-1.pdf>]
-<dbook1_files/figure-latex/personfitplot-1.pdf, id=1316, 475.7775pt x 209.78375
+<dbook1_files/figure-latex/personfitplot-1.pdf, id=1317, 475.7775pt x 209.78375
 pt>
 File: dbook1_files/figure-latex/personfitplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/personfitplot-1.pdf>
@@ -1007,14 +1007,14 @@ Package pdftex.def Info: dbook1_files/figure-latex/personfitplot-1.pdf  used on
 l.1943 ... item functioning (DIF)}\label{sec:dif}}
                                                    <./dbook1_files/figure-latex
 /personfitplot-1.pdf>]
-<dbook1_files/figure-latex/plotdif1-1.pdf, id=1337, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/plotdif1-1.pdf, id=1338, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/plotdif1-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdif1-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdif1-1.pdf  used on inpu
 t line 1977.
 (pdftex.def)             Requested size: 345.0081pt x 342.92973pt.
 [73]
-<dbook1_files/figure-latex/plotdif2-1.pdf, id=1352, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/plotdif2-1.pdf, id=1353, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/plotdif2-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdif2-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdif2-1.pdf  used on inpu
@@ -1032,13 +1032,13 @@ l.2002
                                                   
 l.2002 
         <./dbook1_files/figure-latex/plotdif2-1.pdf>]
-<dbook1_files/figure-latex/iic-1.pdf, id=1381, 499.8675pt x 271.0125pt>
+<dbook1_files/figure-latex/iic-1.pdf, id=1382, 499.8675pt x 271.0125pt>
 File: dbook1_files/figure-latex/iic-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/iic-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/iic-1.pdf  used on input lin
 e 2021.
 (pdftex.def)             Requested size: 345.0081pt x 187.05257pt.
-<dbook1_files/figure-latex/iia-1.pdf, id=1383, 499.8675pt x 271.0125pt>
+<dbook1_files/figure-latex/iia-1.pdf, id=1384, 499.8675pt x 271.0125pt>
 File: dbook1_files/figure-latex/iia-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/iia-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/iia-1.pdf  used on input lin
@@ -1062,7 +1062,7 @@ l.2078
 
 ]
 Chapter 7.
-<dbook1_files/figure-latex/plotcontent-1.pdf, id=1435, 499.8675pt x 207.77625pt
+<dbook1_files/figure-latex/plotcontent-1.pdf, id=1436, 499.8675pt x 207.77625pt
 >
 File: dbook1_files/figure-latex/plotcontent-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotcontent-1.pdf>
@@ -1070,7 +1070,7 @@ Package pdftex.def Info: dbook1_files/figure-latex/plotcontent-1.pdf  used on i
 nput line 2110.
 (pdftex.def)             Requested size: 345.0081pt x 143.40697pt.
 [81]
-<dbook1_files/figure-latex/plotdomainfit-1.pdf, id=1447, 493.845pt x 421.575pt>
+<dbook1_files/figure-latex/plotdomainfit-1.pdf, id=1448, 493.845pt x 421.575pt>
 
 File: dbook1_files/figure-latex/plotdomainfit-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdomainfit-1.pdf>
@@ -1089,7 +1089,7 @@ ed, duplicate ignored
                                                   
 l.2151 
         <./dbook1_files/figure-latex/plotdomainfit-1.pdf>]
-<dbook1_files/figure-latex/plotconcurrent-1.pdf, id=1480, 499.8675pt x 421.575p
+<dbook1_files/figure-latex/plotconcurrent-1.pdf, id=1481, 499.8675pt x 421.575p
 t>
 File: dbook1_files/figure-latex/plotconcurrent-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotconcurrent-1.pdf>
@@ -1105,7 +1105,7 @@ l.2170
 
 ]
 Chapter 8.
-<dbook1_files/figure-latex/ageitemgrid-1.pdf, id=1516, 495.8525pt x 713.66624pt
+<dbook1_files/figure-latex/ageitemgrid-1.pdf, id=1517, 495.8525pt x 713.66624pt
 >
 File: dbook1_files/figure-latex/ageitemgrid-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/ageitemgrid-1.pdf>
@@ -1118,7 +1118,7 @@ e.8.1}) has been already used, duplicate ignored
                                                   
 l.2242 
         <./dbook1_files/figure-latex/ageitemgrid-1.pdf>]
-<dbook1_files/figure-latex/month2d-1.pdf, id=1537, 495.8525pt x 269.005pt>
+<dbook1_files/figure-latex/month2d-1.pdf, id=1538, 495.8525pt x 269.005pt>
 File: dbook1_files/figure-latex/month2d-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/month2d-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/month2d-1.pdf  used on input
@@ -1135,13 +1135,13 @@ fier (name{figure.8.2}) has been already used, duplicate ignored
                                                   
 l.2296 
         <./dbook1_files/figure-latex/month2d-1.pdf>]
-<dbook1_files/figure-latex/month3d-1.pdf, id=1564, 495.8525pt x 269.005pt>
+<dbook1_files/figure-latex/month3d-1.pdf, id=1565, 495.8525pt x 269.005pt>
 File: dbook1_files/figure-latex/month3d-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/month3d-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/month3d-1.pdf  used on input
  line 2306.
 (pdftex.def)             Requested size: 344.99858pt x 187.1652pt.
-<dbook1_files/figure-latex/alld-1.pdf, id=1568, 712.6625pt x 280.04625pt>
+<dbook1_files/figure-latex/alld-1.pdf, id=1569, 712.6625pt x 280.04625pt>
 File: dbook1_files/figure-latex/alld-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/alld-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/alld-1.pdf  used on input li
@@ -1159,13 +1159,13 @@ ready used, duplicate ignored
                                                   
 l.2353 
         <./dbook1_files/figure-latex/alld-1.pdf>]
-<dbook1_files/figure-latex/histiq-1.pdf, id=1608, 495.8525pt x 277.035pt>
+<dbook1_files/figure-latex/histiq-1.pdf, id=1609, 495.8525pt x 277.035pt>
 File: dbook1_files/figure-latex/histiq-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/histiq-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/histiq-1.pdf  used on input 
 line 2379.
 (pdftex.def)             Requested size: 344.99858pt x 192.75223pt.
-<dbook1_files/figure-latex/plotdiq-1.pdf, id=1610, 495.8525pt x 1144.275pt>
+<dbook1_files/figure-latex/plotdiq-1.pdf, id=1611, 495.8525pt x 1144.275pt>
 File: dbook1_files/figure-latex/plotdiq-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdiq-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdiq-1.pdf  used on input
@@ -1194,7 +1194,7 @@ l.2430 ...r{Three studies}\label{ch:threestudies}}
                                                    <./dbook1_files/figure-latex
 /plotdiq-1.pdf>] [96]
 Chapter 9.
-<dbook1_files/figure-latex/smoccda9-1.pdf, id=1661, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/smoccda9-1.pdf, id=1662, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/smoccda9-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccda9-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccda9-1.pdf  used on inpu
@@ -1203,7 +1203,7 @@ t line 2457.
 
 LaTeX Warning: Float too large for page by 36.50966pt on input line 2462.
 
-<dbook1_files/figure-latex/popsda9-1.pdf, id=1663, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/popsda9-1.pdf, id=1664, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/popsda9-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/popsda9-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/popsda9-1.pdf  used on input
@@ -1226,13 +1226,13 @@ l.2485
                                                   
 l.2485 
         <./dbook1_files/figure-latex/popsda9-1.pdf>] [100]
-<dbook1_files/figure-latex/adjustd-1.pdf, id=1720, 353.32pt x 352.31625pt>
+<dbook1_files/figure-latex/adjustd-1.pdf, id=1721, 353.32pt x 352.31625pt>
 File: dbook1_files/figure-latex/adjustd-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/adjustd-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/adjustd-1.pdf  used on input
  line 2526.
 (pdftex.def)             Requested size: 345.00586pt x 344.02573pt.
-<dbook1_files/figure-latex/popsda90-1.pdf, id=1724, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/popsda90-1.pdf, id=1725, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/popsda90-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/popsda90-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/popsda90-1.pdf  used on inpu
@@ -1241,7 +1241,7 @@ t line 2544.
 
 LaTeX Warning: Float too large for page by 36.50966pt on input line 2549.
 
-<dbook1_files/figure-latex/popsda91-1.pdf, id=1726, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/popsda91-1.pdf, id=1727, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/popsda91-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/popsda91-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/popsda91-1.pdf  used on inpu
@@ -1275,7 +1275,7 @@ er (name{table.9.1}) has been already used, duplicate ignored
 l.2614   W
           e recommend using full age correction (\(f = 1.00\)). This advice ...
 ]
-<dbook1_files/figure-latex/togoda-1.pdf, id=1798, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/togoda-1.pdf, id=1799, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/togoda-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda-1.pdf  used on input 
@@ -1290,7 +1290,7 @@ ure.9.6}) has been already used, duplicate ignored
                                                   
 l.2650 
         <./dbook1_files/figure-latex/togoda-1.pdf>]
-<fig/data_assistents.png, id=1829, 486.81876pt x 684.5575pt>
+<fig/data_assistents.png, id=1830, 486.81876pt x 684.5575pt>
 File: fig/data_assistents.png Graphic file (type png)
 <use fig/data_assistents.png>
 Package pdftex.def Info: fig/data_assistents.png  used on input line 2655.
@@ -1299,22 +1299,22 @@ Package pdftex.def Info: fig/data_assistents.png  used on input line 2655.
 7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2667 ...rological problem}\label{sec:togoneuro}}
-                                                   <./fig/data_assistents.png>]
-<dbook1_files/figure-latex/togoda1-1.pdf, id=1835, 495.8525pt x 424.58624pt>
+l.2665 
+        <./fig/data_assistents.png>]
+<dbook1_files/figure-latex/togoda1-1.pdf, id=1839, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda1-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda1-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda1-1.pdf  used on input
  line 2671.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
-<dbook1_files/figure-latex/togoda2-1.pdf, id=1838, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda2-1.pdf, id=1842, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda2-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda2-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda2-1.pdf  used on input
  line 2689.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
 
-Underfull \vbox (badness 6741) has occurred while \output is active []
+Underfull \vbox (badness 3158) has occurred while \output is active []
 
 [109pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 8}) has been already used, duplicate ignored
@@ -1328,13 +1328,13 @@ l.2699
                                                   
 l.2699 
         <./dbook1_files/figure-latex/togoda2-1.pdf>]
-<dbook1_files/figure-latex/togoda3-1.pdf, id=1880, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda3-1.pdf, id=1884, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda3-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda3-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda3-1.pdf  used on input
  line 2705.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
-<dbook1_files/figure-latex/togoda4-1.pdf, id=1882, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda4-1.pdf, id=1886, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda4-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda4-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda4-1.pdf  used on input
@@ -1357,7 +1357,7 @@ cate ignored
 l.2732 W
         hen taken together, Figures \ref{fig:togoda1}-\ref{fig:togoda4} show...
  <./dbook1_files/figure-latex/togoda4-1.pdf>]
-<dbook1_files/figure-latex/grossmotor-1.pdf, id=1927, 499.8675pt x 858.20625pt>
+<dbook1_files/figure-latex/grossmotor-1.pdf, id=1931, 499.8675pt x 858.20625pt>
 
 File: dbook1_files/figure-latex/grossmotor-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/grossmotor-1.pdf>
@@ -1367,7 +1367,7 @@ put line 2739.
 
 LaTeX Warning: Float too large for page by 36.50966pt on input line 2744.
 
-<dbook1_files/figure-latex/finemotor-1.pdf, id=1930, 499.8675pt x 858.20625pt>
+<dbook1_files/figure-latex/finemotor-1.pdf, id=1934, 499.8675pt x 858.20625pt>
 File: dbook1_files/figure-latex/finemotor-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/finemotor-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/finemotor-1.pdf  used on inp
@@ -1376,7 +1376,7 @@ ut line 2757.
 
 LaTeX Warning: Float too large for page by 36.50966pt on input line 2762.
 
-<dbook1_files/figure-latex/commun-1.pdf, id=1932, 499.8675pt x 858.20625pt>
+<dbook1_files/figure-latex/commun-1.pdf, id=1936, 499.8675pt x 858.20625pt>
 File: dbook1_files/figure-latex/commun-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/commun-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/commun-1.pdf  used on input 
@@ -1410,7 +1410,7 @@ Chapter 10.
 Underfull \vbox (badness 2050) has occurred while \output is active []
 
 [119]
-<dbook1_files/figure-latex/dchart-1.pdf, id=2015, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/dchart-1.pdf, id=2019, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/dchart-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/dchart-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/dchart-1.pdf  used on input 
@@ -1424,134 +1424,210 @@ l.2893
         <./dbook1_files/figure-latex/dchart-1.pdf>] [122] [123] [124]
 Appendix A.
 
-Overfull \hbox (3.07092pt too wide) in paragraph at lines 2962--2963
-[]\T1/lmr/m/n/10 Symbol|  
- []
-
-
-Overfull \hbox (18.0pt too wide) in alignment at lines 2957--2969
+Overfull \hbox (21.2732pt too wide) in alignment at lines 2957--2969
  [] [] [] [] 
  []
 
 
-Overfull \hbox (3.27583pt too wide) in paragraph at lines 2993--2994
+Overfull \hbox (7.71472pt too wide) in paragraph at lines 2984--2985
+[]\T1/lmr/m/n/10 Difficulty|  
+ []
+
+
+Overfull \hbox (16.35364pt too wide) in paragraph at lines 2993--2994
 []\T1/lmr/m/n/10 Probability|  
  []
 
 
-Overfull \hbox (3.27583pt too wide) in paragraph at lines 3020--3021
+Overfull \hbox (7.71472pt too wide) in paragraph at lines 3011--3012
+[]\T1/lmr/m/n/10 Difficulty|  
+ []
+
+
+Overfull \hbox (16.35364pt too wide) in paragraph at lines 3020--3021
 []\T1/lmr/m/n/10 Probability|  
  []
 
 
-Overfull \hbox (3.27583pt too wide) in paragraph at lines 3074--3075
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3038--3039
+[]\T1/lmr/m/n/10 Variance|  
+ []
+
+
+Overfull \hbox (4.7145pt too wide) in paragraph at lines 3047--3048
+[]\T1/lmr/m/n/10 Residual|  
+ []
+
+
+Overfull \hbox (16.35364pt too wide) in paragraph at lines 3074--3075
 []\T1/lmr/m/n/10 Probability|  
  []
 
 
-Overfull \hbox (5.91411pt too wide) in paragraph at lines 3083--3084
+Overfull \hbox (18.99191pt too wide) in paragraph at lines 3083--3084
 []\T1/lmr/m/n/10 Information|  
  []
 
 
-Overfull \hbox (18.0pt too wide) in alignment at lines 2969--3142
+Overfull \hbox (12.43698pt too wide) in paragraph at lines 3092--3093
+[]\T1/lmr/m/n/10 Reliability|  
+ []
+
+
+Overfull \hbox (12.43698pt too wide) in paragraph at lines 3101--3102
+[]\T1/lmr/m/n/10 Reliability|  
+ []
+
+
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3110--3111
+[]\T1/lmr/m/n/10 Variance|  
+ []
+
+
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3119--3120
+[]\T1/lmr/m/n/10 Variance|  
+ []
+
+
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3128--3129
+[]\T1/lmr/m/n/10 Variance|  
+ []
+
+
+Overfull \hbox (21.2732pt too wide) in alignment at lines 2969--3142
  [] [] [] [] 
  []
 
 [125
 
-] [126
-
-]
+] [126]
 Appendix B.
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 3177--3177
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 3188--3188
 []\T1/lmtt/m/n/10 BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRblas.dylib[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 3177--3177
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 3188--3188
 []\T1/lmtt/m/n/10 LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRlapack.dylib[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 3177--3177
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3188--3188
 []\T1/lmtt/m/n/10 [1] stats     graphics  grDevices utils     datasets  methods
    base[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [1] RColorBrewer_1.1-2 dplyr_1.0.2        tidyr_1.1.2        
-ggplot2_3.3.2[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3188--3188
+[] \T1/lmtt/m/n/10 [1] httr_1.4.2        jsonlite_1.7.1    viridisLite_0.3.0 sp
+lines_4.0.3[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3177--3177
-[] \T1/lmtt/m/n/10 [1] compiler_4.0.3    pillar_1.4.6      tools_4.0.3       di
-gest_0.6.27[] 
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3188--3188
+[] \T1/lmtt/m/n/10 [5] gtools_3.8.2      shiny_1.5.0       CDM_7.5-15        ya
+ml_2.2.1[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 3177--3177
-[] \T1/lmtt/m/n/10 [5] evaluate_0.14     lifecycle_0.2.0   tibble_3.0.4      gt
-able_0.3.0[] 
- []
-
-
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 3177--3177
-[] \T1/lmtt/m/n/10 [9] viridisLite_0.3.0 pkgconfig_2.0.3   rlang_0.4.8       rs
-tudioapi_0.13[] 
- []
-
-
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [13] yaml_2.2.1        xfun_0.19         withr_2.3.0       ht
-tr_1.4.2[] 
- []
-
-
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [17] stringr_1.4.0     xml2_1.3.2        generics_0.1.0    vc
-trs_0.3.5[] 
- []
-
-
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [21] webshot_0.5.2     grid_4.0.3        tidyselect_1.1.0  gl
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3188--3188
+[] \T1/lmtt/m/n/10 [9] gamlss_5.2-0      pillar_1.4.7      lattice_0.20-41   gl
 ue_1.4.2[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [25] R6_2.5.0          rmarkdown_2.5     bookdown_0.21     pu
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [13] digest_0.6.27     promises_1.1.1    rvest_0.3.6       co
+lorspace_2.0-0[] 
+ []
+
+
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [17] htmltools_0.5.0   httpuv_1.5.4      Matrix_1.2-18     TA
+M_3.5-19[] 
+ []
+
+
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [21] pkgconfig_2.0.3   bookdown_0.21     xtable_1.8-4      pu
 rrr_0.3.4[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [29] magrittr_2.0.1    scales_1.1.1      htmltools_0.5.0   el
-lipsis_0.3.1[] 
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [25] mvtnorm_1.1-1     webshot_0.5.2     later_1.1.0.1     ga
+mlss.data_5.1-4[] 
+ []
+
+[127
+
+]
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [29] tibble_3.0.4      generics_0.1.0    ellipsis_0.3.1    wi
+thr_2.3.0[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3177--3177
-[]\T1/lmtt/m/n/10 [33] rvest_0.3.6       colorspace_2.0-0  stringi_1.5.3     mu
-nsell_0.5.0[] 
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [33] lazyeval_0.2.2    mime_0.9          survival_3.2-7    ma
+grittr_2.0.1[] 
  []
 
-[127] [128
 
-] [129] [130]
-Underfull \hbox (badness 2837) in paragraph at lines 3275--3277
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [37] crayon_1.3.4.9000 evaluate_0.14     nlme_3.1-149      MA
+SS_7.3-53[] 
+ []
+
+
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [41] xml2_1.3.2        tools_4.0.3       data.table_1.13.4 hm
+s_0.5.3[] 
+ []
+
+
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [45] lifecycle_0.2.0   stringr_1.4.0     munsell_0.5.0     ga
+mlss.dist_5.1-7[] 
+ []
+
+
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [49] compiler_4.0.3    rlang_0.4.9       grid_4.0.3        po
+lycor_0.7-10[] 
+ []
+
+
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [53] rstudioapi_0.13   htmlwidgets_1.5.3 rmarkdown_2.5     gt
+able_0.3.0[] 
+ []
+
+
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [57] R6_2.5.0          fastmap_1.0.1     stringi_1.5.3     pa
+rallel_4.0.3[] 
+ []
+
+
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3188--3188
+[]\T1/lmtt/m/n/10 [61] Rcpp_1.0.5        vctrs_0.3.5       tidyselect_1.1.0  xf
+un_0.19[] 
+ []
+
+[128] [129
+
+] [130]
+Underfull \hbox (badness 2837) in paragraph at lines 3286--3288
 \T1/lmr/m/n/10 26 (13): 2629--38. []$https : / / stefvanbuuren . name / publica
 tion / 2007 -[] 01 -[]
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 3278--3280
+Underfull \hbox (badness 2837) in paragraph at lines 3289--3291
 \T1/lmr/m/n/10 25 (13): 2272--83. []$https : / / stefvanbuuren . name / publica
 tion / 2006 -[] 01 -[]
  []
@@ -1564,11 +1640,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 13470 strings out of 481433
- 201212 string characters out of 5919429
- 603597 words of memory out of 5000000
- 29349 multiletter control sequences out of 15000+600000
- 600477 words of font info for 76 fonts, out of 8000000 for 9000
+ 13470 strings out of 481331
+ 201212 string characters out of 5916838
+ 605739 words of memory out of 5000000
+ 29451 multiletter control sequences out of 15000+600000
+ 468819 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  66i,13n,72p,919b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/buurensv/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Us
@@ -1592,10 +1668,10 @@ type1/public/lm/lmri10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmro10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on dbook1.pdf (133 pages, 27210113 bytes).
+Output written on dbook1.pdf (133 pages, 27182178 bytes).
 PDF statistics:
- 2334 PDF objects out of 2487 (max. 8388607)
- 2000 compressed objects within 20 object streams
+ 2339 PDF objects out of 2487 (max. 8388607)
+ 2002 compressed objects within 21 object streams
  575 named destinations out of 1000 (max. 500000)
  772 words of extra memory for PDF output out of 10000 (max. 10000000)
 
