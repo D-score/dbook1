@@ -1,15 +1,17 @@
 # Three studies {#ch:threestudies}
 
-> Authors: Paula van Dommelen, Maria C. Olthof
+```{=html}
+<!-- > Authors: Paula van Dommelen, Maria C. Olthof -->
+```
 
-This chapter compares child development between samples from three different studies:
+This section compares child development between samples from three different studies:
 
 -   *SMOCC*, a representative sample of Dutch children (\@ref(sec:smoccstudy))
 -   *POPS*, a cohort of all Dutch preterms in 1983 (\@ref(sec:pops))
 -   *TOGO*, a set of medical records from preventive health service in Togo (\@ref(sec:togo))
 -   A summary of the main findings (\@ref(sec:threestudiesconclusions))
 
-Each study used the same measurement instrument, the DDI (see Section \@ref(sec:ddi)). The chapter compares D-scores between studies.
+Each study used the same measurement instrument, the DDI (see Section \@ref(sec:ddi)). The section compares D-scores between studies.
 
 ## SMOCC study {#sec:smoccstudy}
 
@@ -188,7 +190,7 @@ plot_ddaz(pops2, y = "d_0.75", z = "daz_0.75",
 
 Figure \@ref(fig:popsda9) presents the D-score and DAZ distributions for the POPS cohort of children born very preterm or with very low birth weight. The distributions of the D-score and DAZ are similar to those found in the SMOCC study.
 
-Since the D-scores are calculated using the same milestones and difficulty estimates as used in the SMOCC data, the D-scores are comparable across the two studies. When the milestones differ between studies (e.g. when studies use different measurement instruments), it is still possible to calculate D-scores. This problem is a little more complicated, so we treat it in booklet II.
+Since the D-scores are calculated using the same milestones and difficulty estimates as used in the SMOCC data, the D-scores are comparable across the two studies. When the milestones differ between studies (e.g. when studies use different measurement instruments), it is still possible to calculate D-scores. This problem is a little more complicated, so we treat it in Chapter II.
 
 The primary new complication here is the question whether it is fair to compare *postnatal age* of children born at term with postnatal ages of very preterm children. This section focuses on this issue in some detail.
 
@@ -559,7 +561,7 @@ It may indeed be true that children from Togo develop more rapidly than Dutch ch
 
 ## Conclusions {#sec:threestudiesconclusions}
 
-This chapter compared the D-scores estimated from the DDI administered to three different groups of children.
+This section compared the D-scores estimated from the DDI administered to three different groups of children.
 
 We found that
 

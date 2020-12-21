@@ -1,8 +1,10 @@
 # Validity {#ch:validity}
 
-> Author: Iris Eekhout
+```{=html}
+<!-- > Author: Iris Eekhout -->
+```
 
-Validity is a generic term that refers to the question of how well an instrument measures what it claims to measure. There are various aspects of validity. This chapter briefly reviews the main types of validity:
+Validity is a generic term that refers to the question of how well an instrument measures what it claims to measure. There are various aspects of validity. This section briefly reviews the main types of validity:
 
 -   Internal validity (\@ref(sec:internal))
 -   External validity (\@ref(sec:external))
@@ -70,7 +72,7 @@ ggplot(data = fitdomplot, aes( x = tau, y = fit, color = domain)) +
 
 (ref:plotdomainfit) Item fit by D-score for the DDI domains.
 
-In Chapter \@ref(ch:newmodel), we assumed that child development is a latent variable. Figure \@ref(fig:plotdomainfit) provides one way to evaluate the validity of this assumption. The figure plots the item fit for each milestone coloured by domain. Items from different domains fit equally well, so there is no evidence that the D-score favours a particular area. Put in more technical terms; the DDI domains do not explain differences in the item fit residuals of the model.
+In Section \@ref(ch:newmodel), we assumed that child development is a latent variable. Figure \@ref(fig:plotdomainfit) provides one way to evaluate the validity of this assumption. The figure plots the item fit for each milestone coloured by domain. Items from different domains fit equally well, so there is no evidence that the D-score favours a particular area. Put in more technical terms; the DDI domains do not explain differences in the item fit residuals of the model.
 
 ## External validity {#sec:external}
 

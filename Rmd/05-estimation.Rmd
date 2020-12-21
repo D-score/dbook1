@@ -1,8 +1,10 @@
 # Computation {#ch:computation}
 
-> Author: Stef van Buuren
+```{=html}
+<!-- > Author: Stef van Buuren -->
+```
 
-This chapter explains the basic computations needed for fitting and evaluating the Rasch model. We distinguish the following steps:
+This section explains the basic computations needed for fitting and evaluating the Rasch model. We distinguish the following steps:
 
 -   Identify nature of the problem (\@ref(sec:datapreparation))
 -   Estimation of item parameters (\@ref(sec:itemestimation))
@@ -10,7 +12,7 @@ This chapter explains the basic computations needed for fitting and evaluating t
 -   Estimation of the D-score (\@ref(sec:dscoreestimation))
 -   Estimation of age-conditional references (\@ref(sec:reference))
 
-Readers not interested in these details may continue to model evaluation in Chapter \@ref(ch:evaluation).
+Readers not interested in these details may continue to model evaluation in Section \@ref(ch:evaluation).
 
 ## Identify nature of the problem {#sec:datapreparation}
 

@@ -1,8 +1,10 @@
 # Evaluation {#ch:evaluation}
 
-> Author: Iris Eekhout
+```{=html}
+<!-- > Author: Iris Eekhout -->
+```
 
-The properties cut-off Rasch model (c.f. Section \@ref(sec:whyrasch)) only hold when the data and model agree. It is, therefore, essential to study and remove discrepancies between model and data. This chapter explains several techniques that aid in the evaluation of model fit.
+The properties cut-off Rasch model (c.f. Section \@ref(sec:whyrasch)) only hold when the data and model agree. It is, therefore, essential to study and remove discrepancies between model and data. This section explains several techniques that aid in the evaluation of model fit.
 
 -   Item fit (\@ref(sec:itemfit))
 -   Person fit (\@ref(sec:personfit))
@@ -22,7 +24,7 @@ The fitted item response curve for each item $i$ is modeled as:
 
 $$P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},$$
 
-where $\hat\beta_n$ is the estimated ability of child $n$ (the child's D-score), and where $\hat\delta_i$ is the estimated difficulty of item $i$. This is equivalent to formula \@ref(eq:logistic) with the parameters replaced by estimates. Chapter \@ref(ch:computation) described process of parameter estimation in some detail.
+where $\hat\beta_n$ is the estimated ability of child $n$ (the child's D-score), and where $\hat\delta_i$ is the estimated difficulty of item $i$. This is equivalent to formula \@ref(eq:logistic) with the parameters replaced by estimates. Section \@ref(ch:computation) described process of parameter estimation in some detail.
 
 ### Well-fitting item response curves
 
@@ -77,7 +79,7 @@ gridExtra::grid.arrange(p1, p2, p3)
 
 (ref:plothyp1) Three simulated items that illustrate various forms of item misfit.
 
-Figure \@ref(fig:plothyp1) shows three forms of severe underfit from three artificial items. These items were simulated to have a low fit, added to the DDI, and we estimated their parameters by the methods of Chapter \@ref(ch:computation). For the first item, `hypgmd001`, the probability of passing is almost constant across ability, so retaining this item essentially only adds to the noise. Item `hypgmd002` converges to an asymptote around 80 per cent and has a severe dip in the middle. The strong relation to age causes the drop. Item `hypgmd003` appears to have the wrong coding. Also, we often see the spike-like behaviour in the middle when two or more different items erroneously share identical names.
+Figure \@ref(fig:plothyp1) shows three forms of severe underfit from three artificial items. These items were simulated to have a low fit, added to the DDI, and we estimated their parameters by the methods of Section \@ref(ch:computation). For the first item, `hypgmd001`, the probability of passing is almost constant across ability, so retaining this item essentially only adds to the noise. Item `hypgmd002` converges to an asymptote around 80 per cent and has a severe dip in the middle. The strong relation to age causes the drop. Item `hypgmd003` appears to have the wrong coding. Also, we often see the spike-like behaviour in the middle when two or more different items erroneously share identical names.
 
 Removal of items with a low fit can substantially improve overall model fit.
 

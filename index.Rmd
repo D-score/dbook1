@@ -1,5 +1,5 @@
 --- 
-title: "D-score booklet I: Turning milestones into measurement"
+title: "Child Development with the D-score: Turning Milestones into Measurements"
 author: "Editor: Stef van Buuren"
 description: "The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years."
 site: bookdown::bookdown_site
@@ -28,9 +28,9 @@ options(dplyr.summarise.inform = FALSE)
 
 # Turning milestones into measurement {-}
 
-Children learn to walk, speak, and think at an astonishing pace. The D-score captures this process as a one-number summary. The D-score booklets explain why we need the D-score, how we construct it, and how we calculate it. Application of the D-score enables comparisons in child development across populations, groups and individuals.
+Children learn to walk, speak, and think at an astonishing pace. The D-score captures this process as a one-number summary. The D-score book explains why we need the D-score, how we construct it, and how we calculate it. Application of the D-score enables comparisons in child development across populations, groups and individuals.
 
-We are preparing four D-score booklets under the following titles:
+We are preparing four D-score book chapters under the following titles:
 
 I.	[Turning milestones into measurement](https://d-score.org/dbook1)
 II.	[Tuning instruments to unity](https://d-score.org/dbook2)
@@ -39,7 +39,7 @@ IV.	[Taking off the hood](https://stefvanbuuren.name/dbook4)
 
 Editors: [Stef van Buuren](https://stefvanbuuren.name), [Iris Eekhout](https://www.iriseekhout.com)
 
-[Booklet I](https://d-score.org/dbook1) and [Booklet II](https://d-score.org/dbook2) are currently available as a complete draft. We still need to write most of booklets III and IV. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
+[Chapter I](https://d-score.org/dbook1) and [Chapter II](https://d-score.org/dbook2) are currently available as a complete draft. We still need to write most of Chapter III and IV. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of `R` packages.
 
 The *Health Birth Growth and Development knowledge integration (ki)* program of the *Bill & Melinda Gates Foundation* kindly supports the work.
 

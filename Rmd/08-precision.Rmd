@@ -1,10 +1,12 @@
 # Precision {#ch:precision}
 
-> Authors: Manon Grevinga, Stef van Buuren
+```{=html}
+<!-- > Authors: Manon Grevinga, Stef van Buuren -->
+```
 
-The chapter shows the properties of the D-score when calculated from short tests. The study of quick tests is useful because it reveals the behaviour of the D-score when the measurement is inherently imprecise.
+This section shows the properties of the D-score when calculated from short tests. The study of quick tests is useful because it reveals the behaviour of the D-score when the measurement is inherently imprecise.
 
-This chapter covers:
+This section covers:
 
 -   Structure of milestone subsets (\@ref(sec:smoccmilestones))
 -   Impact of short tests on D-score (\@ref(sec:comparingd))
@@ -113,7 +115,7 @@ Figure \@ref(fig:ageitemgrid) shows the subsets of DDI items administered at eac
 
 In the analyses done thus far, we have calculated D-scores from responses on the combined (standard plus additional) milestones. Thus, at the 2-month visit, the D-score was calculated from 2 (standard) + 5 (additional) = 7 milestones.
 
-In daily practice, the set of additional milestones is often lacking. This chapter explores the impact of using the (smaller) subset of standard milestones on measurement error and prediction.
+In daily practice, the set of additional milestones is often lacking. This section explores the impact of using the (smaller) subset of standard milestones on measurement error and prediction.
 
 This section reports and compares three D-scores:
 

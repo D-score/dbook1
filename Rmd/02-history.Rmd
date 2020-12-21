@@ -1,8 +1,10 @@
 # Short history {#ch:history}
 
-> Author: Stef van Buuren
+```{=html}
+<!-- > Author: Stef van Buuren -->
+```
 
-The measurement of child development has quite an extensive history. This chapter
+The measurement of child development has quite an extensive history. This section
 
 -   reviews definitions of child development (\@ref(sec:definitions))
 -   discusses concepts in the nature of child development (\@ref(sec:theories))

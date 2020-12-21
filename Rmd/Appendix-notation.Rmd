@@ -2,7 +2,7 @@
 
 # Notation {#ap:notation}
 
-The notation in this booklet follows @wright1982.
+The notation in this chapter follows @wright1982.
 
 | Section                          | Symbol                  | Term        | Description                                                   |
 |----------------------------------|:------------------------|:------------|:--------------------------------------------------------------|

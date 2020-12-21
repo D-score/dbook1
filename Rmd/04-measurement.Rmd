@@ -1,8 +1,10 @@
 # The D-score {#ch:newmodel}
 
-> Author: Stef van Buuren
+```{=html}
+<!-- > Author: Stef van Buuren -->
+```
 
-Chapter \@ref(ch:history) provided historical background on the nature of child development. Chapter \@ref(ch:threeways) discussed three general quantification approaches. This chapter explains how to apply the unit-based approach to arrive at the D-score scale. The text illustrates the process with real data.
+Section \@ref(ch:history) provided historical background on the nature of child development. Section \@ref(ch:threeways) discussed three general quantification approaches. This section explains how to apply the unit-based approach to arrive at the D-score scale. The text illustrates the process with real data.
 
 -   Dutch Development Instrument (DDI) (\@ref(sec:ddi))
 -   Milestone passing by age and by D-score (\@ref(sec:probage), \@ref(sec:probd))
@@ -531,4 +533,4 @@ The Guttman and Mokken models yield an ordinal latent scale, while the Rasch mod
 -   [Campbell concatenation](https://www.rasch.org/rmt/rmt21b.htm)
 -   [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
 
--   *Fits child development data*: Last but not least, as we will see in Chapter \@ref(ch:evaluation), the Rasch model provides an excellent fit to child development milestones.
+-   *Fits child development data*: Last but not least, as we will see in Section \@ref(ch:evaluation), the Rasch model provides an excellent fit to child development milestones.

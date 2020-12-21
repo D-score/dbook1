@@ -1,8 +1,10 @@
 # Quantifying child development {#ch:threeways}
 
-> Author: Stef van Buuren
+```{=html}
+<!-- > Author: Stef van Buuren -->
+```
 
-This chapter discusses four principles to quantify child development:
+This section discusses four principles to quantify child development:
 
 -   Age-based measurement (\@ref(sec:agebased))
 -   Probability-based measurement (\@ref(sec:probbased))
@@ -361,7 +363,7 @@ While unit-based measurement has many advantages, it cannot perform miracles.
 
 ## A unified framework {#sec:whatismeasurement}
 
-This section brings together the four approaches outlined in this chapter into a unified framework.
+This section brings together the four approaches outlined in this section into a unified framework.
 
 ```{r lineplot, fig.cap = '(ref:lineplot)'}
 knitr::include_graphics("fig/lineplot.png")
@@ -403,7 +405,7 @@ The *measurement model* specifies the relations between the actual measurements 
 
 &nbsp;
 
-This chapter distinguished four approaches to measure child development: *age-based*, *probability-based*, *score-based* and *unit-based* measurement. Table \@ref(tab:measurement) summarizes how the approaches evaluate on nine criteria.
+This section distinguished four approaches to measure child development: *age-based*, *probability-based*, *score-based* and *unit-based* measurement. Table \@ref(tab:measurement) summarizes how the approaches evaluate on nine criteria.
 
 *Age-based measurement* expresses development in age equivalents, whose precise definition depends on the reference population. Age-based measurement does not support multiple milestones and does not use the concept of a latent variable.
 

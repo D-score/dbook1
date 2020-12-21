@@ -1,8 +1,10 @@
 # Next steps {#ch:nextsteps}
 
-> Author: Stef van Buuren
+```{=html}
+<!-- > Author: Stef van Buuren -->
+```
 
-This booklet provides a quick overview of the relevance, concepts and techniques of the D-score. While the results obtained thus far are encouraging, some questions will certainly remain when we put the method to practice.
+This section provides a quick overview of the relevance, concepts and techniques of the D-score. While the results obtained thus far are encouraging, some questions will certainly remain when we put the method to practice.
 
 A rough selection of such questions includes:
 
@@ -18,7 +20,7 @@ A rough selection of such questions includes:
 -   Can the D-score detect delayed development?
 -   Would the D-score help to target early interventions?
 
-This chapter briefly reviews some of these issues.
+This section briefly reviews some of these issues.
 
 ## Usefulness of D-score for monitoring child health
 
@@ -102,7 +104,7 @@ The lack of a universal measure for child development has long hampered the abil
 
 ## D-score for international settings
 
-Chapter \@ref(ch:threestudies) compared D-scores between three study samples. We restricted the analysis to studies that used the same instrument (the DDI, in Togo, translated to French) to measure child development.
+Section \@ref(ch:threestudies) compared D-scores between three study samples. We restricted the analysis to studies that used the same instrument (the DDI, in Togo, translated to French) to measure child development.
 
 It is difficult to compare levels of child development worldwide. Existing estimates on children not reaching their developmental potential rely on proxies, such as stunting and poverty. While these proxies have been found to correlate with child development, they are only weak indicators of actual child performance. Arguably, the performance of a child on a set of well-chosen milestones is more informative for his or her future health and productivity than body height or parental income.
 
@@ -110,21 +112,21 @@ There are more than 150 instruments are available that quantify child developmen
 
 The D-score opens up an exciting alternative: *agree on the scale*, and leave some liberty to the data-collector in the exact choice of the instrument. We could build upon the expertise of the data collector about the local population. Also, it will equip is to keep up with innovations in measurement.
 
-Booklet II will address some of the conceptual and technical issues that arise when we attempt to apply the D-score to other populations.
+The next chapter in our work will address some of the conceptual and technical issues that arise when we attempt to apply the D-score to other populations.
 
 ## D-score from existing instruments
 
 There is a vast base of historic child developmental data using existing instruments. The problem is that each device defines its own summaries, so we cannot compare scores across tools. Different instruments have different domains, various age forms, different stopping rules, diverse age norms, and so on. Yet, the milestones in these instruments are often very similar. Most tools collect data on milestones like:
 
 -   Can the child stack two blocks?
--   Can the child rollover?
+-   Can the child roll over?
 -   Can the child draw a cross?
 -   Can the child stand?
 -   Can the child say "baba"?
 
 With the D-score methodology in hand, we are ready to exploit the overlap in milestones shared by different instruments. Common items can act as *bridges*, so - with the appropriate item-level data - we may attempt calculating D-scores from other tools as well.
 
-The task is to identify milestones that overlap between both instruments, filter out milestones that do not fit a joint model, and estimate the item difficulties of items that remain. Booklet II will explore this possibility in more detail.
+The task is to identify milestones that overlap between both instruments, filter out milestones that do not fit a joint model, and estimate the item difficulties of items that remain. Chapter II will explore this possibility in more detail.
 
 ## Creating new instruments for D-score
 
@@ -132,4 +134,4 @@ Extending the D-score to other instruments has the side-effect of enlarging the 
 
 The enlarged and improved item bank then may act as the fundamental resource for creating instruments for particular settings. For example, if the interest is on finding the most advanced children, we may construct a difficult test that will separate the good and the best. Alternatively, we can use the item bank to create and administer *computerized adaptive tests* [@wainer2000; @jacobusse2007], a sequential method that selects the next milestone based on the previous test outcome.
 
-Booklet III will explore the conceptual and technical challenges, and propose an integrated approach to support instrument construction and validation.
+Our ongoing work will explore the conceptual and technical challenges, and propose an integrated approach to support instrument construction and validation.
