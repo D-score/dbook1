@@ -5,6 +5,7 @@ language:
   ui:
     chapter_name: "Chapter "
 rmd_files: ["index.Rmd",
+            "Rmd/00-preface.Rmd",
             "Rmd/01-intro.Rmd",
             "Rmd/02-history.Rmd",
             "Rmd/03-threeways.Rmd",
