@@ -37,8 +37,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdftitle={D-score booklet I: Turning milestones into measurement},
-  pdfauthor={Editor: Stef van Buuren},
+  pdftitle={Child Development with the D-score: Turning Milestones into Measurements},
+  pdfauthor={Authors: Stef van Buuren \& Iris Eekhout},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
@@ -107,8 +107,8 @@
 \newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
-\title{D-score booklet I: Turning milestones into measurement}
-\author{Editor: Stef van Buuren}
+\title{Child Development with the D-score: Turning Milestones into Measurements}
+\author{Authors: Stef van Buuren \& Iris Eekhout}
 \date{}
 
 \begin{document}
@@ -122,9 +122,9 @@
 \chapter*{Turning milestones into measurement}\label{turning-milestones-into-measurement}}
 \addcontentsline{toc}{chapter}{Turning milestones into measurement}
 
-Children learn to walk, speak, and think at an astonishing pace. The D-score captures this process as a one-number summary. The D-score booklets explain why we need the D-score, how we construct it, and how we calculate it. Application of the D-score enables comparisons in child development across populations, groups and individuals.
+Children learn to walk, speak, and think at an astonishing pace. The D-score captures this process as a one-number summary. The D-score book explains why we need the D-score, how we construct it, and how we calculate it. Application of the D-score enables comparisons in child development across populations, groups and individuals.
 
-We are preparing four D-score booklets under the following titles:
+We are preparing four D-score book chapters under the following titles:
 
 \begin{enumerate}
 \def\labelenumi{\Roman{enumi}.}
@@ -139,37 +139,104 @@ We are preparing four D-score booklets under the following titles:
   \href{https://stefvanbuuren.name/dbook4}{Taking off the hood}
 \end{enumerate}
 
-Editors: \href{https://stefvanbuuren.name}{Stef van Buuren}, \href{https://www.iriseekhout.com}{Iris Eekhout}
+This chapter is written by \href{https://stefvanbuuren.name}{Stef van Buuren} and \href{https://www.iriseekhout.com}{Iris Eekhout}, with contributions from Marrianne de Wolff to Section 1, Manon Grevinga to Section 8, Paula van Dommelen to Section 9, and Maria C. Olthof to Section 9.
 
-\href{https://d-score.org/dbook1}{Booklet I} and \href{https://d-score.org/dbook2}{Booklet II} are currently available as a complete draft. We still need to write most of booklets III and IV. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of \texttt{R} packages.
+\href{https://d-score.org/dbook1}{Chapter I} and \href{https://d-score.org/dbook2}{Chapter II} are currently available as a complete draft. We still need to write most of Chapter III and IV. The series addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of \texttt{R} packages.
 
 The \emph{Health Birth Growth and Development knowledge integration (ki)} program of the \emph{Bill \& Melinda Gates Foundation} kindly supports the work.
 
 If you have any suggestions or comments, please let us know.
 
-\hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
+\hypertarget{about-our-work}{%
+\section*{About our work}\label{about-our-work}}
+\addcontentsline{toc}{section}{About our work}
 
-\begin{quote}
-Author: Marianne de Wolff
-\end{quote}
+The first 1000 days of human life cover the period between conception and the second birthday. Proper development during this period contributes to future health, happiness, and productivity, so it is essential to track the child's progress during infancy and early childhood.
+But did you know that more than 150 instruments exist that quantify child development? And are you aware that many of these tools produce not just one, but many scores? Such an overwhelming choice may seem a luxury until you realise that we cannot compare their ratings. Of course, we could settle on just one instrument \ldots., but that's never going to happen.
 
-This introduction outlines why we utilize the D-score. This chapter
+Our work on the D-score explores an alternative strategy---modern data science methods aid in connecting instruments through shared milestones. We present a unified framework that places children and milestones from different tools onto the same scale. As a result, we can measure child development by just one number, the D-score. Separating the scale from the instrument is a revolutionary concept. Application of the D-score enables comparisons in child development across populations, groups and individuals, even when we measure by different tools.
+
+The new ``unit for child development'' has exciting implications. We may:
 
 \begin{itemize}
 \tightlist
 \item
-  reviews key discussions about the first 1000 days in a child's life (\ref{sec:first1000})
+  Track child development over time, as in growth charts;
 \item
-  highlights the relevance of early childhood development for later life (\ref{sec:relevance})
+  Construct age-related references for healthy development;
 \item
-  discusses the use of stunting as a proxy for development (\ref{sec:stunting})
+  Adjust the D-score for age;
 \item
-  points to existing instruments to quantify neurocognitive development (\ref{sec:neurocognitive})
+  Select an instrument that is precise enough for the setting at hand;
 \item
-  explains why we have written this booklet (\ref{sec:why})
+  Compare developmental trajectories between children;
 \item
-  delineates the intended audience (\ref{sec:audience})
+  Compare child development between countries;
+\item
+  Derive concise tools by picking only well-targeted milestones;
+\item
+  Study the impact of interventions on child development;
+\item
+  Predict future health from the current D-score.
+\end{itemize}
+
+Our ongoing work addresses conceptual aspects of the D-score, discusses practical issues, and introduces a dedicated set of R packages.
+
+We aim for three audiences:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Professionals in child development who wish to familiarise themselves with a new approach to measure child development in early childhood. Separating the tools from the scales allows the professional to select the means most suited for a particular setting. These chapters give professionals the conceptual background of the D-score.
+\item
+  Policymakers in international settings who need to weigh the effect of interventions on child development. The existence of different instruments severely hampers their ability to obtain insight into the results of these interventions. The ability to place measurements onto the same scale allows for a more accurate understanding of policy effects, thus supporting the setting of priority levels.
+\item
+  Data scientists who can transform a vector of milestone data into a one-number summary with an unambiguous unit. The techniques have a solid psychometric backing, and also apply to other types of problems. These chapters explain this conversion process in detail, thereby opening up the way for the application of precise analytic techniques in many different settings.
+\end{enumerate}
+
+Additionally, parents are always eager to follow every step of their child. While we do not target this work to parents, our methodology may spark the interest of authors, app writers, and instrument creators that do address the interests and needs of parents. Hence, the publication of these chapters may have additional societal impact.
+
+\hypertarget{about-the-authors}{%
+\section*{About the Authors}\label{about-the-authors}}
+\addcontentsline{toc}{section}{About the Authors}
+
+Stef van Buuren is a professor of Statistical Analysis of Incomplete Data at the University of Utrecht and statistician at the Netherlands Organisation for Applied Scientific Research TNO in Leiden. His interests include the analysis of incomplete data and child growth and development (h-index 61). Van Buuren is the inventor of the MICE algorithm for multiple imputation of missing data (\textgreater85.000 downloads per month) and has written the accessible monograph Flexible Imputation of Missing Data. Second Edition, CRC/Chapman \& Hall. He designed the growth charts for the Dutch child health care system and invented the D-score, a new method for expressing child development on a quantitative scale. He consults for the World Health Organization and the Bill \& Melinda Gates Foundation. More background at \url{https://stefvanbuuren.name}, and software at \url{https://github.com/stefvanbuuren}.
+
+Iris Eekhout holds a double masters in clinical psychology and methodology and statistics of psychology (Leiden University). She obtained her PhD at the Department of Epidemiology and Biostatistics of the VU University medical centre in Amsterdam. Her dissertation work resulted in novel ways of dealing with missing data in questionnaire items and total scores. Currently, Iris teaches a course on missing data analysis in the epidemiology master's program at VU University medical centre. At TNO, Iris works on a variety of projects as a methodologist and statistical analyst related to child health, e.g., measuring child development (D-score) and adaptive screenings for psycho-social problems (psycat). More background at \url{https://www.iriseekhout.com}, and software at \url{https://github.com/iriseekhout}.
+
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+The foundations of adult health and wellbeing have their origins early in life, often measured by children's early growth and development (\protect\hyperlink{ref-clark2020}{Clark et al. 2020}). Growth standards established by the World Health Organization (WHO) have been adopted globally, and are used as indices and targets for improvement. For example, in 2018, 219 million children under 5 years of age (21.9\%) were stunted (height for age \textless{} -2 standard deviations of the WHO growth standards) (\protect\hyperlink{ref-unicef2019}{UNICEF 2019}). Stunting early in life has been associated with negative childhood development, academic achievement, and adult productivity. In the absence of direct population-based metrics for childhood development, stunting and poverty have been used as proxy indicators to estimate the number of children not reaching their developmental potential (\protect\hyperlink{ref-lu2016}{Lu, Black, and Richter 2016}).
+
+Although stunting and poverty have been effective indicators and have contributed to advances in global childhood development policies and programs (\protect\hyperlink{ref-black2017}{Black et al. 2017}), they lack the sensitivity to measure changes associated with programmatic interventions. Early childhood development is a latent construct comprised of an ordinal sequence of developmental domains (motor, language, cognitive, personal-social). A valid and easily interpretable metric is needed to interpret the underlying latent construct of early childhood development that can represent change and is comparable across cultures and contexts. Chapter I - \href{https://d-score.org/dbook1}{Turning milestones into measurement} - shows that the D-score (Developmental score) meets those criteria.
+
+Chapter II - \href{https://d-score.org/dbook2}{Tuning instruments to unity} - deals with the problem of how to define and calculate the D-score from data obtained from multiple studies and multiple instruments. After harmonizing longitudinal measures of childhood development among over 36,000 children from 11 countries (\protect\hyperlink{ref-Weber2019}{Weber et al. 2019}), the statistical analysis produced a D-score scale with interval qualities that can reflect change over time and enable within and across country comparisons. In addition, the D-score is responsive to environmental conditions that may impact children's development, ranging from community programs and policies to macro-level conditions from migration, inequities, or climate. Applied to populations, direct metrics of children's early growth and development assess the current status of the population's health and well-being, establish predictions of future health and well-being, and provide opportunities to measure changes. Thus, applying the D-score to the early development of children extends to populations and society as a whole.
+
+\begin{quote}
+Maureen Black (July, 2020)
+\end{quote}
+
+\hypertarget{intro}{%
+\chapter{Introduction}\label{intro}}
+
+This introductory section outlines why we utilize the D-score:
+
+\begin{itemize}
+\tightlist
+\item
+  reviewing key discussions about the first 1000 days in a child's life (\ref{sec:first1000})
+\item
+  highlighting the relevance of early childhood development for later life (\ref{sec:relevance})
+\item
+  discussing the use of stunting as a proxy for development (\ref{sec:stunting})
+\item
+  pointing to existing instruments to quantify neurocognitive development (\ref{sec:neurocognitive})
+\item
+  explaining why we have written this chapter (\ref{sec:why})
+\item
+  delineating the intended audience (\ref{sec:audience})
 \end{itemize}
 
 \hypertarget{sec:first1000}{%
@@ -248,13 +315,13 @@ Each of these tools has its strengths and limitations. For example, the ASQ and 
 The ideal child development assessment would be easy to administer and has high reliability, validity, and cross-cultural appropriateness. It should also show appropriate sensitivity in scores at different ages and ability levels. It is no surprise that no test can meet all of these criteria. Many tests are too long, difficult to administer, lack cross-cultural validity, or have low reliability. Also, many instruments are proprietary and costly to use.
 
 \hypertarget{sec:why}{%
-\section{Why this booklet?}\label{sec:why}}
+\section{Why this chapter?}\label{sec:why}}
 
 We believe that \textbf{there cannot be one instrument} for measuring child development that is suitable for all situations. In general, the tool needs tailoring to the setting. For example, to find a delayed child, we need an instrument that is precise for that individual child, and that is sensitive to different domains of delay. In contrast, if we want to estimate the proportion of children that is \emph{developmentally on track} in a region, we need one culturally unbiased, relatively imprecise low-cost measurement made on many children across many ages. The optimal instrument will look quite different in both cases.
 
-We also believe that \textbf{there can be one scale} for measuring child development and that this scale is useful for many applications. Such a scale is similar to well-known measures for body height, body weight or body temperature. These measurements have a clearly defined unit (i.e., centimetre, kilogram, degree Celcius), which moreover is assumed to be constant across all scale locations. We express measurements as the number of scale units (e.g.~92 cm). Note that there may be multiple instruments for measuring a child height (e.g.~ruler, laser distance meter, echolocation, ability to reach the door handle, and so on). Still, their result translates into scale units (cm here). The opposite is also true, and perhaps more familiar. We may have one instrument and express the result in multiple units (e.g.~cm, inches, light-years).
+We also believe that \textbf{there can be one scale} for measuring child development and that this scale is useful for many applications. Such a scale is similar to well-known measures for body height, body weight or body temperature. These measurements have a clearly defined unit (i.e., centimetre, kilogram, degree Celsius), which moreover is assumed to be constant across all scale locations. We express measurements as the number of scale units (e.g.~92 cm). Note that there may be multiple instruments for measuring a child height (e.g.~ruler, laser distance meter, echolocation, ability to reach the door handle, and so on). Still, their result translates into scale units (cm here). The opposite is also true, and perhaps more familiar. We may have one instrument and express the result in multiple units (e.g.~cm, inches, light-years).
 
-Instruments and scales are different things. Currently, instruments for measuring child development define their own scales, which renders the measurements made by distinct tools incomparable. No measurement unit for child development yet exists. It would undoubtedly be an advance if we could tailor the measurement instrument to the setting while retaining the advantage of a scale with a clearly defined unit across different tools. We can then compare the data collected by distinct devices. This booklet explores the theory and practice for making that happen.
+Instruments and scales are different things. Currently, instruments for measuring child development define their own scales, which renders the measurements made by distinct tools incomparable. No measurement unit for child development yet exists. It would undoubtedly be an advance if we could tailor the measurement instrument to the setting while retaining the advantage of a scale with a clearly defined unit across different tools. We can then compare the data collected by distinct devices. This chapter explores the theory and practice for making that happen.
 
 \hypertarget{sec:audience}{%
 \section{Intended audience}\label{sec:audience}}
@@ -275,16 +342,12 @@ Professionals in child development will become familiar with a new approach to m
 
 Policymakers in international settings wish to know the effect of different interventions on child development. Gaining insight into such effects is not so easy since different studies use different instruments. The ability to place measurements made by different instruments onto the same scale will allow for a \textbf{more accurate understanding of policy effects}. It also enables the setting of priorities and actions that are less dependent on the way the data were collected.
 
-Statisticians and data scientists generally prefer numeric values with an unambiguous unit (e.g., centimeters, kilograms) over a vector of dichotomous data points. This booklet shows how to convert a series of PASS/FAIL scores to a numeric value with interval scale properties. The existence of such a scale opens the way for the \textbf{application of precise analytic techniques}, similar to those applied to child height and body weight. The techniques have a solid psychometric backing, and also apply to other types of problems.
+Statisticians and data scientists generally prefer numeric values with an unambiguous unit (e.g., centimeters, kilograms) over a vector of dichotomous data points. This chapter shows how to convert a series of PASS/FAIL scores to a numeric value with interval scale properties. The existence of such a scale opens the way for the \textbf{application of precise analytic techniques}, similar to those applied to child height and body weight. The techniques have a solid psychometric backing, and also apply to other types of problems.
 
 \hypertarget{ch:history}{%
 \chapter{Short history}\label{ch:history}}
 
-\begin{quote}
-Author: Stef van Buuren
-\end{quote}
-
-The measurement of child development has quite an extensive history. This chapter
+The measurement of child development has quite an extensive history. This section
 
 \begin{itemize}
 \tightlist
@@ -503,11 +566,7 @@ Table \ref{tab:questions} lists typical questions whose answers require measurin
 \hypertarget{ch:threeways}{%
 \chapter{Quantifying child development}\label{ch:threeways}}
 
-\begin{quote}
-Author: Stef van Buuren
-\end{quote}
-
-This chapter discusses four principles to quantify child development:
+This section discusses four principles to quantify child development:
 
 \begin{itemize}
 \tightlist
@@ -739,7 +798,7 @@ While unit-based measurement has many advantages, it cannot perform miracles.
 \hypertarget{sec:whatismeasurement}{%
 \section{A unified framework}\label{sec:whatismeasurement}}
 
-This section brings together the four approaches outlined in this chapter into a unified framework.
+This section brings together the four approaches outlined in this section into a unified framework.
 
 \begin{figure}
 
@@ -798,7 +857,7 @@ Defines measurement unit & NO & NO & NO & YES\tabularnewline
 
 ~
 
-This chapter distinguished four approaches to measure child development: \emph{age-based}, \emph{probability-based}, \emph{score-based} and \emph{unit-based} measurement. Table \ref{tab:measurement} summarizes how the approaches evaluate on nine criteria.
+This section distinguished four approaches to measure child development: \emph{age-based}, \emph{probability-based}, \emph{score-based} and \emph{unit-based} measurement. Table \ref{tab:measurement} summarizes how the approaches evaluate on nine criteria.
 
 \emph{Age-based measurement} expresses development in age equivalents, whose precise definition depends on the reference population. Age-based measurement does not support multiple milestones and does not use the concept of a latent variable.
 
@@ -811,11 +870,7 @@ This chapter distinguished four approaches to measure child development: \emph{a
 \hypertarget{ch:newmodel}{%
 \chapter{The D-score}\label{ch:newmodel}}
 
-\begin{quote}
-Author: Stef van Buuren
-\end{quote}
-
-Chapter \ref{ch:history} provided historical background on the nature of child development. Chapter \ref{ch:threeways} discussed three general quantification approaches. This chapter explains how to apply the unit-based approach to arrive at the D-score scale. The text illustrates the process with real data.
+Section \ref{ch:history} provided historical background on the nature of child development. Section \ref{ch:threeways} discussed three general quantification approaches. This section explains how to apply the unit-based approach to arrive at the D-score scale. The text illustrates the process with real data.
 
 \begin{itemize}
 \tightlist
@@ -1248,17 +1303,13 @@ The Guttman and Mokken models yield an ordinal latent scale, while the Rasch mod
 \item
   \href{https://www.rasch.org/rmt/rmt11a.htm}{Rasch's specific objectivity}
 \item
-  \emph{Fits child development data}: Last but not least, as we will see in Chapter \ref{ch:evaluation}, the Rasch model provides an excellent fit to child development milestones.
+  \emph{Fits child development data}: Last but not least, as we will see in Section \ref{ch:evaluation}, the Rasch model provides an excellent fit to child development milestones.
 \end{itemize}
 
 \hypertarget{ch:computation}{%
 \chapter{Computation}\label{ch:computation}}
 
-\begin{quote}
-Author: Stef van Buuren
-\end{quote}
-
-This chapter explains the basic computations needed for fitting and evaluating the Rasch model. We distinguish the following steps:
+This section explains the basic computations needed for fitting and evaluating the Rasch model. We distinguish the following steps:
 
 \begin{itemize}
 \tightlist
@@ -1274,7 +1325,7 @@ This chapter explains the basic computations needed for fitting and evaluating t
   Estimation of age-conditional references (\ref{sec:reference})
 \end{itemize}
 
-Readers not interested in these details may continue to model evaluation in Chapter \ref{ch:evaluation}.
+Readers not interested in these details may continue to model evaluation in Section \ref{ch:evaluation}.
 
 \hypertarget{sec:datapreparation}{%
 \section{Identify nature of the problem}\label{sec:datapreparation}}
@@ -1760,11 +1811,7 @@ If \(L_t\) is close to zero, we use
 \hypertarget{ch:evaluation}{%
 \chapter{Evaluation}\label{ch:evaluation}}
 
-\begin{quote}
-Author: Iris Eekhout
-\end{quote}
-
-The properties cut-off Rasch model (c.f. Section \ref{sec:whyrasch}) only hold when the data and model agree. It is, therefore, essential to study and remove discrepancies between model and data. This chapter explains several techniques that aid in the evaluation of model fit.
+The properties cut-off Rasch model (c.f. Section \ref{sec:whyrasch}) only hold when the data and model agree. It is, therefore, essential to study and remove discrepancies between model and data. This section explains several techniques that aid in the evaluation of model fit.
 
 \begin{itemize}
 \tightlist
@@ -1793,7 +1840,7 @@ The fitted item response curve for each item \(i\) is modeled as:
 
 \[P_{ni} = \frac{\exp(\hat\beta_{n} - \hat\delta_{i})}{1+\exp(\hat\beta_{n}-\hat\delta_{i})},\]
 
-where \(\hat\beta_n\) is the estimated ability of child \(n\) (the child's D-score), and where \(\hat\delta_i\) is the estimated difficulty of item \(i\). This is equivalent to formula \eqref{eq:logistic} with the parameters replaced by estimates. Chapter \ref{ch:computation} described process of parameter estimation in some detail.
+where \(\hat\beta_n\) is the estimated ability of child \(n\) (the child's D-score), and where \(\hat\delta_i\) is the estimated difficulty of item \(i\). This is equivalent to formula \eqref{eq:logistic} with the parameters replaced by estimates. Section \ref{ch:computation} described process of parameter estimation in some detail.
 
 \hypertarget{well-fitting-item-response-curves}{%
 \subsection{Well-fitting item response curves}\label{well-fitting-item-response-curves}}
@@ -1827,7 +1874,7 @@ There are many cases where things are less bright.
 
 
 
-Figure \ref{fig:plothyp1} shows three forms of severe underfit from three artificial items. These items were simulated to have a low fit, added to the DDI, and we estimated their parameters by the methods of Chapter \ref{ch:computation}. For the first item, \texttt{hypgmd001}, the probability of passing is almost constant across ability, so retaining this item essentially only adds to the noise. Item \texttt{hypgmd002} converges to an asymptote around 80 per cent and has a severe dip in the middle. The strong relation to age causes the drop. Item \texttt{hypgmd003} appears to have the wrong coding. Also, we often see the spike-like behaviour in the middle when two or more different items erroneously share identical names.
+Figure \ref{fig:plothyp1} shows three forms of severe underfit from three artificial items. These items were simulated to have a low fit, added to the DDI, and we estimated their parameters by the methods of Section \ref{ch:computation}. For the first item, \texttt{hypgmd001}, the probability of passing is almost constant across ability, so retaining this item essentially only adds to the noise. Item \texttt{hypgmd002} converges to an asymptote around 80 per cent and has a severe dip in the middle. The strong relation to age causes the drop. Item \texttt{hypgmd003} appears to have the wrong coding. Also, we often see the spike-like behaviour in the middle when two or more different items erroneously share identical names.
 
 Removal of items with a low fit can substantially improve overall model fit.
 
@@ -2081,11 +2128,7 @@ The estimated reliability in the SMOCC data is equal to \((76.6-1.74)/76.6 = 0.9
 \hypertarget{ch:validity}{%
 \chapter{Validity}\label{ch:validity}}
 
-\begin{quote}
-Author: Iris Eekhout
-\end{quote}
-
-Validity is a generic term that refers to the question of how well an instrument measures what it claims to measure. There are various aspects of validity. This chapter briefly reviews the main types of validity:
+Validity is a generic term that refers to the question of how well an instrument measures what it claims to measure. There are various aspects of validity. This section briefly reviews the main types of validity:
 
 \begin{itemize}
 \tightlist
@@ -2134,7 +2177,7 @@ Construct validity is the extent to which the D-score behaves like the theory sa
 
 
 
-In Chapter \ref{ch:newmodel}, we assumed that child development is a latent variable. Figure \ref{fig:plotdomainfit} provides one way to evaluate the validity of this assumption. The figure plots the item fit for each milestone coloured by domain. Items from different domains fit equally well, so there is no evidence that the D-score favours a particular area. Put in more technical terms; the DDI domains do not explain differences in the item fit residuals of the model.
+In Section \ref{ch:newmodel}, we assumed that child development is a latent variable. Figure \ref{fig:plotdomainfit} provides one way to evaluate the validity of this assumption. The figure plots the item fit for each milestone coloured by domain. Items from different domains fit equally well, so there is no evidence that the D-score favours a particular area. Put in more technical terms; the DDI domains do not explain differences in the item fit residuals of the model.
 
 \hypertarget{sec:external}{%
 \section{External validity}\label{sec:external}}
@@ -2178,13 +2221,9 @@ Predictive validity refers to the degree to which the D-score predicts the score
 \hypertarget{ch:precision}{%
 \chapter{Precision}\label{ch:precision}}
 
-\begin{quote}
-Authors: Manon Grevinga, Stef van Buuren
-\end{quote}
+This section shows the properties of the D-score when calculated from short tests. The study of quick tests is useful because it reveals the behaviour of the D-score when the measurement is inherently imprecise.
 
-The chapter shows the properties of the D-score when calculated from short tests. The study of quick tests is useful because it reveals the behaviour of the D-score when the measurement is inherently imprecise.
-
-This chapter covers:
+This section covers:
 
 \begin{itemize}
 \tightlist
@@ -2248,7 +2287,7 @@ Figure \ref{fig:ageitemgrid} shows the subsets of DDI items administered at each
 
 In the analyses done thus far, we have calculated D-scores from responses on the combined (standard plus additional) milestones. Thus, at the 2-month visit, the D-score was calculated from 2 (standard) + 5 (additional) = 7 milestones.
 
-In daily practice, the set of additional milestones is often lacking. This chapter explores the impact of using the (smaller) subset of standard milestones on measurement error and prediction.
+In daily practice, the set of additional milestones is often lacking. This section explores the impact of using the (smaller) subset of standard milestones on measurement error and prediction.
 
 This section reports and compares three D-scores:
 
@@ -2429,11 +2468,7 @@ All in all, these results suggest that neither the amount nor the difficulty lev
 \hypertarget{ch:threestudies}{%
 \chapter{Three studies}\label{ch:threestudies}}
 
-\begin{quote}
-Authors: Paula van Dommelen, Maria C. Olthof
-\end{quote}
-
-This chapter compares child development between samples from three different studies:
+This section compares child development between samples from three different studies:
 
 \begin{itemize}
 \tightlist
@@ -2447,7 +2482,7 @@ This chapter compares child development between samples from three different stu
   A summary of the main findings (\ref{sec:threestudiesconclusions})
 \end{itemize}
 
-Each study used the same measurement instrument, the DDI (see Section \ref{sec:ddi}). The chapter compares D-scores between studies.
+Each study used the same measurement instrument, the DDI (see Section \ref{sec:ddi}). The section compares D-scores between studies.
 
 \hypertarget{sec:smoccstudy}{%
 \section{SMOCC study}\label{sec:smoccstudy}}
@@ -2483,7 +2518,7 @@ The ceiling effect causes low coverage after the age of 24 months. There are als
 
 Figure \ref{fig:popsda9} presents the D-score and DAZ distributions for the POPS cohort of children born very preterm or with very low birth weight. The distributions of the D-score and DAZ are similar to those found in the SMOCC study.
 
-Since the D-scores are calculated using the same milestones and difficulty estimates as used in the SMOCC data, the D-scores are comparable across the two studies. When the milestones differ between studies (e.g.~when studies use different measurement instruments), it is still possible to calculate D-scores. This problem is a little more complicated, so we treat it in booklet II.
+Since the D-scores are calculated using the same milestones and difficulty estimates as used in the SMOCC data, the D-scores are comparable across the two studies. When the milestones differ between studies (e.g.~when studies use different measurement instruments), it is still possible to calculate D-scores. This problem is a little more complicated, so we treat it in Chapter II.
 
 The primary new complication here is the question whether it is fair to compare \emph{postnatal age} of children born at term with postnatal ages of very preterm children. This section focuses on this issue in some detail.
 
@@ -2788,7 +2823,7 @@ It may indeed be true that children from Togo develop more rapidly than Dutch ch
 \hypertarget{sec:threestudiesconclusions}{%
 \section{Conclusions}\label{sec:threestudiesconclusions}}
 
-This chapter compared the D-scores estimated from the DDI administered to three different groups of children.
+This section compared the D-scores estimated from the DDI administered to three different groups of children.
 
 We found that
 
@@ -2808,11 +2843,7 @@ All in all, these findings support the usefulness and validity of the D-score as
 \hypertarget{ch:nextsteps}{%
 \chapter{Next steps}\label{ch:nextsteps}}
 
-\begin{quote}
-Author: Stef van Buuren
-\end{quote}
-
-This booklet provides a quick overview of the relevance, concepts and techniques of the D-score. While the results obtained thus far are encouraging, some questions will certainly remain when we put the method to practice.
+This section provides a quick overview of the relevance, concepts and techniques of the D-score. While the results obtained thus far are encouraging, some questions will certainly remain when we put the method to practice.
 
 A rough selection of such questions includes:
 
@@ -2842,7 +2873,7 @@ A rough selection of such questions includes:
   Would the D-score help to target early interventions?
 \end{itemize}
 
-This chapter briefly reviews some of these issues.
+This section briefly reviews some of these issues.
 
 \hypertarget{usefulness-of-d-score-for-monitoring-child-health}{%
 \section{Usefulness of D-score for monitoring child health}\label{usefulness-of-d-score-for-monitoring-child-health}}
@@ -2903,7 +2934,7 @@ The lack of a universal measure for child development has long hampered the abil
 \hypertarget{d-score-for-international-settings}{%
 \section{D-score for international settings}\label{d-score-for-international-settings}}
 
-Chapter \ref{ch:threestudies} compared D-scores between three study samples. We restricted the analysis to studies that used the same instrument (the DDI, in Togo, translated to French) to measure child development.
+Section \ref{ch:threestudies} compared D-scores between three study samples. We restricted the analysis to studies that used the same instrument (the DDI, in Togo, translated to French) to measure child development.
 
 It is difficult to compare levels of child development worldwide. Existing estimates on children not reaching their developmental potential rely on proxies, such as stunting and poverty. While these proxies have been found to correlate with child development, they are only weak indicators of actual child performance. Arguably, the performance of a child on a set of well-chosen milestones is more informative for his or her future health and productivity than body height or parental income.
 
@@ -2911,7 +2942,7 @@ There are more than 150 instruments are available that quantify child developmen
 
 The D-score opens up an exciting alternative: \emph{agree on the scale}, and leave some liberty to the data-collector in the exact choice of the instrument. We could build upon the expertise of the data collector about the local population. Also, it will equip is to keep up with innovations in measurement.
 
-Booklet II will address some of the conceptual and technical issues that arise when we attempt to apply the D-score to other populations.
+The next chapter in our work will address some of the conceptual and technical issues that arise when we attempt to apply the D-score to other populations.
 
 \hypertarget{d-score-from-existing-instruments}{%
 \section{D-score from existing instruments}\label{d-score-from-existing-instruments}}
@@ -2923,7 +2954,7 @@ There is a vast base of historic child developmental data using existing instrum
 \item
   Can the child stack two blocks?
 \item
-  Can the child rollover?
+  Can the child roll over?
 \item
   Can the child draw a cross?
 \item
@@ -2934,7 +2965,7 @@ There is a vast base of historic child developmental data using existing instrum
 
 With the D-score methodology in hand, we are ready to exploit the overlap in milestones shared by different instruments. Common items can act as \emph{bridges}, so - with the appropriate item-level data - we may attempt calculating D-scores from other tools as well.
 
-The task is to identify milestones that overlap between both instruments, filter out milestones that do not fit a joint model, and estimate the item difficulties of items that remain. Booklet II will explore this possibility in more detail.
+The task is to identify milestones that overlap between both instruments, filter out milestones that do not fit a joint model, and estimate the item difficulties of items that remain. Chapter II will explore this possibility in more detail.
 
 \hypertarget{creating-new-instruments-for-d-score}{%
 \section{Creating new instruments for D-score}\label{creating-new-instruments-for-d-score}}
@@ -2943,7 +2974,7 @@ Extending the D-score to other instruments has the side-effect of enlarging the 
 
 The enlarged and improved item bank then may act as the fundamental resource for creating instruments for particular settings. For example, if the interest is on finding the most advanced children, we may construct a difficult test that will separate the good and the best. Alternatively, we can use the item bank to create and administer \emph{computerized adaptive tests} (\protect\hyperlink{ref-wainer2000}{Wainer et al. 2000}; \protect\hyperlink{ref-jacobusse2007}{Jacobusse and van Buuren 2007}), a sequential method that selects the next milestone based on the previous test outcome.
 
-Booklet III will explore the conceptual and technical challenges, and propose an integrated approach to support instrument construction and validation.
+Our ongoing work will explore the conceptual and technical challenges, and propose an integrated approach to support instrument construction and validation.
 
 \hypertarget{appendix-appendices}{%
 \appendix}
@@ -2952,7 +2983,7 @@ Booklet III will explore the conceptual and technical challenges, and propose an
 \hypertarget{ap:notation}{%
 \chapter{Notation}\label{ap:notation}}
 
-The notation in this booklet follows \protect\hyperlink{ref-wright1982}{Wright and Masters} (\protect\hyperlink{ref-wright1982}{1982}).
+The notation in this chapter follows \protect\hyperlink{ref-wright1982}{Wright and Masters} (\protect\hyperlink{ref-wright1982}{1982}).
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule
@@ -3160,13 +3191,13 @@ attached base packages:
 [1] stats     graphics  grDevices utils     datasets  methods   base     
 
 other attached packages:
- [1] dinstrument_0.0.1.2 ddata_0.51.0        gseddata_1.5.99    
- [4] dmetric_0.51.4      dscore_1.4.0        forcats_0.5.0      
- [7] haven_2.3.1         scales_1.1.1        plotly_4.9.2.1     
-[10] sirt_3.9-4          gridExtra_2.3       plyr_1.8.6         
-[13] reshape2_1.4.4      RColorBrewer_1.1-2  dplyr_1.0.2        
-[16] tidyr_1.1.2         ggplot2_3.3.2       kableExtra_1.3.1   
-[19] knitr_1.30         
+ [1] dinstrument_0.0.1.2 ddata_0.52.0        gseddata_1.5.1     
+ [4] dmetric_0.52.0      dscore_1.4.0.9000   forcats_0.5.0      
+ [7] haven_2.3.1         magick_2.5.2        scales_1.1.1       
+[10] plotly_4.9.2.1      sirt_3.9-4          gridExtra_2.3      
+[13] plyr_1.8.6          reshape2_1.4.4      RColorBrewer_1.1-2 
+[16] dplyr_1.0.2         tidyr_1.1.2         ggplot2_3.3.2      
+[19] kableExtra_1.3.1    knitr_1.30         
 
 loaded via a namespace (and not attached):
  [1] httr_1.4.2        jsonlite_1.7.1    viridisLite_0.3.0 splines_4.0.3    
@@ -3178,13 +3209,14 @@ loaded via a namespace (and not attached):
 [25] mvtnorm_1.1-1     webshot_0.5.2     later_1.1.0.1     gamlss.data_5.1-4
 [29] tibble_3.0.4      generics_0.1.0    ellipsis_0.3.1    withr_2.3.0      
 [33] lazyeval_0.2.2    mime_0.9          survival_3.2-7    magrittr_2.0.1   
-[37] crayon_1.3.4.9000 evaluate_0.14     nlme_3.1-149      MASS_7.3-53      
+[37] crayon_1.3.4.9000 evaluate_0.14     nlme_3.1-150      MASS_7.3-53      
 [41] xml2_1.3.2        tools_4.0.3       data.table_1.13.4 hms_0.5.3        
 [45] lifecycle_0.2.0   stringr_1.4.0     munsell_0.5.0     gamlss.dist_5.1-7
 [49] compiler_4.0.3    rlang_0.4.9       grid_4.0.3        polycor_0.7-10   
-[53] rstudioapi_0.13   htmlwidgets_1.5.3 rmarkdown_2.5     gtable_0.3.0     
-[57] R6_2.5.0          fastmap_1.0.1     stringi_1.5.3     parallel_4.0.3   
-[61] Rcpp_1.0.5        vctrs_0.3.5       tidyselect_1.1.0  xfun_0.19        
+[53] rstudioapi_0.13   htmlwidgets_1.5.2 rmarkdown_2.5     codetools_0.2-16 
+[57] gtable_0.3.0      R6_2.5.0          fastmap_1.0.1     stringi_1.5.3    
+[61] parallel_4.0.3    Rcpp_1.0.5        vctrs_0.3.5       tidyselect_1.1.0 
+[65] xfun_0.19        
 \end{verbatim}
 
 \hypertarget{references}{%
@@ -3212,7 +3244,10 @@ Berk, L. E. 2011. \emph{Child Development. 9th Ed.} Boston, MA: Pearson.
 Berkson, Joseph. 1944. {``Application of the Logistic Function to Bio-Assay.''} \emph{Journal of the American Statistical Association} 39 (227): 357--65. \url{http://www.jstor.org/stable/2280041}.
 
 \leavevmode\hypertarget{ref-black2017}{}%
-Black, M. M., S. P. Walker, L. C. H. Fernald, C. T. Andersen, A. M. DiGirolamo, C. Lu, D. C. McCoy, et al. 2017. {``Early Childhood Development Coming of Age: Science Through the Life Course.''} \emph{The Lancet} 389 (10064): 77--90.
+Black, Maureen M, Susan P Walker, Lia CH Fernald, Christopher T Andersen, Ann M DiGirolamo, Chunling Lu, Dana C McCoy, Günther Fink, Yusra R Shawar, and Jeremy Shiffman. 2017. {``Early Childhood Development Coming of Age: Science Through the Life Course.''} \emph{The Lancet} 389 (10064): 77--90.
+
+\leavevmode\hypertarget{ref-black2017}{}%
+---------. 2017. {``Early Childhood Development Coming of Age: Science Through the Life Course.''} \emph{The Lancet} 389 (10064): 77--90.
 
 \leavevmode\hypertarget{ref-bock1982}{}%
 Bock, D. D., and R. J. Mislevy. 1982. {``Adaptive {EAP} Estimation of Ability in a Microcomputer Environment.''} \emph{Applied Psychological Measurement} 6 (4): 431--44.
@@ -3228,6 +3263,9 @@ Cameron, N., and B. Bogin. 2012. \emph{Human Growth and Development}. London: Ac
 
 \leavevmode\hypertarget{ref-caspi2010genetic}{}%
 Caspi, A., A. R. Hariri, A. Holmes, R. Uher, and T. E. Moffitt. 2010. {``Genetic Sensitivity to the Environment: The Case of the Serotonin Transporter Gene and Its Implications for Studying Complex Diseases and Traits.''} \emph{American Journal of Psychiatry} 167 (5): 509--27.
+
+\leavevmode\hypertarget{ref-clark2020}{}%
+Clark, Helen, Awa Marie Coll-Seck, Anshu Banerjee, Stefan Peterson, Sarah L Dalglish, Shanthi Ameratunga, Dina Balabanova, Maharaj Kishan Bhan, Zulfiqar A Bhutta, and John Borrazzo. 2020. {``A Future for the World's Children? A WHO--UNICEF--Lancet Commission.''} \emph{The Lancet} 395 (10224): 605--58.
 
 \leavevmode\hypertarget{ref-cole1988}{}%
 Cole, T. J. 1988. {``Fitting Smoothed Centile Curves to Reference Data (with Discussion).''} \emph{Journal of the Royal Statistical Society, Series A} 151: 385--418.
@@ -3304,6 +3342,9 @@ Liebert, R. M., R. W. Poulos, and G. D. Strauss. 1974. \emph{Developmental Psych
 \leavevmode\hypertarget{ref-linacre2004}{}%
 Linacre, J. M. 2004. {``Rasch Model Estimation: Further Topics.''} \emph{Journal of Applied Measurement} 5 (1): 95--110.
 
+\leavevmode\hypertarget{ref-lu2016}{}%
+Lu, Chunling, Maureen M Black, and Linda M Richter. 2016. {``Risk of Poor Development in Young Children in Low-Income and Middle-Income Countries: An Estimation and Analysis at the Global, Regional, and Country Level.''} \emph{The Lancet Global Health} 4 (12): e916--22.
+
 \leavevmode\hypertarget{ref-miller2016consistent}{}%
 Miller, A. C., M. B. Murray, D. R. Thomson, and M. C. Arbour. 2016. {``How Consistent Are Associations Between Stunting and Child Development? Evidence from a Meta-Analysis of Associations Between Stunting and Multidimensional Child Development in Fifteen Low-and Middle-Income Countries.''} \emph{Public Health Nutrition} 19 (8): 1339--47.
 
@@ -3355,6 +3396,9 @@ Stott, L. H. 1967. \emph{Child Development: {A}n Individual Longitudinal Approac
 \leavevmode\hypertarget{ref-sudfeld2015linear}{}%
 Sudfeld, C. R., D. C. McCoy, G. Danaei, G. Fink, M. Ezzati, K. G. Andrews, and W. W. Fawzi. 2015. {``Linear Growth and Child Development in Low-and Middle-Income Countries: A Meta-Analysis.''} \emph{Pediatrics} 135 (5): e1266--75.
 
+\leavevmode\hypertarget{ref-unicef2019}{}%
+UNICEF. 2019. {``The State of the World's Children 2019: Children, Food and Nutrition: Growing Well in a Changing World.''} \emph{UNICEF}.
+
 \leavevmode\hypertarget{ref-vanbuuren2014}{}%
 van Buuren, S. 2014. {``Growth Charts of Human Development.''} \emph{Statistical Methods in Medical Research} 23 (4): 346--68. \url{https://stefvanbuuren.name/publication/2014-01-01_vanbuuren2014gc/}.
 
@@ -3366,6 +3410,9 @@ Vlasblom, E., M. M. Boere-Boonekamp, E. Hafkamp-de Groen, E. van Dusseldorp, P. 
 
 \leavevmode\hypertarget{ref-wainer2000}{}%
 Wainer, H., N. J. Dorans, R. Flaugher, B. F. Green, and R. J. Mislevy. 2000. \emph{Computerized Adaptive Testing: A Primer}. Routledge.
+
+\leavevmode\hypertarget{ref-Weber2019}{}%
+Weber, Ann M, Marta Rubio-Codina, Susan P Walker, Stef van Buuren, Iris Eekhout, Sally M Grantham-McGregor, Maria Caridad Araujo, et al. 2019. {``The {D-score}: A Metric for Interpreting the Early Development of Infants and Toddlers Across Global Settings.''} \emph{BMJ Global Health} 4 (6). \url{https://doi.org/10.1136/bmjgh-2019-001724}.
 
 \leavevmode\hypertarget{ref-wit2017practical}{}%
 Wit, J. M., J. H. Himes, S. van Buuren, D. M. Denno, and P. S. Suchdev. 2017. {``Practical Application of Linear Growth Measurements in Clinical Research in Low-and Middle-Income Countries.''} \emph{Hormone Research in Paediatrics} 88 (1): 79--90.

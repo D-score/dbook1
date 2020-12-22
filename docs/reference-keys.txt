@@ -66,6 +66,7 @@ fig:finemotor
 fig:commun
 fig:dchart
 intro
+sec:first1000
 sec:relevance
 sec:stunting
 sec:neurocognitive
