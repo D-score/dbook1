@@ -47,7 +47,7 @@ The *Health Birth Growth and Development knowledge integration (ki)* program of 
 If you have any suggestions or comments, please let us know.
 
 
-## About our work
+## About our work {-}
 
 The first 1000 days of human life cover the period between conception and the second birthday. Proper development during this period contributes to future health, happiness, and productivity, so it is essential to track the child's progress during infancy and early childhood. 
 But did you know that more than 150 instruments exist that quantify child development? And are you aware that many of these tools produce not just one, but many scores? Such an overwhelming choice may seem a luxury until you realise that we cannot compare their ratings. Of course, we could settle on just one instrument ...., but that's never going to happen.
@@ -79,7 +79,7 @@ We aim for three audiences:
 Additionally, parents are always eager to follow every step of their child. While we do not target this work to parents, our methodology may spark the interest of authors, app writers, and instrument creators that do address the interests and needs of parents. Hence, the publication of these chapters may have additional societal impact.
 
 
-## About the Authors
+## About the Authors {-}
 
 Stef van Buuren is a professor of Statistical Analysis of Incomplete Data at the University of Utrecht and statistician at the Netherlands Organisation for Applied Scientific Research TNO in Leiden. His interests include the analysis of incomplete data and child growth and development (h-index 61). Van Buuren is the inventor of the MICE algorithm for multiple imputation of missing data (>85.000 downloads per month) and has written the accessible monograph Flexible Imputation of Missing Data. Second Edition, CRC/Chapman & Hall. He designed the growth charts for the Dutch child health care system and invented the D-score, a new method for expressing child development on a quantitative scale. He consults for the World Health Organization and the Bill & Melinda Gates Foundation. More background at [https://stefvanbuuren.name](https://stefvanbuuren.name), and software at [https://github.com/stefvanbuuren](https://github.com/stefvanbuuren).
 
