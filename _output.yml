@@ -2,6 +2,7 @@ bookdown::gitbook:
   highlight: tango
   css: style.css
   split_by: section
+  split_bib: FALSE
   includes:
       in_header: mathjax-init.html
   config:
