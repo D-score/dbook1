@@ -111,7 +111,7 @@ timefixed <- file2[, c("id", "male", "edumocat", "birthweight", "birthsize",
 # select all visits from the long data (n = 16953) 2040 unique children
 file3 <- file3[file3$visit == 1, ]
 id <- file3$pnr
-male <- recode(as_label(file3$k1018), "Jongen" = 1, "Meisje" = 0, .default = NaN)
+male <- recode(sjlabelled::as_label(file3$k1018), "Jongen" = 1, "Meisje" = 0, .default = NaN)
 
 # calculate dates of measurement and dates of birth
 dom <- with(file3, ISOdate(1900 + year, month, day))
