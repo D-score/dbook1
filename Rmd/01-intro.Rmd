@@ -13,6 +13,7 @@ This introductory section outlines why we utilize the D-score:
 -   explaining why we have written this chapter (\@ref(sec:why))
 -   delineating the intended audience (\@ref(sec:audience))
 
+## First 1000 days {#sec:first1000}
 
 The *first 1000 days* refers to the time needed for a child to grow from conception to the second birthday. It is a time of rapid change. During this period the architecture of the developing brain is very open to the influence of relationships and experiences [@skonkhoff2016best].
 
