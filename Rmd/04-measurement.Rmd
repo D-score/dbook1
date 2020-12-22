@@ -307,6 +307,10 @@ if (opts_knit$get("rmarkdown.pandoc.to") == "latex") {
   plot <- include_graphics("fig/scenes.pdf")
 }
 
+if (!opts_knit$get("rmarkdown.pandoc.to") %in% c("html", "latex")) {
+  plot <- include_graphics("fig/scenes.pdf")
+}
+
 plot
 ```
 
