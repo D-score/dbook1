@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.2)  22 DEC 2020 13:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.2)  22 DEC 2020 13:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1505,61 +1505,61 @@ Overfull \hbox (21.2732pt too wide) in alignment at lines 3000--3173
 ] [130]
 Appendix B.
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRblas.dylib[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRlapack.dylib[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 [1] stats     graphics  grDevices utils     datasets  methods
    base[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
 [] \T1/lmtt/m/n/10 [1] httr_1.4.2        jsonlite_1.7.1    viridisLite_0.3.0 sp
 lines_4.0.3[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3221--3221
 [] \T1/lmtt/m/n/10 [5] gtools_3.8.2      shiny_1.5.0       CDM_7.5-15        ya
 ml_2.2.1[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3221--3221
 [] \T1/lmtt/m/n/10 [9] gamlss_5.2-0      pillar_1.4.7      lattice_0.20-41   gl
 ue_1.4.2[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 [13] digest_0.6.27     promises_1.1.1    rvest_0.3.6       co
 lorspace_2.0-0[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 [17] htmltools_0.5.0   httpuv_1.5.4      Matrix_1.2-18     TA
 M_3.5-19[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 [21] pkgconfig_2.0.3   bookdown_0.21     xtable_1.8-4      pu
 rrr_0.3.4[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 3221--3221
 []\T1/lmtt/m/n/10 [25] mvtnorm_1.1-1     webshot_0.5.2     later_1.1.0.1     ga
 mlss.data_5.1-4[] 
  []
@@ -1567,56 +1567,62 @@ mlss.data_5.1-4[]
 [131
 
 ]
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [29] tibble_3.0.4      generics_0.1.0    ellipsis_0.3.1    wi
-thr_2.3.0[] 
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [29] tibble_3.0.4      mgcv_1.8-33       farver_2.0.3      ge
+nerics_0.1.0[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [33] lazyeval_0.2.2    mime_0.9          survival_3.2-7    ma
-grittr_2.0.1[] 
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [33] ellipsis_0.3.1    withr_2.3.0       lazyeval_0.2.2    mi
+me_0.9[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [37] crayon_1.3.4.9000 evaluate_0.14     nlme_3.1-150      MA
-SS_7.3-53[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [37] survival_3.2-7    magrittr_2.0.1    crayon_1.3.4.9000 ev
+aluate_0.14[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [41] xml2_1.3.2        tools_4.0.3       data.table_1.13.4 hm
-s_0.5.3[] 
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [41] nlme_3.1-150      MASS_7.3-53       xml2_1.3.2        to
+ols_4.0.3[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [45] lifecycle_0.2.0   stringr_1.4.0     munsell_0.5.0     ga
-mlss.dist_5.1-7[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [45] data.table_1.13.4 hms_0.5.3         lifecycle_0.2.0   st
+ringr_1.4.0[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [49] compiler_4.0.3    rlang_0.4.9       grid_4.0.3        po
-lycor_0.7-10[] 
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [49] munsell_0.5.0     gamlss.dist_5.1-7 compiler_4.0.3    rl
+ang_0.4.9[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [53] rstudioapi_0.13   htmlwidgets_1.5.2 rmarkdown_2.5     co
-detools_0.2-16[] 
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [53] grid_4.0.3        polycor_0.7-10    rstudioapi_0.13   ht
+mlwidgets_1.5.2[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [57] gtable_0.3.0      R6_2.5.0          fastmap_1.0.1     st
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [57] labeling_0.4.2    rmarkdown_2.5     codetools_0.2-16  gt
+able_0.3.0[] 
+ []
+
+
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [61] R6_2.5.0          fastmap_1.0.1     readr_1.4.0       st
 ringi_1.5.3[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [61] parallel_4.0.3    Rcpp_1.0.5        vctrs_0.3.5       ti
+Overfull \hbox (48.74886pt too wide) in paragraph at lines 3221--3221
+[]\T1/lmtt/m/n/10 [65] parallel_4.0.3    Rcpp_1.0.5        vctrs_0.3.5       ti
 dyselect_1.1.0[] 
  []
 
@@ -1626,15 +1632,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{ref-black2017
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.3260 
+l.3261 
        ] [134]
-Underfull \hbox (badness 2837) in paragraph at lines 3324--3326
+Underfull \hbox (badness 2837) in paragraph at lines 3325--3327
 \T1/lmr/m/n/10 26 (13): 2629--38. []$https : / / stefvanbuuren . name / publica
 tion / 2007 -[] 01 -[]
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 3327--3329
+Underfull \hbox (badness 2837) in paragraph at lines 3328--3330
 \T1/lmr/m/n/10 25 (13): 2272--83. []$https : / / stefvanbuuren . name / publica
 tion / 2006 -[] 01 -[]
  []
@@ -1675,7 +1681,7 @@ type1/public/lm/lmri10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmro10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on dbook1.pdf (138 pages, 27194831 bytes).
+Output written on dbook1.pdf (138 pages, 27194829 bytes).
 PDF statistics:
  2402 PDF objects out of 2487 (max. 8388607)
  2060 compressed objects within 21 object streams
