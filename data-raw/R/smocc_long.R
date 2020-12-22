@@ -12,7 +12,9 @@ smocc <- get_gcdg(study="Netherlands 1", adm = T, cov=T)
 #summary(smocc)
 
 # Get IQ at 5 years [DIT NOG AANPASSEN!]
-geg5jaar <- read_sav("//365tno.sharepoint.com@SSL/DavWWWRoot/teams/P060.33452/TeamDocuments/Team/Work/Booklets/Data/geg5jaar.sav")
+ddir <- file.path("data-raw/data/smocc")
+geg5jaar <- haven::read_spss(file.path(ddir, "geg5jaar.sav"))
+
 
 # Keep only IQ and patientnr
 sub.geg5jaar <- subset(geg5jaar, select = c("PNR", "IQ"))
@@ -22,6 +24,7 @@ names(sub.geg5jaar) <- c("id", "IQ")
 data.smocc <- left_join(smocc, sub.geg5jaar, "id")
 data.smocc$age <- data.smocc$age/12 #make age in years
 
+colnames(data.smocc)[21:77] <- dscore::rename_gcdg_gsed(colnames(data.smocc)[21:77])
 # CALCULATE D-SCORES
 
 # Overview of the items per wave in a list
@@ -38,7 +41,8 @@ items_by_wave <- list(wave1=c("n1", "n2", "n3", "n4", "n5"),
 
 # Apply de function for each wave (1-9)
 d_by_wave <- lapply(1:9, function(x){
-  dscore <- ability(data.smocc, items=items_by_wave[[x]], age = "age", metric = "dscore",itembank=dscore::itembank, lexicon="gcdg") #dscore bepalen obv de items per wave (nu wordt wel voor iedereen die een of meer van deze items heeft de dscore bepaald)
+  waveitems <- dscore::rename_gcdg_gsed(items_by_wave[[x]])
+  dscore <- dscore(data.smocc, items=waveitems, key="gcdg") #dscore bepalen obv de items per wave (nu wordt wel voor iedereen die een of meer van deze items heeft de dscore bepaald)
   d <- data.frame(data.smocc[,c("id", "wave", "age")], dscore) #id wave en age aan de dscore plakken
   d <- subset(d, wave==x) # alleen de rijen van de juiste wave selecteren
   d
@@ -46,7 +50,6 @@ d_by_wave <- lapply(1:9, function(x){
 
 # Merge D-scores per wave
 smocc_d <- do.call('rbind', d_by_wave)
-names(smocc_d) <- c("id", "wave", "age", "n", "dscore")
 
 # Merge D-scores to smocc data
 data.smocc1 <- left_join(data.smocc, smocc_d)
@@ -67,7 +70,8 @@ items_by_wave_nw <- list(wave1=c("n6", "n7"),
 
 # Apply de function for each wave (1-8)
 d_by_wave_nw <- lapply(1:8, function(x){
-  dscore_nw <- ability(data.smocc, items=items_by_wave_nw[[x]], age = "age", metric = "dscore",itembank=dscore::itembank, lexicon="gcdg") #dscore bepalen obv de items per wave (nu wordt wel voor iedereen die een of meer van deze items heeft de dscore bepaald)
+  waveitems_nw <- dscore::rename_gcdg_gsed(items_by_wave_nw[[x]])
+  dscore_nw <- dscore(data.smocc, items=waveitems_nw, key="gcdg")#dscore bepalen obv de items per wave (nu wordt wel voor iedereen die een of meer van deze items heeft de dscore bepaald)
   d_nw <- data.frame(data.smocc[,c("id", "wave", "age")], dscore_nw) #id wave en age aan de dscore plakken
   d_nw <- subset(d_nw, wave==x) # alleen de rijen van de juiste wave selecteren
   d_nw
@@ -75,13 +79,13 @@ d_by_wave_nw <- lapply(1:8, function(x){
 
 # Merge D-scores per wave
 smocc_d_nw <- do.call('rbind', d_by_wave_nw)
-names(smocc_d_nw) <- c("id", "wave", "age", "n", "dscore_nw")
+colnames(smocc_d_nw)[4:8] <- paste(colnames(smocc_d_nw)[4:8], "nw", sep = "_")
 
 # Merge D-scores to smocc data
 data.smocc2 <- left_join(data.smocc1, smocc_d_nw)
 
 #VOEG aantal negatieve scores wave toe!
-neg_scores_by_wave <- lapply(1:9, function(x)){
+neg_scores_by_wave <- lapply(1:9, function(x){
   neg_scores <-
 })
 
