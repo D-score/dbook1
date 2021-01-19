@@ -20,7 +20,7 @@ In contrast to concepts like height or temperature, it is unclear what exactly c
 Shirley gave empirical definitions of each of these domains of development.
 
 ```{r shirleyplot, fig.cap = '(ref:shirleyplot)'}
-include_graphics("fig/shirley-motor.png")
+include_graphics("fig/firsttwoyearsast011504.png")
 ```
 
 (ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
@@ -67,13 +67,13 @@ On the other hand, Gesell and others emphasize development as a continuous proce
 
 Stage theorists assume that children progress sequentially through the same set of stages. This assumption is also explicit in the work of Gesell.
 
-The ecological and dynamic systems theories view development as continuous, though not necessarily progressing in an orderly fashion, so there may be multiple, parallel ways to reach the same point. Figure \@ref(fig:dynamic) illustrates that the path taken by a given child will depend on the child's unique combination of personal and environmental circumstances, including cultural diversity in development.
+The ecological and dynamic systems theories view development as continuous, though not necessarily progressing in an orderly fashion, so there may be multiple, parallel ways to reach the same point. The developmental path taken by a given child will depend on the child's unique combination of personal and environmental circumstances, including cultural diversity in development.
 
-```{r dynamic, fig.cap = '(ref:dynamic)'}
-include_graphics("fig/dynamic.png")
+```{r dynamic, fig.cap = '(ref:diverse)'}
+include_graphics("fig/shutterstock_261441989.jpg")
 ```
 
-(ref:dynamic) A representation of the dynamic systems viewpoint on how different combinations of skills may lead to the same end point using different paths. Source: @berk2013.
+(ref:diverse) A group of culturally diverse children. Source: Shutterstock, under license.
 
 ### Nature or nurture?
 

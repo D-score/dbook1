@@ -23,7 +23,7 @@ Early experiences affect the nature and quality of the brain's developing archit
 include_graphics("fig/shutterstock_29312953.jpg")
 ```
 
-(ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: Shutterstock, under licence.
+(ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: Shutterstock, under license.
 
 The classic *nature versus nurture debate* contrasts the viewpoints that variation in development is primarily due to either genetic or environmental differences. The current scientific consensus is that both genetic predisposition and ecological differences influence all traits [@rutter2007genes].
 
