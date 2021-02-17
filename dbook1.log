@@ -1,25 +1,25 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.12.2)  22 DEC 2020 13:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  17 FEB 2021 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **dbook1.tex
 (./dbook1.tex
-LaTeX2e <2020-10-01> patch level 2
-L3 programming layer <2020-10-27> xparse <2020-03-03> (/Users/buurensv/Library/
-TinyTeX/texmf-dist/tex/latex/base/book.cls
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-06> (/Users/buurensv/Library/TinyTeX/texmf-dist/t
+ex/latex/base/book.cls
 Document Class: book 2020/04/10 v1.4m Standard LaTeX document class
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo
 File: bk10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
 )
-\c@part=\count175
-\c@chapter=\count176
-\c@section=\count177
-\c@subsection=\count178
-\c@subsubsection=\count179
-\c@paragraph=\count180
-\c@subparagraph=\count181
-\c@figure=\count182
-\c@table=\count183
+\c@part=\count177
+\c@chapter=\count178
+\c@section=\count179
+\c@subsection=\count180
+\c@subsubsection=\count181
+\c@paragraph=\count182
+\c@subparagraph=\count183
+\c@figure=\count184
+\c@table=\count185
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
@@ -73,13 +73,13 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count184
+\inf@bad=\count186
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count185
-\leftroot@=\count186
+\uproot@=\count187
+\leftroot@=\count188
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count187
-\DOTSCASE@=\count188
+\classnum@=\count189
+\DOTSCASE@=\count190
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
@@ -88,15 +88,15 @@ LaTeX Info: Redefining \cdots on input line 620.
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count189
-\c@MaxMatrixCols=\count190
+\macc@depth=\count191
+\c@MaxMatrixCols=\count192
 \dotsspace@=\muskip16
-\c@parentequation=\count191
-\dspbrk@lvl=\count192
+\c@parentequation=\count193
+\dspbrk@lvl=\count194
 \tag@help=\toks16
-\row@=\count193
-\column@=\count194
-\maxfields@=\count195
+\row@=\count195
+\column@=\count196
+\maxfields@=\count197
 \andhelp@=\toks17
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
@@ -156,7 +156,7 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2020-05-15 v7.00e Hypertext links for LaTeX
+Package: hyperref 2021-02-10 v7.00j Hypertext links for LaTeX
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
@@ -196,37 +196,42 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
 \@linkdim=\dimen148
-\Hy@linkcounter=\count196
-\Hy@pagecounter=\count197
+\Hy@linkcounter=\count198
+\Hy@pagecounter=\count199
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2020-05-15 v7.00e Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2021-02-10 v7.00j Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
+)
+(/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref-langpat
+ches.def
+File: hyperref-langpatches.def 2021-02-10 v7.00j Hyperref: patches for babel la
+nguages
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count198
-Package hyperref Info: Option `unicode' set `true' on input line 4338.
+\Hy@SavedSpaceFactor=\count266
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2020-05-15 v7.00e Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2021-02-10 v7.00j Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4464.
-Package hyperref Info: Link nesting OFF on input line 4469.
-Package hyperref Info: Hyper index ON on input line 4472.
-Package hyperref Info: Plain pages OFF on input line 4479.
-Package hyperref Info: Backreferencing OFF on input line 4484.
+Package hyperref Info: Option `unicode' set `true' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4717.
-\c@Hy@tempcnt=\count199
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count267
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5076.
+LaTeX Info: Redefining \url on input line 4804.
 \XeTeXLinkMargin=\dimen149
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -236,37 +241,37 @@ ty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count266
+\Fld@menulength=\count268
 \Field@Width=\dimen150
 \Fld@charsize=\dimen151
-Package hyperref Info: Hyper figures OFF on input line 6347.
-Package hyperref Info: Link nesting OFF on input line 6352.
-Package hyperref Info: Hyper index ON on input line 6355.
-Package hyperref Info: backreferencing OFF on input line 6362.
-Package hyperref Info: Link coloring OFF on input line 6367.
-Package hyperref Info: Link coloring with OCG OFF on input line 6372.
-Package hyperref Info: PDF/A mode OFF on input line 6377.
-LaTeX Info: Redefining \ref on input line 6417.
-LaTeX Info: Redefining \pageref on input line 6421.
+Package hyperref Info: Hyper figures OFF on input line 6075.
+Package hyperref Info: Link nesting OFF on input line 6080.
+Package hyperref Info: Hyper index ON on input line 6083.
+Package hyperref Info: backreferencing OFF on input line 6090.
+Package hyperref Info: Link coloring OFF on input line 6095.
+Package hyperref Info: Link coloring with OCG OFF on input line 6100.
+Package hyperref Info: PDF/A mode OFF on input line 6105.
+LaTeX Info: Redefining \ref on input line 6145.
+LaTeX Info: Redefining \pageref on input line 6149.
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
 ge
 with kernel methods
 )
-\Hy@abspage=\count267
-\c@Item=\count268
-\c@Hfootnote=\count269
+\Hy@abspage=\count269
+\c@Item=\count270
+\c@Hfootnote=\count271
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2020-05-15 v7.00e Hyperref driver for pdfTeX
+File: hpdftex.def 2021-02-10 v7.00j Hyperref driver for pdfTeX
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
 e
 with kernel methods
 )
-\Fld@listcount=\count270
-\c@bookmark@seq@number=\count271
+\Fld@listcount=\count272
+\c@bookmark@seq@number=\count273
 
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilec
 heck.sty
@@ -286,16 +291,16 @@ Package: longtable 2020/01/07 v4.13 Multi-page Table package (DPC)
 \LTright=\skip54
 \LTpre=\skip55
 \LTpost=\skip56
-\LTchunksize=\count272
+\LTchunksize=\count274
 \LTcapwidth=\dimen152
 \LT@head=\box49
 \LT@firsthead=\box50
 \LT@foot=\box51
 \LT@lastfoot=\box52
-\LT@cols=\count273
-\LT@rows=\count274
-\c@LT@tables=\count275
-\c@LT@chunks=\count276
+\LT@cols=\count275
+\LT@rows=\count276
+\c@LT@tables=\count277
+\c@LT@chunks=\count278
 \LT@p@ftn=\toks23
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
@@ -309,28 +314,28 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen160
 \cmidrulekern=\dimen161
 \defaultaddspace=\dimen162
-\@cmidla=\count277
-\@cmidlb=\count278
+\@cmidla=\count279
+\@cmidlb=\count280
 \@aboverulesep=\dimen163
 \@belowrulesep=\dimen164
-\@thisruleclass=\count279
-\@lastruleclass=\count280
+\@thisruleclass=\count281
+\@lastruleclass=\count282
 \@thisrulewidth=\dimen165
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count281
-\calc@Bcount=\count282
+\calc@Acount=\count283
+\calc@Bcount=\count284
 \calc@Adimen=\dimen166
 \calc@Bdimen=\dimen167
 \calc@Askip=\skip57
 \calc@Bskip=\skip58
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count283
+\calc@Ccount=\count285
 \calc@Cskip=\skip59
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count284
+\etb@tempcnta=\count286
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/mdwtools/footnote.sty
 Package: footnote 1997/01/28 1.13 Save footnotes around boxes
 \fn@notes=\box53
@@ -359,21 +364,21 @@ Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
 \backup@length=\skip61
 \ar@cellbox=\box55
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+Package: multirow 2021/01/29 v2.7 Span multiple rows of a table
 \multirow@colwidth=\skip62
-\multirow@cntb=\count285
+\multirow@cntb=\count287
 \multirow@dima=\skip63
 \bigstrutjot=\dimen173
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
 \wrapoverhang=\dimen174
 \WF@size=\dimen175
-\c@WF@wrappedlines=\count286
+\c@WF@wrappedlines=\count288
 \WF@box=\box56
 \WF@everypar=\toks25
 Package: wrapfig 2003/01/31  v 3.6
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count287
+\c@float@type=\count289
 \float@exts=\toks26
 \float@box=\box57
 \@float@everytoks=\toks27
@@ -393,16 +398,16 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box59
-\sift@deathcycles=\count288
+\sift@deathcycles=\count290
 \@vwid@loff=\dimen176
 \@vwid@roff=\dimen177
 )
-\c@taburow=\count289
-\tabu@nbcols=\count290
-\tabu@cnt=\count291
-\tabu@Xcol=\count292
-\tabu@alloc=\count293
-\tabu@nested=\count294
+\c@taburow=\count291
+\tabu@nbcols=\count292
+\tabu@cnt=\count293
+\tabu@Xcol=\count294
+\tabu@alloc=\count295
+\tabu@nested=\count296
 \tabu@target=\dimen178
 \tabu@spreadtarget=\dimen179
 \tabu@naturalX=\dimen180
@@ -441,7 +446,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \UL@skip=\skip67
 \UL@hook=\toks31
 \UL@height=\dimen187
-\UL@pe=\count295
+\UL@pe=\count297
 \UL@pixel=\dimen188
 \ULC@box=\box67
 Package: ulem 2019/11/18
@@ -449,7 +454,7 @@ Package: ulem 2019/11/18
 ) (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen190
-\c@nlinenum=\count296
+\c@nlinenum=\count298
 \TeXr@lab=\toks32
 )
 \cslhangindent=\skip68
@@ -457,8 +462,8 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdfte
 x.def
-File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count297
+File: l3backend-pdftex.def 2021-02-06 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count299
 \l__pdf_internal_box=\box68
 ) (./dbook1.aux
 
@@ -508,7 +513,7 @@ e
 ))
 Package hyperref Info: Link coloring OFF on input line 114.
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/Users/buurensv/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
 Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
@@ -516,7 +521,7 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 string.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count298
+\c@section@level=\count300
 )
 LaTeX Info: Redefining \ref on input line 114.
 LaTeX Info: Redefining \pageref on input line 114.
@@ -705,8 +710,9 @@ stination with the same identifier (name{figure.3.3}) has been already used, du
 plicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.700 
-       <./dbook1_files/figure-latex/shirleypa-1.pdf>]
+l.697 ... measurement}\label{sec:motivscorebased}}
+                                                   <./dbook1_files/figure-latex
+/shirleypa-1.pdf>]
 <dbook1_files/figure-latex/scoreplot-1.pdf, id=725, 499.8675pt x 294.09875pt>
 File: dbook1_files/figure-latex/scoreplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/scoreplot-1.pdf>
@@ -811,32 +817,32 @@ l.1097 \begin{quote}
 l.1097 \begin{quote}
                      <./dbook1_files/figure-latex/smoccda-1.pdf> <./fig/scenes.
 pdf>] [43]
-<dbook1_files/figure-latex/logisticplot-1.pdf, id=948, 499.8675pt x 242.9075pt>
+<dbook1_files/figure-latex/logisticplot-1.pdf, id=950, 499.8675pt x 242.9075pt>
 
 File: dbook1_files/figure-latex/logisticplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/logisticplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/logisticplot-1.pdf  used on 
 input line 1165.
 (pdftex.def)             Requested size: 345.0081pt x 167.65453pt.
-[44] [45pdfTeX warning (ext4): destination with the same identifier (name{figur
-e.4.5}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.1195 
-        <./dbook1_files/figure-latex/logisticplot-1.pdf>]
-<dbook1_files/figure-latex/irfplot-1.pdf, id=981, 499.8675pt x 243.91125pt>
+[44]
+<dbook1_files/figure-latex/irfplot-1.pdf, id=968, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/irfplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/irfplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/irfplot-1.pdf  used on input
  line 1198.
 (pdftex.def)             Requested size: 345.0081pt x 168.34732pt.
-[46pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6
+[45pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1219   E
-          : Item E is even more general in the sense that it need not be log...
- <./dbook1_files/figure-latex/irfplot-1.pdf>]
+l.1208 
+        <./dbook1_files/figure-latex/logisticplot-1.pdf>] [46pdfTeX warning (ex
+t4): destination with the same identifier (name{figure.4.6}) has been already u
+sed, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.1220 \end{itemize}
+                     <./dbook1_files/figure-latex/irfplot-1.pdf>]
 <dbook1_files/figure-latex/prfplot-1.pdf, id=1001, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/prfplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/prfplot-1.pdf>
@@ -847,7 +853,7 @@ Package pdftex.def Info: dbook1_files/figure-latex/prfplot-1.pdf  used on input
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1243 
+l.1248 
         <./dbook1_files/figure-latex/prfplot-1.pdf>] [48] [49] [50
 
 ]
@@ -1118,8 +1124,9 @@ nput line 2271.
 e.8.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2289 
-        <./dbook1_files/figure-latex/ageitemgrid-1.pdf>]
+l.2286 ...n{Milestone sets}\label{milestone-sets}}
+                                                   <./dbook1_files/figure-latex
+/ageitemgrid-1.pdf>]
 <dbook1_files/figure-latex/month2d-1.pdf, id=1594, 495.8525pt x 269.005pt>
 File: dbook1_files/figure-latex/month2d-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/month2d-1.pdf>
@@ -1505,125 +1512,119 @@ Overfull \hbox (21.2732pt too wide) in alignment at lines 3000--3173
 ] [130]
 Appendix B.
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 3221--3221
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 3220--3220
 []\T1/lmtt/m/n/10 BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRblas.dylib[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 3221--3221
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 3220--3220
 []\T1/lmtt/m/n/10 LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRlapack.dylib[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 3221--3221
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3220--3220
 []\T1/lmtt/m/n/10 [1] stats     graphics  grDevices utils     datasets  methods
    base[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
-[] \T1/lmtt/m/n/10 [1] httr_1.4.2        jsonlite_1.7.1    viridisLite_0.3.0 sp
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+[] \T1/lmtt/m/n/10 [1] httr_1.4.2        jsonlite_1.7.2    viridisLite_0.3.0 sp
 lines_4.0.3[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3221--3221
-[] \T1/lmtt/m/n/10 [5] gtools_3.8.2      shiny_1.5.0       CDM_7.5-15        ya
-ml_2.2.1[] 
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+[] \T1/lmtt/m/n/10 [5] gtools_3.8.2      shiny_1.6.0       assertthat_0.2.1  CD
+M_7.5-15[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3221--3221
-[] \T1/lmtt/m/n/10 [9] gamlss_5.2-0      pillar_1.4.7      lattice_0.20-41   gl
-ue_1.4.2[] 
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 3220--3220
+[] \T1/lmtt/m/n/10 [9] yaml_2.2.1        gamlss_5.2-0      pillar_1.4.7      la
+ttice_0.20-41[] 
  []
 
 
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [13] digest_0.6.27     promises_1.1.1    rvest_0.3.6       co
-lorspace_2.0-0[] 
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [13] glue_1.4.2        digest_0.6.27     promises_1.2.0.1  rv
+est_0.3.6[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [17] htmltools_0.5.0   httpuv_1.5.4      Matrix_1.2-18     TA
-M_3.5-19[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [17] colorspace_2.0-0  httpuv_1.5.5      htmltools_0.5.1.1 Ma
+trix_1.2-18[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [21] pkgconfig_2.0.3   bookdown_0.21     xtable_1.8-4      pu
-rrr_0.3.4[] 
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [21] TAM_3.5-19        pkgconfig_2.0.3   bookdown_0.21     xt
+able_1.8-4[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [25] mvtnorm_1.1-1     webshot_0.5.2     later_1.1.0.1     ga
-mlss.data_5.1-4[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [25] purrr_0.3.4       mvtnorm_1.1-1     webshot_0.5.2     la
+ter_1.1.0.1[] 
  []
 
 [131
 
 ]
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [29] tibble_3.0.4      mgcv_1.8-33       farver_2.0.3      ge
-nerics_0.1.0[] 
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [29] gamlss.data_5.1-4 tibble_3.0.6      generics_0.1.0    el
+lipsis_0.3.1[] 
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [33] ellipsis_0.3.1    withr_2.3.0       lazyeval_0.2.2    mi
-me_0.9[] 
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [33] withr_2.4.1       lazyeval_0.2.2    mime_0.10         su
+rvival_3.2-7[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [37] survival_3.2-7    magrittr_2.0.1    crayon_1.3.4.9000 ev
-aluate_0.14[] 
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [37] magrittr_2.0.1    crayon_1.4.1      evaluate_0.14     nl
+me_3.1-152[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [41] nlme_3.1-150      MASS_7.3-53       xml2_1.3.2        to
-ols_4.0.3[] 
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [41] MASS_7.3-53.1     xml2_1.3.2        tools_4.0.3       da
+ta.table_1.13.6[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [45] data.table_1.13.4 hms_0.5.3         lifecycle_0.2.0   st
-ringr_1.4.0[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [45] hms_1.0.0         lifecycle_0.2.0   stringr_1.4.0     mu
+nsell_0.5.0[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [49] munsell_0.5.0     gamlss.dist_5.1-7 compiler_4.0.3    rl
-ang_0.4.9[] 
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [49] gamlss.dist_5.1-7 compiler_4.0.3    rlang_0.4.10      gr
+id_4.0.3[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [53] grid_4.0.3        polycor_0.7-10    rstudioapi_0.13   ht
-mlwidgets_1.5.2[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [53] polycor_0.7-10    rstudioapi_0.13   htmlwidgets_1.5.3 rm
+arkdown_2.6[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [57] labeling_0.4.2    rmarkdown_2.5     codetools_0.2-16  gt
-able_0.3.0[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [57] gtable_0.3.0      DBI_1.1.1         R6_2.5.0          fa
+stmap_1.1.0[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [61] R6_2.5.0          fastmap_1.0.1     readr_1.4.0       st
-ringi_1.5.3[] 
- []
-
-
-Overfull \hbox (48.74886pt too wide) in paragraph at lines 3221--3221
-[]\T1/lmtt/m/n/10 [65] parallel_4.0.3    Rcpp_1.0.5        vctrs_0.3.5       ti
-dyselect_1.1.0[] 
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
+[]\T1/lmtt/m/n/10 [61] stringi_1.5.3     parallel_4.0.3    Rcpp_1.0.6        vc
+trs_0.3.6[] 
  []
 
 [132] [133
@@ -1632,34 +1633,34 @@ pdfTeX warning (ext4): destination with the same identifier (name{ref-black2017
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.3261 
+l.3260 
        ] [134]
-Underfull \hbox (badness 2837) in paragraph at lines 3325--3327
+Underfull \hbox (badness 2837) in paragraph at lines 3324--3326
 \T1/lmr/m/n/10 26 (13): 2629--38. []$https : / / stefvanbuuren . name / publica
 tion / 2007 -[] 01 -[]
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 3328--3330
+Underfull \hbox (badness 2837) in paragraph at lines 3327--3329
 \T1/lmr/m/n/10 25 (13): 2272--83. []$https : / / stefvanbuuren . name / publica
 tion / 2006 -[] 01 -[]
  []
 
 [135] [136] [137] [138] (./dbook1.aux)
-Package rerunfilecheck Info: File `dbook1.out' has not changed.
-(rerunfilecheck)             Checksum: EBB3246A3072786466FE9D897FBA037A;11888.
 
 LaTeX Warning: There were multiply-defined labels.
 
+Package rerunfilecheck Info: File `dbook1.out' has not changed.
+(rerunfilecheck)             Checksum: EBB3246A3072786466FE9D897FBA037A;11888.
  ) 
 Here is how much of TeX's memory you used:
- 13494 strings out of 481433
- 201471 string characters out of 5919429
- 604596 words of memory out of 5000000
- 29355 multiletter control sequences out of 15000+600000
- 600477 words of font info for 76 fonts, out of 8000000 for 9000
+ 13068 strings out of 481250
+ 197559 string characters out of 5914717
+ 607013 words of memory out of 5000000
+ 29109 multiletter control sequences out of 15000+600000
+ 468819 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 66i,13n,72p,1147b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,13n,74p,1147b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/Users/buurensv/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/Us
 ers/buurensv/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{/User
 s/buurensv/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/Users/
@@ -1681,7 +1682,7 @@ type1/public/lm/lmri10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmro10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on dbook1.pdf (138 pages, 27194829 bytes).
+Output written on dbook1.pdf (138 pages, 27194702 bytes).
 PDF statistics:
  2402 PDF objects out of 2487 (max. 8388607)
  2060 compressed objects within 21 object streams
