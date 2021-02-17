@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  17 FEB 2021 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  17 FEB 2021 12:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1614,15 +1614,15 @@ arkdown_2.6[]
  []
 
 
-Overfull \hbox (6.74898pt too wide) in paragraph at lines 3209--3209
-[]\T1/lmtt/m/n/10 [57] codetools_0.2-16  gtable_0.3.0      DBI_1.1.1         R6
-_2.5.0[] 
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3209--3209
+[]\T1/lmtt/m/n/10 [57] gtable_0.3.0      DBI_1.1.1         R6_2.5.0          fa
+stmap_1.1.0[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3209--3209
-[]\T1/lmtt/m/n/10 [61] fastmap_1.1.0     stringi_1.5.3     parallel_4.0.3    Rc
-pp_1.0.6[] 
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3209--3209
+[]\T1/lmtt/m/n/10 [61] stringi_1.5.3     parallel_4.0.3    Rcpp_1.0.6        vc
+trs_0.3.6[] 
  []
 
 [132] [133
@@ -1680,7 +1680,7 @@ type1/public/lm/lmri10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmro10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on dbook1.pdf (138 pages, 21204347 bytes).
+Output written on dbook1.pdf (138 pages, 21204340 bytes).
 PDF statistics:
  2390 PDF objects out of 2487 (max. 8388607)
  2054 compressed objects within 21 object streams
