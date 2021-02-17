@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  17 FEB 2021 12:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2021.2.14)  17 FEB 2021 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -598,11 +598,12 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 ] [11] [12]
 Chapter 1.
-<fig/Shonkoff_Ch1.png, id=436, 729.927pt x 402.90524pt>
-File: fig/Shonkoff_Ch1.png Graphic file (type png)
-<use fig/Shonkoff_Ch1.png>
-Package pdftex.def Info: fig/Shonkoff_Ch1.png  used on input line 251.
-(pdftex.def)             Requested size: 345.00371pt x 190.43521pt.
+<fig/shutterstock_29312953.jpg, id=436, 1025.2704pt x 682.2288pt>
+File: fig/shutterstock_29312953.jpg Graphic file (type jpg)
+<use fig/shutterstock_29312953.jpg>
+Package pdftex.def Info: fig/shutterstock_29312953.jpg  used on input line 251.
+
+(pdftex.def)             Requested size: 345.00476pt x 229.57083pt.
 [13
 
 ] [14pdfTeX warning (ext4): destination with the same identifier (name{figure.1
@@ -610,250 +611,247 @@ Package pdftex.def Info: fig/Shonkoff_Ch1.png  used on input line 251.
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.272 
-       <./fig/Shonkoff_Ch1.png>]
-<fig/stuntedchildren.jpg, id=475, 1204.5pt x 669.50125pt>
-File: fig/stuntedchildren.jpg Graphic file (type jpg)
-<use fig/stuntedchildren.jpg>
-Package pdftex.def Info: fig/stuntedchildren.jpg  used on input line 284.
-(pdftex.def)             Requested size: 344.99533pt x 191.7599pt.
-[15] [16pdfTeX warning (ext4): destination with the same identifier (name{figur
-e.1.2}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.314 
-       <./fig/stuntedchildren.jpg>] [17] [18]
+       <./fig/shutterstock_29312953.jpg>] [15]
+Underfull \vbox (badness 3547) has occurred while \output is active []
+
+[16] [17] [18]
 Chapter 2.
-<fig/shirley-motor.png, id=525, 1676.2625pt x 1031.855pt>
-File: fig/shirley-motor.png Graphic file (type png)
-<use fig/shirley-motor.png>
-Package pdftex.def Info: fig/shirley-motor.png  used on input line 377.
-(pdftex.def)             Requested size: 344.99165pt x 212.36612pt.
+<fig/firsttwoyearsast011504.png, id=517, 1297.84875pt x 922.44624pt>
+File: fig/firsttwoyearsast011504.png Graphic file (type png)
+<use fig/firsttwoyearsast011504.png>
+Package pdftex.def Info: fig/firsttwoyearsast011504.png  used on input line 366
+.
+(pdftex.def)             Requested size: 344.99768pt x 245.20715pt.
 [19
 
 ] [20pdfTeX warning (ext4): destination with the same identifier (name{figure.2
 .1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.412 \end{quote}
-                  <./fig/shirley-motor.png>] [21]
-<fig/dynamic.png, id=583, 1420.30624pt x 821.0675pt>
-File: fig/dynamic.png Graphic file (type png)
-<use fig/dynamic.png>
-Package pdftex.def Info: fig/dynamic.png  used on input line 445.
-(pdftex.def)             Requested size: 344.99815pt x 199.44063pt.
-[22pdfTeX warning (ext4): destination with the same identifier (name{figure.2.2
-}) has been already used, duplicate ignored
+l.384 
+       <./fig/firsttwoyearsast011504.png>] [21]
+<fig/shutterstock_261441989.jpg, id=569, 944.328pt x 639.5895pt>
+File: fig/shutterstock_261441989.jpg Graphic file (type jpg)
+<use fig/shutterstock_261441989.jpg>
+Package pdftex.def Info: fig/shutterstock_261441989.jpg  used on input line 434
+.
+(pdftex.def)             Requested size: 345.00107pt x 233.6678pt.
+[22] [23pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.2.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.460 
-       <./fig/dynamic.png>]
-<dbook1_files/figure-latex/stepplot-1.pdf, id=600, 495.8525pt x 294.09875pt>
+l.459 
+       <./fig/shutterstock_261441989.jpg>]
+<dbook1_files/figure-latex/stepplot-1.pdf, id=594, 495.8525pt x 294.09875pt>
 File: dbook1_files/figure-latex/stepplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/stepplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/stepplot-1.pdf  used on inpu
-t line 518.
+t line 507.
 (pdftex.def)             Requested size: 344.99858pt x 204.62465pt.
-[23] [24pdfTeX warning (ext4): destination with the same identifier (name{table
-.2.1}) has been already used, duplicate ignored
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[24pdfTeX warning (ext4): destination with the same identifier (name{table.2.1}
+) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.532 
+l.517 
       ] [25pdfTeX warning (ext4): destination with the same identifier (name{fi
 gure.2.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.560 \end{table}
-                  <./dbook1_files/figure-latex/stepplot-1.pdf>] [26pdfTeX warni
-ng (ext4): destination with the same identifier (name{table.2.2}) has been alre
-ady used, duplicate ignored
+l.528 
+       <./dbook1_files/figure-latex/stepplot-1.pdf>] [26pdfTeX warning (ext4): 
+destination with the same identifier (name{table.2.2}) has been already used, d
+uplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.567 ...g child development}\label{ch:threeways}}
+l.556 ...g child development}\label{ch:threeways}}
                                                   ]
 Chapter 3.
-<dbook1_files/figure-latex/milestonebased-1.pdf, id=650, 495.8525pt x 207.77625
+<dbook1_files/figure-latex/milestonebased-1.pdf, id=637, 495.8525pt x 207.77625
 pt>
 File: dbook1_files/figure-latex/milestonebased-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/milestonebased-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/milestonebased-1.pdf  used o
-n input line 602.
+n input line 591.
 (pdftex.def)             Requested size: 344.99858pt x 144.56416pt.
 [27
 
 ]
-<dbook1_files/figure-latex/agebox-1.pdf, id=663, 495.8525pt x 207.77625pt>
+<dbook1_files/figure-latex/agebox-1.pdf, id=650, 495.8525pt x 207.77625pt>
 File: dbook1_files/figure-latex/agebox-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/agebox-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/agebox-1.pdf  used on input 
-line 621.
+line 610.
 (pdftex.def)             Requested size: 344.99858pt x 144.56416pt.
 [28pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.644   A
+l.633   A
          ge-based measurement can inform us whether a child is achieving a g...
  <./dbook1_files/figure-latex/milestonebased-1.pdf>]
-<dbook1_files/figure-latex/shirleypa-1.pdf, id=682, 499.8675pt x 243.91125pt>
+<dbook1_files/figure-latex/shirleypa-1.pdf, id=669, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/shirleypa-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/shirleypa-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/shirleypa-1.pdf  used on inp
-ut line 663.
+ut line 652.
 (pdftex.def)             Requested size: 345.0081pt x 168.34732pt.
 [29pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.675 
+l.664 
        <./dbook1_files/figure-latex/agebox-1.pdf>] [30pdfTeX warning (ext4): de
 stination with the same identifier (name{figure.3.3}) has been already used, du
 plicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.697 ... measurement}\label{sec:motivscorebased}}
+l.686 ... measurement}\label{sec:motivscorebased}}
                                                    <./dbook1_files/figure-latex
 /shirleypa-1.pdf>]
-<dbook1_files/figure-latex/scoreplot-1.pdf, id=725, 499.8675pt x 294.09875pt>
+<dbook1_files/figure-latex/scoreplot-1.pdf, id=711, 499.8675pt x 294.09875pt>
 File: dbook1_files/figure-latex/scoreplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/scoreplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/scoreplot-1.pdf  used on inp
-ut line 710.
+ut line 699.
 (pdftex.def)             Requested size: 345.0081pt x 202.98668pt.
 [31pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.720 
+l.709 
        <./dbook1_files/figure-latex/scoreplot-1.pdf>] [32]
-<dbook1_files/figure-latex/shirleypd-1.pdf, id=762, 499.8675pt x 242.9075pt>
+<dbook1_files/figure-latex/shirleypd-1.pdf, id=749, 499.8675pt x 242.9075pt>
 File: dbook1_files/figure-latex/shirleypd-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/shirleypd-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/shirleypd-1.pdf  used on inp
-ut line 766.
+ut line 755.
 (pdftex.def)             Requested size: 345.0081pt x 167.65453pt.
 [33pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.779 F
+l.768 F
        igure \ref{fig:shirleypd} shows that the probability of passing a mil...
  <./dbook1_files/figure-latex/shirleypd-1.pdf>]
-<fig/lineplot.png, id=783, 413.3844pt x 73.2336pt>
+<fig/lineplot.png, id=770, 413.3844pt x 73.2336pt>
 File: fig/lineplot.png Graphic file (type png)
 <use fig/lineplot.png>
-Package pdftex.def Info: fig/lineplot.png  used on input line 805.
+Package pdftex.def Info: fig/lineplot.png  used on input line 794.
 (pdftex.def)             Requested size: 345.00127pt x 61.11908pt.
 [34] [35pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.3.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.856 \end{longtable}
+l.845 \end{longtable}
                       <./fig/lineplot.png>] [36]
 Chapter 4.
 [37
 
 ]
-Underfull \hbox (badness 1348) in paragraph at lines 919--920
+Underfull \hbox (badness 1348) in paragraph at lines 908--909
 \T1/lmr/m/n/10 The So-cial Med-i-cal Sur-vey of Chil-dren At-tend-ing Child Hea
 lth Clin-ics
  []
 
 
-LaTeX Warning: Float too large for page by 73.1372pt on input line 1005.
+LaTeX Warning: Float too large for page by 73.1372pt on input line 994.
 
-<dbook1_files/figure-latex/smoccpa-1.pdf, id=834, 499.8675pt x 280.04625pt>
+<dbook1_files/figure-latex/smoccpa-1.pdf, id=822, 499.8675pt x 280.04625pt>
 File: dbook1_files/figure-latex/smoccpa-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccpa-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccpa-1.pdf  used on input
- line 1016.
+ line 1005.
 (pdftex.def)             Requested size: 345.0081pt x 193.28766pt.
 [38] [39pdfTeX warning (ext4): destination with the same identifier (name{table
 .4.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1030 ...lestone given D-score}\label{sec:probd}}
+l.1019 ...lestone given D-score}\label{sec:probd}}
                                                   ]
-<dbook1_files/figure-latex/smoccpd-1.pdf, id=855, 499.8675pt x 280.04625pt>
+<dbook1_files/figure-latex/smoccpd-1.pdf, id=843, 499.8675pt x 280.04625pt>
 File: dbook1_files/figure-latex/smoccpd-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccpd-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccpd-1.pdf  used on input
- line 1034.
+ line 1023.
 (pdftex.def)             Requested size: 345.0081pt x 193.28766pt.
-<dbook1_files/figure-latex/smoccda-1.pdf, id=861, 499.8675pt x 424.58624pt>
+<dbook1_files/figure-latex/smoccda-1.pdf, id=849, 499.8675pt x 424.58624pt>
 File: dbook1_files/figure-latex/smoccda-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccda-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccda-1.pdf  used on input
- line 1054.
+ line 1043.
 (pdftex.def)             Requested size: 345.0081pt x 293.04904pt.
 [40pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1064 
+l.1053 
         <./dbook1_files/figure-latex/smoccpa-1.pdf>]
 
 pdfTeX warning: pdflatex (file ./fig/scenes.pdf): PDF inclusion: found PDF vers
 ion <1.7>, but at most version <1.5> allowed
-<fig/scenes.pdf, id=878, 2306.6175pt x 632.3625pt>
+<fig/scenes.pdf, id=866, 2306.6175pt x 632.3625pt>
 File: fig/scenes.pdf Graphic file (type pdf)
 <use fig/scenes.pdf>
-Package pdftex.def Info: fig/scenes.pdf  used on input line 1067.
+Package pdftex.def Info: fig/scenes.pdf  used on input line 1056.
 (pdftex.def)             Requested size: 344.9922pt x 94.58011pt.
 [41pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1097 \begin{quote}
+l.1086 \begin{quote}
                      <./dbook1_files/figure-latex/smoccpd-1.pdf>] [42pdfTeX war
 ning (ext4): destination with the same identifier (name{figure.4.3}) has been a
 lready used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1097 \begin{quote}
+l.1086 \begin{quote}
                     pdfTeX warning (ext4): destination with the same identifier
  (name{figure.4.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1097 \begin{quote}
+l.1086 \begin{quote}
                      <./dbook1_files/figure-latex/smoccda-1.pdf> <./fig/scenes.
 pdf>] [43]
-<dbook1_files/figure-latex/logisticplot-1.pdf, id=950, 499.8675pt x 242.9075pt>
+<dbook1_files/figure-latex/logisticplot-1.pdf, id=938, 499.8675pt x 242.9075pt>
 
 File: dbook1_files/figure-latex/logisticplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/logisticplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/logisticplot-1.pdf  used on 
-input line 1165.
+input line 1154.
 (pdftex.def)             Requested size: 345.0081pt x 167.65453pt.
 [44]
-<dbook1_files/figure-latex/irfplot-1.pdf, id=968, 499.8675pt x 243.91125pt>
+<dbook1_files/figure-latex/irfplot-1.pdf, id=955, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/irfplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/irfplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/irfplot-1.pdf  used on input
- line 1198.
+ line 1187.
 (pdftex.def)             Requested size: 345.0081pt x 168.34732pt.
 [45pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1208 
+l.1197 
         <./dbook1_files/figure-latex/logisticplot-1.pdf>] [46pdfTeX warning (ex
 t4): destination with the same identifier (name{figure.4.6}) has been already u
 sed, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1220 \end{itemize}
+l.1209 \end{itemize}
                      <./dbook1_files/figure-latex/irfplot-1.pdf>]
-<dbook1_files/figure-latex/prfplot-1.pdf, id=1001, 499.8675pt x 243.91125pt>
+<dbook1_files/figure-latex/prfplot-1.pdf, id=989, 499.8675pt x 243.91125pt>
 File: dbook1_files/figure-latex/prfplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/prfplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/prfplot-1.pdf  used on input
- line 1233.
+ line 1222.
 (pdftex.def)             Requested size: 345.0081pt x 168.34732pt.
 [47pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1248 
+l.1237 
         <./dbook1_files/figure-latex/prfplot-1.pdf>] [48] [49] [50
 
 ]
@@ -862,19 +860,19 @@ Chapter 5.
 .5.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1378 \end{landscape}
+l.1367 \end{landscape}
                       ]
-Underfull \hbox (badness 4492) in paragraph at lines 1402--1403
+Underfull \hbox (badness 4492) in paragraph at lines 1391--1392
 \T1/lmtt/m/n/10 rasch.pairwise.itemcluster() \T1/lmr/m/n/10 as im-ple-mented in
  the \T1/lmtt/m/n/10 sirt \T1/lmr/m/n/10 pack-age
  []
 
-<dbook1_files/figure-latex/itemdiflplot-1.pdf, id=1098, 494.84875pt x 713.66624
+<dbook1_files/figure-latex/itemdiflplot-1.pdf, id=1085, 494.84875pt x 713.66624
 pt>
 File: dbook1_files/figure-latex/itemdiflplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/itemdiflplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/itemdiflplot-1.pdf  used on 
-input line 1406.
+input line 1395.
 (pdftex.def)             Requested size: 345.00243pt x 497.55927pt.
 [53
 
@@ -883,58 +881,58 @@ input line 1406.
 .1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1421 
+l.1410 
         <./dbook1_files/figure-latex/itemdiflplot-1.pdf>]
-<dbook1_files/figure-latex/itemdifdplot-1.pdf, id=1125, 494.84875pt x 713.66624
+<dbook1_files/figure-latex/itemdifdplot-1.pdf, id=1113, 494.84875pt x 713.66624
 pt>
 File: dbook1_files/figure-latex/itemdifdplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/itemdifdplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/itemdifdplot-1.pdf  used on 
-input line 1451.
+input line 1440.
 (pdftex.def)             Requested size: 345.00243pt x 497.55927pt.
 [55pdfTeX warning (ext4): destination with the same identifier (name{table.5.2}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1472 \end{itemize}
+l.1461 \end{itemize}
                     ] [56pdfTeX warning (ext4): destination with the same ident
 ifier (name{figure.5.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1472 \end{itemize}
+l.1461 \end{itemize}
                      <./dbook1_files/figure-latex/itemdifdplot-1.pdf>]
-<dbook1_files/figure-latex/figpriors-1.pdf, id=1150, 495.8525pt x 277.035pt>
+<dbook1_files/figure-latex/figpriors-1.pdf, id=1138, 495.8525pt x 277.035pt>
 File: dbook1_files/figure-latex/figpriors-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/figpriors-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/figpriors-1.pdf  used on inp
-ut line 1490.
+ut line 1479.
 (pdftex.def)             Requested size: 344.99858pt x 192.75223pt.
 [57] [58pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.5.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1512 
+l.1501 
         <./dbook1_files/figure-latex/figpriors-1.pdf>]
-<dbook1_files/figure-latex/davidplot-1.pdf, id=1181, 495.8525pt x 850.17625pt>
+<dbook1_files/figure-latex/davidplot-1.pdf, id=1169, 495.8525pt x 850.17625pt>
 File: dbook1_files/figure-latex/davidplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/davidplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/davidplot-1.pdf  used on inp
-ut line 1539.
+ut line 1528.
 (pdftex.def)             Requested size: 320.79465pt x 550.02647pt.
 
-LaTeX Warning: Float too large for page by 36.52647pt on input line 1544.
+LaTeX Warning: Float too large for page by 36.52647pt on input line 1533.
 
 [59pdfTeX warning (ext4): destination with the same identifier (name{table.5.3}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1561   T
+l.1550   T
           here is no measurement for David on \texttt{ddigmm067}, so the pri...
 ] [60pdfTeX warning (ext4): destination with the same identifier (name{figure.5
 .4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1561   T
+l.1550   T
           here is no measurement for David on \texttt{ddigmm067}, so the pri...
  <./dbook1_files/figure-latex/davidplot-1.pdf>] [61] [62] [63] [64] [65] [66] [
 67] [68
@@ -942,52 +940,52 @@ l.1561   T
 ]
 Chapter 6.
 [69]
-<dbook1_files/figure-latex/ploticc-1.pdf, id=1283, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/ploticc-1.pdf, id=1271, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/ploticc-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/ploticc-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/ploticc-1.pdf  used on input
- line 1850.
+ line 1839.
 (pdftex.def)             Requested size: 345.0081pt x 342.92973pt.
 [70pdfTeX warning (ext4): destination with the same identifier (name{figure.6.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1860 
+l.1849 
         <./dbook1_files/figure-latex/ploticc-1.pdf>]
-<dbook1_files/figure-latex/plothyp1-1.pdf, id=1300, 499.8675pt x 785.93625pt>
+<dbook1_files/figure-latex/plothyp1-1.pdf, id=1288, 499.8675pt x 785.93625pt>
 File: dbook1_files/figure-latex/plothyp1-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plothyp1-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plothyp1-1.pdf  used on inpu
-t line 1868.
+t line 1857.
 (pdftex.def)             Requested size: 345.0081pt x 542.4525pt.
 
-LaTeX Warning: Float too large for page by 16.39693pt on input line 1873.
+LaTeX Warning: Float too large for page by 16.39693pt on input line 1862.
 
-<dbook1_files/figure-latex/plothyp2-1.pdf, id=1303, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/plothyp2-1.pdf, id=1291, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/plothyp2-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plothyp2-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plothyp2-1.pdf  used on inpu
-t line 1886.
+t line 1875.
 (pdftex.def)             Requested size: 345.0081pt x 342.92973pt.
 [71] [72pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.6.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1906 T
+l.1895 T
         he \emph{standardized residual} \(z_{ni}\) is the difference between...
  <./dbook1_files/figure-latex/plothyp1-1.pdf>] [73pdfTeX warning (ext4): destin
 ation with the same identifier (name{figure.6.3}) has been already used, duplic
 ate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1906 T
+l.1895 T
         he \emph{standardized residual} \(z_{ni}\) is the difference between...
  <./dbook1_files/figure-latex/plothyp2-1.pdf>] [74]
-<dbook1_files/figure-latex/fitplot-1.pdf, id=1353, 477.785pt x 215.80624pt>
+<dbook1_files/figure-latex/fitplot-1.pdf, id=1341, 477.785pt x 215.80624pt>
 File: dbook1_files/figure-latex/fitplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/fitplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/fitplot-1.pdf  used on input
- line 1942.
+ line 1931.
 (pdftex.def)             Requested size: 344.99643pt x 155.8282pt.
 
 Underfull \vbox (badness 1331) has occurred while \output is active []
@@ -996,58 +994,58 @@ Underfull \vbox (badness 1331) has occurred while \output is active []
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1962 
+l.1951 
         <./dbook1_files/figure-latex/fitplot-1.pdf>]
-<dbook1_files/figure-latex/personfitplot-1.pdf, id=1372, 475.7775pt x 209.78375
+<dbook1_files/figure-latex/personfitplot-1.pdf, id=1360, 475.7775pt x 209.78375
 pt>
 File: dbook1_files/figure-latex/personfitplot-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/personfitplot-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/personfitplot-1.pdf  used on
- input line 1978.
+ input line 1967.
 (pdftex.def)             Requested size: 345.01332pt x 152.12611pt.
 [76pdfTeX warning (ext4): destination with the same identifier (name{figure.6.5
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.1990 ... item functioning (DIF)}\label{sec:dif}}
+l.1979 ... item functioning (DIF)}\label{sec:dif}}
                                                    <./dbook1_files/figure-latex
 /personfitplot-1.pdf>]
-<dbook1_files/figure-latex/plotdif1-1.pdf, id=1392, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/plotdif1-1.pdf, id=1380, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/plotdif1-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdif1-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdif1-1.pdf  used on inpu
-t line 2024.
+t line 2013.
 (pdftex.def)             Requested size: 345.0081pt x 342.92973pt.
 [77]
-<dbook1_files/figure-latex/plotdif2-1.pdf, id=1406, 499.8675pt x 496.85625pt>
+<dbook1_files/figure-latex/plotdif2-1.pdf, id=1394, 499.8675pt x 496.85625pt>
 File: dbook1_files/figure-latex/plotdif2-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdif2-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdif2-1.pdf  used on inpu
-t line 2037.
+t line 2026.
 (pdftex.def)             Requested size: 345.0081pt x 342.92973pt.
 [78pdfTeX warning (ext4): destination with the same identifier (name{figure.6.6
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2049 
+l.2038 
         <./dbook1_files/figure-latex/plotdif1-1.pdf>] [79pdfTeX warning (ext4):
  destination with the same identifier (name{figure.6.7}) has been already used,
  duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2049 
+l.2038 
         <./dbook1_files/figure-latex/plotdif2-1.pdf>]
-<dbook1_files/figure-latex/iic-1.pdf, id=1436, 499.8675pt x 271.0125pt>
+<dbook1_files/figure-latex/iic-1.pdf, id=1424, 499.8675pt x 271.0125pt>
 File: dbook1_files/figure-latex/iic-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/iic-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/iic-1.pdf  used on input lin
-e 2068.
+e 2057.
 (pdftex.def)             Requested size: 345.0081pt x 187.05257pt.
-<dbook1_files/figure-latex/iia-1.pdf, id=1438, 499.8675pt x 271.0125pt>
+<dbook1_files/figure-latex/iia-1.pdf, id=1426, 499.8675pt x 271.0125pt>
 File: dbook1_files/figure-latex/iia-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/iia-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/iia-1.pdf  used on input lin
-e 2094.
+e 2083.
 (pdftex.def)             Requested size: 345.0081pt x 187.05257pt.
 [80]
 Underfull \vbox (badness 4467) has occurred while \output is active []
@@ -1056,50 +1054,50 @@ Underfull \vbox (badness 4467) has occurred while \output is active []
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2113 
+l.2102 
         <./dbook1_files/figure-latex/iic-1.pdf>] [82pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.6.9}) has been already used, dupl
 icate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2125 
+l.2114 
         <./dbook1_files/figure-latex/iia-1.pdf>] [83] [84
 
 ]
 Chapter 7.
-<dbook1_files/figure-latex/plotcontent-1.pdf, id=1490, 499.8675pt x 207.77625pt
+<dbook1_files/figure-latex/plotcontent-1.pdf, id=1478, 499.8675pt x 207.77625pt
 >
 File: dbook1_files/figure-latex/plotcontent-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotcontent-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotcontent-1.pdf  used on i
-nput line 2153.
+nput line 2142.
 (pdftex.def)             Requested size: 345.0081pt x 143.40697pt.
 [85]
-<dbook1_files/figure-latex/plotdomainfit-1.pdf, id=1504, 493.845pt x 421.575pt>
+<dbook1_files/figure-latex/plotdomainfit-1.pdf, id=1492, 493.845pt x 421.575pt>
 
 File: dbook1_files/figure-latex/plotdomainfit-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdomainfit-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdomainfit-1.pdf  used on
- input line 2171.
+ input line 2160.
 (pdftex.def)             Requested size: 344.99586pt x 294.50867pt.
 [86pdfTeX warning (ext4): destination with the same identifier (name{figure.7.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2196 
+l.2185 
         <./dbook1_files/figure-latex/plotcontent-1.pdf>] [87pdfTeX warning (ext
 4): destination with the same identifier (name{figure.7.2}) has been already us
 ed, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2196 
+l.2185 
         <./dbook1_files/figure-latex/plotdomainfit-1.pdf>]
-<dbook1_files/figure-latex/plotconcurrent-1.pdf, id=1536, 499.8675pt x 421.575p
+<dbook1_files/figure-latex/plotconcurrent-1.pdf, id=1524, 499.8675pt x 421.575p
 t>
 File: dbook1_files/figure-latex/plotconcurrent-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotconcurrent-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotconcurrent-1.pdf  used o
-n input line 2201.
+n input line 2190.
 (pdftex.def)             Requested size: 345.0081pt x 290.97067pt.
 
 Underfull \vbox (badness 7064) has occurred while \output is active []
@@ -1108,55 +1106,55 @@ Underfull \vbox (badness 7064) has occurred while \output is active []
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2218 
+l.2207 
         <./dbook1_files/figure-latex/plotconcurrent-1.pdf>] [89] [90
 
 ]
 Chapter 8.
-<dbook1_files/figure-latex/ageitemgrid-1.pdf, id=1570, 495.8525pt x 713.66624pt
+<dbook1_files/figure-latex/ageitemgrid-1.pdf, id=1558, 495.8525pt x 713.66624pt
 >
 File: dbook1_files/figure-latex/ageitemgrid-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/ageitemgrid-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/ageitemgrid-1.pdf  used on i
-nput line 2271.
+nput line 2260.
 (pdftex.def)             Requested size: 344.99858pt x 496.54652pt.
 [91] [92pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.8.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2286 ...n{Milestone sets}\label{milestone-sets}}
+l.2275 ...n{Milestone sets}\label{milestone-sets}}
                                                    <./dbook1_files/figure-latex
 /ageitemgrid-1.pdf>]
-<dbook1_files/figure-latex/month2d-1.pdf, id=1594, 495.8525pt x 269.005pt>
+<dbook1_files/figure-latex/month2d-1.pdf, id=1582, 495.8525pt x 269.005pt>
 File: dbook1_files/figure-latex/month2d-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/month2d-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/month2d-1.pdf  used on input
- line 2319.
+ line 2308.
 (pdftex.def)             Requested size: 344.99858pt x 187.1652pt.
 [93pdfTeX warning (ext4): destination with the same identifier (name{table.8.1}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2330 A
+l.2319 A
         t month two there are just two standard milestones: \texttt{ddicmm03...
 ] [94pdfTeX warning (ext4): destination with the same identifier (name{figure.8
 .2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2336 N
+l.2325 N
         ote that the range of the estimated D-scores is quite similar in bot...
  <./dbook1_files/figure-latex/month2d-1.pdf>]
-<dbook1_files/figure-latex/month3d-1.pdf, id=1620, 495.8525pt x 269.005pt>
+<dbook1_files/figure-latex/month3d-1.pdf, id=1608, 495.8525pt x 269.005pt>
 File: dbook1_files/figure-latex/month3d-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/month3d-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/month3d-1.pdf  used on input
- line 2345.
+ line 2334.
 (pdftex.def)             Requested size: 344.99858pt x 187.1652pt.
-<dbook1_files/figure-latex/alld-1.pdf, id=1624, 712.6625pt x 280.04625pt>
+<dbook1_files/figure-latex/alld-1.pdf, id=1612, 712.6625pt x 280.04625pt>
 File: dbook1_files/figure-latex/alld-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/alld-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/alld-1.pdf  used on input li
-ne 2363.
+ne 2352.
 (pdftex.def)             Requested size: 344.99931pt x 135.57014pt.
 
 Underfull \vbox (badness 1721) has occurred while \output is active []
@@ -1165,67 +1163,67 @@ Underfull \vbox (badness 1721) has occurred while \output is active []
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2376   \emph
+l.2365   \emph
               {Ceiling effect}: The ceiling effect (green) is most prominent...
  <./dbook1_files/figure-latex/month3d-1.pdf>] [96pdfTeX warning (ext4): destina
 tion with the same identifier (name{figure.8.4}) has been already used, duplica
 te ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2392 
+l.2381 
         <./dbook1_files/figure-latex/alld-1.pdf>]
-<dbook1_files/figure-latex/histiq-1.pdf, id=1662, 495.8525pt x 277.035pt>
+<dbook1_files/figure-latex/histiq-1.pdf, id=1650, 495.8525pt x 277.035pt>
 File: dbook1_files/figure-latex/histiq-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/histiq-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/histiq-1.pdf  used on input 
-line 2418.
+line 2407.
 (pdftex.def)             Requested size: 344.99858pt x 192.75223pt.
-<dbook1_files/figure-latex/plotdiq-1.pdf, id=1664, 495.8525pt x 1144.275pt>
+<dbook1_files/figure-latex/plotdiq-1.pdf, id=1652, 495.8525pt x 1144.275pt>
 File: dbook1_files/figure-latex/plotdiq-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/plotdiq-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/plotdiq-1.pdf  used on input
- line 2431.
+ line 2420.
 (pdftex.def)             Requested size: 238.33183pt x 549.99655pt.
 
-LaTeX Warning: Float too large for page by 36.49655pt on input line 2436.
+LaTeX Warning: Float too large for page by 36.49655pt on input line 2425.
 
 [97] [98pdfTeX warning (ext4): destination with the same identifier (name{figur
 e.8.5}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2469 ...r{Three studies}\label{ch:threestudies}}
+l.2458 ...r{Three studies}\label{ch:threestudies}}
                                                   pdfTeX warning (ext4): destin
 ation with the same identifier (name{table.8.2}) has been already used, duplica
 te ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2469 ...r{Three studies}\label{ch:threestudies}}
+l.2458 ...r{Three studies}\label{ch:threestudies}}
                                                    <./dbook1_files/figure-latex
 /histiq-1.pdf>] [99pdfTeX warning (ext4): destination with the same identifier 
 (name{figure.8.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2469 ...r{Three studies}\label{ch:threestudies}}
+l.2458 ...r{Three studies}\label{ch:threestudies}}
                                                    <./dbook1_files/figure-latex
 /plotdiq-1.pdf>] [100]
 Chapter 9.
-<dbook1_files/figure-latex/smoccda9-1.pdf, id=1717, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/smoccda9-1.pdf, id=1704, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/smoccda9-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/smoccda9-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/smoccda9-1.pdf  used on inpu
-t line 2492.
+t line 2481.
 (pdftex.def)             Requested size: 317.78334pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2497.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2486.
 
-<dbook1_files/figure-latex/popsda9-1.pdf, id=1719, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/popsda9-1.pdf, id=1706, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/popsda9-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/popsda9-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/popsda9-1.pdf  used on input
- line 2510.
+ line 2499.
 (pdftex.def)             Requested size: 317.78334pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 48.50966pt on input line 2515.
+LaTeX Warning: Float too large for page by 48.50966pt on input line 2504.
 
 [101
 
@@ -1233,277 +1231,277 @@ LaTeX Warning: Float too large for page by 48.50966pt on input line 2515.
 9.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2522 
+l.2511 
         <./dbook1_files/figure-latex/smoccda9-1.pdf>] [103pdfTeX warning (ext4)
 : destination with the same identifier (name{figure.9.2}) has been already used
 , duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2522 
+l.2511 
         <./dbook1_files/figure-latex/popsda9-1.pdf>] [104]
-<dbook1_files/figure-latex/adjustd-1.pdf, id=1775, 353.32pt x 352.31625pt>
+<dbook1_files/figure-latex/adjustd-1.pdf, id=1763, 353.32pt x 352.31625pt>
 File: dbook1_files/figure-latex/adjustd-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/adjustd-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/adjustd-1.pdf  used on input
- line 2561.
+ line 2550.
 (pdftex.def)             Requested size: 345.00586pt x 344.02573pt.
 [105pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2573 
+l.2562 
         <./dbook1_files/figure-latex/adjustd-1.pdf>]
-<dbook1_files/figure-latex/popsda90-1.pdf, id=1793, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/popsda90-1.pdf, id=1781, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/popsda90-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/popsda90-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/popsda90-1.pdf  used on inpu
-t line 2579.
+t line 2568.
 (pdftex.def)             Requested size: 317.78334pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2584.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2573.
 
-<dbook1_files/figure-latex/popsda91-1.pdf, id=1795, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/popsda91-1.pdf, id=1783, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/popsda91-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/popsda91-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/popsda91-1.pdf  used on inpu
-t line 2595.
+t line 2584.
 (pdftex.def)             Requested size: 317.78334pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2600.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2589.
 
 [106] [107pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.9.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2641   F
+l.2630   F
           ewer preterm children reached the milestones when chronological ag...
  <./dbook1_files/figure-latex/popsda90-1.pdf>] [108pdfTeX warning (ext4): desti
 nation with the same identifier (name{figure.9.5}) has been already used, dupli
 cate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2641   F
+l.2630   F
           ewer preterm children reached the milestones when chronological ag...
  <./dbook1_files/figure-latex/popsda91-1.pdf>]
-<dbook1_files/figure-latex/togoda-1.pdf, id=1848, 495.8525pt x 858.20625pt>
+<dbook1_files/figure-latex/togoda-1.pdf, id=1836, 495.8525pt x 858.20625pt>
 File: dbook1_files/figure-latex/togoda-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda-1.pdf  used on input 
-line 2657.
+line 2646.
 (pdftex.def)             Requested size: 317.78334pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2662.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2651.
 
 [109pdfTeX warning (ext4): destination with the same identifier (name{table.9.1
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2672   \emph
+l.2661   \emph
               {Expansion at the lower end}: There is a considerable variatio...
 ] [110pdfTeX warning (ext4): destination with the same identifier (name{figure.
 9.6}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2672   \emph
+l.2661   \emph
               {Expansion at the lower end}: There is a considerable variatio...
  <./dbook1_files/figure-latex/togoda-1.pdf>]
-<fig/data_assistents.png, id=1878, 486.81876pt x 684.5575pt>
+<fig/data_assistents.png, id=1866, 486.81876pt x 684.5575pt>
 File: fig/data_assistents.png Graphic file (type png)
 <use fig/data_assistents.png>
-Package pdftex.def Info: fig/data_assistents.png  used on input line 2690.
+Package pdftex.def Info: fig/data_assistents.png  used on input line 2679.
 (pdftex.def)             Requested size: 207.00294pt x 291.08453pt.
-<dbook1_files/figure-latex/togoda1-1.pdf, id=1881, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda1-1.pdf, id=1869, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda1-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda1-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda1-1.pdf  used on input
- line 2706.
+ line 2695.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
 [111] [112pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.9.7}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2711 \end{figure}
+l.2700 \end{figure}
                     <./fig/data_assistents.png>]
-<dbook1_files/figure-latex/togoda2-1.pdf, id=1897, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda2-1.pdf, id=1885, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda2-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda2-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda2-1.pdf  used on input
- line 2724.
+ line 2713.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
-<dbook1_files/figure-latex/togoda3-1.pdf, id=1899, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda3-1.pdf, id=1887, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda3-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda3-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda3-1.pdf  used on input
- line 2740.
+ line 2729.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
 [113pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 8}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2745 \end{figure}
+l.2734 \end{figure}
                     <./dbook1_files/figure-latex/togoda1-1.pdf>] [114pdfTeX war
 ning (ext4): destination with the same identifier (name{figure.9.9}) has been a
 lready used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2745 \end{figure}
+l.2734 \end{figure}
                     <./dbook1_files/figure-latex/togoda2-1.pdf>]
-<dbook1_files/figure-latex/togoda4-1.pdf, id=1941, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/togoda4-1.pdf, id=1929, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/togoda4-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/togoda4-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/togoda4-1.pdf  used on input
- line 2756.
+ line 2745.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
-<dbook1_files/figure-latex/grossmotor-1.pdf, id=1946, 499.8675pt x 858.20625pt>
+<dbook1_files/figure-latex/grossmotor-1.pdf, id=1934, 499.8675pt x 858.20625pt>
 
 File: dbook1_files/figure-latex/grossmotor-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/grossmotor-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/grossmotor-1.pdf  used on in
-put line 2774.
+put line 2763.
 (pdftex.def)             Requested size: 320.35649pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2779.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2768.
 
 [115pdfTeX warning (ext4): destination with the same identifier (name{figure.9.
 10}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2779 \end{figure}
+l.2768 \end{figure}
                     <./dbook1_files/figure-latex/togoda3-1.pdf>] [116pdfTeX war
 ning (ext4): destination with the same identifier (name{figure.9.11}) has been 
 already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2779 \end{figure}
+l.2768 \end{figure}
                     <./dbook1_files/figure-latex/togoda4-1.pdf>]
-<dbook1_files/figure-latex/finemotor-1.pdf, id=1991, 499.8675pt x 858.20625pt>
+<dbook1_files/figure-latex/finemotor-1.pdf, id=1979, 499.8675pt x 858.20625pt>
 File: dbook1_files/figure-latex/finemotor-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/finemotor-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/finemotor-1.pdf  used on inp
-ut line 2792.
+ut line 2781.
 (pdftex.def)             Requested size: 320.35649pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2797.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2786.
 
-<dbook1_files/figure-latex/commun-1.pdf, id=1993, 499.8675pt x 858.20625pt>
+<dbook1_files/figure-latex/commun-1.pdf, id=1981, 499.8675pt x 858.20625pt>
 File: dbook1_files/figure-latex/commun-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/commun-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/commun-1.pdf  used on input 
-line 2808.
+line 2797.
 (pdftex.def)             Requested size: 320.35649pt x 550.00966pt.
 
-LaTeX Warning: Float too large for page by 36.50966pt on input line 2813.
+LaTeX Warning: Float too large for page by 36.50966pt on input line 2802.
 
 [117] [118pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.9.12}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2836   A
+l.2825   A
            relatively small subset of children born in Togo had extremely lo...
  <./dbook1_files/figure-latex/grossmotor-1.pdf>] [119pdfTeX warning (ext4): des
 tination with the same identifier (name{figure.9.13}) has been already used, du
 plicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2836   A
+l.2825   A
            relatively small subset of children born in Togo had extremely lo...
  <./dbook1_files/figure-latex/finemotor-1.pdf>] [120pdfTeX warning (ext4): dest
 ination with the same identifier (name{figure.9.14}) has been already used, dup
 licate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2836   A
+l.2825   A
            relatively small subset of children born in Togo had extremely lo...
  <./dbook1_files/figure-latex/commun-1.pdf>] [121] [122
 
 ]
 Chapter 10.
 [123]
-<dbook1_files/figure-latex/dchart-1.pdf, id=2073, 495.8525pt x 424.58624pt>
+<dbook1_files/figure-latex/dchart-1.pdf, id=2061, 495.8525pt x 424.58624pt>
 File: dbook1_files/figure-latex/dchart-1.pdf Graphic file (type pdf)
 <use dbook1_files/figure-latex/dchart-1.pdf>
 Package pdftex.def Info: dbook1_files/figure-latex/dchart-1.pdf  used on input 
-line 2912.
+line 2901.
 (pdftex.def)             Requested size: 344.99858pt x 295.41376pt.
 [124] [125pdfTeX warning (ext4): destination with the same identifier (name{fig
 ure.10.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.2929 
+l.2918 
         <./dbook1_files/figure-latex/dchart-1.pdf>] [126] [127] [128]
 Appendix A.
 
-Overfull \hbox (21.2732pt too wide) in alignment at lines 2988--3000
+Overfull \hbox (21.2732pt too wide) in alignment at lines 2977--2989
  [] [] [] [] 
  []
 
 
-Overfull \hbox (7.71472pt too wide) in paragraph at lines 3015--3016
+Overfull \hbox (7.71472pt too wide) in paragraph at lines 3004--3005
 []\T1/lmr/m/n/10 Difficulty|  
  []
 
 
-Overfull \hbox (16.35364pt too wide) in paragraph at lines 3024--3025
+Overfull \hbox (16.35364pt too wide) in paragraph at lines 3013--3014
 []\T1/lmr/m/n/10 Probability|  
  []
 
 
-Overfull \hbox (7.71472pt too wide) in paragraph at lines 3042--3043
+Overfull \hbox (7.71472pt too wide) in paragraph at lines 3031--3032
 []\T1/lmr/m/n/10 Difficulty|  
  []
 
 
-Overfull \hbox (16.35364pt too wide) in paragraph at lines 3051--3052
+Overfull \hbox (16.35364pt too wide) in paragraph at lines 3040--3041
 []\T1/lmr/m/n/10 Probability|  
  []
 
 
-Overfull \hbox (5.10359pt too wide) in paragraph at lines 3069--3070
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3058--3059
 []\T1/lmr/m/n/10 Variance|  
  []
 
 
-Overfull \hbox (4.7145pt too wide) in paragraph at lines 3078--3079
+Overfull \hbox (4.7145pt too wide) in paragraph at lines 3067--3068
 []\T1/lmr/m/n/10 Residual|  
  []
 
 
-Overfull \hbox (16.35364pt too wide) in paragraph at lines 3105--3106
+Overfull \hbox (16.35364pt too wide) in paragraph at lines 3094--3095
 []\T1/lmr/m/n/10 Probability|  
  []
 
 
-Overfull \hbox (18.99191pt too wide) in paragraph at lines 3114--3115
+Overfull \hbox (18.99191pt too wide) in paragraph at lines 3103--3104
 []\T1/lmr/m/n/10 Information|  
  []
 
 
-Overfull \hbox (12.43698pt too wide) in paragraph at lines 3123--3124
+Overfull \hbox (12.43698pt too wide) in paragraph at lines 3112--3113
 []\T1/lmr/m/n/10 Reliability|  
  []
 
 
-Overfull \hbox (12.43698pt too wide) in paragraph at lines 3132--3133
+Overfull \hbox (12.43698pt too wide) in paragraph at lines 3121--3122
 []\T1/lmr/m/n/10 Reliability|  
  []
 
 
-Overfull \hbox (5.10359pt too wide) in paragraph at lines 3141--3142
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3130--3131
 []\T1/lmr/m/n/10 Variance|  
  []
 
 
-Overfull \hbox (5.10359pt too wide) in paragraph at lines 3150--3151
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3139--3140
 []\T1/lmr/m/n/10 Variance|  
  []
 
 
-Overfull \hbox (5.10359pt too wide) in paragraph at lines 3159--3160
+Overfull \hbox (5.10359pt too wide) in paragraph at lines 3148--3149
 []\T1/lmr/m/n/10 Variance|  
  []
 
 
-Overfull \hbox (21.2732pt too wide) in alignment at lines 3000--3173
+Overfull \hbox (21.2732pt too wide) in alignment at lines 2989--3162
  [] [] [] [] 
  []
 
@@ -1512,61 +1510,61 @@ Overfull \hbox (21.2732pt too wide) in alignment at lines 3000--3173
 ] [130]
 Appendix B.
 
-Overfull \hbox (80.24876pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (80.24876pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 BLAS:   /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRblas.dylib[] 
  []
 
 
-Overfull \hbox (90.74873pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (90.74873pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 LAPACK: /Library/Frameworks/R.framework/Versions/4.0/Resource
 s/lib/libRlapack.dylib[] 
  []
 
 
-Overfull \hbox (11.99896pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (11.99896pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [1] stats     graphics  grDevices utils     datasets  methods
    base[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3209--3209
 [] \T1/lmtt/m/n/10 [1] httr_1.4.2        jsonlite_1.7.2    viridisLite_0.3.0 sp
 lines_4.0.3[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3209--3209
 [] \T1/lmtt/m/n/10 [5] gtools_3.8.2      shiny_1.6.0       assertthat_0.2.1  CD
 M_7.5-15[] 
  []
 
 
-Overfull \hbox (43.49887pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (43.49887pt too wide) in paragraph at lines 3209--3209
 [] \T1/lmtt/m/n/10 [9] yaml_2.2.1        gamlss_5.2-0      pillar_1.4.7      la
 ttice_0.20-41[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (22.49893pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [13] glue_1.4.2        digest_0.6.27     promises_1.2.0.1  rv
 est_0.3.6[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [17] colorspace_2.0-0  httpuv_1.5.5      htmltools_0.5.1.1 Ma
 trix_1.2-18[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [21] TAM_3.5-19        pkgconfig_2.0.3   bookdown_0.21     xt
 able_1.8-4[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [25] purrr_0.3.4       mvtnorm_1.1-1     webshot_0.5.2     la
 ter_1.1.0.1[] 
  []
@@ -1574,57 +1572,57 @@ ter_1.1.0.1[]
 [131
 
 ]
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [29] gamlss.data_5.1-4 tibble_3.0.6      generics_0.1.0    el
 lipsis_0.3.1[] 
  []
 
 
-Overfull \hbox (38.24889pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (38.24889pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [33] withr_2.4.1       lazyeval_0.2.2    mime_0.10         su
 rvival_3.2-7[] 
  []
 
 
-Overfull \hbox (27.74892pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (27.74892pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [37] magrittr_2.0.1    crayon_1.4.1      evaluate_0.14     nl
 me_3.1-152[] 
  []
 
 
-Overfull \hbox (53.99884pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (53.99884pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [41] MASS_7.3-53.1     xml2_1.3.2        tools_4.0.3       da
 ta.table_1.13.6[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [45] hms_1.0.0         lifecycle_0.2.0   stringr_1.4.0     mu
 nsell_0.5.0[] 
  []
 
 
-Overfull \hbox (17.24895pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [49] gamlss.dist_5.1-7 compiler_4.0.3    rlang_0.4.10      gr
 id_4.0.3[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
+Overfull \hbox (32.9989pt too wide) in paragraph at lines 3209--3209
 []\T1/lmtt/m/n/10 [53] polycor_0.7-10    rstudioapi_0.13   htmlwidgets_1.5.3 rm
 arkdown_2.6[] 
  []
 
 
-Overfull \hbox (32.9989pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [57] gtable_0.3.0      DBI_1.1.1         R6_2.5.0          fa
-stmap_1.1.0[] 
+Overfull \hbox (6.74898pt too wide) in paragraph at lines 3209--3209
+[]\T1/lmtt/m/n/10 [57] codetools_0.2-16  gtable_0.3.0      DBI_1.1.1         R6
+_2.5.0[] 
  []
 
 
-Overfull \hbox (22.49893pt too wide) in paragraph at lines 3220--3220
-[]\T1/lmtt/m/n/10 [61] stringi_1.5.3     parallel_4.0.3    Rcpp_1.0.6        vc
-trs_0.3.6[] 
+Overfull \hbox (17.24895pt too wide) in paragraph at lines 3209--3209
+[]\T1/lmtt/m/n/10 [61] fastmap_1.1.0     stringi_1.5.3     parallel_4.0.3    Rc
+pp_1.0.6[] 
  []
 
 [132] [133
@@ -1633,15 +1631,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{ref-black2017
 }) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.3260 
+l.3249 
        ] [134]
-Underfull \hbox (badness 2837) in paragraph at lines 3324--3326
+Underfull \hbox (badness 2837) in paragraph at lines 3313--3315
 \T1/lmr/m/n/10 26 (13): 2629--38. []$https : / / stefvanbuuren . name / publica
 tion / 2007 -[] 01 -[]
  []
 
 
-Underfull \hbox (badness 2837) in paragraph at lines 3327--3329
+Underfull \hbox (badness 2837) in paragraph at lines 3316--3318
 \T1/lmr/m/n/10 25 (13): 2272--83. []$https : / / stefvanbuuren . name / publica
 tion / 2006 -[] 01 -[]
  []
@@ -1654,10 +1652,10 @@ Package rerunfilecheck Info: File `dbook1.out' has not changed.
 (rerunfilecheck)             Checksum: EBB3246A3072786466FE9D897FBA037A;11888.
  ) 
 Here is how much of TeX's memory you used:
- 13068 strings out of 481250
- 197559 string characters out of 5914717
- 607013 words of memory out of 5000000
- 29109 multiletter control sequences out of 15000+600000
+ 13059 strings out of 481250
+ 197639 string characters out of 5914717
+ 606560 words of memory out of 5000000
+ 29102 multiletter control sequences out of 15000+600000
  468819 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  71i,13n,74p,1147b,655s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1682,10 +1680,10 @@ type1/public/lm/lmri10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/ty
 pe1/public/lm/lmro10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type
 1/public/lm/lmsy10.pfb></Users/buurensv/Library/TinyTeX/texmf-dist/fonts/type1/
 public/lm/lmtt10.pfb>
-Output written on dbook1.pdf (138 pages, 27194702 bytes).
+Output written on dbook1.pdf (138 pages, 21204347 bytes).
 PDF statistics:
- 2402 PDF objects out of 2487 (max. 8388607)
- 2060 compressed objects within 21 object streams
- 593 named destinations out of 1000 (max. 500000)
- 796 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2390 PDF objects out of 2487 (max. 8388607)
+ 2054 compressed objects within 21 object streams
+ 592 named destinations out of 1000 (max. 500000)
+ 791 words of extra memory for PDF output out of 10000 (max. 10000000)
 

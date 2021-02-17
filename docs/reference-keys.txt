@@ -1,5 +1,4 @@
 fig:shonkoffplot
-fig:shortkids
 fig:shirleyplot
 fig:dynamic
 tab:shirley
