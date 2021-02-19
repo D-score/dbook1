@@ -1,6 +1,6 @@
 fig:shonkoffplot
 fig:shirleyplot
-fig:dynamic
+fig:diverse
 tab:shirley
 fig:stepplot
 tab:questions
@@ -195,5 +195,3 @@ opportunities-for-early-intervention
 d-score-for-international-settings
 d-score-from-existing-instruments
 creating-new-instruments-for-d-score
-ap:notation
-ap:technical
