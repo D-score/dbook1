@@ -1,3 +1,5 @@
+\newpage
+
 # Precision {#ch:precision}
 
 ```{=html}
@@ -61,6 +63,8 @@ ddi <- df %>%
 #   dplyr::select(wave, visit, item)
 ```
 
+::: {custom-style="Table Caption"}
+
 ```{r tableSMOCC}
 tableSMOCC <- data.frame(
   Age = names(table(ddi$debut)),
@@ -68,13 +72,25 @@ tableSMOCC <- data.frame(
   Additional = c(as.vector(table(ddi$debut))[-1], 0), 
   stringsAsFactors = FALSE)
 tableSMOCC <- tableSMOCC[-nrow(tableSMOCC), ]
-kbl(tableSMOCC, 
-    caption = "Overview of the nine waves of the SMOCC data", 
-    align = c("r", "c", "c"),
-    booktabs = TRUE)
+
+ft <- flextable(tableSMOCC)
+ft <- set_caption(ft, "Number of items administered per wave in the SMOCC data.")
+ft <- align(ft, j = 1, align = "right", part = "all")
+ft <- align(ft, j = 2:3, align = "center", part = "all")
+ft <- set_table_properties(ft, layout = "autofit", width = .5)
+knit_print(ft)
+
+# kbl(tableSMOCC, 
+#     caption = "Overview of the nine waves of the SMOCC data", 
+#     align = c("r", "c", "c"),
+#     booktabs = TRUE)
 ```
 
-Table \@ref(tab:tableSMOCC) summarizes the schedules age for each wave, the number of standard milestones and the number of additional milestones.
+:::
+
+<br>
+
+Table \@ref(tab:tableSMOCC) summarizes the scheduled age for each wave, the number of standard milestones and the number of additional milestones.
 
 ```{r ageitemgrid, fig.height = 10, fig.cap='(ref:ageitemgrid)'}
 # split response into standard/additional according to 
@@ -126,7 +142,6 @@ This section reports and compares three D-scores:
 Estimation of 1 is more complicated than for 2 and 3, for the following reasons:
 
 -   There are fewer milestones, so the estimate is less precise and more influenced by choice of the prior distribution;
-
 -   The standard set contains only easy milestones, which are uninformative for the majority of children.
 
 ### Milestone sets at month 2
@@ -317,9 +332,7 @@ g
 Figure \@ref(fig:alld) plot the D-score distribution for all occasions. Some observations:
 
 -   *Ceiling effect*: The ceiling effect (green) is most prominent in the *standard* set, but is also present in the other two sets. None of the three sets can filter out children with really advanced development. To achieve more precision at the upper end, we would need to include more difficult milestones.
-
 -   *Floor effect*: There are almost no floor effects in the *standard* and *all* sets. These sets discriminate well among children with delayed development, which was the designed purpose of the DDI. Note that floor effects are visible in the *additional* set.
-
 -   *Average level*: All three sets capture the overall relation between age and development. The *additional* set is quite efficient for measuring average levels development but lacks detail on the extremes.
 
 Figure \@ref(fig:alld) shows that a short test (5-6 milestones) can precisely measure the lower tail of the D-score distribution (*standard* set) or the middle of the D-score distribution (*additional* set), but cannot do both at the same time.
@@ -339,9 +352,7 @@ This section explores that effect of taking different milestone sets on the qual
 The Utrechtse Korte Kleuter Intelligentietest (UKKI) [@baarda1978] is a short test to measure intelligence. The UKKI is a simple test with just three components:
 
 -   Redraw five figures (square, triangle, cross, trapezoid, rhomboid);
-
 -   Draw human figure, with 28 characteristics, like legs, eyes, and so on;
-
 -   Give meaning to 13 words like knife, banana, umbrella, and so on.
 
 Administration time is about 15-20 minutes. The UKKI has a reasonable test-retest reliability for group use (Pearson $r = 0.74$, 3-month interval).
@@ -376,7 +387,7 @@ g
 
 Figure \@ref(fig:histiq) shows the empirical IQ distribution of 557 children. The mean IQ score is 108, and the standard deviation is 15, so the IQ-scores of children in the sample is about a half standard deviation above the 1978 reference sample.
 
-```{r plotdiq, message=FALSE, warning=FALSE, fig.height = 16, fig.cap='(ref:plotdiq)'}
+```{r plotdiq, message=FALSE, warning=FALSE, fig.height = 10, fig.cap='(ref:plotdiq)'}
 long2 <- long %>%
   left_join(data_iq, by = "subjid") %>% 
   drop_na(IQ, visit)
@@ -400,17 +411,35 @@ summary(lm(IQ ~ d, data = long2, subset = visit == "24m" & set == "All"))
 
 Figure \@ref(fig:plotdiq) shows that the relation between the D-score 0-2 years and IQ at five years is positive for all milestone sets and all ages. The strength of the association increases with age. At the age of 2 years, the regression coefficient for D-score is equal to $\beta(D) = 1.4$ (SE: $0.21, p < 0.0001$), so on average an increase of 1.0 unit in the D-score at the age of 2 years corresponds to a 1.4 IQ-score points increase at the age five years.
 
+::: {custom-style="Table Caption"}
+
 ```{r cordiq}
 cors <- long2 %>% 
   group_by(set, visit) %>% 
   summarise(cr = cor(d, IQ, use = "pairwise")) %>% 
   spread(set, cr)
-kbl(cors, 
-    col.names = c("Visit", "Standard set", "Additional set", "All milestones"),
-    caption = "Pearson correlation between D-score (0-2 years) and IQ at 5 years", 
-    align = c("r", "r", "r", "r"),
-    booktabs = TRUE, digits = 3)
+
+cols <- c("Visit", "Standard set", "Additional set", "All milestones")
+names(cols) <- names(cors)
+cors[, 2:4] <- round(cors[, 2:4], 3)
+
+ft <- flextable(cors)
+ft <- set_header_labels(ft, values = cols)
+ft <- set_caption(ft, "Pearson correlation between D-score (0-2 years) and IQ at 5 years.")
+ft <- align(ft, align = "right", part = "all")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+knit_print(ft)
+
+# kbl(cors, 
+#     col.names = c("Visit", "Standard set", "Additional set", "All milestones"),
+#     caption = "Pearson correlation between D-score (0-2 years) and IQ at 5 years", 
+#     align = c("r", "r", "r", "r"),
+#     booktabs = TRUE, digits = 3)
 ```
+
+:::
+
+<br>
 
 Table \@ref(tab:cordiq) summarizes the Pearson correlations between the D-score and later IQ. The association between D-score and IQ is weak during the first year of life but gets stronger during the second year. In general, having more (and more informative) milestones helps to increase the correlation, but the effects are relatively small. So even from the standard set of the seven easy milestones at 24m, we obtain a reasonable correlation of 0.245.
 

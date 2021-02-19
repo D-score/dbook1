@@ -1,3 +1,5 @@
+\newpage
+
 # The D-score {#ch:newmodel}
 
 ```{=html}
@@ -23,8 +25,8 @@ The Dutch Youth Health Care (YHC) routinely monitors the development of almost a
 The *Dutch Development Instrument* (DDI; in Dutch: *Van Wiechenschema*) is the standard instrument used to measure development during the ages 0-4 years. The DDI consists of [75 milestones](https://www.ncj.nl/van-wiechen/kenmerken/). The instrument assesses three developmental domains:
 
 1.  Fine motor, adaptation, personality and social behaviour;
-2.  Communication
-3.  Gross motor
+2.  Communication;
+3.  Gross motor.
 
 The milestones form two [sets](https://www.ggdghorkennisnet.nl/?file=656&m=1310474916&action=file.download), one for children aged 0-15 months, and another for children aged 15-54 months. The YHC professionals administer an age-appropriate subset of milestones at each of the scheduled visits, thus building a *longitudinal developmental profile* for each child.
 
@@ -42,7 +44,7 @@ items <- dscore::get_itemnames(data)
 varlist <- list(adm = c("cohort", "subjid", "agedays"), 
                 items = items,
                 cov = NULL)
-model <- dmetric::fit_dmodel(varlist, data, name = "57_0")
+model <- suppressWarnings(dmetric::fit_dmodel(varlist, data, name = "57_0"))
 ```
 
 ```{r smoccitems}
@@ -83,18 +85,29 @@ meta <- df %>%
 #   left_join(meta, by = "item")
 
 # options(knitr.table.format = "html") 
-kbl(meta, 
-    caption = "Codebook of DDI as used in the SMOCC study",
-    row.names = FALSE, 
-    col.names = c("Item", "Debut", "Domain", "Label"),
-    align = c("l", "r", "l", "l"),
-    booktabs = TRUE) %>%
-  kable_styling(latex_options = "scale_down") %>%
-  column_spec(column = 1, monospace = TRUE) %>% 
-  scroll_box(width = "100%", height = "300px")
+# kbl(meta, 
+#     caption = "Codebook of DDI as used in the SMOCC study",
+#     row.names = FALSE, 
+#     col.names = c("Item", "Debut", "Domain", "Label"),
+#     align = c("l", "r", "l", "l"),
+#     booktabs = TRUE) %>%
+#   kable_styling(latex_options = "scale_down") %>%
+#   column_spec(column = 1, monospace = TRUE) %>% 
+#   scroll_box(width = "100%", height = "300px")
+ft <- flextable(meta)
+ft <- set_header_labels(ft,
+                        item = "Item",
+                        debut = "Debut",
+                        domain = "Domain",
+                        label = "Label")
+ft <- set_caption(ft, "Codebook of DDI as used in the SMOCC study")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+ft <- font(ft, j = 1, fontname = "Courier")
+ft <- align(ft, j = 2, align = "right")
+knit_print(ft)
 ```
 
-&nbsp;
+<br>
 
 Table \@ref(tab:smoccitems) shows the 57 milestones from the DDI for ages 0 - 30 months as administered in the SMOCC study. Items are sorted according to *debut*, the age at which the item appears in the DDI. The response to each milestone is either a PASS (1) or a FAIL (0). Children who did not pass a milestone at the debut age were re-measured on that milestone during the next visit. The process continued until the child passed the milestone.
 
@@ -136,7 +149,7 @@ plot <- ggplot(pass, aes(a, p, group = item, colour = domain,
 # if rendering HTML, add plotly tooltips
 # https://github.com/rstudio/bookdown/issues/168
 if (opts_knit$get("rmarkdown.pandoc.to") == "html") {
-  plot <- suppressWarnings(plotly::ggplotly(plot, tooltip = c("item", "label")))
+  plot <- suppressWarnings(plotly::ggplotly(plot, width = 700, height = 400, tooltip = c("item", "label")))
 }
 
 plot
@@ -193,7 +206,7 @@ plot <- ggplot(pass, aes(d, p, group = item, colour = domain,
   theme(legend.position = "none")
 
 if (opts_knit$get("rmarkdown.pandoc.to") == "html") {
-  plot <- suppressWarnings(plotly::ggplotly(plot, tooltip = c("item", "label")))
+ plot <- suppressWarnings(plotly::ggplotly(plot, width = 700, height = 400, tooltip = c("item", "label")))
 }
 plot
 ```
@@ -319,9 +332,7 @@ plot
 Figure \@ref(fig:smoccdap) shows the mutual relations between age, percentage of milestone passing and the D-score. There are three main orientations.
 
 -   In the default orientation (age on the horizontal axis, D-score on the vertical axis), we see a curvilinear relation between the age and item difficulty.
-
 -   Rotate the graph (age on the horizontal axis, passing percentage on the vertical axis). Observe that this is the same pattern as in Figure \@ref(fig:smoccpa) (with *unequal slopes*). Curves are coloured by domain.
-
 -   Rotate the graph (D-score on the horizontal axis, passing percentage on the vertical axis). Observe that this pattern is the same as in Figure \@ref(fig:smoccpd) (with *equal slopes*).
 
 All patterns can co-exist because of the curvature in the relation between D-score and age. The curvature is never explicitly modelled or defined, but a consequence of the equal-slopes assumption in the relation between the D-score and the passing percentage of a milestone.
@@ -341,17 +352,14 @@ IRT models enable quantification of the locations of both *items (milestones) an
 An IRT model has three major structural components:
 
 -   Specification of the underlying *latent variable(s)*. In this work, we restrict ourselves to models with just one latent variable. Multi-dimensional IRT models do have their uses, but they are complicated to fit and not widely used;
-
 -   For a given item, a specification of the *probability of success* given a value on the latent variables. This specification can take many forms. Section \@ref(sec:itemresponsefunctions) focuses on this in more detail;
-
 -   Specification how probability models for the different items should be combined. In this work, we will restrict to models that assume *local independence* of the probabilities. In that case, the probability of passing two items is equal to the product of success probabilities.
 
 ### Adapt the model? Or adapt the data? {#sec:adaptmodel}
 
 The measurement model induces a predictable pattern in the observed items. We can test this pattern against the observed data. When there is misfit between the expected and observed data, we can follow two strategies:
 
--   Make the measurement model more general.
-
+-   Make the measurement model more general;
 -   Discard items (and sometimes persons) to make the model fit.
 
 These are very different strategies that have led to heated debates among psychometricians. See @engelhard2013 for an overview.
@@ -362,15 +370,7 @@ In this work, we opt for the - rigorous - Rasch model (@rasch1960) and will adap
 
 Most measurement models describe the probability of passing an item as a function of the *difference* between the person's ability and the item's difficulty. A person with low ability will almost inevitably fail a heavy item, whereas a highly able person will almost surely pass an easy item.
 
-Let us now introduce a few symbols. We adopt the notation used in @wright1982. See Appendix \@ref(ap:notation) for a complete list.
-
-| Symbol     | Term        | Description                                         |
-|------------|-------------|-----------------------------------------------------|
-| $\beta_n$  | Ability     | True (but unknown) developmental score of child $n$ |
-| $\delta_i$ | Difficulty  | True (but unknown) difficulty of an item $i$        |
-| $\pi_{ni}$ | Probability | Probability that child $n$ passes item $i$          |
-
-Thus, Figure \@ref(fig:lineplot) shows three $\beta_n$'s and four $\delta_i$'s.
+Let us now introduce a few symbols. We adopt the notation used in @wright1982. We use $\beta_n$ (ability) to refer to the true (but unknown) developmental score of child $n$. Symbol $\delta_i$ (difficulty) is the true (but unknown) difficulty of an item $i$, and $\pi_{ni}$ is the probability that child $n$ passes item $i$. See Appendix A for a complete list.
 
 The difference between the ability of child $n$ and difficulty of item $i$ is
 
@@ -409,7 +409,6 @@ ggplot(subset(items, Items == "A"), aes(x = beta, y = 100 * pass, group = Items,
 Figure \@ref(fig:logisticplot) shows how the percentage of children that pass the item varies in terms of the ability-difficulty gap $\beta_n - \delta_i$. The gap can vary either by $\beta_n$ or $\delta_i$ so that we may use the graph in two ways:
 
 -   To find the probability of passing items with various difficulties for a child with ability $\beta_n$. If $\delta_i = \beta_n$ then $\pi_{ni} = 0.5$. If $\delta_i < \beta_n$ then $\pi_{ni} > 0.5$, and if $\delta_i > \beta_n$ then $\pi_{ni} < 0.5$. In words: If the difficulty of the item is equal to the child's ability, then the child has a 50/50 chance to pass. The child will have a higher than 50/50 chance of passing for items with lower difficulty and have a lower than 50/50 chance of passing for items with difficulties that exceed the child's ability.
-
 -   To find the probability of passing a given item $\delta_i$ for children that vary in ability. If $\beta_n < \delta_i$ then $\pi_{ni} < 0.5$, and if $\beta_n > \delta_i$ then $\pi_{ni} > 0.5$. In words: Children with abilities lower than the item's difficulty will have lower than 50/50 chance of passing, whereas children with abilities that exceed the item's difficulty will have a higher than 50/50 chance of passing.
 
 Formula \@ref(eq:logistic) defines the standard logistic curve:
@@ -439,13 +438,9 @@ ggplot(items, aes(x = beta, y = 100 * pass, group = Items, colour = Items)) +
 Figure \@ref(fig:irfplot) illustrates several other possibilities. Let us consider five hypothetical items, A-E. Note that the horizontal axis now refers to the ability, instead of the ability-item gap in \@ref(fig:logisticplot).
 
 -   A: Item A is the logistic function discussed in Section \@ref(sec:itemresponsefunctions).
-
 -   B: For item B, the probability of passing is constant at 30 per cent. This 30 per cent is not related to ability. Item B does not measure ability, only adds to the noise, and is of low quality.
-
 -   C: Item C is a step function centred at an ability level of 1, so *all* children with an ability below 1 logit fail and *all* children with ability above 1 logit pass. Item C is the ideal item for discriminating children with abilities above and below 1. The item is not sensitive to differences at other ability levels, and often not so realistic in practice.
-
 -   D: Like A, item D is a smoothly increasing logistic function, but it has an extra parameter that allows it to vary its slope (or discrimination). The extra parameter can make the curve steeper (more discriminatory) than the red curve, in the limit approaching a step curve. It can also become shallower (less discriminatory) than the red curve (as plotted here), in the limit approaching a constant curve (item B). Thus, item D generalizes items A, B or C.
-
 -   E: Item E is even more general in the sense that it need not be logistic, but a general monotonically increasing function. As plotted, the item is insensitive to abilities between -1 and 0 logits, and more sensitive to abilities between 0 to 2 logits.
 
 These are just some examples of how the relationship between the child's ability and passing probability could look. In practice, the curves need not start at 0 per cent or end at 100 per cent. They could also be U-shaped, or have other non-monotonic forms. See @coombs1964 for a thorough overview of such models. In practice, most models are restricted to shapes A-D.
@@ -498,21 +493,15 @@ Figure \@ref(fig:prfplot) presents the person response functions from three pers
 In this work, we strive to achieve *invariant measurement*, a strict form of measurements that is subject to the following requirements [@engelhard2013, p. 14]:
 
 1.  *Item-invariant measurement of persons*: The measurement of persons must be independent of the particular items used for the measuring.
-
 2.  *Non-crossing person response functions*: A more able person must always have a better chance of success on an item that a less able person.
-
 3.  *Person-invariant calibration of test items*: The calibration of the items must be independent of the particular persons used for calibration.
-
 4.  *Non-crossing item response functions*: Any person must have a better chance of success on an easy item than on a more difficult item.
-
 5.  *Unidimensionality*: Items and persons take on values on a *single* latent variable. Under this assumption, the relations between the items are fully explainable by the scores on the latent scale. In practice, the requirement implies that items should measure the same construct. [@hattie1985]
 
 Three families of IRT models support invariant measurement:
 
 1.  Scalogram model [@guttman1950]
-
 2.  Rasch model [@rasch1960; @andrich1978; @wright1982]
-
 3.  Mokken scaling model [@mokken1971; @molenaar1997]
 
 The Guttman and Mokken models yield an ordinal latent scale, while the Rasch model yields an interval scale (with a constant unit).
@@ -520,21 +509,15 @@ The Guttman and Mokken models yield an ordinal latent scale, while the Rasch mod
 ## Why take the Rasch model? {#sec:whyrasch}
 
 -   *Invariant measurement*: The Rasch model meets the five Engelhard criteria (c.f. Section \@ref(sec:engelhard)).
-
 -   *Interval scale*: When it fits, the Rasch model provides an interval scale, the de-facto requirement for any numerical comparisons (c.f. Section \@ref(sec:motivationunit)).
-
 -   *Parsimonious*: The Rasch model has one parameter for each item and one parameter for each person. The Rash model one of the most parsimonious IRT models, and can easily be applied to thousands of items and millions of persons.
-
 -   *Specific objectivity*: Person and item parameters are mathematically separate entities in the Rasch model. In practice, this means that the estimated difference in ability between two persons does not depend on the difficulty of the test. Also, the estimated differences in difficulties between two items do not depend on the abilities in the calibration sample. The property is especially important in the analysis of combined data, where abilities can vary widely between sources. See @rasch1977 for derivations and examples.
-
 -   *Unified model*: The Rasch model unifies distinct traditions in measurement theory. One may derive the Rasch model from
-
--   [Thorndike's 1904 criteria](https://www.rasch.org/rmt/rmt143g.htm)
--   [Guttman scalogram model](https://www.rasch.org/rmt/rmt63e.htm)
--   [Ratio-scale counts](https://www.rasch.org/rmt/rmt62c.htm)
--   [Raw scores as sufficient statistics](https://www.rasch.org/rmt/rmt32e.htm)
--   [Thurstone's scaling requirements](https://www.rasch.org/rmt/rmt21a.htm)
--   [Campbell concatenation](https://www.rasch.org/rmt/rmt21b.htm)
--   [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
-
+    -   [Thorndike's 1904 criteria](https://www.rasch.org/rmt/rmt143g.htm)
+    -   [Guttman scalogram model](https://www.rasch.org/rmt/rmt63e.htm)
+    -   [Ratio-scale counts](https://www.rasch.org/rmt/rmt62c.htm)
+    -   [Raw scores as sufficient statistics](https://www.rasch.org/rmt/rmt32e.htm)
+    -   [Thurstone's scaling requirements](https://www.rasch.org/rmt/rmt21a.htm)
+    -   [Campbell concatenation](https://www.rasch.org/rmt/rmt21b.htm)
+    -   [Rasch's specific objectivity](https://www.rasch.org/rmt/rmt11a.htm)
 -   *Fits child development data*: Last but not least, as we will see in Section \@ref(ch:evaluation), the Rasch model provides an excellent fit to child development milestones.

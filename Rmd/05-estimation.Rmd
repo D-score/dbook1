@@ -1,3 +1,5 @@
+\newpage
+
 # Computation {#ch:computation}
 
 ```{=html}
@@ -24,24 +26,44 @@ items <- knitr::load_cache("smoccmodel", "items")
 model <- knitr::load_cache("smoccmodel", "model")
 ```
 
+::: {custom-style="Table Caption"}
+
 ```{r smocctable, warning = FALSE}
 broad <- as.data.frame(data) %>% 
   dplyr::select(all_of(items)) %>% 
   dplyr::slice(1:26)
-options(knitr.kable.NA = "")
-kbl(broad,
-    caption = "SMOCC DDI milestones, first three children, 0-2 years.",
-    row.names = FALSE, 
-    col.names = c(substr(items, 8, 9)),
-    booktabs = TRUE) %>% 
-  kable_styling(full_width = TRUE, 
-                latex_options = c("scale_down")) %>%
-  column_spec(1:57, width_max = "3em") %>%
-  landscape() %>% 
-  scroll_box(width = "100%", height = "300px")
+
+if (knitr::is_html_output() || knitr::is_latex_output()) {
+  options(knitr.kable.NA = "")
+  ft <- kbl(broad,
+            caption = "SMOCC DDI milestones, first three children, 0-2 years.",
+            row.names = FALSE, 
+            col.names = c(substr(items, 8, 9)),
+            booktabs = TRUE) %>% 
+    kable_styling(full_width = TRUE, 
+                  latex_options = c("scale_down")) %>%
+    column_spec(1:57, width_max = "3em") %>%
+    landscape() %>% 
+    scroll_box(width = "100%", height = "300px")
+}
+if (knitr::pandoc_to("docx")) {
+  cols <- substr(names(broad), 8, 9)
+  names(cols) <- names(broad)
+  ft <- flextable(broad)
+  ft <- set_caption(ft, "SMOCC DDI milestones, first three children, 0-2 years.")
+  ft <- set_header_labels(ft, values = cols)
+  ft <- fontsize(ft, part = "all", size = 5)
+  ft <- height(ft, i = 1:26, height = .15, part = "body")
+  ft <- hrule(ft, rule = "exact", part = "body")
+  ft <- width(ft, width =  .12)
+  ft <- set_table_properties(ft, layout = "fixed")
+}
+knit_print(ft)
 ```
 
-&nbsp;
+::: 
+
+<br>
 
 Table \@ref(tab:smocctable) contains data of three children, measured on nine visits between ages 0 - 2 years. The DDI scores take values 0 (FAIL) and 1 (PASS). In order to save horizontal space, we truncated the column headers to the last two digits of the item names.
 
@@ -96,10 +118,11 @@ Figure \@ref(fig:itemdiflplot) summarizes the estimated item difficulty paramete
 The Rasch model identifies the item difficulties up to a linear transformation. By default, the software produces estimates in the logit scale (c.f. Figure \@ref(fig:itemdiflplot)). The logit scale is inconvenient for two reasons:
 
 -   The logit scale has negative values. Negative values do not have a sensible interpretation in child development, and are likely to introduce errors in practice;
-
 -   Both the zero in the logit scale, as well as its variance, depend on the sample used to calibrate the item difficulties.
 
 Rescaling preserves the properties of the Rasch model. To make the scale independent of the specified sample, we transform the scale so that two items will always have the same value on the transformed scale. The choice of the two anchor items is essentially arbitrary, but they should correspond to milestones that are easy to measure with small error. In the sequel, we use the two milestones to anchor the D-score scale:
+
+::: {custom-style="Table Caption"}
 
 ```{r anchor}
 df <- data.frame(
@@ -108,15 +131,24 @@ df <- data.frame(
             "Sits in stable position without support"),
   Value = c(20, 40), 
   stringsAsFactors = FALSE)
-kbl(df, 
-    caption = "Anchoring values used to identify the D-score scale", 
-    booktabs = TRUE) %>%
-  column_spec(1, monospace = TRUE)
+
+ft <- flextable(df)
+ft <- set_caption(ft, "Anchoring values used to identify the D-score scale.")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+ft <- font(ft, j = 1, fontname = "Courier")
+knit_print(ft)
+
+# kbl(df, 
+#     caption = "Anchoring values used to identify the D-score scale", 
+#     booktabs = TRUE) %>%
+#   column_spec(1, monospace = TRUE)
 ```
 
-&nbsp;
+::: 
 
-With the choice of Table \@ref(tab:anchor), D-score values are approximately 0$D$ around birth. At the age of 1 year, the score will around 50$D$, so during the first year of life, one $D$ unit corresponds to approximately a one-week interval.
+<br>
+
+With the choice of Table \@ref(tab:anchor), D-score values are approximately 0$D$ around birth. At the age of 1 year, the score will around 50$D$, so during the first year of life, one $D$ unit corresponds to approximately a one-week interval. Figure \@ref(fig:itemdifdplot) shows the difficulty estimates in the D-score scale.
 
 ```{r itemdifdplot, fig.height = 10, fig.cap = '(ref:itemdifdplot)'}
 p <- ggplot(ib, aes(x = tau, y = reorder(lab, -delta))) + 
@@ -137,9 +169,7 @@ p
 The second part of the estimation process is to estimate a D-score. The D-score quantifies the development of a child at a given age. Whereas the instrument developer is responsible for the estimation of item parameters, D-score estimation is more of a task for the user. To calculate the D-score, we need the following ingredients:
 
 -   Child's PASS/FAIL scores on the milestones administered;
-
 -   The difficulty estimates of each milestone administered;
-
 -   A prior distribution, an estimate of the D-score distribution before seeing any PASS/FAIL score.
 
 Using these inputs, we may use Bayes theorem to calculate the position of the person on the latent variable.
@@ -195,6 +225,8 @@ The algorithm for estimating the D-score is known as the Expected a posteriori (
 
 Suppose we measure two boys aged 15 months, David and Rob, by the DDI. David passes the first four milestones but does not complete the test. Rob completes the test but fails on two out of five items.
 
+::: {custom-style="Table Caption"}
+
 ```{r datadavidandrob}
 items <- c("ddifmd011", "ddifmm012", "ddicmm037", "ddigmm066", "ddigmm067")
 ib <- model$itembank %>%
@@ -205,21 +237,30 @@ ib <- ib[c(2, 3, 1, 4, 5), ]
 dr <- data.frame(ib, 
                  David = c(1, 1, 1, 1, NA),
                  Rob = c(1, 0, 1, 1, 0))
-kbl(dr, 
-    caption = "Scores of David and Rob on five milestones from the DDI", 
-    row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"),
-    booktabs = TRUE) %>%
-  column_spec(1, monospace = TRUE) %>% 
-  kable_styling(latex_options = "scale_down")
+
+ft <- flextable(dr)
+ft <- set_caption(ft, "Scores of David and Rob on five milestones from the DDI.")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+ft <- font(ft, j = 1, fontname = "Courier")
+knit_print(ft)
+
+# kbl(dr, 
+#     caption = "Scores of David and Rob on five milestones from the DDI", 
+#     row.names = FALSE, col.names = c("Item", "Label", "Delta", "David", "Rob"),
+#     booktabs = TRUE) %>%
+#   column_spec(1, monospace = TRUE) %>% 
+#   kable_styling(latex_options = "scale_down")
 ```
 
-&nbsp;
+:::
+
+<br>
 
 Table \@ref(tab:datadavidandrob) shows the difficulty of each milestone (in the column labelled "Delta"), and the responses of David and Rob for the standard five DDI milestones for the age of 15 months.
 
 The mean D-score for Dutch children aged 15 months is 53.6$D$, so the milestones are easy to pass at this age, with the most difficult is `ddicmm037`. David passed all milestones but has no score on the last. Rob fails on `ddifmm012` and `ddigmm067`. How do we calculate the D-score for David and Rob?
 
-```{r davidplot, fig.height = 12, fig.cap = '(ref:davidplot)'}
+```{r davidplot, fig.height = 10, fig.cap = '(ref:davidplot)'}
 qp <- -10:80
 
 # David
@@ -289,13 +330,9 @@ p
 Figure \@ref(fig:davidplot) shows how the prior transforms into the posterior after we successively feed the measurements into the calculation. There are five milestones, so the calculation comprises five steps:
 
 1.  Both David and Rob pass `ddifmd011`. The prior (light green) is the same as in Figure \@ref(fig:figpriors). After a PASS, the posterior will be located more to the right, and will often be more peaked. Both happen here, but the change is small. The reason is that a PASS on this milestone is not very informative. For a child with a true D-score of 53$D$, the probability of passing `ddifmd011` is equal to `r plogis((53 - 46) / model$transform[2])`. If passing is so common, there is not much information in the measurement.
-
 2.  David passes `ddifmm012`, but Rob does not. Observe that the prior is identical to the posterior of `ddifmd011`. For David, the posterior is only slightly different from the prior, for the same reason as above. For Rob, we find a considerable change to the left, both for location (from 54.3$D$ to 47.1$D$) and peakedness. This one FAIL lowers Rob's score by 7.2$D$.
-
 3.  Milestone `ddicmm037` is more difficult than the previous two milestones, so a pass on `ddicmm037` does have a definite effect on the posterior for both David and Rob.
-
 4.  David's PASS on `ddigmm066` does not bring any additional information, so his prior and posterior are virtually indistinguishable. For Rob, we find a slight shift to the right.
-
 5.  There is no measurement for David on `ddigmm067`, so the prior and posterior are equivalent. For Rob, we observe a FAIL, which shifts his posterior to the left.
 
 We calculate the D-score as the mean of the posterior. David's D-score is equal to 55.7$D$. Note that the measurement error, as estimated from the variance of the posterior, is relatively large. Rob's D-score is equal to 47.7$D$, with a much smaller measurement error. This result is consistent with the design principles of the DDI, which is meant to detect children with developmental delay.
@@ -305,9 +342,7 @@ The example illustrates that the quality of the D-score depends on two factors, 
 ### Technical observations on D-score estimation
 
 -   Administration of a too easy set of milestones introduces a *ceiling* with children that pass all milestones, but whose true D-score could extend well beyond the maximum. Depending on the goal of the measurement, this may or may not be a problem.
-
 -   The specification of the prior and posterior distributions requires a set of quadrature points. The quadrature points are taken here as the static and evenly-spaced set of integers between -10 and +80. Using other quadrature points may affect the estimate, especially if the range of the quadrature points does not cover the entire D-score range.
-
 -   The actual calculations are here done item by item. A more efficient method is to handle all responses at once. The result will be the same.
 
 ## Age-conditional references {#sec:reference}
@@ -324,6 +359,8 @@ The parameters are estimated using the BCCG distribution of `gamlss 5.1-3` [@sta
 
 Figure \@ref(fig:smoccda) plots the D-scores together with five grey lines, corresponding to the centiles -2SD (P2), -1SD (P16), 0SD (P50), +1SD (P84) and +2SD (P98). The area between the -2SD and +2SD lines delineates the D-score expected if development is healthy. Note that the shape of the reference is quite similar to that of weight and height, with rapid growth occurring in the first few months.
 
+::: {custom-style="Table Caption"}
+
 ```{r reftable}
 op <- options()
 options(digits = 7)
@@ -331,16 +368,25 @@ reference <- dplyr::select(dscore::get_reference("dutch"), age, mu, sigma, nu) %
   rename(M = mu,
          S = sigma, 
          L = nu)
-kbl(reference,
-    caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).",
-    longtable = TRUE,
-    booktabs = TRUE) %>% 
-  kable_styling(full_width = TRUE, latex_options = "repeat_header") %>%
-  column_spec(1, monospace = TRUE) %>% 
-  scroll_box(height = "300px")
+
+ft <- flextable(reference)
+ft <- set_caption(ft, "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).")
+ft <- font(ft, j = 1, fontname = "Courier")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+knit_print(ft)
+
+# kbl(reference,
+#     caption = "Dutch reference values for the D-score: M-curve (median), S-curve (spread) and L-curve (skewness).",
+#     longtable = TRUE,
+#     booktabs = TRUE) %>% 
+#   kable_styling(full_width = TRUE, latex_options = "repeat_header") %>%
+#   column_spec(1, monospace = TRUE) %>% 
+#   scroll_box(height = "300px")
 ```
 
-&nbsp;
+::: 
+
+<br>
 
 Table \@ref(tab:reftable) defines age-conditional references for Dutch children as the $M$-curve (median), $S$-curve (spread) and $L$-curve (skewness) by age. This table can be used to calculate centile lines and $Z$-scores.
 

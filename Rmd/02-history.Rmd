@@ -1,3 +1,5 @@
+\newpage
+
 # Short history {#ch:history}
 
 ```{=html}
@@ -23,7 +25,7 @@ Shirley gave empirical definitions of each of these domains of development.
 include_graphics("fig/firsttwoyearsast011504.png")
 ```
 
-(ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933.
+(ref:shirleyplot) Gross motor development as a sequence of milestones. Source: @shirley1933, with permission.
 
 Certain domains advance through a fixed sequence. Figure \@ref(fig:shirleyplot) illustrates the various stages needed for going from a *fetal posture* to *walking alone*. The ages are indicative of when these events happen, but there is a considerable variation in timing between infants.
 
@@ -69,15 +71,15 @@ Stage theorists assume that children progress sequentially through the same set 
 
 The ecological and dynamic systems theories view development as continuous, though not necessarily progressing in an orderly fashion, so there may be multiple, parallel ways to reach the same point. The developmental path taken by a given child will depend on the child's unique combination of personal and environmental circumstances, including cultural diversity in development.
 
-```{r dynamic, fig.cap = '(ref:diverse)'}
+### Nature or nurture?
+
+```{r diverse, fig.cap = '(ref:diverse)'}
 include_graphics("fig/shutterstock_261441989.jpg")
 ```
 
 (ref:diverse) A group of culturally diverse children. Source: Shutterstock, under license.
 
-### Nature or nurture?
-
-Are genetic or environmental factors more important for influencing development? Most theories generally acknowledge the role of both but differ in emphasis. In practice, the debate centres on the question of how to explain individual differences.
+Figure \@ref(fig:diverse) illustrates that children vary in appearance. Are genetic or environmental factors more important for influencing development? Most theories generally acknowledge the role of both but differ in emphasis. In practice, the debate centres on the question of how to explain individual differences.
 
 Maturation is the process of becoming fully developed, much like the natural unfolding of a flower. The process depends on both genetic factors (species, breed) as well as environmental influences (sunlight, water, nutrition). Some theorists emphasize that differences in child development are innate and stable over time, although there may be differences in unfolding speed due to different environments. Others argue that environmental factors drive differences in development between children, and changing these factors could very well impact child development.
 
@@ -89,20 +91,40 @@ Our position in this debate has practical implications. If we believe that diffe
 
 For illustration, we use data on loco-motor development from a classic study on child development among 25 babies. @shirley1931 collected measurements of the baby's walking ability, starting at ages around 13 weeks, in an ingenious way. The investigator lays out a white paper of twelve inches wide on the floor of the living room, and lightly greases the soles of the baby's feet with olive oil. The baby was invited to "walk" on the sheet. Of course, very young infants need substantial assistance. Footprints left were later coloured by graphite and measured. Measurements during the first year were repeated every week or bi-weekly.
 
-```{r shirley}
-load(file = file.path("data/shirley.rda"))
-options(knitr.kable.NA = '?')
-kbl(shirley, 
-    col.names = c("Name", "Sex", "Stepping", "Standing", 
-                  "Walking with help", "Walking alone"),
-    caption =  "Age at beginning stages of walking (in weeks) for 21 babies.",
-    booktabs = TRUE) %>%
-  kable_styling(latex_options = "scale_down")
+::: {custom-style="Table Caption"}
+```{r shirley, tab.cap.sep = ". "}
+attach("data/shirley.rda")
+# pt <- prop_table(
+#   width = 0.9,
+#   style = "Table",
+#   align = "center")
+# block_table(shirley, header = TRUE, properties = pt)
+# run_num <- run_autonum(seq_id = "tab", pre_label = "Table", post_label = ". ",
+#                        bkm = "shirley")
+# block_caption(
+#   label = "Age at beginning stages of walking (in weeks) for 21 babies. Source: Shirley (1931).",
+#   style = "Table Caption",
+#   autonum = run_num)
+# options(knitr.kable.NA = '?')
+
+ft <- flextable(shirley)
+ft <- set_header_labels(ft,
+                        name = "Name",
+                        sex = "Sex",
+                        stepping = "Stepping",
+                        standing = "Standing",
+                        walk_help = "Walking with help",
+                        walk_alone = "Walking alone")
+ft <- set_caption(ft, "Age at beginning stages of walking (in weeks) for 21 babies. Source: Shirley (1931).")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+knit_print(ft)
 ```
 
-&nbsp;
+:::
 
-Table \@ref(tab:shirley) from [@shirley1931, Appendix 8] lists the age (in weeks) of the 21 babies when they started, respectively, stepping, standing, walking with help, and walking alone. Question marks indicate missing data. A question mark in the first column means that the baby was already stepping when the observation started (Virginia Ruth, Sibyl, Donovan and Doris). Max and Martin, who have question marks in the second column, skipped standing and went directly from stepping to walking with help. Doris has a question mark in the last column because she passed away before she could walk alone.
+<br>
+
+Table \@ref(tab:shirley) [@shirley1931, Appendix 8] lists the age (in weeks) of the 21 babies when they started, respectively, stepping, standing, walking with help, and walking alone. Blanks indicate missing data. A blank in the first column means that the baby was already stepping when the observation started (Virginia Ruth, Sibyl, Donovan, Torey and Doris). Max and Martin, who have blanks in the second column, skipped standing and went directly from stepping to walking with help. Doris has a blank in the last column because she passed away before she could walk alone.
 
 ### Individual trajectories of motor development
 
@@ -119,7 +141,7 @@ ggplot(d, aes(age, stage, group = name, colour = name)) +
   facet_wrap(~ name, nrow = 3) +
   guides(colour = FALSE) + 
   labs(x = "Age (weeks)", y = "Stage")
-#
+detach("file:data/shirley.rda")
 ```
 
 (ref:stepplot) Staircase plot indicating the age at which each baby achieves a new milestone of gross-motor functioning.
@@ -136,7 +158,7 @@ Figure \@ref(fig:stepplot) presents data from only those visits where a jump occ
 
 The emotional, social and physical development of the young child has a direct effect on the adult he or she will become. We may be interested in measuring child development for answering clinical, policy or public health questions.
 
-```{r questions}
+```{r questions, tab.cap.style="Table Caption"}
 questions <- data.frame(
   Level = c(rep("Individual", 3), rep("Group", 2), rep("Population", 3)),
   Question = c(
@@ -150,12 +172,12 @@ questions <- data.frame(
     "How does this country compare to other countries in terms of child development?"
   ))
 
-kbl(questions, 
-    caption = "Questions whose answers require quantitative measurements of child development.", 
-    booktabs = TRUE) %>%
-  kable_styling(latex_options = "scale_down")
+ft <- flextable(questions)
+ft <- set_caption(ft, "Questions whose answers require quantitative measurements of child development.")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+knit_print(ft)
 ```
 
-&nbsp;
+<br>
 
 Table \@ref(tab:questions) lists typical questions whose answers require measuring child development. Note that all questions compare the amount of child development between groups or time points. A few questions compare development for the same child, group or population at different ages. Others compare development at the same age across different children, groups or populations.

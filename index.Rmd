@@ -1,5 +1,5 @@
 --- 
-title: "Child Development with the D-score: Turning Milestones into Measurements"
+title: "Child Development with the D-score: Turning Milestones into Measurement"
 author: "Authors: Stef van Buuren & Iris Eekhout"
 description: "The D-score is a one-number summary that quantifies generic development of children, closely modelled after body measurements like height and weight. This booklet is an accessible introduction to the D-score. The text illustrates the main concepts with real data collected on the Dutch Development Instrument for children aged 0-2 years."
 site: bookdown::bookdown_site

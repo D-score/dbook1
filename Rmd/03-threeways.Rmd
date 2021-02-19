@@ -1,3 +1,5 @@
+\newpage
+
 # Quantifying child development {#ch:threeways}
 
 ```{=html}
@@ -24,8 +26,7 @@ There is an extensive literature that quantifies development in terms of the age
 ### Age equivalent and developmental age {#sec:ageequivalent}
 
 ```{r milestonebased, fig.height = 3, fig.cap = '(ref:milestonebased)', warning = FALSE}
-load(file = file.path("data/shirley.rda"))
-
+load(file = "data/shirley.rda")
 d <- shirley %>%
   mutate(name = factor(name, as.character(name))) %>%
   gather(key = "stage", value = "age", -name, -sex) %>%
@@ -71,11 +72,8 @@ Thus, a child that is stepping beyond the age of 16.1 weeks is considered later 
 Age-based measurement is easy to understand, and widely used in the popular press, but not without pitfalls:
 
 1.  Age-based measurement requires us to know the ages at which the child entered a new stage. The mean age can be a biased estimate of item difficulty if visits are widely apart, irregular or missing.
-
 2.  Age-based measurement can inform us whether a child is achieving a given milestone early of late. However, it does not tell us what behaviours are characteristic for children of a given age.
-
 3.  Age-based measurement cannot exist without an age norm. When there are no norms, we cannot quantify development.
-
 4.  Age-based measurement works only at the item level. Although we may average age delta's over milestones, the choice of milestones is arbitrary.
 
 ## Probability-based measurement {#sec:probbased}
@@ -87,7 +85,6 @@ The passing probability is an interpretable and relevant measure. An operational
 ### Example of probability-based measurement
 
 ```{r weekly}
-load(file = file.path("data/shirley.rda"))
 data <- expand.grid(age = c(12:52, seq(54, 76, 2)), 
                     name = shirley$name) %>%
   left_join(shirley, by = c("name")) %>%
@@ -103,7 +100,6 @@ data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <-
   c(0, 0, 0, 0, 0, 
     0, 0, 0, 0, 1, 
     0 ,1, 1, 1, 0)
-
 # options(knitr.table.format = "html") 
 # kbl(data, 
 #       caption = "Hypothetical (bi-)weekly measurements as reconstructed from Table 2.1.") %>%
@@ -112,7 +108,7 @@ data[data$name == "Virginia Ruth" & data$age %in% 12:26, "stepping"] <-
 ```
 
 
-```{r fitdmodel}
+```{r fitdmodel, warning=FALSE}
 data2 <- data %>%
   mutate(country = "USA",
          study = "Shirley",
@@ -125,12 +121,13 @@ varlist <- list(adm = c("country", "study", "subjid", "wave", "agedays"),
                 cov = NULL)
 anchors <- c(40, 60)
 names(anchors) <- c("standing", "walk_alone")
-model <- dmetric::fit_dmodel(varlist = varlist, data = data2, 
-                             data_package = "", name = "Motor",
-                             anchors = anchors)
+model <- suppressWarnings(
+  dmetric::fit_dmodel(varlist = varlist, data = data2, 
+                      data_package = "", name = "Motor",
+                      anchors = anchors))
 ```
 
-```{r shirleypa, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE}
+```{r shirleypa, fig.asp = 0.5, fig.cap = '(ref:shirleypa)', message = FALSE, warning = FALSE}
 # create long matrix
 itm <- data2 %>%
   dplyr::select(subjid, agedays, stepping, standing, walk_help, walk_alone) %>%
@@ -191,9 +188,7 @@ Observe there is a gradual decline in the steepness as we move from `stepping` t
 Probability-based measurement is a popular way to create instruments for screening on developmental delay. For example, each milestone in the Denver II [@frankenburg1992] has markers for the 25th, 50th, 75th and 90th age percentile.
 
 1.  The same age step corresponds to different probabilities.
-
 2.  The measurement cannot exist without some norm population. When norms differ, we cannot compare the measurements.
-
 3.  Interpretation is at the milestone level, sometimes supplemented by procedures for counting the number of delays. No aggregate takes all responses into account.
 
 ## Score-based measurement of development {#sec:scorebased}
@@ -226,12 +221,9 @@ The plot suggests that the difference in development between scores 0 and 1 is t
 
 Score-based measurement is today's dominant approach, but is not without conceptual and logistical issues.
 
-1.  The total score depends not only on the actual developmental status of the child, but also on the set of milestones administered. If a milestone is skipped or added, the sum score cannot be interpreted anymore as a measure of developmental status. It might be possible to correct for starting and stopping rules under the assumptions described in Section \@(sec:motivscorebased), but such will be involved if intermediate milestones are missing.
-
+1.  The total score depends not only on the actual developmental status of the child, but also on the set of milestones administered. If a milestone is skipped or added, the sum score cannot be interpreted anymore as a measure of developmental status. It might be possible to correct for starting and stopping rules under the assumptions described in Section \@ref(sec:motivscorebased), but such will be involved if intermediate milestones are missing.
 2.  It is not possible to compare the scores made by different instruments. Some instruments allow conversion to age-conditional scores. However, the sample used to derive such transformations pertain to that tool and does not generalise to others.
-
 3.  Domains are hard to separate. For example, some cognitive milestones tap into fine motor capabilities, and vice versa. There are different ways to define domains, so domain interpretation varies by instrument.
-
 4.  Administration of a full test may take substantial time. The materials are often proprietary and costly.
 
 ## Unit-based measurement of development {#sec:unitbased}
@@ -243,9 +235,7 @@ Unit-based measurement starts by defining ideal properties and derives a procedu
 Section \@ref(sec:questions) highlighted questions for individuals, groups and populations. There are three questions:
 
 -   What is the difference in development over time for the same child, group or community?
-
 -   What is the difference in development between different children, groups or populations of the same age?
-
 -   How does child development compare to a norm?
 
 In the ideal situation, we would like to have a continuous (latent) variable $D$ (for development) that measures child development. The scale should allow us to quantify *ability* of persons, groups or populations from low to high. It should have a *constant unit* so that a given difference in ability refers to the same quantity across the entire scale. We find the same property in height, where a distance of 10 cm represents the same amount for molecules, people or galaxies. When are these conditions are met, we say that we measure on an *interval scale*.
@@ -266,8 +256,8 @@ scale <- model$transform[2]
 # create long matrix
 data3 <- left_join(data2, modelb)
 data3 <- data3 %>%
-      gather(key = "item", value = "value", all_of(items)) %>%
-      drop_na("value")
+  gather(key = "item", value = "value", all_of(items)) %>%
+  drop_na("value")
 
 # proportion pass per dscore group
 # observations per months (n) by study and item
@@ -356,9 +346,7 @@ The increase in ability that is needed to go from 10 to 90 per cent is about fiv
 While unit-based measurement has many advantages, it cannot perform miracles.
 
 1.  An important assumption is that the milestones "measure the same thing", or put differently, are manifestations of a continuous latent variable that can be measured by empirical observations. Unit-based measurement won't work if there is no sensible latent scale.
-
 2.  The portrayed advantages hold only if the discrepancies between the data and the model are relatively small. Since the simplest and most powerful measurement models are strict, it is essential to obtain a good fit between the data and the model.
-
 3.  The construction of unit-based measurement requires psychometric expertise, specialized computer software and considerable sample sizes.
 
 ## A unified framework {#sec:whatismeasurement}
@@ -380,7 +368,6 @@ The first part of measurement is to determine the location of the milestones on 
 A milestone for child development is similar to a length marker, but
 
 -   we may not know how much development the milestone measures, so its location on the line is unknown, or uncertain;
-
 -   we may not know whether the milestone measures child development at all so that it may have no location on the line.
 
 The second part of measurement is to find the location of each child on the line. For child height, this is easy: We place the horizontal headpiece on top of the child's head and read off the closest height marker. Since we lack a physical ruler for development, we must deduce the child's location on the line from the responses on a series of well-chosen milestones.
@@ -391,19 +378,24 @@ The *measurement model* specifies the relations between the actual measurements 
 
 ## Why unit-based measurement {#sec:whyunit}
 
-| Criterion                    | Age | Probability | Score | Unit |
-|------------------------------|-----|-------------|-------|------|
-| Independent of age norm      | NO  | NO          | YES   | YES  |
-| Supports multiple milestones | NO  | NO          | YES   | YES  |
-| Latent variable              | NO  | NO          | YES   | YES  |
-| Robust to milestone skipping | YES | YES         | NO    | YES  |
-| Comparable scores            | YES | YES         | NO    | YES  |
-| Probability model            | NO  | YES         | NO    | YES  |
-| Defines measurement unit     | NO  | NO          | NO    | YES  |
+```{r measurement}
+why <- data.frame(
+  Criterion = c("Independent of age norm", "Supports multiple milestones", 
+                "Latent variable", "Robust to milestone skipping", 
+                "Comparable scores", "Probability model", 
+                "Defines measurement unit"),
+  Age = c("No", "No", "No", "Yes", "Yes", "No", "No"),
+  Probability = c("No", "No", "No", "Yes", "Yes", "Yes", "No"),
+  Score = c("Yes", "Yes", "Yes", "No", "No", "No", "No"),
+  Unit = rep("Yes", 7))
 
-: (\#tab:measurement) Evaluation of four measurement approaches on seven criteria.
+ft <- flextable(why)
+ft <- set_caption(ft, "Evaluation of four measurement approaches on seven criteria.")
+ft <- set_table_properties(ft, layout = "autofit", width = .9)
+knit_print(ft)
+```
 
-&nbsp;
+<br>
 
 This section distinguished four approaches to measure child development: *age-based*, *probability-based*, *score-based* and *unit-based* measurement. Table \@ref(tab:measurement) summarizes how the approaches evaluate on nine criteria.
 

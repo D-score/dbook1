@@ -1,3 +1,5 @@
+\newpage
+
 # Preface {.unnumbered}
 
 The foundations of adult health and wellbeing have their origins early in life, often measured by children's early growth and development [@clark2020]. Growth standards established by the World Health Organization (WHO) have been adopted globally, and are used as indices and targets for improvement. For example, in 2018, 219 million children under 5 years of age (21.9%) were stunted (height for age \< -2 standard deviations of the WHO growth standards) [@unicef2019]. Stunting early in life has been associated with negative childhood development, academic achievement, and adult productivity. In the absence of direct population-based metrics for childhood development, stunting and poverty have been used as proxy indicators to estimate the number of children not reaching their developmental potential [@lu2016].

@@ -1,3 +1,5 @@
+\newpage
+
 # Evaluation {#ch:evaluation}
 
 ```{=html}
@@ -122,9 +124,7 @@ $$\mathrm{Item\ outfit} = \frac{\sum_{n}^N z_{ni}^2}{N}.$$
 The expected value of both infit and outfit is equal to 1.0. The interpretation is as follows:
 
 -   If infit and outfit are 1.0, then the item perfectly fits the Rasch model, as in Figure \@ref(fig:ploticc);
-
 -   If infit and outfit \> 1.0, then the item is not fitting well. The amount of underfit is quantified by infit and outfit, as in \@ref(fig:plothyp1);
-
 -   If infit and outfit \< 1.0, then the item fits the model better than expected (overfit). Overfitting is quantified by infit and outfit, as in \@ref(fig:plothyp2).
 
 Infit is more sensitive to disparities in the middle of the probability scale, whereas outfit is the better measure for discrepancies at probabilities close to 0 or 1. Lack of fit is generally easier to spot at the extremes. The two measures are highly correlated. Achieving good infit is more valuable than a high outfit.
@@ -200,7 +200,6 @@ There are various ways to detect DIF. Here we will model the probability of endo
 There are two forms of DIF:
 
 -   *Uniform DIF*: The item response curves differ between groups in location, but are parallel;
-
 -   *Non-uniform DIF*: The item response curve differ between groups in location, in slope and possibly in other characteristics.
 
 These forms correspond to, respectively, the main effect of group and the ability-group interaction in the logistic regression model.

@@ -4,7 +4,7 @@ output_dir: "docs"
 language:
   ui:
     chapter_name: "Chapter "
-rmd_files: ["index.Rmd",
+rmd_files: ["Rmd/frontmatter.Rmd",
             "Rmd/00-preface.Rmd",
             "Rmd/01-intro.Rmd",
             "Rmd/02-history.Rmd",
@@ -17,6 +17,7 @@ rmd_files: ["index.Rmd",
             "Rmd/09-threestudies.Rmd",
             "Rmd/11-discussion.Rmd",
             "Rmd/Appendix-notation.Rmd",
+            "Rmd/Appendix-project.Rmd",
             "Rmd/Appendix-technical.Rmd",
             "Rmd/Appendix-references.Rmd"]
 before_chapter_script: "R/before_chapter_script.R"

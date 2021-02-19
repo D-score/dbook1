@@ -1,30 +1,52 @@
-# (APPENDIX) Appendices {.unnumbered}
+\newpage
 
-# Notation {#ap:notation}
+# Appendices {.unnumbered}
+
+# A - Notation  {.unnumbered}
 
 The notation in this chapter follows @wright1982.
 
-| Section                          | Symbol                  | Term        | Description                                                   |
-|----------------------------------|:------------------------|:------------|:--------------------------------------------------------------|
-| \@ref(sec:itemresponsefunctions) | $\beta_n$               | Ability     | True (but unknown) developmental score of child $n$           |
-| \@ref(sec:itemresponsefunctions) | $\delta_i$              | Difficulty  | True (but unknown) difficulty of item $i$                     |
-| \@ref(sec:itemresponsefunctions) | $\pi_{ni}$              | Probability | True (but unknown) probability that child $n$ passes item $i$ |
-| \@ref(sec:itemfit)               | $\hat\beta_n$           | Ability     | Estimated developmental score (D-score) of child $n$          |
-| \@ref(sec:itemfit)               | $\hat\delta_i$          | Difficulty  | Estimated difficulty of item $i$                              |
-| \@ref(sec:itemfit)               | $P_{ni}$                | Probability | Estimated probability that child $n$ passes item $i$          |
-| \@ref(sec:itemfit)               | $x_{ni}$                | Data        | Observed response of child $n$ on item $i$, 0 or 1            |
-| \@ref(sec:itemfit)               | $W_{ni}$                | Variance    | Variance of $x_{ni}$                                          |
-| \@ref(sec:itemfit)               | $z_{ni}$                | Residual    | Standardized residual between $x_{ni}$ and $P_{ni}$           |
-| \@ref(sec:itemfit)               | $N$                     | Count       | Number of measurements (children)                             |
-| \@ref(sec:itemfit)               | $L$                     | Count       | Number of items (milestones)                                  |
-| \@ref(sec:iteminformation)       | $P(\hat\delta_i)$       | Probability | Conditional probability of passing item $i$                   |
-| \@ref(sec:iteminformation)       | $I(\hat\delta_i)$       | Information | Item information function of item $i$                         |
-| \@ref(sec:reliability)           | $R$                     | Reliability | True test reliability                                         |
-| \@ref(sec:reliability)           | $\hat R$                | Reliability | Estimated test reliability                                    |
-| \@ref(sec:reliability)           | $\sigma_e^2$            | Variance    | True error variance                                           |
-| \@ref(sec:reliability)           | $\hat\sigma_{\hat e}^2$ | Variance    | Estimated error variance                                      |
-| \@ref(sec:reliability)           | $\hat\sigma_{\hat e}$   | Variance    | Standard error of measurement (sem)                           |
-| \@ref(sec:pops)                  | $f$                     | Factor      | Age-adjustment factor                                         |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| Section  | Symbol                  | Term        | Description                                                   |
++==========+:========================+:============+:==============================================================+
+| 4.6      | $\beta_n$               | Ability     | True (but unknown) developmental score of child $n$           |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 4.6      | $\delta_i$              | Difficulty  | True (but unknown) difficulty of item $i$                     |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 4.6      | $\pi_{ni}$              | Probability | True (but unknown) probability that child $n$ passes item $i$ |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $\hat\beta_n$           | Ability     | Estimated developmental score (D-score) of child $n$          |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $\hat\delta_i$          | Difficulty  | Estimated difficulty of item $i$                              |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $P_{ni}$                | Probability | Estimated probability that child $n$ passes item $i$          |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $x_{ni}$                | Data        | Observed response of child $n$ on item $i$, 0 or 1            |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $W_{ni}$                | Variance    | Variance of $x_{ni}$                                          |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $z_{ni}$                | Residual    | Standardized residual between $x_{ni}$ and $P_{ni}$           |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $N$                     | Count       | Number of measurements (children)                             |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.1      | $L$                     | Count       | Number of items (milestones)                                  |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.4      | $P(\hat\delta_i)$       | Probability | Conditional probability of passing item $i$                   |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.4      | $I(\hat\delta_i)$       | Information | Item information function of item $i$                         |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.5      | $R$                     | Reliability | True test reliability                                         |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.5      | $\hat R$                | Reliability | Estimated test reliability                                    |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.5      | $\sigma_e^2$            | Variance    | True error variance                                           |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.5      | $\hat\sigma_{\hat e}^2$ | Variance    | Estimated error variance                                      |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 6.5      | $\hat\sigma_{\hat e}$   | Variance    | Standard error of measurement (sem)                           |
++----------+-------------------------+-------------+---------------------------------------------------------------+
+| 9.2      | $f$                     | Factor      | Age-adjustment factor                                         |
++----------+-------------------------+-------------+---------------------------------------------------------------+
 
 ```{r warnings}
 warnings()

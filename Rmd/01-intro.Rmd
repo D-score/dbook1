@@ -1,3 +1,5 @@
+\newpage
+
 # Introduction {#intro}
 
 ```{=html}
@@ -15,9 +17,9 @@ This introductory section outlines why we utilize the D-score:
 
 ## First 1000 days {#sec:first1000}
 
-The *first 1000 days* refers to the time needed for a child to grow from conception to the second birthday. It is a time of rapid change. During this period the architecture of the developing brain is very open to the influence of relationships and experiences [@skonkhoff2016best].
+The *first 1000 days* refers to the time needed for a child to grow from conception to the second birthday. It is a time of rapid change. During this period the architecture of the developing brain is very open to the influence of relationships and experiences [@skonkhoff2016best]. Early experiences affect the nature and quality of the brain's developing architecture by reinforcing some synapses and pruning others through lack of use. The first 1000 days shape the brain's architecture, but higher-order brain functions continue to develop into adolescence and early adulthood [@kolb2017principles].
 
-Early experiences affect the nature and quality of the brain's developing architecture by reinforcing some synapses and pruning others through lack of use. The first 1000 days shape the brain's architecture, but higher-order brain functions continue to develop into adolescence and early adulthood [@kolb2017principles].
+The classic *nature versus nurture debate* contrasts the viewpoints that variation in development is primarily due to either genetic or environmental differences. The current scientific consensus is that both genetic predisposition and ecological differences influence all traits [@rutter2007genes]. The environment in which a child develops (before and soon after birth) provides experiences that can modify gene activity [@caspi2010genetic]. Negative influences, such as exposure to stressful life circumstances or environmental toxins may leave a *chemical signature* on the genes, thereby influencing how genes work in that individual.
 
 ```{r shonkoffplot, fig.cap = '(ref:shonkoffplot)'}
 include_graphics("fig/shutterstock_29312953.jpg")
@@ -25,11 +27,7 @@ include_graphics("fig/shutterstock_29312953.jpg")
 
 (ref:shonkoffplot) Serve and return interactions shape brain architecture. Source: Shutterstock, under license.
 
-The classic *nature versus nurture debate* contrasts the viewpoints that variation in development is primarily due to either genetic or environmental differences. The current scientific consensus is that both genetic predisposition and ecological differences influence all traits [@rutter2007genes].
-
-The environment in which a child develops (before and soon after birth) provides experiences that can modify gene activity [@caspi2010genetic]. Negative influences, such as exposure to stressful life circumstances or environmental toxins may leave a *chemical signature* on the genes, thereby influencing how genes work in that individual.
-
-During the first 1000 days, infants are highly dependent on their caregivers to protect them from adversities and to help them regulate their physiology and behavior. Caregivers can do this through responsive care, including routines for sleeping and feeding. To reach their developmental potential, children require nutrition, responsive caregiving, opportunities to explore and learn, and protection from environmental threats [@black2017]. Gradually, children build self-regulatory skills that enable them to manage stress as they interact with the world around them [@johnson2013science].
+During the first 1000 days, infants are highly dependent on their caregivers to protect them from adversities and to help them regulate their physiology and behavior. As Figure \@ref(fig:shonkoffplot) illustrates, caregivers can do this through responsive care, including routines for sleeping and feeding. To reach their developmental potential, children require nutrition, responsive caregiving, opportunities to explore and learn, and protection from environmental threats [@black2017]. Gradually, children build self-regulatory skills that enable them to manage stress as they interact with the world around them [@johnson2013science].
 
 ## Relevance of child development {#sec:relevance}
 
@@ -56,11 +54,8 @@ include_graphics("fig/stuntedchildren.jpg")
 There is consistent evidence for an association between stunting and poor child development, despite heterogeneity in the estimation of its magnitude [@miller2016consistent; @sudfeld2015linear]. Considering impaired linear growth as a proxy measure for child development is easy to do, and quite common. Yet, using impaired height growth as a measure for child development is not without limitations:
 
 -   The relation between height and child development is weak after adjustment for age;
-
 -   Height is a physical indicator that does not take into account a direct evaluation of a child's cognitive or mental performance;
-
 -   There is considerable heterogeneity in heights of children all over the world;
-
 -   Height is not sensitive to rapid changes in child development.
 
 ## Measuring neurocognitive development {#sec:neurocognitive}

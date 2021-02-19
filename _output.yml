@@ -2,7 +2,8 @@ bookdown::gitbook:
   highlight: tango
   css: style.css
   split_by: section
-  split_bib: FALSE
+  split_bib: false
+  pandoc_args: ["--lua-filter", "make_etal_italic.lua"]
   includes:
       in_header: mathjax-init.html
   config:
@@ -11,12 +12,22 @@ bookdown::gitbook:
         <li><a href="https://d-score.org/dbook1">D-score Chapter I</a></li>
     download: no
 bookdown::pdf_document2:
-  number_sections: TRUE
+  number_sections: true
   fig_width: 7
   fig_height: 5
   dev: pdf
   keep_tex: true
 bookdown::word_document2:
-  number_sections: TRUE
+  number_sections: true
   fig_width: 7
   fig_height: 5
+  reference_docx: template.docx
+  pandoc_args: ["--lua-filter", "make_etal_italic.lua"]
+bookdown::markdown_document2:
+  base_format: officedown::rdocx_document
+  reference_docx: template.docx
+  number_sections: true
+  fig_width: 7
+  fig_height: 5
+officedown::rdocx_document:
+  reference_docx: template.docx

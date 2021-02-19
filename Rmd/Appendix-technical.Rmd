@@ -1,4 +1,6 @@
-# Technical information {#ap:technical}
+\newpage
+
+# C - Technical information  {.unnumbered}
 
 ```{r cache = FALSE}
 sessionInfo()

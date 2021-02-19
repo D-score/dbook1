@@ -1,0 +1,17 @@
+\newpage
+
+# B - Project information {.unnumbered}
+
+### Data availability  {.unnumbered}
+
+The SMOCC data to replicate the analyses are available with this publication and can be downloaded from [this url]. The POPS data (from TNO, sylvia.vanderpal@tno.nl) and the TOGO data ([email]) have not been made public by the data providers, meaning we are not allowed to share these data with this publication. For details on assessing these data, mail the relevant contact persons.
+
+The SMOCC data are available under the terms of the Creative Commons Zero "No rights reserved" data waiver (CC0 1.0 Public domain dedication).
+
+### Grant information  {.unnumbered}
+
+This work was supported by the Bill & Melinda Gates Foundation, Investment ID 52561.
+
+### Competing interests  {.unnumbered}
+
+The authors report no competing interests.

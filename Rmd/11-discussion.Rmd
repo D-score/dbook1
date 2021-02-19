@@ -1,3 +1,5 @@
+\newpage
+
 # Next steps {#ch:nextsteps}
 
 ```{=html}
@@ -27,9 +29,7 @@ This section briefly reviews some of these issues.
 The D-score is a new approach to measure child development. The D-score is a scale for quantifying generic child development by a single number. Milestones are selected to fit the Rasch model. We can interpret the resulting measurements as scores on an interval scale, a requirement for answering questions like:
 
 -   What is the difference in development over time for the same child, group or population?
-
 -   What is the difference in development between different children, groups or populations of the same age?
-
 -   How does child development compare to a norm?
 
 The concept of the D-score is broader than a score calculated from the DDI. Any instrument that fits the model underlying the D-score can be used to measure the child's D-score.
@@ -41,7 +41,6 @@ The precision of the measurement depends on the number of milestones and the mat
 The field of child growth and development roughly divides into two areas:
 
 -   The subfield *child growth* (or *auxology*) emphasizes body measures like height, weight, body mass index, and so on. It is a rigorous quantitative science with intimate ties to statistics since the days of Quetelet and Galton.
-
 -   The subfield *child development* is more recent and builds upon a wide-ranging set of domain-specific instruments for measuring motor, language, cognitive and behavioural states.
 
 The *growth chart* is a widely used tool to monitor physical growth. The D-score can be used in a similar way to create the *D-chart*.
@@ -84,7 +83,7 @@ g1 <- ggplot(data, aes_string(x = "agemos", y = "d", colour = "subjid")) +
             data = reference, colour = "grey", alpha = 0.3) +
   geom_point() +
   geom_line() + 
-  theme(legend.position = c(0.8, 0.2))
+  theme(legend.position = "none")
 g1
 ```
 
